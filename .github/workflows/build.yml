@@ -44,8 +44,11 @@ jobs:
       - name: Analyze
         run: flutter analyze
 
+      # Golden bitmaps are generated on linux/arm64 and CI rasterises on
+      # x86_64, so they are excluded here and reviewed locally instead. The
+      # layout tests (320 dp, 200% text) still run, and they catch overflow.
       - name: Test
-        run: flutter test
+        run: flutter test --exclude-tags golden
 
   apk:
     name: Release APK
@@ -84,6 +87,37 @@ jobs:
           path: build/app/outputs/flutter-apk/*.apk
           if-no-files-found: error
           retention-days: 14
+
+  # Build results only. Issue, pull-request and release activity comes from the
+  # repository webhook instead — GitHub posts it straight to the same Discord
+  # channel through its `/github` endpoint, so there is no workflow to maintain
+  # and nothing to duplicate.
+  #
+  # This job stays because a failed build deserves a message that links the run
+  # and names which job broke, which a generic GitHub payload cannot express.
+  # `nofail` and `ack_no_webhook` are on by default: without the secret this job
+  # passes silently instead of turning an unrelated run red.
+  notify:
+    name: Discord
+    needs: [check, apk]
+    if: always() && failure()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+    steps:
+      - name: Notify failure
+        uses: sarisia/actions-status-discord@v1
+        with:
+          status: failure
+          title: "${{ github.repository }} · checks failed"
+          description: |
+            `${{ github.ref_name }}` — analyze+test: ${{ needs.check.result }}, apk: ${{ needs.apk.result }}
+          url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          username: DharmaScroll CI
+          nodetail: true
+          notimestamp: true
+          ack_no_webhook: true
 
   release:
     name: Publish release
