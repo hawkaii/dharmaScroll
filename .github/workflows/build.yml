@@ -88,26 +88,25 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
-  # Only the two outcomes worth interrupting a human for: a broken build, or a
-  # published release. A green PR check is not news, and a channel that posts on
-  # every push gets muted within a week — which is how real failures get missed.
-  # Only the two outcomes worth interrupting a human for: a broken build, or a
-  # published release. A green PR check is not news, and a channel that fires on
-  # every push gets muted within a week — which is how real failures get missed.
+  # Build results only. Issue, pull-request and release activity comes from the
+  # repository webhook instead — GitHub posts it straight to the same Discord
+  # channel through its `/github` endpoint, so there is no workflow to maintain
+  # and nothing to duplicate.
   #
+  # This job stays because a failed build deserves a message that links the run
+  # and names which job broke, which a generic GitHub payload cannot express.
   # `nofail` and `ack_no_webhook` are on by default: without the secret this job
-  # passes silently instead of turning a green build red.
+  # passes silently instead of turning an unrelated run red.
   notify:
     name: Discord
-    needs: [check, apk, release]
-    if: always() && (failure() || needs.release.result == 'success')
+    needs: [check, apk]
+    if: always() && failure()
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
       DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
     steps:
       - name: Notify failure
-        if: needs.release.result != 'success'
         uses: sarisia/actions-status-discord@v1
         with:
           status: failure
@@ -115,19 +114,6 @@ jobs:
           description: |
             `${{ github.ref_name }}` — analyze+test: ${{ needs.check.result }}, apk: ${{ needs.apk.result }}
           url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          username: DharmaScroll CI
-          nodetail: true
-          notimestamp: true
-          ack_no_webhook: true
-
-      - name: Notify release
-        if: needs.release.result == 'success'
-        uses: sarisia/actions-status-discord@v1
-        with:
-          status: success
-          title: "${{ github.repository }} released"
-          description: "`${{ github.ref_name }}` — APKs are on the Releases page."
-          url: ${{ github.server_url }}/${{ github.repository }}/releases/latest
           username: DharmaScroll CI
           nodetail: true
           notimestamp: true

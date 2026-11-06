@@ -39,9 +39,22 @@ That covers issue/PR activity and link unfurling. It does not create issues from
 
 A PR closes its issue with `Closes #12`. If a PR has no issue, the PR body is the issue — say what changes and why.
 
-## What CI notifies, and what it does not
+## What reaches Discord, and from where
 
-The `Discord` job in `.github/workflows/build.yml` posts on **failure** and on **release**, nothing else.
+Two sources, no overlap:
+
+| Source | Posts |
+|---|---|
+| **Repository webhook** → `<discord-webhook>/github` | issues, pull requests, reviews, releases |
+| **`Discord` job in `build.yml`** | failed builds only |
+
+The webhook needs no bot and no OAuth: Discord exposes a `/github` endpoint that
+accepts GitHub's own payload format, so GitHub's repository settings can post
+straight to the channel. Event selection lives in **Repo → Settings → Webhooks**.
+
+The workflow keeps one job because a failed build deserves a message that links
+the run and names which job broke — something a generic GitHub payload cannot
+express.
 
 That is deliberate. A channel that fires on every push gets muted, and a muted channel is how a real failure goes unnoticed for a day. Failure gets a red embed with the branch and which job broke; a release gets a link to the Releases page, where the APKs live.
 
