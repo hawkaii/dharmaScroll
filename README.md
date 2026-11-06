@@ -1,17 +1,18 @@
 # dharmaScroll
 
-A starter template for Flutter app projects. One themed shell, a layout that
-already has somewhere to put things, and CI that hands you a release APK on
-every push to `main`.
+A daily Gita ritual for your phone. Five tabs, one habit: a shloka feed you can
+tap to go deeper on, a spoken check-in that answers with the verse that fits
+your day, and a journey through the Gita that remembers where you left off.
 
-Clone it, rename it, start writing screens.
+The product blueprint lives in [`DharmaScroll_Product_Blueprint.pdf`](DharmaScroll_Product_Blueprint.pdf);
+the landing page in [`dharmascroll-site.html`](dharmascroll-site.html) (open it
+in a browser — it is a single self-contained file).
 
-```bash
-git clone https://github.com/hawkaii/dharmaScroll.git my-app
-cd my-app && flutter run
-```
+## Where the app is
 
-## What is in it
+The Flutter app is a shell: it boots, themes itself, and renders a home screen.
+Everything the blueprint describes — the Shloka Feed, Mann Darpan, Checkpoint
+cards, Moksh Points, Daily Sankalp, Gita Yatra, Sangha — is designed, not built.
 
 ```
 lib/
@@ -20,62 +21,44 @@ lib/
 ├── core/
 │   └── theme/app_theme.dart         one seed colour → light and dark
 └── presentation/
-    └── screens/home_screen.dart     the screen you replace
+    └── screens/home_screen.dart     the screen being replaced
 test/
 └── widget_test.dart                 the app boots and renders
 ```
 
-The split is `core/` for things nothing owns (theme, config, utils) and
-`presentation/` for things the user sees. When an app grows past that, add
-`data/` next to them for models and services — not inside `presentation/`.
+`core/` holds things nothing owns (theme, config, utils); `presentation/` holds
+things the user sees. `data/` belongs beside them when models and services
+arrive — not inside `presentation/`.
 
-Two files, two jobs: `main.dart` starts the app, `app.dart` decides what it
-looks like. Routing, state and localisation all attach in `app.dart`, so `main`
-never grows into a list of setup calls.
-
-## Theming
-
-`app_theme.dart` holds a single seed colour:
-
-```dart
-static const Color seed = Color(0xFF6B4EFF);
-```
-
-Both themes are derived from it with `ColorScheme.fromSeed`, so changing the
-brand is one line. Nothing in the tree should hardcode a `Color(0xFF…)` — read
-from `Theme.of(context).colorScheme` instead.
-
-## CI
-
-`.github/workflows/build.yml` runs on every push to `main` and on every pull
-request:
-
-| Job | What it does |
-|---|---|
-| `check` | `flutter analyze` and `flutter test` |
-| `apk` | `flutter build apk --release --split-per-abi`, uploaded as an artifact for 14 days |
-
-The APK job only starts if `check` passes, so a broken commit never produces a
-binary. Each APK is in the run's **Artifacts** section — the `arm64-v8a` one is
-what most phones want.
-
-Flutter is pinned in `FLUTTER_VERSION` at the top of the workflow rather than
-tracking `stable`, so a release landing mid-week cannot turn a green build red
-without a commit. Bump it on purpose.
-
-## Renaming it for a real project
-
-The package name is permanent the moment you publish to a store, so change it
-before the first upload, not after:
+## Running it
 
 ```bash
-flutter create --project-name myapp --org com.example --platforms android,ios .
+flutter pub get
+flutter run
 ```
 
-Then update `title:` in `app.dart`, `description:` in `pubspec.yaml`, and this
-file.
+## Building an APK
 
-Before any Play Store upload you still need: a release keystore, `bundleRelease`
-instead of `apk`, and HTTPS for anything the app talks to. None of that is here
-on purpose — a template that guesses your signing setup is worse than one that
-does not.
+Every push to `main` produces one, and you never need a local Android
+toolchain. `.github/workflows/build.yml` runs `flutter analyze` and
+`flutter test`, builds split-per-abi release APKs, and publishes them as a
+**GitHub Release** — see the [Releases page](../../releases). Each release
+carries:
+
+| File | For |
+|---|---|
+| `dharmascroll-<version>-arm64-v8a.apk` | most phones — start here |
+| `dharmascroll-<version>-armeabi-v7a.apk` | older 32-bit phones |
+| `dharmascroll-<version>-x86_64.apk` | emulators |
+
+Pull requests run the checks but publish nothing. A second push cancels the run
+in flight. Flutter is pinned in `FLUTTER_VERSION` rather than tracking `stable`,
+so a release landing mid-week cannot turn a green build red without a commit.
+
+## Before a Play Store upload
+
+The release build is signed with the debug key and ships an APK, neither of
+which Play accepts. A store submission still needs: a real upload keystore and
+Play App Signing, `bundleRelease` instead of `apk`, an `applicationId` you are
+happy to keep forever (currently `wiki.gradientdescent.dharmascroll`), and HTTPS
+for anything the app talks to.
