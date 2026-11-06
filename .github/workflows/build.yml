@@ -1,14 +1,15 @@
 name: Build
 
-# Every push to main produces a downloadable APK. Pull requests get the same
-# checks but publish nothing, so a broken branch cannot ship a binary.
+# Every push to main builds the app and publishes it as a GitHub Release, so
+# there is always a downloadable APK on the Releases page. Pull requests run the
+# same checks and stop there — nothing is published from a branch.
 on:
   push:
     branches: [main]
   pull_request:
   workflow_dispatch:
 
-# Read-only: the workflow uploads build artifacts, never commits back.
+# Read-only by default: only the release job needs to write.
 permissions:
   contents: read
 
@@ -83,3 +84,50 @@ jobs:
           path: build/app/outputs/flutter-apk/*.apk
           if-no-files-found: error
           retention-days: 14
+
+  release:
+    name: Publish release
+    needs: apk
+    # A pull request is a check, not a release.
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Read name and version from pubspec
+        id: app
+        run: |
+          echo "name=$(sed -n 's/^name: *//p' pubspec.yaml | head -1)" >> "$GITHUB_OUTPUT"
+          echo "version=$(sed -n 's/^version: *//p' pubspec.yaml | head -1 | cut -d+ -f1)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/download-artifact@v8
+        with:
+          name: apk-${{ github.sha }}
+          path: dist
+
+      # `app-arm64-v8a-release.apk` says nothing to someone scrolling a release
+      # page; `dharmascroll-0.1.0-arm64-v8a.apk` says which build and which phone.
+      - name: Name the APKs
+        run: |
+          cd dist
+          for f in app-*-release.apk; do
+            abi="${f#app-}"; abi="${abi%-release.apk}"
+            mv "$f" "${{ steps.app.outputs.name }}-${{ steps.app.outputs.version }}-${abi}.apk"
+          done
+          ls -l
+
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="v${{ steps.app.outputs.version }}-${{ github.run_number }}"
+          # Re-running a workflow reuses its run number, so the tag can already
+          # exist. Replace it rather than failing the build over it.
+          gh release delete "$TAG" --yes --cleanup-tag 2>/dev/null || true
+          gh release create "$TAG" dist/*.apk \
+            --title "v${{ steps.app.outputs.version }} · build ${{ github.run_number }}" \
+            --generate-notes \
+            --latest
