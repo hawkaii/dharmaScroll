@@ -43,9 +43,9 @@ class _SankalpCheckInState extends State<SankalpCheckIn> {
     return Container(
       decoration: BoxDecoration(
         color: context.colors.surface,
-        border: Border.all(color: context.colors.border, width: AppBorder.b),
+        border: Border.all(color: context.colors.border, width: AppBorder.hairline),
         borderRadius: const BorderRadius.vertical(
-          top: Radius.circular(AppRadius.lg),
+          top: Radius.circular(AppRadius.sm),
         ),
       ),
       padding: const EdgeInsets.fromLTRB(
@@ -81,7 +81,7 @@ class _SankalpCheckInState extends State<SankalpCheckIn> {
                 border: Border(
                   left: BorderSide(
                     color: context.colors.gold,
-                    width: AppBorder.thin,
+                    width: AppBorder.hairline,
                   ),
                 ),
               ),
@@ -175,7 +175,7 @@ class _OutcomeCard extends StatelessWidget {
                 : context.colors.surfaceSunken,
             border: Border.all(
               color: good ? context.colors.success : context.colors.borderQuiet,
-              width: good ? AppBorder.thin : 1,
+              width: good ? AppBorder.hairline : 1,
             ),
             borderRadius: BorderRadius.circular(AppRadius.sm),
           ),

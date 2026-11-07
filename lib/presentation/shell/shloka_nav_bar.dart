@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../core/theme/app_metrics.dart';
 import '../../core/theme/app_type.dart';
 import '../../core/theme/theme_x.dart';
-import '../../core/widgets/hard_shadow.dart';
+
 
 enum ShlokaTab { shloka, yatra, mann, sangha, profile }
 
@@ -40,7 +40,7 @@ class ShlokaNavBar extends StatelessWidget {
                 border: Border(
                   top: BorderSide(
                     color: context.colors.border,
-                    width: AppBorder.b,
+                    width: AppBorder.hairline,
                   ),
                 ),
               ),
@@ -155,25 +155,18 @@ class _MicButton extends StatelessWidget {
       label: 'Mann Darpan. Open the mic.',
       child: GestureDetector(
         onTap: onTap,
-        child: HardShadow(
-          offset: AppShadow.s4,
-          radius: 28,
-          child: Container(
-            width: 56,
-            height: 56,
-            decoration: BoxDecoration(
-              color: active ? context.colors.gold : context.colors.field,
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: context.colors.border,
-                width: AppBorder.b,
-              ),
-            ),
-            child: Icon(
-              Icons.mic,
-              size: 24,
-              color: active ? context.colors.onGold : context.colors.gold,
-            ),
+        child: Container(
+          width: 56,
+          height: 56,
+          decoration: BoxDecoration(
+            color: active ? context.colors.gold : context.colors.primary,
+            shape: BoxShape.circle,
+            boxShadow: AppShadow.soft,
+          ),
+          child: Icon(
+            Icons.mic,
+            size: 24,
+            color: active ? context.colors.onGold : context.colors.gold,
           ),
         ),
       ),

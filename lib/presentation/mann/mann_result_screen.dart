@@ -132,7 +132,7 @@ class MannResultScreen extends StatelessWidget {
                           border: Border(
                             left: BorderSide(
                               color: context.colors.field,
-                              width: AppBorder.thin,
+                              width: AppBorder.hairline,
                             ),
                           ),
                         ),
@@ -209,7 +209,7 @@ class MannResultScreen extends StatelessWidget {
                             color: context.colors.gold,
                             border: Border.all(
                               color: context.colors.border,
-                              width: AppBorder.b,
+                              width: AppBorder.hairline,
                             ),
                             borderRadius: BorderRadius.circular(AppRadius.sm),
                           ),

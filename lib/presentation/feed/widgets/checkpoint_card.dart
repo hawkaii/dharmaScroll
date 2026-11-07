@@ -63,7 +63,7 @@ class _CheckpointCardState extends State<CheckpointCard> {
                     ),
                     decoration: BoxDecoration(
                       color: context.colors.field,
-                      borderRadius: BorderRadius.circular(AppRadius.md),
+                      borderRadius: BorderRadius.circular(AppRadius.sm),
                     ),
                     child: Text(
                       '+5',
@@ -217,7 +217,7 @@ class _AnswerRow extends StatelessWidget {
               color: showCorrect
                   ? context.colors.success
                   : context.colors.border,
-              width: showCorrect ? AppBorder.b : AppBorder.thin,
+              width: showCorrect ? AppBorder.hairline : AppBorder.hairline,
             ),
             borderRadius: BorderRadius.circular(AppRadius.sm),
           ),

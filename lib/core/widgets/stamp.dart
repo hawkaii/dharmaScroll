@@ -37,8 +37,8 @@ class Stamp extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: fill,
-        border: Border.all(color: context.colors.border, width: AppBorder.thin),
-        borderRadius: BorderRadius.circular(AppRadius.xs),
+        border: Border.all(color: context.colors.border, width: AppBorder.hairline),
+        borderRadius: BorderRadius.circular(AppRadius.sm),
       ),
       child: Text(
         label.toUpperCase(),
@@ -49,7 +49,7 @@ class Stamp extends StatelessWidget {
     if (!rotate) {
       return body;
     }
-    return Transform.rotate(angle: -0.035, child: HardShadowStamp(child: body));
+    return Transform.rotate(angle: -0.035, child: body);
   }
 }
 
@@ -73,7 +73,7 @@ class HardShadowStamp extends StatelessWidget {
           child: DecoratedBox(
             decoration: BoxDecoration(
               color: context.colors.shadow,
-              borderRadius: BorderRadius.circular(AppRadius.xs),
+              borderRadius: BorderRadius.circular(AppRadius.sm),
             ),
           ),
         ),

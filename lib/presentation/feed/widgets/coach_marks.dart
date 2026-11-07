@@ -40,7 +40,7 @@ class CoachMarks extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           color: context.colors.field,
-          border: Border.all(color: context.colors.border, width: AppBorder.b),
+          border: Border.all(color: context.colors.border, width: AppBorder.hairline),
           borderRadius: BorderRadius.circular(AppRadius.sm),
           boxShadow: const <BoxShadow>[],
         ),

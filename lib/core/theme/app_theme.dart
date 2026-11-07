@@ -33,7 +33,7 @@ abstract final class AppTheme {
       highlightColor: Colors.transparent,
       splashColor: Colors.transparent,
       dividerTheme: DividerThemeData(
-        thickness: AppBorder.thin,
+        thickness: AppBorder.hairline,
         color: c.borderQuiet,
         space: AppSpace.s16,
       ),

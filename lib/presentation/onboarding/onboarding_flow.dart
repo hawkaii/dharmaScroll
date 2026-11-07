@@ -478,7 +478,7 @@ class _ChoiceRow extends StatelessWidget {
               color: selected
                   ? context.colors.accentKesar
                   : context.colors.border,
-              width: selected ? AppBorder.b : AppBorder.thin,
+              width: selected ? AppBorder.hairline : AppBorder.hairline,
             ),
             borderRadius: BorderRadius.circular(AppRadius.sm),
           ),

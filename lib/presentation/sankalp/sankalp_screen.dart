@@ -82,7 +82,7 @@ class _SankalpScreenState extends State<SankalpScreen> {
                   color: context.colors.gold,
                   border: Border.all(
                     color: context.colors.border,
-                    width: AppBorder.b,
+                    width: AppBorder.hairline,
                   ),
                   borderRadius: BorderRadius.circular(AppRadius.sm),
                 ),

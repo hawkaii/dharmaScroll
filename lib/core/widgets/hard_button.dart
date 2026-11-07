@@ -4,14 +4,10 @@ import '../theme/app_colors.dart';
 import '../theme/app_metrics.dart';
 import '../theme/app_type.dart';
 import '../theme/theme_x.dart';
-import 'hard_shadow.dart';
 
 enum HardButtonVariant { primary, secondary, gold, danger, ghost }
 
-/// The only button primitive: a stamped plate that physically presses in.
-///
-/// No ripple, ever — Material's ink splash reads as a second light source
-/// against a hard offset shadow.
+/// Premium button: filled accent, soft shadow, scale-on-press.
 class HardButton extends StatefulWidget {
   const HardButton({
     super.key,
@@ -48,7 +44,7 @@ class _HardButtonState extends State<HardButton> {
             HardButtonVariant.primary => c.primary,
             HardButtonVariant.secondary => c.surface,
             HardButtonVariant.gold => c.gold,
-            HardButtonVariant.danger => c.dangerFill,
+            HardButtonVariant.danger => c.danger,
             HardButtonVariant.ghost => Colors.transparent,
           };
 
@@ -62,54 +58,51 @@ class _HardButtonState extends State<HardButton> {
             HardButtonVariant.ghost => c.ink,
           };
 
-    final Color borderColor = !enabled
-        ? c.inkDisabled
-        : widget.variant == HardButtonVariant.danger
-        ? const Color(0xFF4A1009)
-        : widget.variant == HardButtonVariant.ghost
-        ? Colors.transparent
-        : c.border;
+    final Color borderColor = widget.variant == HardButtonVariant.secondary
+        ? c.border
+        : Colors.transparent;
 
-    final Widget face = AnimatedContainer(
+    final Widget face = AnimatedScale(
+      scale: _down ? 0.98 : 1.0,
       duration: AppMotion.resolve(context, AppMotion.instant),
       curve: AppMotion.enter,
-      // Press physics: the plate moves 2 dp down-right while the shadow stays
-      // put, so the gap closes. Matches the HTML `:active` rule.
-      transform: _down ? Matrix4.translationValues(4, 4, 0) : null,
-      padding: EdgeInsets.symmetric(
-        horizontal: widget.compact ? AppSpace.s16 : AppSpace.s20,
-        vertical: widget.compact ? AppSpace.s12 : AppSpace.s16,
-      ),
-      decoration: BoxDecoration(
-        color: enabled ? fill : c.surfaceSunken,
-        border: Border.all(color: borderColor, width: AppBorder.b),
-        borderRadius: BorderRadius.circular(AppRadius.sm),
-      ),
-      child: Row(
-        mainAxisSize: widget.block ? MainAxisSize.max : MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          if (widget.icon != null) ...<Widget>[
-            Icon(widget.icon, size: 18, color: labelColor),
-            const SizedBox(width: AppSpace.s8),
-          ],
-          Flexible(
-            child: Text(
-              widget.label,
-              textAlign: TextAlign.center,
-              style: AppType.l1.copyWith(
-                color: labelColor,
-                fontSize: widget.compact ? 12 : 13,
+      child: AnimatedContainer(
+        duration: AppMotion.resolve(context, AppMotion.fast),
+        curve: AppMotion.enter,
+        padding: EdgeInsets.symmetric(
+          horizontal: widget.compact ? AppSpace.s12 : AppSpace.s20,
+          vertical: widget.compact ? AppSpace.s8 : AppSpace.s12,
+        ),
+        decoration: BoxDecoration(
+          color: enabled ? fill : c.surfaceSunken,
+          border: Border.all(color: borderColor, width: AppBorder.input),
+          borderRadius: BorderRadius.circular(AppRadius.sm),
+          boxShadow: widget.variant == HardButtonVariant.ghost
+              ? null
+              : AppShadow.soft,
+        ),
+        child: Row(
+          mainAxisSize: widget.block ? MainAxisSize.max : MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            if (widget.icon != null) ...<Widget>[
+              Icon(widget.icon, size: 18, color: labelColor),
+              const SizedBox(width: AppSpace.s8),
+            ],
+            Flexible(
+              child: Text(
+                widget.label,
+                textAlign: TextAlign.center,
+                style: AppType.l1.copyWith(
+                  color: labelColor,
+                  fontSize: widget.compact ? 12 : 13,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
-
-    final Widget body = widget.variant == HardButtonVariant.ghost
-        ? face
-        : HardShadow(offset: AppShadow.s7, child: face);
 
     return Semantics(
       button: true,
@@ -125,8 +118,8 @@ class _HardButtonState extends State<HardButton> {
               }
             : null,
         child: widget.block
-            ? SizedBox(width: double.infinity, child: body)
-            : body,
+            ? SizedBox(width: double.infinity, child: face)
+            : face,
       ),
     );
   }

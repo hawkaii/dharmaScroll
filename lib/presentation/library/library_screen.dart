@@ -163,7 +163,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
               color: context.colors.surfaceRaised,
               border: Border.all(
                 color: context.colors.border,
-                width: AppBorder.thin,
+                width: AppBorder.hairline,
               ),
               borderRadius: BorderRadius.circular(AppRadius.sm),
             ),

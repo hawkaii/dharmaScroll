@@ -143,20 +143,20 @@ abstract final class AppType {
 
   // ── Printed labels and numbers (static weights) ────────────────────────────
   static const TextStyle m1 = TextStyle(
-    fontFamily: mono,
+    fontFamily: display,
     fontSize: 11,
     height: 1.27,
     fontWeight: FontWeight.w600,
-    letterSpacing: 1.5,
+    letterSpacing: 1.2,
     fontFeatures: <FontFeature>[FontFeature.tabularFigures()],
   );
 
   static const TextStyle m2 = TextStyle(
-    fontFamily: mono,
+    fontFamily: display,
     fontSize: 13,
     height: 1.38,
     fontWeight: FontWeight.w500,
-    letterSpacing: 0.26,
+    letterSpacing: 0.2,
     fontFeatures: <FontFeature>[FontFeature.tabularFigures()],
   );
 

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../theme/app_metrics.dart';
 import '../theme/app_type.dart';
 import '../theme/theme_x.dart';
-import 'hard_shadow.dart';
+
 
 /// An outlined pill used for onboarding intents, topics and check-in answers.
 ///
@@ -36,9 +36,9 @@ class ChoiceChipTag extends StatelessWidget {
         color: selected ? context.colors.primary : context.colors.surface,
         border: Border.all(
           color: selected ? context.colors.primary : context.colors.border,
-          width: AppBorder.thin,
+          width: AppBorder.hairline,
         ),
-        borderRadius: BorderRadius.circular(AppRadius.md),
+        borderRadius: BorderRadius.circular(AppRadius.sm),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -77,9 +77,11 @@ class ChoiceChipTag extends StatelessWidget {
           child: SizedBox(
             height: 36,
             child: selected
-                ? HardShadow(
-                    offset: AppShadow.s4,
-                    radius: AppRadius.pill,
+                ? Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(AppRadius.pill),
+                      boxShadow: AppShadow.soft,
+                    ),
                     child: pill,
                   )
                 : pill,

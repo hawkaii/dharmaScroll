@@ -107,7 +107,7 @@ class _ChapterHeader extends StatelessWidget {
       padding: const EdgeInsets.all(AppSpace.s16),
       decoration: BoxDecoration(
         color: context.colors.field,
-        border: Border.all(color: context.colors.border, width: AppBorder.b),
+        border: Border.all(color: context.colors.border, width: AppBorder.hairline),
         borderRadius: BorderRadius.circular(AppRadius.sm),
       ),
       child: Column(
@@ -224,7 +224,7 @@ class _PathNode extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(
                 color: context.colors.border,
-                width: AppBorder.b,
+                width: AppBorder.hairline,
               ),
             ),
             child: done

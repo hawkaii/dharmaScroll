@@ -189,7 +189,7 @@ class _ShareCardCanvas extends StatelessWidget {
                 ),
                 border: Border.all(
                   color: AppColors.patra.border,
-                  width: AppBorder.heavy,
+                  width: AppBorder.hairline,
                 ),
                 borderRadius: BorderRadius.circular(AppRadius.sm),
               ),
@@ -231,7 +231,7 @@ class _ShareCardCanvas extends StatelessWidget {
                     height: 64,
                     decoration: BoxDecoration(
                       color: ink.withValues(alpha: 0.07),
-                      borderRadius: BorderRadius.circular(AppRadius.xs),
+                      borderRadius: BorderRadius.circular(AppRadius.sm),
                     ),
                     child: Center(
                       child: Icon(
@@ -295,9 +295,9 @@ class _ThemeStamp extends StatelessWidget {
           color: selected ? context.colors.gold : context.colors.surface,
           border: Border.all(
             color: context.colors.border,
-            width: AppBorder.thin,
+            width: AppBorder.hairline,
           ),
-          borderRadius: BorderRadius.circular(AppRadius.md),
+          borderRadius: BorderRadius.circular(AppRadius.sm),
         ),
         child: Text(
           label,
@@ -328,7 +328,7 @@ class _ShareTarget extends StatelessWidget {
             color: context.colors.surface,
             border: Border.all(
               color: context.colors.border,
-              width: AppBorder.thin,
+              width: AppBorder.hairline,
             ),
             borderRadius: BorderRadius.circular(AppRadius.sm),
           ),

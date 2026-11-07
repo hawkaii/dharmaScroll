@@ -32,7 +32,7 @@ class ProfileScreen extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: context.colors.gold,
-                  width: AppBorder.b,
+                  width: AppBorder.hairline,
                 ),
               ),
             ),
@@ -147,7 +147,7 @@ class _Stat extends StatelessWidget {
           color: context.colors.surface,
           border: Border.all(
             color: context.colors.border,
-            width: AppBorder.thin,
+            width: AppBorder.hairline,
           ),
           borderRadius: BorderRadius.circular(AppRadius.sm),
         ),
@@ -194,7 +194,7 @@ class _Badge extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(
                 color: context.colors.border,
-                width: AppBorder.thin,
+                width: AppBorder.hairline,
               ),
             ),
             child: Icon(

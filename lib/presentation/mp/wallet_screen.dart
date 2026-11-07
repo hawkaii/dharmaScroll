@@ -84,7 +84,7 @@ class WalletScreen extends StatelessWidget {
               color: context.colors.field,
               border: Border.all(
                 color: context.colors.border,
-                width: AppBorder.b,
+                width: AppBorder.hairline,
               ),
               borderRadius: BorderRadius.circular(AppRadius.sm),
             ),
@@ -190,7 +190,7 @@ class _Stat extends StatelessWidget {
           color: context.colors.surface,
           border: Border.all(
             color: context.colors.border,
-            width: AppBorder.thin,
+            width: AppBorder.hairline,
           ),
           borderRadius: BorderRadius.circular(AppRadius.sm),
         ),

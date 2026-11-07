@@ -42,7 +42,7 @@ class SanghaScreen extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   border: Border.all(color: context.colors.inkMuted, width: 1),
-                  borderRadius: BorderRadius.circular(AppRadius.xs),
+                  borderRadius: BorderRadius.circular(AppRadius.sm),
                 ),
                 child: Text(
                   'V0.2',
@@ -101,7 +101,7 @@ class SanghaScreen extends StatelessWidget {
                           : context.colors.surfaceSunken,
                       border: Border.all(
                         color: context.colors.border,
-                        width: i < 5 ? AppBorder.thin : 1,
+                        width: i < 5 ? AppBorder.hairline : 1,
                       ),
                       borderRadius: BorderRadius.circular(AppRadius.sm),
                     ),

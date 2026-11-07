@@ -50,10 +50,10 @@ class _ExpandSheetState extends State<ExpandSheet> {
             color: context.colors.surface,
             border: Border.all(
               color: context.colors.border,
-              width: AppBorder.b,
+              width: AppBorder.hairline,
             ),
             borderRadius: const BorderRadius.vertical(
-              top: Radius.circular(AppRadius.lg),
+              top: Radius.circular(AppRadius.sm),
             ),
           ),
           child: Column(
@@ -124,7 +124,7 @@ class _ExpandSheetState extends State<ExpandSheet> {
               border: Border(
                 left: BorderSide(
                   color: context.colors.field,
-                  width: AppBorder.thin,
+                  width: AppBorder.hairline,
                 ),
               ),
             ),
@@ -152,7 +152,7 @@ class _ExpandSheetState extends State<ExpandSheet> {
               color: context.colors.gold,
               border: Border.all(
                 color: context.colors.border,
-                width: AppBorder.b,
+                width: AppBorder.hairline,
               ),
               borderRadius: BorderRadius.circular(AppRadius.sm),
             ),
@@ -221,7 +221,7 @@ class _SheetHeader extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               color: context.colors.field,
-              borderRadius: BorderRadius.circular(AppRadius.md),
+              borderRadius: BorderRadius.circular(AppRadius.sm),
             ),
             child: Text(
               '+3',
@@ -271,9 +271,9 @@ class _SheetTabBar extends StatelessWidget {
                           : context.colors.surfaceRaised,
                       border: Border.all(
                         color: context.colors.border,
-                        width: AppBorder.thin,
+                        width: AppBorder.hairline,
                       ),
-                      borderRadius: BorderRadius.circular(AppRadius.md),
+                      borderRadius: BorderRadius.circular(AppRadius.sm),
                     ),
                     child: Text(
                       switch (tab) {

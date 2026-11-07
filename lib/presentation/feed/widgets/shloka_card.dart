@@ -207,7 +207,7 @@ class _CardBody extends StatelessWidget {
               color: context.colors.surface.withValues(alpha: 0.7),
               border: Border.all(
                 color: context.colors.border,
-                width: AppBorder.thin,
+                width: AppBorder.hairline,
               ),
               borderRadius: BorderRadius.circular(AppRadius.sm),
             ),

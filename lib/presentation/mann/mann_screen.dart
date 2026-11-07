@@ -210,7 +210,7 @@ class _BreathingMic extends StatelessWidget {
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: context.colors.border,
-                    width: AppBorder.b,
+                    width: AppBorder.hairline,
                   ),
                 ),
                 child: Icon(

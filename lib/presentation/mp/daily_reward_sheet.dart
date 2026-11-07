@@ -35,9 +35,9 @@ class _DailyRewardSheet extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: context.colors.surface,
-        border: Border.all(color: context.colors.border, width: AppBorder.b),
+        border: Border.all(color: context.colors.border, width: AppBorder.hairline),
         borderRadius: const BorderRadius.vertical(
-          top: Radius.circular(AppRadius.lg),
+          top: Radius.circular(AppRadius.sm),
         ),
       ),
       padding: const EdgeInsets.fromLTRB(
@@ -66,7 +66,7 @@ class _DailyRewardSheet extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(
                 color: context.colors.border,
-                width: AppBorder.b,
+                width: AppBorder.hairline,
               ),
             ),
             child: Icon(Icons.spa, size: 26, color: context.colors.onGold),
@@ -97,7 +97,7 @@ class _DailyRewardSheet extends StatelessWidget {
                           : context.colors.surfaceSunken,
                       border: Border.all(
                         color: context.colors.border,
-                        width: i < 6 ? AppBorder.thin : 1,
+                        width: i < 6 ? AppBorder.hairline : 1,
                       ),
                       borderRadius: BorderRadius.circular(AppRadius.sm),
                     ),
