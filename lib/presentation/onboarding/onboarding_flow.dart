@@ -5,6 +5,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../core/theme/app_metrics.dart';
 import '../../core/theme/app_type.dart';
 import '../../core/theme/theme_x.dart';
+import '../../core/widgets/mascot.dart';
 import 'onboarding_state.dart';
 
 class OnboardingFlow extends ConsumerStatefulWidget {
@@ -82,8 +83,9 @@ class _WelcomeStep extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text('ॐ', style: AppType.sktL.copyWith(fontSize: 64, color: context.colors.accentKesar)),
+          const Mascot(size: 96),
           const SizedBox(height: AppSpace.s16),
+          Text('ॐ', style: AppType.sktL.copyWith(fontSize: 64, color: context.colors.accentKesar)),
           Text('DharmaScroll', style: AppType.d2.copyWith(color: context.colors.ink)),
           const SizedBox(height: AppSpace.s8),
           Text('Scroll less. Live more.', style: AppType.b3.copyWith(color: context.colors.inkMuted)),
