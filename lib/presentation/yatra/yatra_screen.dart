@@ -2,13 +2,11 @@ import 'dart:math' as math;
 import 'dart:ui' show PathMetric;
 
 import 'package:flutter/material.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 import '../../core/theme/app_metrics.dart';
 import '../../core/theme/app_type.dart';
 import '../../core/theme/theme_x.dart';
-import 'package:fl_chart/fl_chart.dart';
-
-
 import '../../core/widgets/mp_pill.dart';
 import '../../core/widgets/parchment.dart';
 
