@@ -93,12 +93,12 @@ class WalletScreen extends StatelessWidget {
               children: <Widget>[
                 Text(
                   'LEVEL 2 · SHRAVAK',
-                  style: AppType.m1.copyWith(color: context.colors.gold),
+                  style: AppType.m1.copyWith(color: context.colors.onField),
                 ),
                 const SizedBox(height: AppSpace.s8),
                 Text(
                   '1,240',
-                  style: AppType.d1.copyWith(color: context.colors.gold),
+                  style: AppType.d1.copyWith(color: context.colors.onField),
                 ),
                 const SizedBox(height: AppSpace.s12),
                 ClipRRect(

@@ -155,7 +155,7 @@ class _ChapterHeader extends StatelessWidget {
         children: <Widget>[
           Text(
             'ADHYAY 3 · KARMA YOGA',
-            style: AppType.m1.copyWith(color: context.colors.gold),
+            style: AppType.m1.copyWith(color: context.colors.onField),
           ),
           const SizedBox(height: AppSpace.s6),
           Text(

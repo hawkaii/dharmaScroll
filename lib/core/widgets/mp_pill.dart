@@ -39,12 +39,12 @@ class MpPill extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Icon(Icons.spa, size: 13, color: context.colors.gold),
+              Icon(Icons.spa, size: 13, color: context.colors.onField),
               const SizedBox(width: AppSpace.s4),
               Text(
                 _format(points),
                 style: AppType.m2.copyWith(
-                  color: context.colors.gold,
+                  color: context.colors.onField,
                   fontSize: compact ? 12 : 13,
                 ),
               ),

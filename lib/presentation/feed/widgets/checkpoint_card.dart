@@ -68,7 +68,7 @@ class _CheckpointCardState extends State<CheckpointCard> {
                     ),
                     child: Text(
                       '+5',
-                      style: AppType.m1.copyWith(color: context.colors.gold),
+                      style: AppType.m1.copyWith(color: context.colors.onField),
                     ),
                   ),
                 ],

@@ -49,7 +49,7 @@ class CoachMarks extends StatelessWidget {
           children: <Widget>[
             Text(
               'HOW DHARMASCROLL WORKS',
-              style: AppType.m1.copyWith(color: context.colors.gold),
+              style: AppType.m1.copyWith(color: context.colors.onField),
             ),
             const SizedBox(height: AppSpace.s8),
             for (final ({IconData icon, String label}) row in _rows)
@@ -57,7 +57,7 @@ class CoachMarks extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: AppSpace.s4),
                 child: Row(
                   children: <Widget>[
-                    Icon(row.icon, size: 16, color: context.colors.gold),
+                    Icon(row.icon, size: 16, color: context.colors.onField),
                     const SizedBox(width: AppSpace.s8),
                     Expanded(
                       child: Text(
@@ -74,7 +74,7 @@ class CoachMarks extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: Text(
                 'Samajh gaya',
-                style: AppType.l1.copyWith(color: context.colors.gold),
+                style: AppType.l1.copyWith(color: context.colors.onField),
               ),
             ),
           ],

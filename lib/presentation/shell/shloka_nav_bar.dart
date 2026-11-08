@@ -166,7 +166,7 @@ class _MicButton extends StatelessWidget {
           child: Icon(
             Icons.mic,
             size: 24,
-            color: active ? context.colors.onGold : context.colors.gold,
+            color: active ? context.colors.onGold : context.colors.onPrimary,
           ),
         ),
       ),
