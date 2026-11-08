@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../core/theme/app_metrics.dart';
 import '../../../core/theme/app_type.dart';
@@ -242,7 +243,7 @@ class _AnswerRow extends StatelessWidget {
                 ),
               ),
               if (showCorrect)
-                Icon(Icons.check, size: 18, color: context.colors.success),
+                Lottie.asset('assets/lottie/checkpoint_success.json', width: 24, height: 24, repeat: false),
             ],
           ),
         ),

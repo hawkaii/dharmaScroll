@@ -10,6 +10,8 @@ enum LangPref { hindiSanskrit, englishSanskrit, hinglish }
 
 enum Familiarity { newToGita, fewShlokas, studied }
 
+enum IdentityGoal { casualSeeker, regularSadhak, seriousYogi, intenseTapasvi }
+
 enum FeedIntent {
   lessPhone,
   stress,
@@ -33,6 +35,8 @@ class OnboardingState {
     this.familiarity = Familiarity.newToGita,
     this.goalMinutes = 10,
     this.remindAtMinutes = 6 * 60 + 30,
+    this.identityGoal = IdentityGoal.casualSeeker,
+    this.startStreakToday = true,
     this.completed = false,
   });
 
@@ -43,6 +47,8 @@ class OnboardingState {
   final Familiarity familiarity;
   final int goalMinutes;
   final int? remindAtMinutes;
+  final IdentityGoal identityGoal;
+  final bool startStreakToday;
   final bool completed;
 
   OnboardingState copyWith({
@@ -53,6 +59,8 @@ class OnboardingState {
     Familiarity? familiarity,
     int? goalMinutes,
     int? remindAtMinutes,
+    IdentityGoal? identityGoal,
+    bool? startStreakToday,
     bool clearReminder = false,
     bool? completed,
   }) {
@@ -66,6 +74,8 @@ class OnboardingState {
       remindAtMinutes: clearReminder
           ? null
           : (remindAtMinutes ?? this.remindAtMinutes),
+      identityGoal: identityGoal ?? this.identityGoal,
+      startStreakToday: startStreakToday ?? this.startStreakToday,
       completed: completed ?? this.completed,
     );
   }
@@ -136,6 +146,16 @@ class OnboardingNotifier extends Notifier<OnboardingState> {
   }
 
   void setGoal(int minutes) => state = state.copyWith(goalMinutes: minutes);
+
+  void setIdentityGoal(IdentityGoal goal) {
+    state = state.copyWith(identityGoal: goal);
+    _prefs.setString('identityGoal', goal.name);
+  }
+
+  void setStartStreakToday(bool value) {
+    state = state.copyWith(startStreakToday: value);
+    _prefs.setBool('startStreakToday', value);
+  }
 
   void setReminder(int? minutes) {
     state = minutes == null

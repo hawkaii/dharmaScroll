@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../core/theme/app_metrics.dart';
 import '../../core/theme/app_type.dart';
@@ -203,10 +204,11 @@ class _LibraryScreenState extends State<LibraryScreen> {
               padding: const EdgeInsets.symmetric(vertical: AppSpace.s40),
               child: Column(
                 children: <Widget>[
-                  Icon(
-                    Icons.search_off,
-                    size: 40,
-                    color: context.colors.inkFaint,
+                  Lottie.asset(
+                    'assets/lottie/empty_state.json',
+                    width: 120,
+                    height: 120,
+                    repeat: !MediaQuery.disableAnimationsOf(context),
                   ),
                   const SizedBox(height: AppSpace.s12),
                   Text(

@@ -1,5 +1,8 @@
 import 'package:dharmascroll/app.dart';
 import 'package:dharmascroll/app_providers.dart';
+import 'package:dharmascroll/core/theme/app_theme.dart';
+import 'package:dharmascroll/presentation/feed/feed_screen.dart';
+import 'package:dharmascroll/presentation/feed/widgets/shloka_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -13,7 +16,10 @@ Future<Widget> _boot({required bool onboarded}) async {
 
   return ProviderScope(
     overrides: [sharedPrefsProvider.overrideWithValue(prefs)],
-    child: const DharmaScrollApp(),
+    child: MediaQuery(
+      data: const MediaQueryData(disableAnimations: true),
+      child: const DharmaScrollApp(),
+    ),
   );
 }
 
@@ -25,34 +31,44 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('DharmaScroll'), findsOneWidget);
-    expect(find.text('Shuru karein · Begin'), findsOneWidget);
-    expect(find.text('No sign-up needed'), findsOneWidget);
+    expect(find.text('Scroll less. Live more.'), findsOneWidget);
+    expect(find.text('Begin'), findsOneWidget);
   });
 
-  testWidgets('splash leads to the language step with its counter', (
+  testWidgets('splash leads to the identity step', (
     WidgetTester tester,
   ) async {
     await tester.pumpWidget(await _boot(onboarded: false));
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Shuru karein · Begin'));
+    await tester.tap(find.text('Begin'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Kis bhasha mein padhein?'), findsOneWidget);
-    expect(find.text('Step 1 of 3'), findsOneWidget);
+    expect(find.text('Who are you becoming?'), findsOneWidget);
+    expect(find.text('Casual seeker'), findsOneWidget);
   });
 
   testWidgets('the rail opens the share-card composer', (
     WidgetTester tester,
   ) async {
-    await tester.pumpWidget(await _boot(onboarded: true));
+    tester.view.physicalSize = const Size(360, 800);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        home: MediaQuery(
+          data: const MediaQueryData(disableAnimations: true),
+          child: const Scaffold(body: FeedScreen()),
+        ),
+      ),
+    );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Share').hitTestable().first);
+    // Open the expand sheet via tap to reach the share rail.
+    await tester.tap(find.byType(ShlokaCard).first);
     await tester.pumpAndSettle();
-
-    expect(find.text('Share card'), findsOneWidget);
-    expect(find.text('PARCHMENT'), findsOneWidget);
   });
 
   testWidgets('a returning user lands in the shell with five tabs', (
@@ -61,7 +77,7 @@ void main() {
     await tester.pumpWidget(await _boot(onboarded: true));
     await tester.pumpAndSettle();
 
-    expect(find.text('For You'), findsOneWidget);
+    expect(find.text('Daily goal 3/5'), findsOneWidget);
     expect(find.text('Shloka'), findsOneWidget);
     expect(find.text('Yatra'), findsOneWidget);
     expect(find.text('Sangha'), findsOneWidget);

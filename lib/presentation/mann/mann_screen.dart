@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../core/theme/app_metrics.dart';
 import '../../core/theme/app_theme.dart';
@@ -126,7 +127,14 @@ class _MannScreenState extends State<MannScreen>
                                 ),
                             ],
                           ),
-                          const SizedBox(height: AppSpace.s32),
+                          const SizedBox(height: AppSpace.s16),
+                          Lottie.asset(
+                            'assets/lottie/breathing_orb.json',
+                            width: 96,
+                            height: 96,
+                            repeat: !MediaQuery.disableAnimationsOf(context),
+                          ),
+                          const SizedBox(height: AppSpace.s16),
                           GestureDetector(
                             onTap: () => context.push('/mann/result'),
                             child: _BreathingMic(animation: _breath),

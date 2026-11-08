@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../presentation/feed/feed_screen.dart';
+import '../../presentation/path/path_screen.dart';
 import '../../presentation/library/library_screen.dart';
 import '../../presentation/mp/wallet_screen.dart';
 import '../../presentation/sankalp/sankalp_screen.dart';
@@ -19,6 +19,7 @@ import '../../presentation/yatra/yatra_screen.dart';
 
 abstract final class Routes {
   static const String shloka = '/shloka';
+  static const String path = '/path';
   static const String yatra = '/yatra';
   static const String mann = '/mann';
   static const String sangha = '/sangha';
@@ -44,7 +45,7 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
   ref.onDispose(refresh.dispose);
 
   return GoRouter(
-    initialLocation: Routes.shloka,
+    initialLocation: Routes.path,
     refreshListenable: refresh,
     redirect: (BuildContext context, GoRouterState state) {
       final bool completed = ref.read(onboardingProvider).completed;
@@ -55,7 +56,7 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
         return Routes.onboarding;
       }
       if (completed && inOnboarding) {
-        return Routes.shloka;
+        return Routes.path;
       }
       return null;
     },
@@ -90,9 +91,9 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
           StatefulShellBranch(
             routes: <RouteBase>[
               GoRoute(
-                path: Routes.shloka,
+                path: Routes.path,
                 builder: (BuildContext context, GoRouterState state) =>
-                    const FeedScreen(),
+                    const PathScreen(),
               ),
             ],
           ),

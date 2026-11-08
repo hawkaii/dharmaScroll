@@ -74,7 +74,10 @@ Future<void> _pump(
     MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
-      home: child,
+      home: MediaQuery(
+        data: const MediaQueryData(disableAnimations: true),
+        child: child,
+      ),
     ),
   );
   await tester.pumpAndSettle();

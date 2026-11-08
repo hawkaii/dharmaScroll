@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../core/theme/app_metrics.dart';
 import '../../../core/theme/app_type.dart';
@@ -69,7 +70,12 @@ class _DailyRewardSheet extends StatelessWidget {
                 width: AppBorder.hairline,
               ),
             ),
-            child: Icon(Icons.spa, size: 26, color: context.colors.onGold),
+            child: Lottie.asset(
+             'assets/lottie/reward_burst.json',
+             width: 40,
+             height: 40,
+             repeat: false,
+           ),
           ),
           const SizedBox(height: AppSpace.s16),
           Text(
