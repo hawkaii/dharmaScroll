@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lottie/lottie.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../core/theme/app_metrics.dart';
 import '../../core/theme/app_type.dart';
 import '../../core/theme/theme_x.dart';
-import '../../core/widgets/mascot.dart';
 import 'onboarding_state.dart';
 
 class OnboardingFlow extends ConsumerStatefulWidget {
@@ -83,7 +83,7 @@ class _WelcomeStep extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const Mascot(size: 96),
+          Lottie.asset('assets/lottie/peacock_feather.json', width: 120, height: 120, repeat: false),
           const SizedBox(height: AppSpace.s16),
           Text('ॐ', style: AppType.sktL.copyWith(fontSize: 64, color: context.colors.accentKesar)),
           Text('DharmaScroll', style: AppType.d2.copyWith(color: context.colors.ink)),

@@ -3,6 +3,7 @@ import 'dart:ui' show PathMetric;
 
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../core/theme/app_metrics.dart';
 import '../../core/theme/app_type.dart';
@@ -76,6 +77,14 @@ class YatraScreen extends StatelessWidget {
                     AppSpace.s32,
                   ),
                   children: <Widget>[
+                    Center(
+                      child: Lottie.asset(
+                        'assets/lottie/chakra.json',
+                        width: 64,
+                        height: 64,
+                        repeat: false,
+                      ),
+                    ),
                     SizedBox(
                       height: 120,
                       child: BarChart(

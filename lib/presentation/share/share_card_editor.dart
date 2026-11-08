@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_metrics.dart';
@@ -45,9 +46,19 @@ class _ShareCardEditorState extends State<ShareCardEditor> {
             appBar: AppBar(
               backgroundColor: context.colors.surfaceCanvas,
               foregroundColor: context.colors.ink,
-              title: Text(
-                'Share card',
-                style: AppType.t2.copyWith(color: context.colors.ink),
+              title: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Lottie.asset('assets/lottie/flute.json', width: 20, height: 20, repeat: false),
+                  const SizedBox(width: AppSpace.s6),
+                  Flexible(
+                    child: Text(
+                      'Share card',
+                      overflow: TextOverflow.ellipsis,
+                      style: AppType.t2.copyWith(color: context.colors.ink),
+                    ),
+                  ),
+                ],
               ),
               leading: IconButton(
                 onPressed: () => Navigator.of(context).maybePop(),

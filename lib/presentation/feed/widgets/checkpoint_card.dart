@@ -243,7 +243,7 @@ class _AnswerRow extends StatelessWidget {
                 ),
               ),
               if (showCorrect)
-                Lottie.asset('assets/lottie/checkpoint_success.json', width: 24, height: 24, repeat: false),
+                Lottie.asset('assets/lottie/lotus_bloom.json', width: 24, height: 24, repeat: false),
             ],
           ),
         ),

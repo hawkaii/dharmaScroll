@@ -129,7 +129,7 @@ class _MannScreenState extends State<MannScreen>
                           ),
                           const SizedBox(height: AppSpace.s16),
                           Lottie.asset(
-                            'assets/lottie/breathing_orb.json',
+                            'assets/lottie/diya_flame.json',
                             width: 96,
                             height: 96,
                             repeat: !MediaQuery.disableAnimationsOf(context),

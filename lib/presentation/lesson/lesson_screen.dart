@@ -127,9 +127,16 @@ class _LessonScreenState extends State<LessonScreen> {
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
                             Lottie.asset(
+                              'assets/lottie/conch.json',
+                              width: 96,
+                              height: 96,
+                              repeat: false,
+                            ),
+                            const SizedBox(height: AppSpace.s8),
+                            Lottie.asset(
                               'assets/lottie/reward_burst.json',
-                              width: 120,
-                              height: 120,
+                              width: 96,
+                              height: 96,
                               repeat: false,
                             ),
                             const SizedBox(height: AppSpace.s12),
