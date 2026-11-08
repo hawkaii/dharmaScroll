@@ -77,7 +77,7 @@ void main() {
     await tester.pumpWidget(await _boot(onboarded: true));
     await tester.pumpAndSettle();
 
-    expect(find.text('Daily goal 3/5'), findsOneWidget);
+    expect(find.textContaining('Daily goal'), findsOneWidget);
     expect(find.text('Shloka'), findsOneWidget);
     expect(find.text('Yatra'), findsOneWidget);
     expect(find.text('Sangha'), findsOneWidget);

@@ -6,6 +6,7 @@ import '../../core/theme/app_metrics.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/theme/app_type.dart';
 import '../../core/theme/theme_x.dart';
+import '../../core/audio/voice_recorder.dart';
 import '../../core/widgets/choice_chip_tag.dart';
 
 /// Mann Darpan always lives in Ratri, whatever the system theme is doing.
@@ -27,6 +28,11 @@ class _MannScreenState extends State<MannScreen>
   )..repeat(reverse: true);
 
   int? _mood;
+  final VoiceRecorder _voice = VoiceRecorder();
+  bool _recording = false;
+  bool _hasNote = false;
+  String? _notePath;
+  bool _permissionDenied = false;
 
   static const List<({String label, String emoji})> _moods =
       <({String label, String emoji})>[
@@ -40,7 +46,37 @@ class _MannScreenState extends State<MannScreen>
   @override
   void dispose() {
     _breath.dispose();
+    _voice.dispose();
     super.dispose();
+  }
+
+  Future<void> _toggleRecording() async {
+    if (_recording) {
+      final String? path = await _voice.stop();
+      setState(() {
+        _recording = false;
+        _notePath = path;
+        _hasNote = path != null;
+      });
+      return;
+    }
+    final bool ok = await _voice.hasPermission();
+    if (!ok) {
+      setState(() => _permissionDenied = true);
+      return;
+    }
+    await _voice.start();
+    setState(() {
+      _recording = true;
+      _permissionDenied = false;
+      _hasNote = false;
+    });
+  }
+
+  Future<void> _playNote() async {
+    if (_notePath == null) return;
+    await _voice.play(_notePath!);
+    setState(() {});
   }
 
   @override
@@ -136,17 +172,55 @@ class _MannScreenState extends State<MannScreen>
                           ),
                           const SizedBox(height: AppSpace.s16),
                           GestureDetector(
-                            onTap: () => context.push('/mann/result'),
-                            child: _BreathingMic(animation: _breath),
+                            onTap: _toggleRecording,
+                            child: _BreathingMic(
+                              animation: _breath,
+                              recording: _recording,
+                            ),
                           ),
                           const SizedBox(height: AppSpace.s20),
                           Text(
-                            'Hold to speak · or type instead',
+                            _recording
+                                ? 'Recording… tap to stop'
+                                : _hasNote
+                                    ? 'Voice note ready'
+                                    : 'Tap the mic to speak',
                             textAlign: TextAlign.center,
                             style: AppType.b3.copyWith(
-                              color: context.colors.inkMuted,
+                              color: _recording
+                                  ? context.colors.danger
+                                  : context.colors.inkMuted,
                             ),
                           ),
+                          if (_permissionDenied) ...<Widget>[
+                            const SizedBox(height: AppSpace.s8),
+                            Text(
+                              'Microphone permission is required.',
+                              textAlign: TextAlign.center,
+                              style: AppType.c1.copyWith(
+                                color: context.colors.danger,
+                              ),
+                            ),
+                          ],
+                          if (_hasNote) ...<Widget>[
+                            const SizedBox(height: AppSpace.s12),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                TextButton.icon(
+                                  onPressed: _playNote,
+                                  icon: const Icon(Icons.play_arrow, size: 18),
+                                  label: const Text('Play'),
+                                ),
+                                TextButton.icon(
+                                  onPressed: () =>
+                                      context.push('/mann/result'),
+                                  icon: const Icon(Icons.arrow_forward, size: 18),
+                                  label: const Text('Continue'),
+                                ),
+                              ],
+                            ),
+                          ],
                           const SizedBox(height: AppSpace.s8),
                           Text(
                             'Hindi, English or Hinglish.',
@@ -178,9 +252,10 @@ class _MannScreenState extends State<MannScreen>
 }
 
 class _BreathingMic extends StatelessWidget {
-  const _BreathingMic({required this.animation});
+  const _BreathingMic({required this.animation, this.recording = false});
 
   final Animation<double> animation;
+  final bool recording;
 
   @override
   Widget build(BuildContext context) {
@@ -214,7 +289,9 @@ class _BreathingMic extends StatelessWidget {
                 width: 96,
                 height: 96,
                 decoration: BoxDecoration(
-                  color: context.colors.accentKesar,
+                  color: recording
+                      ? context.colors.danger
+                      : context.colors.accentKesar,
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: context.colors.border,
@@ -222,7 +299,7 @@ class _BreathingMic extends StatelessWidget {
                   ),
                 ),
                 child: Icon(
-                  Icons.mic,
+                  recording ? Icons.stop : Icons.mic,
                   size: 34,
                   color: context.colors.surfaceCanvas,
                 ),

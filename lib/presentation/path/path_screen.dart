@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../core/router/app_router.dart';
+import '../../core/state/progress.dart';
 import '../../core/theme/app_metrics.dart';
 import '../../core/theme/app_type.dart';
 import '../../core/theme/theme_x.dart';
+import '../../core/widgets/mp_pill.dart';
 import 'path_node.dart';
 
-class PathScreen extends StatefulWidget {
+class PathScreen extends ConsumerStatefulWidget {
   const PathScreen({super.key});
 
   @override
-  State<PathScreen> createState() => _PathScreenState();
+  ConsumerState<PathScreen> createState() => _PathScreenState();
 }
 
-class _PathScreenState extends State<PathScreen> with SingleTickerProviderStateMixin {
+class _PathScreenState extends ConsumerState<PathScreen>
+    with SingleTickerProviderStateMixin {
   late final AnimationController _pulse;
 
   @override
@@ -46,17 +50,24 @@ class _PathScreenState extends State<PathScreen> with SingleTickerProviderStateM
   Widget build(BuildContext context) {
     final colors = context.colors;
     final reduceMotion = MediaQuery.disableAnimationsOf(context);
+    final ProgressState progress = ref.watch(progressProvider);
+
+    PathNodeState nodeState(int index) {
+      if (index < progress.completedVerses) return PathNodeState.completed;
+      if (index == progress.completedVerses) return PathNodeState.active;
+      return PathNodeState.locked;
+    }
 
     final units = <_Unit>[
       _Unit('Unit 1 · Karma', <_Node>[
-        _Node('1', PathNodeState.completed),
-        _Node('2', PathNodeState.completed),
-        _Node('3', PathNodeState.active),
-        _Node('4', PathNodeState.locked),
+        _Node('1', nodeState(0)),
+        _Node('2', nodeState(1)),
+        _Node('3', nodeState(2)),
+        _Node('4', nodeState(3)),
       ]),
       _Unit('Unit 2 · Jnana', <_Node>[
-        _Node('5', PathNodeState.locked),
-        _Node('6', PathNodeState.locked),
+        _Node('5', nodeState(4)),
+        _Node('6', nodeState(5)),
       ]),
     ];
 
@@ -69,18 +80,21 @@ class _PathScreenState extends State<PathScreen> with SingleTickerProviderStateM
               padding: const EdgeInsets.all(AppSpace.s16),
               child: Row(
                 children: <Widget>[
-                  _Badge(label: '🔥 7', color: colors.primary),
-                  const Spacer(),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: AppSpace.s12, vertical: AppSpace.s6),
-                    decoration: BoxDecoration(
-                      color: colors.gold,
-                      borderRadius: BorderRadius.circular(AppRadius.pill),
-                    ),
-                    child: Text('MP 120', style: AppType.m1.copyWith(color: colors.onGold)),
+                  Lottie.asset(
+                    'assets/lottie/diya_flame.json',
+                    width: 28,
+                    height: 28,
+                    repeat: !reduceMotion,
                   ),
+                  const SizedBox(width: AppSpace.s4),
+                  _Badge(label: '${progress.streak}', color: colors.primary),
                   const Spacer(),
-                  IconButton(onPressed: () {}, icon: Icon(Icons.settings, color: colors.ink)),
+                  MpPill(points: progress.points, compact: true),
+                  const Spacer(),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.settings, color: colors.ink),
+                  ),
                 ],
               ),
             ),
@@ -89,10 +103,13 @@ class _PathScreenState extends State<PathScreen> with SingleTickerProviderStateM
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Daily goal 3/5', style: AppType.m1.copyWith(color: colors.inkMuted)),
+                  Text(
+                    'Daily goal ${progress.cardsToday}/${progress.dailyGoal}',
+                    style: AppType.m1.copyWith(color: colors.inkMuted),
+                  ),
                   const SizedBox(height: AppSpace.s4),
                   LinearProgressIndicator(
-                    value: 3 / 5,
+                    value: progress.dailyFraction,
                     backgroundColor: colors.surfaceSunken,
                     color: colors.primary,
                   ),
@@ -104,7 +121,9 @@ class _PathScreenState extends State<PathScreen> with SingleTickerProviderStateM
               child: AnimatedBuilder(
                 animation: _pulse,
                 builder: (BuildContext context, Widget? _) {
-                  final double pulseScale = reduceMotion ? 1.0 : Tween<double>(begin: 1.0, end: 1.08).evaluate(_pulse);
+                  final double pulseScale = reduceMotion
+                      ? 1.0
+                      : Tween<double>(begin: 1.0, end: 1.08).evaluate(_pulse);
                   return ListView.builder(
                     padding: const EdgeInsets.all(AppSpace.s16),
                     itemCount: units.length,
@@ -121,27 +140,30 @@ class _PathScreenState extends State<PathScreen> with SingleTickerProviderStateM
                               color: colors.primary,
                               borderRadius: BorderRadius.circular(AppRadius.sm),
                             ),
-                            child: Text(unit.title, style: AppType.t1.copyWith(color: colors.onPrimary)),
+                            child: Text(
+                              unit.title,
+                              style: AppType.t1.copyWith(color: colors.onPrimary),
+                            ),
                           ),
                           ...unit.nodes.asMap().entries.map((MapEntry<int, _Node> e) {
                             final bool right = e.key.isOdd;
                             return Padding(
                               padding: const EdgeInsets.only(bottom: AppSpace.s16),
                               child: Align(
-                                alignment: right ? Alignment.centerRight : Alignment.centerLeft,
+                                alignment: right
+                                    ? Alignment.centerRight
+                                    : Alignment.centerLeft,
                                 child: e.value.state == PathNodeState.active
                                     ? Transform.scale(
                                         scale: pulseScale,
                                         child: Stack(
                                           alignment: Alignment.center,
                                           children: <Widget>[
-                                            Container(
-                                              width: 72,
-                                              height: 72,
-                                              decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                border: Border.all(color: colors.primary, width: 2),
-                                              ),
+                                            Lottie.asset(
+                                              'assets/lottie/chakra.json',
+                                              width: 96,
+                                              height: 96,
+                                              repeat: !reduceMotion,
                                             ),
                                             PathNode(
                                               state: e.value.state,
@@ -152,12 +174,9 @@ class _PathScreenState extends State<PathScreen> with SingleTickerProviderStateM
                                         ),
                                       )
                                     : PathNode(
-                                    state: e.value.state,
-                                    label: e.value.label,
-                                    onTap: e.value.state == PathNodeState.active
-                                        ? () => context.push(Routes.lesson)
-                                        : null,
-                                  ),
+                                        state: e.value.state,
+                                        label: e.value.label,
+                                      ),
                               ),
                             );
                           }),

@@ -272,7 +272,7 @@ class _CardRail extends StatelessWidget {
           child: Text(
             awarded > 0 ? '+$awarded' : '+2',
             style: AppType.m1.copyWith(
-              color: context.colors.gold,
+              color: context.colors.onField,
               fontSize: 10,
               letterSpacing: 0.4,
             ),

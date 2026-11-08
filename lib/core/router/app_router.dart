@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../presentation/path/path_screen.dart';
 import '../../presentation/lesson/lesson_screen.dart';
+import '../../presentation/feed/feed_screen.dart';
 import '../../presentation/library/library_screen.dart';
 import '../../presentation/mp/wallet_screen.dart';
 import '../../presentation/sankalp/sankalp_screen.dart';
@@ -87,6 +88,11 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
         path: Routes.lesson,
         builder: (BuildContext context, GoRouterState state) =>
             const LessonScreen(),
+      ),
+      GoRoute(
+        path: Routes.shloka,
+        builder: (BuildContext context, GoRouterState state) =>
+            const FeedScreen(),
       ),
       StatefulShellRoute.indexedStack(
         builder: (

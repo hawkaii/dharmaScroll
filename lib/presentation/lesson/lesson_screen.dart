@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../core/state/progress.dart';
 
 import '../../core/theme/app_metrics.dart';
 import '../../core/theme/app_type.dart';
@@ -14,14 +17,14 @@ import '../../presentation/feed/widgets/expand_sheet.dart';
 import '../../presentation/feed/widgets/shloka_card.dart';
 
 /// Chunked 3-5 minute lesson session: 7 cards + a checkpoint every 3.
-class LessonScreen extends StatefulWidget {
+class LessonScreen extends ConsumerStatefulWidget {
   const LessonScreen({super.key});
 
   @override
-  State<LessonScreen> createState() => _LessonScreenState();
+  ConsumerState<LessonScreen> createState() => _LessonScreenState();
 }
 
-class _LessonScreenState extends State<LessonScreen> {
+class _LessonScreenState extends ConsumerState<LessonScreen> {
   late final PageController _controller;
   int _index = 0;
 
@@ -119,6 +122,7 @@ class _LessonScreenState extends State<LessonScreen> {
                       curve: Curves.easeOut,
                     );
                   } else {
+                    ref.read(progressProvider.notifier).completeSession();
                     showDialog<void>(
                       context: context,
                       barrierDismissible: false,
