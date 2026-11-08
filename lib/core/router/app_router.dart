@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../presentation/path/path_screen.dart';
+import '../../presentation/lesson/lesson_screen.dart';
 import '../../presentation/library/library_screen.dart';
 import '../../presentation/mp/wallet_screen.dart';
 import '../../presentation/sankalp/sankalp_screen.dart';
@@ -20,6 +21,7 @@ import '../../presentation/yatra/yatra_screen.dart';
 abstract final class Routes {
   static const String shloka = '/shloka';
   static const String path = '/path';
+  static const String lesson = '/lesson';
   static const String yatra = '/yatra';
   static const String mann = '/mann';
   static const String sangha = '/sangha';
@@ -80,6 +82,11 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
         path: Routes.sankalp,
         builder: (BuildContext context, GoRouterState state) =>
             const SankalpScreen(),
+      ),
+      GoRoute(
+        path: Routes.lesson,
+        builder: (BuildContext context, GoRouterState state) =>
+            const LessonScreen(),
       ),
       StatefulShellRoute.indexedStack(
         builder: (

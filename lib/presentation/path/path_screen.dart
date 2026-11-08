@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:go_router/go_router.dart';
+
+import '../../core/router/app_router.dart';
 import '../../core/theme/app_metrics.dart';
 import '../../core/theme/app_type.dart';
 import '../../core/theme/theme_x.dart';
@@ -140,11 +143,21 @@ class _PathScreenState extends State<PathScreen> with SingleTickerProviderStateM
                                                 border: Border.all(color: colors.primary, width: 2),
                                               ),
                                             ),
-                                            PathNode(state: e.value.state, label: e.value.label),
+                                            PathNode(
+                                              state: e.value.state,
+                                              label: e.value.label,
+                                              onTap: () => context.push(Routes.lesson),
+                                            ),
                                           ],
                                         ),
                                       )
-                                    : PathNode(state: e.value.state, label: e.value.label),
+                                    : PathNode(
+                                    state: e.value.state,
+                                    label: e.value.label,
+                                    onTap: e.value.state == PathNodeState.active
+                                        ? () => context.push(Routes.lesson)
+                                        : null,
+                                  ),
                               ),
                             );
                           }),
