@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 import '../../core/theme/app_metrics.dart';
 import '../../core/theme/app_type.dart';
 import '../../core/theme/theme_x.dart';
+import 'package:fl_chart/fl_chart.dart';
+
+
 import '../../core/widgets/mp_pill.dart';
 import '../../core/widgets/parchment.dart';
 
@@ -75,6 +78,36 @@ class YatraScreen extends StatelessWidget {
                     AppSpace.s32,
                   ),
                   children: <Widget>[
+                    SizedBox(
+                      height: 120,
+                      child: BarChart(
+                        BarChartData(
+                          barGroups: _chapters
+                              .asMap()
+                              .entries
+                              .map((e) => BarChartGroupData(
+                                    x: e.key,
+                                    barRods: <BarChartRodData>[
+                                      BarChartRodData(
+                                        toY: e.value.verses.toDouble(),
+                                        color: e.value.done
+                                            ? context.colors.gold
+                                            : e.value.current
+                                                ? context.colors.primary
+                                                : context.colors.inkDisabled,
+                                        width: 12,
+                                        borderRadius: BorderRadius.circular(4),
+                                      ),
+                                    ],
+                                  ))
+                              .toList(),
+                          titlesData: const FlTitlesData(show: false),
+                          gridData: const FlGridData(show: false),
+                          borderData: FlBorderData(show: false),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: AppSpace.s12),
                     _ChapterHeader(),
                     const SizedBox(height: AppSpace.s24),
                     SizedBox(height: 560, child: _Path(chapters: _chapters)),
