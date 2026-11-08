@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import '../../core/theme/app_metrics.dart';
 import '../../core/theme/app_type.dart';
 import '../../core/theme/theme_x.dart';
+import 'package:lottie/lottie.dart';
+
 import '../../core/widgets/hard_button.dart';
 import '../../data/fake_verses.dart';
 import '../../domain/models/verse.dart';
@@ -117,7 +119,29 @@ class _LessonScreenState extends State<LessonScreen> {
                       curve: Curves.easeOut,
                     );
                   } else {
-                    context.pop();
+                    showDialog<void>(
+                      context: context,
+                      barrierDismissible: false,
+                      builder: (BuildContext ctx) => AlertDialog(
+                        content: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Lottie.asset(
+                              'assets/lottie/reward_burst.json',
+                              width: 120,
+                              height: 120,
+                              repeat: false,
+                            ),
+                            const SizedBox(height: AppSpace.s12),
+                            Text('Session complete', style: AppType.t1.copyWith(color: context.colors.ink)),
+                            Text('+10 MP', style: AppType.m1.copyWith(color: context.colors.gold)),
+                          ],
+                        ),
+                        actions: <Widget>[
+                          TextButton(onPressed: () { Navigator.of(ctx).pop(); context.pop(); }, child: const Text('Done')),
+                        ],
+                      ),
+                    );
                   }
                 },
               ),
