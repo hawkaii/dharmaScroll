@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../features/ekant/crisis_screen.dart';
+import '../features/ekant/ekant_screen.dart';
 import '../presentation/hear/hear_screen.dart';
 import '../presentation/onboarding/onboarding_flow.dart';
 import '../presentation/shell/app_shell.dart';
@@ -20,7 +22,20 @@ abstract final class Routes {
   static const String hear = '/hear';
   static const String walk = '/walk';
   static const String complete = '/complete';
+  static const String ekant = '/ekant';
+  static const String crisis = '/crisis';
 }
+
+/// The quiet room and the crisis screen fade in; nothing slides.
+Page<void> _fadePage(GoRouterState s, Widget child, Duration d) =>
+    CustomTransitionPage<void>(
+      key: s.pageKey,
+      child: child,
+      transitionDuration: d,
+      reverseTransitionDuration: const Duration(milliseconds: 350),
+      transitionsBuilder: (_, Animation<double> a, _, Widget child) =>
+          FadeTransition(opacity: a, child: child),
+    );
 
 /// Onboarding is a top-level route; the redirect keeps a finished user out of
 /// it and an unfinished one inside it.
@@ -59,6 +74,22 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
         path: Routes.complete,
         builder: (BuildContext c, GoRouterState s) =>
             CompleteScreen(award: s.extra is int ? s.extra! as int : 0),
+      ),
+      GoRoute(
+        path: Routes.ekant,
+        pageBuilder: (BuildContext c, GoRouterState s) => _fadePage(
+          s,
+          const EkantScreen(),
+          const Duration(milliseconds: 700),
+        ),
+      ),
+      GoRoute(
+        path: Routes.crisis,
+        pageBuilder: (BuildContext c, GoRouterState s) => _fadePage(
+          s,
+          const CrisisScreen(),
+          const Duration(milliseconds: 900),
+        ),
       ),
       StatefulShellRoute.indexedStack(
         builder: (BuildContext c, GoRouterState s, StatefulNavigationShell n) =>

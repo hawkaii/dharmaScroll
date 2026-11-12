@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../core/router.dart';
 import '../../core/state/progress.dart';
 import '../../core/state/settings.dart';
 import '../../design/tokens.dart';
@@ -63,6 +65,11 @@ class YouScreen extends ConsumerWidget {
               ],
             ),
             const SizedBox(height: Sp.s22),
+            _Row(
+              label: 'Ekant',
+              value: 'A quiet room',
+              onTap: () => context.push(Routes.ekant),
+            ),
             _Row(
               label: 'Reminder',
               value: timeName(s.reminderMinutes),

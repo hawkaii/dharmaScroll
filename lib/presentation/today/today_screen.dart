@@ -116,6 +116,10 @@ class TodayScreen extends ConsumerWidget {
                             : '${p.points} Moksh Points',
                         style: DType.body(c.faint, size: 16),
                       ),
+                      TextAction(
+                        label: 'Ekant, a quiet room',
+                        onPressed: () => context.push(Routes.ekant),
+                      ),
                     ],
                   ),
                 ),
