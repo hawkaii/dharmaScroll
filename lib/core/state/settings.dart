@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../app_providers.dart';
 import '../../design/widgets.dart';
+import '../feedback/sound_service.dart';
 
 enum Language { hindi, english, hinglish }
 
@@ -67,6 +68,7 @@ class SettingsNotifier extends Notifier<Settings> {
       ),
     );
     Haptics.enabled = s.soundHaptics;
+    SoundService.instance.enabled = s.soundHaptics;
     return s;
   }
 
@@ -82,6 +84,12 @@ class SettingsNotifier extends Notifier<Settings> {
 
   void setSoundHaptics(bool v) {
     Haptics.enabled = v;
+    SoundService.instance.enabled = v;
+    // Let the person hear and feel what they just switched on.
+    if (v) {
+      Haptics.tick();
+      SoundService.instance.play(Sfx.tap);
+    }
     state = state.copyWith(soundHaptics: v);
     _p.setBool(kSound, v);
   }
