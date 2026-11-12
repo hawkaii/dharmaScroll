@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import 'shloka_nav_bar.dart';
 
-/// Hosts the five branches so each tab keeps its own navigator and scroll state.
+/// Hosts the three branches so each tab keeps its own navigator and scroll state.
 class AppShell extends StatelessWidget {
   const AppShell({super.key, required this.navigationShell});
 

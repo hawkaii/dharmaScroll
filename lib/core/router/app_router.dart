@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,9 +17,11 @@ import '../../presentation/onboarding/onboarding_state.dart';
 import '../../presentation/profile/profile_screen.dart';
 import '../../presentation/sangha/sangha_screen.dart';
 import '../../presentation/shell/app_shell.dart';
+import '../../presentation/today/today_screen.dart';
 import '../../presentation/yatra/yatra_screen.dart';
 
 abstract final class Routes {
+  static const String today = '/today';
   static const String shloka = '/shloka';
   static const String path = '/path';
   static const String lesson = '/lesson';
@@ -48,7 +50,7 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
   ref.onDispose(refresh.dispose);
 
   return GoRouter(
-    initialLocation: Routes.path,
+    initialLocation: Routes.today,
     refreshListenable: refresh,
     redirect: (BuildContext context, GoRouterState state) {
       final bool completed = ref.read(onboardingProvider).completed;
@@ -59,7 +61,7 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
         return Routes.onboarding;
       }
       if (completed && inOnboarding) {
-        return Routes.path;
+        return Routes.today;
       }
       return null;
     },
@@ -94,6 +96,35 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
         builder: (BuildContext context, GoRouterState state) =>
             const FeedScreen(),
       ),
+      // Reached from Today and the end of the feed, not from a tab. They keep
+      // their routes so nothing is lost while the shell has only three tabs.
+      GoRoute(
+        path: Routes.path,
+        builder: (BuildContext context, GoRouterState state) =>
+            const PathScreen(),
+      ),
+      GoRoute(
+        path: Routes.mann,
+        builder: (BuildContext context, GoRouterState state) =>
+            const _Pushed(child: MannScreen()),
+        routes: <RouteBase>[
+          GoRoute(
+            path: 'result',
+            builder: (BuildContext context, GoRouterState state) =>
+                const MannResultScreen(),
+          ),
+          GoRoute(
+            path: 'crisis',
+            builder: (BuildContext context, GoRouterState state) =>
+                const CrisisScreen(),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: Routes.sangha,
+        builder: (BuildContext context, GoRouterState state) =>
+            const _Pushed(child: SanghaScreen()),
+      ),
       StatefulShellRoute.indexedStack(
         builder: (
           BuildContext context,
@@ -104,9 +135,9 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
           StatefulShellBranch(
             routes: <RouteBase>[
               GoRoute(
-                path: Routes.path,
+                path: Routes.today,
                 builder: (BuildContext context, GoRouterState state) =>
-                    const PathScreen(),
+                    const TodayScreen(),
               ),
             ],
           ),
@@ -116,36 +147,6 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
                 path: Routes.yatra,
                 builder: (BuildContext context, GoRouterState state) =>
                     const YatraScreen(),
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            routes: <RouteBase>[
-              GoRoute(
-                path: Routes.mann,
-                builder: (BuildContext context, GoRouterState state) =>
-                    const MannScreen(),
-                routes: <RouteBase>[
-                  GoRoute(
-                    path: 'result',
-                    builder: (BuildContext context, GoRouterState state) =>
-                        const MannResultScreen(),
-                  ),
-                  GoRoute(
-                    path: 'crisis',
-                    builder: (BuildContext context, GoRouterState state) =>
-                        const CrisisScreen(),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            routes: <RouteBase>[
-              GoRoute(
-                path: Routes.sangha,
-                builder: (BuildContext context, GoRouterState state) =>
-                    const SanghaScreen(),
               ),
             ],
           ),
@@ -170,3 +171,16 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
     ],
   );
 });
+
+/// Mann and Sangha were tab bodies and bring no Scaffold of their own; pushed
+/// on their own they need one, and a back button.
+class _Pushed extends StatelessWidget {
+  const _Pushed({required this.child});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(appBar: AppBar(), body: child);
+  }
+}

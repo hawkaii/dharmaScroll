@@ -4,13 +4,11 @@ import '../../core/theme/app_metrics.dart';
 import '../../core/theme/app_type.dart';
 import '../../core/theme/theme_x.dart';
 
+/// Order matches the shell branches in `app_router.dart`.
+enum ShlokaTab { today, yatra, you }
 
-enum ShlokaTab { shloka, yatra, mann, sangha, profile }
-
-/// Five tabs with the mic raised through the middle.
-///
-/// Hand-rolled rather than `NavigationBar`: Material cannot raise one item, and
-/// the raised mic is the signature of the shell.
+/// Three tabs: Today, Yatra, You. Mann Darpan and Sangha are reached from
+/// Today, so the bar never grows past three.
 class ShlokaNavBar extends StatelessWidget {
   const ShlokaNavBar({
     super.key,
@@ -55,21 +53,14 @@ class ShlokaNavBar extends StatelessWidget {
               children: <Widget>[
                 for (int i = 0; i < ShlokaTab.values.length; i++)
                   Expanded(
-                    child: i == 2
-                        ? const SizedBox.shrink()
-                        : _NavItem(
-                            tab: ShlokaTab.values[i],
-                            active: currentIndex == i,
-                            onTap: () => onTap(i),
-                          ),
+                    child: _NavItem(
+                      tab: ShlokaTab.values[i],
+                      active: currentIndex == i,
+                      onTap: () => onTap(i),
+                    ),
                   ),
               ],
             ),
-          ),
-          // Last in the stack so it wins hit-testing over the row.
-          Positioned(
-            bottom: _height - 22,
-            child: _MicButton(active: currentIndex == 2, onTap: () => onTap(2)),
           ),
         ],
       ),
@@ -126,50 +117,14 @@ class _NavItem extends StatelessWidget {
   }
 
   static String _label(ShlokaTab tab) => switch (tab) {
-    ShlokaTab.shloka => 'Shloka',
+    ShlokaTab.today => 'Today',
     ShlokaTab.yatra => 'Yatra',
-    ShlokaTab.mann => 'Mann',
-    ShlokaTab.sangha => 'Sangha',
-    ShlokaTab.profile => 'Profile',
+    ShlokaTab.you => 'You',
   };
 
   static IconData _icon(ShlokaTab tab) => switch (tab) {
-    ShlokaTab.shloka => Icons.auto_stories_outlined,
+    ShlokaTab.today => Icons.wb_twilight_outlined,
     ShlokaTab.yatra => Icons.route_outlined,
-    ShlokaTab.mann => Icons.mic_none,
-    ShlokaTab.sangha => Icons.groups_outlined,
-    ShlokaTab.profile => Icons.person_outline,
+    ShlokaTab.you => Icons.person_outline,
   };
-}
-
-class _MicButton extends StatelessWidget {
-  const _MicButton({required this.active, required this.onTap});
-
-  final bool active;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Semantics(
-      button: true,
-      label: 'Mann Darpan. Open the mic.',
-      child: GestureDetector(
-        onTap: onTap,
-        child: Container(
-          width: 56,
-          height: 56,
-          decoration: BoxDecoration(
-            color: active ? context.colors.gold : context.colors.primary,
-            shape: BoxShape.circle,
-            boxShadow: AppShadow.soft,
-          ),
-          child: Icon(
-            Icons.mic,
-            size: 24,
-            color: active ? context.colors.onGold : context.colors.onPrimary,
-          ),
-        ),
-      ),
-    );
-  }
 }
