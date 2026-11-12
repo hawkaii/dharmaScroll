@@ -95,7 +95,11 @@ class VoiceRecorder {
   /// AAC on mobile; on web the first format the browser can encode.
   Future<AudioEncoder?> _pickEncoder() async {
     const List<AudioEncoder> preference = kIsWeb
-        ? <AudioEncoder>[AudioEncoder.opus, AudioEncoder.wav, AudioEncoder.aacLc]
+        ? <AudioEncoder>[
+            AudioEncoder.opus,
+            AudioEncoder.wav,
+            AudioEncoder.aacLc,
+          ]
         : <AudioEncoder>[AudioEncoder.aacLc];
     for (final AudioEncoder encoder in preference) {
       if (await _recorder.isEncoderSupported(encoder)) {

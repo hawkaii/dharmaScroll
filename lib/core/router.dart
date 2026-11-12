@@ -1,0 +1,97 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+
+import '../presentation/hear/hear_screen.dart';
+import '../presentation/onboarding/onboarding_flow.dart';
+import '../presentation/shell/app_shell.dart';
+import '../presentation/today/today_screen.dart';
+import '../presentation/walk/complete_screen.dart';
+import '../presentation/walk/walk_screen.dart';
+import '../presentation/yatra/yatra_screen.dart';
+import '../presentation/you/you_screen.dart';
+import 'state/settings.dart';
+
+abstract final class Routes {
+  static const String onboarding = '/onboarding';
+  static const String today = '/today';
+  static const String yatra = '/yatra';
+  static const String you = '/you';
+  static const String hear = '/hear';
+  static const String walk = '/walk';
+  static const String complete = '/complete';
+}
+
+/// Onboarding is a top-level route; the redirect keeps a finished user out of
+/// it and an unfinished one inside it.
+final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
+  final ValueNotifier<int> refresh = ValueNotifier<int>(0);
+  ref.listen<bool>(
+    settingsProvider.select((Settings s) => s.onboarded),
+    (bool? previous, bool next) => refresh.value++,
+  );
+  ref.onDispose(refresh.dispose);
+
+  return GoRouter(
+    initialLocation: Routes.today,
+    refreshListenable: refresh,
+    redirect: (BuildContext context, GoRouterState state) {
+      final bool done = ref.read(settingsProvider).onboarded;
+      final bool inOnboarding = state.matchedLocation == Routes.onboarding;
+      if (!done && !inOnboarding) return Routes.onboarding;
+      if (done && inOnboarding) return Routes.today;
+      return null;
+    },
+    routes: <RouteBase>[
+      GoRoute(
+        path: Routes.onboarding,
+        builder: (BuildContext c, GoRouterState s) => const OnboardingFlow(),
+      ),
+      GoRoute(
+        path: Routes.hear,
+        builder: (BuildContext c, GoRouterState s) => const HearScreen(),
+      ),
+      GoRoute(
+        path: Routes.walk,
+        builder: (BuildContext c, GoRouterState s) => const WalkScreen(),
+      ),
+      GoRoute(
+        path: Routes.complete,
+        builder: (BuildContext c, GoRouterState s) =>
+            CompleteScreen(award: s.extra is int ? s.extra! as int : 0),
+      ),
+      StatefulShellRoute.indexedStack(
+        builder: (BuildContext c, GoRouterState s, StatefulNavigationShell n) =>
+            AppShell(navigationShell: n),
+        branches: <StatefulShellBranch>[
+          StatefulShellBranch(
+            routes: <RouteBase>[
+              GoRoute(
+                path: Routes.today,
+                builder: (BuildContext c, GoRouterState s) =>
+                    const TodayScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: <RouteBase>[
+              GoRoute(
+                path: Routes.yatra,
+                builder: (BuildContext c, GoRouterState s) =>
+                    const YatraScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: <RouteBase>[
+              GoRoute(
+                path: Routes.you,
+                builder: (BuildContext c, GoRouterState s) => const YouScreen(),
+              ),
+            ],
+          ),
+        ],
+      ),
+    ],
+  );
+});
