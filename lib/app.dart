@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'core/feedback/sound_service.dart';
 import 'core/router.dart';
 import 'design/theme.dart';
 
@@ -27,7 +28,12 @@ class DharmaScrollApp extends ConsumerWidget {
         return MediaQuery.withClampedTextScaling(
           minScaleFactor: 1,
           maxScaleFactor: 1.3,
-          child: child ?? const SizedBox.shrink(),
+          // Browsers block audio until a gesture; the first touch unlocks it.
+          child: Listener(
+            behavior: HitTestBehavior.translucent,
+            onPointerDown: (_) => SoundService.instance.unlock(),
+            child: child ?? const SizedBox.shrink(),
+          ),
         );
       },
     );

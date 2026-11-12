@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/feedback/sound_service.dart';
 import '../../core/router.dart';
 import '../../core/state/progress.dart';
 import '../../core/state/settings.dart';
@@ -146,7 +147,20 @@ class _ChantState extends State<_Chant> with SingleTickerProviderStateMixin {
     duration: WalkScreen.chantLength,
   );
   int _ticked = 0;
+  int _pulses = 0;
   bool _holding = false;
+
+  /// Breath position, 0 to 1, from the chant clock itself. The ring glow, the
+  /// drone swell and the haptic pulse all read this one value, so they cannot
+  /// drift apart. It only advances while the ring is held.
+  double get _breath =>
+      (_c.value *
+      WalkScreen.chantLength.inMilliseconds /
+      Motion.breathe.inMilliseconds);
+
+  /// 0 to 1 to 0 over one breath, easeInOut-shaped.
+  static double _swell(double breath) =>
+      0.5 - 0.5 * math.cos(2 * math.pi * breath);
 
   @override
   void initState() {
@@ -157,14 +171,35 @@ class _ChantState extends State<_Chant> with SingleTickerProviderStateMixin {
         _ticked = lines;
         Haptics.tick();
       }
+      if (!_holding) return;
+      // One pulse at the top of each breath, as the glow peaks.
+      final int pulses = (_breath + 0.5).floor();
+      if (pulses > _pulses) {
+        _pulses = pulses;
+        Haptics.pulse();
+      }
+      SoundService.instance.setDroneLevel(
+        _droneBase * (0.8 + 0.2 * _swell(_breath)),
+      );
     });
     _c.addStatusListener((AnimationStatus s) {
-      if (s == AnimationStatus.completed) widget.onFull();
+      if (s == AnimationStatus.completed) {
+        SoundService.instance
+          ..duck(false)
+          ..stopDrone()
+          ..play(Sfx.chime);
+        widget.onFull();
+      }
     });
   }
 
+  static const double _droneBase = 0.55;
+
   @override
   void dispose() {
+    SoundService.instance
+      ..duck(false)
+      ..stopDrone();
     _c.dispose();
     super.dispose();
   }
@@ -174,8 +209,16 @@ class _ChantState extends State<_Chant> with SingleTickerProviderStateMixin {
     setState(() => _holding = on);
     if (on) {
       _c.forward();
+      Haptics.tick();
+      // The tanpura comes in under the user's own voice, so it is ducked.
+      SoundService.instance
+        ..duck(true)
+        ..startDrone(level: _droneBase);
     } else {
       _c.stop();
+      SoundService.instance
+        ..duck(false)
+        ..stopDrone();
     }
   }
 
@@ -243,7 +286,9 @@ class _ChantState extends State<_Chant> with SingleTickerProviderStateMixin {
                     progress: _c.value,
                     track: c.line,
                     fill: Tok.marigold,
-                    glow: _holding,
+                    glow: !_holding
+                        ? 0
+                        : (reduceMotion(context) ? 0.6 : _swell(_breath)),
                   ),
                   child: Center(
                     child: AnimatedContainer(
@@ -286,7 +331,7 @@ class _RingPainter extends CustomPainter {
   final double progress;
   final Color track;
   final Color fill;
-  final bool glow;
+  final double glow;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -303,7 +348,7 @@ class _RingPainter extends CustomPainter {
         ..strokeCap = StrokeCap.round
         ..strokeWidth = 4
         ..color = fill;
-      if (glow) {
+      if (glow > 0) {
         canvas.drawArc(
           ring,
           -math.pi / 2,
@@ -311,7 +356,7 @@ class _RingPainter extends CustomPainter {
           false,
           Paint.from(p)
             ..strokeWidth = 8
-            ..color = fill.withValues(alpha: 0.35)
+            ..color = fill.withValues(alpha: 0.12 + 0.3 * glow)
             ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 6),
         );
       }

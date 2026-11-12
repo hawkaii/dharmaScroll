@@ -1,30 +1,24 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../core/feedback/haptic_service.dart';
+import '../core/feedback/sound_service.dart';
 import 'tokens.dart';
 
-/// One switch for sound and haptics (You > Sound & haptics). Set by settings.
-/// shortcut: a static flag, not injected; fine for one global toggle.
+/// Short names for the haptic patterns; see `HapticService` for the map.
+/// The You > Sound & haptics switch sets [enabled].
 abstract final class Haptics {
-  static bool enabled = true;
-  static void tap() {
-    if (enabled) HapticFeedback.lightImpact();
-  }
-
-  static void tick() {
-    if (enabled) HapticFeedback.selectionClick();
-  }
-
-  static void soft() {
-    if (enabled) HapticFeedback.lightImpact();
-  }
-
-  static void success() {
-    if (enabled) HapticFeedback.mediumImpact();
-  }
+  static bool get enabled => HapticService.instance.enabled;
+  static set enabled(bool v) => HapticService.instance.enabled = v;
+  static void tap() => HapticService.instance.tap();
+  static void tick() => HapticService.instance.tick();
+  static void soft() => HapticService.instance.soft();
+  static void pulse() => HapticService.instance.pulse();
+  static void keep() => HapticService.instance.keep();
+  static void success() => HapticService.instance.success();
+  static void crescendo() => HapticService.instance.crescendo();
 }
 
 bool reduceMotion(BuildContext context) =>
@@ -182,6 +176,7 @@ class _PrimaryButtonState extends State<PrimaryButton> {
         onTap: enabled
             ? () {
                 Haptics.tap();
+                SoundService.instance.play(Sfx.tap);
                 widget.onPressed!();
               }
             : null,

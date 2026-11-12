@@ -93,11 +93,7 @@ void main() {
     for (int i = 1; i <= HearScreen.dailyLimit; i++) {
       expect(find.text('$i OF ${HearScreen.dailyLimit}'), findsOneWidget);
       expect(find.text('That is enough\nfor today.'), findsNothing);
-      await tester.fling(
-        find.byType(PageView),
-        const Offset(0, -500),
-        2000,
-      );
+      await tester.fling(find.byType(PageView), const Offset(0, -500), 2000);
       await tester.pumpAndSettle();
     }
     expect(find.text(HearScreen.endTitle), findsOneWidget);

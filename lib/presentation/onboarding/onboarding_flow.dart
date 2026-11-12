@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../core/feedback/sound_service.dart';
 import '../../core/state/settings.dart';
 import '../../design/effects.dart';
 import '../../design/tokens.dart';
@@ -28,13 +29,17 @@ class _OnboardingFlowState extends ConsumerState<OnboardingFlow> {
   bool _lit = false;
 
   void _next() {
-    Haptics.tick();
+    // The button already tapped (sound + haptic); the page turn is the swipe.
+    SoundService.instance.play(Sfx.swipe);
     setState(() => _page++);
   }
 
   Future<void> _finish() async {
     if (_lit) return;
     setState(() => _lit = true);
+    // Lamp ignite: shimmer, with one soft pulse.
+    SoundService.instance.play(Sfx.shimmer);
+    Haptics.soft();
     ref.read(settingsProvider.notifier).setReminder(_minutes);
     await Future<void>.delayed(
       reduceMotion(context) ? Duration.zero : Motion.ignite,

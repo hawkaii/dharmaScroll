@@ -30,6 +30,7 @@ flutter:
   assets:
     - assets/svg/
     - assets/svg/icons/
+    - assets/audio/
   fonts:
     - family: NotoSerifDevanagari
       fonts:

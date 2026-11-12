@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/feedback/sound_service.dart';
 import '../../core/router.dart';
 import '../../core/state/progress.dart';
 import '../../core/state/settings.dart';
@@ -46,6 +47,7 @@ class _HearScreenState extends ConsumerState<HearScreen> {
 
   @override
   void dispose() {
+    SoundService.instance.stopDrone();
     _controller.dispose();
     super.dispose();
   }
@@ -57,11 +59,15 @@ class _HearScreenState extends ConsumerState<HearScreen> {
     } else {
       n.completeStep(RitualStep.hear);
       Haptics.soft();
+      SoundService.instance.play(Sfx.bellLow);
     }
   }
 
   void _onPage(int page) {
     Haptics.tick();
+    SoundService.instance
+      ..stopDrone(fadeOut: const Duration(milliseconds: 250))
+      ..play(Sfx.tok);
     setState(() {
       _page = page;
       _listening = false;
@@ -70,7 +76,8 @@ class _HearScreenState extends ConsumerState<HearScreen> {
   }
 
   void _keep(Verse v) {
-    Haptics.tap();
+    Haptics.keep();
+    SoundService.instance.play(Sfx.bowl);
     ref.read(progressProvider.notifier).keep(v.id);
     setState(() => _bloom++);
   }
@@ -107,7 +114,15 @@ class _HearScreenState extends ConsumerState<HearScreen> {
                     listening: _listening && _page == i,
                     bloom: _page == i ? _bloom : 0,
                     onListen: (bool on) {
-                      if (on) Haptics.tick();
+                      // Hold to listen: the tanpura fades in under the verse.
+                      if (on) {
+                        Haptics.tick();
+                        SoundService.instance.startDrone(level: 0.4);
+                      } else {
+                        SoundService.instance.stopDrone(
+                          fadeOut: const Duration(milliseconds: 350),
+                        );
+                      }
                       setState(() => _listening = on);
                     },
                     onKeep: () => _keep(v),
