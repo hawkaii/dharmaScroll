@@ -147,6 +147,57 @@ svg.i.f{fill:currentColor;stroke:none}
 @keyframes shake{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 .shakey{animation:shake 700ms 2s infinite both}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important;animation-iteration-count:1!important}}
+/* ---- UX additions ---- */
+.mini{width:220px;height:330px;border-radius:28px;overflow:hidden;position:relative;background:var(--bg);color:var(--ink);box-shadow:0 0 0 6px #1b1740,0 14px 30px rgba(20,15,60,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:16px;text-align:center}
+.mini .btn{min-height:38px;padding:0 16px;font-size:12px;border-radius:12px}
+.mini .t-title{font-size:18px;line-height:22px}
+.flowrow{display:flex;align-items:flex-start;gap:0}
+.arrow{width:70px;flex:none;display:flex;flex-direction:column;align-items:center;color:#4B3FA0;font-weight:900;font-size:11px;text-align:center;margin-top:150px}
+.arrow svg{width:56px;height:24px;stroke:#4B3FA0;fill:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.step{width:240px;flex:none}
+.step .n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#4B3FA0;color:#fff;font-weight:900;margin-bottom:8px}
+.step .cap{margin-top:14px;font-size:13px;line-height:18px;color:#2B2350}
+.step .cap b{color:#4B3FA0}
+table.ux{border-collapse:separate;border-spacing:0;font-size:13px;line-height:18px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 0 #cfc8e6,0 20px 40px rgba(43,35,80,.12);color:#2B2350}
+table.ux th{background:#2B2350;color:#fff;text-align:left;padding:10px 12px;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+table.ux td{padding:10px 12px;border-top:1px solid #E9DDC4;vertical-align:top}
+table.ux td:first-child{font-weight:900;white-space:nowrap}
+table.ux tr:nth-child(even) td{background:#FFF8EC}
+.tag{display:inline-block;background:#FFF0D2;color:#9A4A00;border-radius:99px;padding:1px 8px;font-weight:800;font-size:11px}
+.spot{position:absolute;border-radius:20px;box-shadow:0 0 0 4px #FFD24A,0 0 0 999px rgba(21,17,46,.72);z-index:6;animation:halo2 1.6s ease-in-out infinite}
+@keyframes halo2{50%{box-shadow:0 0 0 9px rgba(255,210,74,.7),0 0 0 999px rgba(21,17,46,.72)}}
+.pulsebtn{animation:pulsebtn 1.6s ease-in-out infinite}
+@keyframes pulsebtn{50%{box-shadow:0 5px 0 var(--pri-e),0 0 0 8px rgba(255,210,74,.6)}}
+.tip{position:absolute;z-index:7;background:#fff;color:#2B2350;border-radius:18px;padding:14px 16px;font-weight:700;font-size:15px;line-height:21px;box-shadow:0 5px 0 #E9DDC4;width:300px}
+.ring{position:relative;width:96px;height:96px;flex:none}.ring svg{transform:rotate(-90deg)}.ring .v{position:absolute;inset:0;display:grid;place-items:center;font-weight:900;font-size:18px}
+.ring circle.fg{stroke-dasharray:264;animation:ringfill 3s var(--ease) infinite}
+@keyframes ringfill{0%{stroke-dashoffset:264}70%,100%{stroke-dashoffset:90}}
+.demo{width:260px;height:190px;border-radius:20px;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden;color:var(--ink);box-shadow:inset 0 0 0 2px var(--line)}
+.demo small{position:absolute;left:12px;top:10px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.flip{width:150px;height:90px;perspective:600px}.flip>div{width:100%;height:100%;position:relative;transform-style:preserve-3d;animation:flip 3.2s var(--ease) infinite}
+.flip b{position:absolute;inset:0;border-radius:16px;display:grid;place-items:center;backface-visibility:hidden;font-weight:800;border:2px solid var(--line);box-shadow:0 4px 0 var(--line)}
+.flip .a{background:var(--surface);font-family:Tiro;font-size:24px}.flip .b{background:var(--stkbg);transform:rotateY(180deg);font-size:14px;color:var(--stkt);text-align:center;padding:8px}
+@keyframes flip{0%,35%{transform:rotateY(0)}50%,85%{transform:rotateY(180deg)}100%{transform:rotateY(360deg)}}
+.right-d{animation:rightd 2.4s infinite}
+@keyframes rightd{0%,25%{background:var(--surface);border-color:var(--line);transform:none}35%{transform:scale(1.05)}45%,85%{background:var(--okbg);border-color:var(--ok);transform:scale(1);box-shadow:0 4px 0 var(--ok)}100%{background:var(--surface);border-color:var(--line)}}
+.slide{width:150px;height:130px;position:relative;overflow:hidden;border-radius:12px;border:2px solid var(--line)}
+.slide i{position:absolute;inset:0;display:grid;place-items:center;font-style:normal;font-weight:900}
+.slide .s1{background:var(--stkbg);animation:s1 3s var(--ease) infinite}.slide .s2{background:var(--sec);color:var(--onsec);animation:s2 3s var(--ease) infinite}
+@keyframes s1{0%,40%{transform:none}55%,90%{transform:translateX(-30%)}100%{transform:none}}
+@keyframes s2{0%,40%{transform:translateX(100%)}55%,90%{transform:none}100%{transform:translateX(100%)}}
+.shared{width:70px;height:46px;border-radius:12px;background:var(--pri);box-shadow:0 4px 0 var(--pri-e);animation:shared 3.4s var(--ease) infinite;display:grid;place-items:center;font-family:Tiro;color:var(--onpri);font-size:16px}
+@keyframes shared{0%,25%{width:70px;height:46px}55%,85%{width:210px;height:100px;font-size:30px}100%{width:70px;height:46px}}
+.omd{position:relative;width:110px;height:110px;display:grid;place-items:center;font-family:Tiro;font-size:54px;color:#FFD24A}
+.omd::before,.omd::after{content:"";position:absolute;inset:0;border-radius:50%;border:3px solid #FFD24A;animation:omring 4s ease-out infinite}.omd::after{animation-delay:2s}
+.omd span{animation:omglow 4s ease-in-out infinite}
+@keyframes omring{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+@keyframes omglow{0%,100%{text-shadow:0 0 8px #FFB02E;transform:scale(1)}50%{text-shadow:0 0 30px #FFD24A,0 0 60px #FF9F1C;transform:scale(1.1)}}
+.kr-glow{transform-origin:100px 110px;animation:breathe 4s ease-in-out infinite}
+.kr-flute{transform-origin:100px 80px;animation:fl 4s ease-in-out infinite}
+@keyframes fl{50%{transform:rotate(-2deg) translateY(-2px)}}
+.rip{position:absolute;width:120px;height:120px;margin:-60px;border-radius:50%;border:4px solid #FFD24A;pointer-events:none;animation:rip 900ms ease-out forwards}
+@keyframes rip{from{transform:scale(.5);opacity:1}to{transform:scale(3);opacity:0}}
+.sleepf{filter:grayscale(1) opacity(.7);animation:zz 3s ease-in-out infinite}@keyframes zz{50%{transform:scale(.95)}}
 </style>
 </head>
 <body>
@@ -172,7 +223,7 @@ svg.i.f{fill:currentColor;stroke:none}
 </defs></svg>
 
 <div id="bar"><b>🪔 DharmaScroll Design Board</b>
-<button data-go="foundations">Foundations</button><button data-go="components">Components</button><button data-go="screens">Screens</button><button data-go="yatra">Yatra</button><button data-go="motion">Motion</button>
+<button data-go="foundations">Foundations</button><button data-go="components">Components</button><button data-go="screens">Screens</button><button data-go="yatra">Yatra</button><button data-go="motion">Motion</button><button data-go="flow">Flow</button><button data-go="uxspec">UX</button><button data-go="firstrun">First-run</button><button data-go="motiontbl">Motion spec</button><button data-go="om">Om</button>
 <button id="zin">＋</button><button id="zout">－</button><button id="zfit">Fit</button><span id="zoom"></span></div>
 <div id="vp"><div id="canvas">
 
@@ -453,6 +504,192 @@ svg.i.f{fill:currentColor;stroke:none}
 </div>
 </section>
 
+
+<!-- ================= UX: FLOW ================= -->
+<section class="sec" id="flow">
+<h1>5 · UX · User flow map</h1>
+<p class="sub">First launch to daily return in six frames. Every frame has one primary action and one success moment. Target: first shloka read inside 60 seconds of install.</p>
+<div class="flowrow">
+ <div class="step"><span class="n">1</span><div class="mini light">
+   <div class="omd" style="width:90px;height:90px;font-size:44px;color:#FF9F1C"><span>ॐ</span></div><div class="t-title">DharmaScroll</div><div class="t-small muted">One shloka a day. Five calm minutes.</div><button class="btn">Begin</button></div>
+   <div class="cap"><b>First launch</b><br>Do: tap Begin.<br>Success: soft Om chime, slide to step 2.<br><span class="tag">no sign-up wall</span></div></div>
+ <div class="arrow"><svg viewBox="0 0 56 24"><path d="M4 12h44M38 4l10 8-10 8"/></svg>tap</div>
+ <div class="step"><span class="n">2</span><div class="mini light">
+   <div class="bar" style="width:100%;height:10px"><i style="width:66%;background:var(--sec)"></i></div><div class="t-title">How much time each day?</div>
+   <div class="col g8" style="width:100%"><div class="opt" style="padding:8px 12px;font-size:13px">☕ 1 min · Easy</div><div class="opt sel" style="padding:8px 12px;font-size:13px">🪔 3 min · Steady</div><div class="opt" style="padding:8px 12px;font-size:13px">🌅 5 min · Deep</div></div><button class="btn">Continue</button></div>
+   <div class="cap"><b>Onboarding</b> (3 taps)<br>Do: pick a daily goal.<br>Success: card pops, button enables.<br><span class="tag">Duolingo: goal pick</span></div></div>
+ <div class="arrow"><svg viewBox="0 0 56 24"><path d="M4 12h44M38 4l10 8-10 8"/></svg>continue</div>
+ <div class="step"><span class="n">3</span><div class="mini light" style="justify-content:flex-start;padding-top:28px">
+   <div class="card" style="padding:14px;width:100%"><div class="shloka sm" style="font-size:19px;line-height:30px">कर्मण्येवाधिकारस्ते<br>मा फलेषु कदाचन ।</div><div class="t-small muted" style="font-size:12px">Do your duty. Let go of the fruit.</div></div>
+   <button class="btn block pulsebtn">I read it</button><div class="t-small" style="font-weight:800;color:var(--stkt)">👆 Tap to earn your first 10 MP</div></div>
+   <div class="cap"><b>First shloka</b> (guided)<br>Do: read, tap “I read it”.<br>Success: +10 MP flies to the pill.<br><span class="tag">coach mark</span></div></div>
+ <div class="arrow"><svg viewBox="0 0 56 24"><path d="M4 12h44M38 4l10 8-10 8"/></svg>+10 MP</div>
+ <div class="step"><span class="n">4</span><div class="mini light" style="justify-content:flex-start;padding-top:28px">
+   <div class="t-small" style="font-weight:800">Quick check · 1 question</div><div class="t-title" style="font-size:16px;line-height:20px">What does the verse ask you to let go of?</div>
+   <div class="col g8" style="width:100%"><div class="opt right" style="padding:8px 12px;font-size:13px">The fruit of action</div><div class="opt" style="padding:8px 12px;font-size:13px">The action itself</div></div><div class="toast ok" style="font-size:12px;padding:8px 10px">Correct! +15 MP</div></div>
+   <div class="cap"><b>First check-in</b><br>Do: pick an answer (2 choices only, first time).<br>Success: green pop + chime.<br><span class="tag">hint on 2nd miss</span></div></div>
+ <div class="arrow"><svg viewBox="0 0 56 24"><path d="M4 12h44M38 4l10 8-10 8"/></svg>continue</div>
+ <div class="step"><span class="n">5</span><div class="mini" style="background:linear-gradient(180deg,#2B2350,#4B3FA0);color:#fff"><div class="cf"></div>
+   <svg width="90" height="90" viewBox="0 0 24 24" class="flame" style="color:#FF9F1C;filter:drop-shadow(0 0 16px #FF9F1C)"><use href="#i-flame"/></svg><div style="font-size:44px;font-weight:900;color:#FFD24A;line-height:44px">1</div><div class="t-title">Day 1. Flame lit!</div><div class="t-small" style="opacity:.9">Come back tomorrow to keep it.</div><button class="btn" style="--f:#FFD24A;--e:#C9970F">Remind me at 7 AM</button></div>
+   <div class="cap"><b>First streak</b><br>Do: set a reminder time.<br>Success: flame lights, confetti. Notification permission is asked <i>after</i> value is shown.<br><span class="tag">streak flame</span></div></div>
+ <div class="arrow"><svg viewBox="0 0 56 24"><path d="M4 12h44M38 4l10 8-10 8"/></svg>next day</div>
+ <div class="step"><span class="n">6</span><div class="mini light" style="justify-content:flex-start;padding-top:24px">
+   <div class="toast info" style="font-size:12px;padding:8px 10px;text-align:left">🪔 Good morning! Your 2nd shloka is ready.</div>
+   <div class="ymap" style="width:390px;height:300px;flex:none;zoom:.5"></div>
+   <div class="t-small" style="font-weight:800">Next node is pulsing</div></div>
+   <div class="cap"><b>Daily return</b><br>Do: tap the pulsing node.<br>Success: lesson opens in 1 tap; flame goes to 2.<br><span class="tag">path map · gentle reminder</span></div></div>
+</div>
+</section>
+
+<!-- ================= UX: PER-SCREEN SPEC ================= -->
+<section class="sec" id="uxspec">
+<h1>6 · UX · One action per screen</h1>
+<p class="sub">Each screen answers one question: “what do I do here?” Everything else is removed or one tap away.</p>
+<table class="ux">
+<tr><th>Screen</th><th>Primary action</th><th>“What do I do here” cue</th><th>On success</th><th>Duolingo pattern</th><th>Clutter removed</th></tr>
+<tr><td>Welcome</td><td>Begin</td><td>“One shloka a day. Five calm minutes.”</td><td>Om chime, slide to onboarding</td><td>Instant start, no sign-up wall</td><td>Login, language list (auto from device)</td></tr>
+<tr><td>Onboarding</td><td>Pick daily goal (1 / 3 / 5 min)</td><td>“How much time each day?”</td><td>Choice pops, progress fills</td><td>Daily goal pick</td><td>Long forms; ask name last</td></tr>
+<tr><td>Home</td><td>Read &amp; earn (today's shloka)</td><td>Pulsing button + “Your daily shloka”</td><td>+10 MP flies to pill, goal ring fills</td><td><span class="tag">daily goal ring</span> <span class="tag">streak flame</span></td><td>Many verses at once, MP ledger, feature banners</td></tr>
+<tr><td>Shloka detail</td><td>I got it</td><td>“Tap a word to see its meaning”</td><td>Card flips to meaning, button enables</td><td>Tap-to-hint words</td><td>Katha + Jeevan behind “More”</td></tr>
+<tr><td>Checkpoint</td><td>Choose answer, then Check</td><td>Question in the largest type</td><td>Green sheet, +15 MP, Continue</td><td><span class="tag">lesson feedback sheet</span> soft wrong answer</td><td>Red screens, penalties, timers</td></tr>
+<tr><td>Mann Darpan</td><td>Tap the big mic</td><td>“Tap and speak, 20 seconds”</td><td>Orb settles, matched verse appears</td><td>Single hero control</td><td>Mood grid becomes optional chips</td></tr>
+<tr><td>Om moment</td><td>Tap Krishna to chant</td><td>“Tap with each Om”</td><td>Ring ripples, bead +1, 108 beads = bonus</td><td>Calm reward loop</td><td>No scores, no timer</td></tr>
+<tr><td>Wallet</td><td>See today's earned MP</td><td>Big gold number</td><td>Count-up 900 ms</td><td>XP summary</td><td>Full ledger one tap down</td></tr>
+<tr><td>Daily Sankalp</td><td>Take the sankalp</td><td>“Light one promise today”</td><td>Diya lights; evening 3-answer check-in</td><td>Commitment + friendly nudge</td><td>Failure language; “Aaj nahi” is free</td></tr>
+<tr><td>Gita Yatra</td><td>Tap the pulsing node</td><td>“START” bubble over next node</td><td>Node turns green, path draws on</td><td><span class="tag">path map, next node pulses</span></td><td>Chapter lists, text-only menus</td></tr>
+<tr><td>Sangha</td><td>Invite a friend</td><td>“Practice together. Invite one friend.”</td><td>Share sheet; friend joins, both +20 MP</td><td>Friends + weekly league</td><td>Global feeds, strangers</td></tr>
+<tr><td>Streak celebration</td><td>Keep going</td><td>Big number + week dots</td><td>Confetti, flame pulse, back to Home</td><td><span class="tag">streak flame</span></td><td>Share is secondary</td></tr>
+<tr><td>Lesson complete</td><td>Continue</td><td>“Lesson complete!” + 3 stats</td><td>Confetti + lotus bloom, MP count-up</td><td><span class="tag">lesson-complete summary</span></td><td>Long breakdown; one share link</td></tr>
+</table>
+<p class="sub" style="margin-top:24px;font-size:15px">Gentle reminders: one push a day at the chosen time; after two ignored, back off to every other day. Copy is warm: “Your flame is waiting”, never “You lost your streak”.</p>
+</section>
+<!-- ================= FIRST RUN & STATES ================= -->
+<section class="sec" id="firstrun">
+<h1>7 · UX · First-run guidance, empty states, day 2 / 7 / missed day</h1>
+<p class="sub">Coach marks teach by doing (max 3, skippable). Missed days are met with kindness, never red.</p>
+<div class="frames">
+<div class="frame"><div class="lbl">A · Coach mark on first Home (1 of 3)</div>
+<div class="phone light" data-sb><div class="scr" style="position:relative">
+ <div class="pad row sp" style="height:52px"><span class="stk"><svg class="i flame"><use href="#i-flame"/></svg>0</span><span class="xp"><span class="coin">मो</span>0</span><span style="width:24px"></span></div>
+ <div class="pad mt16"><div class="card" style="padding:24px 20px"><div class="shloka">कर्मण्येवाधिकारस्ते<br>मा फलेषु कदाचन ।</div><div class="t-body mt16" style="text-align:center;font-weight:700">Do your duty. Let go of the fruit.</div></div></div>
+ <div class="pad mt24"><button class="btn block">Read &amp; earn +10 MP</button></div>
+ <div class="spot" style="left:12px;right:12px;top:220px;height:62px"></div>
+ <div class="tip" style="left:20px;top:140px"><span style="font-size:22px">🪔</span> Read the verse, then tap here. That earns your first Moksh Points.<div class="row sp mt8"><span class="t-cap muted">1 of 3</span><span class="t-cap" style="color:#4B3FA0">Got it →</span></div></div>
+</div><nav class="bn" data-active="0"></nav></div></div>
+
+<div class="frame"><div class="lbl">B · Day 2 · welcome back</div>
+<div class="phone light" data-sb><div class="scr">
+ <div class="pad row sp" style="height:52px"><span class="stk"><svg class="i flame"><use href="#i-flame"/></svg>2</span><span class="xp"><span class="coin">मो</span>25</span><svg class="i" style="color:var(--muted)"><use href="#i-bell"/></svg></div>
+ <div class="pad"><div class="toast info">🙏 Welcome back, Arjun. Day 2 awaits.</div></div>
+ <div class="pad mt16 row g16"><div class="ring"><svg width="96" height="96"><circle cx="48" cy="48" r="42" fill="none" stroke="var(--line)" stroke-width="10"/><circle class="fg" cx="48" cy="48" r="42" fill="none" stroke="var(--pri)" stroke-width="10" stroke-linecap="round"/></svg><div class="v">1/3</div></div><div><div class="t-head">Daily goal</div><div class="t-small muted">2 more shlokas to light today's ring</div></div></div>
+ <div class="ymap" style="flex:1;margin-top:8px"></div>
+</div><nav class="bn" data-active="0"></nav></div></div>
+
+<div class="frame"><div class="lbl">C · Day 7 · streak week</div>
+<div class="phone light" data-sb style="background:linear-gradient(180deg,#FFF8EC,#FFE9B8)"><div class="scr ctr col"><div class="cf"></div><div class="grow"></div>
+ <div style="font-size:84px">🏅</div><div class="t-display">One full week!</div><div class="t-body muted mt8" style="max-width:280px">7 days of showing up. +50 MP and the “Sadhak” badge.</div>
+ <div class="row g8 mt24"><div class="av" style="background:#3CC37A;width:36px;height:36px">M</div><div class="av" style="background:#3CC37A;width:36px;height:36px">T</div><div class="av" style="background:#3CC37A;width:36px;height:36px">W</div><div class="av" style="background:#3CC37A;width:36px;height:36px">T</div><div class="av" style="background:#3CC37A;width:36px;height:36px">F</div><div class="av" style="background:#3CC37A;width:36px;height:36px">S</div><div class="av" style="background:#FF9F1C;color:#2B2350;width:36px;height:36px;animation:pop 700ms var(--bounce) infinite alternate">S</div></div>
+ <div class="grow"></div><div style="width:100%;padding:0 16px 32px"><button class="btn block">Claim +50 MP</button></div></div></div></div>
+
+<div class="frame"><div class="lbl">D · After a missed day · kind, no guilt</div>
+<div class="phone light" data-sb><div class="scr">
+ <div class="pad row sp" style="height:52px"><span class="stk" style="background:var(--dis);color:var(--dis-t)"><svg class="i sleepf"><use href="#i-flame"/></svg>0</span><span class="xp"><span class="coin">मो</span>240</span><span style="width:24px"></span></div>
+ <div class="pad mt24 ctr col"><svg width="120" height="120" viewBox="0 0 24 24" class="sleepf" style="color:#FF9F1C"><use href="#i-flame"/></svg><div class="t-title mt8">Your flame is resting 🌙</div><div class="t-body muted mt8" style="max-width:300px">Life happens. One shloka lights it again. Your 12 days are still part of your journey.</div></div>
+ <div class="pad mt24 col g12"><div class="card row g12" style="border-color:var(--sec)"><span style="font-size:28px">🧊</span><div class="grow"><div style="font-weight:800">Streak freeze available</div><div class="t-small muted">Use one to protect yesterday. 1 left.</div></div></div></div>
+ <div class="grow"></div><div class="pad col g12" style="padding-bottom:20px"><button class="btn block">Light it again · 1 shloka</button><button class="btn ghost block">Maybe later</button></div>
+</div><nav class="bn" data-active="0"></nav></div></div>
+</div>
+<div class="frames" style="margin-top:48px">
+ <div class="board light" style="width:1000px;background:var(--bg)"><h3>Empty states · friendly, one action</h3>
+  <div class="row g16" style="align-items:stretch">
+   <div class="card ctr col grow" style="padding:24px"><div style="font-size:48px">👥</div><div class="t-head mt8">No circle yet</div><div class="t-small muted">Practice is easier together.</div><button class="btn sm mt16">Invite a friend</button></div>
+   <div class="card ctr col grow" style="padding:24px"><div style="font-size:48px">🪙</div><div class="t-head mt8">No Moksh Points yet</div><div class="t-small muted">Read one shloka to earn your first 10.</div><button class="btn sm mt16">Read today's shloka</button></div>
+   <div class="card ctr col grow" style="padding:24px"><div style="font-size:48px">🎙️</div><div class="t-head mt8">Mann Darpan is quiet</div><div class="t-small muted">Speak 20 seconds. We listen, privately.</div><button class="btn sm mt16">Tap to speak</button></div>
+   <div class="card ctr col grow" style="padding:24px"><div style="font-size:48px">🔖</div><div class="t-head mt8">No saved verses</div><div class="t-small muted">Tap the bookmark on any shloka.</div><button class="btn sm ghost mt16">Browse verses</button></div>
+  </div></div>
+</div>
+</section>
+
+<!-- ================= MOTION TABLE + DEMOS ================= -->
+<section class="sec" id="motiontbl">
+<h1>8 · Motion spec</h1>
+<p class="sub">Trigger, what moves, duration, easing, sound, haptic. Sound is off in silent mode. Reduced motion: no movement; keep colour change and haptic.</p>
+<table class="ux" style="margin-bottom:48px">
+<tr><th>Interaction</th><th>Trigger</th><th>What moves</th><th>Duration (ms)</th><th>Easing</th><th>Sound</th><th>Haptic</th></tr>
+<tr><td>Button press</td><td>pointer down / up</td><td>Face drops 4 px, edge 5→1 px</td><td>80 in · 120 out</td><td>easeOutCubic</td><td>soft “tock”</td><td>lightImpact</td></tr>
+<tr><td>Correct answer</td><td>Check, answer right</td><td>Option turns green, scales 1.05→1, green sheet slides up, ✓ pops</td><td>200 + 320 sheet</td><td>easeOutBack on pop</td><td>rising chime</td><td>mediumImpact</td></tr>
+<tr><td>Wrong answer (soft)</td><td>Check, answer wrong</td><td>Option shakes ±6 px ×2, warm amber tint (no red alarm), hint sheet</td><td>700</td><td>easeInOut</td><td>low soft tone, no buzzer</td><td>selectionClick</td></tr>
+<tr><td>Card flip / expand</td><td>tap verse card</td><td>Verse flips on Y axis to meaning (or sheet expands)</td><td>400</td><td>easeOutCubic</td><td>page-turn whisper</td><td>selectionClick</td></tr>
+<tr><td>XP count-up</td><td>MP awarded</td><td>Number counts, coin spins once, pill pulses</td><td>900</td><td>easeOutCubic</td><td>coin ticks (max 6)</td><td>lightImpact at end</td></tr>
+<tr><td>Streak flame</td><td>Streak screen / Home visible</td><td>Flame scales 1→1.18, tilts 3°, loops; ignites on new day</td><td>1200 loop</td><td>easeInOut</td><td>“whoosh” on ignite</td><td>mediumImpact on ignite</td></tr>
+<tr><td>Lesson complete</td><td>last card done</td><td>Confetti (40 pcs) falls, lotus + deity Lottie blooms, 3 stat cards pop (80 ms stagger)</td><td>1600 confetti · 480 bloom</td><td>linear fall · easeOutBack</td><td>conch + bells</td><td>heavyImpact once</td></tr>
+<tr><td>Screen transition · slide</td><td>push route</td><td>New screen slides in from right, old shifts 30 % left</td><td>280</td><td>easeOutCubic</td><td>none</td><td>none</td></tr>
+<tr><td>Shared element</td><td>tap verse on Home</td><td>Verse card grows into the detail header (hero)</td><td>320</td><td>easeOutCubic</td><td>none</td><td>none</td></tr>
+<tr><td>Om pulse</td><td>Om moment idle + tap</td><td>Glow rings expand and fade; Om breathes; tap adds ripple and fills a bead</td><td>4000 idle · 900 ripple</td><td>easeInOut · easeOut</td><td>“Om” sample on tap</td><td>lightImpact per tap</td></tr>
+<tr><td>Path node pulse</td><td>next lesson ready</td><td>Node bobs 8 px, gold halo expands</td><td>1400 loop</td><td>easeInOut</td><td>none</td><td>none</td></tr>
+<tr><td>Daily goal ring</td><td>shloka read</td><td>Ring arc fills to new value</td><td>600</td><td>easeOutCubic</td><td>soft ding when full</td><td>mediumImpact when full</td></tr>
+</table>
+<h2 style="font-size:28px;font-weight:900;margin-bottom:16px">Live demos · feel the motion</h2>
+<div class="light" style="display:flex;flex-wrap:wrap;gap:24px;width:1700px">
+ <div class="demo"><small>Button press</small><button class="btn auto">Continue</button></div>
+ <div class="demo"><small>Correct answer</small><div class="opt right-d" style="width:200px">B · Act fully</div></div>
+ <div class="demo"><small>Wrong (soft shake)</small><div class="opt shakey" style="width:200px;border-color:var(--pri-e);background:var(--stkbg);color:var(--stkt);box-shadow:0 4px 0 var(--pri-e)">C · Avoid action</div><span class="t-small muted">Not quite. Try again.</span></div>
+ <div class="demo"><small>Card flip</small><div class="flip"><div><b class="a">कर्म</b><b class="b">karma · action</b></div></div></div>
+ <div class="demo"><small>XP count-up</small><span class="xp" style="font-size:24px;height:48px;padding:0 18px 0 10px"><span class="coin" style="width:30px;height:30px">मो</span><span id="cu2">0</span></span></div>
+ <div class="demo"><small>Streak flame</small><svg width="90" height="90" viewBox="0 0 24 24" class="flame" style="color:#FF9F1C;filter:drop-shadow(0 0 12px #FF9F1C)"><use href="#i-flame"/></svg></div>
+ <div class="demo"><small>Lesson complete</small><div class="cf"></div><svg width="90" height="90" viewBox="0 0 48 48" style="color:#E0527A"><g class="lotus-p"><use href="#i-lotus"/></g></svg></div>
+ <div class="demo"><small>Slide transition</small><div class="slide"><i class="s1">Home</i><i class="s2">Detail</i></div></div>
+ <div class="demo"><small>Shared element</small><div class="shared">कर्म</div></div>
+ <div class="demo" style="background:#1F1850"><small style="color:#B9B3DD">Om pulse</small><div class="omd"><span>ॐ</span></div></div>
+ <div class="demo"><small>Daily goal ring</small><div class="ring"><svg width="96" height="96"><circle cx="48" cy="48" r="42" fill="none" stroke="var(--line)" stroke-width="10"/><circle class="fg" cx="48" cy="48" r="42" fill="none" stroke="var(--pri)" stroke-width="10" stroke-linecap="round"/></svg><div class="v">2/3</div></div></div>
+ <div class="demo"><small>Path node pulse</small><div style="position:relative;width:76px;height:76px"><div class="node cur" style="left:38px;top:38px"><svg class="i f"><use href="#i-play"/></svg></div></div></div>
+</div>
+</section>
+<!-- ================= OM MOMENT ================= -->
+<section class="sec" id="om">
+<h1>9 · Mantra / Om moment</h1>
+<p class="sub">A 60-second pause. Flat vector, respectful silhouette of Krishna with the flute, Om glow behind. Click the figure to chant: each tap sends a ripple and fills one of 108 beads.</p>
+<div class="frames">
+<div class="frame"><div class="lbl">11 Om moment (click Krishna)</div>
+<div class="phone dark" data-sb style="background:radial-gradient(circle at 50% 42%,#3B2F8F,#15112E 70%)"><div class="scr ctr col" style="position:relative">
+ <div class="pad row sp" style="height:52px;width:100%"><svg class="i"><use href="#i-x"/></svg><span class="t-cap muted">Om moment</span><span style="width:24px"></span></div>
+ <div class="t-body muted">Tap with each Om</div>
+ <div id="omtap" style="position:relative;width:340px;height:400px;cursor:pointer;margin-top:8px">
+  <svg viewBox="0 0 340 400" width="340" height="400" style="position:absolute;inset:0">
+   <circle cx="170" cy="190" r="150" fill="none" stroke="#3A3270" stroke-width="10"/>
+   <circle id="beads" cx="170" cy="190" r="150" fill="none" stroke="#FFD24A" stroke-width="10" stroke-linecap="round" stroke-dasharray="942.5" stroke-dashoffset="942.5" transform="rotate(-90 170 190)" style="transition:stroke-dashoffset 400ms var(--ease)"/>
+  </svg>
+  <div class="omd" style="position:absolute;left:30px;top:50px;width:280px;height:280px;font-size:170px"><span style="opacity:.3">ॐ</span></div>
+  <svg viewBox="0 0 200 300" width="230" height="345" style="position:absolute;left:55px;top:20px">
+   <circle class="kr-glow" cx="100" cy="110" r="82" fill="#FFB02E" opacity=".16"/>
+   <g class="kr-flute">
+    <path d="M100 38c4-18 18-26 30-22-8 4-12 12-12 24" fill="#3CC3B0"/><circle cx="121" cy="26" r="3.5" fill="#FFD24A"/>
+    <path d="M86 52l4-13 5 9 5-14 5 14 5-9 4 13z" fill="#FFD24A"/>
+    <circle cx="100" cy="64" r="15" fill="#2F3A8F" stroke="#FFD24A" stroke-width="1.5"/>
+    <path d="M82 84q18-8 36 0l6 66q-24 8-48 0z" fill="#2F3A8F" stroke="#FFD24A" stroke-width="1.5"/>
+    <path d="M84 90q16 26 32 0" fill="none" stroke="#FF9F1C" stroke-width="3" stroke-linecap="round"/>
+    <path d="M118 90q22 6 12-10M84 92q-20-8 8-16" fill="none" stroke="#2F3A8F" stroke-width="9" stroke-linecap="round"/>
+    <rect x="62" y="70" width="104" height="5" rx="2.5" fill="#FFD24A" transform="rotate(10 100 72)"/>
+   </g>
+   <path d="M78 148q22 10 44 0l14 92q-36 12-72 0z" fill="#FFB02E" stroke="#C27500" stroke-width="1.5"/>
+   <path d="M86 240q-6 16-18 18M126 240q8 12 24 16" fill="none" stroke="#2F3A8F" stroke-width="9" stroke-linecap="round"/>
+  </svg>
+  <div id="rips" style="position:absolute;left:0;top:0;width:340px;height:400px;pointer-events:none"></div>
+ </div>
+ <div class="t-title" id="omcount" style="margin-top:-6px">0 / 108</div>
+ <div class="t-small muted">Breathe in, Om, breathe out</div>
+ <div class="grow"></div>
+ <div style="width:100%;padding:0 16px 32px"><button class="btn block">Done · +5 MP</button></div>
+</div></div></div>
+<div class="frame" style="width:560px"><div class="board light" style="background:var(--bg)"><h3>Notes</h3><div class="t-small col g12" style="color:#2B2350">
+ <div><b>Primary action:</b> tap the figure. <b>Success:</b> ripple + bead + soft Om sample; at 108 beads petals fall and +20 MP bonus.</div>
+ <div><b>Respect:</b> flat silhouette, no face detail, never used as a button label or in reward spam. Shown only here and as a small lotus + flute on lesson complete.</div>
+ <div><b>Lottie plan:</b> idle = glow breathe 4 s + flute bob; tap = ring ripple 0.9 s; done = petals. One file `krishna_om.json` (layers: glow, rings, figure, feather).</div>
+ <div><b>Illustration:</b> this vector is a layout stand-in. A proper illustrator pass should replace it before release.</div>
+ <div><b>Accessibility:</b> tap target is the whole circle (over 48 dp); an auto-chant switch for users who can't tap; captions for audio.</div></div></div></div>
+</div>
+</section>
+
 </div></div>
 
 <script>
@@ -495,6 +732,12 @@ document.querySelectorAll(".cf,#cf1,#cf2").forEach(c=>{if(c.children.length)retu
 function countUp(el,to,ms){const t0=performance.now();const f=t=>{const p=Math.min(1,(t-t0)/ms);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}
 const cu=document.getElementById("countup");const run=()=>countUp(cu,240,900);run();document.getElementById("replay").onclick=run;setInterval(run,4000);
 /* press demo: tap any .btn shows pressed via :active already */
+/* ---- UX additions ---- */
+const run2=()=>{const e=document.getElementById("cu2");if(e)countUp(e,240,900)};run2();setInterval(run2,4000);
+document.querySelectorAll(".ymap").forEach(m=>{if(m.children.length)return;m.style.minHeight="260px";m.innerHTML=`<svg class="pth" viewBox="0 0 390 300" style="width:100%"><path d="M195 40 C250 60 270 100 250 125 C230 160 160 160 160 210" fill="none" stroke="var(--line)" stroke-width="12" stroke-dasharray="2 20" stroke-linecap="round"/></svg><div class="node done" style="left:195px;top:40px"><svg class="i"><use href="#i-check"/></svg></div><div class="node done" style="left:250px;top:125px"><svg class="i"><use href="#i-check"/></svg></div><div class="node cur" style="left:160px;top:210px"><svg class="i f"><use href="#i-play"/></svg></div><div class="start" style="left:160px;top:210px">NEXT</div>`});
+let omN=0;const omt=document.getElementById("omtap");
+if(omt)omt.addEventListener("click",e=>{omN=Math.min(108,omN+1);document.getElementById("omcount").textContent=omN+" / 108";document.getElementById("beads").style.strokeDashoffset=942.5*(1-omN/108);const r=document.createElement("div");r.className="rip";const b=omt.getBoundingClientRect();const sc=b.width/omt.offsetWidth;r.style.left=(e.clientX-b.left)/sc+"px";r.style.top=(e.clientY-b.top)/sc+"px";document.getElementById("rips").appendChild(r);setTimeout(()=>r.remove(),900)});
+
 /* ---- pan / zoom ---- */
 const vp=document.getElementById("vp"),cv=document.getElementById("canvas");let S=.42,X=20,Y=20;
 const apply=()=>{cv.style.transform=`translate(${X}px,${Y}px) scale(${S})`;document.getElementById("zoom").textContent=Math.round(S*100)+"%"};
