@@ -70,6 +70,11 @@ def tr(p=(0, 0), a=(0, 0), s=100, r=0, o=100):
             return v
         return st(list(v) if pair else v)
     sv = s if isinstance(s, dict) else st([s, s] if not isinstance(s, (list, tuple)) else list(s))
+    if sv.get("a") == 1:
+        # Scale is a 2D value: a scalar keyframe [84] becomes [84, 84].
+        for k in sv["k"]:
+            if len(k["s"]) == 1:
+                k["s"] = k["s"] * 2
     return {"ty": "tr", "p": wrap(p, True), "a": wrap(a, True), "s": sv,
             "r": wrap(r, False), "o": wrap(o, False)}
 
@@ -211,8 +216,9 @@ def lamp():
         r=kf((0, -1.5, TRAVEL), (39, 1.5, TRAVEL), (78, -1.5)),
         s=kf((0, [100, 100], TRAVEL), (26, [97, 106], TRAVEL), (52, [102, 97], TRAVEL), (78, [100, 100])),
     )
-    glow = group([ellipse(32, 21, 30, 34), fill(FLAME)],
-                 o=kf((0, 14, TRAVEL), (39, 30, TRAVEL), (78, 14)))
+    glow = group([group([ellipse(32, 21, 18, 24), fill(FLAME, 60)]),
+                  group([ellipse(32, 21, 26, 32), fill(FLAME, 35)])],
+                 o=kf((0, 30, TRAVEL), (39, 55, TRAVEL), (78, 30)))
     bowl = group(svg_path("M8 38h48c0 10-10 18-24 18S8 48 8 38z") + [stroke(MARIGOLD, 2.2), fill(SAFFRON, 14)])
     rim = group(svg_path("M18 46c4 2 9 3 14 3") + [stroke(MARIGOLD, 1.4, 50)])
     return comp("explain lamp", 64, 64, 30, op,
@@ -249,7 +255,8 @@ def feather():
         eye.append(group([ellipse(0, 0, rx * 2, ry * 2)] + items, p=(39, 24), r=22))
     core = group([ellipse(0, 0, 3.6, 6), fill(MARIGOLD)], p=(39, 24), r=22,
                  s=kf((0, 100, TRAVEL), (54, 118, TRAVEL), (108, 100)))
-    quill = group(svg_path("M22 60C25 46 30 34 38 16") + [stroke(MARIGOLD, 2)])
+    # The quill stops at the eye's rim so it never shows through the eye.
+    quill = group(svg_path("M22 60C25 46 30 34 38 16") + [trim(74), stroke(MARIGOLD, 2)])
     barbs = group(svg_path("M29 38c-5-1-9 1-12 4M31 46c-4-1-7 0-10 3M30 30c-4-3-8-3-12-1") +
                   [stroke(MARIGOLD, 1.4, 60)])
     whole = group([core, eye[1], eye[0], barbs, quill],
@@ -268,9 +275,13 @@ def path():
     dim = group(svg_path("M12 44C18 32 24 26 32 24S48 30 52 40") + [stroke(FAINT, 1.4, 70)])
     out = []
     for n, (x, y) in enumerate(stones):
-        at = (2, 18, 34)[n]
-        out.append(group([ellipse(0, 0, 11, 11), stroke(MARIGOLD, 2), fill(MARIGOLD, kf((at, 0, ENTER), (at + 8, 100)))],
-                         p=(x, y), s=kf((at, 84, SPRING), (at + 14, 100))))
+        # The first stone is lit from frame 0, so the still reads "start here".
+        at = (0, 18, 34)[n]
+        on = st(100) if at == 0 else kf((at, 0, ENTER), (at + 6, 100))
+        out.append(group([group([ellipse(0, 0, 4, 4), fill(MARIGOLD)]),
+                          group([ellipse(0, 0, 11, 11), stroke(MARIGOLD, 2), fill(MARIGOLD, 30)])],
+                         p=(x, y), o=on,
+                         s=st([100, 100]) if at == 0 else kf((at, 84, SPRING), (at + 14, 100))))
         out.append(group([ellipse(0, 0, 11, 11), stroke(FAINT, 1.6), fill(SURFACE)], p=(x, y)))
     return comp("explain path", 64, 64, 30, op,
                 [layer("stones", out[0::2]), layer("stones dim", out[1::2]),
@@ -300,11 +311,11 @@ def moment():
                 group(back + [stroke(FAINT, 1.2, 50), fill(FAINT, 35)])]
 
     sky = layer("sky", [group([rect(w / 2, h / 2, w, h), fill(BG)])])
+    # Dawn: stacked faint ellipses fake a soft gradient (no gradient fills).
     dawn = layer("dawn", [
-        group([ellipse(160, 150, 300, 120), fill(SAFFRON, 30)],
-              o=kf((0, 0, TRAVEL), (75, 100))),
-        group([ellipse(160, 150, 400, 190), fill(ROSE, 14)],
-              o=kf((0, 0, TRAVEL), (90, 100))),
+        group([ellipse(160, 146, 120 + 70 * n, 50 + 26 * n), fill(SAFFRON if n < 2 else ROSE, 7)],
+              o=kf((0, 0, TRAVEL), (60 + 8 * n, 100)))
+        for n in range(4)
     ])
     stars = []
     for _ in range(9):
@@ -314,32 +325,36 @@ def moment():
         stars.append(group([ellipse(sx, sy, 2, 2), fill(INK)]))
     star_l = layer("stars", [group(stars, o=kf((0, 70, TRAVEL), (60, 0)))])
     sun = layer("sun", [
-        group([ellipse(0, 0, 104, 104), fill(SAFFRON, 22)], p=kf((10, [160, 156], TRAVEL), (80, [160, 128]))),
-        group([ellipse(0, 0, 60, 60), fill(MARIGOLD, 90)], p=kf((10, [160, 156], TRAVEL), (80, [160, 128]))),
+        group([ellipse(0, 0, 84, 84), fill(SAFFRON, 14)], p=kf((10, [160, 158], TRAVEL), (80, [160, 136]))),
+        group([ellipse(0, 0, 46, 46), fill(SAFFRON, 72)], p=kf((10, [160, 158], TRAVEL), (80, [160, 136]))),
     ], ks={"o": kf((6, 0, TRAVEL), (60, 100)), "r": st(0), "p": st([0, 0, 0]),
            "a": st([0, 0, 0]), "s": st([100, 100, 100])})
+    # The ground is the sky's colour: the sheet behind the card is SURFACE,
+    # so a SURFACE ground would vanish into it.
     ground = layer("ground", [
-        group([line(0, horizon, w, horizon), stroke(INK, 1, 14)]),
-        group([rect(w / 2, (horizon + h) / 2 + 0.5, w, h - horizon), fill(SURFACE)]),
+        group([line(0, horizon, w, horizon), stroke(INK, 1, 20)]),
+        group([rect(w / 2, (horizon + h) / 2 + 0.5, w, h - horizon), fill(BG)]),
     ])
     armies = layer("armies", army(18, 112, 1) + army(210, 304, -1))
 
-    # Chariot, side view, facing left: wheel, car, shaft, standard and pennant.
-    spokes = [line(150, 132, 150 + 12 * math.cos(a), 132 + 12 * math.sin(a))
-              for a in (i * math.pi / 3 for i in range(3))]
-    spokes += [line(150, 132, 150 - 12 * math.cos(i * math.pi / 3), 132 - 12 * math.sin(i * math.pi / 3))
-               for i in range(3)]
+    # Chariot, side view, facing left: car, shaft, standard and pennant, with
+    # the wheel drawn in front so every spoke shows. The wheel rests on the
+    # horizon.
+    hub = (152, 127)
+    spokes = [line(hub[0], hub[1], hub[0] + 12 * math.cos(i * math.pi / 3),
+                   hub[1] + 12 * math.sin(i * math.pi / 3)) for i in range(6)]
     chariot = [
-        group([ellipse(150, 132, 26, 26), stroke(GOLD, 2), fill(BG, 70)]),
-        group(spokes + [stroke(GOLD, 1.2, 80)]),
-        group([shape([[136, 120], [184, 120], [178, 131], [142, 131]], closed=True),
+        group([shape([[134, 106], [188, 106], [181, 122], [141, 122]], closed=True),
                stroke(GOLD, 2), fill(SURFACE)]),
-        group([shape([[136, 126], [114, 122]]), stroke(GOLD, 2)]),
-        group([line(174, 120, 174, 90), stroke(GOLD, 1.6)]),
-        group([shape([[174, 90], [190, 94], [174, 99]], closed=True), fill(SAFFRON), stroke(SAFFRON, 1)],
-              p=(174, 90), a=(174, 90),
+        group([shape([[138, 118], [110, 126]]), stroke(GOLD, 2)]),
+        group([line(178, 106, 178, 76), stroke(GOLD, 1.6)]),
+        group([shape([[178, 76], [194, 80], [178, 85]], closed=True), fill(SAFFRON), stroke(SAFFRON, 1)],
+              p=(178, 76), a=(178, 76),
               s=kf((0, [100, 100], TRAVEL), (25, [84, 100], TRAVEL), (50, [100, 100], TRAVEL),
                    (75, [86, 100], TRAVEL), (100, [100, 100], TRAVEL), (125, [85, 100], TRAVEL), (150, [100, 100]))),
+        group([ellipse(hub[0], hub[1], 26, 26), stroke(GOLD, 2), fill(BG, 80)]),
+        group(spokes + [stroke(GOLD, 1.2, 80)]),
+        group([ellipse(hub[0], hub[1], 4, 4), fill(GOLD)]),
     ]
     car = layer("chariot", chariot[::-1])
 

@@ -278,7 +278,10 @@ void main() {
 
       // The verse itself, from local data, and the simple meaning first.
       expect(find.text(v.padas.first), findsOneWidget);
-      expect(find.text('IN SIMPLE WORDS'), findsOneWidget);
+      expect(
+        find.text(ExplainSection.simple.heading.toUpperCase()),
+        findsOneWidget,
+      );
       expect(find.text(n.simpleEn), findsOneWidget);
       expect(find.text(ExplainSheet.draftNote), findsOneWidget);
       expect(find.text('Hold to listen'), findsOneWidget);
@@ -381,6 +384,9 @@ void main() {
     await tester.tap(find.bySemanticsLabel('Explain this verse'));
     await tester.pumpAndSettle();
     expect(find.byType(ExplainSheet), findsOneWidget);
-    expect(find.text('IN SIMPLE WORDS'), findsOneWidget);
+    expect(
+      find.text(ExplainSection.simple.heading.toUpperCase()),
+      findsOneWidget,
+    );
   });
 }

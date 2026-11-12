@@ -18,16 +18,19 @@ import 'explain_motion.dart';
 import 'verse_explainer.dart';
 import 'verse_notes.dart';
 
-/// The five parts of the study sheet, in tab order.
+/// The five parts of the study sheet, in tab order. [heading] sits under the
+/// section's animated header, so it adds to the tab label instead of
+/// repeating it.
 enum ExplainSection {
-  simple('In simple words'),
-  words('Word by word'),
-  moment('The moment'),
-  related('Related verses'),
-  myDay('For my day');
+  simple('In simple words', 'What it means'),
+  words('Word by word', 'One word at a time'),
+  moment('The moment', 'Kurukshetra, at dawn'),
+  related('Related verses', 'On the same path'),
+  myDay('For my day', 'One line from you');
 
-  const ExplainSection(this.label);
+  const ExplainSection(this.label, this.heading);
   final String label;
+  final String heading;
 }
 
 /// Opens the study sheet for [verse]. Always dark, like the verse scroll.
@@ -437,7 +440,7 @@ class _SimplePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => _Section(
-    title: ExplainSection.simple.label,
+    title: ExplainSection.simple.heading,
     lottie: 'lamp',
     children: <Widget>[
       Text(text, style: DType.meaning(context.c.ink)),
@@ -455,7 +458,7 @@ class _WordsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
     return _Section(
-      title: ExplainSection.words.label,
+      title: ExplainSection.words.heading,
       lottie: 'lotus',
       children: <Widget>[
         LayoutBuilder(
@@ -529,7 +532,7 @@ class _MomentPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
     return _Section(
-      title: ExplainSection.moment.label,
+      title: ExplainSection.moment.heading,
       children: <Widget>[
         ClipRRect(
           borderRadius: BorderRadius.circular(Rad.card),
@@ -577,7 +580,7 @@ class _RelatedPage extends ConsumerWidget {
       for (final Verse v in ref.watch(versesProvider)) v.id: v,
     };
     return _Section(
-      title: ExplainSection.related.label,
+      title: ExplainSection.related.heading,
       lottie: 'path',
       children: <Widget>[
         for (final Verse u
@@ -664,7 +667,7 @@ class _MyDayPage extends ConsumerWidget {
       borderSide: BorderSide(color: c.line),
     );
     return _Section(
-      title: ExplainSection.myDay.label,
+      title: ExplainSection.myDay.heading,
       lottie: 'feather',
       children: <Widget>[
         if (!online) ...<Widget>[
