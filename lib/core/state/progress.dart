@@ -58,6 +58,7 @@ class ProgressState {
     this.cameBack = false,
     this.ledger = const <PointEntry>[],
     this.milestonesSeen = const <int>{},
+    this.walks = 0,
   });
 
   final int streak;
@@ -83,6 +84,19 @@ class ProgressState {
 
   /// Milestone day counts already celebrated.
   final Set<int> milestonesSeen;
+
+  /// Walk steps ever taken: the stones walked on the Yatra.
+  final int walks;
+
+  /// Every seventh stone is a checkpoint: "Finish the verse".
+  /// shortcut: the 108-verse feed is not in chapter order, so the checkpoint
+  /// is every 7th stone, not a chapter end; move it to chapter ends when the
+  /// Yatra walks the chapters in order.
+  static const int checkpointEvery = 7;
+
+  /// True when today's walk (not yet taken) lands on a checkpoint stone.
+  bool get checkpointToday =>
+      !steps.contains(RitualStep.walk) && (walks + 1) % checkpointEvery == 0;
 
   /// A milestone reached and not yet shown, else null.
   int? get pendingMilestone =>
@@ -171,6 +185,8 @@ class ProgressNotifier extends Notifier<ProgressState> {
         for (final String m in p.getStringList('p.ms') ?? <String>[])
           ?int.tryParse(m),
       },
+      // Older installs had no counter; lit days are the closest guess.
+      walks: p.getInt('p.walks') ?? lit.length,
     );
   }
 
@@ -192,6 +208,7 @@ class ProgressNotifier extends Notifier<ProgressState> {
       s.ledger.map((PointEntry e) => e.encode()).toList(),
     );
     _p.setStringList('p.ms', s.milestonesSeen.map((int m) => '$m').toList());
+    _p.setInt('p.walks', s.walks);
   }
 
   void setHeard(int n) {
@@ -269,6 +286,7 @@ class ProgressNotifier extends Notifier<ProgressState> {
       lastForgive: forgive,
       cameBack: false,
       ledger: _append(PointEntry(today, step.name, award)),
+      walks: step == RitualStep.walk ? state.walks + 1 : null,
     );
     _save();
     return award;
@@ -289,6 +307,7 @@ class ProgressNotifier extends Notifier<ProgressState> {
     int? heard,
     List<PointEntry>? ledger,
     Set<int>? milestonesSeen,
+    int? walks,
     Set<RitualStep>? steps,
     Set<String>? kept,
     List<String>? litDays,
@@ -306,6 +325,7 @@ class ProgressNotifier extends Notifier<ProgressState> {
     cameBack: cameBack ?? state.cameBack,
     ledger: ledger ?? state.ledger,
     milestonesSeen: milestonesSeen ?? state.milestonesSeen,
+    walks: walks ?? state.walks,
   );
 }
 

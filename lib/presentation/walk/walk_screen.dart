@@ -13,6 +13,7 @@ import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
 import '../hear/hear_screen.dart' show meaningOf;
+import 'finish_verse.dart';
 
 /// Walk: step 1 Chant along (default), step 2 Where it meets you.
 class WalkScreen extends ConsumerStatefulWidget {
@@ -39,6 +40,9 @@ class _WalkScreenState extends ConsumerState<WalkScreen> {
 
   // Read once: keeping a verse mid-walk must not swap the verse under you.
   late final Verse _verse = ref.read(walkVerseProvider);
+
+  /// Every seventh stone, step 1 is the Checkpoint instead of Chant along.
+  late final bool _checkpoint = ref.read(progressProvider).checkpointToday;
 
   void _finish() {
     Haptics.success();
@@ -106,6 +110,12 @@ class _WalkScreenState extends ConsumerState<WalkScreen> {
                             selected: _line,
                             onSelect: (int i) => setState(() => _line = i),
                             onDone: _finish,
+                          )
+                        : _checkpoint
+                        ? FinishVerse(
+                            key: const ValueKey<String>('finish'),
+                            verse: v,
+                            onDone: () => setState(() => _chanted = true),
                           )
                         : _Chant(
                             key: const ValueKey<String>('chant'),
