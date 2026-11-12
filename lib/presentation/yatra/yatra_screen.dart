@@ -116,7 +116,12 @@ class YatraScreen extends ConsumerWidget {
                                   ? CrossAxisAlignment.end
                                   : CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text('TODAY', style: DType.eyebrow(c.faint)),
+                                Text(
+                                  (cur + 1) % ProgressState.checkpointEvery == 0
+                                      ? 'CHECKPOINT'
+                                      : 'TODAY',
+                                  style: DType.eyebrow(c.faint),
+                                ),
                                 Text(
                                   '${now.yogaName.replaceAll(' Yoga', '')} Yoga · ${now.id}',
                                   style: DType.body(c.verse, size: 17),

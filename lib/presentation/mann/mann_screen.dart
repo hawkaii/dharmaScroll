@@ -153,6 +153,10 @@ class _MannScreenState extends ConsumerState<MannScreen> {
     });
   }
 
+  /// For what was heard first; else for the verse.
+  static String _intention(VerseMatch m) =>
+      kIntentions[m.tag] ?? intentionFor(m.verse);
+
   void _finish() {
     ref.read(progressProvider.notifier).completeStep(RitualStep.speak);
     context.go(Routes.today);
@@ -163,7 +167,7 @@ class _MannScreenState extends ConsumerState<MannScreen> {
     final bool sealed = await showSankalpSheet(
       context,
       m.verse,
-      suggestion: intentionFor(m.verse),
+      suggestion: _intention(m),
     );
     if (sealed && mounted) _finish();
   }
@@ -454,7 +458,7 @@ class _MannScreenState extends ConsumerState<MannScreen> {
                   border: Border(top: BorderSide(color: c.line)),
                 ),
                 child: Text(
-                  '${_night ? 'Tonight' : 'Today'}: ${intentionFor(v)}',
+                  '${_night ? 'Tonight' : 'Today'}: ${_intention(m)}',
                   textAlign: TextAlign.center,
                   style: DType.body(c.ink, size: 17),
                 ),

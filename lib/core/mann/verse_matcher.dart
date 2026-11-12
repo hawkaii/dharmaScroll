@@ -62,7 +62,7 @@ const Map<String, List<String>> kTagWords = <String, List<String>>{
   'marks': <String>['exam-stress', 'comparison'],
   'pariksha': <String>['exam-stress'],
   'परीक्षा': <String>['exam-stress'],
-  'interview': <String>['fear', 'anxiety', 'work-pressure'],
+  'interview': <String>['work-pressure', 'anxiety', 'fear'],
   'boss': <String>['work-pressure'],
   'office': <String>['work-pressure'],
   'job': <String>['work-pressure', 'purpose'],
@@ -200,8 +200,8 @@ class VerseMatch {
   }
 }
 
-/// Tags found in [text], strongest first.
-List<String> tagsIn(String text) {
+/// Situation tags found in [text], with how strongly each was heard.
+Map<String, int> tagScores(String text) {
   final String t = _norm(text);
   final Map<String, int> score = <String, int>{};
   kTagWords.forEach((String stem, List<String> tags) {
@@ -211,27 +211,23 @@ List<String> tagsIn(String text) {
       }
     }
   });
-  final List<String> out = score.keys.toList()
-    ..sort((String a, String b) => score[b]!.compareTo(score[a]!));
-  return out;
+  return score;
 }
 
-/// The verse that best meets [text]. Only verses safe to offer as personal
-/// advice are candidates. [seed] (the day) rotates ties so the same feeling
-/// on different days can meet a different verse.
+/// The verse that best meets [text]: the most of what was heard, summed over
+/// its tags. Only verses safe to offer as personal advice are candidates.
+/// [seed] (the day) rotates ties so the same feeling on different days can
+/// meet a different verse.
 VerseMatch matchVerse(String text, List<Verse> verses, {int seed = 0}) {
   final List<Verse> safe = verses.where((Verse v) => v.adviceSafe).toList();
-  final List<String> want = tagsIn(text);
-  final List<String> ask = want.isEmpty
-      ? <String>['peace', 'equanimity']
-      : want;
+  final Map<String, int> heard = tagScores(text);
+  final Map<String, int> want = heard.isEmpty
+      ? const <String, int>{'peace': 2, 'equanimity': 1}
+      : heard;
   int best = -1;
   final List<Verse> top = <Verse>[];
   for (final Verse v in safe) {
-    int s = 0;
-    for (int i = 0; i < ask.length; i++) {
-      if (v.tags.contains(ask[i])) s += ask.length - i;
-    }
+    final int s = v.tags.fold(0, (int a, String t) => a + (want[t] ?? 0));
     if (s > best) {
       best = s;
       top
@@ -242,6 +238,9 @@ VerseMatch matchVerse(String text, List<Verse> verses, {int seed = 0}) {
     }
   }
   final Verse pick = top.isEmpty ? verses.first : top[seed.abs() % top.length];
-  final String? tag = want.where(pick.tags.contains).firstOrNull;
+  String? tag;
+  for (final String t in pick.tags) {
+    if ((heard[t] ?? 0) > (heard[tag] ?? 0)) tag = t;
+  }
   return VerseMatch(pick, tag);
 }
