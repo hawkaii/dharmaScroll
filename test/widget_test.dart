@@ -3,17 +3,15 @@ import 'package:dharmascroll/app_providers.dart';
 import 'package:dharmascroll/core/theme/app_theme.dart';
 import 'package:dharmascroll/presentation/feed/feed_screen.dart';
 import 'package:dharmascroll/presentation/feed/widgets/shloka_card.dart';
+import 'package:dharmascroll/presentation/onboarding/onboarding_flow.dart';
+import 'package:dharmascroll/presentation/today/today_screen.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-Future<Widget> _boot({required bool onboarded}) async {
-  SharedPreferences.setMockInitialValues(<String, Object>{
-    if (onboarded) 'onboardingComplete': true,
-  });
-  final SharedPreferences prefs = await SharedPreferences.getInstance();
-
+Widget _app(SharedPreferences prefs) {
   return ProviderScope(
     overrides: [sharedPrefsProvider.overrideWithValue(prefs)],
     child: MediaQuery(
@@ -23,34 +21,120 @@ Future<Widget> _boot({required bool onboarded}) async {
   );
 }
 
+Future<SharedPreferences> _prefs({required bool onboarded}) async {
+  SharedPreferences.setMockInitialValues(<String, Object>{
+    if (onboarded) 'onboardingComplete': true,
+  });
+  return SharedPreferences.getInstance();
+}
+
 void main() {
-  testWidgets('a first-run user lands on the splash, not the feed', (
+  testWidgets('a first-run user lands on the welcome screen', (
     WidgetTester tester,
   ) async {
-    await tester.pumpWidget(await _boot(onboarded: false));
+    await tester.pumpWidget(_app(await _prefs(onboarded: false)));
     await tester.pumpAndSettle();
 
-    expect(find.text('DharmaScroll'), findsOneWidget);
-    expect(find.text('Scroll less. Live more.'), findsOneWidget);
+    expect(find.text(OnboardingFlow.welcomeTitle), findsOneWidget);
     expect(find.text('Begin'), findsOneWidget);
+    expect(find.text(TodayScreen.beginLabel), findsNothing);
   });
 
-  testWidgets('splash leads to the identity step', (
+  testWidgets('onboarding is three screens, shown once, then skipped', (
     WidgetTester tester,
   ) async {
-    await tester.pumpWidget(await _boot(onboarded: false));
+    final SharedPreferences prefs = await _prefs(onboarded: false);
+    await tester.pumpWidget(_app(prefs));
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('Begin'));
     await tester.pumpAndSettle();
+    expect(find.text(OnboardingFlow.languageTitle), findsOneWidget);
 
-    expect(find.text('Who are you becoming?'), findsOneWidget);
-    expect(find.text('Casual seeker'), findsOneWidget);
+    await tester.tap(find.text('English'));
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(find.text(OnboardingFlow.reminderTitle), findsOneWidget);
+
+    await tester.tap(find.text('Evening'));
+    await tester.tap(find.text(OnboardingFlow.finishLabel));
+    await tester.pumpAndSettle();
+
+    // Done: Today is showing and the choices are on disk.
+    expect(find.text(TodayScreen.beginLabel), findsOneWidget);
+    expect(prefs.getBool('onboardingComplete'), isTrue);
+    expect(prefs.getString('lang'), 'englishSanskrit');
+    expect(prefs.getInt('remindAtMinutes'), 20 * 60 + 30);
+
+    // A later launch with the same storage goes straight to Today.
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pumpWidget(_app(prefs));
+    await tester.pumpAndSettle();
+    expect(find.text(OnboardingFlow.welcomeTitle), findsNothing);
+    expect(find.text(TodayScreen.beginLabel), findsOneWidget);
   });
 
-  testWidgets('the rail opens the share-card composer', (
+  testWidgets('onboarding and Today fit 320 dp at 200% text', (
     WidgetTester tester,
   ) async {
+    tester.view.physicalSize = const Size(320, 568);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    final SharedPreferences prefs = await _prefs(onboarded: false);
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [sharedPrefsProvider.overrideWithValue(prefs)],
+        child: const MediaQuery(
+          data: MediaQueryData(
+            size: Size(320, 568),
+            disableAnimations: true,
+            textScaler: TextScaler.linear(2),
+          ),
+          child: DharmaScrollApp(),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
+
+    for (final String label in <String>[
+      'Begin',
+      'Continue',
+      OnboardingFlow.finishLabel,
+    ]) {
+      await tester.tap(find.text(label));
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+    }
+    expect(find.text(TodayScreen.beginLabel), findsOneWidget);
+  });
+
+  testWidgets('a returning user lands on Today with three tabs', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(_app(await _prefs(onboarded: true)));
+    await tester.pumpAndSettle();
+
+    expect(find.text(TodayScreen.beginLabel), findsOneWidget);
+    expect(find.text('Today'), findsOneWidget);
+    expect(find.text('Yatra'), findsOneWidget);
+    expect(find.text('You'), findsOneWidget);
+    expect(find.text('Sangha'), findsOneWidget); // a link on Today, not a tab
+    expect(find.text('Profile'), findsNothing);
+  });
+
+  testWidgets('Begin opens the verse feed', (WidgetTester tester) async {
+    await tester.pumpWidget(_app(await _prefs(onboarded: true)));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text(TodayScreen.beginLabel));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(FeedScreen), findsOneWidget);
+    expect(find.text('1 of ${FeedScreen.dailyLimit}'), findsOneWidget);
+  });
+
+  testWidgets('tapping a verse opens its sheet', (WidgetTester tester) async {
     tester.view.physicalSize = const Size(360, 800);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.reset);
@@ -66,21 +150,9 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    // Open the expand sheet via tap to reach the share rail.
     await tester.tap(find.byType(ShlokaCard).first);
+    await tester.pump(kDoubleTapTimeout);
     await tester.pumpAndSettle();
-  });
-
-  testWidgets('a returning user lands in the shell with five tabs', (
-    WidgetTester tester,
-  ) async {
-    await tester.pumpWidget(await _boot(onboarded: true));
-    await tester.pumpAndSettle();
-
-    expect(find.textContaining('Daily goal'), findsOneWidget);
-    expect(find.text('Shloka'), findsOneWidget);
-    expect(find.text('Yatra'), findsOneWidget);
-    expect(find.text('Sangha'), findsOneWidget);
-    expect(find.text('Profile'), findsOneWidget);
+    expect(find.text('SHABDARTH'), findsOneWidget);
   });
 }
