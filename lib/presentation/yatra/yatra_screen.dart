@@ -1,339 +1,264 @@
-import 'dart:math' as math;
-import 'dart:ui' show PathMetric;
-
 import 'package:flutter/material.dart';
-import 'package:fl_chart/fl_chart.dart';
-import 'package:lottie/lottie.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../core/theme/app_metrics.dart';
-import '../../core/theme/app_type.dart';
-import '../../core/theme/theme_x.dart';
-import '../../core/widgets/mp_pill.dart';
-import '../../core/widgets/parchment.dart';
+import '../../core/router.dart';
+import '../../core/state/progress.dart';
+import '../../data/fake_verses.dart';
+import '../../design/tokens.dart';
+import '../../design/widgets.dart';
+import '../../domain/models/verse.dart';
 
-/// Eighteen chapters as a winding path. Ch 1–3 are playable this week; the
-/// rest are visible, honest, and locked rather than silently missing.
-class YatraScreen extends StatelessWidget {
+/// Gita Yatra: stones walked, the next one a glowing lotus.
+class YatraScreen extends ConsumerWidget {
   const YatraScreen({super.key});
 
-  static const List<({String name, int verses, bool done, bool current})>
-  _chapters = <({String name, int verses, bool done, bool current})>[
-    (name: 'Arjuna Vishada Yoga', verses: 47, done: true, current: false),
-    (name: 'Sankhya Yoga', verses: 72, done: true, current: false),
-    (name: 'Karma Yoga', verses: 43, done: false, current: true),
-    (name: 'Jnana Karma Sannyasa', verses: 42, done: false, current: false),
-    (name: 'Karma Sannyasa Yoga', verses: 29, done: false, current: false),
-    (name: 'Dhyana Yoga', verses: 47, done: false, current: false),
+  /// Stone x positions (0..1), bottom to top, a gentle zigzag.
+  static const List<double> _xs = <double>[
+    0.62,
+    0.30,
+    0.52,
+    0.34,
+    0.66,
+    0.40,
+    0.58,
   ];
 
   @override
-  Widget build(BuildContext context) {
-    return Stack(
-      fit: StackFit.expand,
-      children: <Widget>[
-        const ParchmentBackground(),
-        SafeArea(
-          bottom: false,
+  Widget build(BuildContext context, WidgetRef ref) {
+    final DharmaColors c = context.c;
+    final ProgressState p = ref.watch(progressProvider);
+    final bool walkedToday = p.steps.contains(RitualStep.walk);
+    // Days with a lit lamp, not counting today unless the walk is done.
+    final int done =
+        p.litDays.length -
+        (!walkedToday && p.litDays.contains(p.today) ? 1 : 0);
+    final int cur = done.clamp(0, kFakeVerses.length - 1);
+    final Verse now = kFakeVerses[cur];
+
+    // Show 7 stones: the walked ones below, the lotus, the rest above.
+    final int first = (cur - 2).clamp(0, 1000);
+    final List<int> idx = <int>[for (int i = 0; i < 7; i++) first + i];
+
+    return Backdrop(
+      child: SafeArea(
+        bottom: false,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(
+            Sp.screenSide,
+            Sp.s18,
+            Sp.screenSide,
+            0,
+          ),
           child: Column(
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.fromLTRB(
-                  AppSpace.s20,
-                  AppSpace.s12,
-                  AppSpace.s20,
-                  AppSpace.s8,
-                ),
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Text(
-                        'Gita Yatra',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: AppType.t1.copyWith(color: context.colors.ink),
-                      ),
-                    ),
-                    Icon(
-                      Icons.local_fire_department,
-                      size: 15,
-                      color: context.colors.accentKesar,
-                    ),
-                    const SizedBox(width: AppSpace.s4),
-                    Text(
-                      '12',
-                      style: AppType.m2.copyWith(color: context.colors.ink),
-                    ),
-                    const SizedBox(width: AppSpace.s12),
-                    const MpPill(points: 1240, compact: true),
-                  ],
-                ),
+              TopLine(
+                left: 'Gita Yatra',
+                right: 'Adhyaya ${now.chapter} of 18',
               ),
+              const SizedBox(height: Sp.s14),
               Expanded(
-                child: ListView(
-                  padding: const EdgeInsets.fromLTRB(
-                    AppSpace.s20,
-                    AppSpace.s8,
-                    AppSpace.s20,
-                    AppSpace.s32,
-                  ),
-                  children: <Widget>[
-                    Center(
-                      child: Lottie.asset(
-                        'assets/lottie/chakra.json',
-                        width: 64,
-                        height: 64,
-                        repeat: false,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 120,
-                      child: BarChart(
-                        BarChartData(
-                          barGroups: _chapters
-                              .asMap()
-                              .entries
-                              .map((e) => BarChartGroupData(
-                                    x: e.key,
-                                    barRods: <BarChartRodData>[
-                                      BarChartRodData(
-                                        toY: e.value.verses.toDouble(),
-                                        color: e.value.done
-                                            ? context.colors.gold
-                                            : e.value.current
-                                                ? context.colors.primary
-                                                : context.colors.inkDisabled,
-                                        width: 12,
-                                        borderRadius: BorderRadius.circular(4),
-                                      ),
-                                    ],
-                                  ))
-                              .toList(),
-                          titlesData: const FlTitlesData(show: false),
-                          gridData: const FlGridData(show: false),
-                          borderData: FlBorderData(show: false),
+                child: LayoutBuilder(
+                  builder: (BuildContext context, BoxConstraints box) {
+                    final double w = box.maxWidth;
+                    final double h = box.maxHeight;
+                    final double step = (h - 80) / 6;
+                    Offset at(int slot) =>
+                        Offset(_xs[slot] * w, h - 40 - slot * step);
+                    final List<Offset> pts = <Offset>[
+                      for (int s = 0; s < 7; s++) at(s),
+                    ];
+                    final int curSlot = cur - first;
+                    return Stack(
+                      children: <Widget>[
+                        Positioned.fill(
+                          child: CustomPaint(
+                            painter: _PathPainter(
+                              points: pts,
+                              walkedTo: curSlot,
+                              lit: Tok.marigold,
+                              dim: c.line,
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    const SizedBox(height: AppSpace.s12),
-                    _ChapterHeader(),
-                    const SizedBox(height: AppSpace.s24),
-                    SizedBox(height: 560, child: _Path(chapters: _chapters)),
-                    const SizedBox(height: AppSpace.s8),
-                    Center(
-                      child: Text(
-                        'Adhyay 4–18 unlock as the content is reviewed.',
-                        textAlign: TextAlign.center,
-                        style: AppType.c1.copyWith(
-                          color: context.colors.inkMuted,
+                        for (int s = 0; s < 7; s++)
+                          Positioned(
+                            left: pts[s].dx - 32,
+                            top: pts[s].dy - 32,
+                            child: _Stone(
+                              kind: s < curSlot
+                                  ? _StoneKind.done
+                                  : s == curSlot
+                                  ? _StoneKind.now
+                                  : _StoneKind.later,
+                              fade: s > curSlot ? 1 - (s - curSlot) * 0.17 : 1,
+                              label: s == curSlot
+                                  ? 'Today: ${now.yogaName}, ${now.id}'
+                                  : 'Stone ${idx[s] + 1}',
+                              onTap: s == curSlot
+                                  ? () => context.push(Routes.hear)
+                                  : null,
+                            ),
+                          ),
+                        Positioned(
+                          left: pts[curSlot].dx > w * 0.5
+                              ? null
+                              : pts[curSlot].dx + 40,
+                          right: pts[curSlot].dx > w * 0.5
+                              ? w - pts[curSlot].dx + 40
+                              : null,
+                          top: pts[curSlot].dy - 22,
+                          child: IgnorePointer(
+                            child: Column(
+                              crossAxisAlignment: pts[curSlot].dx > w * 0.5
+                                  ? CrossAxisAlignment.end
+                                  : CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text('TODAY', style: DType.eyebrow(c.faint)),
+                                Text(
+                                  '${now.yogaName.replaceAll(' Yoga', '')} Yoga · ${now.id}',
+                                  style: DType.body(c.verse, size: 17),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                  ],
+                      ],
+                    );
+                  },
                 ),
               ),
             ],
           ),
         ),
-      ],
-    );
-  }
-}
-
-class _ChapterHeader extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(AppSpace.s16),
-      decoration: BoxDecoration(
-        color: context.colors.field,
-        border: Border.all(color: context.colors.border, width: AppBorder.hairline),
-        borderRadius: BorderRadius.circular(AppRadius.sm),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            'ADHYAY 3 · KARMA YOGA',
-            style: AppType.m1.copyWith(color: context.colors.onField),
-          ),
-          const SizedBox(height: AppSpace.s6),
-          Text(
-            'Action without attachment',
-            style: AppType.t2.copyWith(color: context.colors.onField),
-          ),
-          const SizedBox(height: AppSpace.s4),
-          Text(
-            'Lesson 3 of 7',
-            style: AppType.b3.copyWith(
-              color: context.colors.onField.withValues(alpha: 0.75),
-            ),
-          ),
-        ],
       ),
     );
   }
 }
 
-class _Path extends StatelessWidget {
-  const _Path({required this.chapters});
+enum _StoneKind { done, now, later }
 
-  final List<({String name, int verses, bool done, bool current})> chapters;
-
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        final double width = constraints.maxWidth;
-        final double spacing = constraints.maxHeight / (chapters.length + 1);
-
-        double xFor(int i) => width * (0.5 + 0.26 * math.sin(i * 1.15));
-
-        return Stack(
-          clipBehavior: Clip.none,
-          children: <Widget>[
-            Positioned.fill(
-              child: CustomPaint(
-                painter: _PathPainter(
-                  points: <Offset>[
-                    for (int i = 0; i < chapters.length; i++)
-                      Offset(xFor(i), spacing * (i + 1)),
-                  ],
-                  color: context.colors.inkMuted,
-                ),
-              ),
-            ),
-            for (int i = 0; i < chapters.length; i++)
-              Positioned(
-                left: xFor(i) - 44,
-                top: spacing * (i + 1) - 22,
-                child: _PathNode(
-                  index: i + 1,
-                  done: chapters[i].done,
-                  current: chapters[i].current,
-                  locked: i >= 3,
-                  label: chapters[i].name,
-                ),
-              ),
-          ],
-        );
-      },
-    );
-  }
-}
-
-class _PathNode extends StatelessWidget {
-  const _PathNode({
-    required this.index,
-    required this.done,
-    required this.current,
-    required this.locked,
+class _Stone extends StatelessWidget {
+  const _Stone({
+    required this.kind,
+    required this.fade,
     required this.label,
+    this.onTap,
   });
 
-  final int index;
-  final bool done;
-  final bool current;
-  final bool locked;
+  final _StoneKind kind;
+  final double fade;
   final String label;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    final double size = current ? 52 : 44;
-    final Color fill = done
-        ? context.colors.gold
-        : current
-        ? context.colors.field
-        : context.colors.surfaceSunken;
-    final Color tint = done
-        ? context.colors.onGold
-        : current
-        ? context.colors.onField
-        : context.colors.inkFaint;
-
-    return SizedBox(
-      width: 88,
-      child: Column(
-        children: <Widget>[
-          Container(
-            width: size,
-            height: size,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: fill,
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: context.colors.border,
-                width: AppBorder.hairline,
+    final DharmaColors c = context.c;
+    final bool now = kind == _StoneKind.now;
+    final double size = now ? 64 : 48;
+    return Semantics(
+      button: onTap != null,
+      label: label,
+      excludeSemantics: true,
+      onTap: onTap,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: onTap == null
+            ? null
+            : () {
+                Haptics.tap();
+                onTap!();
+              },
+        child: SizedBox(
+          width: 64,
+          height: 64,
+          child: Center(
+            child: Opacity(
+              opacity: fade.clamp(0.25, 1.0),
+              child: Container(
+                width: size,
+                height: size,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: now ? Tok.marigold : c.surface,
+                  border: Border.all(
+                    color: kind == _StoneKind.done ? Tok.marigold : c.line,
+                  ),
+                  boxShadow: now
+                      ? <BoxShadow>[
+                          BoxShadow(
+                            color: Tok.marigold.withValues(alpha: 0.5),
+                            blurRadius: 22,
+                          ),
+                        ]
+                      : null,
+                ),
+                child: Center(
+                  child: DIcon(
+                    now
+                        ? 'lotus'
+                        : kind == _StoneKind.done
+                        ? 'check'
+                        : 'path-stone',
+                    size: now ? 30 : 22,
+                    color: now ? Tok.btnInk : c.accent,
+                  ),
+                ),
               ),
             ),
-            child: done
-                ? Icon(Icons.check, size: 18, color: tint)
-                : current
-                ? Icon(Icons.play_arrow_rounded, size: 22, color: tint)
-                : locked
-                ? Icon(Icons.lock_outline, size: 15, color: tint)
-                : Text('$index', style: AppType.m2.copyWith(color: tint)),
           ),
-          const SizedBox(height: AppSpace.s4),
-          Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: AppSpace.s4,
-              vertical: 1,
-            ),
-            color: context.colors.surfaceCanvas,
-            child: Text(
-              label,
-              textAlign: TextAlign.center,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: AppType.m1.copyWith(
-                fontSize: 8,
-                letterSpacing: 0.2,
-                color: locked ? context.colors.inkFaint : context.colors.ink,
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
 }
 
 class _PathPainter extends CustomPainter {
-  const _PathPainter({required this.points, required this.color});
+  _PathPainter({
+    required this.points,
+    required this.walkedTo,
+    required this.lit,
+    required this.dim,
+  });
 
   final List<Offset> points;
-  final Color color;
+  final int walkedTo;
+  final Color lit;
+  final Color dim;
+
+  Path _curve(int from, int to) {
+    final Path path = Path()..moveTo(points[from].dx, points[from].dy);
+    for (int i = from; i < to; i++) {
+      final Offset a = points[i];
+      final Offset b = points[i + 1];
+      final double my = (a.dy + b.dy) / 2;
+      path.cubicTo(a.dx, my, b.dx, my, b.dx, b.dy);
+    }
+    return path;
+  }
 
   @override
   void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 3
-      ..strokeCap = StrokeCap.round
-      ..color = color.withValues(alpha: 0.45);
-
-    final Path path = Path()..moveTo(points.first.dx, points.first.dy);
-    for (int i = 0; i < points.length - 1; i++) {
-      final Offset a = points[i];
-      final Offset b = points[i + 1];
-      final double midY = (a.dy + b.dy) / 2;
-      path.cubicTo(a.dx, midY, b.dx, midY, b.dx, b.dy);
-    }
-
-    // Dashed: draw short segments along the path.
-    for (final PathMetric metric in path.computeMetrics()) {
-      double distance = 0;
-      while (distance < metric.length) {
-        final double next = math.min(distance + 6, metric.length);
-        canvas.drawPath(metric.extractPath(distance, next), paint);
-        distance = next + 6;
-      }
+    canvas.drawPath(
+      _curve(0, points.length - 1),
+      Paint()
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 1.5
+        ..color = dim,
+    );
+    if (walkedTo > 0) {
+      canvas.drawPath(
+        _curve(0, walkedTo),
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 2.5
+          ..strokeCap = StrokeCap.round
+          ..color = lit,
+      );
     }
   }
 
   @override
-  bool shouldRepaint(covariant _PathPainter oldDelegate) =>
-      oldDelegate.points != points || oldDelegate.color != color;
+  bool shouldRepaint(_PathPainter o) =>
+      o.walkedTo != walkedTo || o.points.length != points.length;
 }
