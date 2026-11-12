@@ -1,4 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Mann Darpan: speech-to-text and the on-device voice note. -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <application
         android:label="dharmascroll"
         android:name="${applicationName}"
@@ -40,6 +42,15 @@
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>
             <data android:mimeType="text/plain"/>
+        </intent>
+        <!-- speech_to_text needs to see the system recogniser (Android 11+). -->
+        <intent>
+            <action android:name="android.speech.RecognitionService"/>
+        </intent>
+        <!-- The crisis screen dials a helpline. -->
+        <intent>
+            <action android:name="android.intent.action.DIAL"/>
+            <data android:scheme="tel"/>
         </intent>
     </queries>
 </manifest>
