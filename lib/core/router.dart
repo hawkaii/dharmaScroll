@@ -3,6 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../presentation/hear/hear_screen.dart';
+import '../presentation/kept/kept_screen.dart';
+import '../presentation/kept/verse_screen.dart';
+import '../presentation/milestone/milestone_screen.dart';
+import '../presentation/points/wallet_screen.dart';
 import '../presentation/onboarding/onboarding_flow.dart';
 import '../presentation/shell/app_shell.dart';
 import '../presentation/today/today_screen.dart';
@@ -20,6 +24,10 @@ abstract final class Routes {
   static const String hear = '/hear';
   static const String walk = '/walk';
   static const String complete = '/complete';
+  static const String milestone = '/milestone';
+  static const String kept = '/kept';
+  static const String wallet = '/wallet';
+  static String verse(String id) => '/verse/$id';
 }
 
 /// Onboarding is a top-level route; the redirect keeps a finished user out of
@@ -59,6 +67,27 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
         path: Routes.complete,
         builder: (BuildContext c, GoRouterState s) =>
             CompleteScreen(award: s.extra is int ? s.extra! as int : 0),
+      ),
+      GoRoute(
+        path: Routes.milestone,
+        builder: (BuildContext c, GoRouterState s) => MilestoneScreen(
+          days: s.extra is int
+              ? s.extra! as int
+              : int.tryParse(s.uri.queryParameters['days'] ?? '') ?? 7,
+        ),
+      ),
+      GoRoute(
+        path: Routes.kept,
+        builder: (BuildContext c, GoRouterState s) => const KeptScreen(),
+      ),
+      GoRoute(
+        path: '/verse/:id',
+        builder: (BuildContext c, GoRouterState s) =>
+            VerseScreen(id: s.pathParameters['id'] ?? ''),
+      ),
+      GoRoute(
+        path: Routes.wallet,
+        builder: (BuildContext c, GoRouterState s) => const WalletScreen(),
       ),
       StatefulShellRoute.indexedStack(
         builder: (BuildContext c, GoRouterState s, StatefulNavigationShell n) =>

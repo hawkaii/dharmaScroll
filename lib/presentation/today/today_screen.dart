@@ -9,6 +9,7 @@ import '../../design/effects.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../points/wallet_screen.dart';
 import '../shell/app_shell.dart';
 
 /// Today: one primary action. The rail shows Hear, Walk, Speak.
@@ -110,12 +111,16 @@ class TodayScreen extends ConsumerWidget {
                       const Spacer(),
                       PrimaryButton(label: button, onPressed: go),
                       const SizedBox(height: Sp.s14),
-                      Text(
-                        back
-                            ? 'Your ${p.streak > 0 ? p.streak : 'earlier'} days are kept.'
-                            : '${p.points} Moksh Points',
-                        style: DType.body(c.faint, size: 16),
-                      ),
+                      if (back)
+                        Text(
+                          'Your ${p.streak > 0 ? p.streak : 'earlier'} days are kept.',
+                          style: DType.body(c.faint, size: 16),
+                        )
+                      else
+                        TextAction(
+                          label: '${p.points} Moksh Points',
+                          onPressed: () => showTodayPointsSheet(context, p),
+                        ),
                     ],
                   ),
                 ),

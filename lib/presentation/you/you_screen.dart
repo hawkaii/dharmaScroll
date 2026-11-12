@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../core/router.dart';
 
 import '../../core/state/progress.dart';
 import '../../core/state/settings.dart';
@@ -63,6 +66,30 @@ class YouScreen extends ConsumerWidget {
               ],
             ),
             const SizedBox(height: Sp.s22),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: _Tile(
+                    icon: 'lotus',
+                    iconColor: c.rose,
+                    value: '${p.kept.length}',
+                    label: 'Kept verses',
+                    onTap: () => context.push(Routes.kept),
+                  ),
+                ),
+                const SizedBox(width: Sp.s12),
+                Expanded(
+                  child: _Tile(
+                    icon: 'peacock',
+                    iconColor: c.peacock,
+                    value: '${p.points}',
+                    label: 'Moksh Points',
+                    onTap: () => context.push(Routes.wallet),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: Sp.s12),
             _Row(
               label: 'Reminder',
               value: timeName(s.reminderMinutes),
@@ -167,6 +194,60 @@ class YouScreen extends ConsumerWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+/// A small card for your light: an icon, a number, what it counts.
+class _Tile extends StatelessWidget {
+  const _Tile({
+    required this.icon,
+    required this.iconColor,
+    required this.value,
+    required this.label,
+    required this.onTap,
+  });
+
+  final String icon;
+  final Color iconColor;
+  final String value;
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final DharmaColors c = context.c;
+    return Semantics(
+      button: true,
+      label: '$label, $value',
+      excludeSemantics: true,
+      onTap: onTap,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () {
+          Haptics.tick();
+          onTap();
+        },
+        child: DCard(
+          padding: const EdgeInsets.fromLTRB(Sp.s18, Sp.s14, Sp.s14, Sp.s14),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  DIcon(icon, size: 26, color: iconColor, glow: true),
+                  const Spacer(),
+                  Icon(Icons.chevron_right, size: 18, color: c.faint),
+                ],
+              ),
+              const SizedBox(height: Sp.s12),
+              Text(value, style: DType.hero(c.verse, size: 34)),
+              const SizedBox(height: 2),
+              Text(label.toUpperCase(), style: DType.ref(c.faint)),
+            ],
+          ),
         ),
       ),
     );
