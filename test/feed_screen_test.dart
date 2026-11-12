@@ -1,6 +1,7 @@
 import 'package:dharmascroll/core/theme/app_theme.dart';
 import 'package:dharmascroll/presentation/feed/feed_screen.dart';
 import 'package:dharmascroll/presentation/feed/widgets/shloka_card.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -66,6 +67,9 @@ void main() {
     // "Tap to expand" is the whole card's gesture, not just the chip's, so the
     // test taps the card the way a user would.
     await tester.tap(find.byType(ShlokaCard).hitTestable().first);
+    // The page also listens for double-tap (keep), so a single tap resolves
+    // only after the double-tap window closes.
+    await tester.pump(kDoubleTapTimeout);
     await tester.pumpAndSettle();
 
     expect(find.text('SHABDARTH'), findsOneWidget);
@@ -98,24 +102,65 @@ void main() {
 
     expect(find.text('Save'), findsWidgets);
     await tester.tap(find.text('Save').hitTestable().first);
+    await tester.pump(kDoubleTapTimeout);
     await tester.pumpAndSettle();
 
     expect(find.text('Saved'), findsWidgets);
     expect(find.text('+2'), findsWidgets);
   });
 
-  testWidgets('the checkpoint card appears on the eighth page', (
+  testWidgets('the feed stops after five verses on a calm end page', (
     WidgetTester tester,
   ) async {
     await _pumpFeed(tester);
 
-    for (int i = 0; i < 8; i++) {
+    final PageView view = tester.widget<PageView>(find.byType(PageView));
+    final SliverChildDelegate delegate = view.childrenDelegate;
+    // Five verses plus the end page, whatever the catalogue size.
+    expect(delegate.estimatedChildCount, FeedScreen.dailyLimit + 1);
+
+    for (int i = 0; i < FeedScreen.dailyLimit; i++) {
+      expect(find.text(FeedScreen.endTitle), findsNothing);
       await tester.fling(find.byType(PageView), const Offset(0, -600), 1500);
       await tester.pumpAndSettle();
     }
 
-    expect(_currentPage(tester), closeTo(7, 0.01));
-    expect(find.text('Quick check'), findsOneWidget);
+    expect(_currentPage(tester), closeTo(5, 0.01));
+    expect(find.text(FeedScreen.endTitle), findsOneWidget);
+    expect(find.text('Walk the next step'), findsOneWidget);
+    expect(find.text('Rest for now'), findsOneWidget);
+
+    // There is no sixth verse and no "load more": a further swipe stays put.
+    await tester.fling(find.byType(PageView), const Offset(0, -600), 1500);
+    await tester.pumpAndSettle();
+    expect(_currentPage(tester), closeTo(5, 0.01));
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('the end page fits 320 dp at 200% text', (
+    WidgetTester tester,
+  ) async {
+    await _pumpFeed(tester, size: const Size(320, 568), textScale: 2);
+    final PageView view = tester.widget<PageView>(find.byType(PageView));
+    view.controller!.jumpToPage(FeedScreen.dailyLimit);
+    await tester.pumpAndSettle();
+
+    expect(find.text(FeedScreen.endTitle), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('double-tap keeps a verse', (WidgetTester tester) async {
+    await _pumpFeed(tester);
+    final Finder card = find.byType(ShlokaCard).hitTestable().first;
+
+    await tester.tap(card);
+    await tester.pump(const Duration(milliseconds: 50));
+    await tester.tap(card);
+    await tester.pump();
+
+    expect(find.text('KEPT'), findsOneWidget);
+    expect(find.text('Saved'), findsWidgets);
+    await tester.pump(const Duration(seconds: 1));
+    await tester.pumpAndSettle();
   });
 }

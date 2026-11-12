@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../core/router/app_router.dart';
 
 import '../../core/theme/app_metrics.dart';
 import '../../core/theme/app_type.dart';
 import '../../core/theme/theme_x.dart';
+import '../../core/widgets/hard_button.dart';
 import '../../core/widgets/mp_pill.dart';
 import '../../data/fake_verses.dart';
 import '../../domain/models/verse.dart';
 import '../mp/daily_reward_sheet.dart';
-import 'widgets/checkpoint_card.dart';
 import 'widgets/coach_marks.dart';
 import 'widgets/expand_sheet.dart';
 import 'widgets/shloka_card.dart';
@@ -16,9 +19,19 @@ import 'widgets/shloka_card.dart';
 enum FeedMode { forYou, kram, topics }
 
 /// The daily ritual: one verse at a time, the replacement for reels muscle
-/// memory.
+/// memory. Five verses, then a calm end page. There is no "load more".
+///
+/// Gestures: swipe up for the next verse, double-tap to keep, press and hold
+/// to listen (a visual stub this phase; no audio yet), tap to go deeper.
 class FeedScreen extends StatefulWidget {
-  const FeedScreen({super.key});
+  const FeedScreen({super.key, this.verses = kFakeVerses});
+
+  /// Verses per day. Fixed by product decision, not a setting.
+  static const int dailyLimit = 5;
+
+  static const String endTitle = 'That is enough for today.';
+
+  final List<Verse> verses;
 
   @override
   State<FeedScreen> createState() => _FeedScreenState();
@@ -31,10 +44,8 @@ class _FeedScreenState extends State<FeedScreen> {
   int _page = 0;
   FeedMode _mode = FeedMode.forYou;
   bool _coachVisible = true;
-
-  /// The checkpoint lands after the seventh verse, never as a full-screen
-  /// interruption — it is one page in the sequence, swipable like any other.
-  static const int _checkpointAt = 7;
+  bool _listening = false;
+  bool _keptFlash = false;
 
   @override
   void dispose() {
@@ -43,7 +54,9 @@ class _FeedScreenState extends State<FeedScreen> {
   }
 
   void _onPageChanged(int page) {
+    HapticFeedback.selectionClick();
     setState(() {
+      _listening = false;
       _page = page;
       _coachVisible = false;
     });
@@ -62,9 +75,32 @@ class _FeedScreenState extends State<FeedScreen> {
     });
   }
 
+  /// Double-tap keeps; it never un-keeps, so a nervous second double-tap is
+  /// harmless. Un-keeping stays on the rail's Save toggle.
+  Future<void> _keep(Verse verse) async {
+    HapticFeedback.lightImpact();
+    if (!_saved.contains(verse.id)) {
+      _toggleSave(verse);
+    }
+    setState(() => _keptFlash = true);
+    await Future<void>.delayed(const Duration(milliseconds: 900));
+    if (mounted) {
+      setState(() => _keptFlash = false);
+    }
+  }
+
+  void _setListening(bool value) {
+    if (value) {
+      HapticFeedback.selectionClick();
+    }
+    setState(() => _listening = value);
+  }
+
   @override
   Widget build(BuildContext context) {
-    final List<Verse> verses = kFakeVerses;
+    final List<Verse> verses = widget.verses
+        .take(FeedScreen.dailyLimit)
+        .toList(growable: false);
     // The coach plate is optional teaching, and at 200% text it would take more
     // vertical space than the shloka it explains. Drop it rather than shrink it.
     final bool showCoach =
@@ -76,7 +112,7 @@ class _FeedScreenState extends State<FeedScreen> {
         children: <Widget>[
           _FeedHeader(
             mode: _mode,
-            page: _page,
+            page: _page < verses.length ? _page : verses.length - 1,
             total: verses.length,
             onMode: (FeedMode mode) => setState(() => _mode = mode),
             onStreakTap: () => showDailyRewardSheet(context),
@@ -96,26 +132,35 @@ class _FeedScreenState extends State<FeedScreen> {
                   scrollDirection: Axis.vertical,
                   physics: const PageScrollPhysics(),
                   allowImplicitScrolling: true,
+                  // The verses, then the end page. Nothing after it.
                   itemCount: verses.length + 1,
                   onPageChanged: _onPageChanged,
                   itemBuilder: (BuildContext context, int index) {
-                    if (index == _checkpointAt) {
-                      return const CheckpointCard();
+                    if (index == verses.length) {
+                      return const _EnoughForToday();
                     }
-                    final Verse verse =
-                        verses[index < _checkpointAt ? index : index - 1];
-                    return ShlokaCard(
+                    final Verse verse = verses[index];
+                    return GestureDetector(
                       key: ValueKey<String>(verse.id),
-                      verse: verse,
-                      saved: _saved.contains(verse.id),
-                      awarded: _awarded[verse.id] ?? 0,
-                      onSave: () => _toggleSave(verse),
-                      onShare: () => context.push('/share-card/${verse.id}'),
-                      onDeepen: () => _openSheet(verse),
-                      onTap: () => _openSheet(verse),
+                      behavior: HitTestBehavior.translucent,
+                      onDoubleTap: () => _keep(verse),
+                      onLongPressStart: (_) => _setListening(true),
+                      onLongPressEnd: (_) => _setListening(false),
+                      onLongPressCancel: () => _setListening(false),
+                      child: ShlokaCard(
+                        verse: verse,
+                        saved: _saved.contains(verse.id),
+                        awarded: _awarded[verse.id] ?? 0,
+                        onSave: () => _toggleSave(verse),
+                        onShare: () => context.push('/share-card/${verse.id}'),
+                        onDeepen: () => _openSheet(verse),
+                        onTap: () => _openSheet(verse),
+                      ),
                     );
                   },
                 ),
+                _ListeningGlow(visible: _listening),
+                _KeptToast(visible: _keptFlash),
               ],
             ),
           ),
@@ -225,7 +270,7 @@ class _FeedHeader extends StatelessWidget {
                 const SizedBox(width: AppSpace.s12),
                 Flexible(
                   child: Text(
-                    'Nitya ${page + 1}/$total',
+                    '${page + 1} of $total',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: AppType.m1.copyWith(
@@ -282,6 +327,156 @@ class _ModeTab extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+/// Hold-to-listen stub: a glow rising from the bottom while the finger is down.
+/// Chant playback and word highlighting land with the audio phase.
+class _ListeningGlow extends StatelessWidget {
+  const _ListeningGlow({required this.visible});
+
+  final bool visible;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned.fill(
+      child: IgnorePointer(
+        child: AnimatedOpacity(
+          opacity: visible ? 1 : 0,
+          duration: AppMotion.resolve(context, AppMotion.sheet),
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: RadialGradient(
+                center: const Alignment(0, 1.1),
+                radius: 0.9,
+                colors: <Color>[
+                  context.colors.accentKesar.withValues(alpha: 0.28),
+                  context.colors.accentKesar.withValues(alpha: 0),
+                ],
+              ),
+            ),
+            child: Align(
+              alignment: const Alignment(0, 0.92),
+              child: Semantics(
+                liveRegion: true,
+                label: visible ? 'Listening' : null,
+                child: Text(
+                  'LISTENING',
+                  style: AppType.m1.copyWith(
+                    color: context.colors.accentKesar,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _KeptToast extends StatelessWidget {
+  const _KeptToast({required this.visible});
+
+  final bool visible;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      left: 0,
+      right: 0,
+      bottom: AppSpace.s64,
+      child: IgnorePointer(
+        child: AnimatedOpacity(
+          opacity: visible ? 1 : 0,
+          duration: AppMotion.resolve(context, AppMotion.fast),
+          child: Center(
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppSpace.s16,
+                vertical: AppSpace.s8,
+              ),
+              decoration: BoxDecoration(
+                color: context.colors.surface,
+                border: Border.all(color: context.colors.accentKesar),
+                borderRadius: BorderRadius.circular(AppRadius.pill),
+              ),
+              child: Text(
+                'KEPT',
+                style: AppType.m1.copyWith(color: context.colors.accentKesar),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// The end of the day's feed. Two ways out: walk the next step, or rest.
+class _EnoughForToday extends StatelessWidget {
+  const _EnoughForToday();
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        return SingleChildScrollView(
+          padding: const EdgeInsets.all(AppSpace.s24),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: constraints.maxHeight - AppSpace.s48,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ExcludeSemantics(
+                  child: Text(
+                    'ॐ',
+                    style: AppType.sktL.copyWith(
+                      fontSize: 54,
+                      color: context.colors.accentKesar,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: AppSpace.s24),
+                Semantics(
+                  header: true,
+                  child: Text(
+                    FeedScreen.endTitle,
+                    textAlign: TextAlign.center,
+                    style: AppType.d3.copyWith(color: context.colors.ink),
+                  ),
+                ),
+                const SizedBox(height: AppSpace.s12),
+                Text(
+                  'The verse will wait.',
+                  textAlign: TextAlign.center,
+                  style: AppType.b1.copyWith(color: context.colors.inkMuted),
+                ),
+                const SizedBox(height: AppSpace.s40),
+                HardButton(
+                  label: 'Walk the next step',
+                  block: true,
+                  variant: HardButtonVariant.gold,
+                  onPressed: () {
+                    HapticFeedback.lightImpact();
+                    context.push(Routes.lesson);
+                  },
+                ),
+                const SizedBox(height: AppSpace.s8),
+                HardButton(
+                  label: 'Rest for now',
+                  block: true,
+                  variant: HardButtonVariant.ghost,
+                  onPressed: () => context.go(Routes.today),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
