@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:dharmascroll/core/rituals/providers.dart';
+import 'package:dharmascroll/core/rituals/reminder_backend.dart';
 import 'package:dharmascroll/app.dart';
 import 'package:dharmascroll/app_providers.dart';
 import 'package:dharmascroll/data/verse_repository.dart';
@@ -33,6 +35,7 @@ Future<void> _openRoom(WidgetTester tester, MemoryKeptNotesStore store) async {
           parseVerses(File('assets/data/gita_v1.json').readAsStringSync()),
         ),
         clockProvider.overrideWithValue(() => DateTime(2026, 11, 12, 20)),
+        reminderBackendProvider.overrideWithValue(const NoopReminderBackend()),
         keptNotesStoreProvider.overrideWithValue(store),
         ekantVoiceProvider.overrideWithValue(null),
       ],

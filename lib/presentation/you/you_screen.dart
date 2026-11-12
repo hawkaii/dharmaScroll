@@ -59,7 +59,7 @@ class YouScreen extends ConsumerWidget {
                         style: DType.title(c.ink, compact: true),
                       ),
                       Text(
-                        '${p.streak < 1 ? 1 : p.streak} ${p.streak <= 1 ? 'day' : 'days'}  ·  ${p.points} Moksh  ·  ${p.kept.length} kept',
+                        '${p.streak < 1 ? 1 : p.streak} ${p.streak <= 1 ? 'day' : 'days'} of light',
                         style: DType.body(c.mute, size: 16),
                       ),
                     ],
@@ -68,42 +68,42 @@ class YouScreen extends ConsumerWidget {
               ],
             ),
             const SizedBox(height: Sp.s22),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: _Tile(
+                    icon: 'lotus',
+                    iconColor: c.rose,
+                    value: '${p.kept.length}',
+                    label: 'Kept verses',
+                    onTap: () => context.push(Routes.kept),
+                  ),
+                ),
+                const SizedBox(width: Sp.s12),
+                Expanded(
+                  child: _Tile(
+                    icon: 'peacock',
+                    iconColor: c.peacock,
+                    value: '${p.points}',
+                    label: 'Moksh Points',
+                    onTap: () => context.push(Routes.wallet),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: Sp.s12),
             _Row(
               label: 'Ekant',
               value: 'A quiet room',
               onTap: () => context.push(Routes.ekant),
             ),
             _Row(
-              label: 'Reminder',
-              value: timeName(s.reminderMinutes),
-              onTap: () => showDSheet<void>(
-                context,
-                (BuildContext ctx) => _ReminderSheet(
-                  minutes: s.reminderMinutes,
-                  onChanged: n.setReminder,
-                ),
-              ),
-            ),
-            _Row(
               label: 'Rituals',
+              // Reminder time, city and rituals live in one row: You keeps 5 settings.
               value: '${s.rituals.length} on',
               onTap: () => showDSheet<void>(
                 context,
                 (BuildContext ctx) => const _RitualsSheet(),
-              ),
-            ),
-            _Row(
-              label: 'City',
-              value: ref.watch(cityProvider)?.name ?? '',
-              onTap: () => showDSheet<void>(
-                context,
-                (BuildContext ctx) => CityPicker(
-                  selected: s.cityId,
-                  onSelected: (String id) {
-                    n.setCity(id);
-                    Navigator.of(ctx).pop();
-                  },
-                ),
               ),
             ),
             _Row(
@@ -199,6 +199,60 @@ class YouScreen extends ConsumerWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+/// A small card for your light: an icon, a number, what it counts.
+class _Tile extends StatelessWidget {
+  const _Tile({
+    required this.icon,
+    required this.iconColor,
+    required this.value,
+    required this.label,
+    required this.onTap,
+  });
+
+  final String icon;
+  final Color iconColor;
+  final String value;
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final DharmaColors c = context.c;
+    return Semantics(
+      button: true,
+      label: '$label, $value',
+      excludeSemantics: true,
+      onTap: onTap,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () {
+          Haptics.tick();
+          onTap();
+        },
+        child: DCard(
+          padding: const EdgeInsets.fromLTRB(Sp.s18, Sp.s14, Sp.s14, Sp.s14),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  DIcon(icon, size: 26, color: iconColor, glow: true),
+                  const Spacer(),
+                  Icon(Icons.chevron_right, size: 18, color: c.faint),
+                ],
+              ),
+              const SizedBox(height: Sp.s12),
+              Text(value, style: DType.hero(c.verse, size: 34)),
+              const SizedBox(height: 2),
+              Text(label.toUpperCase(), style: DType.ref(c.faint)),
+            ],
+          ),
         ),
       ),
     );
@@ -306,6 +360,32 @@ class _RitualsSheet extends ConsumerWidget {
         children: <Widget>[
           Text('Your rituals', style: DType.title(c.ink, compact: true)),
           const SizedBox(height: Sp.s12),
+          _Row(
+            label: 'Reminder',
+            value: YouScreen.timeName(s.reminderMinutes),
+            onTap: () => showDSheet<void>(
+              context,
+              (BuildContext ctx) => _ReminderSheet(
+                minutes: s.reminderMinutes,
+                onChanged: n.setReminder,
+              ),
+            ),
+          ),
+          _Row(
+            label: 'City',
+            value: ref.watch(cityProvider)?.name ?? '',
+            onTap: () => showDSheet<void>(
+              context,
+              (BuildContext ctx) => CityPicker(
+                selected: s.cityId,
+                onSelected: (String id) {
+                  n.setCity(id);
+                  Navigator.of(ctx).pop();
+                },
+              ),
+            ),
+          ),
+          const SizedBox(height: Sp.s18),
           for (final Ritual r in Ritual.values)
             _Row(
               label: r.label,

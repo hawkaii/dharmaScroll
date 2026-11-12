@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Microphone: voice check-in and Ekant speech to text. Audio stays on the phone and is never stored. -->
+    <!-- Microphone: voice check-in, Mann Darpan and Ekant speech to text, and the
+         on-device Mann Darpan voice note. Audio stays on the phone. -->
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
     <application
@@ -55,12 +56,14 @@
             <action android:name="android.intent.action.PROCESS_TEXT"/>
             <data android:mimeType="text/plain"/>
         </intent>
-        <!-- Ekant: speech_to_text finds the recogniser; crisis screen dials and texts. -->
+        <!-- speech_to_text needs to see the system recogniser (Android 11+). -->
         <intent>
             <action android:name="android.speech.RecognitionService"/>
         </intent>
+        <!-- The crisis screen dials a helpline and can text someone you trust. -->
         <intent>
             <action android:name="android.intent.action.DIAL"/>
+            <data android:scheme="tel"/>
         </intent>
         <intent>
             <action android:name="android.intent.action.SENDTO"/>

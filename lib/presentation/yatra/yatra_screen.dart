@@ -28,11 +28,8 @@ class YatraScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final DharmaColors c = context.c;
     final ProgressState p = ref.watch(progressProvider);
-    final bool walkedToday = p.steps.contains(RitualStep.walk);
-    // Days with a lit lamp, not counting today unless the walk is done.
-    final int done =
-        p.litDays.length -
-        (!walkedToday && p.litDays.contains(p.today) ? 1 : 0);
+    // Stones walked. The lamp list only keeps 14 days; the walk count is whole.
+    final int done = p.walks;
     final List<Verse> verses = ref.watch(versesProvider);
     final int cur = done.clamp(0, verses.length - 1);
     final Verse now = verses[cur];
@@ -92,10 +89,14 @@ class YatraScreen extends ConsumerWidget {
                                   : s == curSlot
                                   ? _StoneKind.now
                                   : _StoneKind.later,
+                              checkpoint:
+                                  (idx[s] + 1) %
+                                      ProgressState.checkpointEvery ==
+                                  0,
                               fade: s > curSlot ? 1 - (s - curSlot) * 0.17 : 1,
                               label: s == curSlot
                                   ? 'Today: ${now.yogaName}, ${now.id}'
-                                  : 'Stone ${idx[s] + 1}',
+                                  : 'Stone ${idx[s] + 1}${(idx[s] + 1) % ProgressState.checkpointEvery == 0 ? ', checkpoint' : ''}',
                               onTap: s == curSlot
                                   ? () => context.push(Routes.hear)
                                   : null,
@@ -115,7 +116,12 @@ class YatraScreen extends ConsumerWidget {
                                   ? CrossAxisAlignment.end
                                   : CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text('TODAY', style: DType.eyebrow(c.faint)),
+                                Text(
+                                  (cur + 1) % ProgressState.checkpointEvery == 0
+                                      ? 'CHECKPOINT'
+                                      : 'TODAY',
+                                  style: DType.eyebrow(c.faint),
+                                ),
                                 Text(
                                   '${now.yogaName.replaceAll(' Yoga', '')} Yoga · ${now.id}',
                                   style: DType.body(c.verse, size: 17),
@@ -144,10 +150,14 @@ class _Stone extends StatelessWidget {
     required this.kind,
     required this.fade,
     required this.label,
+    this.checkpoint = false,
     this.onTap,
   });
 
   final _StoneKind kind;
+
+  /// A peacock-feather stone: the Checkpoint.
+  final bool checkpoint;
   final double fade;
   final String label;
   final VoidCallback? onTap;
@@ -200,9 +210,15 @@ class _Stone extends StatelessWidget {
                         ? 'lotus'
                         : kind == _StoneKind.done
                         ? 'check'
+                        : checkpoint
+                        ? 'feather'
                         : 'path-stone',
                     size: now ? 30 : 22,
-                    color: now ? Tok.btnInk : c.accent,
+                    color: now
+                        ? Tok.btnInk
+                        : checkpoint && kind != _StoneKind.done
+                        ? c.peacock
+                        : c.accent,
                   ),
                 ),
               ),

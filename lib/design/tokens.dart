@@ -100,6 +100,12 @@ abstract final class Tok {
   static const Color btnB = Color(0xFFF28C28);
   static const Color btnEdge = Color(0xFFB8650C);
   static const Color btnHighlight = Color(0x80FFFFFF);
+
+  /// Voice button (Mann Darpan "Done"): peacock, same shape as the primary.
+  static const Color voiceA = Color(0xFF74CFC6);
+  static const Color voiceB = Color(0xFF3F9E96);
+  static const Color voiceEdge = Color(0xFF256F69);
+  static const Color voiceInk = Color(0xFF062320);
   static const Color flame = Color(0xFFFFB03B);
   static const Color flameCore = Color(0xFFFFF3CF);
   static const Color flameDim = Color(0xFF6C4A2A);

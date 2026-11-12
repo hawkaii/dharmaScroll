@@ -31,3 +31,16 @@ final Provider<List<Verse>> todayVersesProvider = Provider<List<Verse>>((
       all[(start + i) % all.length],
   ];
 });
+
+/// The verse the Walk step chants: the first kept one, else today's first.
+final Provider<Verse> walkVerseProvider = Provider<Verse>((Ref ref) {
+  final Set<String> kept = ref.watch(
+    progressProvider.select((ProgressState p) => p.kept),
+  );
+  return ref
+      .watch(versesProvider)
+      .firstWhere(
+        (Verse v) => kept.contains(v.id),
+        orElse: () => ref.watch(todayVersesProvider).first,
+      );
+});

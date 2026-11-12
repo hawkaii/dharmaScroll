@@ -152,18 +152,25 @@ class _StreakLampsState extends State<StreakLamps>
                     final double o = Tok.lampOff + (1 - Tok.lampOff) * p;
                     return Stack(
                       alignment: Alignment.center,
+                      clipBehavior: Clip.none,
                       children: <Widget>[
+                        // The glow spills past the lamp without taking room,
+                        // so seven lit lamps still fit a 320 dp row.
                         if (p > 0)
-                          Container(
+                          Positioned(
+                            left: -widget.size * 0.25,
+                            top: -widget.size * 0.25,
                             width: widget.size * 1.5,
                             height: widget.size * 1.5,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              gradient: RadialGradient(
-                                colors: <Color>[
-                                  Tok.flame.withValues(alpha: 0.28 * p),
-                                  Tok.flame.withValues(alpha: 0),
-                                ],
+                            child: Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                gradient: RadialGradient(
+                                  colors: <Color>[
+                                    Tok.flame.withValues(alpha: 0.28 * p),
+                                    Tok.flame.withValues(alpha: 0),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -310,7 +317,18 @@ class _PetalsState extends State<Petals> with SingleTickerProviderStateMixin {
   late final AnimationController _c = AnimationController(
     vsync: this,
     duration: Motion.petals,
-  )..repeat();
+  );
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Under reduce motion nothing falls, so the clock must not tick either.
+    if (reduceMotion(context)) {
+      _c.stop();
+    } else if (!_c.isAnimating) {
+      _c.repeat();
+    }
+  }
 
   @override
   void dispose() {

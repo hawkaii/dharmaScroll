@@ -21,6 +21,29 @@ int _gapDays(DateTime from, DateTime to) => DateTime.utc(
   to.day,
 ).difference(DateTime.utc(from.year, from.month, from.day)).inDays;
 
+/// One line of the Moksh Points history. Points only go up, so there is no
+/// negative amount and no spend.
+@immutable
+class PointEntry {
+  const PointEntry(this.day, this.reason, this.amount);
+
+  /// `yyyy-mm-dd`.
+  final String day;
+
+  /// One of [ProgressNotifier.reasons].
+  final String reason;
+  final int amount;
+
+  String encode() => '$day|$reason|$amount';
+
+  static PointEntry? decode(String s) {
+    final List<String> p = s.split('|');
+    if (p.length != 3) return null;
+    final int? n = int.tryParse(p[2]);
+    return n == null ? null : PointEntry(p[0], p[1], n);
+  }
+}
+
 @immutable
 class ProgressState {
   const ProgressState({
@@ -33,6 +56,9 @@ class ProgressState {
     this.litDays = const <String>[],
     this.lastForgive,
     this.cameBack = false,
+    this.ledger = const <PointEntry>[],
+    this.milestonesSeen = const <int>{},
+    this.walks = 0,
   });
 
   final int streak;
@@ -53,6 +79,36 @@ class ProgressState {
   /// True when the streak was broken and today is a return.
   final bool cameBack;
 
+  /// Points history, newest last.
+  final List<PointEntry> ledger;
+
+  /// Milestone day counts already celebrated.
+  final Set<int> milestonesSeen;
+
+  /// Walk steps ever taken: the stones walked on the Yatra.
+  final int walks;
+
+  /// Every seventh stone is a checkpoint: "Finish the verse".
+  /// shortcut: the 108-verse feed is not in chapter order, so the checkpoint
+  /// is every 7th stone, not a chapter end; move it to chapter ends when the
+  /// Yatra walks the chapters in order.
+  static const int checkpointEvery = 7;
+
+  /// True when today's walk (not yet taken) lands on a checkpoint stone.
+  bool get checkpointToday =>
+      !steps.contains(RitualStep.walk) && (walks + 1) % checkpointEvery == 0;
+
+  /// A milestone reached and not yet shown, else null.
+  int? get pendingMilestone =>
+      ProgressNotifier.milestones.contains(streak) &&
+          !milestonesSeen.contains(streak)
+      ? streak
+      : null;
+
+  /// Points earned today, by reason.
+  List<PointEntry> get todayEntries =>
+      ledger.where((PointEntry e) => e.day == today).toList();
+
   RitualStep get nextStep => !steps.contains(RitualStep.hear)
       ? RitualStep.hear
       : !steps.contains(RitualStep.walk)
@@ -67,6 +123,19 @@ class ProgressNotifier extends Notifier<ProgressState> {
   static const int dailyVerses = 5;
   static const int hearPoints = 10;
   static const int walkPoints = 30;
+  static const int speakPoints = 10;
+  static const int sankalpPoints = 5;
+
+  /// Day counts that open the milestone screen.
+  static const List<int> milestones = <int>[7, 30, 100, 365];
+
+  /// Why points were given. Shown in the wallet history.
+  static const Map<String, String> reasons = <String, String>{
+    'hear': 'Five verses heard',
+    'walk': 'One step walked',
+    'speak': 'Spoke your mind',
+    'sankalp': 'Looked back on a Sankalp',
+  };
 
   SharedPreferences get _p => ref.read(sharedPrefsProvider);
   DateTime _now() => ref.read(clockProvider)();
@@ -108,6 +177,16 @@ class ProgressNotifier extends Notifier<ProgressState> {
       litDays: lit,
       lastForgive: forgive,
       cameBack: cameBack,
+      ledger: <PointEntry>[
+        for (final String e in p.getStringList('p.ledger') ?? <String>[])
+          ?PointEntry.decode(e),
+      ],
+      milestonesSeen: <int>{
+        for (final String m in p.getStringList('p.ms') ?? <String>[])
+          ?int.tryParse(m),
+      },
+      // Older installs had no counter; lit days are the closest guess.
+      walks: p.getInt('p.walks') ?? lit.length,
     );
   }
 
@@ -124,21 +203,46 @@ class ProgressNotifier extends Notifier<ProgressState> {
     _p.setStringList('p.kept', s.kept.toList());
     _p.setStringList('p.lit', s.litDays);
     if (s.lastForgive != null) _p.setString('p.forgive', s.lastForgive!);
+    _p.setStringList(
+      'p.ledger',
+      s.ledger.map((PointEntry e) => e.encode()).toList(),
+    );
+    _p.setStringList('p.ms', s.milestonesSeen.map((int m) => '$m').toList());
+    _p.setInt('p.walks', s.walks);
   }
 
   void setHeard(int n) {
     if (n <= state.heard) return;
-    state = ProgressState(
-      streak: state.streak,
-      points: state.points,
-      today: state.today,
-      heard: n.clamp(0, dailyVerses),
-      steps: state.steps,
-      kept: state.kept,
-      litDays: state.litDays,
-      lastForgive: state.lastForgive,
-      cameBack: state.cameBack,
+    state = _copy(heard: n.clamp(0, dailyVerses));
+    _save();
+  }
+
+  /// Adds [amount] for [reason] once a day. Returns what was added.
+  int award(String reason, int amount) {
+    final String today = dayKey(_now());
+    if (amount <= 0 ||
+        state.ledger.any(
+          (PointEntry e) => e.day == today && e.reason == reason,
+        )) {
+      return 0;
+    }
+    state = _copy(
+      points: state.points + amount,
+      ledger: _append(PointEntry(today, reason, amount)),
     );
+    _save();
+    return amount;
+  }
+
+  /// The ledger keeps the last 120 lines; the total lives in `points`.
+  List<PointEntry> _append(PointEntry e) {
+    final List<PointEntry> l = <PointEntry>[...state.ledger, e];
+    return l.length > 120 ? l.sublist(l.length - 120) : l;
+  }
+
+  void markMilestoneSeen(int days) {
+    if (state.milestonesSeen.contains(days)) return;
+    state = _copy(milestonesSeen: <int>{...state.milestonesSeen, days});
     _save();
   }
 
@@ -154,7 +258,7 @@ class ProgressNotifier extends Notifier<ProgressState> {
     final int award = switch (step) {
       RitualStep.hear => hearPoints,
       RitualStep.walk => walkPoints,
-      RitualStep.speak => 0,
+      RitualStep.speak => speakPoints,
     };
     final DateTime now = _now();
     final String today = dayKey(now);
@@ -181,6 +285,8 @@ class ProgressNotifier extends Notifier<ProgressState> {
       litDays: lit,
       lastForgive: forgive,
       cameBack: false,
+      ledger: _append(PointEntry(today, step.name, award)),
+      walks: step == RitualStep.walk ? state.walks + 1 : null,
     );
     _save();
     return award;
@@ -198,6 +304,10 @@ class ProgressNotifier extends Notifier<ProgressState> {
   ProgressState _copy({
     int? streak,
     int? points,
+    int? heard,
+    List<PointEntry>? ledger,
+    Set<int>? milestonesSeen,
+    int? walks,
     Set<RitualStep>? steps,
     Set<String>? kept,
     List<String>? litDays,
@@ -207,12 +317,15 @@ class ProgressNotifier extends Notifier<ProgressState> {
     streak: streak ?? state.streak,
     points: points ?? state.points,
     today: state.today,
-    heard: state.heard,
+    heard: heard ?? state.heard,
     steps: steps ?? state.steps,
     kept: kept ?? state.kept,
     litDays: litDays ?? state.litDays,
     lastForgive: lastForgive ?? state.lastForgive,
     cameBack: cameBack ?? state.cameBack,
+    ledger: ledger ?? state.ledger,
+    milestonesSeen: milestonesSeen ?? state.milestonesSeen,
+    walks: walks ?? state.walks,
   );
 }
 

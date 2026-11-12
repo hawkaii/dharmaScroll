@@ -11,6 +11,8 @@ import '../../design/effects.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../share/share_card.dart';
+import '../share/share_sheet.dart';
 
 String meaningOf(Verse v, Language l) =>
     l == Language.hindi ? v.meaningHi : v.meaningEn;
@@ -133,6 +135,24 @@ class _HearScreenState extends ConsumerState<HearScreen> {
                   );
                 },
               ),
+              // Outside the verse's own double-tap detector, so a tap here is
+              // not held back waiting for a second tap.
+              if (_page < verses.length)
+                Positioned(
+                  right: Sp.screenSide - 12,
+                  bottom: 44,
+                  child: SafeArea(
+                    child: ShareButton(
+                      onTap: () => showShareSheet(
+                        context,
+                        ShareContent(
+                          verse: verses[_page],
+                          meaning: meaningOf(verses[_page], lang),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               IgnorePointer(
                 child: SafeArea(
                   child: SizedBox(

@@ -141,11 +141,15 @@ class PrimaryButton extends StatefulWidget {
     required this.label,
     required this.onPressed,
     this.semanticLabel,
+    this.voice = false,
   });
 
   final String label;
   final VoidCallback? onPressed;
   final String? semanticLabel;
+
+  /// Peacock instead of marigold: the one voice action (board: "Done").
+  final bool voice;
 
   @override
   State<PrimaryButton> createState() => _PrimaryButtonState();
@@ -193,11 +197,12 @@ class _PrimaryButtonState extends State<PrimaryButton> {
                   height: 56,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: Tok.btnEdge,
+                      color: widget.voice ? Tok.voiceEdge : Tok.btnEdge,
                       borderRadius: r,
                       boxShadow: <BoxShadow>[
                         BoxShadow(
-                          color: Tok.saffron.withValues(alpha: 0.35),
+                          color: (widget.voice ? Tok.voiceB : Tok.saffron)
+                              .withValues(alpha: 0.35),
                           blurRadius: 22,
                           offset: const Offset(0, 8),
                         ),
@@ -215,10 +220,12 @@ class _PrimaryButtonState extends State<PrimaryButton> {
                   child: DecoratedBox(
                     decoration: BoxDecoration(
                       borderRadius: r,
-                      gradient: const LinearGradient(
+                      gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
-                        colors: <Color>[Tok.btnA, Tok.btnB],
+                        colors: widget.voice
+                            ? const <Color>[Tok.voiceA, Tok.voiceB]
+                            : const <Color>[Tok.btnA, Tok.btnB],
                       ),
                       border: const Border(
                         top: BorderSide(color: Tok.btnHighlight),
@@ -229,7 +236,9 @@ class _PrimaryButtonState extends State<PrimaryButton> {
                         widget.label,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: DType.button(Tok.btnInk),
+                        style: DType.button(
+                          widget.voice ? Tok.voiceInk : Tok.btnInk,
+                        ),
                       ),
                     ),
                   ),
