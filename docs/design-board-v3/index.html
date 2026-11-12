@@ -156,6 +156,9 @@ td:first-child{color:#FBEFD9;font-family:var(--serif);font-size:17px;white-space
 .count{font-family:var(--serif);font-size:88px;line-height:1;color:var(--gold);animation:cnt 4s ease-out infinite;counter-reset:n var(--n)}
 .count::after{content:counter(n)}
 @keyframes cnt{0%{--n:0}45%,100%{--n:30}}
+/* peacock fan */
+.pf{transform-origin:165px 300px;transform:rotate(var(--a));opacity:.92;filter:drop-shadow(0 0 8px rgba(79,179,171,.5));animation:fan 4.6s var(--spring) infinite}
+@keyframes fan{0%{transform:rotate(0) scale(.55);opacity:0}28%,80%{transform:rotate(var(--a)) scale(1);opacity:.92}100%{transform:rotate(var(--a)) scale(1.04);opacity:0}}
 /* petals */
 .petals{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .petals i{position:absolute;top:-30px;left:var(--x);width:13px;height:19px;border-radius:100% 0 100% 0;background:linear-gradient(135deg,#F9C6D1,#E58BA3);opacity:0;animation:fall 7s linear infinite;animation-delay:var(--d);box-shadow:0 0 8px rgba(229,139,163,.5)}
@@ -239,6 +242,9 @@ td:first-child{color:#FBEFD9;font-family:var(--serif);font-size:17px;white-space
   <symbol id="i-flute" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><g transform="rotate(-38 32 32)"><rect x="4" y="28" width="56" height="8" rx="4"/><circle cx="22" cy="32" r="1.6"/><circle cx="30" cy="32" r="1.6"/><circle cx="38" cy="32" r="1.6"/><circle cx="46" cy="32" r="1.6"/><path d="M12 28v8M54 28v8" stroke-opacity=".6"/></g><path d="M50 12c3 1 5 3 6 6M46 6c5 1 9 5 11 10" stroke-opacity=".5" stroke-width="1.5"/></symbol>
   <symbol id="i-feather" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 60C25 46 30 34 38 16"/><ellipse cx="39" cy="24" rx="11" ry="15" transform="rotate(22 39 24)"/><ellipse cx="39" cy="24" rx="5.5" ry="8.5" transform="rotate(22 39 24)" stroke-opacity=".8"/><ellipse cx="39" cy="24" rx="1.8" ry="3" transform="rotate(22 39 24)" fill="currentColor"/><path d="M29 38c-5-1-9 1-12 4M31 46c-4-1-7 0-10 3M30 30c-4-3-8-3-12-1" stroke-opacity=".6" stroke-width="1.4"/></symbol>
   <symbol id="i-stone" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 38c-2-9 5-18 15-21 8-2 17-1 23 5 5 5 5 14 0 19-6 6-18 8-27 5-5-2-9-5-11-8z"/><path d="M24 36c3-6 8-9 15-9" stroke-opacity=".55" stroke-width="1.5"/><path d="M26 42c5 1 10 0 14-3" stroke-opacity=".4" stroke-width="1.4"/></symbol>
+  <symbol id="i-kadamba" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="9"/><circle cx="32" cy="32" r="3.2" stroke-opacity=".6"/><path d="M44.0 32.0L56.0 32.0"/><circle cx="56.0" cy="32.0" r="1.5"/><path d="M42.4 38.0L52.8 44.0"/><circle cx="52.8" cy="44.0" r="1.5"/><path d="M38.0 42.4L44.0 52.8"/><circle cx="44.0" cy="52.8" r="1.5"/><path d="M32.0 44.0L32.0 56.0"/><circle cx="32.0" cy="56.0" r="1.5"/><path d="M26.0 42.4L20.0 52.8"/><circle cx="20.0" cy="52.8" r="1.5"/><path d="M21.6 38.0L11.2 44.0"/><circle cx="11.2" cy="44.0" r="1.5"/><path d="M20.0 32.0L8.0 32.0"/><circle cx="8.0" cy="32.0" r="1.5"/><path d="M21.6 26.0L11.2 20.0"/><circle cx="11.2" cy="20.0" r="1.5"/><path d="M26.0 21.6L20.0 11.2"/><circle cx="20.0" cy="11.2" r="1.5"/><path d="M32.0 20.0L32.0 8.0"/><circle cx="32.0" cy="8.0" r="1.5"/><path d="M38.0 21.6L44.0 11.2"/><circle cx="44.0" cy="11.2" r="1.5"/><path d="M42.4 26.0L52.8 20.0"/><circle cx="52.8" cy="20.0" r="1.5"/></symbol>
+  <symbol id="i-peacock" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="14" r="3.2"/><path d="M14 10.5l-2-4M16 10.5v-5M18 10.5l2-4"/><path d="M17 17c3 6 3 12 6 17"/><path d="M23 34c3-3 9-3 13 0 4 3 5 8 2 11-4 4-12 3-16-1-3-3-2-7 1-10z"/><path d="M28 46l-2 10M32 47l1 9"/><g stroke-opacity=".75" stroke-width="1.6"><path d="M38 38L58 20M38 40L61 31M38 42L61 43M38 44L57 54"/><path d="M58 20Q65 32 57 54" stroke-opacity=".5"/></g><circle cx="58" cy="20" r="2.4"/><circle cx="61" cy="31" r="2.4"/><circle cx="61" cy="43" r="2.4"/><circle cx="57" cy="54" r="2.4"/></symbol>
+  <symbol id="i-matki" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M22 27h20c5 5 7 11 5 18-2 8-8 12-15 12S19 53 17 45c-2-7 0-13 5-18z"/><ellipse cx="32" cy="25" rx="12" ry="3.2"/><path d="M24 22c0-5 4-8 8-8s8 3 8 8" stroke-opacity=".8"/><path d="M39 28c0 4 1 6 0 9" stroke-opacity=".7"/><path d="M19 39c8 3 18 3 26 0" stroke-opacity=".5" stroke-width="1.5"/></symbol>
   <symbol id="i-check" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 34l11 11 21-26"/></symbol>
   <symbol id="i-mic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><rect x="24" y="8" width="16" height="30" rx="8"/><path d="M14 30c0 11 8 18 18 18s18-7 18-18M32 48v10"/></symbol>
 
@@ -263,63 +269,29 @@ td:first-child{color:#FBEFD9;font-family:var(--serif);font-size:17px;white-space
     <ellipse cx="30" cy="48" rx="2.8" ry="6" fill="#4FB3AB"/>
   </symbol>
 
-  <!-- Krishna with flute: refined flat / miniature-inspired. viewBox 300 x 430 -->
-  <symbol id="krishna" viewBox="0 0 300 430">
-    <circle cx="150" cy="170" r="150" fill="url(#gHalo)"/>
-    <circle cx="150" cy="170" r="122" fill="none" stroke="#FFD98A" stroke-opacity=".5" stroke-width="1" stroke-dasharray="1 7" stroke-linecap="round"/>
-    <circle cx="150" cy="170" r="108" fill="none" stroke="#FFD98A" stroke-opacity=".25" stroke-width="1"/>
-    <!-- scarf behind -->
-    <path d="M176 134C222 148 246 205 236 290 232 262 214 220 184 190z" fill="url(#gScarf)" opacity=".92"/>
-    <path d="M236 290C240 310 232 330 220 346 224 322 224 306 220 292z" fill="url(#gScarf)" opacity=".75"/>
-    <!-- dhoti -->
-    <path d="M118 224C100 270 94 332 100 388L150 390C152 352 160 352 166 390L210 386C210 330 204 270 186 224z" fill="url(#gDhoti)"/>
-    <path d="M140 236L176 236C184 280 196 340 200 384L166 388C160 350 154 352 150 388z" fill="#FFE08A" fill-opacity=".35"/>
-    <path d="M128 240C122 290 120 340 124 384M146 244C142 300 144 350 148 380M170 244C176 300 184 350 188 382" stroke="#B8650C" stroke-opacity=".5" stroke-width="1.2" fill="none"/>
-    <path d="M118 224C100 270 94 332 100 388" stroke="#FFF1C2" stroke-opacity=".75" stroke-width="1.3" fill="none"/>
-    <!-- feet + anklets -->
-    <ellipse cx="128" cy="392" rx="15" ry="6" fill="#3A46A0"/><ellipse cx="186" cy="389" rx="15" ry="6" fill="#3A46A0"/>
-    <path d="M112 382h30M170 380h30" stroke="url(#gGold)" stroke-width="3" stroke-linecap="round"/>
-    <g transform="rotate(-5 152 228) translate(-3 0)">
-    <!-- torso -->
-    <path d="M120 130C110 164 118 202 122 228L182 228C186 198 192 162 180 130z" fill="url(#gSkin)"/>
-    <path d="M120 130C110 164 118 202 122 228" stroke="#FFD98A" stroke-opacity=".6" stroke-width="1.3" fill="none"/>
-    <!-- sash -->
-    <path d="M118 222h68l-2 14h-64z" fill="url(#gGold)"/>
-    <path d="M176 236C186 262 184 286 174 308 172 288 172 262 168 236z" fill="url(#gScarf)"/>
-    <!-- neck -->
-    <path d="M140 108h20v26c-7 6-13 6-20 0z" fill="#33408F"/>
-    <!-- garland -->
-    <path d="M126 136C130 176 170 176 176 136" fill="none" stroke="#E58BA3" stroke-width="6" stroke-dasharray="0.1 7.4" stroke-linecap="round"/>
-    <path d="M124 134C128 164 172 164 178 134" fill="none" stroke="url(#gGold)" stroke-width="2.4"/>
-    <circle cx="151" cy="160" r="4.6" fill="#4FB3AB" stroke="#FFE29A" stroke-width="1.2"/>
-    <!-- arms -->
-    <path d="M124 136C108 142 96 160 98 178C110 160 128 138 158 114" stroke="#33408F" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M176 136C196 146 206 164 204 178" stroke="#33408F" stroke-width="12" fill="none" stroke-linecap="round"/>
-    <path d="M204 178C206 164 207 150 206 140" stroke="#3B49A0" stroke-width="12" fill="none" stroke-linecap="round"/>
-    <path d="M124 136C108 142 96 160 98 178" stroke="#FFD98A" stroke-opacity=".55" stroke-width="1.2" fill="none"/>
-    <path d="M94 164h8M96 170h8" stroke="url(#gGold)" stroke-width="2.6" stroke-linecap="round"/>
-    <!-- head -->
-    <g transform="rotate(9 150 92)">
-      <ellipse cx="150" cy="92" rx="21" ry="25" fill="url(#gSkin)"/>
-      <path d="M129 88C128 62 172 60 171 88 166 75 134 75 129 88z" fill="#150C28"/>
-      <path d="M130 88C128 100 131 106 135 108 134 100 134 94 134 88z" fill="#150C28"/>
-      <path d="M137 96q4 3 8 0M155 96q4 3 8 0" fill="none" stroke="#0F0A22" stroke-width="1.6" stroke-linecap="round"/>
-      <path d="M147 85v6" stroke="#FFD98A" stroke-width="2" stroke-linecap="round"/>
-      <path d="M130 70C138 62 162 62 170 70" fill="none" stroke="url(#gGold)" stroke-width="4" stroke-linecap="round"/>
-      <circle cx="150" cy="66" r="3.4" fill="#E58BA3" stroke="#FFE29A" stroke-width="1"/>
+<symbol id="kad" viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" fill="#FFC247" opacity=".18"/><circle cx="20" cy="20" r="9.5" fill="url(#gGold)"/><circle cx="17" cy="17" r="3" fill="#FFF3CF" opacity=".7"/><g stroke="#FFD98A" stroke-width="1" fill="#FFE29A"><path d="M30.0 20.0L35.5 20.0"/><circle cx="35.5" cy="20.0" r="1.2"/><path d="M29.0 24.3L34.0 26.7"/><circle cx="34.0" cy="26.7" r="1.2"/><path d="M26.2 27.8L29.7 32.1"/><circle cx="29.7" cy="32.1" r="1.2"/><path d="M22.2 29.7L23.4 35.1"/><circle cx="23.4" cy="35.1" r="1.2"/><path d="M17.8 29.7L16.6 35.1"/><circle cx="16.6" cy="35.1" r="1.2"/><path d="M13.8 27.8L10.3 32.1"/><circle cx="10.3" cy="32.1" r="1.2"/><path d="M11.0 24.3L6.0 26.7"/><circle cx="6.0" cy="26.7" r="1.2"/><path d="M10.0 20.0L4.5 20.0"/><circle cx="4.5" cy="20.0" r="1.2"/><path d="M11.0 15.7L6.0 13.3"/><circle cx="6.0" cy="13.3" r="1.2"/><path d="M13.8 12.2L10.3 7.9"/><circle cx="10.3" cy="7.9" r="1.2"/><path d="M17.8 10.3L16.6 4.9"/><circle cx="16.6" cy="4.9" r="1.2"/><path d="M22.2 10.3L23.4 4.9"/><circle cx="23.4" cy="4.9" r="1.2"/><path d="M26.2 12.2L29.7 7.9"/><circle cx="29.7" cy="7.9" r="1.2"/><path d="M29.0 15.7L34.0 13.3"/><circle cx="34.0" cy="13.3" r="1.2"/></g></symbol>
+  <!-- Emblem: feather crossing bansuri, marigold aura, kadamba, Vaijayanti garland. viewBox 300 x 300 -->
+  <symbol id="emblem" viewBox="0 0 300 300">
+    <circle cx="150" cy="150" r="148" fill="url(#gHalo)"/>
+    <circle cx="150" cy="150" r="124" fill="none" stroke="#FFD98A" stroke-opacity=".5" stroke-width="1" stroke-dasharray="1 7" stroke-linecap="round"/>
+    <circle cx="150" cy="150" r="108" fill="none" stroke="#FFD98A" stroke-opacity=".22"/>
+    <g transform="rotate(20 120 262)" style="filter:drop-shadow(0 0 10px rgba(79,179,171,.45))"><use href="#feather" x="76" y="44" width="88" height="222"/></g>
+    <g transform="rotate(27.4 150 159)">
+      <rect x="38" y="155" width="224" height="11" rx="5.5" fill="#5C3410" opacity=".5" transform="translate(0 2)"/>
+      <rect x="38" y="153" width="224" height="11" rx="5.5" fill="url(#gFlute)"/>
+      <rect x="38" y="154.5" width="224" height="2" rx="1" fill="#FFF6D9" opacity=".7"/>
+      <g fill="#8A5A00" opacity=".75"><rect x="64" y="153" width="5" height="11"/><rect x="232" y="153" width="5" height="11"/><rect x="40" y="153" width="3" height="11"/></g>
+      <ellipse cx="90" cy="158.5" rx="3.2" ry="2.4" fill="#5C3410"/>
+      <g fill="#5C3410"><circle cx="130" cy="158.5" r="2.2"/><circle cx="152" cy="158.5" r="2.2"/><circle cx="174" cy="158.5" r="2.2"/><circle cx="196" cy="158.5" r="2.2"/><circle cx="214" cy="158.5" r="2.2"/></g>
     </g>
-    <use href="#feather" x="140" y="-14" width="34" height="86" transform="rotate(14 157 40)"/>
-    <!-- flute -->
-    <path d="M148 108L248 162" stroke="url(#gFlute)" stroke-width="6" stroke-linecap="round"/>
-    <path d="M148 108L248 162" stroke="#7A4A12" stroke-opacity=".5" stroke-width="1" stroke-linecap="round" transform="translate(0 2.5)"/>
-    <g fill="#5C3410"><circle cx="190" cy="131" r="1.6"/><circle cx="202" cy="137" r="1.6"/><circle cx="214" cy="144" r="1.6"/><circle cx="226" cy="150" r="1.6"/></g>
-    <circle cx="160" cy="114" r="7.5" fill="#3B49A0"/><circle cx="206" cy="139" r="7" fill="#3B49A0"/>
-    </g>
-    <!-- lotus seat -->
-    <use href="#lotfill" x="60" y="368" width="180" height="62"/>
-    <ellipse cx="150" cy="398" rx="86" ry="10" fill="#FFB44D" opacity=".18"/>
-    <g fill="#FFE29A"><circle cx="48" cy="120" r="1.8"/><circle cx="258" cy="96" r="1.6"/><circle cx="36" cy="236" r="1.4"/><circle cx="268" cy="250" r="2"/><circle cx="70" cy="60" r="1.3"/><circle cx="236" cy="52" r="1.5"/></g>
+    <path d="M154 166c-8 6-12 14-10 22M160 166c8 5 12 13 12 20" fill="none" stroke="#E58BA3" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="157" cy="163" r="7" fill="#E58BA3" stroke="#FFE29A" stroke-width="1.6"/><circle cx="157" cy="163" r="2.4" fill="#FFE29A"/>
+    <path d="M62 246C100 284 200 284 238 246" fill="none" stroke="#E58BA3" stroke-width="5" stroke-dasharray="0.1 7" stroke-linecap="round"/>
+    <path d="M60 244C100 280 200 280 240 244" fill="none" stroke="url(#gGold)" stroke-width="1.8" stroke-opacity=".9"/>
+    <use href="#kad" x="206" y="226" width="40" height="40"/><use href="#kad" x="52" y="210" width="30" height="30"/><use href="#kad" x="130" y="262" width="26" height="26" opacity=".9"/>
+    <g fill="#FFE29A"><circle cx="46" cy="110" r="1.8"/><circle cx="258" cy="90" r="1.6"/><circle cx="32" cy="176" r="1.3"/><circle cx="272" cy="170" r="2"/><circle cx="76" cy="52" r="1.3"/><circle cx="232" cy="46" r="1.5"/></g>
   </symbol>
+
 </defs>
 </svg>
 
@@ -327,7 +299,7 @@ td:first-child{color:#FBEFD9;font-family:var(--serif);font-size:17px;white-space
 <header>
   <div style="font:500 10.5px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--marigold)">Design board v3 · branch design/board-v3</div>
   <h1>dharmaScroll</h1>
-  <p class="sub">The same premium bones as v2: big serif verses, one action per screen, the verse speaks to you, no red, no guilt. Now lit with warmth: temple-night plum, marigold, saffron and lotus rose, and a morning-puja light mode. No emoji, no quiz chips. Crafted line icons and a painted-style Krishna instead.</p>
+  <p class="sub">The same premium bones as v2: big serif verses, one action per screen, the verse speaks to you, no red, no guilt. Now lit with warmth: temple-night plum, marigold, saffron and lotus rose, and a morning-puja light mode. No emoji, no quiz chips. Krishna is never drawn: he is present through his symbols only, the peacock feather, the bansuri, the peacock, the kadamba blossom.</p>
 
   <h2 style="margin-top:46px"><small>Foundations</small>Palette · warm and lit</h2>
   <p class="lede">Deep base, warm light. Marigold is the one action colour. Lotus rose means joy and "kept". Peacock teal is only the voice. Contrast measured as WCAG ratios against the surface they sit on.</p>
@@ -366,8 +338,8 @@ td:first-child{color:#FBEFD9;font-family:var(--serif);font-size:17px;white-space
   </table>
   <p class="sub" style="margin-top:16px">Type: Noto Serif Devanagari (verses), EB Garamond (meaning, titles), Inter (labels only). Corners 18 / 28 / 42. Spring <code>cubic-bezier(.22,1.2,.36,1)</code>. Button press 90 ms, 2 px travel.</p>
 
-  <h2><small>Foundations</small>Icons and the illustrated figure</h2>
-  <p class="lede">One line-and-glow set (2.1 px stroke, rounded joins, soft glow). The Krishna art is a refined flat painting in the spirit of miniature work: indigo skin with rim light, peacock feather, marigold dhoti, rose garland, flute, lotus seat, a dotted halo. No facial detail beyond closed eyes, so it stays respectful.</p>
+  <h2><small>Foundations</small>Icons and the emblem</h2>
+  <p class="lede">One line-and-glow set (2.1 px stroke, rounded joins, soft glow). Krishna is signified only by his symbols: a feather crossing the bansuri under a marigold aura, tied with a rose knot, with kadamba blossoms and a Vaijayanti garland. A peacock-feather fan opens on celebrations.</p>
   <div class="row" style="align-items:center">
     <div style="display:grid;grid-template-columns:repeat(4,150px);gap:18px;width:660px">
       <div class="iconcell"><svg class="ico"><use href="#i-diya"/></svg>Diya</div>
@@ -376,11 +348,14 @@ td:first-child{color:#FBEFD9;font-family:var(--serif);font-size:17px;white-space
       <div class="iconcell"><svg class="ico"><use href="#i-chakra"/></svg>Chakra</div>
       <div class="iconcell"><svg class="ico"><use href="#i-flute"/></svg>Flute</div>
       <div class="iconcell"><svg class="ico teal"><use href="#i-feather"/></svg>Feather</div>
+      <div class="iconcell"><svg class="ico teal"><use href="#i-peacock"/></svg>Peacock</div>
+      <div class="iconcell"><svg class="ico"><use href="#i-kadamba"/></svg>Kadamba</div>
+      <div class="iconcell"><svg class="ico"><use href="#i-matki"/></svg>Butter pot</div>
       <div class="iconcell"><svg class="ico"><use href="#i-stone"/></svg>Path stone</div>
       <div class="iconcell"><svg class="ico"><use href="#i-check"/></svg>Done</div>
     </div>
-    <div class="stage" style="background:radial-gradient(70% 60% at 50% 40%,#3A2548,#1A0F24)"><svg width="270" height="388"><use href="#krishna"/></svg></div>
-    <div class="stage light" style="background:radial-gradient(70% 60% at 50% 40%,#FFF1CF,#EBD9B8)"><svg width="270" height="388"><use href="#krishna"/></svg></div>
+    <div class="stage" style="background:radial-gradient(70% 60% at 50% 50%,#3A2548,#1A0F24)"><svg width="300" height="300"><use href="#emblem"/></svg></div>
+    <div class="stage light" style="background:radial-gradient(70% 60% at 50% 50%,#FFF1CF,#EBD9B8)"><svg width="300" height="300"><use href="#emblem"/></svg></div>
   </div>
 
 <!-- ============== ONBOARDING ============== -->
@@ -389,11 +364,11 @@ td:first-child{color:#FBEFD9;font-family:var(--serif);font-size:17px;white-space
 <div class="row">
   <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
     <div class="scr"><div class="center" style="justify-content:flex-start;padding-top:0">
-      <svg width="214" height="306" style="margin-top:0"><use href="#krishna"/></svg>
-      <div class="title" style="font-size:29px;margin-top:6px">A conversation on a battlefield.</div>
-      <p class="body" style="margin-top:10px;font-size:18px">Five thousand years old.<br>Listen in.</p></div>
+      <svg width="268" height="268" style="margin-top:26px"><use href="#emblem"/></svg>
+      <div class="title" style="font-size:30px;margin-top:30px">A conversation<br>on a battlefield.</div>
+      <p class="body" style="margin-top:14px;font-size:18px">Five thousand years old.<br>Listen in.</p></div>
       <button class="btn">Listen</button><div style="height:6px"></div></div></div>
-    <figcaption><b>1 · Welcome</b>Halo dots turn slowly, flute-feather sways 2 degrees. Sound: one soft flute breath at 0.4 s. Haptic: none.</figcaption></figure>
+    <figcaption><b>1 · Welcome</b>The aura breathes and the feather sways 2 degrees. Sound: one soft flute breath at 0.4 s. Haptic: none.</figcaption></figure>
 
   <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
     <div class="scr"><div class="eyebrow" style="margin-top:18px">Six quiet minutes</div>
@@ -563,16 +538,17 @@ td:first-child{color:#FBEFD9;font-family:var(--serif);font-size:17px;white-space
 <div class="row">
   <figure><div class="phone"><svg class="mandala" style="opacity:.1"><use href="#mandala"/></svg>
     <div style="position:absolute;inset:0;background:radial-gradient(64% 42% at 50% 36%,rgba(255,170,60,.5),transparent 70%)"></div>
+    <svg style="position:absolute;left:0;top:0;pointer-events:none" width="330" height="680" viewBox="0 0 330 680"><use class="pf" href="#feather" x="127" y="112" width="76" height="190" style="--a:-64deg;animation-delay:-1.6s"/><use class="pf" href="#feather" x="127" y="112" width="76" height="190" style="--a:-48deg;animation-delay:-1.6s"/><use class="pf" href="#feather" x="127" y="112" width="76" height="190" style="--a:-32deg;animation-delay:-1.6s"/><use class="pf" href="#feather" x="127" y="112" width="76" height="190" style="--a:-16deg;animation-delay:-1.6s"/><use class="pf" href="#feather" x="127" y="112" width="76" height="190" style="--a:0deg;animation-delay:-1.6s"/><use class="pf" href="#feather" x="127" y="112" width="76" height="190" style="--a:16deg;animation-delay:-1.6s"/><use class="pf" href="#feather" x="127" y="112" width="76" height="190" style="--a:32deg;animation-delay:-1.6s"/><use class="pf" href="#feather" x="127" y="112" width="76" height="190" style="--a:48deg;animation-delay:-1.6s"/><use class="pf" href="#feather" x="127" y="112" width="76" height="190" style="--a:64deg;animation-delay:-1.6s"/></svg>
     <div class="petals"><i style="--x:8%;--d:-1s"></i><i style="--x:22%;--d:-3s"></i><i style="--x:37%;--d:-5s"></i><i style="--x:52%;--d:-2s"></i><i style="--x:66%;--d:-4s"></i><i style="--x:80%;--d:-6s"></i><i style="--x:90%;--d:-.5s"></i><i style="--x:15%;--d:-5.5s"></i><i style="--x:73%;--d:-3.4s"></i><i style="--x:45%;--d:-6.4s"></i></div>
     <div class="scr"><div class="topline" style="justify-content:center">Step walked</div>
       <div class="center"><svg class="lamp" width="150" height="150" style="filter:drop-shadow(0 0 44px rgba(255,170,60,.9))"><use href="#diya-s"/></svg>
-        <div class="title" style="margin-top:26px;font-size:32px">The lamp is lit.</div>
+        <div class="title" style="margin-top:46px;font-size:32px">The lamp is lit.</div>
         <div style="margin-top:30px" class="eyebrow">Moksh Points</div>
         <div class="count" style="font-size:68px;animation-delay:-2.2s"></div>
         <div class="lamps" style="margin-top:30px"><svg class="lit"><use href="#diya-s"/></svg><svg class="lit"><use href="#diya-s"/></svg><svg class="lit"><use href="#diya-s"/></svg><svg class="lit"><use href="#diya-s"/></svg><svg class="lit"><use href="#diya-s"/></svg><svg class="lit"><use href="#diya-s"/></svg><svg class="lit"><use href="#diya-s"/></svg></div>
         <p style="margin-top:12px;font-size:12px;color:var(--mute);letter-spacing:.06em">Day 12 · seven lamps this week</p></div>
       <button class="btn">Continue</button><div style="height:6px"></div></div></div>
-    <figcaption><b>Lesson complete</b>Sequence: lamp ignites 0.6 s, glow blooms, rose and marigold petals drift down (7 s, no confetti burst), points count 0 to 30, week lamps light 140 ms apart. Sound: bell then warm pad. Haptic: success.</figcaption></figure>
+    <figcaption><b>Lesson complete</b>Sequence: lamp ignites 0.6 s, a peacock-feather fan opens behind it (1.1 s spring), rose and marigold petals drift down (7 s, no confetti burst), points count 0 to 30, week lamps light 140 ms apart. Sound: bell then warm pad. Haptic: success.</figcaption></figure>
 
   <figure><div class="phone"><svg class="mandala" style="opacity:.1"><use href="#mandala"/></svg>
     <div style="position:absolute;inset:0;background:radial-gradient(70% 48% at 50% 40%,rgba(255,170,60,.5),transparent 70%)"></div>
@@ -602,17 +578,22 @@ td:first-child{color:#FBEFD9;font-family:var(--serif);font-size:17px;white-space
   <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
     <div class="scr" style="padding-bottom:0"><div class="topline"><span>Gita Yatra</span><span>Adhyaya 2 of 18</span></div></div>
     <svg class="pathsvg" viewBox="0 0 330 680" fill="none"><path d="M190 610 L154.0 575.0 Q118 540 113.0 510.0 Q108 480 121.5 440.0 Q135 400 176.5 356.0 Q218 312 220.0 280.0 Q222 248 195.0 222.0 Q168 196 140.0 173.0 L112 150" stroke="rgba(255,194,71,.3)" stroke-width="2" stroke-dasharray="2 9" stroke-linecap="round"/><path d="M190 610 L154.0 575.0 Q118 540 113.0 510.0 Q108 480 121.5 440.0 L135 400" stroke="#FFC247" stroke-width="2.4" stroke-linecap="round" style="filter:drop-shadow(0 0 6px rgba(255,194,71,.7))"/></svg>
-    <div class="node done cp" style="left:190px;top:610px"><svg class="ico"><use href="#i-conch"/></svg></div>
+    <svg class="ico teal" style="position:absolute;right:16px;top:92px;width:96px;height:96px;opacity:.16;filter:none"><use href="#i-peacock"/></svg>
+    <svg class="ico teal" style="position:absolute;left:36px;top:300px;width:34px;height:34px;opacity:.3;transform:rotate(-28deg)"><use href="#i-feather"/></svg>
+    <svg style="position:absolute;left:262px;top:470px;width:30px;height:30px;opacity:.75"><use href="#kad"/></svg>
+    <svg style="position:absolute;left:50px;top:590px;width:26px;height:26px;opacity:.6"><use href="#kad"/></svg>
+    <svg class="ico teal" style="position:absolute;left:236px;top:560px;width:30px;height:30px;opacity:.28;transform:rotate(24deg)"><use href="#i-feather"/></svg>
+    <div class="node done cp" style="left:190px;top:610px"><svg class="ico teal"><use href="#i-feather"/></svg></div>
     <div class="node done" style="left:118px;top:540px"><svg class="ico"><use href="#i-check"/></svg></div>
     <div class="node done" style="left:108px;top:480px"><svg class="ico"><use href="#i-check"/></svg></div>
     <div class="node now" style="left:135px;top:400px"><svg class="ico"><use href="#i-lotus"/></svg></div>
     <div class="nlabel" style="left:186px;top:386px">Today<br><span style="color:var(--gold);letter-spacing:.02em;text-transform:none;font-family:var(--serif);font-size:16px">Karma Yoga · 2.47</span></div>
     <div class="node" style="left:218px;top:312px"><svg class="ico dim"><use href="#i-stone"/></svg></div>
     <div class="node" style="left:222px;top:248px"><svg class="ico dim"><use href="#i-stone"/></svg></div>
-    <div class="node cp far" style="left:168px;top:196px"><svg class="ico dim"><use href="#i-conch"/></svg></div>
+    <div class="node cp far" style="left:168px;top:196px"><svg class="ico dim"><use href="#i-feather"/></svg></div>
     <div class="node far" style="left:112px;top:150px"><svg class="ico dim"><use href="#i-stone"/></svg></div>
     <div style="position:absolute;left:0;right:0;bottom:0;height:80px;background:linear-gradient(transparent,var(--bg))"></div></div>
-    <figcaption><b>Path</b>Stones are walked, the next glows as a lotus, chapter ends are conches. The path scrolls so the lotus sits at 60% height. Tap the lotus: press-down and bell.</figcaption></figure>
+    <figcaption><b>Path</b>Stones are walked, the next glows as a lotus, chapter ends are feather stones. Chapter ends are peacock-feather stones; kadamba blossoms and fallen feathers line the way. Tap the lotus: press-down and bell.</figcaption></figure>
 
   <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
     <div class="petals"><i style="--x:16%;--d:-2s"></i><i style="--x:44%;--d:-4s"></i><i style="--x:70%;--d:-1s"></i><i style="--x:86%;--d:-5s"></i></div>
