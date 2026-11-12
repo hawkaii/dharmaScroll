@@ -57,14 +57,16 @@ class _CrisisScreenState extends State<CrisisScreen> {
             Sp.screenBottom,
           ),
           children: <Widget>[
-            Align(
-              alignment: Alignment.centerLeft,
-              child: TextAction(
-                label: 'Close',
-                onPressed: () => context.canPop()
-                    ? context.pop()
-                    : Navigator.of(context).maybePop(),
-              ),
+            // A Row lets the action size to its label, at the left edge.
+            Row(
+              children: <Widget>[
+                TextAction(
+                  label: 'Close',
+                  onPressed: () => context.canPop()
+                      ? context.pop()
+                      : Navigator.of(context).maybePop(),
+                ),
+              ],
             ),
             const SizedBox(height: Sp.s22),
             Semantics(

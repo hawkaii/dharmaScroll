@@ -528,8 +528,8 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
               const SizedBox(height: Sp.s14),
               Text(
                 _s.kept
-                    ? 'Kept on this phone only. The verse stays with you.'
-                    : 'Your words have gone. The verse stays with you.',
+                    ? 'Kept on this phone only. The verse stays.'
+                    : 'Your words have gone. The verse stays.',
                 textAlign: TextAlign.center,
                 style: DType.body(c.mute),
               ),
