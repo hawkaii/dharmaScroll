@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'app.dart';
 import 'app_providers.dart';
 import 'core/feedback/sound_service.dart';
+import 'data/verse_repository.dart';
 
 /// Prefs are read once, before the first frame, because the router needs to
 /// know whether onboarding is done synchronously. Three milliseconds here buys
@@ -12,6 +13,7 @@ import 'core/feedback/sound_service.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final SharedPreferences prefs = await SharedPreferences.getInstance();
+  final verses = await loadVerses();
 
   // Not awaited: sound must never hold up the first frame. On web it only
   // loads after the first tap.
@@ -19,7 +21,10 @@ Future<void> main() async {
 
   runApp(
     ProviderScope(
-      overrides: [sharedPrefsProvider.overrideWithValue(prefs)],
+      overrides: [
+        sharedPrefsProvider.overrideWithValue(prefs),
+        versesProvider.overrideWithValue(verses),
+      ],
       child: const DharmaScrollApp(),
     ),
   );

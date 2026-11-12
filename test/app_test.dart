@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:dharmascroll/app.dart';
 import 'package:dharmascroll/app_providers.dart';
 import 'package:dharmascroll/core/state/progress.dart';
+import 'package:dharmascroll/data/verse_repository.dart';
 import 'package:dharmascroll/design/theme.dart';
 import 'package:dharmascroll/design/tokens.dart';
 import 'package:dharmascroll/presentation/hear/hear_screen.dart';
@@ -38,6 +41,9 @@ Future<void> _pump(
     ProviderScope(
       overrides: [
         sharedPrefsProvider.overrideWithValue(prefs),
+        versesProvider.overrideWithValue(
+          parseVerses(File('assets/data/gita_v1.json').readAsStringSync()),
+        ),
         if (now != null) clockProvider.overrideWithValue(() => now),
       ],
       child: const DharmaScrollApp(),
