@@ -17,7 +17,8 @@ class Settings {
     this.onboarded = false,
     this.reminderMinutes = 6 * 60 + 30,
     this.language = Language.hinglish,
-    this.soundHaptics = true,
+    this.sound = true,
+    this.haptics = true,
     this.appearance = Appearance.auto,
     this.cityId = defaultCityId,
     this.tradition = Tradition.unsure,
@@ -31,7 +32,8 @@ class Settings {
   final bool onboarded;
   final int reminderMinutes;
   final Language language;
-  final bool soundHaptics;
+  final bool sound;
+  final bool haptics;
   final Appearance appearance;
   final String cityId;
   final Tradition tradition;
@@ -42,7 +44,8 @@ class Settings {
     bool? onboarded,
     int? reminderMinutes,
     Language? language,
-    bool? soundHaptics,
+    bool? sound,
+    bool? haptics,
     Appearance? appearance,
     String? cityId,
     Tradition? tradition,
@@ -52,7 +55,8 @@ class Settings {
     onboarded: onboarded ?? this.onboarded,
     reminderMinutes: reminderMinutes ?? this.reminderMinutes,
     language: language ?? this.language,
-    soundHaptics: soundHaptics ?? this.soundHaptics,
+    sound: sound ?? this.sound,
+    haptics: haptics ?? this.haptics,
     appearance: appearance ?? this.appearance,
     cityId: cityId ?? this.cityId,
     tradition: tradition ?? this.tradition,
@@ -61,12 +65,15 @@ class Settings {
   );
 }
 
-/// The five things the You tab can change, plus the once-only onboarding flag.
+/// What You > Settings can change, plus the once-only onboarding flag.
 class SettingsNotifier extends Notifier<Settings> {
   static const String kOnboarded = 'onboardingComplete';
   static const String kReminder = 'remindAtMinutes';
   static const String kLang = 'lang';
+
+  /// Kept from 0.2.0, when one switch did sound and haptics together.
   static const String kSound = 'soundHaptics';
+  static const String kHaptics = 'haptics';
   static const String kAppearance = 'appearance';
   static const String kCity = 'cityId';
   static const String kTradition = 'tradition';
@@ -85,7 +92,8 @@ class SettingsNotifier extends Notifier<Settings> {
         (Language l) => l.name == p.getString(kLang),
         orElse: () => Language.hinglish,
       ),
-      soundHaptics: p.getBool(kSound) ?? true,
+      sound: p.getBool(kSound) ?? true,
+      haptics: p.getBool(kHaptics) ?? p.getBool(kSound) ?? true,
       appearance: Appearance.values.firstWhere(
         (Appearance a) => a.name == p.getString(kAppearance),
         orElse: () => Appearance.auto,
@@ -107,8 +115,8 @@ class SettingsNotifier extends Notifier<Settings> {
         orElse: () => Deity.none,
       ),
     );
-    Haptics.enabled = s.soundHaptics;
-    SoundService.instance.enabled = s.soundHaptics;
+    Haptics.enabled = s.haptics;
+    SoundService.instance.enabled = s.sound;
     return s;
   }
 
@@ -122,16 +130,20 @@ class SettingsNotifier extends Notifier<Settings> {
     _p.setString(kLang, l.name);
   }
 
-  void setSoundHaptics(bool v) {
-    Haptics.enabled = v;
+  void setSound(bool v) {
     SoundService.instance.enabled = v;
-    // Let the person hear and feel what they just switched on.
-    if (v) {
-      Haptics.tick();
-      SoundService.instance.play(Sfx.tap);
-    }
-    state = state.copyWith(soundHaptics: v);
+    // Let the person hear what they just switched on.
+    if (v) SoundService.instance.play(Sfx.tap);
+    state = state.copyWith(sound: v);
     _p.setBool(kSound, v);
+  }
+
+  void setHaptics(bool v) {
+    Haptics.enabled = v;
+    // Let the person feel what they just switched on.
+    if (v) Haptics.tick();
+    state = state.copyWith(haptics: v);
+    _p.setBool(kHaptics, v);
   }
 
   void setAppearance(Appearance a) {
@@ -154,6 +166,15 @@ class SettingsNotifier extends Notifier<Settings> {
     on ? next.add(r) : next.remove(r);
     state = state.copyWith(rituals: next);
     _p.setStringList(kRituals, <String>[for (final Ritual x in next) x.name]);
+  }
+
+  /// Saves what "Build my practice" chose, in one go.
+  void setPractice(Set<Ritual> rituals, Deity deity) {
+    state = state.copyWith(rituals: rituals, deity: deity);
+    _p.setStringList(kRituals, <String>[
+      for (final Ritual x in rituals) x.name,
+    ]);
+    _p.setString(kDeity, deity.name);
   }
 
   void setDeity(Deity d) {

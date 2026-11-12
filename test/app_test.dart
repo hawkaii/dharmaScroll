@@ -10,8 +10,12 @@ import 'package:dharmascroll/data/verse_repository.dart';
 import 'package:dharmascroll/design/theme.dart';
 import 'package:dharmascroll/design/tokens.dart';
 import 'package:dharmascroll/presentation/hear/hear_screen.dart';
+import 'package:dharmascroll/presentation/auth/sign_in_panel.dart';
 import 'package:dharmascroll/presentation/onboarding/onboarding_flow.dart';
+import 'package:dharmascroll/presentation/practice/practice_builder.dart';
+import 'package:dharmascroll/presentation/practice/practice_screen.dart';
 import 'package:dharmascroll/presentation/today/today_screen.dart';
+import 'package:dharmascroll/presentation/you/you_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -56,42 +60,75 @@ Future<void> _pump(
   await tester.pumpAndSettle();
 }
 
+/// Scrolls the target into view first: long steps scroll on small phones.
+Future<void> _tap(WidgetTester tester, Finder f) async {
+  if (f.evaluate().isEmpty) {
+    // Not built yet: further down a lazy list.
+    await tester.scrollUntilVisible(
+      f,
+      200,
+      scrollable: find.byType(Scrollable).last,
+    );
+  }
+  await tester.ensureVisible(f);
+  await tester.pumpAndSettle();
+  await tester.tap(f);
+  await tester.pumpAndSettle();
+}
+
 void main() {
   final DateTime noon = DateTime(2026, 11, 12, 12);
 
-  testWidgets('onboarding is 5 light screens, shown once', (
+  testWidgets('onboarding: Google, city, tradition, hour, practice; once', (
     WidgetTester tester,
   ) async {
     final SharedPreferences prefs = await _prefs(onboarded: false);
     await _pump(tester, prefs, now: noon);
     expect(find.text(OnboardingFlow.welcomeButton), findsOneWidget);
 
-    await tester.tap(find.text(OnboardingFlow.welcomeButton));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text(OnboardingFlow.ritualButton));
-    await tester.pumpAndSettle();
+    await _tap(tester, find.text(OnboardingFlow.welcomeButton));
+    // Sign in (pretend), with its one line of why.
+    expect(find.text(OnboardingFlow.whySignIn), findsOneWidget);
+    expect(find.text('1 of 5'), findsNothing); // dashes speak, not print
+    await _tap(tester, find.text(SignInPanel.google));
+    expect(prefs.getString('authUser'), contains('google'));
     // City: Delhi is chosen; search finds a diaspora city.
+    expect(find.text(OnboardingFlow.whyCity), findsOneWidget);
     expect(find.text('New Delhi'), findsOneWidget);
     await tester.enterText(find.byType(TextField), 'edison');
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Edison, US'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text(OnboardingFlow.ritualButton));
-    await tester.pumpAndSettle();
+    await _tap(tester, find.text('Edison, US'));
+    await _tap(tester, find.text(OnboardingFlow.next));
     // Tradition.
-    await tester.tap(find.text('Vaishnava'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text(OnboardingFlow.ritualButton));
-    await tester.pumpAndSettle();
+    await _tap(tester, find.text('Vaishnava'));
+    await _tap(tester, find.text(OnboardingFlow.next));
+    // Hour.
+    expect(find.text(OnboardingFlow.reminderTitle), findsOneWidget);
+    await _tap(tester, find.text(OnboardingFlow.next));
+    // Practice: a fast, Monday for Shiva, a dusk lamp; no sunrise, no moon.
+    await _tap(tester, find.text('Yes, on Ekadashi'));
+    await _tap(tester, find.text(PracticeBuilder.next));
+    await _tap(tester, find.text('Monday'));
+    await _tap(tester, find.text(PracticeBuilder.next));
+    await _tap(tester, find.text('Yes, most evenings'));
+    await _tap(tester, find.text(PracticeBuilder.next));
+    await _tap(tester, find.text(PracticeBuilder.next));
     expect(find.text(OnboardingFlow.finishLabel), findsOneWidget);
 
-    await tester.tap(find.text(OnboardingFlow.finishLabel));
-    await tester.pumpAndSettle();
+    await _tap(tester, find.text(OnboardingFlow.finishLabel));
     expect(find.text(TodayScreen.beginLabel), findsOneWidget);
     expect(prefs.getBool('onboardingComplete'), isTrue);
     expect(prefs.getInt('remindAtMinutes'), 6 * 60 + 30);
     expect(prefs.getString('cityId'), 'edison-us');
     expect(prefs.getString('tradition'), 'vaishnava');
+    expect(prefs.getStringList('rituals')!.toSet(), <String>{
+      'dailyGita',
+      'ekadashi',
+      'diya',
+    });
+    expect(prefs.getString('deity'), Deity.shiva.name);
+    // Today greets the person by name.
+    expect(find.textContaining('Friend'), findsOneWidget);
 
     // A later launch with the same storage goes straight to Today.
     await tester.pumpWidget(const SizedBox.shrink());
@@ -100,25 +137,19 @@ void main() {
     expect(find.text(TodayScreen.beginLabel), findsOneWidget);
   });
 
-  testWidgets('You: the ritual picker switches rituals on and off', (
+  testWidgets('You: All reminders switches rituals on and off', (
     WidgetTester tester,
   ) async {
     final SharedPreferences prefs = await _prefs();
     await _pump(tester, prefs, now: noon);
-    await tester.tap(find.text('YOU'));
-    await tester.pumpAndSettle();
+    await _tap(tester, find.text('YOU'));
     expect(find.text('1 on'), findsOneWidget); // Daily Gita by default
-    await tester.tap(find.text('Rituals'));
-    await tester.pumpAndSettle();
+    await _tap(tester, find.text(YouScreen.practiceRow));
+    await _tap(tester, find.text(PracticeScreen.allReminders));
     expect(find.text('Morning sandhya'), findsOneWidget);
-    await tester.tap(find.text('Purnima'));
-    await tester.pumpAndSettle();
-    expect(
-      prefs.getStringList('rituals'),
-      containsAll(<String>['dailyGita', 'purnima']),
-    );
-    await tester.tap(find.text('Daily Gita'));
-    await tester.pumpAndSettle();
+    await _tap(tester, find.text('Daily Gita'));
+    expect(prefs.getStringList('rituals'), isEmpty);
+    await _tap(tester, find.text('Purnima'));
     expect(prefs.getStringList('rituals'), <String>['purnima']);
     await tester.scrollUntilVisible(
       find.text('Shiva, Monday'),
@@ -126,8 +157,7 @@ void main() {
       scrollable: find.byType(Scrollable).last,
     );
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Shiva, Monday'));
-    await tester.pumpAndSettle();
+    await _tap(tester, find.text('Shiva, Monday'));
     expect(prefs.getString('deity'), Deity.shiva.name);
   });
 

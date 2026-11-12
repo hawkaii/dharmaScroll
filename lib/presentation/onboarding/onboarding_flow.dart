@@ -3,28 +3,49 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../core/feedback/sound_service.dart';
+import '../../core/practice/practice.dart';
 import '../../core/rituals/providers.dart';
 import '../../core/rituals/reminder_backend.dart';
 import '../../core/rituals/rituals.dart';
 import '../../core/state/settings.dart';
-import '../../design/effects.dart';
+import '../../design/info_sheet.dart';
+import '../../design/lottie_art.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
+import '../auth/sign_in_panel.dart';
+import '../practice/practice_builder.dart';
+import '../practice/practice_screen.dart' show BackChevron;
+import '../practice/tradition_explainer.dart';
 import '../you/city_picker.dart';
 
-/// Five light screens: welcome, the ritual, your city, your Ekadashi rule, the
-/// hour. Shown once.
+/// Welcome, then five short steps: sign in, your city, your tradition, your
+/// hour, your practice. Each step says in one line why it asks. Shown once.
 class OnboardingFlow extends ConsumerStatefulWidget {
   const OnboardingFlow({super.key});
 
   static const String welcomeLine1 = 'A conversation';
   static const String welcomeLine2 = 'on a battlefield.';
   static const String welcomeButton = 'Listen';
-  static const String ritualButton = 'Continue';
+  static const String next = 'Continue';
+  static const String signInTitle = 'Who is lighting\nthe lamp?';
   static const String cityTitle = 'Where do you\nwatch the sun?';
   static const String traditionTitle = 'How do you\nkeep Ekadashi?';
   static const String reminderTitle = 'When does your\nday begin?';
   static const String finishLabel = 'Light the first lamp';
+
+  static const String whySignIn =
+      'Signing in will keep your lamp and your verses if you change phones. '
+      'For now, all of it stays on this phone.';
+  static const String whyCity =
+      'Your city tells us when the sun rises for you. Prayers follow the sun.';
+  static const String whyTradition =
+      'Families keep the Ekadashi fast in two ways. Some months, the days differ.';
+  static const String whyHour =
+      'Five verses will wait for you at this hour. Every day, the same quiet time.';
+  static const String seeDifference = 'See the difference';
+
+  /// Steps after welcome; the dashes count these.
+  static const int steps = 5;
 
   @override
   ConsumerState<OnboardingFlow> createState() => _OnboardingFlowState();
@@ -32,40 +53,43 @@ class OnboardingFlow extends ConsumerStatefulWidget {
 
 class _OnboardingFlowState extends ConsumerState<OnboardingFlow> {
   int _page = 0;
-  int _minutes = 6 * 60 + 30;
   bool _lit = false;
-  String _cityId = Settings.defaultCityId;
-  Tradition _tradition = Tradition.unsure;
 
-  void _next() {
+  SettingsNotifier get _n => ref.read(settingsProvider.notifier);
+
+  void _go(int page) {
     // The button already tapped (sound + haptic); the page turn is the swipe.
     SoundService.instance.play(Sfx.swipe);
-    setState(() => _page++);
+    setState(() => _page = page);
   }
 
-  Future<void> _finish() async {
+  Future<void> _finish(PracticePlan plan) async {
     if (_lit) return;
     setState(() => _lit = true);
     // Lamp ignite: shimmer, with one soft pulse.
     SoundService.instance.play(Sfx.shimmer);
     Haptics.soft();
-    final SettingsNotifier n = ref.read(settingsProvider.notifier);
-    n.setReminder(_minutes);
-    n.setCity(_cityId);
-    n.setTradition(_tradition);
+    // Save what the person saw, chosen or default, so it is fixed from now.
+    final Settings s = ref.read(settingsProvider);
+    _n
+      ..setReminder(s.reminderMinutes)
+      ..setCity(s.cityId)
+      ..setTradition(s.tradition)
+      ..setPractice(plan.rituals, plan.deity);
     await Future<void>.delayed(
       reduceMotion(context) ? Duration.zero : Motion.ignite,
     );
     if (!mounted) return;
     final ReminderBackend backend = ref.read(reminderBackendProvider);
-    n.completeOnboarding();
-    // They just chose an hour: this is the moment to ask to remind them.
+    _n.completeOnboarding();
+    // They just chose their reminders: this is the moment to ask.
     backend.requestPermission().ignore();
   }
 
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
+    final Settings s = ref.watch(settingsProvider);
     return Scaffold(
       backgroundColor: c.bg,
       body: Backdrop(
@@ -73,40 +97,211 @@ class _OnboardingFlowState extends ConsumerState<OnboardingFlow> {
           child: Padding(
             padding: const EdgeInsets.fromLTRB(
               Sp.screenSide,
-              Sp.s18,
+              Sp.s6,
               Sp.screenSide,
-              Sp.screenBottom,
+              Sp.s12,
             ),
-            child: AnimatedSwitcher(
-              duration: Motion.snap,
-              switchInCurve: Motion.easeOut,
-              child: KeyedSubtree(
-                key: ValueKey<int>(_page),
-                child: switch (_page) {
-                  0 => _Welcome(onNext: _next),
-                  1 => _Ritual(onNext: _next),
-                  2 => _CityStep(
-                    selected: _cityId,
-                    onSelected: (String id) => setState(() => _cityId = id),
-                    onNext: _next,
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 44,
+                  child: _page == 0
+                      ? null
+                      : Row(
+                          children: <Widget>[
+                            if (_page < OnboardingFlow.steps)
+                              BackChevron(onTap: () => _go(_page - 1))
+                            else
+                              const SizedBox(width: 44),
+                            Expanded(
+                              child: Center(
+                                child: ProgressDashes(
+                                  total: OnboardingFlow.steps,
+                                  filled: _page,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 44),
+                          ],
+                        ),
+                ),
+                Expanded(
+                  child: AnimatedSwitcher(
+                    duration: Motion.snap,
+                    switchInCurve: Motion.easeOut,
+                    child: KeyedSubtree(
+                      key: ValueKey<int>(_page),
+                      child: switch (_page) {
+                        0 => _Welcome(onNext: () => _go(1)),
+                        1 => _Step(
+                          art: Art.lotusSafe,
+                          eyebrow: 'YOUR LIGHT',
+                          title: OnboardingFlow.signInTitle,
+                          why: OnboardingFlow.whySignIn,
+                          footer: SignInPanel(onDone: () => _go(2)),
+                          children: const <Widget>[],
+                        ),
+                        2 => _Step(
+                          art: Art.citySun,
+                          eyebrow: 'YOUR CITY',
+                          title: OnboardingFlow.cityTitle,
+                          why: OnboardingFlow.whyCity,
+                          footer: PrimaryButton(
+                            label: OnboardingFlow.next,
+                            onPressed: () => _go(3),
+                          ),
+                          children: <Widget>[
+                            CityPicker(
+                              selected: s.cityId,
+                              onSelected: _n.setCity,
+                            ),
+                          ],
+                        ),
+                        3 => _Step(
+                          art: Art.twoPaths,
+                          eyebrow: 'YOUR TRADITION',
+                          title: OnboardingFlow.traditionTitle,
+                          why: OnboardingFlow.whyTradition,
+                          footer: PrimaryButton(
+                            label: OnboardingFlow.next,
+                            onPressed: () => _go(4),
+                          ),
+                          children: <Widget>[
+                            for (final Tradition t
+                                in Tradition.values) ...<Widget>[
+                              OptionRow(
+                                label: t.label,
+                                hint: traditionHint(t),
+                                selected: t == s.tradition,
+                                onTap: () => _n.setTradition(t),
+                              ),
+                              const SizedBox(height: Sp.s12),
+                            ],
+                            _SeeDifference(
+                              onTap: () => showTraditionExplainer(context),
+                            ),
+                          ],
+                        ),
+                        4 => _Step(
+                          art: Art.hourDiya,
+                          eyebrow: 'YOUR HOUR',
+                          title: OnboardingFlow.reminderTitle,
+                          why: OnboardingFlow.whyHour,
+                          footer: PrimaryButton(
+                            label: OnboardingFlow.next,
+                            onPressed: () => _go(5),
+                          ),
+                          children: <Widget>[
+                            _HourDial(
+                              minutes: s.reminderMinutes,
+                              onChanged: _n.setReminder,
+                            ),
+                          ],
+                        ),
+                        _ => PracticeBuilder(
+                          initial: PracticeAnswers.from(s),
+                          doneLabel: OnboardingFlow.finishLabel,
+                          busy: _lit,
+                          onBack: () => _go(4),
+                          onDone: _finish,
+                        ),
+                      },
+                    ),
                   ),
-                  3 => _TraditionStep(
-                    selected: _tradition,
-                    onSelected: (Tradition t) => setState(() => _tradition = t),
-                    onNext: _next,
-                  ),
-                  _ => _Reminder(
-                    minutes: _minutes,
-                    lit: _lit,
-                    onChanged: (int m) => setState(() => _minutes = m),
-                    onFinish: _finish,
-                  ),
-                },
-              ),
+                ),
+              ],
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+/// One line under each tradition, for a child.
+String traditionHint(Tradition t) => switch (t) {
+  Tradition.smarta => 'Fast on the day Ekadashi meets the sunrise.',
+  Tradition.vaishnava => 'Wait for an Ekadashi that is clean from dawn.',
+  Tradition.unsure => 'We show both days when they differ.',
+};
+
+/// "See the difference" with the round "i".
+class _SeeDifference extends StatelessWidget {
+  const _SeeDifference({required this.onTap});
+
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        InfoButton(topic: 'Smarta and Vaishnava', onTap: onTap),
+        Flexible(
+          child: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: onTap,
+            child: ExcludeSemantics(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                child: Text(
+                  OnboardingFlow.seeDifference,
+                  style: DType.body(context.c.accent, size: 17),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// A step: animation, eyebrow, title, the one line of why, the content.
+class _Step extends StatelessWidget {
+  const _Step({
+    required this.art,
+    required this.eyebrow,
+    required this.title,
+    required this.why,
+    required this.children,
+    required this.footer,
+  });
+
+  final Art art;
+  final String eyebrow;
+  final String title;
+  final String why;
+  final List<Widget> children;
+  final Widget footer;
+
+  @override
+  Widget build(BuildContext context) {
+    final DharmaColors c = context.c;
+    return _Page(
+      footer: footer,
+      children: <Widget>[
+        DLottie(art, height: 92),
+        const SizedBox(height: Sp.s14),
+        Text(eyebrow, style: DType.eyebrow(c.accent)),
+        const SizedBox(height: Sp.s12),
+        Semantics(
+          header: true,
+          child: Text(
+            title,
+            textAlign: TextAlign.center,
+            style: DType.title(c.ink, compact: true),
+          ),
+        ),
+        const SizedBox(height: Sp.s12),
+        Text(
+          why,
+          textAlign: TextAlign.center,
+          style: DType.body(c.mute, size: 17),
+        ),
+        const SizedBox(height: Sp.s22),
+        ...children,
+      ],
     );
   }
 }
@@ -135,6 +330,7 @@ class _Page extends StatelessWidget {
                   ),
                   const SizedBox(height: Sp.s18),
                   footer,
+                  const SizedBox(height: Sp.s12),
                 ],
               ),
             ),
@@ -220,215 +416,27 @@ class _WelcomeState extends State<_Welcome>
   }
 }
 
-class _Ritual extends StatelessWidget {
-  const _Ritual({required this.onNext});
-
-  final VoidCallback onNext;
-
-  static const List<(String, String, String)> rows = <(String, String, String)>[
-    ('conch', 'Hear', 'Five verses. Then it ends.'),
-    ('path-stone', 'Walk', 'One step on the path.'),
-    ('flute', 'Speak', 'Tell it your mind. A verse answers.'),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    final DharmaColors c = context.c;
-    final bool still = reduceMotion(context);
-    return _Page(
-      footer: PrimaryButton(
-        label: OnboardingFlow.ritualButton,
-        onPressed: onNext,
-      ),
-      children: <Widget>[
-        Text('SIX QUIET MINUTES', style: DType.eyebrow(c.accent)),
-        const SizedBox(height: Sp.s14),
-        Semantics(
-          header: true,
-          child: Text(
-            'One ritual,\neach day.',
-            textAlign: TextAlign.center,
-            style: DType.title(c.ink),
-          ),
-        ),
-        const SizedBox(height: Sp.s34),
-        for (int i = 0; i < rows.length; i++)
-          TweenAnimationBuilder<double>(
-            tween: Tween<double>(begin: still ? 1 : 0, end: 1),
-            duration: Duration(milliseconds: 400 + i * 400),
-            curve: Motion.easeOut,
-            builder: (BuildContext context, double t, Widget? child) =>
-                Opacity(opacity: t, child: child),
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: Sp.s22),
-              child: Row(
-                children: <Widget>[
-                  DIcon(rows[i].$1, size: 36, glow: true),
-                  const SizedBox(width: Sp.s18),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(rows[i].$2, style: DType.body(c.ink, size: 24)),
-                        Text(rows[i].$3, style: DType.body(c.mute, size: 17)),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-      ],
-    );
-  }
-}
-
-class _CityStep extends StatelessWidget {
-  const _CityStep({
-    required this.selected,
-    required this.onSelected,
-    required this.onNext,
-  });
-
-  final String selected;
-  final ValueChanged<String> onSelected;
-  final VoidCallback onNext;
-
-  @override
-  Widget build(BuildContext context) {
-    final DharmaColors c = context.c;
-    return _Page(
-      footer: PrimaryButton(
-        label: OnboardingFlow.ritualButton,
-        onPressed: onNext,
-      ),
-      children: <Widget>[
-        Text('YOUR CITY', style: DType.eyebrow(c.accent)),
-        const SizedBox(height: Sp.s14),
-        Semantics(
-          header: true,
-          child: Text(
-            OnboardingFlow.cityTitle,
-            textAlign: TextAlign.center,
-            style: DType.title(c.ink, compact: true),
-          ),
-        ),
-        const SizedBox(height: Sp.s14),
-        Text(
-          'Sunrise and sunset set your reminders.',
-          textAlign: TextAlign.center,
-          style: DType.body(c.mute, size: 17),
-        ),
-        const SizedBox(height: Sp.s22),
-        CityPicker(selected: selected, onSelected: onSelected),
-      ],
-    );
-  }
-}
-
-class _TraditionStep extends StatelessWidget {
-  const _TraditionStep({
-    required this.selected,
-    required this.onSelected,
-    required this.onNext,
-  });
-
-  final Tradition selected;
-  final ValueChanged<Tradition> onSelected;
-  final VoidCallback onNext;
-
-  @override
-  Widget build(BuildContext context) {
-    final DharmaColors c = context.c;
-    return _Page(
-      footer: PrimaryButton(
-        label: OnboardingFlow.ritualButton,
-        onPressed: onNext,
-      ),
-      children: <Widget>[
-        Text('YOUR TRADITION', style: DType.eyebrow(c.accent)),
-        const SizedBox(height: Sp.s14),
-        Semantics(
-          header: true,
-          child: Text(
-            OnboardingFlow.traditionTitle,
-            textAlign: TextAlign.center,
-            style: DType.title(c.ink, compact: true),
-          ),
-        ),
-        const SizedBox(height: Sp.s22),
-        for (final Tradition t in Tradition.values) ...<Widget>[
-          OptionRow(
-            label: t.label,
-            selected: t == selected,
-            onTap: () => onSelected(t),
-          ),
-          const SizedBox(height: Sp.s12),
-        ],
-        Text(
-          selected == Tradition.unsure
-              ? 'When the two differ, we show both dates.'
-              : 'You can change this later in You.',
-          textAlign: TextAlign.center,
-          style: DType.body(c.mute, size: 16),
-        ),
-      ],
-    );
-  }
-}
-
-class _Reminder extends StatelessWidget {
-  const _Reminder({
-    required this.minutes,
-    required this.lit,
-    required this.onChanged,
-    required this.onFinish,
-  });
+class _HourDial extends StatelessWidget {
+  const _HourDial({required this.minutes, required this.onChanged});
 
   final int minutes;
-  final bool lit;
   final ValueChanged<int> onChanged;
-  final VoidCallback onFinish;
-
-  static String hhmm(int m) {
-    final int h = (m ~/ 60) % 12 == 0 ? 12 : (m ~/ 60) % 12;
-    return '$h:${(m % 60).toString().padLeft(2, '0')}';
-  }
 
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
-    return _Page(
-      footer: PrimaryButton(
-        label: OnboardingFlow.finishLabel,
-        onPressed: lit ? null : onFinish,
-      ),
+    final bool am = minutes < 12 * 60;
+    return Column(
       children: <Widget>[
-        AnimatedSwitcher(
-          duration: Motion.ignite,
-          child: Diya(key: ValueKey<bool>(lit), size: 110, lit: lit),
-        ),
-        const SizedBox(height: Sp.s22),
-        Text('THE ONLY QUESTION', style: DType.eyebrow(c.accent)),
-        const SizedBox(height: Sp.s14),
-        Semantics(
-          header: true,
-          child: Text(
-            OnboardingFlow.reminderTitle,
-            textAlign: TextAlign.center,
-            style: DType.title(c.ink, compact: true),
-          ),
-        ),
-        const SizedBox(height: Sp.s22),
-        Text(hhmm(minutes), style: DType.hero(c.verse, size: 76)),
+        Text(fmtTime(minutes), style: DType.hero(c.verse, size: 76)),
         Text(
-          minutes < 12 * 60 ? 'AM  ·  DRAG TO CHANGE' : 'PM  ·  DRAG TO CHANGE',
+          am ? 'AM  ·  DRAG TO CHANGE' : 'PM  ·  DRAG TO CHANGE',
           style: DType.eyebrow(c.faint),
         ),
         const SizedBox(height: Sp.s14),
         Semantics(
           label: 'Reminder time',
-          value: '${hhmm(minutes)} ${minutes < 12 * 60 ? 'AM' : 'PM'}',
+          value: '${fmtTime(minutes)} ${am ? 'AM' : 'PM'}',
           child: SliderTheme(
             data: SliderTheme.of(context).copyWith(
               activeTrackColor: Tok.marigold,

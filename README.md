@@ -40,6 +40,32 @@ IAST, a short English and Hindi meaning, 3 to 5 situation tags and a
 The Hear feed gives 5 verses a day and walks the file in order, so nothing
 repeats until all 108 have been heard. `test/verses_test.dart` checks the file.
 
+## Sign-in (not real yet)
+
+Onboarding offers "Continue with Google", "Continue with phone" (a code
+screen) and "Continue as guest". None of it talks to a server: the app uses
+`FakeAuthService` in `lib/core/auth/auth_service.dart`, which stores a local
+profile in shared preferences. Google always "works" and any six-number code
+"verifies". Nothing leaves the phone.
+
+To plug in real sign-in, implement `AuthService` (Google OAuth in
+`signInWithGoogle`, an SMS OTP provider in `sendCode` / `verifyCode`) and
+override `authServiceProvider` in `main.dart`. The comments marked
+`OAuth plugs in here` and `OTP plugs in here` show the spots.
+
+## Practice and explainers
+
+"Build my practice" (onboarding and You > My practice) asks five plain
+questions and turns the answers into rituals through `PracticeSuggester`
+(`lib/core/practice/practice.dart`). Today that is a few rules; a smarter
+helper can replace it behind the same interface. Each preview shows the
+first reminder the real planner (`planReminders`) would send.
+
+The small animations in `assets/lottie/` are written by
+`python3 tools/lottie_gen/gen.py` in the board v3 colours (shape layers
+only: no effects, masks or expressions). With reduce motion on they hold a
+still frame.
+
 ## Running it
 
 ```bash

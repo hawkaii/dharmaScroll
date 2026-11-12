@@ -36,6 +36,7 @@ flutter:
   assets:
     - assets/svg/
     - assets/svg/icons/
+    - assets/lottie/
     - assets/audio/
     - assets/data/gita_v1.json
     - assets/panchang/

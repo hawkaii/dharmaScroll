@@ -252,6 +252,99 @@ class _PrimaryButtonState extends State<PrimaryButton> {
   }
 }
 
+/// A second choice beside the primary one: same size, outlined, no fill.
+/// Pressed: sinks 2 px, like the primary.
+class SecondaryButton extends StatefulWidget {
+  const SecondaryButton({
+    super.key,
+    required this.label,
+    required this.onPressed,
+    this.leading,
+  });
+
+  final String label;
+  final VoidCallback? onPressed;
+  final Widget? leading;
+
+  @override
+  State<SecondaryButton> createState() => _SecondaryButtonState();
+}
+
+class _SecondaryButtonState extends State<SecondaryButton> {
+  bool _down = false;
+
+  void _set(bool v) {
+    if (_down != v && mounted) setState(() => _down = v);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final DharmaColors c = context.c;
+    final bool enabled = widget.onPressed != null;
+    return Semantics(
+      button: true,
+      enabled: enabled,
+      label: widget.label,
+      excludeSemantics: true,
+      onTap: widget.onPressed,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTapDown: enabled ? (_) => _set(true) : null,
+        onTapCancel: () => _set(false),
+        onTapUp: (_) => _set(false),
+        onTap: enabled
+            ? () {
+                Haptics.tap();
+                SoundService.instance.play(Sfx.tap);
+                widget.onPressed!();
+              }
+            : null,
+        child: Opacity(
+          opacity: enabled ? 1 : 0.5,
+          child: SizedBox(
+            height: 59,
+            child: AnimatedPadding(
+              duration: Motion.press,
+              curve: Motion.easeOut,
+              padding: EdgeInsets.only(
+                top: _down ? 3 : 1,
+                bottom: _down ? 0 : 2,
+              ),
+              child: AnimatedContainer(
+                duration: Motion.press,
+                decoration: BoxDecoration(
+                  color: _down ? c.raised : c.surface.withValues(alpha: 0.6),
+                  borderRadius: BorderRadius.circular(Rad.button),
+                  border: Border.all(
+                    color: _down ? Tok.marigold : c.ink.withValues(alpha: 0.22),
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    if (widget.leading != null) ...<Widget>[
+                      widget.leading!,
+                      const SizedBox(width: Sp.s12),
+                    ],
+                    Flexible(
+                      child: Text(
+                        widget.label,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: DType.button(c.ink),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 /// Quiet secondary action under a primary button.
 class TextAction extends StatelessWidget {
   const TextAction({super.key, required this.label, required this.onPressed});
@@ -312,11 +405,15 @@ class OptionRow extends StatelessWidget {
     required this.label,
     required this.selected,
     required this.onTap,
+    this.hint,
   });
 
   final String label;
   final bool selected;
   final VoidCallback onTap;
+
+  /// One plain line under the label: what this choice means.
+  final String? hint;
 
   @override
   Widget build(BuildContext context) {
@@ -324,7 +421,7 @@ class OptionRow extends StatelessWidget {
     return Semantics(
       button: true,
       selected: selected,
-      label: label,
+      label: hint == null ? label : '$label. $hint',
       excludeSemantics: true,
       onTap: onTap,
       child: GestureDetector(
@@ -344,7 +441,15 @@ class OptionRow extends StatelessWidget {
             borderRadius: BorderRadius.circular(Rad.row),
             border: Border.all(color: selected ? Tok.marigold : c.line),
           ),
-          child: Text(label, style: DType.body(c.ink, size: 20)),
+          child: hint == null
+              ? Text(label, style: DType.body(c.ink, size: 20))
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(label, style: DType.body(c.ink, size: 20)),
+                    Text(hint!, style: DType.body(c.mute, size: 15)),
+                  ],
+                ),
         ),
       ),
     );
