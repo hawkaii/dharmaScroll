@@ -24,6 +24,10 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>To hear what you say in Ekant. Your voice is not stored.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>To turn what you say in Ekant into words. Your voice is not stored.</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>
