@@ -65,7 +65,13 @@ class _MannScreenState extends State<MannScreen>
       setState(() => _permissionDenied = true);
       return;
     }
-    await _voice.start();
+    // `start` returns null when the mic or encoder is unavailable (some
+    // browsers); show the same "no mic" state instead of a fake recording.
+    if (await _voice.start() == null) {
+      if (mounted) setState(() => _permissionDenied = true);
+      return;
+    }
+    if (!mounted) return;
     setState(() {
       _recording = true;
       _permissionDenied = false;
