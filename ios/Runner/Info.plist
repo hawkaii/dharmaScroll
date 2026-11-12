@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Mann Darpan and Ekant listen while you speak. Your voice stays on this phone and is not stored.</string>
+	<string>Mann Darpan and Ekant listen while you speak. dharmaScroll does not store or upload your voice.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>Your words are turned into text so a verse can answer, in Mann Darpan and Ekant.</string>
 	<key>LSApplicationQueriesSchemes</key>

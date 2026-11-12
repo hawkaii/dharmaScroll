@@ -43,7 +43,7 @@ In the first upload (step 6) accept "Play App Signing". Google keeps the app-sig
 1. Download the `.aab` from the GitHub release.
 2. Play Console, Testing, Internal testing, Create release, upload it. Add yourself as tester (a Google account email list).
 3. Install from the opt-in link on a real phone. Check: the app opens, the microphone prompt appears only when you speak or chant, the icon looks right.
-4. Check the merged manifest asks only for the microphone: Play Console, App bundle explorer, or `apkanalyzer manifest permissions`. Expected: `RECORD_AUDIO` only. If `INTERNET` shows, a plugin added it; update `DATA_SAFETY.md` and the policy or remove it.
+4. Check the merged manifest permissions: Play Console, App bundle explorer, or `apkanalyzer manifest permissions`. Expected exactly: `RECORD_AUDIO`, `POST_NOTIFICATIONS`, `VIBRATE`, `RECEIVE_BOOT_COMPLETED` (see `DATA_SAFETY.md`). If `INTERNET` or anything else shows, a plugin added it; update `DATA_SAFETY.md` and the policy or remove it.
 
 ## 7. Fill App content and the store listing
 

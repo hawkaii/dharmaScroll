@@ -2,6 +2,8 @@
     <!-- Microphone: voice check-in, Mann Darpan and Ekant speech to text, and the
          on-device Mann Darpan voice note. Audio stays on the phone. -->
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <!-- Rituals: the boot receiver below puts reminders back after a restart. -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
         android:label="dharmaScroll"
