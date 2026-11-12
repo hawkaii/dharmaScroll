@@ -101,11 +101,18 @@ class YatraScreen extends ConsumerWidget {
                             ),
                           ),
                         Positioned(
-                          left: pts[curSlot].dx + 40,
+                          left: pts[curSlot].dx > w * 0.5
+                              ? null
+                              : pts[curSlot].dx + 40,
+                          right: pts[curSlot].dx > w * 0.5
+                              ? w - pts[curSlot].dx + 40
+                              : null,
                           top: pts[curSlot].dy - 22,
                           child: IgnorePointer(
                             child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                              crossAxisAlignment: pts[curSlot].dx > w * 0.5
+                                  ? CrossAxisAlignment.end
+                                  : CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text('TODAY', style: DType.eyebrow(c.faint)),
                                 Text(

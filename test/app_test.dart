@@ -107,6 +107,9 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text(HearScreen.endTitle), findsOneWidget);
     expect(prefs.getStringList('p.steps'), contains('hear'));
+    await tester.tap(find.text(HearScreen.nextLabel));
+    await tester.pumpAndSettle();
+    expect(find.text('WALK  ·  STEP 1 OF 2'), findsOneWidget);
   });
 
   testWidgets('double-tap keeps a verse', (WidgetTester tester) async {

@@ -151,26 +151,41 @@ abstract final class DType {
   static const String serifDeva = 'NotoSerifDevanagari';
   static const String serif = 'EBGaramond';
   static const String sans = 'Inter';
+  static const List<FontFeature> _lining = <FontFeature>[
+    FontFeature.liningFigures(),
+  ];
 
   static TextStyle verse(Color c, {double size = 25}) =>
       TextStyle(fontFamily: serifDeva, fontSize: size, height: 1.62, color: c);
   static TextStyle translit(Color c) => TextStyle(
     fontFamily: serif,
+    fontFeatures: _lining,
     fontStyle: FontStyle.italic,
     fontSize: 14.5,
     height: 1.5,
     color: c,
   );
-  static TextStyle meaning(Color c) =>
-      TextStyle(fontFamily: serif, fontSize: 21, height: 1.38, color: c);
+  static TextStyle meaning(Color c) => TextStyle(
+    fontFamily: serif,
+    fontFeatures: _lining,
+    fontSize: 21,
+    height: 1.38,
+    color: c,
+  );
   static TextStyle title(Color c, {bool compact = false}) => TextStyle(
     fontFamily: serif,
+    fontFeatures: _lining,
     fontSize: compact ? 32 : 36,
     height: 1.12,
     color: c,
   );
-  static TextStyle body(Color c, {double size = 19}) =>
-      TextStyle(fontFamily: serif, fontSize: size, height: 1.45, color: c);
+  static TextStyle body(Color c, {double size = 19}) => TextStyle(
+    fontFamily: serif,
+    fontFeatures: _lining,
+    fontSize: size,
+    height: 1.45,
+    color: c,
+  );
   static TextStyle eyebrow(Color c) => TextStyle(
     fontFamily: sans,
     fontSize: 10.5,
@@ -185,8 +200,13 @@ abstract final class DType {
     fontWeight: FontWeight.w600,
     color: c,
   );
-  static TextStyle hero(Color c, {double size = 88}) =>
-      TextStyle(fontFamily: serif, fontSize: size, height: 1, color: c);
+  static TextStyle hero(Color c, {double size = 88}) => TextStyle(
+    fontFamily: serif,
+    fontFeatures: _lining,
+    fontSize: size,
+    height: 1,
+    color: c,
+  );
   static TextStyle ref(Color c) => TextStyle(
     fontFamily: sans,
     fontSize: 10.5,

@@ -114,22 +114,31 @@ class _HearScreenState extends ConsumerState<HearScreen> {
                   );
                 },
               ),
-              SafeArea(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 12),
-                  child: Column(
-                    children: <Widget>[
-                      if (_page < verses.length) ...<Widget>[
-                        ProgressDashes(total: verses.length, filled: _page + 1),
-                        const SizedBox(height: 6),
-                        Text(
-                          _listening
-                              ? 'LISTENING'
-                              : '${_page + 1} OF ${verses.length}',
-                          style: DType.eyebrow(c.faint),
-                        ),
-                      ],
-                    ],
+              IgnorePointer(
+                child: SafeArea(
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 12),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          if (_page < verses.length) ...<Widget>[
+                            ProgressDashes(
+                              total: verses.length,
+                              filled: _page + 1,
+                            ),
+                            const SizedBox(height: 6),
+                            Text(
+                              _listening
+                                  ? 'LISTENING'
+                                  : '${_page + 1} OF ${verses.length}',
+                              style: DType.eyebrow(c.faint),
+                            ),
+                          ],
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ),

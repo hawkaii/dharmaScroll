@@ -40,12 +40,13 @@ class CompleteScreen extends ConsumerWidget {
                     Text('STEP WALKED', style: DType.eyebrow(c.faint)),
                     const Spacer(),
                     SizedBox(
-                      height: 190,
+                      height: 250,
                       child: Stack(
+                        clipBehavior: Clip.none,
                         alignment: Alignment.bottomCenter,
                         children: <Widget>[
                           const Positioned(
-                            bottom: 60,
+                            bottom: 70,
                             child: FeatherFan(height: 150),
                           ),
                           const Diya(size: 150),

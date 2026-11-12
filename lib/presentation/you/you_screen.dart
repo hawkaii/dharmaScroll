@@ -16,8 +16,7 @@ class YouScreen extends ConsumerWidget {
     Language.hinglish => 'Hinglish',
   };
 
-  static String timeName(int m) =>
-      '${_hhmm(m)} ${m < 12 * 60 ? 'AM' : 'PM'}';
+  static String timeName(int m) => '${_hhmm(m)} ${m < 12 * 60 ? 'AM' : 'PM'}';
   static String _hhmm(int m) {
     final int h = (m ~/ 60) % 12 == 0 ? 12 : (m ~/ 60) % 12;
     return '$h:${(m % 60).toString().padLeft(2, '0')}';
@@ -50,9 +49,12 @@ class YouScreen extends ConsumerWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text('Your light', style: DType.title(c.ink, compact: true)),
                       Text(
-                        '${p.streak < 1 ? 1 : p.streak} days  ·  ${p.points} Moksh  ·  ${p.kept.length} kept',
+                        'Your light',
+                        style: DType.title(c.ink, compact: true),
+                      ),
+                      Text(
+                        '${p.streak < 1 ? 1 : p.streak} ${p.streak <= 1 ? 'day' : 'days'}  ·  ${p.points} Moksh  ·  ${p.kept.length} kept',
                         style: DType.body(c.mute, size: 16),
                       ),
                     ],
@@ -151,8 +153,10 @@ class YouScreen extends ConsumerWidget {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('Your voice stays with you.',
-                        style: DType.title(c.ink, compact: true)),
+                    Text(
+                      'Your voice stays with you.',
+                      style: DType.title(c.ink, compact: true),
+                    ),
                     const SizedBox(height: Sp.s12),
                     Text(
                       'Your progress lives on this phone. Nothing you speak is stored.',
@@ -170,7 +174,12 @@ class YouScreen extends ConsumerWidget {
 }
 
 class _Row extends StatelessWidget {
-  const _Row({required this.label, this.value, this.trailing, required this.onTap});
+  const _Row({
+    required this.label,
+    this.value,
+    this.trailing,
+    required this.onTap,
+  });
 
   final String label;
   final String? value;
@@ -199,9 +208,7 @@ class _Row extends StatelessWidget {
           ),
           child: Row(
             children: <Widget>[
-              Expanded(
-                child: Text(label, style: DType.body(c.ink, size: 23)),
-              ),
+              Expanded(child: Text(label, style: DType.body(c.ink, size: 23))),
               if (value != null)
                 Text(value!, style: DType.body(c.mute, size: 17)),
               ?trailing,

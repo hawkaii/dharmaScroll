@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -16,6 +17,10 @@ class DharmaScrollApp extends ConsumerWidget {
       theme: DharmaTheme.night,
       darkTheme: DharmaTheme.night,
       themeMode: ThemeMode.dark,
+      // Mouse and trackpad drag the verse scroll too (Flutter web, desktop).
+      scrollBehavior: const MaterialScrollBehavior().copyWith(
+        dragDevices: PointerDeviceKind.values.toSet(),
+      ),
       routerConfig: ref.watch(routerProvider),
       builder: (BuildContext context, Widget? child) {
         // Respect the system font scale up to 1.3 (HANDOFF section 2).
