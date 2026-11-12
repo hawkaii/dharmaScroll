@@ -1,7 +1,7 @@
 name: dharmascroll
 description: "DharmaScroll — a gamified Bhagavad Gita companion for Bharat. Scroll shlokas, speak your day, earn Moksh Points."
 publish_to: 'none'
-version: 0.1.0+1
+version: 0.2.0+1
 
 environment:
   sdk: ^3.13.7
