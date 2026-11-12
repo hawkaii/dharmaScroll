@@ -30,6 +30,16 @@ test/
 things the user sees. `data/` belongs beside them when models and services
 arrive — not inside `presentation/`.
 
+## Verse content
+
+The app ships 108 Bhagavad Gita verses in `assets/data/gita_v1.json`: Sanskrit,
+IAST, a short English and Hindi meaning, 3 to 5 situation tags and a
+`personal_advice_ok` flag. Sources and licences are in `assets/data/CREDITS.md`.
+**The meanings and tags are a draft, pending scholar review.**
+
+The Hear feed gives 5 verses a day and walks the file in order, so nothing
+repeats until all 108 have been heard. `test/verses_test.dart` checks the file.
+
 ## Running it
 
 ```bash

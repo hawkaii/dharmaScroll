@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../core/rituals/providers.dart';
+import '../../core/rituals/rituals.dart';
+import '../../core/router.dart';
 import '../../core/state/progress.dart';
 import '../../core/state/settings.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
+import 'city_picker.dart';
 
-/// You: your light so far, and five settings. No more.
+/// You: your light so far, your rituals, and a few settings.
 class YouScreen extends ConsumerWidget {
   const YouScreen({super.key});
 
@@ -54,7 +59,7 @@ class YouScreen extends ConsumerWidget {
                         style: DType.title(c.ink, compact: true),
                       ),
                       Text(
-                        '${p.streak < 1 ? 1 : p.streak} ${p.streak <= 1 ? 'day' : 'days'}  ·  ${p.points} Moksh  ·  ${p.kept.length} kept',
+                        '${p.streak < 1 ? 1 : p.streak} ${p.streak <= 1 ? 'day' : 'days'} of light',
                         style: DType.body(c.mute, size: 16),
                       ),
                     ],
@@ -63,15 +68,42 @@ class YouScreen extends ConsumerWidget {
               ],
             ),
             const SizedBox(height: Sp.s22),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: _Tile(
+                    icon: 'lotus',
+                    iconColor: c.rose,
+                    value: '${p.kept.length}',
+                    label: 'Kept verses',
+                    onTap: () => context.push(Routes.kept),
+                  ),
+                ),
+                const SizedBox(width: Sp.s12),
+                Expanded(
+                  child: _Tile(
+                    icon: 'peacock',
+                    iconColor: c.peacock,
+                    value: '${p.points}',
+                    label: 'Moksh Points',
+                    onTap: () => context.push(Routes.wallet),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: Sp.s12),
             _Row(
-              label: 'Reminder',
-              value: timeName(s.reminderMinutes),
+              label: 'Ekant',
+              value: 'A quiet room',
+              onTap: () => context.push(Routes.ekant),
+            ),
+            _Row(
+              label: 'Rituals',
+              // Reminder time, city and rituals live in one row: You keeps 5 settings.
+              value: '${s.rituals.length} on',
               onTap: () => showDSheet<void>(
                 context,
-                (BuildContext ctx) => _ReminderSheet(
-                  minutes: s.reminderMinutes,
-                  onChanged: n.setReminder,
-                ),
+                (BuildContext ctx) => const _RitualsSheet(),
               ),
             ),
             _Row(
@@ -173,6 +205,60 @@ class YouScreen extends ConsumerWidget {
   }
 }
 
+/// A small card for your light: an icon, a number, what it counts.
+class _Tile extends StatelessWidget {
+  const _Tile({
+    required this.icon,
+    required this.iconColor,
+    required this.value,
+    required this.label,
+    required this.onTap,
+  });
+
+  final String icon;
+  final Color iconColor;
+  final String value;
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final DharmaColors c = context.c;
+    return Semantics(
+      button: true,
+      label: '$label, $value',
+      excludeSemantics: true,
+      onTap: onTap,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () {
+          Haptics.tick();
+          onTap();
+        },
+        child: DCard(
+          padding: const EdgeInsets.fromLTRB(Sp.s18, Sp.s14, Sp.s14, Sp.s14),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  DIcon(icon, size: 26, color: iconColor, glow: true),
+                  const Spacer(),
+                  Icon(Icons.chevron_right, size: 18, color: c.faint),
+                ],
+              ),
+              const SizedBox(height: Sp.s12),
+              Text(value, style: DType.hero(c.verse, size: 34)),
+              const SizedBox(height: 2),
+              Text(label.toUpperCase(), style: DType.ref(c.faint)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _Row extends StatelessWidget {
   const _Row({
     required this.label,
@@ -251,6 +337,117 @@ class _ReminderSheetState extends State<_ReminderSheet> {
           },
         ),
       ],
+    );
+  }
+}
+
+/// The ritual picker: switch rituals on or off, pick a deity day and the
+/// Ekadashi rule. Asks to send reminders the first time something goes on.
+class _RitualsSheet extends ConsumerWidget {
+  const _RitualsSheet();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final DharmaColors c = context.c;
+    final Settings s = ref.watch(settingsProvider);
+    final SettingsNotifier n = ref.read(settingsProvider.notifier);
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.sizeOf(context).height * 0.75,
+      ),
+      child: ListView(
+        shrinkWrap: true,
+        children: <Widget>[
+          Text('Your rituals', style: DType.title(c.ink, compact: true)),
+          const SizedBox(height: Sp.s12),
+          _Row(
+            label: 'Reminder',
+            value: YouScreen.timeName(s.reminderMinutes),
+            onTap: () => showDSheet<void>(
+              context,
+              (BuildContext ctx) => _ReminderSheet(
+                minutes: s.reminderMinutes,
+                onChanged: n.setReminder,
+              ),
+            ),
+          ),
+          _Row(
+            label: 'City',
+            value: ref.watch(cityProvider)?.name ?? '',
+            onTap: () => showDSheet<void>(
+              context,
+              (BuildContext ctx) => CityPicker(
+                selected: s.cityId,
+                onSelected: (String id) {
+                  n.setCity(id);
+                  Navigator.of(ctx).pop();
+                },
+              ),
+            ),
+          ),
+          const SizedBox(height: Sp.s18),
+          for (final Ritual r in Ritual.values)
+            _Row(
+              label: r.label,
+              trailing: Semantics(
+                label: r.label,
+                child: Switch(
+                  value: s.rituals.contains(r),
+                  onChanged: (bool v) {
+                    n.setRitual(r, on: v);
+                    // The right moment: they just asked for a reminder.
+                    if (v) {
+                      ref
+                          .read(reminderBackendProvider)
+                          .requestPermission()
+                          .ignore();
+                    }
+                  },
+                ),
+              ),
+              onTap: () {
+                final bool v = !s.rituals.contains(r);
+                n.setRitual(r, on: v);
+                if (v) {
+                  ref
+                      .read(reminderBackendProvider)
+                      .requestPermission()
+                      .ignore();
+                }
+              },
+            ),
+          const SizedBox(height: Sp.s18),
+          Text('A weekday lamp', style: DType.body(c.mute, size: 17)),
+          const SizedBox(height: Sp.s12),
+          for (final Deity d in Deity.values) ...<Widget>[
+            OptionRow(
+              label: d.label,
+              selected: d == s.deity,
+              onTap: () {
+                n.setDeity(d);
+                if (d != Deity.none) {
+                  ref
+                      .read(reminderBackendProvider)
+                      .requestPermission()
+                      .ignore();
+                }
+              },
+            ),
+            const SizedBox(height: Sp.s12),
+          ],
+          const SizedBox(height: Sp.s6),
+          Text('Ekadashi rule', style: DType.body(c.mute, size: 17)),
+          const SizedBox(height: Sp.s12),
+          for (final Tradition t in Tradition.values) ...<Widget>[
+            OptionRow(
+              label: t.label,
+              selected: t == s.tradition,
+              onTap: () => n.setTradition(t),
+            ),
+            const SizedBox(height: Sp.s12),
+          ],
+        ],
+      ),
     );
   }
 }

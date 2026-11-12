@@ -49,3 +49,5 @@ app.*.map.json
 
 # Golden diff output
 test/failures/
+tools/panchang/.cache/
+__pycache__/

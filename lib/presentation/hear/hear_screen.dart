@@ -4,13 +4,15 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/feedback/sound_service.dart';
 import '../../core/router.dart';
+import '../../core/state/feed.dart';
 import '../../core/state/progress.dart';
 import '../../core/state/settings.dart';
-import '../../data/fake_verses.dart';
 import '../../design/effects.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../share/share_card.dart';
+import '../share/share_sheet.dart';
 
 String meaningOf(Verse v, Language l) =>
     l == Language.hindi ? v.meaningHi : v.meaningEn;
@@ -18,14 +20,15 @@ String meaningOf(Verse v, Language l) =>
 /// Hear: five verses, vertical snap, then a calm end. Always dark.
 /// Hold to listen (audio is a stub, the glow is real), double-tap to keep.
 class HearScreen extends ConsumerStatefulWidget {
-  const HearScreen({super.key, this.verses = kFakeVerses});
+  const HearScreen({super.key, this.verses});
 
   static const int dailyLimit = ProgressNotifier.dailyVerses;
   static const String endTitle = 'That is enough\nfor today.';
   static const String nextLabel = 'Walk the next step';
   static const String restLabel = 'Rest for now';
 
-  final List<Verse> verses;
+  /// Overrides today's feed (tests, previews). Null means the daily rotation.
+  final List<Verse>? verses;
 
   @override
   ConsumerState<HearScreen> createState() => _HearScreenState();
@@ -37,7 +40,10 @@ class _HearScreenState extends ConsumerState<HearScreen> {
   bool _listening = false;
   int _bloom = 0;
 
-  List<Verse> get _verses => widget.verses.take(HearScreen.dailyLimit).toList();
+  List<Verse> get _verses {
+    final List<Verse> all = widget.verses ?? ref.read(todayVersesProvider);
+    return all.take(HearScreen.dailyLimit).toList();
+  }
 
   @override
   void initState() {
@@ -129,6 +135,24 @@ class _HearScreenState extends ConsumerState<HearScreen> {
                   );
                 },
               ),
+              // Outside the verse's own double-tap detector, so a tap here is
+              // not held back waiting for a second tap.
+              if (_page < verses.length)
+                Positioned(
+                  right: Sp.screenSide - 12,
+                  bottom: 44,
+                  child: SafeArea(
+                    child: ShareButton(
+                      onTap: () => showShareSheet(
+                        context,
+                        ShareContent(
+                          verse: verses[_page],
+                          meaning: meaningOf(verses[_page], lang),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               IgnorePointer(
                 child: SafeArea(
                   child: SizedBox(
@@ -250,39 +274,57 @@ class _VersePageState extends State<_VersePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: Sp.screenSide),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  ExcludeSemantics(
-                    child: AnimatedDefaultTextStyle(
-                      duration: Motion.listenIn,
-                      style: DType.verse(
-                        widget.listening ? Tok.marigold : c.verse,
+              // Clear of the progress dashes above and the hint below.
+              padding: const EdgeInsets.symmetric(
+                horizontal: Sp.screenSide,
+                vertical: 96,
+              ),
+              // shortcut: long verses shrink to fit one screen instead of
+              // scrolling; upgrade if 4-line verses read too small.
+              child: LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints box) =>
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: SizedBox(
+                        width: box.maxWidth,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            ExcludeSemantics(
+                              child: AnimatedDefaultTextStyle(
+                                duration: Motion.listenIn,
+                                style: DType.verse(
+                                  widget.listening ? Tok.marigold : c.verse,
+                                ),
+                                textAlign: TextAlign.center,
+                                child: Text(
+                                  v.sanskrit,
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: Sp.s14),
+                            ExcludeSemantics(
+                              child: Text(
+                                v.iast,
+                                textAlign: TextAlign.center,
+                                style: DType.translit(c.faint),
+                              ),
+                            ),
+                            const SizedBox(height: Sp.s30),
+                            ExcludeSemantics(
+                              child: Text(
+                                widget.meaning,
+                                textAlign: TextAlign.center,
+                                style: DType.meaning(c.mute),
+                              ),
+                            ),
+                            const SizedBox(height: Sp.s18),
+                            Text('GITA ${v.id}', style: DType.ref(c.faint)),
+                          ],
+                        ),
                       ),
-                      textAlign: TextAlign.center,
-                      child: Text(v.sanskrit, textAlign: TextAlign.center),
                     ),
-                  ),
-                  const SizedBox(height: Sp.s14),
-                  ExcludeSemantics(
-                    child: Text(
-                      v.iast,
-                      textAlign: TextAlign.center,
-                      style: DType.translit(c.faint),
-                    ),
-                  ),
-                  const SizedBox(height: Sp.s30),
-                  ExcludeSemantics(
-                    child: Text(
-                      widget.meaning,
-                      textAlign: TextAlign.center,
-                      style: DType.meaning(c.mute),
-                    ),
-                  ),
-                  const SizedBox(height: Sp.s18),
-                  Text('GITA ${v.id}', style: DType.ref(c.faint)),
-                ],
               ),
             ),
             if (widget.listening)

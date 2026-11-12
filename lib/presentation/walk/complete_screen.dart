@@ -4,14 +4,22 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/feedback/sound_service.dart';
 import '../../core/router.dart';
+import '../../core/state/feed.dart';
 import '../../core/state/progress.dart';
+import '../../core/state/settings.dart';
 import '../../design/effects.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
+import '../../domain/models/verse.dart';
+import '../hear/hear_screen.dart' show meaningOf;
+import '../share/share_card.dart';
+import '../share/share_sheet.dart';
 
 /// Lesson complete: lamp, feather fan, petals, points count-up, week lamps.
 class CompleteScreen extends ConsumerStatefulWidget {
   const CompleteScreen({super.key, required this.award});
+
+  static const String shareLabel = 'Share your streak';
 
   /// Points earned by the step just walked, for the count-up start.
   final int award;
@@ -128,10 +136,34 @@ class _CompleteScreenState extends ConsumerState<CompleteScreen>
                       '${lit == 1 ? 'one lamp' : '$lit lamps'} this week',
                       style: DType.body(c.mute, size: 16),
                     ),
-                    const SizedBox(height: Sp.s30),
+                    const SizedBox(height: Sp.s22),
                     PrimaryButton(
                       label: 'Continue',
-                      onPressed: () => context.go(Routes.today),
+                      onPressed: () {
+                        final int? m = p.pendingMilestone;
+                        context.go(
+                          m == null ? Routes.today : Routes.milestone,
+                          extra: m,
+                        );
+                      },
+                    ),
+                    TextAction(
+                      label: CompleteScreen.shareLabel,
+                      onPressed: () {
+                        final Verse v = ref.read(walkVerseProvider);
+                        showShareSheet(
+                          context,
+                          ShareContent(
+                            streak: p.streak < 1 ? 1 : p.streak,
+                            lamps: lamps,
+                            verse: v,
+                            meaning: meaningOf(
+                              v,
+                              ref.read(settingsProvider).language,
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),

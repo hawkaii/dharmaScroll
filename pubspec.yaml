@@ -1,7 +1,7 @@
 name: dharmascroll
 description: "DharmaScroll — a gamified Bhagavad Gita companion for Bharat. Scroll shlokas, speak your day, earn Moksh Points."
 publish_to: 'none'
-version: 0.1.0+1
+version: 0.2.0+1
 
 environment:
   sdk: ^3.13.7
@@ -19,6 +19,12 @@ dependencies:
   audioplayers: ^6.1.0
   path_provider: ^2.1.5
   flutter_svg: 2.3.4
+  flutter_local_notifications: 23.0.1
+  timezone: 0.11.2
+  flutter_secure_storage: 11.2.0
+  speech_to_text: 7.5.0
+  url_launcher: 6.3.3
+  share_plus: 13.3.1
 
 dev_dependencies:
   flutter_test:
@@ -31,6 +37,8 @@ flutter:
     - assets/svg/
     - assets/svg/icons/
     - assets/audio/
+    - assets/data/gita_v1.json
+    - assets/panchang/
   fonts:
     - family: NotoSerifDevanagari
       fonts:

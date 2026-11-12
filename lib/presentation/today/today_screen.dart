@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../app_providers.dart';
+import '../../core/rituals/providers.dart';
 import '../../core/router.dart';
 import '../../core/state/progress.dart';
-import '../../data/fake_verses.dart';
 import '../../design/effects.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
+import '../../domain/models/verse.dart';
+import '../points/wallet_screen.dart';
+import '../sankalp/sankalp_sheet.dart';
 import '../shell/app_shell.dart';
 
 /// Today: one primary action. The rail shows Hear, Walk, Speak.
@@ -23,17 +27,21 @@ class TodayScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final ProgressState p = ref.watch(progressProvider);
     final bool light = ref.watch(todayIsLightProvider);
+    final List<String> calendarToday = ref.watch(todayInCalendarProvider);
     final DharmaColors c = context.c;
 
     final bool heard = p.steps.contains(RitualStep.hear);
     final bool walked = p.steps.contains(RitualStep.walk);
-    final bool allDone = heard && walked;
+    final bool spoke = p.steps.contains(RitualStep.speak);
+    final bool allDone = heard && walked && spoke;
     final bool back = p.cameBack && !p.ritualStarted;
 
     final String title = back
         ? 'You came back.'
         : allDone
         ? doneTitle
+        : walked
+        ? 'The lamp is lit.\nNow, speak your mind.'
         : heard
         ? 'Five heard.\nNow take one step\non the path.'
         : light
@@ -43,6 +51,8 @@ class TodayScreen extends ConsumerWidget {
         ? 'The lamp was still warm.'
         : allDone
         ? 'Come back tomorrow.\nThe verses will wait.'
+        : walked
+        ? 'A verse will answer.'
         : heard
         ? ''
         : 'Five verses are waiting.\nThen you may rest.';
@@ -57,12 +67,15 @@ class TodayScreen extends ConsumerWidget {
     void go() {
       if (!heard || allDone) {
         context.push(Routes.hear);
-      } else {
+      } else if (!walked) {
         context.push(Routes.walk);
+      } else {
+        context.push(Routes.speak);
       }
     }
 
-    final int chapter = kFakeVerses[p.kept.length % kFakeVerses.length].chapter;
+    final List<Verse> verses = ref.watch(versesProvider);
+    final int chapter = verses[p.kept.length % verses.length].chapter;
     return Backdrop(
       child: SafeArea(
         bottom: false,
@@ -104,15 +117,51 @@ class TodayScreen extends ConsumerWidget {
                         ),
                       ],
                       const SizedBox(height: Sp.s30),
-                      _Rail(heard: heard, walked: walked, speakDone: false),
+                      _Rail(heard: heard, walked: walked, speakDone: spoke),
+                      if (calendarToday.isNotEmpty) ...<Widget>[
+                        const SizedBox(height: Sp.s22),
+                        Semantics(
+                          label:
+                              'Today in your calendar: ${calendarToday.join(', ')}',
+                          excludeSemantics: true,
+                          child: Text(
+                            calendarToday.join('  ·  '),
+                            textAlign: TextAlign.center,
+                            style: DType.body(c.accent, size: 17),
+                          ),
+                        ),
+                      ],
+                      const SankalpLookBack(),
                       const Spacer(),
                       PrimaryButton(label: button, onPressed: go),
                       const SizedBox(height: Sp.s14),
-                      Text(
-                        back
-                            ? 'Your ${p.streak > 0 ? p.streak : 'earlier'} days are kept.'
-                            : '${p.points} Moksh Points',
-                        style: DType.body(c.faint, size: 16),
+                      // Points and Ekant share one line, so Sankalp and the
+                      // calendar line still fit above the button.
+                      Wrap(
+                        alignment: WrapAlignment.center,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        spacing: Sp.s18,
+                        children: <Widget>[
+                          if (back)
+                            Text(
+                              'Your ${p.streak > 0 ? p.streak : 'earlier'} days are kept.',
+                              style: DType.body(c.faint, size: 16),
+                            )
+                          else
+                            IntrinsicWidth(
+                              child: TextAction(
+                                label: '${p.points} Moksh Points',
+                                onPressed: () =>
+                                    showTodayPointsSheet(context, p),
+                              ),
+                            ),
+                          IntrinsicWidth(
+                            child: TextAction(
+                              label: 'Ekant, a quiet room',
+                              onPressed: () => context.push(Routes.ekant),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),

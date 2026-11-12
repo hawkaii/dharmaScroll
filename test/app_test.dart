@@ -1,6 +1,12 @@
+import 'dart:io';
+
 import 'package:dharmascroll/app.dart';
 import 'package:dharmascroll/app_providers.dart';
+import 'package:dharmascroll/core/rituals/providers.dart';
+import 'package:dharmascroll/core/rituals/reminder_backend.dart';
+import 'package:dharmascroll/core/rituals/rituals.dart';
 import 'package:dharmascroll/core/state/progress.dart';
+import 'package:dharmascroll/data/verse_repository.dart';
 import 'package:dharmascroll/design/theme.dart';
 import 'package:dharmascroll/design/tokens.dart';
 import 'package:dharmascroll/presentation/hear/hear_screen.dart';
@@ -38,6 +44,10 @@ Future<void> _pump(
     ProviderScope(
       overrides: [
         sharedPrefsProvider.overrideWithValue(prefs),
+        versesProvider.overrideWithValue(
+          parseVerses(File('assets/data/gita_v1.json').readAsStringSync()),
+        ),
+        reminderBackendProvider.overrideWithValue(const NoopReminderBackend()),
         if (now != null) clockProvider.overrideWithValue(() => now),
       ],
       child: const DharmaScrollApp(),
@@ -49,7 +59,7 @@ Future<void> _pump(
 void main() {
   final DateTime noon = DateTime(2026, 11, 12, 12);
 
-  testWidgets('onboarding is 3 screens, one choice, shown once', (
+  testWidgets('onboarding is 5 light screens, shown once', (
     WidgetTester tester,
   ) async {
     final SharedPreferences prefs = await _prefs(onboarded: false);
@@ -60,6 +70,19 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text(OnboardingFlow.ritualButton));
     await tester.pumpAndSettle();
+    // City: Delhi is chosen; search finds a diaspora city.
+    expect(find.text('New Delhi'), findsOneWidget);
+    await tester.enterText(find.byType(TextField), 'edison');
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Edison, US'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text(OnboardingFlow.ritualButton));
+    await tester.pumpAndSettle();
+    // Tradition.
+    await tester.tap(find.text('Vaishnava'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text(OnboardingFlow.ritualButton));
+    await tester.pumpAndSettle();
     expect(find.text(OnboardingFlow.finishLabel), findsOneWidget);
 
     await tester.tap(find.text(OnboardingFlow.finishLabel));
@@ -67,12 +90,66 @@ void main() {
     expect(find.text(TodayScreen.beginLabel), findsOneWidget);
     expect(prefs.getBool('onboardingComplete'), isTrue);
     expect(prefs.getInt('remindAtMinutes'), 6 * 60 + 30);
+    expect(prefs.getString('cityId'), 'edison-us');
+    expect(prefs.getString('tradition'), 'vaishnava');
 
     // A later launch with the same storage goes straight to Today.
     await tester.pumpWidget(const SizedBox.shrink());
     await _pump(tester, prefs, now: noon);
     expect(find.text(OnboardingFlow.welcomeButton), findsNothing);
     expect(find.text(TodayScreen.beginLabel), findsOneWidget);
+  });
+
+  testWidgets('You: the ritual picker switches rituals on and off', (
+    WidgetTester tester,
+  ) async {
+    final SharedPreferences prefs = await _prefs();
+    await _pump(tester, prefs, now: noon);
+    await tester.tap(find.text('YOU'));
+    await tester.pumpAndSettle();
+    expect(find.text('1 on'), findsOneWidget); // Daily Gita by default
+    await tester.tap(find.text('Rituals'));
+    await tester.pumpAndSettle();
+    expect(find.text('Morning sandhya'), findsOneWidget);
+    await tester.tap(find.text('Purnima'));
+    await tester.pumpAndSettle();
+    expect(
+      prefs.getStringList('rituals'),
+      containsAll(<String>['dailyGita', 'purnima']),
+    );
+    await tester.tap(find.text('Daily Gita'));
+    await tester.pumpAndSettle();
+    expect(prefs.getStringList('rituals'), <String>['purnima']);
+    await tester.scrollUntilVisible(
+      find.text('Shiva, Monday'),
+      200,
+      scrollable: find.byType(Scrollable).last,
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Shiva, Monday'));
+    await tester.pumpAndSettle();
+    expect(prefs.getString('deity'), Deity.shiva.name);
+  });
+
+  testWidgets('Today names a ritual that falls today', (
+    WidgetTester tester,
+  ) async {
+    final SharedPreferences prefs = await _prefs(
+      extra: <String, Object>{
+        'rituals': <String>['ekadashi', 'festivals'],
+        'tradition': 'smarta',
+      },
+    );
+    await _pump(tester, prefs, now: DateTime(2026, 12, 20, 9));
+    // The calendar is a bundled asset: real IO, outside fake-async time.
+    for (int i = 0; i < 50; i++) {
+      if (find.text('Ekadashi  ·  Gita Jayanti').evaluate().isNotEmpty) break;
+      await tester.runAsync(
+        () => Future<void>.delayed(const Duration(milliseconds: 100)),
+      );
+      await tester.pump();
+    }
+    expect(find.text('Ekadashi  ·  Gita Jayanti'), findsOneWidget);
   });
 
   testWidgets('three tabs, no more', (WidgetTester tester) async {

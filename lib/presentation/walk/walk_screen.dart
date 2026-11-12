@@ -6,13 +6,14 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/feedback/sound_service.dart';
 import '../../core/router.dart';
+import '../../core/state/feed.dart';
 import '../../core/state/progress.dart';
 import '../../core/state/settings.dart';
-import '../../data/fake_verses.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
 import '../hear/hear_screen.dart' show meaningOf;
+import 'finish_verse.dart';
 
 /// Walk: step 1 Chant along (default), step 2 Where it meets you.
 class WalkScreen extends ConsumerStatefulWidget {
@@ -37,13 +38,11 @@ class _WalkScreenState extends ConsumerState<WalkScreen> {
   bool _chanted = false;
   int _line = 0;
 
-  Verse get _verse {
-    final Set<String> kept = ref.read(progressProvider).kept;
-    return kFakeVerses.firstWhere(
-      (Verse v) => kept.contains(v.id),
-      orElse: () => kFakeVerses.first,
-    );
-  }
+  // Read once: keeping a verse mid-walk must not swap the verse under you.
+  late final Verse _verse = ref.read(walkVerseProvider);
+
+  /// Every seventh stone, step 1 is the Checkpoint instead of Chant along.
+  late final bool _checkpoint = ref.read(progressProvider).checkpointToday;
 
   void _finish() {
     Haptics.success();
@@ -111,6 +110,12 @@ class _WalkScreenState extends ConsumerState<WalkScreen> {
                             selected: _line,
                             onSelect: (int i) => setState(() => _line = i),
                             onDone: _finish,
+                          )
+                        : _checkpoint
+                        ? FinishVerse(
+                            key: const ValueKey<String>('finish'),
+                            verse: v,
+                            onDone: () => setState(() => _chanted = true),
                           )
                         : _Chant(
                             key: const ValueKey<String>('chant'),
@@ -386,57 +391,80 @@ class _Meets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
+    // Long meanings scroll; the button stays put.
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        const SizedBox(height: Sp.s30),
-        Text('Krishna says:', style: DType.body(c.peacock, size: 17)),
-        const SizedBox(height: Sp.s12),
-        Text(meaning, style: DType.body(c.ink, size: 27)),
-        const SizedBox(height: Sp.s30),
-        Text('WHERE DOES THIS MEET YOU TODAY?', style: DType.eyebrow(c.accent)),
-        const SizedBox(height: Sp.s12),
-        Divider(height: 1, color: c.line),
-        for (int i = 0; i < WalkScreen.meetsLines.length; i++) ...<Widget>[
-          Semantics(
-            button: true,
-            selected: i == selected,
-            label: WalkScreen.meetsLines[i],
-            excludeSemantics: true,
-            onTap: () => onSelect(i),
-            child: GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: () {
-                Haptics.tick();
-                onSelect(i);
-              },
-              child: AnimatedContainer(
-                duration: Motion.select,
-                constraints: const BoxConstraints(minHeight: 60),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: Sp.s18,
-                  vertical: 12,
+        Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                const SizedBox(height: Sp.s30),
+                Text('Krishna says:', style: DType.body(c.peacock, size: 17)),
+                const SizedBox(height: Sp.s12),
+                Text(meaning, style: DType.body(c.ink, size: 27)),
+                const SizedBox(height: Sp.s30),
+                Text(
+                  'WHERE DOES THIS MEET YOU TODAY?',
+                  style: DType.eyebrow(c.accent),
                 ),
-                alignment: Alignment.centerLeft,
-                decoration: BoxDecoration(
-                  color: i == selected ? c.raised.withValues(alpha: 0.6) : null,
-                  border: Border(
-                    left: BorderSide(
-                      color: i == selected ? Tok.marigold : Colors.transparent,
-                      width: 3,
+                const SizedBox(height: Sp.s12),
+                Divider(height: 1, color: c.line),
+                for (
+                  int i = 0;
+                  i < WalkScreen.meetsLines.length;
+                  i++
+                ) ...<Widget>[
+                  Semantics(
+                    button: true,
+                    selected: i == selected,
+                    label: WalkScreen.meetsLines[i],
+                    excludeSemantics: true,
+                    onTap: () => onSelect(i),
+                    child: GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: () {
+                        Haptics.tick();
+                        onSelect(i);
+                      },
+                      child: AnimatedContainer(
+                        duration: Motion.select,
+                        constraints: const BoxConstraints(minHeight: 60),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: Sp.s18,
+                          vertical: 12,
+                        ),
+                        alignment: Alignment.centerLeft,
+                        decoration: BoxDecoration(
+                          color: i == selected
+                              ? c.raised.withValues(alpha: 0.6)
+                              : null,
+                          border: Border(
+                            left: BorderSide(
+                              color: i == selected
+                                  ? Tok.marigold
+                                  : Colors.transparent,
+                              width: 3,
+                            ),
+                          ),
+                        ),
+                        child: Text(
+                          WalkScreen.meetsLines[i],
+                          style: DType.body(
+                            i == selected ? c.ink : c.mute,
+                            size: 21,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                ),
-                child: Text(
-                  WalkScreen.meetsLines[i],
-                  style: DType.body(i == selected ? c.ink : c.mute, size: 21),
-                ),
-              ),
+                  Divider(height: 1, color: c.line),
+                ],
+              ],
             ),
           ),
-          Divider(height: 1, color: c.line),
-        ],
-        const Spacer(),
+        ),
+        const SizedBox(height: Sp.s18),
         PrimaryButton(label: 'This one', onPressed: onDone),
       ],
     );
