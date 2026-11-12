@@ -3,17 +3,18 @@ import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 
-/// One-shot cues. Files are made by `tools/sound_gen/generate.py`.
+/// One-shot cues, each cut from a real CC0 recording by
+/// `tools/sound_gen/build.py`. Sources: `assets/audio/CREDITS.md`.
 enum Sfx {
-  tap('tap', 0.55),
-  tok('tok', 0.6),
-  bowl('bowl', 0.7),
-  bell('bell', 0.8),
-  bellLow('bell_low', 0.7),
-  shimmer('shimmer', 0.6),
-  chime('chime', 0.7),
-  conch('conch', 0.75),
-  swipe('swipe', 0.5);
+  tap('tap', 0.55), // finger-cymbal touch
+  tok('tok', 0.6), // mokugyo, wooden temple block
+  bowl('bowl', 0.7), // ghanta, one ring
+  bell('bell', 0.9), // Indian temple bell
+  bellLow('bell_low', 0.7), // large temple bell
+  shimmer('shimmer', 0.6), // small bronze bells, rising
+  chime('chime', 0.7), // tingsha, ting-ting
+  conch('conch', 0.75), // shankha blow
+  swipe('swipe', 0.5); // page turn
 
   const Sfx(this.file, this.gain);
   final String file;
@@ -23,7 +24,8 @@ enum Sfx {
   String get asset => 'audio/$file.m4a';
 }
 
-/// Seamless 8 s tanpura loop (WAV, so there is no encoder gap at the seam).
+/// Seamless 8 s tanpura loop, Sa = C# (WAV, so there is no encoder gap at
+/// the seam).
 const String kDroneAsset = 'audio/drone.wav';
 
 /// What the service needs from an audio engine. Swapped for a fake in tests.
