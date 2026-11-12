@@ -10,6 +10,7 @@ import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
 import '../points/wallet_screen.dart';
+import '../sankalp/sankalp_sheet.dart';
 import '../shell/app_shell.dart';
 
 /// Today: one primary action. The rail shows Hear, Walk, Speak.
@@ -29,13 +30,16 @@ class TodayScreen extends ConsumerWidget {
 
     final bool heard = p.steps.contains(RitualStep.hear);
     final bool walked = p.steps.contains(RitualStep.walk);
-    final bool allDone = heard && walked;
+    final bool spoke = p.steps.contains(RitualStep.speak);
+    final bool allDone = heard && walked && spoke;
     final bool back = p.cameBack && !p.ritualStarted;
 
     final String title = back
         ? 'You came back.'
         : allDone
         ? doneTitle
+        : walked
+        ? 'The lamp is lit.\nNow, speak your mind.'
         : heard
         ? 'Five heard.\nNow take one step\non the path.'
         : light
@@ -45,6 +49,8 @@ class TodayScreen extends ConsumerWidget {
         ? 'The lamp was still warm.'
         : allDone
         ? 'Come back tomorrow.\nThe verses will wait.'
+        : walked
+        ? 'A verse will answer.'
         : heard
         ? ''
         : 'Five verses are waiting.\nThen you may rest.';
@@ -59,8 +65,10 @@ class TodayScreen extends ConsumerWidget {
     void go() {
       if (!heard || allDone) {
         context.push(Routes.hear);
-      } else {
+      } else if (!walked) {
         context.push(Routes.walk);
+      } else {
+        context.push(Routes.speak);
       }
     }
 
@@ -107,7 +115,8 @@ class TodayScreen extends ConsumerWidget {
                         ),
                       ],
                       const SizedBox(height: Sp.s30),
-                      _Rail(heard: heard, walked: walked, speakDone: false),
+                      _Rail(heard: heard, walked: walked, speakDone: spoke),
+                      const SankalpLookBack(),
                       const Spacer(),
                       PrimaryButton(label: button, onPressed: go),
                       const SizedBox(height: Sp.s14),
