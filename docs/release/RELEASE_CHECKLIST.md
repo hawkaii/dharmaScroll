@@ -2,11 +2,9 @@
 
 Everything code-side is in the repo. CI builds a signed `.aab` once the four secrets below exist. Placeholders to fill first: `[DEVELOPER NAME]`, `[CONTACT EMAIL]` in `PRIVACY_POLICY.md`, `privacy.html` and `STORE_LISTING.md`.
 
-## 1. Play Console account
+## 1. Create the app in Play Console
 
-1. Sign up at play.google.com/console and pay the one-time US$25 fee.
-2. Pick account type. **Personal** accounts created after 13 Nov 2023 must pass a closed test first (step 8). An **Organisation** account (needs a D-U-N-S number) is exempt.
-3. Verify identity and a phone. Create the app: name `dharmaScroll`, default language English (India), App, Free.
+You already have a Play Console account. In it: Create app, name `dharmaScroll`, default language English (India), App, Free, accept the declarations. Check which kind of account you have (Settings, Account details); step 8 depends on it.
 
 ## 2. Create the upload keystore (once, on your own computer)
 
@@ -60,11 +58,18 @@ Store graphics (upload under Main store listing):
 | Phone screenshots | 2 to 8; PNG or JPEG, no alpha; each side 320 to 3840 px; long side at most 2x the short side | Partly: see `SCREENSHOT_PLAN.md` |
 | Tablet screenshots | Optional (7-inch and 10-inch); same rules | No |
 
-## 8. Closed testing rule (personal accounts)
+## 8. Before production: which account do you have?
 
-Still applies as of Nov 2026 (checked on [Play Help: testing requirements](https://support.google.com/googleplay/android-developer/answer/14151465)): for a personal account created after 13 Nov 2023, run a closed test with at least **12 testers opted in continuously for 14 days**, then apply for production access in the Console. Google then reviews, often within about a week.
+Source: [Play Help: testing requirements for new personal accounts](https://support.google.com/googleplay/android-developer/answer/14151465), read for Nov 2026.
 
-Plan: create a Closed testing track, upload the same `.aab`, add 15 to 20 testers by email or a Google Group, send them the opt-in link, and keep them opted in. Ask them to open the app on a few of those days. Start this first: it is the longest wait. Note: the plan's public launch date (20 Dec 2026) needs the closed test to start by about 1 Dec.
+**(a) Personal account created after 13 Nov 2023.** A closed test is required first: at least **12 testers opted in continuously for 14 days**, then you apply for production access in the Console and Google reviews it (often about a week). The count and days are unchanged as of Nov 2026.
+1. Testing, Closed testing, create a track, upload the same `.aab`.
+2. Add 15 to 20 testers (email list or Google Group) and send them the opt-in link. Twelve is the floor; people who leave reset the count.
+3. Ask them to open the app on some of those days.
+4. After day 14, Dashboard, Apply for production access, answer the questions, then go to step 9.
+5. Start this first, since it is the longest wait. A 20 Dec 2026 public launch needs the test to start by about 1 Dec.
+
+**(b) Organisation account, or a personal account created on or before 13 Nov 2023.** No closed test is required. Finish internal testing (step 6), then go straight to step 9.
 
 ## 9. Production release
 
