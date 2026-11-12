@@ -20,11 +20,13 @@ val hasReleaseKey = releaseStoreFile != null && file(releaseStoreFile).exists()
 
 android {
     namespace = "wiki.gradientdescent.dharmascroll"
-    // Play requires targetSdk 36+ for new apps and updates since 31 Aug 2026.
-    compileSdk = maxOf(flutter.compileSdkVersion, 36)
+    // Play requires targetSdk 36+ since 31 Aug 2026; flutter_local_notifications needs compileSdk 37.
+    compileSdk = maxOf(flutter.compileSdkVersion, 37)
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
+        // flutter_local_notifications needs core library desugaring.
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
@@ -37,6 +39,7 @@ android {
         // (CI passes the run number), so every upload to Play is higher than the last.
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        multiDexEnabled = true
     }
 
     signingConfigs {
@@ -66,6 +69,10 @@ kotlin {
     compilerOptions {
         jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
     }
+}
+
+dependencies {
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
 }
 
 flutter {

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/rituals/providers.dart';
+import '../../core/rituals/rituals.dart';
 import '../../core/state/progress.dart';
 import '../../core/state/settings.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
+import 'city_picker.dart';
 
-/// You: your light so far, and five settings. No more.
+/// You: your light so far, your rituals, and a few settings.
 class YouScreen extends ConsumerWidget {
   const YouScreen({super.key});
 
@@ -71,6 +74,28 @@ class YouScreen extends ConsumerWidget {
                 (BuildContext ctx) => _ReminderSheet(
                   minutes: s.reminderMinutes,
                   onChanged: n.setReminder,
+                ),
+              ),
+            ),
+            _Row(
+              label: 'Rituals',
+              value: '${s.rituals.length} on',
+              onTap: () => showDSheet<void>(
+                context,
+                (BuildContext ctx) => const _RitualsSheet(),
+              ),
+            ),
+            _Row(
+              label: 'City',
+              value: ref.watch(cityProvider)?.name ?? '',
+              onTap: () => showDSheet<void>(
+                context,
+                (BuildContext ctx) => CityPicker(
+                  selected: s.cityId,
+                  onSelected: (String id) {
+                    n.setCity(id);
+                    Navigator.of(ctx).pop();
+                  },
                 ),
               ),
             ),
@@ -251,6 +276,91 @@ class _ReminderSheetState extends State<_ReminderSheet> {
           },
         ),
       ],
+    );
+  }
+}
+
+/// The ritual picker: switch rituals on or off, pick a deity day and the
+/// Ekadashi rule. Asks to send reminders the first time something goes on.
+class _RitualsSheet extends ConsumerWidget {
+  const _RitualsSheet();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final DharmaColors c = context.c;
+    final Settings s = ref.watch(settingsProvider);
+    final SettingsNotifier n = ref.read(settingsProvider.notifier);
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.sizeOf(context).height * 0.75,
+      ),
+      child: ListView(
+        shrinkWrap: true,
+        children: <Widget>[
+          Text('Your rituals', style: DType.title(c.ink, compact: true)),
+          const SizedBox(height: Sp.s12),
+          for (final Ritual r in Ritual.values)
+            _Row(
+              label: r.label,
+              trailing: Semantics(
+                label: r.label,
+                child: Switch(
+                  value: s.rituals.contains(r),
+                  onChanged: (bool v) {
+                    n.setRitual(r, on: v);
+                    // The right moment: they just asked for a reminder.
+                    if (v) {
+                      ref
+                          .read(reminderBackendProvider)
+                          .requestPermission()
+                          .ignore();
+                    }
+                  },
+                ),
+              ),
+              onTap: () {
+                final bool v = !s.rituals.contains(r);
+                n.setRitual(r, on: v);
+                if (v) {
+                  ref
+                      .read(reminderBackendProvider)
+                      .requestPermission()
+                      .ignore();
+                }
+              },
+            ),
+          const SizedBox(height: Sp.s18),
+          Text('A weekday lamp', style: DType.body(c.mute, size: 17)),
+          const SizedBox(height: Sp.s12),
+          for (final Deity d in Deity.values) ...<Widget>[
+            OptionRow(
+              label: d.label,
+              selected: d == s.deity,
+              onTap: () {
+                n.setDeity(d);
+                if (d != Deity.none) {
+                  ref
+                      .read(reminderBackendProvider)
+                      .requestPermission()
+                      .ignore();
+                }
+              },
+            ),
+            const SizedBox(height: Sp.s12),
+          ],
+          const SizedBox(height: Sp.s6),
+          Text('Ekadashi rule', style: DType.body(c.mute, size: 17)),
+          const SizedBox(height: Sp.s12),
+          for (final Tradition t in Tradition.values) ...<Widget>[
+            OptionRow(
+              label: t.label,
+              selected: t == s.tradition,
+              onTap: () => n.setTradition(t),
+            ),
+            const SizedBox(height: Sp.s12),
+          ],
+        ],
+      ),
     );
   }
 }

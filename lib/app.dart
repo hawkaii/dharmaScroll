@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/feedback/sound_service.dart';
+import 'core/rituals/providers.dart';
 import 'core/router.dart';
 import 'design/theme.dart';
 
@@ -12,6 +13,8 @@ class DharmaScrollApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // Refreshes the 30-day reminder window on open and on every change.
+    ref.watch(reminderSyncProvider);
     return MaterialApp.router(
       title: 'DharmaScroll',
       debugShowCheckedModeBanner: false,
