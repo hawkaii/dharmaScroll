@@ -1,0 +1,2675 @@
+{
+ "version": 1,
+ "status": "draft, pending scholar review",
+ "tags": [
+  "grief",
+  "loss",
+  "fear",
+  "anxiety",
+  "anger",
+  "envy",
+  "comparison",
+  "pride",
+  "desire",
+  "greed",
+  "restlessness",
+  "doubt",
+  "self-doubt",
+  "confusion",
+  "loneliness",
+  "burnout",
+  "failure",
+  "success",
+  "exam-stress",
+  "work-pressure",
+  "duty-conflict",
+  "procrastination",
+  "perfectionism",
+  "focus",
+  "discipline",
+  "habits",
+  "patience",
+  "equanimity",
+  "detachment",
+  "forgiveness",
+  "compassion",
+  "kindness",
+  "gratitude",
+  "humility",
+  "faith",
+  "surrender",
+  "purpose",
+  "mortality",
+  "change",
+  "self-worth",
+  "speech",
+  "contentment",
+  "peace",
+  "hope",
+  "learning"
+ ],
+ "verses": [
+  {
+   "id": "2.47",
+   "chapter": 2,
+   "verse": 47,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।",
+    "मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥"
+   ],
+   "iast": [
+    "karmaṇyevādhikāraste mā phaleṣu kadācana",
+    "mā karmaphalaheturbhūrmā te saṅgo'stvakarmaṇi"
+   ],
+   "meaning_en": "You have a right to your work, never to its results. Do not act for the reward, and do not fall into doing nothing.",
+   "meaning_hi": "तुम्हारा अधिकार सिर्फ़ कर्म करने पर है, उसके फल पर कभी नहीं। फल के लिए काम मत करो, और काम छोड़ने में भी मन मत लगाओ।",
+   "tags": [
+    "work-pressure",
+    "exam-stress",
+    "perfectionism",
+    "detachment",
+    "anxiety"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "2.14",
+   "chapter": 2,
+   "verse": 14,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "मात्रास्पर्शास्तु कौन्तेय शीतोष्णसुखदुःखदाः।",
+    "आगमापायिनोऽनित्यास्तांस्तितिक्षस्व भारत॥"
+   ],
+   "iast": [
+    "mātrāsparśāstu kaunteya śītoṣṇasukhaduḥkhadāḥ",
+    "āgamāpāyino'nityāstāṁstitikṣasva bhārata"
+   ],
+   "meaning_en": "Cold and heat, pleasure and pain come from the touch of the world. They come and go; they do not last. Bear them patiently.",
+   "meaning_hi": "सर्दी-गर्मी और सुख-दुख दुनिया के स्पर्श से आते हैं। ये आते-जाते हैं, टिकते नहीं। इन्हें धैर्य से सह लो।",
+   "tags": [
+    "patience",
+    "change",
+    "equanimity",
+    "anxiety"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "2.20",
+   "chapter": 2,
+   "verse": 20,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "न जायते म्रियते वा कदाचिन्",
+    "नायं भूत्वा भविता वा न भूयः।",
+    "अजो नित्यः शाश्वतोऽयं पुराणो",
+    "न हन्यते हन्यमाने शरीरे॥"
+   ],
+   "iast": [
+    "na jāyate mriyate vā kadācin",
+    "nāyaṁ bhūtvā bhavitā vā na bhūyaḥ",
+    "ajo nityaḥ śāśvato'yaṁ purāṇo",
+    "na hanyate hanyamāne śarīre"
+   ],
+   "meaning_en": "The self is never born and never dies. It is unborn, constant and ancient, and it is not killed when the body is.",
+   "meaning_hi": "आत्मा न कभी जन्म लेती है, न कभी मरती है। वह अजन्मी, सदा रहने वाली और पुरानी है। शरीर के नष्ट होने पर भी वह नष्ट नहीं होती।",
+   "tags": [
+    "mortality",
+    "grief",
+    "loss",
+    "faith"
+   ],
+   "personal_advice_ok": false
+  },
+  {
+   "id": "6.5",
+   "chapter": 6,
+   "verse": 5,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "उद्धरेदात्मनात्मानं नात्मानमवसादयेत्।",
+    "आत्मैव ह्यात्मनो बन्धुरात्मैव रिपुरात्मनः॥"
+   ],
+   "iast": [
+    "uddharedātmanātmānaṁ nātmānamavasādayet",
+    "ātmaiva hyātmano bandhurātmaiva ripurātmanaḥ"
+   ],
+   "meaning_en": "Lift yourself by your own self; do not let yourself sink. You alone are your own friend, and you alone are your own enemy.",
+   "meaning_hi": "अपने आप को खुद ऊपर उठाओ, खुद को गिरने मत दो। तुम स्वयं ही अपने मित्र हो और स्वयं ही अपने शत्रु।",
+   "tags": [
+    "self-doubt",
+    "self-worth",
+    "failure",
+    "discipline"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "18.66",
+   "chapter": 18,
+   "verse": 66,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज।",
+    "अहं त्वा सर्वपापेभ्यो मोक्षयिष्यामि मा शुचः॥"
+   ],
+   "iast": [
+    "sarvadharmānparityajya māmekaṁ śaraṇaṁ vraja",
+    "ahaṁ tvā sarvapāpebhyo mokṣayiṣyāmi mā śucaḥ"
+   ],
+   "meaning_en": "Let go of all other supports and come to Me alone for shelter. I will free you from all wrong. Do not grieve.",
+   "meaning_hi": "सारे सहारे छोड़कर बस मेरी शरण में आ जाओ। मैं तुम्हें सब पापों से मुक्त कर दूँगा। शोक मत करो।",
+   "tags": [
+    "grief",
+    "fear",
+    "forgiveness",
+    "surrender",
+    "anxiety"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "2.48",
+   "chapter": 2,
+   "verse": 48,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "योगस्थः कुरु कर्माणि सङ्गं त्यक्त्वा धनञ्जय।",
+    "सिद्ध्यसिद्ध्योः समो भूत्वा समत्वं योग उच्यते॥"
+   ],
+   "iast": [
+    "yogasthaḥ kuru karmāṇi saṅgaṁ tyaktvā dhanañjaya",
+    "siddhyasiddhyoḥ samo bhūtvā samatvaṁ yoga ucyate"
+   ],
+   "meaning_en": "Stand firm in yoga and do your work, letting go of attachment. Stay even in success and failure. This evenness is called yoga.",
+   "meaning_hi": "आसक्ति छोड़कर, योग में टिककर अपना काम करो। सफलता और असफलता में एक जैसे रहो। इसी समभाव को योग कहते हैं।",
+   "tags": [
+    "success",
+    "failure",
+    "equanimity",
+    "work-pressure"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "2.22",
+   "chapter": 2,
+   "verse": 22,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "वासांसि जीर्णानि यथा विहाय",
+    "नवानि गृह्णाति नरोऽपराणि।",
+    "तथा शरीराणि विहाय जीर्णा",
+    "न्यन्यानि संयाति नवानि देही॥"
+   ],
+   "iast": [
+    "vāsāṁsi jīrṇāni yathā vihāya",
+    "navāni gṛhṇāti naro'parāṇi",
+    "tathā śarīrāṇi vihāya jīrṇā",
+    "nyanyāni saṁyāti navāni dehī"
+   ],
+   "meaning_en": "As a person puts on new clothes and leaves the worn-out ones, so the one within leaves worn-out bodies and takes new ones.",
+   "meaning_hi": "जैसे इंसान पुराने कपड़े छोड़कर नए पहन लेता है, वैसे ही आत्मा पुराने शरीर छोड़कर नए शरीर में चली जाती है।",
+   "tags": [
+    "loss",
+    "grief",
+    "mortality",
+    "change"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "4.7",
+   "chapter": 4,
+   "verse": 7,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "यदा यदा हि धर्मस्य ग्लानिर्भवति भारत।",
+    "अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्॥"
+   ],
+   "iast": [
+    "yadā yadā hi dharmasya glānirbhavati bhārata",
+    "abhyutthānamadharmasya tadātmānaṁ sṛjāmyaham"
+   ],
+   "meaning_en": "Whenever goodness fades and wrong grows strong, I bring myself forth.",
+   "meaning_hi": "जब-जब धर्म कमज़ोर पड़ता है और अधर्म बढ़ता है, तब-तब मैं अपने को प्रकट करता हूँ।",
+   "tags": [
+    "hope",
+    "faith",
+    "loneliness"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "2.50",
+   "chapter": 2,
+   "verse": 50,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "बुद्धियुक्तो जहातीह उभे सुकृतदुष्कृते।",
+    "तस्माद्योगाय युज्यस्व योगः कर्मसु कौशलम्॥"
+   ],
+   "iast": [
+    "buddhiyukto jahātīha ubhe sukṛtaduṣkṛte",
+    "tasmādyogāya yujyasva yogaḥ karmasu kauśalam"
+   ],
+   "meaning_en": "A steady mind lets go of both good and bad results. So devote yourself to yoga. Yoga is skill in action.",
+   "meaning_hi": "स्थिर बुद्धि वाला यहीं अच्छे-बुरे दोनों फलों से मुक्त हो जाता है। इसलिए योग में लगो। कर्म में कुशलता ही योग है।",
+   "tags": [
+    "focus",
+    "work-pressure",
+    "discipline",
+    "perfectionism"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "6.35",
+   "chapter": 6,
+   "verse": 35,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "असंशयं महाबाहो मनो दुर्निग्रहं चलम्।",
+    "अभ्यासेन तु कौन्तेय वैराग्येण च गृह्यते॥"
+   ],
+   "iast": [
+    "asaṁśayaṁ mahābāho mano durnigrahaṁ calam",
+    "abhyāsena tu kaunteya vairāgyeṇa ca gṛhyate"
+   ],
+   "meaning_en": "Yes, the mind is restless and hard to hold. But with practice and with detachment, it can be held.",
+   "meaning_hi": "बेशक मन चंचल है और इसे काबू करना कठिन है। फिर भी अभ्यास और वैराग्य से इसे साधा जा सकता है।",
+   "tags": [
+    "restlessness",
+    "focus",
+    "patience",
+    "habits"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "1.28",
+   "chapter": 1,
+   "verse": 28,
+   "speaker": "Arjuna",
+   "listener": "Krishna",
+   "sanskrit": [
+    "कृपया परयाविष्टो विषीदन्निदमब्रवीत्।",
+    "दृष्ट्वेमं स्वजनं कृष्ण युयुत्सुं समुपस्थितम्॥"
+   ],
+   "iast": [
+    "kṛpayā parayāviṣṭo viṣīdannidamabravīt",
+    "dṛṣṭvemaṁ svajanaṁ kṛṣṇa yuyutsuṁ samupasthitam"
+   ],
+   "meaning_en": "Filled with deep pity and sorrow, Arjuna says: \"Krishna, seeing my own people standing ready to fight...\"",
+   "meaning_hi": "करुणा और दुख से भरकर अर्जुन कहते हैं: \"कृष्ण, अपने ही लोगों को लड़ने के लिए सामने खड़ा देखकर...\"",
+   "tags": [
+    "grief",
+    "confusion",
+    "duty-conflict",
+    "fear"
+   ],
+   "personal_advice_ok": false
+  },
+  {
+   "id": "2.7",
+   "chapter": 2,
+   "verse": 7,
+   "speaker": "Arjuna",
+   "listener": "Krishna",
+   "sanskrit": [
+    "कार्पण्यदोषोपहतस्वभावः",
+    "पृच्छामि त्वां धर्मसम्मूढचेताः।",
+    "यच्छ्रेयः स्यान्निश्चितं ब्रूहि तन्मे",
+    "शिष्यस्तेऽहं शाधि मां त्वां प्रपन्नम्॥"
+   ],
+   "iast": [
+    "kārpaṇyadoṣopahatasvabhāvaḥ",
+    "pṛcchāmi tvāṁ dharmasammūḍhacetāḥ",
+    "yacchreyaḥ syānniścitaṁ brūhi tanme",
+    "śiṣyaste'haṁ śādhi māṁ tvāṁ prapannam"
+   ],
+   "meaning_en": "My heart is weak with pity and my mind is unsure what is right. Tell me clearly what is best. I am your student; I come to you for guidance.",
+   "meaning_hi": "मेरा मन दया की कमज़ोरी से घिरा है और मैं उलझन में हूँ कि क्या सही है। जो सबसे अच्छा हो, साफ़ बताइए। मैं आपका शिष्य हूँ, आपकी शरण में हूँ।",
+   "tags": [
+    "confusion",
+    "doubt",
+    "duty-conflict",
+    "faith"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "3.8",
+   "chapter": 3,
+   "verse": 8,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "नियतं कुरु कर्म त्वं कर्म ज्यायो ह्यकर्मणः।",
+    "शरीरयात्रापि च ते न प्रसिद्ध्येदकर्मणः॥"
+   ],
+   "iast": [
+    "niyataṁ kuru karma tvaṁ karma jyāyo hyakarmaṇaḥ",
+    "śarīrayātrāpi ca te na prasiddhyedakarmaṇaḥ"
+   ],
+   "meaning_en": "Do your fixed duty, for action is better than inaction. Even the upkeep of your body would not be possible without action.",
+   "meaning_hi": "तुम अपना तय किया हुआ काम करो, क्योंकि काम न करने से करना बेहतर है। काम के बिना तो शरीर का निर्वाह भी नहीं चलेगा।",
+   "tags": [
+    "procrastination",
+    "discipline",
+    "purpose"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "4.18",
+   "chapter": 4,
+   "verse": 18,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "कर्मण्यकर्म यः पश्येदकर्मणि च कर्म यः।",
+    "स बुद्धिमान्मनुष्येषु स युक्तः कृत्स्नकर्मकृत्॥"
+   ],
+   "iast": [
+    "karmaṇyakarma yaḥ paśyedakarmaṇi ca karma yaḥ",
+    "sa buddhimānmanuṣyeṣu sa yuktaḥ kṛtsnakarmakṛt"
+   ],
+   "meaning_en": "One who sees rest within action and action within rest is wise among people, steady, and does all that needs doing.",
+   "meaning_hi": "जो कर्म में विश्राम को और विश्राम में कर्म को देख लेता है, वह लोगों में समझदार है और सब कर्म करते हुए भी योग में स्थित है।",
+   "tags": [
+    "work-pressure",
+    "burnout",
+    "focus",
+    "detachment"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "5.7",
+   "chapter": 5,
+   "verse": 7,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "योगयुक्तो विशुद्धात्मा विजितात्मा जितेन्द्रियः।",
+    "सर्वभूतात्मभूतात्मा कुर्वन्नपि न लिप्यते॥"
+   ],
+   "iast": [
+    "yogayukto viśuddhātmā vijitātmā jitendriyaḥ",
+    "sarvabhūtātmabhūtātmā kurvannapi na lipyate"
+   ],
+   "meaning_en": "One who is steady in yoga, pure in heart, has won over the self and senses, and feels one with all beings is not stained, even while acting.",
+   "meaning_hi": "जो योग में स्थित, शुद्ध मन वाला है, खुद को और इंद्रियों को जीत चुका है और सब प्राणियों में अपने को ही देखता है, वह काम करता हुआ भी उनसे लिप्त नहीं होता।",
+   "tags": [
+    "compassion",
+    "work-pressure",
+    "detachment",
+    "kindness"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "6.6",
+   "chapter": 6,
+   "verse": 6,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "बन्धुरात्मात्मनस्तस्य येनात्मैवात्मना जितः।",
+    "अनात्मनस्तु शत्रुत्वे वर्तेतात्मैव शत्रुवत्॥"
+   ],
+   "iast": [
+    "bandhurātmātmanastasya yenātmaivātmanā jitaḥ",
+    "anātmanastu śatrutve vartetātmaiva śatruvat"
+   ],
+   "meaning_en": "For one who has mastered the mind, the mind is a friend. For one who has not, the mind acts like an enemy.",
+   "meaning_hi": "जिसने अपने मन को जीत लिया, उसके लिए मन मित्र है। जिसने नहीं जीता, उसके लिए वही मन शत्रु की तरह काम करता है।",
+   "tags": [
+    "self-doubt",
+    "discipline",
+    "self-worth",
+    "habits"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "7.7",
+   "chapter": 7,
+   "verse": 7,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "मत्तः परतरं नान्यत्किञ्चिदस्ति धनञ्जय।",
+    "मयि सर्वमिदं प्रोतं सूत्रे मणिगणा इव॥"
+   ],
+   "iast": [
+    "mattaḥ parataraṁ nānyatkiñcidasti dhanañjaya",
+    "mayi sarvamidaṁ protaṁ sūtre maṇigaṇā iva"
+   ],
+   "meaning_en": "There is nothing higher than Me. All this is strung on Me, like beads on a thread.",
+   "meaning_hi": "मुझसे बड़ा कुछ भी नहीं है। जैसे धागे में मोती पिरोए होते हैं, वैसे यह सब कुछ मुझमें पिरोया हुआ है।",
+   "tags": [
+    "faith",
+    "loneliness",
+    "purpose",
+    "peace"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "8.5",
+   "chapter": 8,
+   "verse": 5,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "अन्तकाले च मामेव स्मरन्मुक्त्वा कलेवरम्।",
+    "यः प्रयाति स मद्भावं याति नास्त्यत्र संशयः॥"
+   ],
+   "iast": [
+    "antakāle ca māmeva smaranmuktvā kalevaram",
+    "yaḥ prayāti sa madbhāvaṁ yāti nāstyatra saṁśayaḥ"
+   ],
+   "meaning_en": "One who leaves the body at the end remembering Me alone comes to Me. There is no doubt about this.",
+   "meaning_hi": "अंत समय में जो मुझे ही याद करते हुए शरीर छोड़ता है, वह मुझे ही पाता है। इसमें कोई शक नहीं।",
+   "tags": [
+    "mortality",
+    "faith",
+    "loss",
+    "fear"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "9.22",
+   "chapter": 9,
+   "verse": 22,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "अनन्याश्चिन्तयन्तो मां ये जनाः पर्युपासते।",
+    "तेषां नित्याभियुक्तानां योगक्षेमं वहाम्यहम्॥"
+   ],
+   "iast": [
+    "ananyāścintayanto māṁ ye janāḥ paryupāsate",
+    "teṣāṁ nityābhiyuktānāṁ yogakṣemaṁ vahāmyaham"
+   ],
+   "meaning_en": "For those who think of Me alone and worship Me with steady devotion, I bring what they lack and protect what they have.",
+   "meaning_hi": "जो लोग किसी और का नहीं, मेरा ही चिंतन करते हुए मेरी उपासना करते हैं, उन सदा जुड़े रहने वालों की ज़रूरतें मैं पूरी करता हूँ और उनकी रक्षा करता हूँ।",
+   "tags": [
+    "anxiety",
+    "fear",
+    "faith",
+    "surrender"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "10.8",
+   "chapter": 10,
+   "verse": 8,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "अहं सर्वस्य प्रभवो मत्तः सर्वं प्रवर्तते।",
+    "इति मत्वा भजन्ते मां बुधा भावसमन्विताः॥"
+   ],
+   "iast": [
+    "ahaṁ sarvasya prabhavo mattaḥ sarvaṁ pravartate",
+    "iti matvā bhajante māṁ budhā bhāvasamanvitāḥ"
+   ],
+   "meaning_en": "I am the source of everything, and all moves forth from Me. Knowing this, the wise worship Me with their whole heart.",
+   "meaning_hi": "मैं सबका स्रोत हूँ और मुझसे ही सब चलता है। यह जानकर समझदार लोग पूरे भाव से मुझे भजते हैं।",
+   "tags": [
+    "gratitude",
+    "faith",
+    "purpose",
+    "humility"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "11.32",
+   "chapter": 11,
+   "verse": 32,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "कालोऽस्मि लोकक्षयकृत्प्रवृद्धो",
+    "लोकान्समाहर्तुमिह प्रवृत्तः।",
+    "ऋतेऽपि त्वां न भविष्यन्ति सर्वे",
+    "येऽवस्थिताः प्रत्यनीकेषु योधाः॥"
+   ],
+   "iast": [
+    "kālo'smi lokakṣayakṛtpravṛddho",
+    "lokānsamāhartumiha pravṛttaḥ",
+    "ṛte'pi tvāṁ na bhaviṣyanti sarve",
+    "ye'vasthitāḥ pratyanīkeṣu yodhāḥ"
+   ],
+   "meaning_en": "I am Time, the great destroyer of worlds, come to gather them in. Even without you, none of the warriors in the opposing armies will remain.",
+   "meaning_hi": "मैं समय हूँ, लोकों का नाश करने वाला, जो उन्हें समेटने आया है। तुम्हारे बिना भी विपक्ष में खड़े ये योद्धा नहीं बचेंगे।",
+   "tags": [
+    "mortality",
+    "change",
+    "humility"
+   ],
+   "personal_advice_ok": false
+  },
+  {
+   "id": "12.8",
+   "chapter": 12,
+   "verse": 8,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "मय्येव मन आधत्स्व मयि बुद्धिं निवेशय।",
+    "निवसिष्यसि मय्येव अत ऊर्ध्वं न संशयः॥"
+   ],
+   "iast": [
+    "mayyeva mana ādhatsva mayi buddhiṁ niveśaya",
+    "nivasiṣyasi mayyeva ata ūrdhvaṁ na saṁśayaḥ"
+   ],
+   "meaning_en": "Rest your mind on Me alone, and place your intellect in Me. Then you will live in Me, without doubt.",
+   "meaning_hi": "अपना मन मुझमें ही लगाओ, अपनी बुद्धि मुझमें टिकाओ। फिर तुम मुझमें ही रहोगे, इसमें कोई शक नहीं।",
+   "tags": [
+    "restlessness",
+    "focus",
+    "doubt",
+    "peace"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "13.8",
+   "chapter": 13,
+   "verse": 8,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "अमानित्वमदम्भित्वमहिंसा क्षान्तिरार्जवम्।",
+    "आचार्योपासनं शौचं स्थैर्यमात्मविनिग्रहः॥"
+   ],
+   "iast": [
+    "amānitvamadambhitvamahiṁsā kṣāntirārjavam",
+    "ācāryopāsanaṁ śaucaṁ sthairyamātmavinigrahaḥ"
+   ],
+   "meaning_en": "True wisdom shows as humility, honesty without show, gentleness to all, patience, simplicity, respect for the teacher, cleanliness, steadiness and self-control.",
+   "meaning_hi": "सच्चा ज्ञान ऐसे दिखता है: विनम्रता, बिना दिखावे की सच्चाई, अहिंसा, क्षमा, सरलता, गुरु की सेवा, पवित्रता, स्थिरता और आत्म-संयम।",
+   "tags": [
+    "humility",
+    "discipline",
+    "kindness",
+    "patience",
+    "learning"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "14.5",
+   "chapter": 14,
+   "verse": 5,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "सत्त्वं रजस्तम इति गुणाः प्रकृतिसम्भवाः।",
+    "निबध्नन्ति महाबाहो देहे देहिनमव्ययम्॥"
+   ],
+   "iast": [
+    "sattvaṁ rajastama iti guṇāḥ prakṛtisambhavāḥ",
+    "nibadhnanti mahābāho dehe dehinamavyayam"
+   ],
+   "meaning_en": "Goodness, passion and darkness, born of nature, bind the unchanging Self to the body.",
+   "meaning_hi": "सत्त्व, रज और तम, ये तीनों गुण प्रकृति से पैदा होते हैं और अविनाशी आत्मा को शरीर में बाँध देते हैं।",
+   "tags": [
+    "restlessness",
+    "procrastination",
+    "habits",
+    "confusion"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "15.5",
+   "chapter": 15,
+   "verse": 5,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "निर्मानमोहा जितसङ्गदोषा",
+    "अध्यात्मनित्या विनिवृत्तकामाः।",
+    "द्वन्द्वैर्विमुक्ताः सुखदुःखसंज्ञैर्",
+    "गच्छन्त्यमूढाः पदमव्ययं तत्॥"
+   ],
+   "iast": [
+    "nirmānamohā jitasaṅgadoṣā",
+    "adhyātmanityā vinivṛttakāmāḥ",
+    "dvandvairvimuktāḥ sukhaduḥkhasaṁjñair",
+    "gacchantyamūḍhāḥ padamavyayaṁ tat"
+   ],
+   "meaning_en": "Free from pride and delusion, having overcome the fault of attachment, always rooted in the Self, free from desire and from the pairs of pleasure and pain, the undeluded reach that unchanging state.",
+   "meaning_hi": "जो मान और मोह से मुक्त हैं, जिन्होंने आसक्ति का दोष जीत लिया है, जो सदा आत्मा में टिके हैं और इच्छाओं व सुख-दुख के द्वंद्वों से मुक्त हैं, वे उस अविनाशी पद को पाते हैं।",
+   "tags": [
+    "pride",
+    "desire",
+    "equanimity",
+    "peace",
+    "detachment"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "16.1",
+   "chapter": 16,
+   "verse": 1,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "अभयं सत्त्वसंशुद्धिर्ज्ञानयोगव्यवस्थितिः।",
+    "दानं दमश्च यज्ञश्च स्वाध्यायस्तप आर्जवम्॥"
+   ],
+   "iast": [
+    "abhayaṁ sattvasaṁśuddhirjñānayogavyavasthitiḥ",
+    "dānaṁ damaśca yajñaśca svādhyāyastapa ārjavam"
+   ],
+   "meaning_en": "The divine qualities include fearlessness, a pure heart, steadiness in knowledge and yoga, giving, self-control, study, effort and honesty.",
+   "meaning_hi": "दैवी गुण ये हैं: निर्भयता, मन की शुद्धता, ज्ञान और योग में स्थिरता, दान, संयम, यज्ञ, शास्त्र का अध्ययन, तप और सरलता।",
+   "tags": [
+    "fear",
+    "discipline",
+    "habits",
+    "kindness",
+    "purpose"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "17.3",
+   "chapter": 17,
+   "verse": 3,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "सत्त्वानुरूपा सर्वस्य श्रद्धा भवति भारत।",
+    "श्रद्धामयोऽयं पुरुषो यो यच्छ्रद्धः स एव सः॥"
+   ],
+   "iast": [
+    "sattvānurūpā sarvasya śraddhā bhavati bhārata",
+    "śraddhāmayo'yaṁ puruṣo yo yacchraddhaḥ sa eva saḥ"
+   ],
+   "meaning_en": "Everyone's faith follows their nature. A person is made of faith: whatever one's faith is, that is what one becomes.",
+   "meaning_hi": "सबकी श्रद्धा उनके स्वभाव के अनुसार होती है। इंसान श्रद्धा से ही बना है; जिसकी जैसी श्रद्धा है, वह वैसा ही है।",
+   "tags": [
+    "faith",
+    "self-worth",
+    "habits",
+    "purpose"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "18.37",
+   "chapter": 18,
+   "verse": 37,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "यत्तदग्रे विषमिव परिणामेऽमृतोपमम्।",
+    "तत्सुखं सात्त्विकं प्रोक्तमात्मबुद्धिप्रसादजम्॥"
+   ],
+   "iast": [
+    "yattadagre viṣamiva pariṇāme'mṛtopamam",
+    "tatsukhaṁ sāttvikaṁ proktamātmabuddhiprasādajam"
+   ],
+   "meaning_en": "What feels like poison at first but becomes like nectar in the end is pure happiness, born of a clear and peaceful mind.",
+   "meaning_hi": "जो शुरू में विष जैसा लगे पर अंत में अमृत जैसा हो, वह सात्त्विक सुख है, जो शांत और साफ़ बुद्धि से पैदा होता है।",
+   "tags": [
+    "procrastination",
+    "discipline",
+    "patience",
+    "exam-stress",
+    "habits"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "1.30",
+   "chapter": 1,
+   "verse": 30,
+   "speaker": "Arjuna",
+   "listener": "Krishna",
+   "sanskrit": [
+    "गाण्डीवं स्रंसते हस्तात्त्वक्चैव परिदह्यते।",
+    "न च शक्नोम्यवस्थातुं भ्रमतीव च मे मनः॥"
+   ],
+   "iast": [
+    "gāṇḍīvaṁ sraṁsate hastāttvakcaiva paridahyate",
+    "na ca śaknomyavasthātuṁ bhramatīva ca me manaḥ"
+   ],
+   "meaning_en": "My bow slips from my hand, my skin burns, I cannot stand steady, and my mind seems to spin.",
+   "meaning_hi": "मेरे हाथ से धनुष फिसल रहा है, शरीर जल रहा है, मैं खड़ा नहीं रह पा रहा और मेरा मन चक्कर खा रहा है।",
+   "tags": [
+    "fear",
+    "anxiety",
+    "grief"
+   ],
+   "personal_advice_ok": false
+  },
+  {
+   "id": "2.13",
+   "chapter": 2,
+   "verse": 13,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "देहिनोऽस्मिन्यथा देहे कौमारं यौवनं जरा।",
+    "तथा देहान्तरप्राप्तिर्धीरस्तत्र न मुह्यति॥"
+   ],
+   "iast": [
+    "dehino'sminyathā dehe kaumāraṁ yauvanaṁ jarā",
+    "tathā dehāntaraprāptirdhīrastatra na muhyati"
+   ],
+   "meaning_en": "As this body passes through childhood, youth and old age, so the one within passes on to another body. The steady person is not shaken by this.",
+   "meaning_hi": "जैसे इस शरीर में बचपन, जवानी और बुढ़ापा आते हैं, वैसे ही आत्मा दूसरा शरीर पाती है। समझदार इंसान इससे घबराता नहीं।",
+   "tags": [
+    "change",
+    "mortality",
+    "loss",
+    "equanimity"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "3.19",
+   "chapter": 3,
+   "verse": 19,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "तस्मादसक्तः सततं कार्यं कर्म समाचर।",
+    "असक्तो ह्याचरन्कर्म परमाप्नोति पूरुषः॥"
+   ],
+   "iast": [
+    "tasmādasaktaḥ satataṁ kāryaṁ karma samācara",
+    "asakto hyācarankarma paramāpnoti pūruṣaḥ"
+   ],
+   "meaning_en": "So always do the work that needs doing, without attachment. By working without attachment, a person reaches the highest.",
+   "meaning_hi": "इसलिए बिना आसक्ति के, जो करना ज़रूरी है वह काम हमेशा करते रहो। आसक्ति छोड़कर काम करने वाला इंसान सबसे ऊँचा पद पाता है।",
+   "tags": [
+    "work-pressure",
+    "detachment",
+    "duty-conflict",
+    "purpose"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "4.22",
+   "chapter": 4,
+   "verse": 22,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "यदृच्छालाभसन्तुष्टो द्वन्द्वातीतो विमत्सरः।",
+    "समः सिद्धावसिद्धौ च कृत्वापि न निबध्यते॥"
+   ],
+   "iast": [
+    "yadṛcchālābhasantuṣṭo dvandvātīto vimatsaraḥ",
+    "samaḥ siddhāvasiddhau ca kṛtvāpi na nibadhyate"
+   ],
+   "meaning_en": "Content with what comes on its own, beyond the pairs of opposites, free of envy, and even in success and failure: such a person is not bound even while acting.",
+   "meaning_hi": "जो अपने आप जो मिल जाए उसमें संतुष्ट है, द्वंद्वों से परे है, जलन से मुक्त है और सफलता-असफलता में एक जैसा है, वह काम करके भी बंधता नहीं।",
+   "tags": [
+    "contentment",
+    "envy",
+    "comparison",
+    "equanimity"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "5.10",
+   "chapter": 5,
+   "verse": 10,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "ब्रह्मण्याधाय कर्माणि सङ्गं त्यक्त्वा करोति यः।",
+    "लिप्यते न स पापेन पद्मपत्रमिवाम्भसा॥"
+   ],
+   "iast": [
+    "brahmaṇyādhāya karmāṇi saṅgaṁ tyaktvā karoti yaḥ",
+    "lipyate na sa pāpena padmapatramivāmbhasā"
+   ],
+   "meaning_en": "One who acts, offering the work to the Divine and letting go of attachment, is not touched by wrong, as a lotus leaf is not touched by water.",
+   "meaning_hi": "जो आसक्ति छोड़कर अपने कर्म ईश्वर को अर्पित करके करता है, उसे पाप वैसे नहीं छूता जैसे कमल के पत्ते को पानी नहीं छूता।",
+   "tags": [
+    "work-pressure",
+    "detachment",
+    "surrender",
+    "anxiety"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "6.7",
+   "chapter": 6,
+   "verse": 7,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "जितात्मनः प्रशान्तस्य परमात्मा समाहितः।",
+    "शीतोष्णसुखदुःखेषु तथा मानापमानयोः॥"
+   ],
+   "iast": [
+    "jitātmanaḥ praśāntasya paramātmā samāhitaḥ",
+    "śītoṣṇasukhaduḥkheṣu tathā mānāpamānayoḥ"
+   ],
+   "meaning_en": "The calm person who has mastered the mind stays steady in cold and heat, joy and pain, honour and insult.",
+   "meaning_hi": "जिसने मन को जीत लिया और जो शांत है, वह सर्दी-गर्मी, सुख-दुख और मान-अपमान में स्थिर रहता है।",
+   "tags": [
+    "equanimity",
+    "peace",
+    "success",
+    "anxiety"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "7.14",
+   "chapter": 7,
+   "verse": 14,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "दैवी ह्येषा गुणमयी मम माया दुरत्यया।",
+    "मामेव ये प्रपद्यन्ते मायामेतां तरन्ति ते॥"
+   ],
+   "iast": [
+    "daivī hyeṣā guṇamayī mama māyā duratyayā",
+    "māmeva ye prapadyante māyāmetāṁ taranti te"
+   ],
+   "meaning_en": "This divine illusion of Mine, made of the three qualities, is hard to cross. Those who come to Me alone cross over it.",
+   "meaning_hi": "तीन गुणों वाली मेरी यह दिव्य माया पार करना कठिन है। जो मेरी शरण में आते हैं, वही इसे पार कर जाते हैं।",
+   "tags": [
+    "confusion",
+    "surrender",
+    "faith",
+    "doubt"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "8.6",
+   "chapter": 8,
+   "verse": 6,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "यं यं वापि स्मरन्भावं त्यजत्यन्ते कलेवरम्।",
+    "तं तमेवैति कौन्तेय सदा तद्भावभावितः॥"
+   ],
+   "iast": [
+    "yaṁ yaṁ vāpi smaranbhāvaṁ tyajatyante kalevaram",
+    "taṁ tamevaiti kaunteya sadā tadbhāvabhāvitaḥ"
+   ],
+   "meaning_en": "Whatever state of mind one remembers at the end, on leaving the body, that very state one reaches, having always been absorbed in it.",
+   "meaning_hi": "अंत समय में इंसान जिस भाव को याद करते हुए शरीर छोड़ता है, वह उसी भाव को पाता है, क्योंकि वह सदा उसी में डूबा रहा।",
+   "tags": [
+    "mortality",
+    "habits",
+    "focus",
+    "faith"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "9.26",
+   "chapter": 9,
+   "verse": 26,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "पत्रं पुष्पं फलं तोयं यो मे भक्त्या प्रयच्छति।",
+    "तदहं भक्त्युपहृतमश्नामि प्रयतात्मनः॥"
+   ],
+   "iast": [
+    "patraṁ puṣpaṁ phalaṁ toyaṁ yo me bhaktyā prayacchati",
+    "tadahaṁ bhaktyupahṛtamaśnāmi prayatātmanaḥ"
+   ],
+   "meaning_en": "A leaf, a flower, a fruit, or water offered to Me with love: I accept that gift of a loving heart.",
+   "meaning_hi": "जो मुझे प्रेम से एक पत्ता, फूल, फल या जल अर्पित करता है, उस शुद्ध मन वाले का प्रेम से दिया हुआ वह उपहार मैं स्वीकार करता हूँ।",
+   "tags": [
+    "gratitude",
+    "humility",
+    "kindness",
+    "faith",
+    "contentment"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "10.9",
+   "chapter": 10,
+   "verse": 9,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "मच्चित्ता मद्गतप्राणा बोधयन्तः परस्परम्।",
+    "कथयन्तश्च मां नित्यं तुष्यन्ति च रमन्ति च॥"
+   ],
+   "iast": [
+    "maccittā madgataprāṇā bodhayantaḥ parasparam",
+    "kathayantaśca māṁ nityaṁ tuṣyanti ca ramanti ca"
+   ],
+   "meaning_en": "With minds and lives given to Me, they lift one another up and always speak of Me. In this they are content and joyful.",
+   "meaning_hi": "मुझमें मन और प्राण लगाए हुए वे एक-दूसरे को समझाते हैं और सदा मेरी चर्चा करते हैं। इसी में वे संतुष्ट रहते हैं और आनंद पाते हैं।",
+   "tags": [
+    "loneliness",
+    "kindness",
+    "contentment",
+    "gratitude"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "11.54",
+   "chapter": 11,
+   "verse": 54,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "भक्त्या त्वनन्यया शक्य अहमेवंविधोऽर्जुन।",
+    "ज्ञातुं द्रष्टुं च तत्त्वेन प्रवेष्टुं च परन्तप॥"
+   ],
+   "iast": [
+    "bhaktyā tvananyayā śakya ahamevaṁvidho'rjuna",
+    "jñātuṁ draṣṭuṁ ca tattvena praveṣṭuṁ ca parantapa"
+   ],
+   "meaning_en": "Only through single-minded devotion can I be known, seen in truth, and entered into, Arjuna.",
+   "meaning_hi": "हे अर्जुन, केवल अनन्य भक्ति से ही मुझे इस रूप में जाना, देखा और सच में पाया जा सकता है।",
+   "tags": [
+    "faith",
+    "focus",
+    "surrender"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "12.12",
+   "chapter": 12,
+   "verse": 12,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "श्रेयो हि ज्ञानमभ्यासाज्ज्ञानाद्ध्यानं विशिष्यते।",
+    "ध्यानात्कर्मफलत्यागस्त्यागाच्छान्तिरनन्तरम्॥"
+   ],
+   "iast": [
+    "śreyo hi jñānamabhyāsājjñānāddhyānaṁ viśiṣyate",
+    "dhyānātkarmaphalatyāgastyāgācchāntiranantaram"
+   ],
+   "meaning_en": "Knowledge is better than mere practice, meditation is better than knowledge, giving up the fruit of action is better than meditation, and peace follows at once.",
+   "meaning_hi": "अभ्यास से ज्ञान अच्छा है, ज्ञान से ध्यान अच्छा है, ध्यान से कर्म के फल का त्याग अच्छा है, और त्याग के बाद तुरंत शांति मिलती है।",
+   "tags": [
+    "peace",
+    "anxiety",
+    "detachment",
+    "learning",
+    "work-pressure"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "13.9",
+   "chapter": 13,
+   "verse": 9,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "इन्द्रियार्थेषु वैराग्यमनहंकार एव च।",
+    "जन्ममृत्युजराव्याधिदुःखदोषानुदर्शनम्॥"
+   ],
+   "iast": [
+    "indriyārtheṣu vairāgyamanahaṁkāra eva ca",
+    "janmamṛtyujarāvyādhiduḥkhadoṣānudarśanam"
+   ],
+   "meaning_en": "Wisdom also shows as freedom from craving for sense pleasures, no ego, and a clear view of the pain in birth, death, old age and illness.",
+   "meaning_hi": "ज्ञान यह भी है: इंद्रियों के सुखों से वैराग्य, अहंकार का न होना, और जन्म, मृत्यु, बुढ़ापे और रोग के दुख को साफ़ देखना।",
+   "tags": [
+    "detachment",
+    "humility",
+    "mortality",
+    "desire"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "14.24",
+   "chapter": 14,
+   "verse": 24,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "समदुःखसुखः स्वस्थः समलोष्टाश्मकाञ्चनः।",
+    "तुल्यप्रियाप्रियो धीरस्तुल्यनिन्दात्मसंस्तुतिः॥"
+   ],
+   "iast": [
+    "samaduḥkhasukhaḥ svasthaḥ samaloṣṭāśmakāñcanaḥ",
+    "tulyapriyāpriyo dhīrastulyanindātmasaṁstutiḥ"
+   ],
+   "meaning_en": "Beyond the three qualities is one who is the same in pain and pleasure, rests in the Self, sees a clod, a stone and gold alike, and stays steady in praise and blame.",
+   "meaning_hi": "गुणों से परे वह है जो सुख-दुख में समान है, अपने में टिका है, मिट्टी, पत्थर और सोने को एक-सा देखता है और निंदा-प्रशंसा में धैर्यवान रहता है।",
+   "tags": [
+    "equanimity",
+    "greed",
+    "comparison",
+    "contentment"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "15.7",
+   "chapter": 15,
+   "verse": 7,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "ममैवांशो जीवलोके जीवभूतः सनातनः।",
+    "मनःषष्ठानीन्द्रियाणि प्रकृतिस्थानि कर्षति॥"
+   ],
+   "iast": [
+    "mamaivāṁśo jīvaloke jīvabhūtaḥ sanātanaḥ",
+    "manaḥṣaṣṭhānīndriyāṇi prakṛtisthāni karṣati"
+   ],
+   "meaning_en": "A living soul in this world is an eternal part of Me. It draws along the five senses and the mind, which rest in nature.",
+   "meaning_hi": "इस संसार में जीव मेरा ही सनातन अंश है। वह प्रकृति में स्थित पाँच इंद्रियों और मन को अपनी ओर खींचता है।",
+   "tags": [
+    "self-worth",
+    "loneliness",
+    "faith",
+    "restlessness"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "16.2",
+   "chapter": 16,
+   "verse": 2,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "अहिंसा सत्यमक्रोधस्त्यागः शान्तिरपैशुनम्।",
+    "दया भूतेष्वलोलुप्त्वं मार्दवं ह्रीरचापलम्॥"
+   ],
+   "iast": [
+    "ahiṁsā satyamakrodhastyāgaḥ śāntirapaiśunam",
+    "dayā bhūteṣvaloluptvaṁ mārdavaṁ hrīracāpalam"
+   ],
+   "meaning_en": "And also non-violence, truth, freedom from anger, letting go, peace, not speaking ill of others, compassion for beings, freedom from greed, gentleness, modesty and steadiness.",
+   "meaning_hi": "और भी: अहिंसा, सत्य, क्रोध का न होना, त्याग, शांति, किसी की चुगली न करना, प्राणियों पर दया, लोभ का न होना, कोमलता, लज्जा और चंचलता का न होना।",
+   "tags": [
+    "anger",
+    "kindness",
+    "compassion",
+    "speech",
+    "greed"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "17.14",
+   "chapter": 17,
+   "verse": 14,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "देवद्विजगुरुप्राज्ञपूजनं शौचमार्जवम्।",
+    "ब्रह्मचर्यमहिंसा च शारीरं तप उच्यते॥"
+   ],
+   "iast": [
+    "devadvijaguruprājñapūjanaṁ śaucamārjavam",
+    "brahmacaryamahiṁsā ca śārīraṁ tapa ucyate"
+   ],
+   "meaning_en": "Honouring the gods, the twice-born, teachers and the wise; cleanliness, honesty, self-restraint and non-harm: this is called discipline of the body.",
+   "meaning_hi": "देवताओं, द्विजों, गुरुओं और ज्ञानियों का सम्मान, पवित्रता, सरलता, ब्रह्मचर्य और अहिंसा, इसे शरीर का तप कहा गया है।",
+   "tags": [
+    "discipline",
+    "humility",
+    "kindness",
+    "habits"
+   ],
+   "personal_advice_ok": false
+  },
+  {
+   "id": "18.47",
+   "chapter": 18,
+   "verse": 47,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "श्रेयान्स्वधर्मो विगुणः परधर्मात्स्वनुष्ठितात्।",
+    "स्वभावनियतं कर्म कुर्वन्नाप्नोति किल्बिषम्॥"
+   ],
+   "iast": [
+    "śreyānsvadharmo viguṇaḥ paradharmātsvanuṣṭhitāt",
+    "svabhāvaniyataṁ karma kurvannāpnoti kilbiṣam"
+   ],
+   "meaning_en": "One's own duty, even if imperfect, is better than another's done well. Doing the work that fits one's own nature, one incurs no fault.",
+   "meaning_hi": "अपना धर्म अधूरा निभाया हो तो भी दूसरे के धर्म को अच्छी तरह निभाने से बेहतर है। अपने स्वभाव के अनुसार काम करने वाला दोष नहीं पाता।",
+   "tags": [
+    "comparison",
+    "duty-conflict",
+    "self-worth",
+    "envy"
+   ],
+   "personal_advice_ok": false
+  },
+  {
+   "id": "2.27",
+   "chapter": 2,
+   "verse": 27,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "जातस्य हि ध्रुवो मृत्युर्ध्रुवं जन्म मृतस्य च।",
+    "तस्मादपरिहार्येऽर्थे न त्वं शोचितुमर्हसि॥"
+   ],
+   "iast": [
+    "jātasya hi dhruvo mṛtyurdhruvaṁ janma mṛtasya ca",
+    "tasmādaparihārye'rthe na tvaṁ śocitumarhasi"
+   ],
+   "meaning_en": "Whoever is born will surely die, and whoever dies will surely be born. So do not grieve over what cannot be avoided.",
+   "meaning_hi": "जो जन्मा है उसका मरना निश्चित है, और जो मरा है उसका जन्म निश्चित है। इसलिए जिसे टाला नहीं जा सकता, उसके लिए शोक मत करो।",
+   "tags": [
+    "grief",
+    "loss",
+    "mortality",
+    "detachment"
+   ],
+   "personal_advice_ok": false
+  },
+  {
+   "id": "3.21",
+   "chapter": 3,
+   "verse": 21,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "यद्यदाचरति श्रेष्ठस्तत्तदेवेतरो जनः।",
+    "स यत्प्रमाणं कुरुते लोकस्तदनुवर्तते॥"
+   ],
+   "iast": [
+    "yadyadācarati śreṣṭhastattadevetaro janaḥ",
+    "sa yatpramāṇaṁ kurute lokastadanuvartate"
+   ],
+   "meaning_en": "Whatever a great person does, others follow. The example they set, the world follows.",
+   "meaning_hi": "श्रेष्ठ इंसान जैसा करता है, बाकी लोग वैसा ही करते हैं। वह जो मिसाल रखता है, दुनिया उसी पर चलती है।",
+   "tags": [
+    "habits",
+    "discipline",
+    "purpose"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "4.34",
+   "chapter": 4,
+   "verse": 34,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "तद्विद्धि प्रणिपातेन परिप्रश्नेन सेवया।",
+    "उपदेक्ष्यन्ति ते ज्ञानं ज्ञानिनस्तत्त्वदर्शिनः॥"
+   ],
+   "iast": [
+    "tadviddhi praṇipātena paripraśnena sevayā",
+    "upadekṣyanti te jñānaṁ jñāninastattvadarśinaḥ"
+   ],
+   "meaning_en": "Learn this by bowing, by asking questions, and by serving. Those who have seen the truth will teach you.",
+   "meaning_hi": "इसे जानो: विनम्र होकर, सवाल पूछकर और सेवा करके। जिन्होंने सत्य को देखा है, वे ज्ञानी तुम्हें ज्ञान सिखाएँगे।",
+   "tags": [
+    "learning",
+    "humility",
+    "doubt"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "5.18",
+   "chapter": 5,
+   "verse": 18,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "विद्याविनयसम्पन्ने ब्राह्मणे गवि हस्तिनि।",
+    "शुनि चैव श्वपाके च पण्डिताः समदर्शिनः॥"
+   ],
+   "iast": [
+    "vidyāvinayasampanne brāhmaṇe gavi hastini",
+    "śuni caiva śvapāke ca paṇḍitāḥ samadarśinaḥ"
+   ],
+   "meaning_en": "The wise look with equal eyes on a learned and humble scholar, a cow, an elephant, a dog, and even a person cast out by society.",
+   "meaning_hi": "ज्ञानी लोग विद्वान और विनम्र ब्राह्मण, गाय, हाथी, कुत्ते और समाज से बाहर किए गए इंसान, सबको एक समान नज़र से देखते हैं।",
+   "tags": [
+    "compassion",
+    "kindness",
+    "comparison",
+    "humility"
+   ],
+   "personal_advice_ok": false
+  },
+  {
+   "id": "6.16",
+   "chapter": 6,
+   "verse": 16,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "नात्यश्नतस्तु योगोऽस्ति न चैकान्तमनश्नतः।",
+    "न चातिस्वप्नशीलस्य जाग्रतो नैव चार्जुन॥"
+   ],
+   "iast": [
+    "nātyaśnatastu yogo'sti na caikāntamanaśnataḥ",
+    "na cātisvapnaśīlasya jāgrato naiva cārjuna"
+   ],
+   "meaning_en": "Yoga is not for one who eats too much or fasts too much, who sleeps too much or too little.",
+   "meaning_hi": "योग न बहुत खाने वाले के लिए है, न बिल्कुल न खाने वाले के लिए। न बहुत सोने वाले के लिए, न बहुत जागने वाले के लिए।",
+   "tags": [
+    "burnout",
+    "habits",
+    "discipline"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "7.16",
+   "chapter": 7,
+   "verse": 16,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "चतुर्विधा भजन्ते मां जनाः सुकृतिनोऽर्जुन।",
+    "आर्तो जिज्ञासुरर्थार्थी ज्ञानी च भरतर्षभ॥"
+   ],
+   "iast": [
+    "caturvidhā bhajante māṁ janāḥ sukṛtino'rjuna",
+    "ārto jijñāsurarthārthī jñānī ca bharatarṣabha"
+   ],
+   "meaning_en": "Four kinds of good people turn to Me: the one in distress, the seeker of knowledge, the seeker of gain, and the wise.",
+   "meaning_hi": "चार तरह के भले लोग मुझे भजते हैं: दुखी, जानने की इच्छा वाला, कुछ पाने की चाह वाला, और ज्ञानी।",
+   "tags": [
+    "faith",
+    "grief",
+    "learning"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "8.7",
+   "chapter": 8,
+   "verse": 7,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "तस्मात्सर्वेषु कालेषु मामनुस्मर युध्य च।",
+    "मय्यर्पितमनोबुद्धिर्मामेवैष्यस्यसंशयम्॥"
+   ],
+   "iast": [
+    "tasmātsarveṣu kāleṣu māmanusmara yudhya ca",
+    "mayyarpitamanobuddhirmāmevaiṣyasyasaṁśayam"
+   ],
+   "meaning_en": "So remember Me at all times and do your duty. With your mind and intellect given to Me, you will surely come to Me.",
+   "meaning_hi": "इसलिए हर समय मुझे याद करो और अपना कर्तव्य निभाओ। मन और बुद्धि मुझे सौंप दोगे तो निःसंदेह मुझे ही पाओगे।",
+   "tags": [
+    "work-pressure",
+    "focus",
+    "surrender",
+    "faith"
+   ],
+   "personal_advice_ok": false
+  },
+  {
+   "id": "9.27",
+   "chapter": 9,
+   "verse": 27,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "यत्करोषि यदश्नासि यज्जुहोषि ददासि यत्।",
+    "यत्तपस्यसि कौन्तेय तत्कुरुष्व मदर्पणम्॥"
+   ],
+   "iast": [
+    "yatkaroṣi yadaśnāsi yajjuhoṣi dadāsi yat",
+    "yattapasyasi kaunteya tatkuruṣva madarpaṇam"
+   ],
+   "meaning_en": "Whatever you do, eat, offer, give or practise, do it as an offering to Me.",
+   "meaning_hi": "तुम जो भी करो, खाओ, अर्पण करो, दान दो या तप करो, वह सब मुझे अर्पित करके करो।",
+   "tags": [
+    "work-pressure",
+    "gratitude",
+    "purpose",
+    "surrender"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "10.10",
+   "chapter": 10,
+   "verse": 10,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "तेषां सततयुक्तानां भजतां प्रीतिपूर्वकम्।",
+    "ददामि बुद्धियोगं तं येन मामुपयान्ति ते॥"
+   ],
+   "iast": [
+    "teṣāṁ satatayuktānāṁ bhajatāṁ prītipūrvakam",
+    "dadāmi buddhiyogaṁ taṁ yena māmupayānti te"
+   ],
+   "meaning_en": "To those who are always devoted and worship with love, I give the clarity of mind by which they come to Me.",
+   "meaning_hi": "जो सदा जुड़े रहते हैं और प्रेम से मुझे भजते हैं, उन्हें मैं वह बुद्धियोग देता हूँ जिससे वे मुझ तक पहुँचते हैं।",
+   "tags": [
+    "confusion",
+    "doubt",
+    "faith",
+    "patience",
+    "hope"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "11.55",
+   "chapter": 11,
+   "verse": 55,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "मत्कर्मकृन्मत्परमो मद्भक्तः सङ्गवर्जितः।",
+    "निर्वैरः सर्वभूतेषु यः स मामेति पाण्डव॥"
+   ],
+   "iast": [
+    "matkarmakṛnmatparamo madbhaktaḥ saṅgavarjitaḥ",
+    "nirvairaḥ sarvabhūteṣu yaḥ sa māmeti pāṇḍava"
+   ],
+   "meaning_en": "One who works for Me, holds Me as the highest goal, is devoted, free from attachment, and has no hatred for any being, comes to Me.",
+   "meaning_hi": "जो मेरे लिए कर्म करता है, मुझे परम लक्ष्य मानता है, मेरा भक्त है, आसक्ति से मुक्त है और किसी प्राणी से बैर नहीं रखता, वह मुझे पाता है।",
+   "tags": [
+    "kindness",
+    "forgiveness",
+    "detachment",
+    "purpose"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "12.13",
+   "chapter": 12,
+   "verse": 13,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "अद्वेष्टा सर्वभूतानां मैत्रः करुण एव च।",
+    "निर्ममो निरहङ्कारः समदुःखसुखः क्षमी॥"
+   ],
+   "iast": [
+    "adveṣṭā sarvabhūtānāṁ maitraḥ karuṇa eva ca",
+    "nirmamo nirahaṅkāraḥ samaduḥkhasukhaḥ kṣamī"
+   ],
+   "meaning_en": "Dear to Me is one who hates no being, who is friendly and kind, free from ego and possessiveness, the same in pain and pleasure, and forgiving.",
+   "meaning_hi": "मुझे वह प्रिय है जो किसी से द्वेष नहीं करता, सबका मित्र और दयालु है, \"मेरा\" और अहंकार से मुक्त है, सुख-दुख में समान और क्षमाशील है।",
+   "tags": [
+    "kindness",
+    "compassion",
+    "forgiveness",
+    "humility",
+    "anger"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "13.27",
+   "chapter": 13,
+   "verse": 27,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "यावत्सञ्जायते किञ्चित्सत्त्वं स्थावरजङ्गमम्।",
+    "क्षेत्रक्षेत्रज्ञसंयोगात्तद्विद्धि भरतर्षभ॥"
+   ],
+   "iast": [
+    "yāvatsañjāyate kiñcitsattvaṁ sthāvarajaṅgamam",
+    "kṣetrakṣetrajñasaṁyogāttadviddhi bharatarṣabha"
+   ],
+   "meaning_en": "Whatever being comes into existence, moving or unmoving, know it arises from the union of the field and the knower of the field.",
+   "meaning_hi": "जो भी चर-अचर प्राणी पैदा होता है, उसे क्षेत्र और क्षेत्रज्ञ के मेल से हुआ जानो, हे अर्जुन।",
+   "tags": [
+    "learning",
+    "faith",
+    "purpose"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "14.25",
+   "chapter": 14,
+   "verse": 25,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "मानापमानयोस्तुल्यस्तुल्यो मित्रारिपक्षयोः।",
+    "सर्वारम्भपरित्यागी गुणातीतः स उच्यते॥"
+   ],
+   "iast": [
+    "mānāpamānayostulyastulyo mitrāripakṣayoḥ",
+    "sarvārambhaparityāgī guṇātītaḥ sa ucyate"
+   ],
+   "meaning_en": "Same in honour and insult, same to friend and foe, having given up selfish striving: such a one is said to have gone beyond the qualities.",
+   "meaning_hi": "जो मान-अपमान में समान है, मित्र और शत्रु पक्ष को एक-सा देखता है और स्वार्थ की हर दौड़ छोड़ चुका है, वह गुणों से परे कहलाता है।",
+   "tags": [
+    "equanimity",
+    "pride",
+    "forgiveness",
+    "detachment"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "15.15",
+   "chapter": 15,
+   "verse": 15,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "सर्वस्य चाहं हृदि सन्निविष्टो",
+    "मत्तः स्मृतिर्ज्ञानमपोहनञ्च।",
+    "वेदैश्च सर्वैरहमेव वेद्यो",
+    "वेदान्तकृद्वेदविदेव चाहम्॥"
+   ],
+   "iast": [
+    "sarvasya cāhaṁ hṛdi sanniviṣṭo",
+    "mattaḥ smṛtirjñānamapohanañca",
+    "vedaiśca sarvairahameva vedyo",
+    "vedāntakṛdvedavideva cāham"
+   ],
+   "meaning_en": "I dwell in the heart of everyone. From Me come memory, knowledge, and also their loss. I alone am to be known through all the Vedas.",
+   "meaning_hi": "मैं सबके हृदय में बैठा हूँ। मुझसे ही स्मृति, ज्ञान और उनका लोप होता है। सब वेदों से मैं ही जानने योग्य हूँ।",
+   "tags": [
+    "loneliness",
+    "self-worth",
+    "learning",
+    "faith"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "16.3",
+   "chapter": 16,
+   "verse": 3,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "तेजः क्षमा धृतिः शौचमद्रोहो नातिमानिता।",
+    "भवन्ति सम्पदं दैवीमभिजातस्य भारत॥"
+   ],
+   "iast": [
+    "tejaḥ kṣamā dhṛtiḥ śaucamadroho nātimānitā",
+    "bhavanti sampadaṁ daivīmabhijātasya bhārata"
+   ],
+   "meaning_en": "Radiance, forgiveness, courage, cleanliness, no malice, and no excess of pride: these belong to one born with divine qualities.",
+   "meaning_hi": "तेज, क्षमा, धैर्य, पवित्रता, किसी से द्रोह न करना और अत्यधिक अभिमान न होना, ये दैवी गुणों के साथ जन्मे इंसान की संपत्ति हैं।",
+   "tags": [
+    "forgiveness",
+    "pride",
+    "humility",
+    "fear",
+    "self-worth"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "17.15",
+   "chapter": 17,
+   "verse": 15,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "अनुद्वेगकरं वाक्यं सत्यं प्रियहितं च यत्।",
+    "स्वाध्यायाभ्यसनं चैव वाङ्मयं तप उच्यते॥"
+   ],
+   "iast": [
+    "anudvegakaraṁ vākyaṁ satyaṁ priyahitaṁ ca yat",
+    "svādhyāyābhyasanaṁ caiva vāṅmayaṁ tapa ucyate"
+   ],
+   "meaning_en": "Words that cause no pain, that are true, kind and helpful, and the regular practice of study: this is called discipline of speech.",
+   "meaning_hi": "ऐसी बात जो किसी को दुख न दे, सच्ची, प्रिय और हितकारी हो, और शास्त्र का नियमित अभ्यास, इसे वाणी का तप कहा गया है।",
+   "tags": [
+    "speech",
+    "anger",
+    "kindness",
+    "discipline"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "18.54",
+   "chapter": 18,
+   "verse": 54,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "ब्रह्मभूतः प्रसन्नात्मा न शोचति न काङ्क्षति।",
+    "समः सर्वेषु भूतेषु मद्भक्तिं लभते पराम्॥"
+   ],
+   "iast": [
+    "brahmabhūtaḥ prasannātmā na śocati na kāṅkṣati",
+    "samaḥ sarveṣu bhūteṣu madbhaktiṁ labhate parām"
+   ],
+   "meaning_en": "Becoming one with the Absolute, serene in mind, one neither grieves nor craves, is the same to all beings, and gains supreme devotion.",
+   "meaning_hi": "ब्रह्म में स्थित, प्रसन्न मन वाला इंसान न शोक करता है, न इच्छा। वह सब प्राणियों में समान रहता है और परम भक्ति पाता है।",
+   "tags": [
+    "grief",
+    "desire",
+    "peace",
+    "equanimity"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "2.56",
+   "chapter": 2,
+   "verse": 56,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "दुःखेष्वनुद्विग्नमनाः सुखेषु विगतस्पृहः।",
+    "वीतरागभयक्रोधः स्थितधीर्मुनिरुच्यते॥"
+   ],
+   "iast": [
+    "duḥkheṣvanudvignamanāḥ sukheṣu vigataspṛhaḥ",
+    "vītarāgabhayakrodhaḥ sthitadhīrmunirucyate"
+   ],
+   "meaning_en": "One whose mind is not shaken by sorrow, who does not crave pleasure, and who is free from desire, fear and anger is called a sage of steady wisdom.",
+   "meaning_hi": "दुख में जिसका मन घबराता नहीं, सुख में जिसे लालसा नहीं, और जो राग, भय और क्रोध से मुक्त है, वही स्थिर बुद्धि वाला मुनि कहलाता है।",
+   "tags": [
+    "anger",
+    "fear",
+    "equanimity",
+    "desire",
+    "peace"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "3.27",
+   "chapter": 3,
+   "verse": 27,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "प्रकृतेः क्रियमाणानि गुणैः कर्माणि सर्वशः।",
+    "अहङ्कारविमूढात्मा कर्ताहमिति मन्यते॥"
+   ],
+   "iast": [
+    "prakṛteḥ kriyamāṇāni guṇaiḥ karmāṇi sarvaśaḥ",
+    "ahaṅkāravimūḍhātmā kartāhamiti manyate"
+   ],
+   "meaning_en": "All actions are done by the forces of nature. Only one whose mind is clouded by ego thinks, \"I am the doer.\"",
+   "meaning_hi": "सारे काम प्रकृति के गुणों से होते हैं। जिसका मन अहंकार से भ्रमित है, वही सोचता है कि \"मैं ही करने वाला हूँ\"।",
+   "tags": [
+    "pride",
+    "success",
+    "humility",
+    "detachment"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "4.38",
+   "chapter": 4,
+   "verse": 38,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "न हि ज्ञानेन सदृशं पवित्रमिह विद्यते।",
+    "तत्स्वयं योगसंसिद्धः कालेनात्मनि विन्दति॥"
+   ],
+   "iast": [
+    "na hi jñānena sadṛśaṁ pavitramiha vidyate",
+    "tatsvayaṁ yogasaṁsiddhaḥ kālenātmani vindati"
+   ],
+   "meaning_en": "Nothing here purifies like knowledge. In time, one who is perfected in yoga finds it within oneself.",
+   "meaning_hi": "इस संसार में ज्ञान जैसा पवित्र कुछ नहीं है। योग में सिद्ध हुआ इंसान समय आने पर उसे अपने भीतर ही पा लेता है।",
+   "tags": [
+    "learning",
+    "patience",
+    "self-worth",
+    "purpose"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "5.20",
+   "chapter": 5,
+   "verse": 20,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "न प्रहृष्येत्प्रियं प्राप्य नोद्विजेत्प्राप्य चाप्रियम्।",
+    "स्थिरबुद्धिरसम्मूढो ब्रह्मविद् ब्रह्मणि स्थितः॥"
+   ],
+   "iast": [
+    "na prahṛṣyetpriyaṁ prāpya nodvijetprāpya cāpriyam",
+    "sthirabuddhirasammūḍho brahmavid brahmaṇi sthitaḥ"
+   ],
+   "meaning_en": "Do not rejoice on getting what is pleasant, nor be upset on getting what is unpleasant. Stay steady, clear-minded, rooted in the Self.",
+   "meaning_hi": "प्रिय चीज़ पाकर बहुत खुश न हो और अप्रिय चीज़ पाकर घबराए नहीं। जिसकी बुद्धि स्थिर है और जो भ्रम से मुक्त है, वही परमात्मा में टिका है।",
+   "tags": [
+    "equanimity",
+    "success",
+    "failure",
+    "anxiety"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "6.17",
+   "chapter": 6,
+   "verse": 17,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "युक्ताहारविहारस्य युक्तचेष्टस्य कर्मसु।",
+    "युक्तस्वप्नावबोधस्य योगो भवति दुःखहा॥"
+   ],
+   "iast": [
+    "yuktāhāravihārasya yuktaceṣṭasya karmasu",
+    "yuktasvapnāvabodhasya yogo bhavati duḥkhahā"
+   ],
+   "meaning_en": "For one who is moderate in food and rest, in work, in sleep and waking, yoga becomes the end of sorrow.",
+   "meaning_hi": "जिसका खाना, आराम, काम, सोना और जागना संतुलित है, उसके लिए योग दुखों को मिटाने वाला बन जाता है।",
+   "tags": [
+    "burnout",
+    "habits",
+    "peace",
+    "discipline"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "7.19",
+   "chapter": 7,
+   "verse": 19,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "बहूनां जन्मनामन्ते ज्ञानवान्मां प्रपद्यते।",
+    "वासुदेवः सर्वमिति स महात्मा सुदुर्लभः॥"
+   ],
+   "iast": [
+    "bahūnāṁ janmanāmante jñānavānmāṁ prapadyate",
+    "vāsudevaḥ sarvamiti sa mahātmā sudurlabhaḥ"
+   ],
+   "meaning_en": "After many births, the wise one comes to Me, knowing that all is the Divine. Such a great soul is very rare.",
+   "meaning_hi": "कई जन्मों के अंत में ज्ञानी मेरी शरण आता है, यह जानकर कि सब कुछ वासुदेव ही है। ऐसा महात्मा बहुत दुर्लभ है।",
+   "tags": [
+    "faith",
+    "patience",
+    "purpose"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "8.14",
+   "chapter": 8,
+   "verse": 14,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "अनन्यचेताः सततं यो मां स्मरति नित्यशः।",
+    "तस्याहं सुलभः पार्थ नित्ययुक्तस्य योगिनः॥"
+   ],
+   "iast": [
+    "ananyacetāḥ satataṁ yo māṁ smarati nityaśaḥ",
+    "tasyāhaṁ sulabhaḥ pārtha nityayuktasya yoginaḥ"
+   ],
+   "meaning_en": "I am easy to reach for the one who remembers Me with a single mind, every day, without a break.",
+   "meaning_hi": "जो एक मन से, हर दिन, बिना रुके मुझे याद करता है, उस सदा जुड़े हुए योगी के लिए मैं आसानी से मिल जाता हूँ।",
+   "tags": [
+    "loneliness",
+    "faith",
+    "habits",
+    "peace"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "9.29",
+   "chapter": 9,
+   "verse": 29,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "समोऽहं सर्वभूतेषु न मे द्वेष्योऽस्ति न प्रियः।",
+    "ये भजन्ति तु मां भक्त्या मयि ते तेषु चाप्यहम्॥"
+   ],
+   "iast": [
+    "samo'haṁ sarvabhūteṣu na me dveṣyo'sti na priyaḥ",
+    "ye bhajanti tu māṁ bhaktyā mayi te teṣu cāpyaham"
+   ],
+   "meaning_en": "I am the same to all beings. No one is hated by Me and no one is dearer. But those who love Me are in Me, and I am in them.",
+   "meaning_hi": "मैं सब प्राणियों में समान हूँ। न कोई मुझे अप्रिय है, न प्रिय। पर जो प्रेम से मुझे भजते हैं, वे मुझमें हैं और मैं उनमें हूँ।",
+   "tags": [
+    "loneliness",
+    "self-worth",
+    "faith",
+    "comparison"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "10.11",
+   "chapter": 10,
+   "verse": 11,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "तेषामेवानुकम्पार्थमहमज्ञानजं तमः।",
+    "नाशयाम्यात्मभावस्थो ज्ञानदीपेन भास्वता॥"
+   ],
+   "iast": [
+    "teṣāmevānukampārthamahamajñānajaṁ tamaḥ",
+    "nāśayāmyātmabhāvastho jñānadīpena bhāsvatā"
+   ],
+   "meaning_en": "Out of pure compassion for them, I stay in their hearts and destroy the darkness of ignorance with the bright lamp of knowledge.",
+   "meaning_hi": "उन पर कृपा करने के लिए ही मैं उनके हृदय में रहकर ज्ञान के चमकते दीपक से अज्ञान का अंधकार मिटा देता हूँ।",
+   "tags": [
+    "confusion",
+    "doubt",
+    "hope",
+    "loneliness",
+    "learning"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "12.14",
+   "chapter": 12,
+   "verse": 14,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "सन्तुष्टः सततं योगी यतात्मा दृढनिश्चयः।",
+    "मय्यर्पितमनोबुद्धिर्यो मद्भक्तः स मे प्रियः॥"
+   ],
+   "iast": [
+    "santuṣṭaḥ satataṁ yogī yatātmā dṛḍhaniścayaḥ",
+    "mayyarpitamanobuddhiryo madbhaktaḥ sa me priyaḥ"
+   ],
+   "meaning_en": "Always content, self-controlled, firm in resolve, with mind and intellect given to Me: such a devotee is dear to Me.",
+   "meaning_hi": "जो सदा संतुष्ट है, संयमी है, दृढ़ निश्चय वाला है और जिसने मन-बुद्धि मुझे सौंप दी है, ऐसा भक्त मुझे प्रिय है।",
+   "tags": [
+    "contentment",
+    "discipline",
+    "faith",
+    "peace"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "13.28",
+   "chapter": 13,
+   "verse": 28,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "समं सर्वेषु भूतेषु तिष्ठन्तं परमेश्वरम्।",
+    "विनश्यत्स्वविनश्यन्तं यः पश्यति स पश्यति॥"
+   ],
+   "iast": [
+    "samaṁ sarveṣu bhūteṣu tiṣṭhantaṁ parameśvaram",
+    "vinaśyatsvavinaśyantaṁ yaḥ paśyati sa paśyati"
+   ],
+   "meaning_en": "One who sees the Supreme Lord present equally in all beings, and unchanged when they perish, truly sees.",
+   "meaning_hi": "जो परमेश्वर को सब प्राणियों में समान रूप से बसा देखता है, और उन्हें नष्ट होते देख भी उसे अविनाशी जानता है, वही सच में देखता है।",
+   "tags": [
+    "compassion",
+    "kindness",
+    "loneliness",
+    "mortality"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "14.26",
+   "chapter": 14,
+   "verse": 26,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "मां च योऽव्यभिचारेण भक्तियोगेन सेवते।",
+    "स गुणान्समतीत्यैतान्ब्रह्मभूयाय कल्पते॥"
+   ],
+   "iast": [
+    "māṁ ca yo'vyabhicāreṇa bhaktiyogena sevate",
+    "sa guṇānsamatītyaitānbrahmabhūyāya kalpate"
+   ],
+   "meaning_en": "One who serves Me with unwavering devotion goes beyond these qualities and becomes fit for oneness with the Absolute.",
+   "meaning_hi": "जो अटूट भक्तियोग से मेरी सेवा करता है, वह इन गुणों से पार हो जाता है और ब्रह्म के साथ एक होने के योग्य बनता है।",
+   "tags": [
+    "faith",
+    "discipline",
+    "habits",
+    "purpose"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "15.19",
+   "chapter": 15,
+   "verse": 19,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "यो मामेवमसम्मूढो जानाति पुरुषोत्तमम्।",
+    "स सर्वविद्भजति मां सर्वभावेन भारत॥"
+   ],
+   "iast": [
+    "yo māmevamasammūḍho jānāti puruṣottamam",
+    "sa sarvavidbhajati māṁ sarvabhāvena bhārata"
+   ],
+   "meaning_en": "One who knows Me, without confusion, as the Supreme Person, knows all and worships Me with the whole heart.",
+   "meaning_hi": "जो बिना भ्रम के मुझे पुरुषोत्तम के रूप में जानता है, वह सब कुछ जानने वाला पूरे भाव से मुझे भजता है।",
+   "tags": [
+    "faith",
+    "doubt",
+    "confusion",
+    "purpose"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "16.21",
+   "chapter": 16,
+   "verse": 21,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "त्रिविधं नरकस्येदं द्वारं नाशनमात्मनः।",
+    "कामः क्रोधस्तथा लोभस्तस्मादेतत्त्रयं त्यजेत्॥"
+   ],
+   "iast": [
+    "trividhaṁ narakasyedaṁ dvāraṁ nāśanamātmanaḥ",
+    "kāmaḥ krodhastathā lobhastasmādetattrayaṁ tyajet"
+   ],
+   "meaning_en": "Desire, anger and greed are the three gates to the self's ruin. So give up these three.",
+   "meaning_hi": "काम, क्रोध और लोभ, ये तीन आत्मा का नाश करने वाले नरक के द्वार हैं। इसलिए इन तीनों को छोड़ दो।",
+   "tags": [
+    "desire",
+    "anger",
+    "greed",
+    "discipline"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "17.16",
+   "chapter": 17,
+   "verse": 16,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "मनः प्रसादः सौम्यत्वं मौनमात्मविनिग्रहः।",
+    "भावसंशुद्धिरित्येतत्तपो मानसमुच्यते॥"
+   ],
+   "iast": [
+    "manaḥ prasādaḥ saumyatvaṁ maunamātmavinigrahaḥ",
+    "bhāvasaṁśuddhirityetattapo mānasamucyate"
+   ],
+   "meaning_en": "Calm of mind, gentleness, silence, self-control and purity of feeling: this is called discipline of the mind.",
+   "meaning_hi": "मन की प्रसन्नता, सौम्यता, मौन, आत्म-संयम और भावों की शुद्धता, इसे मन का तप कहा गया है।",
+   "tags": [
+    "peace",
+    "restlessness",
+    "discipline",
+    "speech"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "18.57",
+   "chapter": 18,
+   "verse": 57,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "चेतसा सर्वकर्माणि मयि संन्यस्य मत्परः।",
+    "बुद्धियोगमुपाश्रित्य मच्चित्तः सततं भव॥"
+   ],
+   "iast": [
+    "cetasā sarvakarmāṇi mayi saṁnyasya matparaḥ",
+    "buddhiyogamupāśritya maccittaḥ satataṁ bhava"
+   ],
+   "meaning_en": "In your mind offer all your actions to Me, hold Me as your highest goal, rely on the yoga of the mind, and keep your mind on Me always.",
+   "meaning_hi": "मन से अपने सारे कर्म मुझे सौंपकर, मुझे परम लक्ष्य मानकर, बुद्धियोग का सहारा लो और अपना मन सदा मुझमें रखो।",
+   "tags": [
+    "work-pressure",
+    "surrender",
+    "focus",
+    "anxiety"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "2.58",
+   "chapter": 2,
+   "verse": 58,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "यदा संहरते चायं कूर्मोऽङ्गानीव सर्वशः।",
+    "इन्द्रियाणीन्द्रियार्थेभ्यस्तस्य प्रज्ञा प्रतिष्ठिता॥"
+   ],
+   "iast": [
+    "yadā saṁharate cāyaṁ kūrmo'ṅgānīva sarvaśaḥ",
+    "indriyāṇīndriyārthebhyastasya prajñā pratiṣṭhitā"
+   ],
+   "meaning_en": "Like a tortoise drawing in its limbs, one who can draw the senses back from their objects has steady wisdom.",
+   "meaning_hi": "जैसे कछुआ अपने अंग समेट लेता है, वैसे ही जो इंद्रियों को उनके विषयों से हटा लेता है, उसकी बुद्धि स्थिर है।",
+   "tags": [
+    "restlessness",
+    "discipline",
+    "focus",
+    "desire"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "3.35",
+   "chapter": 3,
+   "verse": 35,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "श्रेयान्स्वधर्मो विगुणः परधर्मात्स्वनुष्ठितात्।",
+    "स्वधर्मे निधनं श्रेयः परधर्मो भयावहः॥"
+   ],
+   "iast": [
+    "śreyānsvadharmo viguṇaḥ paradharmātsvanuṣṭhitāt",
+    "svadharme nidhanaṁ śreyaḥ paradharmo bhayāvahaḥ"
+   ],
+   "meaning_en": "One's own path, even done imperfectly, is better than another's path done well. Another's path brings fear.",
+   "meaning_hi": "अपना धर्म अधूरा निभाया हो तो भी दूसरे के धर्म को अच्छी तरह निभाने से बेहतर है। दूसरे का धर्म डर लाता है।",
+   "tags": [
+    "comparison",
+    "duty-conflict",
+    "self-worth",
+    "envy"
+   ],
+   "personal_advice_ok": false
+  },
+  {
+   "id": "4.39",
+   "chapter": 4,
+   "verse": 39,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "श्रद्धावाँल्लभते ज्ञानं तत्परः संयतेन्द्रियः।",
+    "ज्ञानं लब्ध्वा परां शान्तिमचिरेणाधिगच्छति॥"
+   ],
+   "iast": [
+    "śraddhāvām̐llabhate jñānaṁ tatparaḥ saṁyatendriyaḥ",
+    "jñānaṁ labdhvā parāṁ śāntimacireṇādhigacchati"
+   ],
+   "meaning_en": "One who has faith, is devoted and keeps the senses in check gains knowledge, and soon finds deep peace.",
+   "meaning_hi": "श्रद्धा रखने वाला, लगन से जुड़ा और इंद्रियों को संभालने वाला इंसान ज्ञान पाता है, और ज्ञान पाकर जल्दी ही परम शांति पाता है।",
+   "tags": [
+    "faith",
+    "learning",
+    "peace",
+    "discipline"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "5.23",
+   "chapter": 5,
+   "verse": 23,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "शक्नोतीहैव यः सोढुं प्राक्शरीरविमोक्षणात्।",
+    "कामक्रोधोद्भवं वेगं स युक्तः स सुखी नरः॥"
+   ],
+   "iast": [
+    "śaknotīhaiva yaḥ soḍhuṁ prākśarīravimokṣaṇāt",
+    "kāmakrodhodbhavaṁ vegaṁ sa yuktaḥ sa sukhī naraḥ"
+   ],
+   "meaning_en": "Whoever can withstand the surge of desire and anger before leaving the body is a yogi and a happy person.",
+   "meaning_hi": "शरीर छूटने से पहले जो इच्छा और क्रोध की लहर को सह लेता है, वही योगी है और वही सुखी इंसान है।",
+   "tags": [
+    "anger",
+    "desire",
+    "discipline",
+    "patience"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "6.26",
+   "chapter": 6,
+   "verse": 26,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "यतो यतो निश्चरति मनश्चञ्चलमस्थिरम्।",
+    "ततस्ततो नियम्यैतदात्मन्येव वशं नयेत्॥"
+   ],
+   "iast": [
+    "yato yato niścarati manaścañcalamasthiram",
+    "tatastato niyamyaitadātmanyeva vaśaṁ nayet"
+   ],
+   "meaning_en": "Wherever the restless, wandering mind goes, gently bring it back and steady it in the Self.",
+   "meaning_hi": "यह चंचल और अस्थिर मन जहाँ-जहाँ भटके, वहाँ-वहाँ से इसे लौटाकर अपने भीतर ही स्थिर करो।",
+   "tags": [
+    "restlessness",
+    "focus",
+    "patience",
+    "anxiety"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "7.21",
+   "chapter": 7,
+   "verse": 21,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "यो यो यां यां तनुं भक्तः श्रद्धयार्चितुमिच्छति।",
+    "तस्य तस्याचलां श्रद्धां तामेव विदधाम्यहम्॥"
+   ],
+   "iast": [
+    "yo yo yāṁ yāṁ tanuṁ bhaktaḥ śraddhayārcitumicchati",
+    "tasya tasyācalāṁ śraddhāṁ tāmeva vidadhāmyaham"
+   ],
+   "meaning_en": "Whatever form a devotee wishes to worship with faith, I make that faith steady.",
+   "meaning_hi": "जो भक्त जिस भी रूप को श्रद्धा से पूजना चाहता है, मैं उसकी उसी श्रद्धा को स्थिर कर देता हूँ।",
+   "tags": [
+    "faith",
+    "doubt",
+    "peace"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "8.15",
+   "chapter": 8,
+   "verse": 15,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "मामुपेत्य पुनर्जन्म दुःखालयमशाश्वतम्।",
+    "नाप्नुवन्ति महात्मानः संसिद्धिं परमां गताः॥"
+   ],
+   "iast": [
+    "māmupetya punarjanma duḥkhālayamaśāśvatam",
+    "nāpnuvanti mahātmānaḥ saṁsiddhiṁ paramāṁ gatāḥ"
+   ],
+   "meaning_en": "Having come to Me, great souls do not return to rebirth, a home of sorrow that does not last. They have reached the highest perfection.",
+   "meaning_hi": "मुझे पाकर महान आत्माएँ दुख के घर, अस्थायी पुनर्जन्म में नहीं लौटतीं। वे परम सिद्धि पा चुकी होती हैं।",
+   "tags": [
+    "mortality",
+    "grief",
+    "peace",
+    "faith"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "9.31",
+   "chapter": 9,
+   "verse": 31,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "क्षिप्रं भवति धर्मात्मा शश्वच्छान्तिं निगच्छति।",
+    "कौन्तेय प्रतिजानीहि न मे भक्तः प्रणश्यति॥"
+   ],
+   "iast": [
+    "kṣipraṁ bhavati dharmātmā śaśvacchāntiṁ nigacchati",
+    "kaunteya pratijānīhi na me bhaktaḥ praṇaśyati"
+   ],
+   "meaning_en": "Quickly such a person becomes good and finds lasting peace. Know this for certain: My devotee is never lost.",
+   "meaning_hi": "वह जल्दी ही धर्मात्मा बन जाता है और सदा की शांति पाता है। यह निश्चय जान लो: मेरा भक्त कभी नष्ट नहीं होता।",
+   "tags": [
+    "failure",
+    "forgiveness",
+    "hope",
+    "peace",
+    "self-worth"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "10.20",
+   "chapter": 10,
+   "verse": 20,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "अहमात्मा गुडाकेश सर्वभूताशयस्थितः।",
+    "अहमादिश्च मध्यं च भूतानामन्त एव च॥"
+   ],
+   "iast": [
+    "ahamātmā guḍākeśa sarvabhūtāśayasthitaḥ",
+    "ahamādiśca madhyaṁ ca bhūtānāmanta eva ca"
+   ],
+   "meaning_en": "I am the Self seated in the heart of every being. I am the beginning, the middle and the end of all beings.",
+   "meaning_hi": "मैं हर प्राणी के हृदय में बसा आत्मा हूँ। मैं ही सब प्राणियों का आदि, मध्य और अंत हूँ।",
+   "tags": [
+    "loneliness",
+    "faith",
+    "self-worth",
+    "mortality"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "12.15",
+   "chapter": 12,
+   "verse": 15,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "यस्मान्नोद्विजते लोको लोकान्नोद्विजते च यः।",
+    "हर्षामर्षभयोद्वेगैर्मुक्तो यः स च मे प्रियः॥"
+   ],
+   "iast": [
+    "yasmānnodvijate loko lokānnodvijate ca yaḥ",
+    "harṣāmarṣabhayodvegairmukto yaḥ sa ca me priyaḥ"
+   ],
+   "meaning_en": "One who does not disturb the world, and is not disturbed by it, free from excitement, anger, fear and agitation, is dear to Me.",
+   "meaning_hi": "जो दुनिया को परेशान नहीं करता और दुनिया से परेशान नहीं होता, जो उत्तेजना, गुस्से, डर और घबराहट से मुक्त है, वह मुझे प्रिय है।",
+   "tags": [
+    "anger",
+    "fear",
+    "anxiety",
+    "peace",
+    "kindness"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "17.20",
+   "chapter": 17,
+   "verse": 20,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "दातव्यमिति यद्दानं दीयतेऽनुपकारिणे।",
+    "देशे काले च पात्रे च तद्दानं सात्त्विकं स्मृतम्॥"
+   ],
+   "iast": [
+    "dātavyamiti yaddānaṁ dīyate'nupakāriṇe",
+    "deśe kāle ca pātre ca taddānaṁ sāttvikaṁ smṛtam"
+   ],
+   "meaning_en": "A gift given because it is right to give, to one who cannot repay it, at the right place and time and to a worthy person, is called a pure gift.",
+   "meaning_hi": "\"देना ही चाहिए\" यह सोचकर, जो बदले में कुछ नहीं लौटा सकता उसे, सही जगह, सही समय और योग्य व्यक्ति को दिया गया दान सात्त्विक कहलाता है।",
+   "tags": [
+    "kindness",
+    "gratitude",
+    "compassion",
+    "greed"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "18.58",
+   "chapter": 18,
+   "verse": 58,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "मच्चित्तः सर्वदुर्गाणि मत्प्रसादात्तरिष्यसि।",
+    "अथ चेत्त्वमहंकारान्न श्रोष्यसि विनङ्क्ष्यसि॥"
+   ],
+   "iast": [
+    "maccittaḥ sarvadurgāṇi matprasādāttariṣyasi",
+    "atha cettvamahaṁkārānna śroṣyasi vinaṅkṣyasi"
+   ],
+   "meaning_en": "With your mind on Me you will cross every difficulty by My grace. But if, from ego, you do not listen, you will be lost.",
+   "meaning_hi": "मुझमें मन लगाने से तुम मेरी कृपा से सारी कठिनाइयाँ पार कर लोगे। पर अगर अहंकार में नहीं सुनोगे, तो नष्ट हो जाओगे।",
+   "tags": [
+    "pride",
+    "fear",
+    "surrender"
+   ],
+   "personal_advice_ok": false
+  },
+  {
+   "id": "2.62",
+   "chapter": 2,
+   "verse": 62,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "ध्यायतो विषयान्पुंसः सङ्गस्तेषूपजायते।",
+    "सङ्गात्सञ्जायते कामः कामात्क्रोधोऽभिजायते॥"
+   ],
+   "iast": [
+    "dhyāyato viṣayānpuṁsaḥ saṅgasteṣūpajāyate",
+    "saṅgātsañjāyate kāmaḥ kāmātkrodho'bhijāyate"
+   ],
+   "meaning_en": "Dwelling on sense objects, attachment grows. From attachment comes desire, and from desire comes anger.",
+   "meaning_hi": "विषयों के बारे में सोचते रहने से उनसे लगाव हो जाता है। लगाव से इच्छा जन्मती है और इच्छा से क्रोध।",
+   "tags": [
+    "desire",
+    "anger",
+    "habits",
+    "restlessness"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "3.37",
+   "chapter": 3,
+   "verse": 37,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "काम एष क्रोध एष रजोगुणसमुद्भवः।",
+    "महाशनो महापाप्मा विद्ध्येनमिह वैरिणम्॥"
+   ],
+   "iast": [
+    "kāma eṣa krodha eṣa rajoguṇasamudbhavaḥ",
+    "mahāśano mahāpāpmā viddhyenamiha vairiṇam"
+   ],
+   "meaning_en": "It is desire and anger, born of restless energy, that devour everything and do great harm. Know them as the enemy here.",
+   "meaning_hi": "यह इच्छा और यह क्रोध, जो बेचैन ऊर्जा से पैदा होते हैं, सब कुछ निगल जाते हैं और बहुत हानि करते हैं। इन्हें यहाँ अपना शत्रु जानो।",
+   "tags": [
+    "desire",
+    "anger",
+    "restlessness",
+    "discipline"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "5.29",
+   "chapter": 5,
+   "verse": 29,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "भोक्तारं यज्ञतपसां सर्वलोकमहेश्वरम्।",
+    "सुहृदं सर्वभूतानां ज्ञात्वा मां शान्तिमृच्छति॥"
+   ],
+   "iast": [
+    "bhoktāraṁ yajñatapasāṁ sarvalokamaheśvaram",
+    "suhṛdaṁ sarvabhūtānāṁ jñātvā māṁ śāntimṛcchati"
+   ],
+   "meaning_en": "Knowing Me as the friend of all beings, the one who receives every offering and austerity, a person finds peace.",
+   "meaning_hi": "मुझे सब यज्ञों और तपों को स्वीकार करने वाला, सब लोकों का स्वामी और सब प्राणियों का मित्र जानकर इंसान शांति पाता है।",
+   "tags": [
+    "peace",
+    "faith",
+    "loneliness",
+    "surrender"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "6.30",
+   "chapter": 6,
+   "verse": 30,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "यो मां पश्यति सर्वत्र सर्वं च मयि पश्यति।",
+    "तस्याहं न प्रणश्यामि स च मे न प्रणश्यति॥"
+   ],
+   "iast": [
+    "yo māṁ paśyati sarvatra sarvaṁ ca mayi paśyati",
+    "tasyāhaṁ na praṇaśyāmi sa ca me na praṇaśyati"
+   ],
+   "meaning_en": "One who sees Me everywhere, and sees everything in Me, is never lost to Me, and I am never lost to them.",
+   "meaning_hi": "जो मुझे हर जगह देखता है और सबको मुझमें देखता है, उसके लिए मैं कभी ओझल नहीं होता और वह मुझसे कभी ओझल नहीं होता।",
+   "tags": [
+    "loneliness",
+    "faith",
+    "peace",
+    "gratitude"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "9.34",
+   "chapter": 9,
+   "verse": 34,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु।",
+    "मामेवैष्यसि युक्त्वैवमात्मानं मत्परायणः॥"
+   ],
+   "iast": [
+    "manmanā bhava madbhakto madyājī māṁ namaskuru",
+    "māmevaiṣyasi yuktvaivamātmānaṁ matparāyaṇaḥ"
+   ],
+   "meaning_en": "Fix your mind on Me, be devoted to Me, worship Me, bow to Me. Joined to Me in this way, you will come to Me.",
+   "meaning_hi": "अपना मन मुझमें लगाओ, मेरे भक्त बनो, मेरी पूजा करो, मुझे प्रणाम करो। इस तरह मुझमें जुड़कर तुम मुझे ही पाओगे।",
+   "tags": [
+    "focus",
+    "faith",
+    "surrender",
+    "habits"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "12.16",
+   "chapter": 12,
+   "verse": 16,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "अनपेक्षः शुचिर्दक्ष उदासीनो गतव्यथः।",
+    "सर्वारम्भपरित्यागी यो मद्भक्तः स मे प्रियः॥"
+   ],
+   "iast": [
+    "anapekṣaḥ śucirdakṣa udāsīno gatavyathaḥ",
+    "sarvārambhaparityāgī yo madbhaktaḥ sa me priyaḥ"
+   ],
+   "meaning_en": "Not dependent on others, pure, capable, calm, free from worry, and letting go of selfish striving: such a devotee is dear to Me.",
+   "meaning_hi": "जो किसी पर निर्भर नहीं, शुद्ध, कुशल, तटस्थ और चिंता से मुक्त है, और स्वार्थ भरी हर दौड़ छोड़ चुका है, ऐसा भक्त मुझे प्रिय है।",
+   "tags": [
+    "detachment",
+    "burnout",
+    "work-pressure",
+    "peace"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "18.61",
+   "chapter": 18,
+   "verse": 61,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "ईश्वरः सर्वभूतानां हृद्देशेऽर्जुन तिष्ठति।",
+    "भ्रामयन्सर्वभूतानि यन्त्रारूढानि मायया॥"
+   ],
+   "iast": [
+    "īśvaraḥ sarvabhūtānāṁ hṛddeśe'rjuna tiṣṭhati",
+    "bhrāmayansarvabhūtāni yantrārūḍhāni māyayā"
+   ],
+   "meaning_en": "The Lord dwells in the heart of all beings, Arjuna, and by His power turns them round as if they were mounted on a machine.",
+   "meaning_hi": "हे अर्जुन, ईश्वर सब प्राणियों के हृदय में बसा है और अपनी माया से सबको ऐसे घुमाता है जैसे वे यंत्र पर बैठे हों।",
+   "tags": [
+    "faith",
+    "loneliness",
+    "confusion",
+    "surrender"
+   ],
+   "personal_advice_ok": false
+  },
+  {
+   "id": "2.63",
+   "chapter": 2,
+   "verse": 63,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "क्रोधाद्भवति सम्मोहः सम्मोहात्स्मृतिविभ्रमः।",
+    "स्मृतिभ्रंशाद् बुद्धिनाशो बुद्धिनाशात्प्रणश्यति॥"
+   ],
+   "iast": [
+    "krodhādbhavati sammohaḥ sammohātsmṛtivibhramaḥ",
+    "smṛtibhraṁśād buddhināśo buddhināśātpraṇaśyati"
+   ],
+   "meaning_en": "From anger comes confusion, from confusion loss of memory, from that the loss of reason, and with the loss of reason one is ruined.",
+   "meaning_hi": "क्रोध से भ्रम होता है, भ्रम से याददाश्त बिगड़ती है, उससे बुद्धि नष्ट होती है, और बुद्धि के नष्ट होने पर इंसान गिर जाता है।",
+   "tags": [
+    "anger",
+    "confusion",
+    "discipline"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "3.42",
+   "chapter": 3,
+   "verse": 42,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "इन्द्रियाणि पराण्याहुरिन्द्रियेभ्यः परं मनः।",
+    "मनसस्तु परा बुद्धिर्यो बुद्धेः परतस्तु सः॥"
+   ],
+   "iast": [
+    "indriyāṇi parāṇyāhurindriyebhyaḥ paraṁ manaḥ",
+    "manasastu parā buddhiryo buddheḥ paratastu saḥ"
+   ],
+   "meaning_en": "The senses are strong, the mind is stronger than the senses, the intellect is stronger than the mind, and the Self is stronger still.",
+   "meaning_hi": "इंद्रियाँ बलवान हैं, इंद्रियों से बलवान मन है, मन से बलवान बुद्धि है, और बुद्धि से भी बलवान वह आत्मा है।",
+   "tags": [
+    "focus",
+    "discipline",
+    "restlessness",
+    "self-worth"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "6.32",
+   "chapter": 6,
+   "verse": 32,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "आत्मौपम्येन सर्वत्र समं पश्यति योऽर्जुन।",
+    "सुखं वा यदि वा दुःखं स योगी परमो मतः॥"
+   ],
+   "iast": [
+    "ātmaupamyena sarvatra samaṁ paśyati yo'rjuna",
+    "sukhaṁ vā yadi vā duḥkhaṁ sa yogī paramo mataḥ"
+   ],
+   "meaning_en": "One who sees every being as like oneself, in joy and in sorrow, is held to be the best of yogis.",
+   "meaning_hi": "जो सबके सुख और दुख को अपने जैसा समझकर सबको बराबर देखता है, वही सबसे श्रेष्ठ योगी माना गया है।",
+   "tags": [
+    "compassion",
+    "kindness",
+    "loneliness"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "12.19",
+   "chapter": 12,
+   "verse": 19,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "तुल्यनिन्दास्तुतिर्मौनी सन्तुष्टो येन केनचित्।",
+    "अनिकेतः स्थिरमतिर्भक्तिमान्मे प्रियो नरः॥"
+   ],
+   "iast": [
+    "tulyanindāstutirmaunī santuṣṭo yena kenacit",
+    "aniketaḥ sthiramatirbhaktimānme priyo naraḥ"
+   ],
+   "meaning_en": "Treating blame and praise alike, quiet, content with whatever comes, not clinging to a home, steady-minded and devoted: such a person is dear to Me.",
+   "meaning_hi": "जिसके लिए निंदा और स्तुति बराबर हैं, जो मौन रहता है, जो मिल जाए उसमें संतुष्ट है, घर से बँधा नहीं है और जिसका मन स्थिर है, ऐसा भक्त मुझे प्रिय है।",
+   "tags": [
+    "equanimity",
+    "speech",
+    "contentment",
+    "peace",
+    "comparison"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "18.63",
+   "chapter": 18,
+   "verse": 63,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "इति ते ज्ञानमाख्यातं गुह्याद्गुह्यतरं मया।",
+    "विमृश्यैतदशेषेण यथेच्छसि तथा कुरु॥"
+   ],
+   "iast": [
+    "iti te jñānamākhyātaṁ guhyādguhyataraṁ mayā",
+    "vimṛśyaitadaśeṣeṇa yathecchasi tathā kuru"
+   ],
+   "meaning_en": "I have told you this knowledge, more secret than any secret. Think it over fully, and then do as you wish.",
+   "meaning_hi": "मैंने तुम्हें यह ज्ञान बताया, जो गुप्त से भी गुप्त है। इस पर पूरी तरह सोचो, फिर जैसा चाहो वैसा करो।",
+   "tags": [
+    "doubt",
+    "duty-conflict",
+    "confusion",
+    "learning"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "2.70",
+   "chapter": 2,
+   "verse": 70,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "आपूर्यमाणमचलप्रतिष्ठं",
+    "समुद्रमापः प्रविशन्ति यद्वत्।",
+    "तद्वत्कामा यं प्रविशन्ति सर्वे",
+    "स शान्तिमाप्नोति न कामकामी॥"
+   ],
+   "iast": [
+    "āpūryamāṇamacalapratiṣṭhaṁ",
+    "samudramāpaḥ praviśanti yadvat",
+    "tadvatkāmā yaṁ praviśanti sarve",
+    "sa śāntimāpnoti na kāmakāmī"
+   ],
+   "meaning_en": "Rivers flow into the ocean, yet it stays full and still. In the same way, one into whom all desires flow without disturbing them finds peace, not the one who chases desires.",
+   "meaning_hi": "नदियाँ समुद्र में आकर मिलती हैं, फिर भी वह भरा और शांत रहता है। वैसे ही जिसमें सारी इच्छाएँ समा जाती हैं और उसे हिला नहीं पातीं, उसे शांति मिलती है। इच्छाओं के पीछे भागने वाले को नहीं।",
+   "tags": [
+    "desire",
+    "peace",
+    "contentment",
+    "restlessness"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "6.40",
+   "chapter": 6,
+   "verse": 40,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "पार्थ नैवेह नामुत्र विनाशस्तस्य विद्यते।",
+    "न हि कल्याणकृत्कश्चिद् दुर्गतिं तात गच्छति॥"
+   ],
+   "iast": [
+    "pārtha naiveha nāmutra vināśastasya vidyate",
+    "na hi kalyāṇakṛtkaścid durgatiṁ tāta gacchati"
+   ],
+   "meaning_en": "No good effort is ever lost, here or beyond. One who does good never comes to a bad end, my friend.",
+   "meaning_hi": "हे पार्थ, ऐसे इंसान का न यहाँ नाश होता है, न आगे। भलाई करने वाला कभी बुरी गति को नहीं जाता।",
+   "tags": [
+    "failure",
+    "hope",
+    "patience",
+    "self-doubt"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "18.73",
+   "chapter": 18,
+   "verse": 73,
+   "speaker": "Arjuna",
+   "listener": "Krishna",
+   "sanskrit": [
+    "नष्टो मोहः स्मृतिर्लब्धा त्वत्प्रसादान्मयाच्युत।",
+    "स्थितोऽस्मि गतसन्देहः करिष्ये वचनं तव॥"
+   ],
+   "iast": [
+    "naṣṭo mohaḥ smṛtirlabdhā tvatprasādānmayācyuta",
+    "sthito'smi gatasandehaḥ kariṣye vacanaṁ tava"
+   ],
+   "meaning_en": "My confusion is gone. By your grace I have remembered who I am. I stand firm, free of doubt, and I will do as you say.",
+   "meaning_hi": "मेरा मोह नष्ट हो गया। आपकी कृपा से मुझे अपनी स्मृति मिल गई। अब मैं संदेह-मुक्त होकर खड़ा हूँ और आपकी बात मानूँगा।",
+   "tags": [
+    "confusion",
+    "doubt",
+    "duty-conflict",
+    "hope",
+    "purpose"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "2.71",
+   "chapter": 2,
+   "verse": 71,
+   "speaker": "Krishna",
+   "listener": "Arjuna",
+   "sanskrit": [
+    "विहाय कामान्यः सर्वान्पुमांश्चरति निःस्पृहः।",
+    "निर्ममो निरहङ्कारः स शान्तिमधिगच्छति॥"
+   ],
+   "iast": [
+    "vihāya kāmānyaḥ sarvānpumāṁścarati niḥspṛhaḥ",
+    "nirmamo nirahaṅkāraḥ sa śāntimadhigacchati"
+   ],
+   "meaning_en": "One who gives up all desires and moves through life without craving, free from \"mine\" and \"I\", attains peace.",
+   "meaning_hi": "जो सारी इच्छाएँ छोड़कर बिना चाह के जीता है, और जिसमें \"मेरा\" और \"मैं\" का भाव नहीं रहता, उसे शांति मिलती है।",
+   "tags": [
+    "desire",
+    "peace",
+    "detachment",
+    "humility"
+   ],
+   "personal_advice_ok": true
+  },
+  {
+   "id": "18.78",
+   "chapter": 18,
+   "verse": 78,
+   "speaker": "Sanjaya",
+   "listener": "Dhritarashtra",
+   "sanskrit": [
+    "यत्र योगेश्वरः कृष्णो यत्र पार्थो धनुर्धरः।",
+    "तत्र श्रीर्विजयो भूतिर्ध्रुवा नीतिर्मतिर्मम॥"
+   ],
+   "iast": [
+    "yatra yogeśvaraḥ kṛṣṇo yatra pārtho dhanurdharaḥ",
+    "tatra śrīrvijayo bhūtirdhruvā nītirmatirmama"
+   ],
+   "meaning_en": "Where Krishna, lord of yoga, is, and Arjuna the archer, there are fortune, victory, wealth and steady justice. This is my belief.",
+   "meaning_hi": "जहाँ योगेश्वर कृष्ण हैं और जहाँ धनुर्धारी अर्जुन है, वहीं श्री, विजय, समृद्धि और अटल नीति है। यह मेरा मत है।",
+   "tags": [
+    "hope",
+    "faith",
+    "success"
+   ],
+   "personal_advice_ok": false
+  }
+ ]
+}

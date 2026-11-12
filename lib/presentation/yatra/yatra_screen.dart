@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../app_providers.dart';
 import '../../core/router.dart';
 import '../../core/state/progress.dart';
-import '../../data/fake_verses.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
@@ -33,8 +33,9 @@ class YatraScreen extends ConsumerWidget {
     final int done =
         p.litDays.length -
         (!walkedToday && p.litDays.contains(p.today) ? 1 : 0);
-    final int cur = done.clamp(0, kFakeVerses.length - 1);
-    final Verse now = kFakeVerses[cur];
+    final List<Verse> verses = ref.watch(versesProvider);
+    final int cur = done.clamp(0, verses.length - 1);
+    final Verse now = verses[cur];
 
     // Show 7 stones: the walked ones below, the lotus, the rest above.
     final int first = (cur - 2).clamp(0, 1000);

@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../app_providers.dart';
 import '../../core/router.dart';
 import '../../core/state/progress.dart';
-import '../../data/fake_verses.dart';
 import '../../design/effects.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
+import '../../domain/models/verse.dart';
 import '../shell/app_shell.dart';
 
 /// Today: one primary action. The rail shows Hear, Walk, Speak.
@@ -62,7 +63,8 @@ class TodayScreen extends ConsumerWidget {
       }
     }
 
-    final int chapter = kFakeVerses[p.kept.length % kFakeVerses.length].chapter;
+    final List<Verse> verses = ref.watch(versesProvider);
+    final int chapter = verses[p.kept.length % verses.length].chapter;
     return Backdrop(
       child: SafeArea(
         bottom: false,

@@ -5,10 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/feedback/sound_service.dart';
+import '../../app_providers.dart';
 import '../../core/router.dart';
+import '../../core/state/feed.dart';
 import '../../core/state/progress.dart';
 import '../../core/state/settings.dart';
-import '../../data/fake_verses.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
@@ -39,10 +40,12 @@ class _WalkScreenState extends ConsumerState<WalkScreen> {
 
   Verse get _verse {
     final Set<String> kept = ref.read(progressProvider).kept;
-    return kFakeVerses.firstWhere(
-      (Verse v) => kept.contains(v.id),
-      orElse: () => kFakeVerses.first,
-    );
+    return ref
+        .read(versesProvider)
+        .firstWhere(
+          (Verse v) => kept.contains(v.id),
+          orElse: () => ref.read(todayVersesProvider).first,
+        );
   }
 
   void _finish() {
