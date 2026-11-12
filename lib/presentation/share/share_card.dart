@@ -191,13 +191,19 @@ class _VerseBody extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
+                    // One printed line per pada, never wrapped inside: a
+                    // long pada shrinks instead.
                     for (final String pada in v.padas)
-                      Text(
-                        pada,
-                        textAlign: TextAlign.center,
-                        style: DType.verse(
-                          c.verse,
-                          size: v.padas.length > 2 ? 19 : 21,
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          pada,
+                          maxLines: 1,
+                          softWrap: false,
+                          style: DType.verse(
+                            c.verse,
+                            size: v.padas.length > 2 ? 19 : 21,
+                          ),
                         ),
                       ),
                     const SizedBox(height: Sp.s18),

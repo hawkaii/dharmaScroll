@@ -57,7 +57,7 @@ class YouScreen extends ConsumerWidget {
                         style: DType.title(c.ink, compact: true),
                       ),
                       Text(
-                        '${p.streak < 1 ? 1 : p.streak} ${p.streak <= 1 ? 'day' : 'days'}  ·  ${p.points} Moksh  ·  ${p.kept.length} kept',
+                        '${p.streak < 1 ? 1 : p.streak} ${p.streak <= 1 ? 'day' : 'days'} of light',
                         style: DType.body(c.mute, size: 16),
                       ),
                     ],

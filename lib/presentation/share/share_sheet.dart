@@ -148,8 +148,8 @@ class _ShareSheetState extends State<ShareSheet> {
                             boxShadow: <BoxShadow>[
                               BoxShadow(
                                 color: Tok.saffron.withValues(alpha: 0.18),
-                                blurRadius: 40,
-                                offset: const Offset(0, 12),
+                                blurRadius: 24,
+                                offset: const Offset(0, 8),
                               ),
                             ],
                           ),

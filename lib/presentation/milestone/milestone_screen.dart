@@ -122,11 +122,28 @@ class _MilestoneScreenState extends ConsumerState<MilestoneScreen> {
                     Text(eyebrow.toUpperCase(), style: DType.eyebrow(c.faint)),
                     const Spacer(),
                     SizedBox(
+                      width: 300,
                       height: 150,
                       child: Stack(
                         clipBehavior: Clip.none,
                         alignment: Alignment.bottomCenter,
                         children: <Widget>[
+                          // Two resting peacock feathers stay after the fan fades.
+                          for (final double side in <double>[-1, 1])
+                            Positioned(
+                              bottom: 4,
+                              left: side < 0 ? 18 : null,
+                              right: side > 0 ? 18 : null,
+                              child: Transform.rotate(
+                                angle: side * 0.55,
+                                child: DIcon(
+                                  'feather',
+                                  size: 54,
+                                  color: c.peacock,
+                                  glow: true,
+                                ),
+                              ),
+                            ),
                           const Positioned(
                             bottom: 14,
                             child: FeatherFan(height: 132),
