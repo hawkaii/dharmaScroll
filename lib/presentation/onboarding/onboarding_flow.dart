@@ -3,12 +3,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../core/feedback/sound_service.dart';
+import '../../core/rituals/providers.dart';
+import '../../core/rituals/reminder_backend.dart';
+import '../../core/rituals/rituals.dart';
 import '../../core/state/settings.dart';
 import '../../design/effects.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
+import '../you/city_picker.dart';
 
-/// Three screens, one choice (the hour). Shown once.
+/// Five light screens: welcome, the ritual, your city, your Ekadashi rule, the
+/// hour. Shown once.
 class OnboardingFlow extends ConsumerStatefulWidget {
   const OnboardingFlow({super.key});
 
@@ -16,6 +21,8 @@ class OnboardingFlow extends ConsumerStatefulWidget {
   static const String welcomeLine2 = 'on a battlefield.';
   static const String welcomeButton = 'Listen';
   static const String ritualButton = 'Continue';
+  static const String cityTitle = 'Where do you\nwatch the sun?';
+  static const String traditionTitle = 'How do you\nkeep Ekadashi?';
   static const String reminderTitle = 'When does your\nday begin?';
   static const String finishLabel = 'Light the first lamp';
 
@@ -27,6 +34,8 @@ class _OnboardingFlowState extends ConsumerState<OnboardingFlow> {
   int _page = 0;
   int _minutes = 6 * 60 + 30;
   bool _lit = false;
+  String _cityId = Settings.defaultCityId;
+  Tradition _tradition = Tradition.unsure;
 
   void _next() {
     // The button already tapped (sound + haptic); the page turn is the swipe.
@@ -40,11 +49,18 @@ class _OnboardingFlowState extends ConsumerState<OnboardingFlow> {
     // Lamp ignite: shimmer, with one soft pulse.
     SoundService.instance.play(Sfx.shimmer);
     Haptics.soft();
-    ref.read(settingsProvider.notifier).setReminder(_minutes);
+    final SettingsNotifier n = ref.read(settingsProvider.notifier);
+    n.setReminder(_minutes);
+    n.setCity(_cityId);
+    n.setTradition(_tradition);
     await Future<void>.delayed(
       reduceMotion(context) ? Duration.zero : Motion.ignite,
     );
-    if (mounted) ref.read(settingsProvider.notifier).completeOnboarding();
+    if (!mounted) return;
+    final ReminderBackend backend = ref.read(reminderBackendProvider);
+    n.completeOnboarding();
+    // They just chose an hour: this is the moment to ask to remind them.
+    backend.requestPermission().ignore();
   }
 
   @override
@@ -69,6 +85,16 @@ class _OnboardingFlowState extends ConsumerState<OnboardingFlow> {
                 child: switch (_page) {
                   0 => _Welcome(onNext: _next),
                   1 => _Ritual(onNext: _next),
+                  2 => _CityStep(
+                    selected: _cityId,
+                    onSelected: (String id) => setState(() => _cityId = id),
+                    onNext: _next,
+                  ),
+                  3 => _TraditionStep(
+                    selected: _tradition,
+                    onSelected: (Tradition t) => setState(() => _tradition = t),
+                    onNext: _next,
+                  ),
                   _ => _Reminder(
                     minutes: _minutes,
                     lit: _lit,
@@ -252,6 +278,100 @@ class _Ritual extends StatelessWidget {
               ),
             ),
           ),
+      ],
+    );
+  }
+}
+
+class _CityStep extends StatelessWidget {
+  const _CityStep({
+    required this.selected,
+    required this.onSelected,
+    required this.onNext,
+  });
+
+  final String selected;
+  final ValueChanged<String> onSelected;
+  final VoidCallback onNext;
+
+  @override
+  Widget build(BuildContext context) {
+    final DharmaColors c = context.c;
+    return _Page(
+      footer: PrimaryButton(
+        label: OnboardingFlow.ritualButton,
+        onPressed: onNext,
+      ),
+      children: <Widget>[
+        Text('YOUR CITY', style: DType.eyebrow(c.accent)),
+        const SizedBox(height: Sp.s14),
+        Semantics(
+          header: true,
+          child: Text(
+            OnboardingFlow.cityTitle,
+            textAlign: TextAlign.center,
+            style: DType.title(c.ink, compact: true),
+          ),
+        ),
+        const SizedBox(height: Sp.s14),
+        Text(
+          'Sunrise and sunset set your reminders.',
+          textAlign: TextAlign.center,
+          style: DType.body(c.mute, size: 17),
+        ),
+        const SizedBox(height: Sp.s22),
+        CityPicker(selected: selected, onSelected: onSelected),
+      ],
+    );
+  }
+}
+
+class _TraditionStep extends StatelessWidget {
+  const _TraditionStep({
+    required this.selected,
+    required this.onSelected,
+    required this.onNext,
+  });
+
+  final Tradition selected;
+  final ValueChanged<Tradition> onSelected;
+  final VoidCallback onNext;
+
+  @override
+  Widget build(BuildContext context) {
+    final DharmaColors c = context.c;
+    return _Page(
+      footer: PrimaryButton(
+        label: OnboardingFlow.ritualButton,
+        onPressed: onNext,
+      ),
+      children: <Widget>[
+        Text('YOUR TRADITION', style: DType.eyebrow(c.accent)),
+        const SizedBox(height: Sp.s14),
+        Semantics(
+          header: true,
+          child: Text(
+            OnboardingFlow.traditionTitle,
+            textAlign: TextAlign.center,
+            style: DType.title(c.ink, compact: true),
+          ),
+        ),
+        const SizedBox(height: Sp.s22),
+        for (final Tradition t in Tradition.values) ...<Widget>[
+          OptionRow(
+            label: t.label,
+            selected: t == selected,
+            onTap: () => onSelected(t),
+          ),
+          const SizedBox(height: Sp.s12),
+        ],
+        Text(
+          selected == Tradition.unsure
+              ? 'When the two differ, we show both dates.'
+              : 'You can change this later in You.',
+          textAlign: TextAlign.center,
+          style: DType.body(c.mute, size: 16),
+        ),
       ],
     );
   }

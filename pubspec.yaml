@@ -19,6 +19,8 @@ dependencies:
   audioplayers: ^6.1.0
   path_provider: ^2.1.5
   flutter_svg: 2.3.4
+  flutter_local_notifications: 23.0.1
+  timezone: 0.11.2
 
 dev_dependencies:
   flutter_test:
@@ -31,6 +33,7 @@ flutter:
     - assets/svg/
     - assets/svg/icons/
     - assets/audio/
+    - assets/panchang/
   fonts:
     - family: NotoSerifDevanagari
       fonts:

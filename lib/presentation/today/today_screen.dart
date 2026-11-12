@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/rituals/providers.dart';
 import '../../core/router.dart';
 import '../../core/state/progress.dart';
 import '../../data/fake_verses.dart';
@@ -23,6 +24,7 @@ class TodayScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final ProgressState p = ref.watch(progressProvider);
     final bool light = ref.watch(todayIsLightProvider);
+    final List<String> calendarToday = ref.watch(todayInCalendarProvider);
     final DharmaColors c = context.c;
 
     final bool heard = p.steps.contains(RitualStep.hear);
@@ -105,6 +107,19 @@ class TodayScreen extends ConsumerWidget {
                       ],
                       const SizedBox(height: Sp.s30),
                       _Rail(heard: heard, walked: walked, speakDone: false),
+                      if (calendarToday.isNotEmpty) ...<Widget>[
+                        const SizedBox(height: Sp.s22),
+                        Semantics(
+                          label:
+                              'Today in your calendar: ${calendarToday.join(', ')}',
+                          excludeSemantics: true,
+                          child: Text(
+                            calendarToday.join('  ·  '),
+                            textAlign: TextAlign.center,
+                            style: DType.body(c.accent, size: 17),
+                          ),
+                        ),
+                      ],
                       const Spacer(),
                       PrimaryButton(label: button, onPressed: go),
                       const SizedBox(height: Sp.s14),
