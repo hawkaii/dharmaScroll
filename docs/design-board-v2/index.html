@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>dharmaScroll · Design Board v2</title>
+<style>
+:root{
+  --bg:#07080F; --bg2:#0D0F1D; --surf:#141730; --line:rgba(239,232,216,.10);
+  --ink:#EFE8D8; --mute:#9A97A8; --faint:#5E5C70;
+  --gold:#E3B964; --gold-soft:#F4E1AE; --gold-deep:#8A6A2A;
+  --teal:#4FB3AB;               /* the one accent: voice + listening (Krishna's peacock) */
+  --serif:"EB Garamond","Cormorant Garamond",Georgia,serif;
+  --dev:"Noto Serif Devanagari","Tiro Devanagari Sanskrit",serif;
+  --sans:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --spring:cubic-bezier(.22,1.2,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#04050A;color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;padding:56px 40px 120px}
+.wrap{max-width:1500px;margin:0 auto}
+h1{font-family:var(--serif);font-weight:400;font-size:56px;letter-spacing:.01em;color:var(--gold-soft)}
+.sub{color:var(--mute);margin-top:10px;max-width:760px;line-height:1.6;font-size:15px}
+h2{font-family:var(--serif);font-weight:400;font-size:34px;margin:84px 0 6px;color:var(--ink)}
+h2 small{font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px}
+.lede{color:var(--mute);max-width:720px;line-height:1.6;font-size:14px;margin-bottom:28px}
+.row{display:flex;gap:32px;flex-wrap:wrap;align-items:flex-start}
+figure{width:330px}
+figcaption{margin-top:14px;font-size:12.5px;line-height:1.55;color:var(--mute)}
+figcaption b{color:var(--gold-soft);font-weight:500;display:block;margin-bottom:3px;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+
+/* ---------- palette strip ---------- */
+.pal{display:flex;gap:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);max-width:900px;margin-top:28px}
+.pal div{flex:1;padding:44px 14px 12px;font-size:11px;line-height:1.5}
+.pal b{display:block;font-weight:500}
+.type-spec{display:flex;gap:40px;margin-top:28px;flex-wrap:wrap}
+.type-spec div{max-width:420px}
+.type-spec .a{font-family:var(--dev);font-size:30px;color:var(--gold-soft);line-height:1.5}
+.type-spec .b{font-family:var(--serif);font-size:26px;font-style:italic}
+.type-spec .c{font-family:var(--sans);font-size:14px;letter-spacing:.02em}
+.type-spec p{font-size:11px;color:var(--mute);margin-top:6px}
+
+/* ---------- phone ---------- */
+.phone{width:330px;height:680px;border-radius:42px;position:relative;overflow:hidden;background:var(--bg);
+  border:1px solid rgba(239,232,216,.14);box-shadow:0 40px 80px -30px #000,0 0 0 6px #0A0B14,0 0 0 7px rgba(239,232,216,.07)}
+.phone::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(120% 55% at 50% -6%,rgba(227,185,100,.14),transparent 62%),
+  radial-gradient(90% 40% at 50% 112%,rgba(79,179,171,.07),transparent 70%);pointer-events:none}
+.mandala{position:absolute;left:50%;top:46%;width:560px;height:560px;margin:-280px 0 0 -280px;color:var(--gold);opacity:.07;pointer-events:none}
+.scr{position:absolute;inset:0;display:flex;flex-direction:column;padding:54px 26px 30px}
+.center{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.eyebrow{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.mute{color:var(--mute)}
+.serif{font-family:var(--serif)}
+.title{font-family:var(--serif);font-size:36px;line-height:1.12;color:var(--ink);letter-spacing:.005em}
+.body{font-family:var(--serif);font-size:19px;line-height:1.45;color:var(--mute)}
+.dev{font-family:var(--dev);font-size:25px;line-height:1.62;color:var(--gold-soft)}
+.tr{font-family:var(--serif);font-style:italic;font-size:14.5px;color:var(--mute);line-height:1.5;margin-top:14px}
+.mean{font-family:var(--serif);font-size:21px;line-height:1.38;color:var(--ink);margin-top:22px}
+.ref{font-size:10.5px;letter-spacing:.2em;color:var(--faint);margin-top:18px}
+
+/* buttons: press-down */
+.btn{display:block;width:100%;height:56px;border-radius:28px;border:0;font:500 15px var(--sans);letter-spacing:.04em;color:#1A1204;
+  background:linear-gradient(180deg,#F1CF86,#DBAE55);box-shadow:0 4px 0 var(--gold-deep),0 14px 30px -10px rgba(227,185,100,.5);
+  transition:transform .09s ease,box-shadow .09s ease;cursor:pointer}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--gold-deep),0 6px 16px -8px rgba(227,185,100,.5)}
+.btn.teal{background:linear-gradient(180deg,#6CC9C1,#3E9E96);box-shadow:0 4px 0 #226560;color:#04100F}
+.link{background:none;border:0;color:var(--mute);font:400 13px var(--sans);letter-spacing:.04em;padding:14px;cursor:pointer;text-align:center;width:100%}
+.opt{display:flex;align-items:center;justify-content:space-between;height:60px;border-radius:18px;border:1px solid var(--line);padding:0 20px;
+  margin-top:12px;font-family:var(--serif);font-size:21px;background:rgba(255,255,255,.015);transition:transform .09s,border-color .2s}
+.opt:active{transform:scale(.985)}
+.opt.sel{border-color:var(--gold);background:rgba(227,185,100,.07);color:var(--gold-soft)}
+.opt small{font:400 12px var(--sans);color:var(--mute);letter-spacing:.04em}
+
+/* top dots */
+.dots{display:flex;gap:6px;justify-content:center;margin-bottom:6px}
+.dots i{width:22px;height:2px;border-radius:2px;background:var(--line)}
+.dots i.on{background:var(--gold)}
+.topline{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.16em;color:var(--faint)}
+
+/* nav */
+.nav{display:flex;justify-content:space-around;padding-top:14px;border-top:1px solid var(--line);margin:0 -26px -30px;padding-bottom:22px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.nav b{color:var(--gold);font-weight:500}
+
+/* finger overlay (static frames) */
+.finger{position:absolute;width:56px;height:56px;border-radius:50%;background:rgba(239,232,216,.14);border:1px solid rgba(239,232,216,.35);transform:translate(-50%,-50%);z-index:5}
+.finger.two::after{content:"";position:absolute;inset:-12px;border-radius:50%;border:1px solid rgba(239,232,216,.2)}
+
+/* diya + lotus symbols colors */
+.flame{fill:var(--flame,#F6D88E);transform-origin:50% 90%;animation:flick 2.6s ease-in-out infinite}
+@keyframes flick{0%,100%{transform:scale(1,1) rotate(0)}30%{transform:scale(.94,1.06) rotate(-1.5deg)}60%{transform:scale(1.04,.97) rotate(1.2deg)}}
+
+/* hold-to-listen ring */
+.ring{position:absolute;left:50%;bottom:62px;width:150px;height:150px;margin-left:-75px;border-radius:50%;
+  background:radial-gradient(circle,rgba(79,179,171,.35),rgba(79,179,171,0) 68%);animation:breathe 3.2s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(.9);opacity:.7}50%{transform:scale(1.18);opacity:1}}
+.listen-wash{position:absolute;inset:0;background:radial-gradient(80% 50% at 50% 100%,rgba(79,179,171,.22),transparent 70%);opacity:0;transition:opacity .35s}
+.hold:active .listen-wash{opacity:1}
+.hold:active .hl{color:var(--gold);text-shadow:0 0 18px rgba(227,185,100,.55)}
+.hl{transition:color .4s,text-shadow .4s}
+.hl.on{color:var(--gold);text-shadow:0 0 18px rgba(227,185,100,.55)}
+.eqbar{display:flex;gap:4px;align-items:center;height:28px;justify-content:center}
+.eqbar i{width:3px;border-radius:3px;background:var(--teal);animation:eq 1.1s ease-in-out infinite}
+.eqbar i:nth-child(2){animation-delay:.12s}.eqbar i:nth-child(3){animation-delay:.28s}.eqbar i:nth-child(4){animation-delay:.05s}
+.eqbar i:nth-child(5){animation-delay:.38s}.eqbar i:nth-child(6){animation-delay:.2s}.eqbar i:nth-child(7){animation-delay:.33s}
+@keyframes eq{0%,100%{height:5px}50%{height:26px}}
+
+/* keep bloom */
+.bloom{position:absolute;left:50%;top:50%;width:150px;height:150px;margin:-75px;color:var(--gold);animation:bloom 3.2s var(--spring) infinite;pointer-events:none;filter:drop-shadow(0 0 22px rgba(227,185,100,.7))}
+@keyframes bloom{0%,12%{transform:scale(.2) rotate(-20deg);opacity:0}30%{transform:scale(1.08) rotate(0);opacity:1}45%{transform:scale(1)}78%{transform:scale(1);opacity:1}100%{transform:scale(1.25);opacity:0}}
+.toast{position:absolute;left:50%;bottom:92px;transform:translateX(-50%);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);padding:10px 18px;border:1px solid rgba(227,185,100,.35);border-radius:20px;background:rgba(7,8,15,.7);white-space:nowrap}
+
+/* Om pulse */
+.om{font-family:var(--dev);color:var(--gold);line-height:1;text-shadow:0 0 30px rgba(227,185,100,.55);animation:ompulse 4.8s ease-in-out infinite}
+@keyframes ompulse{0%,100%{transform:scale(1);text-shadow:0 0 22px rgba(227,185,100,.35)}50%{transform:scale(1.07);text-shadow:0 0 50px rgba(227,185,100,.8)}}
+.halo{position:absolute;border-radius:50%;border:1px solid rgba(227,185,100,.25);animation:halo 4.8s ease-out infinite}
+@keyframes halo{0%{transform:scale(.7);opacity:.8}100%{transform:scale(1.7);opacity:0}}
+
+/* snap demo */
+.snapdemo{position:relative;width:240px;height:200px;overflow:hidden;border-radius:18px;border:1px solid var(--line);background:#0A0C18}
+.snapdemo div{position:absolute;left:14px;right:14px;height:160px;border-radius:14px;background:var(--surf);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;color:var(--gold-soft)}
+.snapdemo .c1{top:20px;animation:snap1 4s infinite}
+.snapdemo .c2{top:200px;animation:snap2 4s infinite}
+@keyframes snap1{0%,20%{transform:translateY(0)}38%{transform:translateY(-206px)}100%{transform:translateY(-206px)}}
+@keyframes snap2{0%,20%{transform:translateY(0)}34%{transform:translateY(-186px)}41%{transform:translateY(-178px)}47%,100%{transform:translateY(-180px)}}
+
+/* streak light */
+.lamps{display:flex;gap:10px;justify-content:center}
+.lamps svg{width:30px;height:30px;color:#2A2C44}
+.lamps svg.lit{color:#B98D3C;filter:drop-shadow(0 0 7px rgba(227,185,100,.6))}
+.lamps svg{--flame:transparent}.lamps svg.lit{--flame:#F6D88E}
+.lamps.anim svg:nth-child(n){animation:lampon 4.2s infinite}
+.lamps.anim svg:nth-child(2){animation-delay:.2s}.lamps.anim svg:nth-child(3){animation-delay:.4s}.lamps.anim svg:nth-child(4){animation-delay:.6s}
+.lamps.anim svg:nth-child(5){animation-delay:.8s}.lamps.anim svg:nth-child(6){animation-delay:1s}.lamps.anim svg:nth-child(7){animation-delay:1.2s}
+@keyframes lampon{0%,10%{color:#2A2C44;--flame:transparent;filter:none}22%,86%{--flame:#F6D88E;color:#C99A45;filter:drop-shadow(0 0 9px rgba(227,185,100,.7))}100%{color:#2A2C44;--flame:transparent;filter:none}}
+
+/* count up */
+@property --n{syntax:"<integer>";initial-value:0;inherits:false}
+.count{font-family:var(--serif);font-size:88px;line-height:1;color:var(--gold-soft);animation:cnt 4s ease-out infinite;counter-reset:n var(--n)}
+.count::after{content:counter(n)}
+@keyframes cnt{0%{--n:0}45%,100%{--n:30}}
+.press{display:inline-block;width:220px}
+
+/* path */
+.path{position:absolute;inset:0}
+.node{position:absolute;width:54px;height:54px;margin:-27px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;
+  border:1px solid var(--line);background:#0C0E1B;color:var(--faint)}
+.node.done{border-color:rgba(227,185,100,.5);color:var(--gold);background:rgba(227,185,100,.08)}
+.node.now{width:70px;height:70px;margin:-35px;border:0;background:radial-gradient(circle at 50% 35%,#F5D894,#D2A24C);color:#1A1204;box-shadow:0 0 0 7px rgba(227,185,100,.12),0 0 46px rgba(227,185,100,.5);animation:breathe2 3.6s ease-in-out infinite}
+@keyframes breathe2{0%,100%{box-shadow:0 0 0 7px rgba(227,185,100,.10),0 0 30px rgba(227,185,100,.35)}50%{box-shadow:0 0 0 12px rgba(227,185,100,.05),0 0 58px rgba(227,185,100,.6)}}
+.node.cp{border-radius:16px;transform:rotate(45deg)}
+.node.cp span{transform:rotate(-45deg)}
+.node.done.cp{border-color:var(--gold)}
+.nlabel{position:absolute;font-size:11px;letter-spacing:.14em;color:var(--mute);text-transform:uppercase;white-space:nowrap}
+
+/* mic orb */
+.orb{width:132px;height:132px;border-radius:50%;background:radial-gradient(circle at 50% 38%,#7FD6CE,#2F7E78 72%);box-shadow:0 0 0 14px rgba(79,179,171,.08),0 0 70px rgba(79,179,171,.45);display:flex;align-items:center;justify-content:center;animation:breathe2 3.6s ease-in-out infinite}
+.dim{opacity:.55}
+
+/* settings */
+.set{display:flex;justify-content:space-between;align-items:center;padding:19px 0;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:20px}
+.set span{font:400 13px var(--sans);color:var(--mute);letter-spacing:.03em}
+.tog{width:44px;height:26px;border-radius:13px;background:var(--gold);position:relative}
+.tog::after{content:"";position:absolute;right:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#1A1204}
+
+/* light variant */
+.phone.light{--bg:#F6EFE0;--ink:#1D1A2E;--mute:#6C6678;--faint:#A29C8E;--line:rgba(29,26,46,.12);--gold:#A87A20;--gold-soft:#7E5A12;background:#F6EFE0;border-color:rgba(0,0,0,.15)}
+.phone.light::before{background:radial-gradient(120% 55% at 50% -6%,rgba(227,185,100,.45),transparent 62%)}
+.phone.light{--flame:#E8A22E}.dimlamp{--flame:#7A6230}
+.phone.light .btn{color:#1A1204}
+
+/* live scroll phone */
+.live{position:absolute;inset:0;overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:none}
+.live::-webkit-scrollbar{display:none}
+.live section{height:680px;scroll-snap-align:start;scroll-snap-stop:always;position:relative;padding:70px 26px 90px;display:flex;flex-direction:column;justify-content:center;text-align:center;user-select:none}
+.live section.end{background:rgba(0,0,0,.35)}
+.livedots{position:absolute;top:50px;left:0;right:0;z-index:4}
+.hint{position:absolute;bottom:34px;left:0;right:0;text-align:center;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);z-index:3;pointer-events:none}
+.kept{opacity:0;position:absolute;left:50%;top:50%;width:140px;height:140px;margin:-70px;color:var(--gold);filter:drop-shadow(0 0 22px rgba(227,185,100,.7));pointer-events:none;transform:scale(.3)}
+.kept.go{animation:keep .9s var(--spring) forwards}
+@keyframes keep{0%{opacity:0;transform:scale(.3) rotate(-20deg)}35%{opacity:1;transform:scale(1.08)}100%{opacity:0;transform:scale(1.2)}}
+
+/* tables */
+table{border-collapse:collapse;width:100%;max-width:1200px;font-size:13.5px}
+th{font:500 10.5px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--gold);text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
+td{padding:14px;border-bottom:1px solid var(--line);color:var(--mute);vertical-align:top;line-height:1.5}
+td:first-child{color:var(--ink);font-family:var(--serif);font-size:18px;white-space:nowrap}
+.card{width:330px;padding:22px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.015)}
+.card h4{font-family:var(--serif);font-weight:400;font-size:22px;margin:14px 0 6px;color:var(--ink)}
+.card p{font-size:12.5px;line-height:1.55;color:var(--mute)}
+.card .demo{height:210px;display:flex;align-items:center;justify-content:center;position:relative;border-radius:16px;background:#0A0C18;overflow:hidden}
+code{font-family:ui-monospace,monospace;color:var(--gold-soft);font-size:11.5px}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="diya" viewBox="0 0 40 40"><path d="M4 24h32c0 8-7 13-16 13S4 32 4 24z" fill="currentColor"/><path class="flame" d="M20 4c6 7 6 13 0 18-6-5-6-11 0-18z"/></symbol>
+    <symbol id="lotus" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.2">
+      <g transform="translate(50 72)">
+        <path d="M0 0C-9-14-9-34 0-52 9-34 9-14 0 0z" fill="currentColor" fill-opacity=".18"/>
+        <path d="M0 0C-9-14-9-34 0-52 9-34 9-14 0 0z" transform="rotate(-32)" fill="currentColor" fill-opacity=".12"/>
+        <path d="M0 0C-9-14-9-34 0-52 9-34 9-14 0 0z" transform="rotate(32)" fill="currentColor" fill-opacity=".12"/>
+        <path d="M0 0C-9-14-9-34 0-52 9-34 9-14 0 0z" transform="rotate(-64)" fill="currentColor" fill-opacity=".07"/>
+        <path d="M0 0C-9-14-9-34 0-52 9-34 9-14 0 0z" transform="rotate(64)" fill="currentColor" fill-opacity=".07"/>
+        <path d="M-40 4Q0 22 40 4" stroke-opacity=".6"/>
+      </g></symbol>
+    <symbol id="mandala" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width=".8">
+      <circle cx="100" cy="100" r="96"/><circle cx="100" cy="100" r="78"/><circle cx="100" cy="100" r="58"/><circle cx="100" cy="100" r="36"/><circle cx="100" cy="100" r="14"/>
+      <g id="pet"><path d="M100 4C112 30 112 56 100 80 88 56 88 30 100 4z"/></g>
+      <use href="#pet" transform="rotate(30 100 100)"/><use href="#pet" transform="rotate(60 100 100)"/><use href="#pet" transform="rotate(90 100 100)"/>
+      <use href="#pet" transform="rotate(120 100 100)"/><use href="#pet" transform="rotate(150 100 100)"/><use href="#pet" transform="rotate(180 100 100)"/>
+      <use href="#pet" transform="rotate(210 100 100)"/><use href="#pet" transform="rotate(240 100 100)"/><use href="#pet" transform="rotate(270 100 100)"/>
+      <use href="#pet" transform="rotate(300 100 100)"/><use href="#pet" transform="rotate(330 100 100)"/></symbol>
+    <symbol id="mic" viewBox="0 0 24 24" fill="none" stroke="#04100F" stroke-width="1.6" stroke-linecap="round"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Design board v2 · branch design/board-v2</div>
+  <h1>dharmaScroll</h1>
+  <p class="sub">A premium devotional space. Few options, one path, everything smooth. The verse speaks to you. Duolingo's mechanics and polish, none of its cartoon. See <code>NORTH_STAR.md</code> for the product and <code>RESEARCH.md</code> for the study.</p>
+
+  <div class="pal">
+    <div style="background:#07080F"><b>Night</b>#07080F<br>base</div>
+    <div style="background:#141730"><b>Indigo</b>#141730<br>surface</div>
+    <div style="background:#E3B964;color:#1A1204"><b>Gold</b>#E3B964<br>light, reward, primary</div>
+    <div style="background:#F4E1AE;color:#1A1204"><b>Gold soft</b>#F4E1AE<br>Sanskrit text</div>
+    <div style="background:#4FB3AB;color:#04100F"><b>Peacock</b>#4FB3AB<br>the one accent: voice</div>
+    <div style="background:#EFE8D8;color:#1A1204"><b>Ivory</b>#EFE8D8<br>text</div>
+    <div style="background:#9A97A8;color:#07080F"><b>Mist</b>#9A97A8<br>secondary</div>
+  </div>
+  <div class="type-spec">
+    <div><div class="a">कर्मण्येवाधिकारस्ते</div><p>Noto Serif Devanagari · verses · 25-30 px · gold soft</p></div>
+    <div><div class="b">You have a right to the work.</div><p>EB Garamond (serif) · meaning, titles · 21-36 px</p></div>
+    <div><div class="c">BEGIN TODAY'S RITUAL · Day 12</div><p>Inter (sans) · buttons, labels only · 10-15 px, wide tracking</p></div>
+  </div>
+  <p class="sub" style="margin-top:20px">Rules: no red anywhere. No card borders except selected state. Gold means "light". Teal means "your voice or the chant". Corners 18 / 28 / 42. Motion: spring <code>cubic-bezier(.22,1.2,.36,1)</code>, 90 ms press, 380 ms snap, 3-5 s breathing.</p>
+</header>
+
+<!-- ============== ONBOARDING ============== -->
+<h2><small>01 · Onboarding · 3 screens</small>Arrive</h2>
+<p class="lede">No sign-up wall, no quiz, no permission storm. Three screens, three taps. Mic permission is asked later, at the first Mann Darpan, with a reason.</p>
+<div class="row">
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="scr"><div class="center">
+      <div style="position:relative;width:150px;height:150px;display:flex;align-items:center;justify-content:center;margin-bottom:44px">
+        <span class="halo" style="inset:0"></span><span class="halo" style="inset:0;animation-delay:2.4s"></span>
+        <div class="om" style="font-size:84px">ॐ</div></div>
+      <div class="title">Your mind scrolls anyway.</div>
+      <p class="body" style="margin-top:14px">Let it scroll something<br>that lasts.</p></div>
+      <button class="btn">Begin</button><div style="height:6px"></div></div></div>
+    <figcaption><b>1 · Welcome</b>Om breathes (4.8 s). One button. Sound: soft bell at 0.4 s. Haptic: none.</figcaption></figure>
+
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="scr">
+      <div class="eyebrow" style="margin-top:20px">1 of 2</div>
+      <div class="title" style="margin-top:14px">In which tongue shall the verse speak?</div>
+      <div style="margin-top:34px">
+        <div class="opt sel">हिन्दी <small>Hindi</small></div>
+        <div class="opt">English <small>Sanskrit + English</small></div>
+        <div class="opt">Hinglish <small>Roman + Hindi</small></div></div>
+      <div style="flex:1"></div><button class="btn">Continue</button><div style="height:6px"></div></div></div>
+    <figcaption><b>2 · Language</b>The only real choice. Three rows, no search, no scroll. Selected = gold line + faint fill. Haptic: selection tick.</figcaption></figure>
+
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="scr">
+      <div class="eyebrow" style="margin-top:20px">2 of 2</div>
+      <div class="title" style="margin-top:14px">When shall we light the lamp?</div>
+      <div style="margin-top:34px">
+        <div class="opt sel">Morning <small>6:30</small></div>
+        <div class="opt">Evening <small>8:30</small></div></div>
+      <div class="center" style="flex:1"><svg width="86" height="86" style="color:#B98D3C"><use href="#diya"/></svg>
+        <p class="body" style="margin-top:10px;font-size:16px">One reminder a day. Never at night.</p></div>
+      <button class="btn">Light the first lamp</button><div style="height:6px"></div></div></div>
+    <figcaption><b>3 · Reminder</b>Two choices only. Exact time editable later in You. Tapping the button lights the diya (flame grows 0 to 1, 600 ms), then drops into Home. Sound: match-strike + bell. Haptic: light impact.</figcaption></figure>
+</div>
+
+<!-- ============== HOME ============== -->
+<h2><small>02 · Home · today's ritual</small>One button</h2>
+<p class="lede">Hear, Walk, Speak. Three quiet marks, one gold button. No feed preview, no banners, no store. Sangha is one line: a count of lamps lit today.</p>
+<div class="row">
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="scr">
+      <div class="topline"><span>DAY 12</span><span>ADHYAYA 2</span></div>
+      <div class="center">
+        <svg width="120" height="120" style="color:#B98D3C;filter:drop-shadow(0 0 22px rgba(227,185,100,.5))"><use href="#diya"/></svg>
+                <div class="title" style="margin-top:34px">Namaste, Aarav.</div>
+        <p class="body" style="margin-top:10px">Five verses are waiting.<br>Then you may rest.</p>
+        <div style="display:flex;gap:26px;margin-top:34px;font-size:10.5px;letter-spacing:.22em;color:var(--faint)">
+          <span>○ HEAR</span><span>○ WALK</span><span>○ SPEAK</span></div></div>
+      <button class="btn">Begin today's ritual</button>
+      <p class="mute" style="font-size:12px;text-align:center;margin-top:14px;letter-spacing:.04em">12,408 lit a lamp today</p>
+      <div class="nav"><b>Today</b><span>Yatra</span><span>You</span></div></div></div>
+    <figcaption><b>Home · dark (primary)</b>Diya flickers, glow breathes. Steps fill with gold as done. Button text becomes "Continue" mid-ritual and "Rest now" when finished.</figcaption></figure>
+
+  <figure><div class="phone light"><svg class="mandala" style="opacity:.1"><use href="#mandala"/></svg>
+    <div class="scr">
+      <div class="topline"><span>DAY 12</span><span>ADHYAYA 2</span></div>
+      <div class="center">
+        <svg width="120" height="120" style="color:#C99A45;filter:drop-shadow(0 6px 18px rgba(168,122,32,.35))"><use href="#diya"/></svg>
+        <div class="title" style="margin-top:34px">Good morning, Aarav.</div>
+        <p class="body" style="margin-top:10px">Five verses are waiting.<br>Then you may rest.</p>
+        <div style="display:flex;gap:26px;margin-top:34px;font-size:10.5px;letter-spacing:.22em;color:var(--faint)">
+          <span>○ HEAR</span><span>○ WALK</span><span>○ SPEAK</span></div></div>
+      <button class="btn">Begin today's ritual</button>
+      <p class="mute" style="font-size:12px;text-align:center;margin-top:14px;letter-spacing:.04em">12,408 lit a lamp today</p>
+      <div class="nav"><b>Today</b><span>Yatra</span><span>You</span></div></div></div>
+    <figcaption><b>Home · dawn (light, Home only)</b>Auto before 10:00 if "Appearance: Auto". The verse scroll and Mann Darpan always stay dark: they are the temple.</figcaption></figure>
+
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="scr">
+      <div class="topline"><span>DAY 12</span><span>ADHYAYA 2</span></div>
+      <div class="center">
+        <svg class="dimlamp" width="120" height="120" style="color:#4A3A1E;filter:drop-shadow(0 0 14px rgba(227,185,100,.12))"><use href="#diya"/></svg>
+        <div class="title" style="margin-top:34px">You came back.</div>
+        <p class="body" style="margin-top:10px">The lamp was still warm.<br>Light it again.</p>
+        <div style="display:flex;gap:26px;margin-top:34px;font-size:10.5px;letter-spacing:.22em;color:var(--faint)">
+          <span>○ HEAR</span><span>○ WALK</span><span>○ SPEAK</span></div></div>
+      <button class="btn">Begin today's ritual</button>
+      <p class="mute" style="font-size:12px;text-align:center;margin-top:14px;letter-spacing:.04em">Your 12 days are kept.</p>
+      <div class="nav"><b>Today</b><span>Yatra</span><span>You</span></div></div></div>
+    <figcaption><b>Home · after a missed day</b>The lamp dims, never goes out, no red, no "streak lost". One missed day per week is forgiven silently (grace). Points never drop.</figcaption></figure>
+</div>
+
+<!-- ============== SCROLL ============== -->
+<h2><small>03 · Shloka Scroll · the TikTok replacement</small>Five verses, then rest</h2>
+<p class="lede">One verse per screen. Vertical snap. No icon rail. Gestures do everything: hold to listen, double-tap to keep, swipe up for the next. After the fifth: "Enough for today."</p>
+<div class="row">
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="scr" style="padding-bottom:70px"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+      <div class="topline" style="justify-content:center">3 OF 5</div>
+      <div class="center"><div class="dev">कर्मण्येवाधिकारस्ते<br>मा फलेषु कदाचन ।</div>
+        <div class="tr">karmaṇy-evādhikāras te mā phaleṣu kadācana</div>
+        <div class="mean">You have a right to the work,<br>never to its fruit.</div>
+        <div class="ref">GITA 2.47</div></div></div>
+    <div class="hint">Hold to listen</div></div>
+    <figcaption><b>A · Rest</b>Verse centred. Nothing else. A ghost hint shows on the first three sessions only, then never again.</figcaption></figure>
+
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="listen-wash" style="opacity:1"></div><div class="ring"></div>
+    <div class="scr" style="padding-bottom:70px"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+      <div class="topline" style="justify-content:center">LISTENING</div>
+      <div class="center"><div class="dev"><span class="hl on">कर्मण्येवाधिकारस्ते</span><br><span class="hl">मा फलेषु कदाचन ।</span></div>
+        <div class="tr">karmaṇy-evādhikāras te mā phaleṣu kadācana</div>
+        <div class="mean" style="opacity:.55">You have a right to the work,<br>never to its fruit.</div>
+        <div class="ref">GITA 2.47</div></div></div>
+    <div class="finger" style="left:165px;top:560px"></div>
+    <div class="hint" style="bottom:30px"><div class="eqbar"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+    <figcaption><b>B · Hold to listen</b>Peacock-teal wash rises from the bottom (350 ms). Words light gold in time with the chant. Release pauses. Haptic: one soft tick at start, nothing after.</figcaption></figure>
+
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="scr" style="padding-bottom:70px"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+      <div class="topline" style="justify-content:center">3 OF 5</div>
+      <div class="center" style="opacity:.35"><div class="dev">कर्मण्येवाधिकारस्ते<br>मा फलेषु कदाचन ।</div>
+        <div class="tr">karmaṇy-evādhikāras te mā phaleṣu kadācana</div>
+        <div class="mean">You have a right to the work,<br>never to its fruit.</div></div></div>
+    <svg class="bloom" style="animation-delay:-1.1s"><use href="#lotus"/></svg>
+    <div class="finger two" style="left:165px;top:340px"></div>
+    <div class="toast">Kept</div></div>
+    <figcaption><b>C · Double-tap to keep</b>A lotus blooms at the touch point (spring, 0.9 s), verse dims for a beat, "Kept" toast. Sound: singing-bowl tink. Haptic: light impact, then soft.</figcaption></figure>
+
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="scr" style="padding-bottom:70px"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+      <div class="center" style="transform:translateY(-120px) scale(.94);opacity:.5"><div class="dev">कर्मण्येवाधिकारस्ते<br>मा फलेषु कदाचन ।</div>
+        <div class="mean">You have a right to the work,<br>never to its fruit.</div></div></div>
+    <div style="position:absolute;left:26px;right:26px;top:420px;text-align:center;transform:scale(.97);opacity:.85">
+      <div class="dev">उद्धरेदात्मनात्मानं<br>नात्मानमवसादयेत् ।</div>
+      <div class="tr">uddhared ātmanātmānaṁ nātmānam avasādayet</div></div>
+    <div class="finger" style="left:165px;top:640px"></div>
+    <div style="position:absolute;left:165px;top:540px;width:1px;height:70px;background:linear-gradient(var(--gold),transparent)"></div></div>
+    <figcaption><b>D · Swipe up, snap</b>Follow the finger 1:1. Past 25% or fast flick: snap with spring overshoot 6 px, settle 380 ms. Next verse fades up from 85% scale. Sound: low wood "tok". Haptic: selection tick on snap.</figcaption></figure>
+
+  <figure><div class="phone"><svg class="mandala" style="opacity:.04"><use href="#mandala"/></svg>
+    <div class="scr"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+      <div class="center">
+        <div class="om" style="font-size:54px;animation-duration:6s">ॐ</div>
+        <div class="title" style="margin-top:34px">That is enough<br>for today.</div>
+        <p class="body" style="margin-top:14px">The verse will wait.</p></div>
+      <button class="btn">Walk the next step</button>
+      <button class="link">Rest for now</button></div></div>
+    <figcaption><b>E · End of feed</b>Screen dims. No "load more". Two ways out: continue the ritual or leave with the day counted. The anti-doomscroll moment.</figcaption></figure>
+
+  <figure><div class="phone" id="live"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="listen-wash" id="lw"></div>
+    <div class="livedots dots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+    <div class="live" id="feed">
+      <section><div class="dev">कर्मण्येवाधिकारस्ते<br>मा फलेषु कदाचन ।</div><div class="tr">karmaṇy-evādhikāras te mā phaleṣu kadācana</div><div class="mean">You have a right to the work,<br>never to its fruit.</div><div class="ref">GITA 2.47</div></section>
+      <section><div class="dev">उद्धरेदात्मनात्मानं<br>नात्मानमवसादयेत् ।</div><div class="tr">uddhared ātmanātmānaṁ nātmānam avasādayet</div><div class="mean">Lift yourself by yourself.<br>You are your own friend.</div><div class="ref">GITA 6.5</div></section>
+      <section><div class="dev">मात्रास्पर्शास्तु कौन्तेय<br>शीतोष्णसुखदुःखदाः ।</div><div class="tr">mātrā-sparśās tu kaunteya śītoṣṇa-sukha-duḥkha-dāḥ</div><div class="mean">Cold and heat, joy and pain.<br>They come. They go. Bear them.</div><div class="ref">GITA 2.14</div></section>
+      <section class="end"><div class="om" style="font-size:54px;align-self:center">ॐ</div><div class="title" style="margin-top:30px">That is enough<br>for today.</div><p class="body" style="margin-top:12px">The verse will wait.</p></section>
+    </div>
+    <svg class="kept" id="kept"><use href="#lotus"/></svg>
+    <div class="hint">Swipe · hold · double-tap</div></div>
+    <figcaption><b>LIVE · try it</b>Real CSS scroll-snap. Press and hold = listen wash. Double-click = keep (3 lines of JS for the bloom only). Scroll to the end.</figcaption></figure>
+</div>
+
+<!-- ============== MANN DARPAN ============== -->
+<h2><small>04 · Mann Darpan · mirror of the mind</small>Speak, and a verse answers</h2>
+<p class="lede">One question, one mic, one verse back. No chat. No advice paragraph. The reply is always a real shloka and Krishna's words to Arjuna, with one small, safe thing to do.</p>
+<div class="row">
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="scr"><div class="topline" style="justify-content:center">MANN DARPAN</div>
+      <div class="center"><div class="title">How is your mind<br>tonight?</div>
+        <div class="orb" style="margin-top:56px"><svg width="46" height="46"><use href="#mic"/></svg></div>
+        <p class="mute" style="font-size:13px;margin-top:34px;letter-spacing:.04em">Tap, and speak for as long as you need.</p></div>
+      <button class="link">Type instead</button></div></div>
+    <figcaption><b>A · Ask</b>Orb breathes in teal. Tap once to start, once to stop. Voice is not stored (stated on first use). Sound: tanpura drone fades in at -30 dB. Haptic: light impact on tap.</figcaption></figure>
+
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="scr"><div class="topline" style="justify-content:center">LISTENING</div>
+      <div class="center"><div class="body" style="font-size:22px;color:var(--ink);font-style:italic;line-height:1.5">“I have an interview tomorrow and I cannot stop thinking about what if I fail…”</div>
+        <div class="eqbar" style="margin-top:50px;height:40px"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+      <button class="btn teal">Done</button><div style="height:6px"></div></div></div>
+    <figcaption><b>B · Listening</b>Live words appear in italic as you speak (Hindi, English, Hinglish). Bars follow volume. Haptic: none (do not disturb the thought). Tap Done to finish.</figcaption></figure>
+
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="scr"><div class="topline" style="justify-content:center">A VERSE HEARD YOU</div>
+      <div class="center" style="padding-top:6px"><div class="body" style="font-size:16px;color:var(--teal)">Krishna told Arjuna, who was afraid:</div>
+        <div class="dev" style="margin-top:14px;font-size:23px">कर्मण्येवाधिकारस्ते<br>मा फलेषु कदाचन ।</div>
+        <div class="mean" style="font-size:20px">Do the work.<br>Let go of the result.</div>
+        <div class="ref" style="margin-top:12px">GITA 2.47</div>
+        <div class="body" style="margin-top:22px;font-size:16px;color:var(--ink);border-top:1px solid var(--line);padding-top:18px">Tonight: write one line you will do tomorrow, then put the phone down.</div></div>
+      <button class="btn">Seal as my Sankalp</button><button class="link">Not today</button></div></div>
+    <figcaption><b>C · The verse answers</b>Orb dissolves into the verse (700 ms). Reply is: attribution line, shloka, meaning, ONE action. Reply is chosen from a curated, reviewed verse set. It never says "I am God". Sound: bell. Haptic: soft.</figcaption></figure>
+</div>
+
+<!-- ============== LESSON / CHECKPOINT ============== -->
+<h2><small>05 · Lesson · Checkpoint</small>Two minutes, never a quiz show</h2>
+<p class="lede">Each Yatra step is 3 cards: read, understand, recall. A Checkpoint closes each chapter. Max 3 answer choices. Wrong answers get a gentle "Look again", never a buzzer.</p>
+<div class="row">
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="scr"><div class="dots"><i class="on"></i><i class="on"></i><i></i></div>
+      <div class="topline" style="justify-content:center">STEP 2 OF 3</div>
+      <div style="margin-top:56px" class="center"><div class="body" style="font-size:16px;color:var(--teal)">Krishna says:</div>
+        <div class="mean" style="margin-top:12px;font-size:25px">You have a right to the work, never to its fruit.</div></div>
+      <div class="eyebrow" style="text-align:center;margin-bottom:6px">Which part is yours?</div>
+      <div class="opt sel">The work</div><div class="opt">The result</div><div class="opt">Both</div>
+      <div style="height:20px"></div><button class="btn">Check</button><div style="height:6px"></div></div></div>
+    <figcaption><b>Lesson card</b>Press-down on every option (scale .985, 90 ms). Selection = gold line. Haptic: selection tick.</figcaption></figure>
+
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="scr" style="justify-content:flex-end"><div class="dots" style="position:absolute;top:54px;left:26px;right:26px"><i class="on"></i><i class="on"></i><i></i></div>
+      <div style="position:absolute;inset:0;background:radial-gradient(80% 36% at 50% 100%,rgba(227,185,100,.28),transparent 70%)"></div>
+      <div class="center" style="position:relative"><div class="title" style="color:var(--gold-soft)">Yes.</div>
+        <p class="body" style="margin-top:14px;font-size:20px">The work is yours.<br>The fruit belongs to Him.</p></div>
+      <button class="btn" style="position:relative">Continue</button><div style="height:6px"></div></div></div>
+    <figcaption><b>Right answer</b>Gold light rises from the bottom (not green). Sound: bowl, rising third. Haptic: light impact. Wrong: card trembles 2 px once, text "Look again", no sound, no haptic.</figcaption></figure>
+
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="scr"><div class="topline" style="justify-content:center">CHECKPOINT · ADHYAYA 2</div>
+      <div class="center">
+        <svg width="190" height="190" viewBox="0 0 190 190" style="position:relative"><circle cx="95" cy="95" r="84" fill="none" stroke="rgba(239,232,216,.1)" stroke-width="3"/>
+          <circle cx="95" cy="95" r="84" fill="none" stroke="#E3B964" stroke-width="3" stroke-linecap="round" stroke-dasharray="528" stroke-dashoffset="150" transform="rotate(-90 95 95)" style="filter:drop-shadow(0 0 8px rgba(227,185,100,.6))"/>
+          <text x="95" y="108" text-anchor="middle" font-family="EB Garamond" font-size="58" fill="#F4E1AE">4/5</text></svg>
+        <div class="title" style="margin-top:34px">Almost there.</div>
+        <p class="body" style="margin-top:10px">One more recall to close<br>the second chapter.</p></div>
+      <button class="btn">Last question</button><div style="height:6px"></div></div></div>
+    <figcaption><b>Checkpoint card</b>One ring, one count. Ring fills with a spring per answer. Finish = chapter node on the path turns to a gold diamond.</figcaption></figure>
+</div>
+
+<!-- ============== REWARD / STREAK ============== -->
+<h2><small>06 · Reward · Streak</small>The lamp is lit</h2>
+<p class="lede">The one big celebration of the day, shown once, after Speak. Points count up, the week's lamps light one by one. Milestones (7, 30, 100, 365) add one conch note. No confetti.</p>
+<div class="row">
+  <figure><div class="phone"><svg class="mandala" style="opacity:.1"><use href="#mandala"/></svg>
+    <div style="position:absolute;inset:0;background:radial-gradient(60% 40% at 50% 38%,rgba(227,185,100,.35),transparent 70%)"></div>
+    <div class="scr"><div class="topline" style="justify-content:center">TODAY'S RITUAL</div>
+      <div class="center"><svg width="150" height="150" style="color:#C99A45;filter:drop-shadow(0 0 40px rgba(227,185,100,.8))"><use href="#diya"/></svg>
+        <div class="title" style="margin-top:26px;font-size:30px">The lamp is lit.</div>
+        <div style="margin-top:34px"><span class="eyebrow">Moksh Points</span></div>
+        <div style="font-family:var(--serif);font-size:70px;line-height:1.1;color:var(--gold-soft)">+30</div>
+        <div class="lamps" style="margin-top:36px"><svg class="lit"><use href="#diya"/></svg><svg class="lit"><use href="#diya"/></svg><svg class="lit"><use href="#diya"/></svg><svg class="lit"><use href="#diya"/></svg><svg class="lit"><use href="#diya"/></svg><svg class="lit"><use href="#diya"/></svg><svg class="lit"><use href="#diya"/></svg></div>
+        <p class="mute" style="margin-top:14px;font-size:13px;letter-spacing:.06em">Day 12 · seven lamps this week</p></div>
+      <button class="btn">Rest now</button><div style="height:6px"></div></div></div>
+    <figcaption><b>Ritual complete</b>Sequence: diya lights (0.6 s) → glow blooms → points count 0→30 (1.2 s, ease-out) → week lamps light left to right, 140 ms apart. Sound: bell + shankh (milestones only). Haptic: success pattern (2 pulses).</figcaption></figure>
+
+  <figure><div class="phone"><svg class="mandala" style="opacity:.14"><use href="#mandala"/></svg>
+    <div style="position:absolute;inset:0;background:radial-gradient(70% 48% at 50% 42%,rgba(227,185,100,.4),transparent 70%)"></div>
+    <div class="scr"><div class="topline" style="justify-content:center">A WEEK OF LIGHT</div>
+      <div class="center"><div style="font-family:var(--serif);font-size:150px;line-height:1;color:var(--gold-soft);text-shadow:0 0 50px rgba(227,185,100,.6)">7</div>
+        <div class="title" style="margin-top:8px;font-size:30px">days, unbroken.</div>
+        <p class="body" style="margin-top:14px;font-size:18px">Krishna told Arjuna: practice,<br>and the mind grows steady. (6.35)</p></div>
+      <button class="btn">Share this light</button><button class="link">Continue</button></div></div>
+    <figcaption><b>Milestone · day 7</b>Full-screen gold bloom, number scales in with spring. One share card (verse + number, no UI). This is the app's only share surface.</figcaption></figure>
+
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="scr"><div class="topline" style="justify-content:center">YOUR LAMPS</div>
+      <div class="center"><div class="lamps anim" style="margin-top:6px"><svg><use href="#diya"/></svg><svg><use href="#diya"/></svg><svg><use href="#diya"/></svg><svg><use href="#diya"/></svg><svg><use href="#diya"/></svg><svg><use href="#diya"/></svg><svg><use href="#diya"/></svg></div>
+        <p class="mute" style="font-size:12px;margin-top:20px;letter-spacing:.14em">LIVE · STREAK LIGHT</p></div>
+      <div class="card" style="width:auto;margin-bottom:12px"><div class="eyebrow">If you miss a day</div><p style="margin-top:8px">The lamp dims. One missed day a week is forgiven. Points never go down. The words are: “You came back.”</p></div></div></div>
+    <figcaption><b>Streak light (live)</b>Seven small lamps light in sequence, left to right, then reset. No flame count, no fire emoji, no red.</figcaption></figure>
+</div>
+
+<!-- ============== YATRA ============== -->
+<h2><small>07 · Gita Yatra</small>The path</h2>
+<p class="lede">18 chapters, one path, a node per step. You do not choose. The next node glows; the rest wait. A diamond marks each chapter Checkpoint.</p>
+<div class="row">
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="scr" style="padding-bottom:0"><div class="topline"><span>GITA YATRA</span><span>CH 2 OF 18</span></div></div>
+    <svg class="path" viewBox="0 0 330 680" fill="none"><path d="M190 610 L155.0 577.5 Q120 545 112.5 510.0 Q105 475 120.0 437.5 Q135 400 175.0 367.5 Q215 335 225.0 300.0 Q235 265 210.0 232.5 Q185 200 152.5 175.0 L120 150" stroke="rgba(227,185,100,.28)" stroke-width="2" stroke-dasharray="2 9" stroke-linecap="round"/>
+      <path d="M190 610 L155.0 577.5 Q120 545 112.5 510.0 Q105 475 120.0 437.5 L135 400" stroke="#E3B964" stroke-width="2.4" stroke-linecap="round" style="filter:drop-shadow(0 0 6px rgba(227,185,100,.6))"/></svg>
+    <div class="node done cp" style="left:190px;top:610px"><span>✓</span></div>
+    <div class="node done" style="left:120px;top:545px">✓</div>
+    <div class="node done" style="left:105px;top:475px">✓</div>
+    <div class="node now" style="left:135px;top:400px"><svg width="34" height="34" style="color:#1A1204"><use href="#lotus"/></svg></div>
+    <div class="nlabel" style="left:184px;top:388px">Today<br><span style="color:var(--gold);letter-spacing:.04em;text-transform:none;font-family:var(--serif);font-size:15px">Karma Yoga · 2.47</span></div>
+    <div class="node" style="left:215px;top:335px">4</div>
+    <div class="node" style="left:235px;top:265px">5</div>
+    <div class="node cp" style="left:185px;top:200px"><span>◇</span></div>
+    <div class="node" style="left:120px;top:150px;opacity:.45">7</div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(transparent,var(--bg))"></div></div>
+    <figcaption><b>Path</b>Done = thin gold. Now = breathing gold lotus. Future = ink-dark. Tap Now opens the lesson (press-down + soft bell). Tap future = a small shake and “Walk in order.”</figcaption></figure>
+
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="scr"><div class="topline" style="justify-content:center">ADHYAYA 2 COMPLETE</div>
+      <div class="center"><svg width="130" height="130" style="color:var(--gold);filter:drop-shadow(0 0 30px rgba(227,185,100,.6))"><use href="#lotus"/></svg>
+        <div class="title" style="margin-top:26px">Sankhya Yoga</div>
+        <p class="body" style="margin-top:12px">You have walked one chapter<br>of eighteen.</p>
+        <div style="margin-top:30px;height:2px;width:200px;background:var(--line);border-radius:2px;position:relative"><i style="position:absolute;left:0;top:0;height:2px;width:11%;background:var(--gold);box-shadow:0 0 10px var(--gold)"></i></div></div>
+      <button class="btn">Continue the Yatra</button><div style="height:6px"></div></div></div>
+    <figcaption><b>Chapter complete</b>Lotus opens petal by petal (1.4 s). One progress hair-line, no percentage. Sound: bowl + gentle tanpura swell. Haptic: success.</figcaption></figure>
+</div>
+
+<!-- ============== PROFILE ============== -->
+<h2><small>08 · You</small>Five settings, no more</h2>
+<p class="lede">Reminder time, Language, Sound and haptics, Appearance, Privacy and data. Everything else is decided for you.</p>
+<div class="row">
+  <figure><div class="phone"><svg class="mandala"><use href="#mandala"/></svg>
+    <div class="scr"><div class="topline"><span>YOU</span><span></span></div>
+      <div style="margin-top:34px"><div class="title">Aarav</div>
+        <p class="body" style="margin-top:6px;font-size:16px">12 days · 340 Moksh · 14 verses kept</p></div>
+      <div style="margin-top:26px">
+        <div class="set">Reminder<span>Morning · 6:30</span></div>
+        <div class="set">Language<span>Hinglish</span></div>
+        <div class="set">Sound &amp; haptics<div class="tog"></div></div>
+        <div class="set">Appearance<span>Auto</span></div>
+        <div class="set">Privacy &amp; data<span>Voice not stored</span></div></div>
+      <div style="flex:1"></div>
+      <div class="nav"><span>Today</span><span>Yatra</span><b>You</b></div></div></div>
+    <figcaption><b>You</b>Kept verses open from the stat line. No avatar, badges grid, friend list or league.</figcaption></figure>
+
+  <div style="max-width:420px;padding-top:6px">
+    <div class="eyebrow">Removed from settings, on purpose</div>
+    <p class="body" style="margin-top:14px;font-size:18px;line-height:1.7">Font size · theme colours · voice choice · chant speed · verses per day · streak goal · notification categories · leaderboard opt-in · translation source.</p>
+    <p class="body" style="margin-top:18px;font-size:16px">Font size follows the system. Chant is one voice, one speed. Five verses a day. The system picks the translation.</p></div>
+</div>
+
+<!-- ============== MICRO-INTERACTIONS ============== -->
+<h2><small>09 · Live micro-interactions</small>Feel the board</h2>
+<p class="lede">Hover or press where noted. Everything is CSS; Flutter will use implicit/explicit animations with the same timings.</p>
+<div class="row">
+  <div class="card"><div class="demo hold" style="cursor:pointer"><div class="listen-wash"></div><div class="ring" style="bottom:20px;opacity:.8"></div>
+      <div class="dev hl" style="font-size:22px;position:relative;text-align:center">कर्मण्येवाधिकारस्ते</div></div>
+    <h4>Hold-to-listen glow</h4><p><b>Press and hold</b> the box. Wash 350 ms, ring breathes 3.2 s, words glow gold. Release: fade 250 ms.</p></div>
+
+  <div class="card"><div class="demo"><svg class="bloom" style="width:120px;height:120px;margin:-60px;animation-delay:-1.1s"><use href="#lotus"/></svg><div class="toast" style="bottom:24px">Kept</div></div>
+    <h4>Double-tap keep</h4><p>Lotus scales .2 → 1.08 → 1 with a spring, 0.9 s. Looping here. Real one runs once.</p></div>
+
+  <div class="card"><div class="demo"><div class="snapdemo"><div class="c1">Verse 3</div><div class="c2">Verse 4</div></div></div>
+    <h4>Swipe snap</h4><p>1:1 follow, then spring snap with 6 px overshoot, 380 ms. Next card rises from 85% scale.</p></div>
+
+  <div class="card"><div class="demo"><div class="halo" style="width:110px;height:110px"></div><div class="halo" style="width:110px;height:110px;animation-delay:2.4s"></div><div class="om" style="font-size:64px">ॐ</div></div>
+    <h4>Om pulse</h4><p>Scale 1 → 1.07 and glow, 4.8 s. Used only on welcome and the end-of-feed. Never as a loading spinner.</p></div>
+
+  <div class="card"><div class="demo"><div class="lamps anim"><svg><use href="#diya"/></svg><svg><use href="#diya"/></svg><svg><use href="#diya"/></svg><svg><use href="#diya"/></svg><svg><use href="#diya"/></svg><svg><use href="#diya"/></svg><svg><use href="#diya"/></svg></div></div>
+    <h4>Streak light</h4><p>Lamps light one by one, 140 ms apart, warm glow. Missed day: that lamp stays dim, never red.</p></div>
+
+  <div class="card"><div class="demo"><div class="count" style="font-size:80px;animation-delay:-2.5s"></div></div>
+    <h4>Points count-up</h4><p>0 → 30 in 1.2 s, ease-out, tabular figures. Plays once per day, after the ritual.</p></div>
+
+  <div class="card"><div class="demo"><button class="btn press">Press me</button></div>
+    <h4>Press-down button</h4><p><b>Click and hold.</b> Moves down 3 px, shadow collapses, 90 ms. Release springs back. All primary buttons.</p></div>
+</div>
+
+<!-- ============== SOUND / HAPTIC MAP ============== -->
+<h2><small>10 · Sound &amp; haptic map</small>Every touch answers</h2>
+<p class="lede">Sounds are soft, Indian-instrument, short (under 1.2 s), and mixed quiet (-18 LUFS bed, -12 for cues). One toggle turns sound and haptics off together. Haptics use the platform's standard patterns (selection, light impact, success), so no custom motors.</p>
+<table>
+<tr><th>Moment</th><th>Sound</th><th>Haptic</th><th>Motion</th><th>Time</th></tr>
+<tr><td>Open app / welcome</td><td>Soft bell, 1 note</td><td>None</td><td>Om pulse</td><td>0.4 s in</td></tr>
+<tr><td>Tap any primary button</td><td>Quiet wood tap</td><td>Light impact</td><td>Press-down 3 px</td><td>90 ms</td></tr>
+<tr><td>Pick an option</td><td>None</td><td>Selection tick</td><td>Gold line fades in</td><td>150 ms</td></tr>
+<tr><td>Swipe to next verse</td><td>Low wood "tok"</td><td>Selection tick</td><td>Spring snap</td><td>380 ms</td></tr>
+<tr><td>Hold to listen</td><td>Chant plays</td><td>One soft tick at start</td><td>Teal wash, words glow</td><td>350 ms in</td></tr>
+<tr><td>Double-tap keep</td><td>Singing-bowl tink</td><td>Light impact, then soft</td><td>Lotus bloom</td><td>900 ms</td></tr>
+<tr><td>End of feed</td><td>Low bell, one note</td><td>Soft</td><td>Dim, Om fades up</td><td>800 ms</td></tr>
+<tr><td>Mann Darpan start</td><td>Tanpura drone fades in</td><td>Light impact</td><td>Orb to waveform</td><td>400 ms</td></tr>
+<tr><td>Mann Darpan reply</td><td>Bell</td><td>Soft</td><td>Orb dissolves to verse</td><td>700 ms</td></tr>
+<tr><td>Right answer</td><td>Bowl, rising third</td><td>Light impact</td><td>Gold light rises</td><td>500 ms</td></tr>
+<tr><td>Wrong answer</td><td>None</td><td>None</td><td>2 px tremble, "Look again"</td><td>200 ms</td></tr>
+<tr><td>Ritual complete</td><td>Bell, then warm pad</td><td>Success (2 pulses)</td><td>Diya lights, count-up, lamps</td><td>3 s total</td></tr>
+<tr><td>Milestone (7/30/100/365)</td><td>Shankh (conch), once</td><td>Success + soft</td><td>Gold bloom, number scales in</td><td>2.5 s</td></tr>
+<tr><td>Chapter complete</td><td>Bowl + tanpura swell</td><td>Success</td><td>Lotus opens petal by petal</td><td>1.4 s</td></tr>
+<tr><td>Return after missed day</td><td>Soft bell</td><td>None</td><td>Lamp warms from dim to lit</td><td>1.2 s</td></tr>
+</table>
+
+<p class="sub" style="margin-top:60px;color:var(--faint)">Board v2 · plain HTML/CSS/SVG, no network. Open <code>docs/design-board-v2/index.html</code>.</p>
+</div>
+
+<script>
+/* double-click keep: bloom only */
+(function(){var f=document.getElementById('feed'),k=document.getElementById('kept'),lw=document.getElementById('lw');
+ if(!f)return;
+ f.addEventListener('dblclick',function(){k.classList.remove('go');void k.getBoundingClientRect();k.classList.add('go')});
+ var h=0;f.addEventListener('pointerdown',function(){h=setTimeout(function(){lw.style.opacity=1},350)});
+ ['pointerup','pointerleave','pointercancel'].forEach(function(e){f.addEventListener(e,function(){clearTimeout(h);lw.style.opacity=0})});
+})();
+</script>
+</body>
+</html>
