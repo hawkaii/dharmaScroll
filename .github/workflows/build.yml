@@ -51,10 +51,12 @@ jobs:
         run: flutter test --exclude-tags golden
 
   apk:
-    name: Release APK
+    name: Release APK and AAB
     needs: check
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    outputs:
+      signed: ${{ steps.signing.outputs.signed }}
     steps:
       - uses: actions/checkout@v5
 
@@ -75,16 +77,61 @@ jobs:
       - name: Dependencies
         run: flutter pub get
 
+      # Release signing. The keystore lives in repository secrets as base64; it is
+      # decoded into the runner's temp dir and never written into the checkout.
+      # Without the secrets (pull requests from forks, a repo not yet set up) the
+      # build falls back to the debug key, which Play will reject, and says so.
+      - name: Release signing
+        id: signing
+        env:
+          KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          if [ -n "$KEYSTORE_B64" ] && [ -n "$KEYSTORE_PASSWORD" ] && [ -n "$KEY_ALIAS" ] && [ -n "$KEY_PASSWORD" ]; then
+            printf '%s' "$KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/upload.jks"
+            {
+              echo "ANDROID_KEYSTORE_FILE=$RUNNER_TEMP/upload.jks"
+              echo "ANDROID_KEYSTORE_PASSWORD=$KEYSTORE_PASSWORD"
+              echo "ANDROID_KEY_ALIAS=$KEY_ALIAS"
+              echo "ANDROID_KEY_PASSWORD=$KEY_PASSWORD"
+            } >> "$GITHUB_ENV"
+            echo "signed=true" >> "$GITHUB_OUTPUT"
+            echo "Release keystore found: building with the upload key."
+          else
+            echo "signed=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::No signing secrets: building with the DEBUG key. This build cannot go to Play."
+          fi
+
       # One APK per ABI: the arm64 build is a third of the size of a fat APK,
       # which matters when every upgrade is a manual download.
+      # --build-number sets versionCode: the run number only goes up, which is
+      # all Play asks of it. versionName stays the pubspec version.
       - name: Build release APKs
-        run: flutter build apk --release --split-per-abi
+        run: flutter build apk --release --split-per-abi --build-number=${{ github.run_number }}
+
+      # The App Bundle is what Play takes; Play makes the per-device APKs.
+      - name: Build release App Bundle
+        run: flutter build appbundle --release --build-number=${{ github.run_number }}
+
+      - name: Remove keystore
+        if: always()
+        run: rm -f "$RUNNER_TEMP/upload.jks"
 
       - name: Upload APKs
         uses: actions/upload-artifact@v7
         with:
           name: apk-${{ github.sha }}
           path: build/app/outputs/flutter-apk/*.apk
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload App Bundle
+        uses: actions/upload-artifact@v7
+        with:
+          name: aab-${{ github.sha }}
+          path: build/app/outputs/bundle/release/app-release.aab
           if-no-files-found: error
           retention-days: 14
 
@@ -142,6 +189,11 @@ jobs:
           name: apk-${{ github.sha }}
           path: dist
 
+      - uses: actions/download-artifact@v8
+        with:
+          name: aab-${{ github.sha }}
+          path: dist-aab
+
       # `app-arm64-v8a-release.apk` says nothing to someone scrolling a release
       # page; `dharmascroll-0.1.0-arm64-v8a.apk` says which build and which phone.
       - name: Name the APKs
@@ -151,6 +203,10 @@ jobs:
             abi="${f#app-}"; abi="${abi%-release.apk}"
             mv "$f" "${{ steps.app.outputs.name }}-${{ steps.app.outputs.version }}-${abi}.apk"
           done
+          # Only a bundle signed with the upload key is worth attaching.
+          if [ "${{ needs.apk.outputs.signed }}" = "true" ]; then
+            mv ../dist-aab/app-release.aab "${{ steps.app.outputs.name }}-${{ steps.app.outputs.version }}-${{ github.run_number }}.aab"
+          fi
           ls -l
 
       - name: Publish
@@ -161,7 +217,9 @@ jobs:
           # Re-running a workflow reuses its run number, so the tag can already
           # exist. Replace it rather than failing the build over it.
           gh release delete "$TAG" --yes --cleanup-tag 2>/dev/null || true
-          gh release create "$TAG" dist/*.apk \
+          shopt -s nullglob
+          FILES=(dist/*.apk dist/*.aab)
+          gh release create "$TAG" "${FILES[@]}" \
             --title "v${{ steps.app.outputs.version }} · build ${{ github.run_number }}" \
             --generate-notes \
             --latest
