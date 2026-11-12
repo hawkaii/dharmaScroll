@@ -88,6 +88,7 @@ class OnboardingState {
 /// dismissed on first gesture.
 class OnboardingNotifier extends Notifier<OnboardingState> {
   static const String _completedKey = 'onboardingComplete';
+  static const String _reminderKey = 'remindAtMinutes';
   static const int maxIntents = 5;
 
   late final SharedPreferences _prefs;
@@ -95,7 +96,15 @@ class OnboardingNotifier extends Notifier<OnboardingState> {
   @override
   OnboardingState build() {
     _prefs = ref.read(sharedPrefsProvider);
-    return OnboardingState(completed: _prefs.getBool(_completedKey) ?? false);
+    final String? lang = _prefs.getString('lang');
+    return OnboardingState(
+      completed: _prefs.getBool(_completedKey) ?? false,
+      language: LangPref.values.firstWhere(
+        (LangPref l) => l.name == lang,
+        orElse: () => LangPref.hindiSanskrit,
+      ),
+      remindAtMinutes: _prefs.getInt(_reminderKey) ?? 6 * 60 + 30,
+    );
   }
 
   void goTo(OnboardingStep step) => state = state.copyWith(step: step);
@@ -161,6 +170,11 @@ class OnboardingNotifier extends Notifier<OnboardingState> {
     state = minutes == null
         ? state.copyWith(clearReminder: true)
         : state.copyWith(remindAtMinutes: minutes);
+    if (minutes == null) {
+      _prefs.remove(_reminderKey);
+    } else {
+      _prefs.setInt(_reminderKey, minutes);
+    }
   }
 
   void complete() {
