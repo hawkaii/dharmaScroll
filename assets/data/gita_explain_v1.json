@@ -1,0 +1,7483 @@
+{
+ "version": 1,
+ "status": "draft, pending scholar review",
+ "chapters": {
+  "1": {
+   "context_en": "Two armies stand ready on the field of Kurukshetra. Arjuna asks Krishna to drive his chariot between them. He sees his own family on both sides and loses heart.",
+   "context_hi": "कुरुक्षेत्र में दो सेनाएँ आमने-सामने खड़ी हैं। अर्जुन कृष्ण से रथ बीच में ले जाने को कहते हैं। दोनों ओर अपने ही परिवार को देखकर उनका मन टूट जाता है।"
+  },
+  "2": {
+   "context_en": "Arjuna sits down in the chariot and will not fight. He asks Krishna to teach him. Krishna begins: the self does not die, and work can be done with a steady mind.",
+   "context_hi": "अर्जुन रथ में बैठ जाते हैं और लड़ने से मना कर देते हैं। वे कृष्ण से सीख माँगते हैं। कृष्ण बताते हैं कि आत्मा नहीं मरती, और काम शांत मन से हो सकता है।"
+  },
+  "3": {
+   "context_en": "Arjuna asks why he must act at all, if knowing is higher than doing. Krishna explains that work done without selfish wanting sets a person free.",
+   "context_hi": "अर्जुन पूछते हैं कि अगर ज्ञान ऊँचा है तो कर्म क्यों करें। कृष्ण समझाते हैं कि स्वार्थ छोड़कर किया गया काम इंसान को मुक्त करता है।"
+  },
+  "4": {
+   "context_en": "Krishna tells Arjuna this teaching is very old. He comes again and again to protect goodness. He speaks of action, wisdom, and learning from a teacher.",
+   "context_hi": "कृष्ण बताते हैं कि यह ज्ञान बहुत पुराना है। वे भलाई की रक्षा के लिए बार-बार आते हैं। वे कर्म, ज्ञान और गुरु से सीखने की बात करते हैं।"
+  },
+  "5": {
+   "context_en": "Arjuna asks which is better: giving up work, or doing it. Krishna says doing your work without clinging is the surer road to peace.",
+   "context_hi": "अर्जुन पूछते हैं कि काम छोड़ना अच्छा है या करना। कृष्ण कहते हैं कि बिना मोह के काम करना शांति का पक्का रास्ता है।"
+  },
+  "6": {
+   "context_en": "Krishna teaches the path of meditation. How to sit, how to calm the mind, and how to bring it back when it wanders.",
+   "context_hi": "कृष्ण ध्यान का रास्ता सिखाते हैं। कैसे बैठें, मन को कैसे शांत करें, और भटके तो कैसे वापस लाएँ।"
+  },
+  "7": {
+   "context_en": "Krishna tells Arjuna who he is: the source of all, the thread that runs through everything. He speaks of the people who turn to him.",
+   "context_hi": "कृष्ण बताते हैं कि वे कौन हैं: सबका स्रोत, हर चीज़ में पिरोया धागा। वे उन लोगों की बात करते हैं जो उनकी ओर आते हैं।"
+  },
+  "8": {
+   "context_en": "Arjuna asks what happens at the end of life. Krishna says a person goes to what they remember at the end, so remember him always.",
+   "context_hi": "अर्जुन पूछते हैं कि जीवन के अंत में क्या होता है। कृष्ण कहते हैं कि अंत में जो याद रहे, वहीं जाते हैं, इसलिए उन्हें हमेशा याद रखो।"
+  },
+  "9": {
+   "context_en": "Krishna shares the royal secret. He is close to anyone who offers him love, even with a leaf or a flower.",
+   "context_hi": "कृष्ण राज-रहस्य बताते हैं। जो प्रेम से एक पत्ता या फूल भी दे, वे उसके पास हैं।"
+  },
+  "10": {
+   "context_en": "Krishna shows Arjuna where to see the divine in the world: in all that is bright, strong and beautiful.",
+   "context_hi": "कृष्ण बताते हैं कि संसार में भगवान को कहाँ देखें: हर चमकती, बलवान और सुंदर चीज़ में।"
+  },
+  "11": {
+   "context_en": "Arjuna asks to see Krishna's cosmic form. He sees all of time and space in it, and is filled with awe and fear.",
+   "context_hi": "अर्जुन कृष्ण का विराट रूप देखना चाहते हैं। उसमें सारा समय और संसार दिखता है, और वे डर और आश्चर्य से भर जाते हैं।"
+  },
+  "12": {
+   "context_en": "Arjuna asks what kind of devotion is best. Krishna lists the qualities of the person who is dear to him.",
+   "context_hi": "अर्जुन पूछते हैं कि कैसी भक्ति सबसे अच्छी है। कृष्ण उस इंसान के गुण बताते हैं जो उन्हें प्यारा है।"
+  },
+  "13": {
+   "context_en": "Krishna explains the field and its knower. The body is the field. The Self that watches it is the knower.",
+   "context_hi": "कृष्ण क्षेत्र और क्षेत्रज्ञ समझाते हैं। शरीर क्षेत्र है। उसे देखने वाली आत्मा क्षेत्रज्ञ है।"
+  },
+  "14": {
+   "context_en": "Krishna explains the three qualities of nature: goodness, passion and dullness. He shows how a person can rise above all three.",
+   "context_hi": "कृष्ण प्रकृति के तीन गुण समझाते हैं: सत्त्व, रजस और तमस। वे बताते हैं कि इन तीनों से ऊपर कैसे उठें।"
+  },
+  "15": {
+   "context_en": "Krishna describes the world as a great tree with its roots above. Each soul, he says, is a part of him that lives in every heart.",
+   "context_hi": "कृष्ण संसार को उल्टे पेड़ जैसा बताते हैं, जिसकी जड़ें ऊपर हैं। वे कहते हैं कि हर जीव उनका ही अंश है, जो हर दिल में रहता है।"
+  },
+  "16": {
+   "context_en": "Krishna sets the qualities that free a person beside the ones that bind. Fearlessness and kindness on one side; pride, anger and greed on the other.",
+   "context_hi": "कृष्ण मुक्त करने वाले और बाँधने वाले गुणों की तुलना करते हैं। एक ओर निडरता और दया; दूसरी ओर घमंड, गुस्सा और लालच।"
+  },
+  "17": {
+   "context_en": "Arjuna asks about faith. Krishna explains three kinds of faith, and how they show in food, giving and discipline.",
+   "context_hi": "अर्जुन श्रद्धा के बारे में पूछते हैं। कृष्ण तीन तरह की श्रद्धा समझाते हैं, और बताते हैं कि वे भोजन, दान और तप में कैसे दिखती हैं।"
+  },
+  "18": {
+   "context_en": "In the last chapter Krishna gathers the whole teaching together. Arjuna's doubts clear, and he stands up ready to act.",
+   "context_hi": "आख़िरी अध्याय में कृष्ण पूरी सीख को एक साथ रखते हैं। अर्जुन के संशय मिट जाते हैं, और वे कर्म के लिए खड़े हो जाते हैं।"
+  }
+ },
+ "verses": {
+  "2.47": {
+   "simple_en": "Do your work with all your heart. The result is not yours to hold. But never stop working because of that.",
+   "simple_hi": "अपना काम पूरे मन से करो। नतीजा तुम्हारे हाथ में नहीं है। पर इस वजह से काम कभी मत छोड़ो।",
+   "words": [
+    [
+     "कर्मणि",
+     "karmaṇi",
+     "in action"
+    ],
+    [
+     "एव",
+     "eva",
+     "only"
+    ],
+    [
+     "अधिकारः",
+     "adhikāraḥ",
+     "right"
+    ],
+    [
+     "ते",
+     "te",
+     "your"
+    ],
+    [
+     "मा",
+     "mā",
+     "never"
+    ],
+    [
+     "फलेषु",
+     "phaleṣu",
+     "in the fruits"
+    ],
+    [
+     "कदाचन",
+     "kadācana",
+     "at any time"
+    ],
+    [
+     "कर्म-फल-हेतुः",
+     "karma-phala-hetuḥ",
+     "the reward as your reason"
+    ],
+    [
+     "भूः",
+     "bhūḥ",
+     "become"
+    ],
+    [
+     "सङ्गः",
+     "saṅgaḥ",
+     "attachment"
+    ],
+    [
+     "अस्तु",
+     "astu",
+     "let there be"
+    ],
+    [
+     "अकर्मणि",
+     "akarmaṇi",
+     "to doing nothing"
+    ]
+   ],
+   "related": [
+    "5.10",
+    "12.12",
+    "2.50"
+   ]
+  },
+  "2.14": {
+   "simple_en": "Cold and hot, happy and sad, they all come and go. None of them stays for long. So be patient and let them pass.",
+   "simple_hi": "ठंड और गर्मी, सुख और दुख, सब आते-जाते हैं। कोई भी हमेशा नहीं रहता। इसलिए धीरज रखो और उन्हें गुज़रने दो।",
+   "words": [
+    [
+     "मात्रा-स्पर्शाः",
+     "mātrā-sparśāḥ",
+     "touches of the senses"
+    ],
+    [
+     "तु",
+     "tu",
+     "but"
+    ],
+    [
+     "कौन्तेय",
+     "kaunteya",
+     "son of Kunti"
+    ],
+    [
+     "शीत-उष्ण",
+     "śīta-uṣṇa",
+     "cold and heat"
+    ],
+    [
+     "सुख-दुःख-दाः",
+     "sukha-duḥkha-dāḥ",
+     "bringing joy and pain"
+    ],
+    [
+     "आगम-अपायिनः",
+     "āgama-apāyinaḥ",
+     "coming and going"
+    ],
+    [
+     "अनित्याः",
+     "anityāḥ",
+     "not lasting"
+    ],
+    [
+     "तान्",
+     "tān",
+     "them"
+    ],
+    [
+     "तितिक्षस्व",
+     "titikṣasva",
+     "bear patiently"
+    ],
+    [
+     "भारत",
+     "bhārata",
+     "O Bharata"
+    ]
+   ],
+   "related": [
+    "2.13",
+    "6.7",
+    "5.20"
+   ]
+  },
+  "2.20": {
+   "simple_en": "The real you was never born and will never die. It is very old and always new. When the body ends, the real you does not end.",
+   "simple_hi": "असली तुम कभी पैदा नहीं हुए और कभी नहीं मरोगे। वह बहुत पुराना है और सदा रहता है। शरीर ख़त्म होने पर भी असली तुम ख़त्म नहीं होते।",
+   "words": [
+    [
+     "न जायते",
+     "na jāyate",
+     "is not born"
+    ],
+    [
+     "म्रियते",
+     "mriyate",
+     "dies"
+    ],
+    [
+     "वा",
+     "vā",
+     "or"
+    ],
+    [
+     "कदाचित्",
+     "kadācit",
+     "ever"
+    ],
+    [
+     "अयम्",
+     "ayam",
+     "this self"
+    ],
+    [
+     "भूत्वा",
+     "bhūtvā",
+     "having been"
+    ],
+    [
+     "भविता",
+     "bhavitā",
+     "will be"
+    ],
+    [
+     "भूयः",
+     "bhūyaḥ",
+     "again"
+    ],
+    [
+     "अजः",
+     "ajaḥ",
+     "unborn"
+    ],
+    [
+     "नित्यः",
+     "nityaḥ",
+     "eternal"
+    ],
+    [
+     "शाश्वतः",
+     "śāśvataḥ",
+     "lasting"
+    ],
+    [
+     "पुराणः",
+     "purāṇaḥ",
+     "ancient"
+    ],
+    [
+     "न हन्यते",
+     "na hanyate",
+     "is not killed"
+    ],
+    [
+     "हन्यमाने",
+     "hanyamāne",
+     "when killed"
+    ],
+    [
+     "शरीरे",
+     "śarīre",
+     "the body"
+    ]
+   ],
+   "related": [
+    "2.22",
+    "2.27",
+    "8.5"
+   ]
+  },
+  "6.5": {
+   "simple_en": "Lift yourself up. Do not push yourself down. You can be your own best friend, or your own enemy.",
+   "simple_hi": "ख़ुद को ऊपर उठाओ। ख़ुद को नीचे मत गिराओ। तुम अपने सबसे अच्छे दोस्त बन सकते हो, या अपने दुश्मन।",
+   "words": [
+    [
+     "उद्धरेत्",
+     "uddharet",
+     "lift up"
+    ],
+    [
+     "आत्मना",
+     "ātmanā",
+     "by yourself"
+    ],
+    [
+     "आत्मानम्",
+     "ātmānam",
+     "yourself"
+    ],
+    [
+     "न",
+     "na",
+     "not"
+    ],
+    [
+     "अवसादयेत्",
+     "avasādayet",
+     "let sink"
+    ],
+    [
+     "आत्मा",
+     "ātmā",
+     "self"
+    ],
+    [
+     "एव",
+     "eva",
+     "alone"
+    ],
+    [
+     "हि",
+     "hi",
+     "truly"
+    ],
+    [
+     "आत्मनः",
+     "ātmanaḥ",
+     "of the self"
+    ],
+    [
+     "बन्धुः",
+     "bandhuḥ",
+     "friend"
+    ],
+    [
+     "रिपुः",
+     "ripuḥ",
+     "enemy"
+    ]
+   ],
+   "related": [
+    "6.6",
+    "6.40",
+    "9.31"
+   ]
+  },
+  "18.66": {
+   "simple_en": "Krishna says: let go of everything else you hold on to, and come to me. I will free you from every wrong. Do not be afraid. Do not grieve.",
+   "simple_hi": "कृष्ण कहते हैं: बाक़ी सब सहारे छोड़कर मेरी शरण आओ। मैं तुम्हें हर बुराई से मुक्त करूँगा। डरो मत। दुखी मत हो।",
+   "words": [
+    [
+     "सर्व-धर्मान्",
+     "sarva-dharmān",
+     "all other duties"
+    ],
+    [
+     "परित्यज्य",
+     "parityajya",
+     "letting go"
+    ],
+    [
+     "माम्",
+     "mām",
+     "to me"
+    ],
+    [
+     "एकम्",
+     "ekam",
+     "alone"
+    ],
+    [
+     "शरणम्",
+     "śaraṇam",
+     "for shelter"
+    ],
+    [
+     "व्रज",
+     "vraja",
+     "come"
+    ],
+    [
+     "अहम्",
+     "aham",
+     "I"
+    ],
+    [
+     "त्वा",
+     "tvā",
+     "you"
+    ],
+    [
+     "सर्व-पापेभ्यः",
+     "sarva-pāpebhyaḥ",
+     "from all wrong"
+    ],
+    [
+     "मोक्षयिष्यामि",
+     "mokṣayiṣyāmi",
+     "will free"
+    ],
+    [
+     "मा शुचः",
+     "mā śucaḥ",
+     "do not grieve"
+    ]
+   ],
+   "related": [
+    "9.22",
+    "1.30",
+    "18.57"
+   ]
+  },
+  "2.48": {
+   "simple_en": "Do your work with a calm mind. If it goes well, stay calm. If it goes badly, stay calm. That steady calm is yoga.",
+   "simple_hi": "शांत मन से अपना काम करो। अच्छा हो तो भी शांत रहो। बुरा हो तो भी शांत रहो। यही स्थिर शांति योग है।",
+   "words": [
+    [
+     "योग-स्थः",
+     "yoga-sthaḥ",
+     "steady in yoga"
+    ],
+    [
+     "कुरु",
+     "kuru",
+     "do"
+    ],
+    [
+     "कर्माणि",
+     "karmāṇi",
+     "your work"
+    ],
+    [
+     "सङ्गम्",
+     "saṅgam",
+     "attachment"
+    ],
+    [
+     "त्यक्त्वा",
+     "tyaktvā",
+     "letting go"
+    ],
+    [
+     "धनञ्जय",
+     "dhanañjaya",
+     "O Arjuna"
+    ],
+    [
+     "सिद्धि-असिद्ध्योः",
+     "siddhi-asiddhyoḥ",
+     "in success and failure"
+    ],
+    [
+     "समः",
+     "samaḥ",
+     "even"
+    ],
+    [
+     "भूत्वा",
+     "bhūtvā",
+     "being"
+    ],
+    [
+     "समत्वम्",
+     "samatvam",
+     "evenness"
+    ],
+    [
+     "योगः",
+     "yogaḥ",
+     "yoga"
+    ],
+    [
+     "उच्यते",
+     "ucyate",
+     "is called"
+    ]
+   ],
+   "related": [
+    "5.20",
+    "6.7",
+    "2.47"
+   ]
+  },
+  "2.22": {
+   "simple_en": "When clothes get old, we put on new ones. The soul does the same with bodies. It leaves an old body and takes a new one.",
+   "simple_hi": "जब कपड़े पुराने हो जाते हैं, हम नए पहन लेते हैं। आत्मा भी शरीर के साथ ऐसा ही करती है। वह पुराना शरीर छोड़कर नया ले लेती है।",
+   "words": [
+    [
+     "वासांसि",
+     "vāsāṁsi",
+     "clothes"
+    ],
+    [
+     "जीर्णानि",
+     "jīrṇāni",
+     "worn out"
+    ],
+    [
+     "यथा",
+     "yathā",
+     "just as"
+    ],
+    [
+     "विहाय",
+     "vihāya",
+     "putting aside"
+    ],
+    [
+     "नवानि",
+     "navāni",
+     "new"
+    ],
+    [
+     "गृह्णाति",
+     "gṛhṇāti",
+     "takes"
+    ],
+    [
+     "नरः",
+     "naraḥ",
+     "a person"
+    ],
+    [
+     "अपराणि",
+     "aparāṇi",
+     "others"
+    ],
+    [
+     "तथा",
+     "tathā",
+     "so"
+    ],
+    [
+     "शरीराणि",
+     "śarīrāṇi",
+     "bodies"
+    ],
+    [
+     "अन्यानि",
+     "anyāni",
+     "other"
+    ],
+    [
+     "संयाति",
+     "saṁyāti",
+     "enters"
+    ],
+    [
+     "देही",
+     "dehī",
+     "the one in the body"
+    ]
+   ],
+   "related": [
+    "2.20",
+    "2.13",
+    "2.27"
+   ]
+  },
+  "4.7": {
+   "simple_en": "Krishna says that when goodness grows weak and wrong grows strong, he comes. He comes to set things right. Goodness is never left alone.",
+   "simple_hi": "कृष्ण कहते हैं कि जब भलाई कमज़ोर और बुराई ताक़तवर होती है, तब वे आते हैं। वे सब ठीक करने आते हैं। भलाई कभी अकेली नहीं छोड़ी जाती।",
+   "words": [
+    [
+     "यदा यदा",
+     "yadā yadā",
+     "whenever"
+    ],
+    [
+     "हि",
+     "hi",
+     "truly"
+    ],
+    [
+     "धर्मस्य",
+     "dharmasya",
+     "of goodness"
+    ],
+    [
+     "ग्लानिः",
+     "glāniḥ",
+     "a fading"
+    ],
+    [
+     "भवति",
+     "bhavati",
+     "happens"
+    ],
+    [
+     "भारत",
+     "bhārata",
+     "O Bharata"
+    ],
+    [
+     "अभ्युत्थानम्",
+     "abhyutthānam",
+     "a rising"
+    ],
+    [
+     "अधर्मस्य",
+     "adharmasya",
+     "of wrong"
+    ],
+    [
+     "तदा",
+     "tadā",
+     "then"
+    ],
+    [
+     "आत्मानम्",
+     "ātmānam",
+     "myself"
+    ],
+    [
+     "सृजामि",
+     "sṛjāmi",
+     "bring forth"
+    ],
+    [
+     "अहम्",
+     "aham",
+     "I"
+    ]
+   ],
+   "related": [
+    "7.7",
+    "15.7",
+    "10.10"
+   ]
+  },
+  "2.50": {
+   "simple_en": "A steady mind does not carry good or bad results around. So give yourself fully to what you are doing. Doing it well and calmly is yoga.",
+   "simple_hi": "स्थिर मन अच्छे-बुरे नतीजों का बोझ नहीं ढोता। इसलिए जो कर रहे हो, उसमें पूरा मन लगाओ। उसे अच्छे और शांत ढंग से करना ही योग है।",
+   "words": [
+    [
+     "बुद्धि-युक्तः",
+     "buddhi-yuktaḥ",
+     "one with a steady mind"
+    ],
+    [
+     "जहाति",
+     "jahāti",
+     "lets go"
+    ],
+    [
+     "इह",
+     "iha",
+     "here"
+    ],
+    [
+     "उभे",
+     "ubhe",
+     "both"
+    ],
+    [
+     "सुकृत-दुष्कृते",
+     "sukṛta-duṣkṛte",
+     "good and bad deeds"
+    ],
+    [
+     "तस्मात्",
+     "tasmāt",
+     "so"
+    ],
+    [
+     "योगाय",
+     "yogāya",
+     "to yoga"
+    ],
+    [
+     "युज्यस्व",
+     "yujyasva",
+     "give yourself"
+    ],
+    [
+     "योगः",
+     "yogaḥ",
+     "yoga"
+    ],
+    [
+     "कर्मसु",
+     "karmasu",
+     "in action"
+    ],
+    [
+     "कौशलम्",
+     "kauśalam",
+     "skill"
+    ]
+   ],
+   "related": [
+    "2.47",
+    "2.58",
+    "4.18"
+   ]
+  },
+  "6.35": {
+   "simple_en": "Yes, the mind is hard to hold still. It jumps around. But with practice, and by letting go a little, it can be calmed.",
+   "simple_hi": "हाँ, मन को थामना मुश्किल है। वह उछलता रहता है। पर अभ्यास से, और थोड़ा-थोड़ा छोड़ने से, वह शांत हो सकता है।",
+   "words": [
+    [
+     "असंशयम्",
+     "asaṁśayam",
+     "no doubt"
+    ],
+    [
+     "महा-बाहो",
+     "mahā-bāho",
+     "O mighty one"
+    ],
+    [
+     "मनः",
+     "manaḥ",
+     "the mind"
+    ],
+    [
+     "दुर्निग्रहम्",
+     "durnigraham",
+     "hard to hold"
+    ],
+    [
+     "चलम्",
+     "calam",
+     "restless"
+    ],
+    [
+     "अभ्यासेन",
+     "abhyāsena",
+     "by practice"
+    ],
+    [
+     "तु",
+     "tu",
+     "but"
+    ],
+    [
+     "कौन्तेय",
+     "kaunteya",
+     "son of Kunti"
+    ],
+    [
+     "वैराग्येण",
+     "vairāgyeṇa",
+     "by letting go"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "गृह्यते",
+     "gṛhyate",
+     "is held"
+    ]
+   ],
+   "related": [
+    "6.26",
+    "12.8",
+    "14.5"
+   ]
+  },
+  "1.28": {
+   "simple_en": "Arjuna looks at the two armies. He sees his own family ready to fight. His heart fills with pity and he speaks to Krishna.",
+   "simple_hi": "अर्जुन दोनों सेनाओं को देखते हैं। सामने अपना ही परिवार लड़ने को तैयार है। उनका दिल दया से भर जाता है और वे कृष्ण से बोलते हैं।",
+   "words": [
+    [
+     "कृपया",
+     "kṛpayā",
+     "with pity"
+    ],
+    [
+     "परया",
+     "parayā",
+     "deep"
+    ],
+    [
+     "आविष्टः",
+     "āviṣṭaḥ",
+     "filled"
+    ],
+    [
+     "विषीदन्",
+     "viṣīdan",
+     "sinking in sorrow"
+    ],
+    [
+     "इदम्",
+     "idam",
+     "this"
+    ],
+    [
+     "अब्रवीत्",
+     "abravīt",
+     "said"
+    ],
+    [
+     "दृष्ट्वा",
+     "dṛṣṭvā",
+     "seeing"
+    ],
+    [
+     "इमम्",
+     "imam",
+     "these"
+    ],
+    [
+     "स्व-जनम्",
+     "sva-janam",
+     "my own people"
+    ],
+    [
+     "कृष्ण",
+     "kṛṣṇa",
+     "O Krishna"
+    ],
+    [
+     "युयुत्सुम्",
+     "yuyutsum",
+     "eager to fight"
+    ],
+    [
+     "समुपस्थितम्",
+     "samupasthitam",
+     "gathered here"
+    ]
+   ],
+   "related": [
+    "1.30",
+    "18.66",
+    "2.7"
+   ],
+   "moment_en": "Sanjaya tells blind King Dhritarashtra what Arjuna said. Arjuna, looking at both armies, turns to Krishna.",
+   "moment_hi": "संजय अंधे राजा धृतराष्ट्र को बताते हैं कि अर्जुन ने क्या कहा। दोनों सेनाओं को देखकर अर्जुन कृष्ण की ओर मुड़ते हैं।"
+  },
+  "2.7": {
+   "simple_en": "Arjuna does not know what is right. He asks Krishna to tell him clearly. He says, I am your student. Please teach me.",
+   "simple_hi": "अर्जुन को नहीं पता कि सही क्या है। वे कृष्ण से साफ़ बताने को कहते हैं। वे कहते हैं, मैं आपका शिष्य हूँ। मुझे सिखाइए।",
+   "words": [
+    [
+     "कार्पण्य-दोष",
+     "kārpaṇya-doṣa",
+     "the fault of weakness"
+    ],
+    [
+     "उपहत-स्वभावः",
+     "upahata-svabhāvaḥ",
+     "my nature overcome"
+    ],
+    [
+     "पृच्छामि",
+     "pṛcchāmi",
+     "I ask"
+    ],
+    [
+     "त्वाम्",
+     "tvām",
+     "you"
+    ],
+    [
+     "धर्म-सम्मूढ-चेताः",
+     "dharma-sammūḍha-cetāḥ",
+     "mind confused about duty"
+    ],
+    [
+     "यत्",
+     "yat",
+     "what"
+    ],
+    [
+     "श्रेयः",
+     "śreyaḥ",
+     "is best"
+    ],
+    [
+     "स्यात्",
+     "syāt",
+     "may be"
+    ],
+    [
+     "निश्चितम्",
+     "niścitam",
+     "for certain"
+    ],
+    [
+     "ब्रूहि",
+     "brūhi",
+     "tell"
+    ],
+    [
+     "तत्",
+     "tat",
+     "that"
+    ],
+    [
+     "मे",
+     "me",
+     "to me"
+    ],
+    [
+     "शिष्यः",
+     "śiṣyaḥ",
+     "student"
+    ],
+    [
+     "ते",
+     "te",
+     "your"
+    ],
+    [
+     "अहम्",
+     "aham",
+     "I am"
+    ],
+    [
+     "शाधि",
+     "śādhi",
+     "teach"
+    ],
+    [
+     "माम्",
+     "mām",
+     "me"
+    ],
+    [
+     "प्रपन्नम्",
+     "prapannam",
+     "who has come to you"
+    ]
+   ],
+   "related": [
+    "7.14",
+    "10.10",
+    "15.19"
+   ],
+   "moment_en": "Arjuna speaks to Krishna. He stops arguing and asks to be taught. This is where the teaching of the Gita begins.",
+   "moment_hi": "अर्जुन कृष्ण से बोलते हैं। वे बहस छोड़कर सीखने की विनती करते हैं। यहीं से गीता का उपदेश शुरू होता है।"
+  },
+  "3.8": {
+   "simple_en": "Do the work that is yours to do. Doing something is better than doing nothing. Even looking after your body needs work.",
+   "simple_hi": "जो काम तुम्हारा है, उसे करो। कुछ करना, कुछ न करने से अच्छा है। अपने शरीर की देखभाल के लिए भी काम चाहिए।",
+   "words": [
+    [
+     "नियतम्",
+     "niyatam",
+     "your set duty"
+    ],
+    [
+     "कुरु",
+     "kuru",
+     "do"
+    ],
+    [
+     "कर्म",
+     "karma",
+     "action"
+    ],
+    [
+     "त्वम्",
+     "tvam",
+     "you"
+    ],
+    [
+     "ज्यायः",
+     "jyāyaḥ",
+     "better"
+    ],
+    [
+     "हि",
+     "hi",
+     "surely"
+    ],
+    [
+     "अकर्मणः",
+     "akarmaṇaḥ",
+     "than no action"
+    ],
+    [
+     "शरीर-यात्रा",
+     "śarīra-yātrā",
+     "keeping the body going"
+    ],
+    [
+     "अपि",
+     "api",
+     "even"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "ते",
+     "te",
+     "your"
+    ],
+    [
+     "न प्रसिद्ध्येत्",
+     "na prasiddhyet",
+     "would not happen"
+    ],
+    [
+     "अकर्मणः",
+     "akarmaṇaḥ",
+     "without action"
+    ]
+   ],
+   "related": [
+    "3.21",
+    "16.1",
+    "18.37"
+   ]
+  },
+  "4.18": {
+   "simple_en": "A wise person can be calm inside while working hard. They can also see that sitting idle is a choice too. Such a person does all their work well.",
+   "simple_hi": "समझदार इंसान ख़ूब काम करते हुए भी भीतर से शांत रहता है। वह यह भी समझता है कि बैठे रहना भी एक कर्म है। ऐसा इंसान हर काम अच्छे से करता है।",
+   "words": [
+    [
+     "कर्मणि",
+     "karmaṇi",
+     "in action"
+    ],
+    [
+     "अकर्म",
+     "akarma",
+     "stillness"
+    ],
+    [
+     "यः",
+     "yaḥ",
+     "who"
+    ],
+    [
+     "पश्येत्",
+     "paśyet",
+     "sees"
+    ],
+    [
+     "अकर्मणि",
+     "akarmaṇi",
+     "in stillness"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "कर्म",
+     "karma",
+     "action"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "he"
+    ],
+    [
+     "बुद्धिमान्",
+     "buddhimān",
+     "is wise"
+    ],
+    [
+     "मनुष्येषु",
+     "manuṣyeṣu",
+     "among people"
+    ],
+    [
+     "युक्तः",
+     "yuktaḥ",
+     "steady"
+    ],
+    [
+     "कृत्स्न-कर्म-कृत्",
+     "kṛtsna-karma-kṛt",
+     "doing all his work"
+    ]
+   ],
+   "related": [
+    "12.16",
+    "2.47",
+    "2.50"
+   ]
+  },
+  "5.7": {
+   "simple_en": "Someone with a clean heart and a calm mind can work a lot. They feel close to every living being. Their work does not leave a stain on them.",
+   "simple_hi": "जिसका दिल साफ़ और मन शांत है, वह बहुत काम कर सकता है। वह हर जीव को अपना मानता है। उसका काम उस पर दाग़ नहीं छोड़ता।",
+   "words": [
+    [
+     "योग-युक्तः",
+     "yoga-yuktaḥ",
+     "steady in yoga"
+    ],
+    [
+     "विशुद्ध-आत्मा",
+     "viśuddha-ātmā",
+     "pure in heart"
+    ],
+    [
+     "विजित-आत्मा",
+     "vijita-ātmā",
+     "master of himself"
+    ],
+    [
+     "जित-इन्द्रियः",
+     "jita-indriyaḥ",
+     "senses won"
+    ],
+    [
+     "सर्व-भूत-आत्म-भूत-आत्मा",
+     "sarva-bhūta-ātma-bhūta-ātmā",
+     "one with all beings"
+    ],
+    [
+     "कुर्वन्",
+     "kurvan",
+     "acting"
+    ],
+    [
+     "अपि",
+     "api",
+     "even"
+    ],
+    [
+     "न लिप्यते",
+     "na lipyate",
+     "is not stained"
+    ]
+   ],
+   "related": [
+    "5.10",
+    "5.18",
+    "2.47"
+   ]
+  },
+  "6.6": {
+   "simple_en": "When you guide your own mind, it becomes your friend. When you let it run wild, it acts like an enemy. Make friends with your mind.",
+   "simple_hi": "जब तुम अपने मन को संभालते हो, वह दोस्त बन जाता है। जब उसे बेलगाम छोड़ते हो, वह दुश्मन जैसा हो जाता है। अपने मन से दोस्ती करो।",
+   "words": [
+    [
+     "बन्धुः",
+     "bandhuḥ",
+     "friend"
+    ],
+    [
+     "आत्मा",
+     "ātmā",
+     "the mind"
+    ],
+    [
+     "आत्मनः",
+     "ātmanaḥ",
+     "to oneself"
+    ],
+    [
+     "तस्य",
+     "tasya",
+     "for him"
+    ],
+    [
+     "येन",
+     "yena",
+     "by whom"
+    ],
+    [
+     "एव",
+     "eva",
+     "indeed"
+    ],
+    [
+     "आत्मना",
+     "ātmanā",
+     "by oneself"
+    ],
+    [
+     "जितः",
+     "jitaḥ",
+     "is won"
+    ],
+    [
+     "अनात्मनः",
+     "anātmanaḥ",
+     "for one who has not"
+    ],
+    [
+     "तु",
+     "tu",
+     "but"
+    ],
+    [
+     "शत्रुत्वे",
+     "śatrutve",
+     "in enmity"
+    ],
+    [
+     "वर्तेत",
+     "varteta",
+     "acts"
+    ],
+    [
+     "शत्रु-वत्",
+     "śatru-vat",
+     "like an enemy"
+    ]
+   ],
+   "related": [
+    "6.5",
+    "6.16",
+    "6.17"
+   ]
+  },
+  "7.7": {
+   "simple_en": "Krishna says nothing is higher than him. Everything is held together by him, like beads on one thread. You cannot see the thread, but it holds every bead.",
+   "simple_hi": "कृष्ण कहते हैं कि उनसे ऊँचा कुछ नहीं। सब कुछ उनसे ऐसे जुड़ा है जैसे एक धागे में मोती। धागा दिखता नहीं, पर हर मोती को थामे रहता है।",
+   "words": [
+    [
+     "मत्तः",
+     "mattaḥ",
+     "than me"
+    ],
+    [
+     "परतरम्",
+     "parataram",
+     "higher"
+    ],
+    [
+     "न",
+     "na",
+     "not"
+    ],
+    [
+     "अन्यत्",
+     "anyat",
+     "other"
+    ],
+    [
+     "किञ्चित्",
+     "kiñcit",
+     "anything"
+    ],
+    [
+     "अस्ति",
+     "asti",
+     "is"
+    ],
+    [
+     "धनञ्जय",
+     "dhanañjaya",
+     "O Arjuna"
+    ],
+    [
+     "मयि",
+     "mayi",
+     "on me"
+    ],
+    [
+     "सर्वम्",
+     "sarvam",
+     "all"
+    ],
+    [
+     "इदम्",
+     "idam",
+     "this"
+    ],
+    [
+     "प्रोतम्",
+     "protam",
+     "is strung"
+    ],
+    [
+     "सूत्रे",
+     "sūtre",
+     "on a thread"
+    ],
+    [
+     "मणि-गणाः",
+     "maṇi-gaṇāḥ",
+     "rows of beads"
+    ],
+    [
+     "इव",
+     "iva",
+     "like"
+    ]
+   ],
+   "related": [
+    "8.14",
+    "5.29",
+    "6.30"
+   ]
+  },
+  "8.5": {
+   "simple_en": "Whoever thinks of Krishna at the very end of life goes to him. There is no doubt about this. The last thought carries us home.",
+   "simple_hi": "जो जीवन के अंत में कृष्ण को याद करे, वह उन्हीं के पास जाता है। इसमें कोई शक नहीं। आख़िरी याद हमें घर ले जाती है।",
+   "words": [
+    [
+     "अन्त-काले",
+     "anta-kāle",
+     "at the end"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "माम्",
+     "mām",
+     "me"
+    ],
+    [
+     "एव",
+     "eva",
+     "alone"
+    ],
+    [
+     "स्मरन्",
+     "smaran",
+     "remembering"
+    ],
+    [
+     "मुक्त्वा",
+     "muktvā",
+     "leaving"
+    ],
+    [
+     "कलेवरम्",
+     "kalevaram",
+     "the body"
+    ],
+    [
+     "यः",
+     "yaḥ",
+     "who"
+    ],
+    [
+     "प्रयाति",
+     "prayāti",
+     "departs"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "he"
+    ],
+    [
+     "मद्-भावम्",
+     "mad-bhāvam",
+     "my being"
+    ],
+    [
+     "याति",
+     "yāti",
+     "reaches"
+    ],
+    [
+     "न अस्ति",
+     "na asti",
+     "there is no"
+    ],
+    [
+     "अत्र",
+     "atra",
+     "here"
+    ],
+    [
+     "संशयः",
+     "saṁśayaḥ",
+     "doubt"
+    ]
+   ],
+   "related": [
+    "2.20",
+    "8.6",
+    "8.15"
+   ]
+  },
+  "9.22": {
+   "simple_en": "Krishna makes a promise. Those who think of him with love, he takes care of. He brings what they need and keeps safe what they have.",
+   "simple_hi": "कृष्ण वादा करते हैं। जो प्रेम से उन्हें याद करते हैं, वे उनका ध्यान रखते हैं। जो चाहिए वह लाते हैं, और जो है उसकी रक्षा करते हैं।",
+   "words": [
+    [
+     "अनन्याः",
+     "ananyāḥ",
+     "with no other thought"
+    ],
+    [
+     "चिन्तयन्तः",
+     "cintayantaḥ",
+     "thinking"
+    ],
+    [
+     "माम्",
+     "mām",
+     "of me"
+    ],
+    [
+     "ये",
+     "ye",
+     "who"
+    ],
+    [
+     "जनाः",
+     "janāḥ",
+     "people"
+    ],
+    [
+     "पर्युपासते",
+     "paryupāsate",
+     "worship"
+    ],
+    [
+     "तेषाम्",
+     "teṣām",
+     "for them"
+    ],
+    [
+     "नित्य-अभियुक्तानाम्",
+     "nitya-abhiyuktānām",
+     "always devoted"
+    ],
+    [
+     "योग-क्षेमम्",
+     "yoga-kṣemam",
+     "gain and safety"
+    ],
+    [
+     "वहामि",
+     "vahāmi",
+     "carry"
+    ],
+    [
+     "अहम्",
+     "aham",
+     "I"
+    ]
+   ],
+   "related": [
+    "18.66",
+    "9.34",
+    "8.5"
+   ]
+  },
+  "10.8": {
+   "simple_en": "Krishna says everything comes from him. All that moves, moves from him. People who understand this love him with their whole heart.",
+   "simple_hi": "कृष्ण कहते हैं कि सब कुछ उनसे आता है। जो कुछ चलता है, उन्हीं से चलता है। जो यह समझते हैं, वे पूरे दिल से उनसे प्रेम करते हैं।",
+   "words": [
+    [
+     "अहम्",
+     "aham",
+     "I"
+    ],
+    [
+     "सर्वस्य",
+     "sarvasya",
+     "of all"
+    ],
+    [
+     "प्रभवः",
+     "prabhavaḥ",
+     "the source"
+    ],
+    [
+     "मत्तः",
+     "mattaḥ",
+     "from me"
+    ],
+    [
+     "सर्वम्",
+     "sarvam",
+     "everything"
+    ],
+    [
+     "प्रवर्तते",
+     "pravartate",
+     "moves"
+    ],
+    [
+     "इति",
+     "iti",
+     "thus"
+    ],
+    [
+     "मत्वा",
+     "matvā",
+     "knowing"
+    ],
+    [
+     "भजन्ते",
+     "bhajante",
+     "worship"
+    ],
+    [
+     "माम्",
+     "mām",
+     "me"
+    ],
+    [
+     "बुधाः",
+     "budhāḥ",
+     "the wise"
+    ],
+    [
+     "भाव-समन्विताः",
+     "bhāva-samanvitāḥ",
+     "with full feeling"
+    ]
+   ],
+   "related": [
+    "9.26",
+    "7.7",
+    "17.3"
+   ]
+  },
+  "11.32": {
+   "simple_en": "Krishna shows himself as Time, which brings all things to an end. He tells Arjuna that the end of these warriors is already set by time. It does not rest on Arjuna alone.",
+   "simple_hi": "कृष्ण ख़ुद को काल के रूप में दिखाते हैं, जो सबका अंत लाता है। वे अर्जुन से कहते हैं कि इन योद्धाओं का अंत समय ने पहले ही तय कर दिया है। यह अकेले अर्जुन पर नहीं टिका।",
+   "words": [
+    [
+     "कालः",
+     "kālaḥ",
+     "Time"
+    ],
+    [
+     "अस्मि",
+     "asmi",
+     "I am"
+    ],
+    [
+     "लोक-क्षय-कृत्",
+     "loka-kṣaya-kṛt",
+     "ender of worlds"
+    ],
+    [
+     "प्रवृद्धः",
+     "pravṛddhaḥ",
+     "grown mighty"
+    ],
+    [
+     "लोकान्",
+     "lokān",
+     "the worlds"
+    ],
+    [
+     "समाहर्तुम्",
+     "samāhartum",
+     "to gather in"
+    ],
+    [
+     "इह",
+     "iha",
+     "here"
+    ],
+    [
+     "प्रवृत्तः",
+     "pravṛttaḥ",
+     "have come"
+    ],
+    [
+     "ऋते",
+     "ṛte",
+     "without"
+    ],
+    [
+     "अपि",
+     "api",
+     "even"
+    ],
+    [
+     "त्वाम्",
+     "tvām",
+     "you"
+    ],
+    [
+     "न भविष्यन्ति",
+     "na bhaviṣyanti",
+     "will not remain"
+    ],
+    [
+     "सर्वे",
+     "sarve",
+     "all"
+    ],
+    [
+     "ये",
+     "ye",
+     "who"
+    ],
+    [
+     "अवस्थिताः",
+     "avasthitāḥ",
+     "stand"
+    ],
+    [
+     "प्रति-अनीकेषु",
+     "prati-anīkeṣu",
+     "in the opposing armies"
+    ],
+    [
+     "योधाः",
+     "yodhāḥ",
+     "warriors"
+    ]
+   ],
+   "related": [
+    "2.22",
+    "2.13",
+    "13.9"
+   ]
+  },
+  "12.8": {
+   "simple_en": "Krishna says: rest your mind on me, and let your thinking settle in me. Then you will live in me. There is no doubt.",
+   "simple_hi": "कृष्ण कहते हैं: अपना मन मुझमें टिकाओ, और अपनी सोच मुझमें लगाओ। तब तुम मुझमें ही रहोगे। इसमें कोई शक नहीं।",
+   "words": [
+    [
+     "मयि",
+     "mayi",
+     "in me"
+    ],
+    [
+     "एव",
+     "eva",
+     "alone"
+    ],
+    [
+     "मनः",
+     "manaḥ",
+     "mind"
+    ],
+    [
+     "आधत्स्व",
+     "ādhatsva",
+     "rest"
+    ],
+    [
+     "बुद्धिम्",
+     "buddhim",
+     "understanding"
+    ],
+    [
+     "निवेशय",
+     "niveśaya",
+     "place"
+    ],
+    [
+     "निवसिष्यसि",
+     "nivasiṣyasi",
+     "you will live"
+    ],
+    [
+     "अतः ऊर्ध्वम्",
+     "ataḥ ūrdhvam",
+     "from then on"
+    ],
+    [
+     "न",
+     "na",
+     "no"
+    ],
+    [
+     "संशयः",
+     "saṁśayaḥ",
+     "doubt"
+    ]
+   ],
+   "related": [
+    "6.35",
+    "17.16",
+    "2.58"
+   ]
+  },
+  "13.8": {
+   "simple_en": "Real wisdom looks like this. Be humble and honest. Do no harm, be patient and simple. Respect your teacher, keep clean, stay steady and in charge of yourself.",
+   "simple_hi": "असली ज्ञान ऐसा दिखता है। नम्र और सच्चे रहो। किसी को चोट मत दो, धीरज और सादगी रखो। गुरु का आदर करो, साफ़ रहो, स्थिर रहो और ख़ुद को संभालो।",
+   "words": [
+    [
+     "अमानित्वम्",
+     "amānitvam",
+     "humility"
+    ],
+    [
+     "अदम्भित्वम्",
+     "adambhitvam",
+     "no show"
+    ],
+    [
+     "अहिंसा",
+     "ahiṁsā",
+     "non-harm"
+    ],
+    [
+     "क्षान्तिः",
+     "kṣāntiḥ",
+     "patience"
+    ],
+    [
+     "आर्जवम्",
+     "ārjavam",
+     "straightness"
+    ],
+    [
+     "आचार्य-उपासनम्",
+     "ācārya-upāsanam",
+     "serving the teacher"
+    ],
+    [
+     "शौचम्",
+     "śaucam",
+     "cleanliness"
+    ],
+    [
+     "स्थैर्यम्",
+     "sthairyam",
+     "steadiness"
+    ],
+    [
+     "आत्म-विनिग्रहः",
+     "ātma-vinigrahaḥ",
+     "self-control"
+    ]
+   ],
+   "related": [
+    "17.14",
+    "16.1",
+    "18.37"
+   ]
+  },
+  "14.5": {
+   "simple_en": "Nature has three moods: bright and calm, busy and restless, dull and heavy. All three can tie the soul to the body. Knowing them helps you loosen them.",
+   "simple_hi": "प्रकृति के तीन रंग हैं: उजला और शांत, बेचैन और भागता, सुस्त और भारी। तीनों आत्मा को शरीर से बाँध सकते हैं। उन्हें पहचानना उन्हें ढीला करने में मदद करता है।",
+   "words": [
+    [
+     "सत्त्वम्",
+     "sattvam",
+     "goodness"
+    ],
+    [
+     "रजः",
+     "rajaḥ",
+     "passion"
+    ],
+    [
+     "तमः",
+     "tamaḥ",
+     "dullness"
+    ],
+    [
+     "इति",
+     "iti",
+     "thus"
+    ],
+    [
+     "गुणाः",
+     "guṇāḥ",
+     "the qualities"
+    ],
+    [
+     "प्रकृति-सम्भवाः",
+     "prakṛti-sambhavāḥ",
+     "born of nature"
+    ],
+    [
+     "निबध्नन्ति",
+     "nibadhnanti",
+     "bind"
+    ],
+    [
+     "महा-बाहो",
+     "mahā-bāho",
+     "O mighty one"
+    ],
+    [
+     "देहे",
+     "dehe",
+     "in the body"
+    ],
+    [
+     "देहिनम्",
+     "dehinam",
+     "the one within"
+    ],
+    [
+     "अव्ययम्",
+     "avyayam",
+     "unchanging"
+    ]
+   ],
+   "related": [
+    "6.35",
+    "18.37",
+    "2.62"
+   ]
+  },
+  "15.5": {
+   "simple_en": "Let go of pride and confusion. Stop clinging, and stop chasing every want. Do not let pleasure and pain push you around. People who live like this reach a place that never ends.",
+   "simple_hi": "घमंड और भ्रम छोड़ दो। मोह छोड़ो, और हर चाह के पीछे भागना छोड़ो। सुख-दुख को ख़ुद को धकेलने मत दो। जो ऐसे जीते हैं, वे उस जगह पहुँचते हैं जो कभी ख़त्म नहीं होती।",
+   "words": [
+    [
+     "निर्मान-मोहाः",
+     "nirmāna-mohāḥ",
+     "free of pride and delusion"
+    ],
+    [
+     "जित-सङ्ग-दोषाः",
+     "jita-saṅga-doṣāḥ",
+     "past the fault of clinging"
+    ],
+    [
+     "अध्यात्म-नित्याः",
+     "adhyātma-nityāḥ",
+     "always turned to the Self"
+    ],
+    [
+     "विनिवृत्त-कामाः",
+     "vinivṛtta-kāmāḥ",
+     "done with desires"
+    ],
+    [
+     "द्वन्द्वैः",
+     "dvandvaiḥ",
+     "from the pairs"
+    ],
+    [
+     "विमुक्ताः",
+     "vimuktāḥ",
+     "freed"
+    ],
+    [
+     "सुख-दुःख-संज्ञैः",
+     "sukha-duḥkha-saṁjñaiḥ",
+     "called pleasure and pain"
+    ],
+    [
+     "गच्छन्ति",
+     "gacchanti",
+     "reach"
+    ],
+    [
+     "अमूढाः",
+     "amūḍhāḥ",
+     "the clear-minded"
+    ],
+    [
+     "पदम्",
+     "padam",
+     "the place"
+    ],
+    [
+     "अव्ययम्",
+     "avyayam",
+     "unchanging"
+    ],
+    [
+     "तत्",
+     "tat",
+     "that"
+    ]
+   ],
+   "related": [
+    "14.25",
+    "18.54",
+    "2.56"
+   ]
+  },
+  "16.1": {
+   "simple_en": "Good hearts have bright qualities. Do not be afraid, and keep your heart clean. Keep learning, give freely, hold yourself steady, and be honest.",
+   "simple_hi": "अच्छे दिलों में उजले गुण होते हैं। डरो मत, और दिल साफ़ रखो। सीखते रहो, खुलकर दो, ख़ुद को संभालो, और सच्चे रहो।",
+   "words": [
+    [
+     "अभयम्",
+     "abhayam",
+     "fearlessness"
+    ],
+    [
+     "सत्त्व-संशुद्धिः",
+     "sattva-saṁśuddhiḥ",
+     "a clean heart"
+    ],
+    [
+     "ज्ञान-योग-व्यवस्थितिः",
+     "jñāna-yoga-vyavasthitiḥ",
+     "steadiness in knowledge and yoga"
+    ],
+    [
+     "दानम्",
+     "dānam",
+     "giving"
+    ],
+    [
+     "दमः",
+     "damaḥ",
+     "self-control"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "यज्ञः",
+     "yajñaḥ",
+     "offering"
+    ],
+    [
+     "स्वाध्यायः",
+     "svādhyāyaḥ",
+     "study"
+    ],
+    [
+     "तपः",
+     "tapaḥ",
+     "effort"
+    ],
+    [
+     "आर्जवम्",
+     "ārjavam",
+     "honesty"
+    ]
+   ],
+   "related": [
+    "17.14",
+    "3.21",
+    "14.26"
+   ]
+  },
+  "17.3": {
+   "simple_en": "Everyone trusts in something, and what they trust shapes them. A person is made of their faith. What you truly believe in, you slowly become.",
+   "simple_hi": "हर कोई किसी चीज़ पर भरोसा करता है, और वही भरोसा उसे बनाता है। इंसान अपनी श्रद्धा से बना है। जिसमें तुम सच में विश्वास करो, धीरे-धीरे वही बन जाते हो।",
+   "words": [
+    [
+     "सत्त्व-अनुरूपा",
+     "sattva-anurūpā",
+     "matching one's nature"
+    ],
+    [
+     "सर्वस्य",
+     "sarvasya",
+     "of everyone"
+    ],
+    [
+     "श्रद्धा",
+     "śraddhā",
+     "faith"
+    ],
+    [
+     "भवति",
+     "bhavati",
+     "is"
+    ],
+    [
+     "भारत",
+     "bhārata",
+     "O Bharata"
+    ],
+    [
+     "श्रद्धा-मयः",
+     "śraddhā-mayaḥ",
+     "made of faith"
+    ],
+    [
+     "अयम्",
+     "ayam",
+     "this"
+    ],
+    [
+     "पुरुषः",
+     "puruṣaḥ",
+     "person"
+    ],
+    [
+     "यः",
+     "yaḥ",
+     "who"
+    ],
+    [
+     "यत्-श्रद्धः",
+     "yat-śraddhaḥ",
+     "whatever his faith"
+    ],
+    [
+     "सः एव सः",
+     "saḥ eva saḥ",
+     "that is what he is"
+    ]
+   ],
+   "related": [
+    "14.26",
+    "6.6",
+    "7.7"
+   ]
+  },
+  "18.37": {
+   "simple_en": "Some good things taste bitter at first, like practice or study. But in the end they taste sweet. That is true happiness, from a clear and calm mind.",
+   "simple_hi": "कुछ अच्छी चीज़ें शुरू में कड़वी लगती हैं, जैसे अभ्यास या पढ़ाई। पर अंत में वे मीठी लगती हैं। यही सच्चा सुख है, जो साफ़ और शांत मन से आता है।",
+   "words": [
+    [
+     "यत् तत्",
+     "yat tat",
+     "that which"
+    ],
+    [
+     "अग्रे",
+     "agre",
+     "at first"
+    ],
+    [
+     "विषम्",
+     "viṣam",
+     "poison"
+    ],
+    [
+     "इव",
+     "iva",
+     "like"
+    ],
+    [
+     "परिणामे",
+     "pariṇāme",
+     "in the end"
+    ],
+    [
+     "अमृत-उपमम्",
+     "amṛta-upamam",
+     "like nectar"
+    ],
+    [
+     "तत्",
+     "tat",
+     "that"
+    ],
+    [
+     "सुखम्",
+     "sukham",
+     "happiness"
+    ],
+    [
+     "सात्त्विकम्",
+     "sāttvikam",
+     "pure"
+    ],
+    [
+     "प्रोक्तम्",
+     "proktam",
+     "is called"
+    ],
+    [
+     "आत्म-बुद्धि-प्रसाद-जम्",
+     "ātma-buddhi-prasāda-jam",
+     "born of a clear mind"
+    ]
+   ],
+   "related": [
+    "6.35",
+    "3.8",
+    "6.6"
+   ]
+  },
+  "1.30": {
+   "simple_en": "Arjuna is so afraid and sad that his body shakes. His bow slips from his hand. His mind spins and he cannot stand.",
+   "simple_hi": "अर्जुन इतने डरे और दुखी हैं कि शरीर काँप रहा है। धनुष हाथ से फिसल रहा है। मन घूम रहा है और वे खड़े नहीं हो पा रहे।",
+   "words": [
+    [
+     "गाण्डीवम्",
+     "gāṇḍīvam",
+     "the Gandiva bow"
+    ],
+    [
+     "स्रंसते",
+     "sraṁsate",
+     "slips"
+    ],
+    [
+     "हस्तात्",
+     "hastāt",
+     "from my hand"
+    ],
+    [
+     "त्वक्",
+     "tvak",
+     "skin"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "एव",
+     "eva",
+     "indeed"
+    ],
+    [
+     "परिदह्यते",
+     "paridahyate",
+     "burns all over"
+    ],
+    [
+     "न",
+     "na",
+     "not"
+    ],
+    [
+     "शक्नोमि",
+     "śaknomi",
+     "I can"
+    ],
+    [
+     "अवस्थातुम्",
+     "avasthātum",
+     "stand still"
+    ],
+    [
+     "भ्रमति",
+     "bhramati",
+     "spins"
+    ],
+    [
+     "इव",
+     "iva",
+     "as if"
+    ],
+    [
+     "मे",
+     "me",
+     "my"
+    ],
+    [
+     "मनः",
+     "manaḥ",
+     "mind"
+    ]
+   ],
+   "related": [
+    "18.66",
+    "1.28",
+    "9.22"
+   ],
+   "moment_en": "Arjuna speaks to Krishna, his friend and charioteer. Facing his own family, his body and mind give way.",
+   "moment_hi": "अर्जुन अपने मित्र और सारथी कृष्ण से बोलते हैं। अपने परिवार के सामने उनका शरीर और मन जवाब दे देते हैं।"
+  },
+  "2.13": {
+   "simple_en": "Your body was a baby, then a child, and it will grow old. You stay you through all of it. A wise person is not scared of this change.",
+   "simple_hi": "तुम्हारा शरीर बच्चा था, फिर बड़ा हुआ, और बूढ़ा भी होगा। पर तुम वही रहते हो। समझदार इंसान इस बदलाव से नहीं घबराता।",
+   "words": [
+    [
+     "देहिनः",
+     "dehinaḥ",
+     "of the one in the body"
+    ],
+    [
+     "अस्मिन्",
+     "asmin",
+     "in this"
+    ],
+    [
+     "यथा",
+     "yathā",
+     "just as"
+    ],
+    [
+     "देहे",
+     "dehe",
+     "body"
+    ],
+    [
+     "कौमारम्",
+     "kaumāram",
+     "childhood"
+    ],
+    [
+     "यौवनम्",
+     "yauvanam",
+     "youth"
+    ],
+    [
+     "जरा",
+     "jarā",
+     "old age"
+    ],
+    [
+     "तथा",
+     "tathā",
+     "so too"
+    ],
+    [
+     "देह-अन्तर-प्राप्तिः",
+     "deha-antara-prāptiḥ",
+     "moving to another body"
+    ],
+    [
+     "धीरः",
+     "dhīraḥ",
+     "the steady one"
+    ],
+    [
+     "तत्र",
+     "tatra",
+     "about this"
+    ],
+    [
+     "न मुह्यति",
+     "na muhyati",
+     "is not confused"
+    ]
+   ],
+   "related": [
+    "2.22",
+    "2.14",
+    "2.20"
+   ]
+  },
+  "3.19": {
+   "simple_en": "Keep doing the work that needs to be done. Do it without holding on to what you get. Working like this takes you to the highest place.",
+   "simple_hi": "जो काम ज़रूरी है, उसे करते रहो। जो मिले, उससे चिपको मत। ऐसे काम करने से इंसान सबसे ऊँची जगह पहुँचता है।",
+   "words": [
+    [
+     "तस्मात्",
+     "tasmāt",
+     "so"
+    ],
+    [
+     "असक्तः",
+     "asaktaḥ",
+     "without clinging"
+    ],
+    [
+     "सततम्",
+     "satatam",
+     "always"
+    ],
+    [
+     "कार्यम्",
+     "kāryam",
+     "that must be done"
+    ],
+    [
+     "कर्म",
+     "karma",
+     "work"
+    ],
+    [
+     "समाचर",
+     "samācara",
+     "do well"
+    ],
+    [
+     "असक्तः",
+     "asaktaḥ",
+     "unattached"
+    ],
+    [
+     "हि",
+     "hi",
+     "for"
+    ],
+    [
+     "आचरन्",
+     "ācaran",
+     "doing"
+    ],
+    [
+     "परम्",
+     "param",
+     "the highest"
+    ],
+    [
+     "आप्नोति",
+     "āpnoti",
+     "reaches"
+    ],
+    [
+     "पूरुषः",
+     "pūruṣaḥ",
+     "a person"
+    ]
+   ],
+   "related": [
+    "2.47",
+    "4.18",
+    "5.7"
+   ]
+  },
+  "4.22": {
+   "simple_en": "Be happy with what comes to you on its own. Do not be jealous of others. Win or lose, stay even, and your work will not weigh you down.",
+   "simple_hi": "जो अपने-आप मिले, उसमें ख़ुश रहो। दूसरों से जलो मत। जीतो या हारो, एक-से रहो, तब काम तुम्हें बाँधेगा नहीं।",
+   "words": [
+    [
+     "यदृच्छा-लाभ-सन्तुष्टः",
+     "yadṛcchā-lābha-santuṣṭaḥ",
+     "happy with what comes"
+    ],
+    [
+     "द्वन्द्व-अतीतः",
+     "dvandva-atītaḥ",
+     "beyond the pairs"
+    ],
+    [
+     "विमत्सरः",
+     "vimatsaraḥ",
+     "free of envy"
+    ],
+    [
+     "समः",
+     "samaḥ",
+     "even"
+    ],
+    [
+     "सिद्धौ",
+     "siddhau",
+     "in success"
+    ],
+    [
+     "असिद्धौ",
+     "asiddhau",
+     "in failure"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "कृत्वा",
+     "kṛtvā",
+     "acting"
+    ],
+    [
+     "अपि",
+     "api",
+     "even"
+    ],
+    [
+     "न निबध्यते",
+     "na nibadhyate",
+     "is not bound"
+    ]
+   ],
+   "related": [
+    "14.24",
+    "12.19",
+    "18.47"
+   ]
+  },
+  "5.10": {
+   "simple_en": "A lotus leaf sits in water but stays dry. Offer your work to the Divine and let go of clinging. Then wrong does not stick to you either.",
+   "simple_hi": "कमल का पत्ता पानी में रहकर भी सूखा रहता है। अपना काम भगवान को अर्पण करो और मोह छोड़ दो। तब बुराई तुम पर भी नहीं चिपकती।",
+   "words": [
+    [
+     "ब्रह्मणि",
+     "brahmaṇi",
+     "in the Divine"
+    ],
+    [
+     "आधाय",
+     "ādhāya",
+     "placing"
+    ],
+    [
+     "कर्माणि",
+     "karmāṇi",
+     "actions"
+    ],
+    [
+     "सङ्गम्",
+     "saṅgam",
+     "attachment"
+    ],
+    [
+     "त्यक्त्वा",
+     "tyaktvā",
+     "letting go"
+    ],
+    [
+     "करोति",
+     "karoti",
+     "acts"
+    ],
+    [
+     "यः",
+     "yaḥ",
+     "who"
+    ],
+    [
+     "लिप्यते न",
+     "lipyate na",
+     "is not touched"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "he"
+    ],
+    [
+     "पापेन",
+     "pāpena",
+     "by wrong"
+    ],
+    [
+     "पद्म-पत्रम्",
+     "padma-patram",
+     "a lotus leaf"
+    ],
+    [
+     "इव",
+     "iva",
+     "like"
+    ],
+    [
+     "अम्भसा",
+     "ambhasā",
+     "by water"
+    ]
+   ],
+   "related": [
+    "2.47",
+    "12.12",
+    "18.57"
+   ]
+  },
+  "6.7": {
+   "simple_en": "A calm mind stays the same in cold or heat. It stays the same in happy or sad times. Praise or insult, it stays steady.",
+   "simple_hi": "शांत मन ठंड हो या गर्मी, एक-सा रहता है। सुख हो या दुख, एक-सा रहता है। तारीफ़ हो या अपमान, स्थिर रहता है।",
+   "words": [
+    [
+     "जित-आत्मनः",
+     "jita-ātmanaḥ",
+     "one who has won the mind"
+    ],
+    [
+     "प्रशान्तस्य",
+     "praśāntasya",
+     "who is calm"
+    ],
+    [
+     "परम-आत्मा",
+     "parama-ātmā",
+     "the highest Self"
+    ],
+    [
+     "समाहितः",
+     "samāhitaḥ",
+     "settled"
+    ],
+    [
+     "शीत-उष्ण-सुख-दुःखेषु",
+     "śīta-uṣṇa-sukha-duḥkheṣu",
+     "in cold, heat, joy and pain"
+    ],
+    [
+     "तथा",
+     "tathā",
+     "also"
+    ],
+    [
+     "मान-अपमानयोः",
+     "māna-apamānayoḥ",
+     "in honour and insult"
+    ]
+   ],
+   "related": [
+    "5.20",
+    "2.14",
+    "2.48"
+   ]
+  },
+  "7.14": {
+   "simple_en": "The world can fool us and is hard to see through. Krishna says it is his own magic. Those who turn to him find their way across.",
+   "simple_hi": "यह संसार हमें भ्रम में डालता है और इसे पार करना कठिन है। कृष्ण कहते हैं कि यह उनकी ही माया है। जो उनकी शरण आते हैं, वे इसे पार कर लेते हैं।",
+   "words": [
+    [
+     "दैवी",
+     "daivī",
+     "divine"
+    ],
+    [
+     "हि",
+     "hi",
+     "truly"
+    ],
+    [
+     "एषा",
+     "eṣā",
+     "this"
+    ],
+    [
+     "गुण-मयी",
+     "guṇa-mayī",
+     "made of the qualities"
+    ],
+    [
+     "मम",
+     "mama",
+     "my"
+    ],
+    [
+     "माया",
+     "māyā",
+     "illusion"
+    ],
+    [
+     "दुरत्यया",
+     "duratyayā",
+     "hard to cross"
+    ],
+    [
+     "माम्",
+     "mām",
+     "to me"
+    ],
+    [
+     "एव",
+     "eva",
+     "alone"
+    ],
+    [
+     "ये",
+     "ye",
+     "those who"
+    ],
+    [
+     "प्रपद्यन्ते",
+     "prapadyante",
+     "come"
+    ],
+    [
+     "मायाम्",
+     "māyām",
+     "illusion"
+    ],
+    [
+     "एताम्",
+     "etām",
+     "this"
+    ],
+    [
+     "तरन्ति",
+     "taranti",
+     "cross"
+    ],
+    [
+     "ते",
+     "te",
+     "they"
+    ]
+   ],
+   "related": [
+    "2.7",
+    "10.10",
+    "15.19"
+   ]
+  },
+  "8.6": {
+   "simple_en": "What we think about most becomes what we remember at the end. And what we remember at the end is where we go. So think good thoughts every day.",
+   "simple_hi": "जिसके बारे में हम सबसे ज़्यादा सोचते हैं, वही अंत में याद आता है। और अंत में जो याद आए, वहीं हम जाते हैं। इसलिए रोज़ अच्छा सोचो।",
+   "words": [
+    [
+     "यम् यम्",
+     "yam yam",
+     "whatever"
+    ],
+    [
+     "वा अपि",
+     "vā api",
+     "or also"
+    ],
+    [
+     "स्मरन्",
+     "smaran",
+     "remembering"
+    ],
+    [
+     "भावम्",
+     "bhāvam",
+     "state"
+    ],
+    [
+     "त्यजति",
+     "tyajati",
+     "leaves"
+    ],
+    [
+     "अन्ते",
+     "ante",
+     "at the end"
+    ],
+    [
+     "कलेवरम्",
+     "kalevaram",
+     "the body"
+    ],
+    [
+     "तम् तम्",
+     "tam tam",
+     "that"
+    ],
+    [
+     "एव",
+     "eva",
+     "very"
+    ],
+    [
+     "एति",
+     "eti",
+     "reaches"
+    ],
+    [
+     "कौन्तेय",
+     "kaunteya",
+     "son of Kunti"
+    ],
+    [
+     "सदा",
+     "sadā",
+     "always"
+    ],
+    [
+     "तद्-भाव-भावितः",
+     "tad-bhāva-bhāvitaḥ",
+     "shaped by that state"
+    ]
+   ],
+   "related": [
+    "9.34",
+    "8.5",
+    "8.7"
+   ]
+  },
+  "9.26": {
+   "simple_en": "Krishna does not want big gifts. A leaf, a flower, a fruit, or a little water is enough. What matters is the love you give it with.",
+   "simple_hi": "कृष्ण को बड़े उपहार नहीं चाहिए। एक पत्ता, एक फूल, एक फल या थोड़ा पानी काफ़ी है। मायने रखता है वह प्रेम जिससे तुम देते हो।",
+   "words": [
+    [
+     "पत्रम्",
+     "patram",
+     "a leaf"
+    ],
+    [
+     "पुष्पम्",
+     "puṣpam",
+     "a flower"
+    ],
+    [
+     "फलम्",
+     "phalam",
+     "a fruit"
+    ],
+    [
+     "तोयम्",
+     "toyam",
+     "water"
+    ],
+    [
+     "यः",
+     "yaḥ",
+     "who"
+    ],
+    [
+     "मे",
+     "me",
+     "to me"
+    ],
+    [
+     "भक्त्या",
+     "bhaktyā",
+     "with love"
+    ],
+    [
+     "प्रयच्छति",
+     "prayacchati",
+     "offers"
+    ],
+    [
+     "तत्",
+     "tat",
+     "that"
+    ],
+    [
+     "अहम्",
+     "aham",
+     "I"
+    ],
+    [
+     "भक्ति-उपहृतम्",
+     "bhakti-upahṛtam",
+     "given with love"
+    ],
+    [
+     "अश्नामि",
+     "aśnāmi",
+     "accept"
+    ],
+    [
+     "प्रयत-आत्मनः",
+     "prayata-ātmanaḥ",
+     "from a pure heart"
+    ]
+   ],
+   "related": [
+    "10.8",
+    "10.9",
+    "13.8"
+   ]
+  },
+  "10.9": {
+   "simple_en": "People who love Krishna talk about him together. They help each other understand. In this they feel happy and full.",
+   "simple_hi": "जो कृष्ण से प्रेम करते हैं, वे मिलकर उनकी बातें करते हैं। एक-दूसरे को समझाते हैं। इसी में वे ख़ुश और संतुष्ट रहते हैं।",
+   "words": [
+    [
+     "मत्-चित्ताः",
+     "mat-cittāḥ",
+     "minds on me"
+    ],
+    [
+     "मद्-गत-प्राणाः",
+     "mad-gata-prāṇāḥ",
+     "lives given to me"
+    ],
+    [
+     "बोधयन्तः",
+     "bodhayantaḥ",
+     "teaching"
+    ],
+    [
+     "परस्परम्",
+     "parasparam",
+     "one another"
+    ],
+    [
+     "कथयन्तः",
+     "kathayantaḥ",
+     "speaking"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "माम्",
+     "mām",
+     "of me"
+    ],
+    [
+     "नित्यम्",
+     "nityam",
+     "always"
+    ],
+    [
+     "तुष्यन्ति",
+     "tuṣyanti",
+     "are content"
+    ],
+    [
+     "रमन्ति",
+     "ramanti",
+     "rejoice"
+    ]
+   ],
+   "related": [
+    "9.26",
+    "13.28",
+    "17.20"
+   ]
+  },
+  "11.54": {
+   "simple_en": "Krishna says he can be truly known only through love that looks nowhere else. With that love, a person can know him, see him, and become one with him.",
+   "simple_hi": "कृष्ण कहते हैं कि उन्हें सच में सिर्फ़ ऐसे प्रेम से जाना जा सकता है जो कहीं और न भटके। उस प्रेम से इंसान उन्हें जान सकता है, देख सकता है, और उनमें मिल सकता है।",
+   "words": [
+    [
+     "भक्त्या",
+     "bhaktyā",
+     "by devotion"
+    ],
+    [
+     "तु",
+     "tu",
+     "but"
+    ],
+    [
+     "अनन्यया",
+     "ananyayā",
+     "undivided"
+    ],
+    [
+     "शक्यः",
+     "śakyaḥ",
+     "possible"
+    ],
+    [
+     "अहम्",
+     "aham",
+     "I"
+    ],
+    [
+     "एवं-विधः",
+     "evaṁ-vidhaḥ",
+     "in this form"
+    ],
+    [
+     "अर्जुन",
+     "arjuna",
+     "O Arjuna"
+    ],
+    [
+     "ज्ञातुम्",
+     "jñātum",
+     "to know"
+    ],
+    [
+     "द्रष्टुम्",
+     "draṣṭum",
+     "to see"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "तत्त्वेन",
+     "tattvena",
+     "in truth"
+    ],
+    [
+     "प्रवेष्टुम्",
+     "praveṣṭum",
+     "to enter"
+    ],
+    [
+     "परन्तप",
+     "parantapa",
+     "O scorcher of foes"
+    ]
+   ],
+   "related": [
+    "8.7",
+    "9.34",
+    "9.22"
+   ]
+  },
+  "12.12": {
+   "simple_en": "Knowing is better than practice done blindly. Quiet focus is better than knowing. Letting go of the reward is better still, and peace comes right after.",
+   "simple_hi": "बिना समझ के अभ्यास से समझ अच्छी है। समझ से ध्यान अच्छा है। फल की चाह छोड़ना उससे भी अच्छा है, और उसके तुरंत बाद शांति आती है।",
+   "words": [
+    [
+     "श्रेयः",
+     "śreyaḥ",
+     "better"
+    ],
+    [
+     "हि",
+     "hi",
+     "surely"
+    ],
+    [
+     "ज्ञानम्",
+     "jñānam",
+     "knowledge"
+    ],
+    [
+     "अभ्यासात्",
+     "abhyāsāt",
+     "than practice"
+    ],
+    [
+     "ज्ञानात्",
+     "jñānāt",
+     "than knowledge"
+    ],
+    [
+     "ध्यानम्",
+     "dhyānam",
+     "meditation"
+    ],
+    [
+     "विशिष्यते",
+     "viśiṣyate",
+     "is greater"
+    ],
+    [
+     "ध्यानात्",
+     "dhyānāt",
+     "than meditation"
+    ],
+    [
+     "कर्म-फल-त्यागः",
+     "karma-phala-tyāgaḥ",
+     "letting go of results"
+    ],
+    [
+     "त्यागात्",
+     "tyāgāt",
+     "from letting go"
+    ],
+    [
+     "शान्तिः",
+     "śāntiḥ",
+     "peace"
+    ],
+    [
+     "अनन्तरम्",
+     "anantaram",
+     "right after"
+    ]
+   ],
+   "related": [
+    "12.16",
+    "2.47",
+    "5.10"
+   ]
+  },
+  "13.9": {
+   "simple_en": "Wisdom also means not craving every pleasure, and not puffing up the self. It means seeing clearly that birth, old age, sickness and death bring pain.",
+   "simple_hi": "ज्ञान का मतलब यह भी है कि हर सुख की लालसा न हो, और अपना घमंड न हो। यह साफ़ देखना कि जन्म, बुढ़ापा, बीमारी और मौत दुख लाते हैं।",
+   "words": [
+    [
+     "इन्द्रिय-अर्थेषु",
+     "indriya-artheṣu",
+     "towards sense objects"
+    ],
+    [
+     "वैराग्यम्",
+     "vairāgyam",
+     "freedom from craving"
+    ],
+    [
+     "अनहङ्कारः",
+     "anahaṅkāraḥ",
+     "no ego"
+    ],
+    [
+     "एव च",
+     "eva ca",
+     "and also"
+    ],
+    [
+     "जन्म-मृत्यु-जरा-व्याधि",
+     "janma-mṛtyu-jarā-vyādhi",
+     "birth, death, old age, illness"
+    ],
+    [
+     "दुःख-दोष-अनुदर्शनम्",
+     "duḥkha-doṣa-anudarśanam",
+     "seeing their pain and flaw"
+    ]
+   ],
+   "related": [
+    "2.71",
+    "11.32",
+    "15.5"
+   ]
+  },
+  "14.24": {
+   "simple_en": "Someone who has risen above nature's moods stays the same in pain and joy. Mud, stone and gold look alike to them. Praise and blame do not shake them.",
+   "simple_hi": "जो प्रकृति के गुणों से ऊपर उठ गया, वह दुख-सुख में एक-सा रहता है। मिट्टी, पत्थर और सोना उसे एक-से लगते हैं। तारीफ़ और बुराई उसे नहीं हिलाते।",
+   "words": [
+    [
+     "सम-दुःख-सुखः",
+     "sama-duḥkha-sukhaḥ",
+     "same in pain and joy"
+    ],
+    [
+     "स्वस्थः",
+     "svasthaḥ",
+     "resting in the Self"
+    ],
+    [
+     "सम-लोष्ट-अश्म-काञ्चनः",
+     "sama-loṣṭa-aśma-kāñcanaḥ",
+     "a clod, a stone and gold alike"
+    ],
+    [
+     "तुल्य-प्रिय-अप्रियः",
+     "tulya-priya-apriyaḥ",
+     "same to liked and disliked"
+    ],
+    [
+     "धीरः",
+     "dhīraḥ",
+     "steady"
+    ],
+    [
+     "तुल्य-निन्दा-आत्म-संस्तुतिः",
+     "tulya-nindā-ātma-saṁstutiḥ",
+     "same in blame and praise"
+    ]
+   ],
+   "related": [
+    "4.22",
+    "12.19",
+    "14.25"
+   ]
+  },
+  "15.7": {
+   "simple_en": "Krishna says each living soul is a small part of him, and has always been. In this world it carries the mind and the five senses along with it.",
+   "simple_hi": "कृष्ण कहते हैं कि हर जीव उनका ही छोटा अंश है, और हमेशा से है। इस संसार में वह मन और पाँच इंद्रियों को साथ लेकर चलता है।",
+   "words": [
+    [
+     "मम",
+     "mama",
+     "my"
+    ],
+    [
+     "एव",
+     "eva",
+     "own"
+    ],
+    [
+     "अंशः",
+     "aṁśaḥ",
+     "part"
+    ],
+    [
+     "जीव-लोके",
+     "jīva-loke",
+     "in the world of living beings"
+    ],
+    [
+     "जीव-भूतः",
+     "jīva-bhūtaḥ",
+     "become a living soul"
+    ],
+    [
+     "सनातनः",
+     "sanātanaḥ",
+     "eternal"
+    ],
+    [
+     "मनः-षष्ठानि",
+     "manaḥ-ṣaṣṭhāni",
+     "with the mind as sixth"
+    ],
+    [
+     "इन्द्रियाणि",
+     "indriyāṇi",
+     "the senses"
+    ],
+    [
+     "प्रकृति-स्थानि",
+     "prakṛti-sthāni",
+     "resting in nature"
+    ],
+    [
+     "कर्षति",
+     "karṣati",
+     "draws along"
+    ]
+   ],
+   "related": [
+    "15.15",
+    "9.29",
+    "10.20"
+   ]
+  },
+  "16.2": {
+   "simple_en": "More bright qualities: do no harm and tell the truth. Do not get angry, and let things go. Be at peace, do not gossip, be kind to all beings. Be gentle, not greedy, and not jumpy.",
+   "simple_hi": "और उजले गुण: किसी को चोट मत दो और सच बोलो। गुस्सा मत करो, और छोड़ना सीखो। शांत रहो, चुगली मत करो, सब जीवों पर दया करो। नरम रहो, लालची नहीं, और चंचल नहीं।",
+   "words": [
+    [
+     "अहिंसा",
+     "ahiṁsā",
+     "non-harm"
+    ],
+    [
+     "सत्यम्",
+     "satyam",
+     "truth"
+    ],
+    [
+     "अक्रोधः",
+     "akrodhaḥ",
+     "no anger"
+    ],
+    [
+     "त्यागः",
+     "tyāgaḥ",
+     "letting go"
+    ],
+    [
+     "शान्तिः",
+     "śāntiḥ",
+     "peace"
+    ],
+    [
+     "अपैशुनम्",
+     "apaiśunam",
+     "no gossip"
+    ],
+    [
+     "दया",
+     "dayā",
+     "compassion"
+    ],
+    [
+     "भूतेषु",
+     "bhūteṣu",
+     "for beings"
+    ],
+    [
+     "अलोलुप्त्वम्",
+     "aloluptvam",
+     "no greed"
+    ],
+    [
+     "मार्दवम्",
+     "mārdavam",
+     "gentleness"
+    ],
+    [
+     "ह्रीः",
+     "hrīḥ",
+     "modesty"
+    ],
+    [
+     "अचापलम्",
+     "acāpalam",
+     "steadiness"
+    ]
+   ],
+   "related": [
+    "12.13",
+    "17.15",
+    "17.20"
+   ]
+  },
+  "17.14": {
+   "simple_en": "Discipline of the body means honouring the Divine, teachers and wise people. It means keeping clean and honest. It means self-restraint and doing no harm.",
+   "simple_hi": "शरीर का तप है भगवान, गुरुओं और ज्ञानियों का आदर करना। साफ़ और सच्चा रहना। संयम रखना और किसी को चोट न देना।",
+   "words": [
+    [
+     "देव-द्विज-गुरु-प्राज्ञ-पूजनम्",
+     "deva-dvija-guru-prājña-pūjanam",
+     "honouring gods, the learned, teachers and the wise"
+    ],
+    [
+     "शौचम्",
+     "śaucam",
+     "cleanliness"
+    ],
+    [
+     "आर्जवम्",
+     "ārjavam",
+     "honesty"
+    ],
+    [
+     "ब्रह्मचर्यम्",
+     "brahmacaryam",
+     "self-restraint"
+    ],
+    [
+     "अहिंसा",
+     "ahiṁsā",
+     "non-harm"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "शारीरम्",
+     "śārīram",
+     "of the body"
+    ],
+    [
+     "तपः",
+     "tapaḥ",
+     "discipline"
+    ],
+    [
+     "उच्यते",
+     "ucyate",
+     "is called"
+    ]
+   ],
+   "related": [
+    "13.8",
+    "16.1",
+    "17.15"
+   ]
+  },
+  "18.47": {
+   "simple_en": "Your own work, even done imperfectly, is better than someone else's done well. When you do the work that fits who you are, you do no wrong.",
+   "simple_hi": "अपना काम, चाहे पूरा ठीक न हो, दूसरे के अच्छे से किए काम से बेहतर है। जब तुम वह काम करते हो जो तुम्हारे स्वभाव से मेल खाता है, तो कोई ग़लती नहीं होती।",
+   "words": [
+    [
+     "श्रेयान्",
+     "śreyān",
+     "better"
+    ],
+    [
+     "स्व-धर्मः",
+     "sva-dharmaḥ",
+     "your own duty"
+    ],
+    [
+     "विगुणः",
+     "viguṇaḥ",
+     "imperfect"
+    ],
+    [
+     "पर-धर्मात्",
+     "para-dharmāt",
+     "than another's duty"
+    ],
+    [
+     "सु-अनुष्ठितात्",
+     "su-anuṣṭhitāt",
+     "done well"
+    ],
+    [
+     "स्वभाव-नियतम्",
+     "svabhāva-niyatam",
+     "set by your nature"
+    ],
+    [
+     "कर्म",
+     "karma",
+     "work"
+    ],
+    [
+     "कुर्वन्",
+     "kurvan",
+     "doing"
+    ],
+    [
+     "न आप्नोति",
+     "na āpnoti",
+     "does not incur"
+    ],
+    [
+     "किल्बिषम्",
+     "kilbiṣam",
+     "fault"
+    ]
+   ],
+   "related": [
+    "3.35",
+    "4.22",
+    "9.29"
+   ]
+  },
+  "2.27": {
+   "simple_en": "Everyone who is born will one day die. And after death comes birth again. Do not cry too long over what no one can change.",
+   "simple_hi": "जो पैदा हुआ है, वह एक दिन जाएगा। और जाने के बाद फिर जन्म होगा। जिसे कोई बदल नहीं सकता, उस पर बहुत शोक मत करो।",
+   "words": [
+    [
+     "जातस्य",
+     "jātasya",
+     "for one who is born"
+    ],
+    [
+     "हि",
+     "hi",
+     "surely"
+    ],
+    [
+     "ध्रुवः",
+     "dhruvaḥ",
+     "certain"
+    ],
+    [
+     "मृत्युः",
+     "mṛtyuḥ",
+     "death"
+    ],
+    [
+     "ध्रुवम्",
+     "dhruvam",
+     "certain"
+    ],
+    [
+     "जन्म",
+     "janma",
+     "birth"
+    ],
+    [
+     "मृतस्य",
+     "mṛtasya",
+     "for one who dies"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "तस्मात्",
+     "tasmāt",
+     "so"
+    ],
+    [
+     "अपरिहार्ये",
+     "aparihārye",
+     "unavoidable"
+    ],
+    [
+     "अर्थे",
+     "arthe",
+     "in a matter"
+    ],
+    [
+     "न",
+     "na",
+     "not"
+    ],
+    [
+     "त्वम्",
+     "tvam",
+     "you"
+    ],
+    [
+     "शोचितुम्",
+     "śocitum",
+     "to grieve"
+    ],
+    [
+     "अर्हसि",
+     "arhasi",
+     "should"
+    ]
+   ],
+   "related": [
+    "2.20",
+    "2.22",
+    "2.13"
+   ]
+  },
+  "3.21": {
+   "simple_en": "People copy what good people do. When you set an example, others follow it. So act in a way you would want others to copy.",
+   "simple_hi": "लोग अच्छे लोगों की नक़ल करते हैं। तुम जो मिसाल बनाते हो, दूसरे उसी पर चलते हैं। इसलिए वैसा करो जैसा तुम चाहो कि दूसरे करें।",
+   "words": [
+    [
+     "यत् यत्",
+     "yat yat",
+     "whatever"
+    ],
+    [
+     "आचरति",
+     "ācarati",
+     "does"
+    ],
+    [
+     "श्रेष्ठः",
+     "śreṣṭhaḥ",
+     "a leading person"
+    ],
+    [
+     "तत् तत्",
+     "tat tat",
+     "that"
+    ],
+    [
+     "एव",
+     "eva",
+     "very"
+    ],
+    [
+     "इतरः",
+     "itaraḥ",
+     "other"
+    ],
+    [
+     "जनः",
+     "janaḥ",
+     "people"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "he"
+    ],
+    [
+     "यत्",
+     "yat",
+     "what"
+    ],
+    [
+     "प्रमाणम्",
+     "pramāṇam",
+     "standard"
+    ],
+    [
+     "कुरुते",
+     "kurute",
+     "sets"
+    ],
+    [
+     "लोकः",
+     "lokaḥ",
+     "the world"
+    ],
+    [
+     "तत्",
+     "tat",
+     "that"
+    ],
+    [
+     "अनुवर्तते",
+     "anuvartate",
+     "follows"
+    ]
+   ],
+   "related": [
+    "16.1",
+    "14.26",
+    "3.8"
+   ]
+  },
+  "4.34": {
+   "simple_en": "To learn the truth, go to a wise teacher. Bow, ask honest questions, and help them. Those who have seen the truth will share it with you.",
+   "simple_hi": "सच सीखने के लिए किसी ज्ञानी गुरु के पास जाओ। झुककर, सच्चे सवाल पूछकर, और सेवा करके सीखो। जिन्होंने सच देखा है, वे तुम्हें बताएँगे।",
+   "words": [
+    [
+     "तत्",
+     "tat",
+     "that"
+    ],
+    [
+     "विद्धि",
+     "viddhi",
+     "know"
+    ],
+    [
+     "प्रणिपातेन",
+     "praṇipātena",
+     "by bowing"
+    ],
+    [
+     "परिप्रश्नेन",
+     "paripraśnena",
+     "by asking"
+    ],
+    [
+     "सेवया",
+     "sevayā",
+     "by serving"
+    ],
+    [
+     "उपदेक्ष्यन्ति",
+     "upadekṣyanti",
+     "will teach"
+    ],
+    [
+     "ते",
+     "te",
+     "you"
+    ],
+    [
+     "ज्ञानम्",
+     "jñānam",
+     "knowledge"
+    ],
+    [
+     "ज्ञानिनः",
+     "jñāninaḥ",
+     "the wise"
+    ],
+    [
+     "तत्त्व-दर्शिनः",
+     "tattva-darśinaḥ",
+     "who have seen the truth"
+    ]
+   ],
+   "related": [
+    "13.8",
+    "10.11",
+    "18.63"
+   ]
+  },
+  "5.18": {
+   "simple_en": "A wise person sees the same light in everyone. A teacher, a cow, an elephant, a dog, or a poor outcast, all are seen with equal eyes.",
+   "simple_hi": "समझदार इंसान सबमें एक-सी रोशनी देखता है। विद्वान, गाय, हाथी, कुत्ता या समाज से निकाला गया इंसान, सबको बराबर नज़र से देखता है।",
+   "words": [
+    [
+     "विद्या-विनय-सम्पन्ने",
+     "vidyā-vinaya-sampanne",
+     "learned and humble"
+    ],
+    [
+     "ब्राह्मणे",
+     "brāhmaṇe",
+     "in a scholar"
+    ],
+    [
+     "गवि",
+     "gavi",
+     "in a cow"
+    ],
+    [
+     "हस्तिनि",
+     "hastini",
+     "in an elephant"
+    ],
+    [
+     "शुनि",
+     "śuni",
+     "in a dog"
+    ],
+    [
+     "च एव",
+     "ca eva",
+     "and also"
+    ],
+    [
+     "श्वपाके",
+     "śvapāke",
+     "in an outcast"
+    ],
+    [
+     "पण्डिताः",
+     "paṇḍitāḥ",
+     "the wise"
+    ],
+    [
+     "सम-दर्शिनः",
+     "sama-darśinaḥ",
+     "see with equal eyes"
+    ]
+   ],
+   "related": [
+    "12.13",
+    "5.7",
+    "13.8"
+   ]
+  },
+  "6.16": {
+   "simple_en": "Yoga is not for someone who eats too much or too little. It is not for someone who sleeps too much or too little. Find the middle way.",
+   "simple_hi": "योग उसके लिए नहीं जो बहुत ज़्यादा या बहुत कम खाए। न उसके लिए जो बहुत ज़्यादा या बहुत कम सोए। बीच का रास्ता ढूँढो।",
+   "words": [
+    [
+     "न",
+     "na",
+     "not"
+    ],
+    [
+     "अति-अश्नतः",
+     "ati-aśnataḥ",
+     "for one who eats too much"
+    ],
+    [
+     "तु",
+     "tu",
+     "but"
+    ],
+    [
+     "योगः",
+     "yogaḥ",
+     "yoga"
+    ],
+    [
+     "अस्ति",
+     "asti",
+     "is"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "एकान्तम्",
+     "ekāntam",
+     "at all"
+    ],
+    [
+     "अनश्नतः",
+     "anaśnataḥ",
+     "for one who does not eat"
+    ],
+    [
+     "अति-स्वप्न-शीलस्य",
+     "ati-svapna-śīlasya",
+     "for one who sleeps too much"
+    ],
+    [
+     "जाग्रतः",
+     "jāgrataḥ",
+     "for one who stays awake"
+    ],
+    [
+     "एव",
+     "eva",
+     "even"
+    ],
+    [
+     "अर्जुन",
+     "arjuna",
+     "O Arjuna"
+    ]
+   ],
+   "related": [
+    "6.17",
+    "6.6",
+    "16.1"
+   ]
+  },
+  "7.16": {
+   "simple_en": "Four kinds of good people come to Krishna. Someone in trouble, someone curious, someone who needs help, and someone wise. All four are welcome.",
+   "simple_hi": "चार तरह के अच्छे लोग कृष्ण के पास आते हैं। मुसीबत में पड़ा, जानने का इच्छुक, ज़रूरत वाला, और ज्ञानी। चारों का स्वागत है।",
+   "words": [
+    [
+     "चतुर्-विधाः",
+     "catur-vidhāḥ",
+     "four kinds"
+    ],
+    [
+     "भजन्ते",
+     "bhajante",
+     "worship"
+    ],
+    [
+     "माम्",
+     "mām",
+     "me"
+    ],
+    [
+     "जनाः",
+     "janāḥ",
+     "people"
+    ],
+    [
+     "सुकृतिनः",
+     "sukṛtinaḥ",
+     "who do good"
+    ],
+    [
+     "अर्जुन",
+     "arjuna",
+     "O Arjuna"
+    ],
+    [
+     "आर्तः",
+     "ārtaḥ",
+     "one in distress"
+    ],
+    [
+     "जिज्ञासुः",
+     "jijñāsuḥ",
+     "one who wants to know"
+    ],
+    [
+     "अर्थ-अर्थी",
+     "artha-arthī",
+     "one who seeks gain"
+    ],
+    [
+     "ज्ञानी",
+     "jñānī",
+     "the wise"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "भरत-ऋषभ",
+     "bharata-ṛṣabha",
+     "best of the Bharatas"
+    ]
+   ],
+   "related": [
+    "2.20",
+    "13.27",
+    "15.15"
+   ]
+  },
+  "8.7": {
+   "simple_en": "Krishna tells Arjuna to remember him all the time and still do his duty. Give your heart and mind to him. Then you will surely come to him.",
+   "simple_hi": "कृष्ण अर्जुन से कहते हैं कि उन्हें हर समय याद रखो और अपना कर्तव्य भी करो। मन और बुद्धि उन्हें सौंप दो। तब तुम ज़रूर उनके पास आओगे।",
+   "words": [
+    [
+     "तस्मात्",
+     "tasmāt",
+     "so"
+    ],
+    [
+     "सर्वेषु",
+     "sarveṣu",
+     "at all"
+    ],
+    [
+     "कालेषु",
+     "kāleṣu",
+     "times"
+    ],
+    [
+     "माम्",
+     "mām",
+     "me"
+    ],
+    [
+     "अनुस्मर",
+     "anusmara",
+     "remember"
+    ],
+    [
+     "युध्य",
+     "yudhya",
+     "fight"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "मयि",
+     "mayi",
+     "to me"
+    ],
+    [
+     "अर्पित-मनः-बुद्धिः",
+     "arpita-manaḥ-buddhiḥ",
+     "mind and reason given"
+    ],
+    [
+     "एव",
+     "eva",
+     "surely"
+    ],
+    [
+     "एष्यसि",
+     "eṣyasi",
+     "you will come"
+    ],
+    [
+     "असंशयम्",
+     "asaṁśayam",
+     "without doubt"
+    ]
+   ],
+   "related": [
+    "11.54",
+    "18.57",
+    "9.34"
+   ]
+  },
+  "9.27": {
+   "simple_en": "Whatever you do, eat, give or try, do it as a gift to Krishna. Then even small things become special.",
+   "simple_hi": "जो कुछ भी करो, खाओ, दो या साधो, उसे कृष्ण को भेंट की तरह करो। तब छोटे काम भी ख़ास बन जाते हैं।",
+   "words": [
+    [
+     "यत्",
+     "yat",
+     "whatever"
+    ],
+    [
+     "करोषि",
+     "karoṣi",
+     "you do"
+    ],
+    [
+     "अश्नासि",
+     "aśnāsi",
+     "you eat"
+    ],
+    [
+     "जुहोषि",
+     "juhoṣi",
+     "you offer"
+    ],
+    [
+     "ददासि",
+     "dadāsi",
+     "you give"
+    ],
+    [
+     "तपस्यसि",
+     "tapasyasi",
+     "you strive"
+    ],
+    [
+     "कौन्तेय",
+     "kaunteya",
+     "son of Kunti"
+    ],
+    [
+     "तत्",
+     "tat",
+     "that"
+    ],
+    [
+     "कुरुष्व",
+     "kuruṣva",
+     "do"
+    ],
+    [
+     "मद्-अर्पणम्",
+     "mad-arpaṇam",
+     "as an offering to me"
+    ]
+   ],
+   "related": [
+    "10.8",
+    "3.19",
+    "5.10"
+   ]
+  },
+  "10.10": {
+   "simple_en": "To those who love him and stay close, Krishna gives a clear mind. With that clear mind, they find their way to him.",
+   "simple_hi": "जो उनसे प्रेम करते हैं और पास रहते हैं, कृष्ण उन्हें साफ़ समझ देते हैं। उसी समझ से वे उन तक पहुँचते हैं।",
+   "words": [
+    [
+     "तेषाम्",
+     "teṣām",
+     "to them"
+    ],
+    [
+     "सतत-युक्तानाम्",
+     "satata-yuktānām",
+     "always devoted"
+    ],
+    [
+     "भजताम्",
+     "bhajatām",
+     "who worship"
+    ],
+    [
+     "प्रीति-पूर्वकम्",
+     "prīti-pūrvakam",
+     "with love"
+    ],
+    [
+     "ददामि",
+     "dadāmi",
+     "I give"
+    ],
+    [
+     "बुद्धि-योगम्",
+     "buddhi-yogam",
+     "the yoga of understanding"
+    ],
+    [
+     "तम्",
+     "tam",
+     "that"
+    ],
+    [
+     "येन",
+     "yena",
+     "by which"
+    ],
+    [
+     "माम्",
+     "mām",
+     "me"
+    ],
+    [
+     "उपयान्ति",
+     "upayānti",
+     "they reach"
+    ],
+    [
+     "ते",
+     "te",
+     "they"
+    ]
+   ],
+   "related": [
+    "10.11",
+    "2.7",
+    "7.14"
+   ]
+  },
+  "11.55": {
+   "simple_en": "Work for Krishna, make him your goal, and love him. Let go of clinging, and hold no hate for anyone. Such a person comes to him.",
+   "simple_hi": "कृष्ण के लिए काम करो, उन्हें लक्ष्य बनाओ, और उनसे प्रेम करो। मोह छोड़ो, और किसी से नफ़रत मत रखो। ऐसा इंसान उन तक पहुँचता है।",
+   "words": [
+    [
+     "मत्-कर्म-कृत्",
+     "mat-karma-kṛt",
+     "working for me"
+    ],
+    [
+     "मत्-परमः",
+     "mat-paramaḥ",
+     "with me as the highest"
+    ],
+    [
+     "मद्-भक्तः",
+     "mad-bhaktaḥ",
+     "my devotee"
+    ],
+    [
+     "सङ्ग-वर्जितः",
+     "saṅga-varjitaḥ",
+     "free of attachment"
+    ],
+    [
+     "निर्वैरः",
+     "nirvairaḥ",
+     "without hatred"
+    ],
+    [
+     "सर्व-भूतेषु",
+     "sarva-bhūteṣu",
+     "to any being"
+    ],
+    [
+     "यः",
+     "yaḥ",
+     "who"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "he"
+    ],
+    [
+     "माम्",
+     "mām",
+     "to me"
+    ],
+    [
+     "एति",
+     "eti",
+     "comes"
+    ],
+    [
+     "पाण्डव",
+     "pāṇḍava",
+     "O son of Pandu"
+    ]
+   ],
+   "related": [
+    "5.7",
+    "16.1",
+    "3.19"
+   ]
+  },
+  "12.13": {
+   "simple_en": "Krishna loves the one who hates no one, and is friendly and kind. They do not boast or grab. They stay the same in joy and pain, and they forgive.",
+   "simple_hi": "कृष्ण उसे प्रेम करते हैं जो किसी से नफ़रत न करे, दोस्ताना और दयालु हो। जो न शेख़ी मारे, न छीने। जो सुख-दुख में एक-सा रहे, और माफ़ करे।",
+   "words": [
+    [
+     "अद्वेष्टा",
+     "adveṣṭā",
+     "without hatred"
+    ],
+    [
+     "सर्व-भूतानाम्",
+     "sarva-bhūtānām",
+     "for all beings"
+    ],
+    [
+     "मैत्रः",
+     "maitraḥ",
+     "friendly"
+    ],
+    [
+     "करुणः",
+     "karuṇaḥ",
+     "kind"
+    ],
+    [
+     "एव च",
+     "eva ca",
+     "and also"
+    ],
+    [
+     "निर्ममः",
+     "nirmamaḥ",
+     "without \"mine\""
+    ],
+    [
+     "निरहङ्कारः",
+     "nirahaṅkāraḥ",
+     "without ego"
+    ],
+    [
+     "सम-दुःख-सुखः",
+     "sama-duḥkha-sukhaḥ",
+     "even in pain and joy"
+    ],
+    [
+     "क्षमी",
+     "kṣamī",
+     "forgiving"
+    ]
+   ],
+   "related": [
+    "16.2",
+    "5.18",
+    "12.15"
+   ]
+  },
+  "13.27": {
+   "simple_en": "Everything that lives, whether it moves or stays still, comes from two things joined. One is the body, the field. The other is the knower, the Self.",
+   "simple_hi": "जो कुछ भी जीवित है, चलता हो या स्थिर, दो चीज़ों के मिलने से बनता है। एक है शरीर, यानी क्षेत्र। दूसरा है जानने वाला, यानी आत्मा।",
+   "words": [
+    [
+     "यावत्",
+     "yāvat",
+     "whatever"
+    ],
+    [
+     "सञ्जायते",
+     "sañjāyate",
+     "is born"
+    ],
+    [
+     "किञ्चित्",
+     "kiñcit",
+     "anything"
+    ],
+    [
+     "सत्त्वम्",
+     "sattvam",
+     "being"
+    ],
+    [
+     "स्थावर-जङ्गमम्",
+     "sthāvara-jaṅgamam",
+     "still or moving"
+    ],
+    [
+     "क्षेत्र-क्षेत्रज्ञ-संयोगात्",
+     "kṣetra-kṣetrajña-saṁyogāt",
+     "from the union of field and knower"
+    ],
+    [
+     "तत्",
+     "tat",
+     "that"
+    ],
+    [
+     "विद्धि",
+     "viddhi",
+     "know"
+    ],
+    [
+     "भरत-ऋषभ",
+     "bharata-ṛṣabha",
+     "best of the Bharatas"
+    ]
+   ],
+   "related": [
+    "7.7",
+    "10.8",
+    "17.3"
+   ]
+  },
+  "14.25": {
+   "simple_en": "They stay the same when honoured or insulted. They treat friend and foe alike. They have stopped pushing only for themselves. Such a person has gone beyond.",
+   "simple_hi": "वे सम्मान और अपमान में एक-से रहते हैं। दोस्त और दुश्मन को बराबर मानते हैं। उन्होंने सिर्फ़ अपने लिए दौड़ना छोड़ दिया है। ऐसा इंसान पार हो गया है।",
+   "words": [
+    [
+     "मान-अपमानयोः",
+     "māna-apamānayoḥ",
+     "in honour and insult"
+    ],
+    [
+     "तुल्यः",
+     "tulyaḥ",
+     "the same"
+    ],
+    [
+     "मित्र-अरि-पक्षयोः",
+     "mitra-ari-pakṣayoḥ",
+     "to friend and foe"
+    ],
+    [
+     "सर्व-आरम्भ-परित्यागी",
+     "sarva-ārambha-parityāgī",
+     "giving up selfish projects"
+    ],
+    [
+     "गुण-अतीतः",
+     "guṇa-atītaḥ",
+     "beyond the qualities"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "he"
+    ],
+    [
+     "उच्यते",
+     "ucyate",
+     "is called"
+    ]
+   ],
+   "related": [
+    "15.5",
+    "11.55",
+    "16.3"
+   ]
+  },
+  "15.15": {
+   "simple_en": "Krishna says he lives in every heart. Remembering, knowing and forgetting all come from him. He is the one all the holy books point to.",
+   "simple_hi": "कृष्ण कहते हैं कि वे हर दिल में रहते हैं। याद रखना, जानना और भूलना, सब उन्हीं से आता है। सारे पवित्र ग्रंथ उन्हीं की ओर इशारा करते हैं।",
+   "words": [
+    [
+     "सर्वस्य",
+     "sarvasya",
+     "of everyone"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "अहम्",
+     "aham",
+     "I"
+    ],
+    [
+     "हृदि",
+     "hṛdi",
+     "in the heart"
+    ],
+    [
+     "सन्निविष्टः",
+     "sanniviṣṭaḥ",
+     "am seated"
+    ],
+    [
+     "मत्तः",
+     "mattaḥ",
+     "from me"
+    ],
+    [
+     "स्मृतिः",
+     "smṛtiḥ",
+     "memory"
+    ],
+    [
+     "ज्ञानम्",
+     "jñānam",
+     "knowledge"
+    ],
+    [
+     "अपोहनम्",
+     "apohanam",
+     "forgetting"
+    ],
+    [
+     "वेदैः",
+     "vedaiḥ",
+     "by the Vedas"
+    ],
+    [
+     "सर्वैः",
+     "sarvaiḥ",
+     "all"
+    ],
+    [
+     "एव",
+     "eva",
+     "alone"
+    ],
+    [
+     "वेद्यः",
+     "vedyaḥ",
+     "to be known"
+    ],
+    [
+     "वेदान्त-कृत्",
+     "vedānta-kṛt",
+     "maker of Vedanta"
+    ],
+    [
+     "वेद-वित्",
+     "veda-vit",
+     "knower of the Vedas"
+    ]
+   ],
+   "related": [
+    "15.7",
+    "9.29",
+    "10.20"
+   ]
+  },
+  "16.3": {
+   "simple_en": "Shine, forgive, and be brave. Keep clean, wish no one harm, and do not think too much of yourself. These are signs of a heart born for good.",
+   "simple_hi": "चमको, माफ़ करो, और हिम्मत रखो। साफ़ रहो, किसी का बुरा मत चाहो, और ख़ुद को बहुत बड़ा मत समझो। ये भलाई के लिए जन्मे दिल की निशानियाँ हैं।",
+   "words": [
+    [
+     "तेजः",
+     "tejaḥ",
+     "radiance"
+    ],
+    [
+     "क्षमा",
+     "kṣamā",
+     "forgiveness"
+    ],
+    [
+     "धृतिः",
+     "dhṛtiḥ",
+     "courage"
+    ],
+    [
+     "शौचम्",
+     "śaucam",
+     "cleanliness"
+    ],
+    [
+     "अद्रोहः",
+     "adrohaḥ",
+     "no malice"
+    ],
+    [
+     "न अतिमानिता",
+     "na atimānitā",
+     "no excess pride"
+    ],
+    [
+     "भवन्ति",
+     "bhavanti",
+     "these are"
+    ],
+    [
+     "सम्पदम्",
+     "sampadam",
+     "the wealth"
+    ],
+    [
+     "दैवीम्",
+     "daivīm",
+     "divine"
+    ],
+    [
+     "अभिजातस्य",
+     "abhijātasya",
+     "of one born to it"
+    ],
+    [
+     "भारत",
+     "bhārata",
+     "O Bharata"
+    ]
+   ],
+   "related": [
+    "18.66",
+    "12.13",
+    "14.25"
+   ]
+  },
+  "17.15": {
+   "simple_en": "Speak words that do not hurt. Say what is true, kind and helpful. Keep reading and learning. This is the discipline of speech.",
+   "simple_hi": "ऐसे शब्द बोलो जो चोट न दें। जो सच, प्यारा और भला हो, वही कहो। पढ़ते और सीखते रहो। यही वाणी का तप है।",
+   "words": [
+    [
+     "अनुद्वेग-करम्",
+     "anudvega-karam",
+     "causing no pain"
+    ],
+    [
+     "वाक्यम्",
+     "vākyam",
+     "speech"
+    ],
+    [
+     "सत्यम्",
+     "satyam",
+     "true"
+    ],
+    [
+     "प्रिय-हितम्",
+     "priya-hitam",
+     "kind and helpful"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "यत्",
+     "yat",
+     "which"
+    ],
+    [
+     "स्वाध्याय-अभ्यसनम्",
+     "svādhyāya-abhyasanam",
+     "regular study"
+    ],
+    [
+     "एव",
+     "eva",
+     "also"
+    ],
+    [
+     "वाङ्मयम्",
+     "vāṅmayam",
+     "of speech"
+    ],
+    [
+     "तपः",
+     "tapaḥ",
+     "discipline"
+    ],
+    [
+     "उच्यते",
+     "ucyate",
+     "is called"
+    ]
+   ],
+   "related": [
+    "16.2",
+    "17.14",
+    "17.16"
+   ]
+  },
+  "18.54": {
+   "simple_en": "Someone at peace with the Divine is calm inside. They do not cry over loss or crave more. They treat every being the same, and their love grows deep.",
+   "simple_hi": "जो भगवान में शांत है, वह भीतर से शांत रहता है। वह न खोने पर रोता है, न और चाहता है। वह हर जीव को एक-सा मानता है, और उसका प्रेम गहरा होता है।",
+   "words": [
+    [
+     "ब्रह्म-भूतः",
+     "brahma-bhūtaḥ",
+     "one with the Absolute"
+    ],
+    [
+     "प्रसन्न-आत्मा",
+     "prasanna-ātmā",
+     "serene"
+    ],
+    [
+     "न शोचति",
+     "na śocati",
+     "does not grieve"
+    ],
+    [
+     "न काङ्क्षति",
+     "na kāṅkṣati",
+     "does not crave"
+    ],
+    [
+     "समः",
+     "samaḥ",
+     "the same"
+    ],
+    [
+     "सर्वेषु",
+     "sarveṣu",
+     "to all"
+    ],
+    [
+     "भूतेषु",
+     "bhūteṣu",
+     "beings"
+    ],
+    [
+     "मद्-भक्तिम्",
+     "mad-bhaktim",
+     "devotion to me"
+    ],
+    [
+     "लभते",
+     "labhate",
+     "gains"
+    ],
+    [
+     "पराम्",
+     "parām",
+     "highest"
+    ]
+   ],
+   "related": [
+    "15.5",
+    "2.56",
+    "6.7"
+   ]
+  },
+  "2.56": {
+   "simple_en": "A wise person is not knocked over by sadness. They do not chase every happy thing. They are free of greed, fear and anger.",
+   "simple_hi": "समझदार इंसान दुख से नहीं गिरता। वह हर ख़ुशी के पीछे नहीं भागता। उसमें लालच, डर और गुस्सा नहीं रहता।",
+   "words": [
+    [
+     "दुःखेषु",
+     "duḥkheṣu",
+     "in sorrows"
+    ],
+    [
+     "अनुद्विग्न-मनाः",
+     "anudvigna-manāḥ",
+     "mind not shaken"
+    ],
+    [
+     "सुखेषु",
+     "sukheṣu",
+     "in joys"
+    ],
+    [
+     "विगत-स्पृहः",
+     "vigata-spṛhaḥ",
+     "without craving"
+    ],
+    [
+     "वीत-राग-भय-क्रोधः",
+     "vīta-rāga-bhaya-krodhaḥ",
+     "free of longing, fear and anger"
+    ],
+    [
+     "स्थित-धीः",
+     "sthita-dhīḥ",
+     "of steady wisdom"
+    ],
+    [
+     "मुनिः",
+     "muniḥ",
+     "a sage"
+    ],
+    [
+     "उच्यते",
+     "ucyate",
+     "is called"
+    ]
+   ],
+   "related": [
+    "15.5",
+    "18.54",
+    "12.15"
+   ]
+  },
+  "3.27": {
+   "simple_en": "Many things work together to make anything happen. Only pride says, \"I alone did it.\" Remember you are one part of a big whole.",
+   "simple_hi": "कोई भी काम बहुत-सी चीज़ें मिलकर करती हैं। सिर्फ़ घमंड कहता है, \"यह मैंने अकेले किया।\" याद रखो, तुम एक बड़े पूरे का हिस्सा हो।",
+   "words": [
+    [
+     "प्रकृतेः",
+     "prakṛteḥ",
+     "of nature"
+    ],
+    [
+     "क्रियमाणानि",
+     "kriyamāṇāni",
+     "being done"
+    ],
+    [
+     "गुणैः",
+     "guṇaiḥ",
+     "by the qualities"
+    ],
+    [
+     "कर्माणि",
+     "karmāṇi",
+     "actions"
+    ],
+    [
+     "सर्वशः",
+     "sarvaśaḥ",
+     "in every way"
+    ],
+    [
+     "अहङ्कार-विमूढ-आत्मा",
+     "ahaṅkāra-vimūḍha-ātmā",
+     "one fooled by ego"
+    ],
+    [
+     "कर्ता",
+     "kartā",
+     "the doer"
+    ],
+    [
+     "अहम्",
+     "aham",
+     "I am"
+    ],
+    [
+     "इति",
+     "iti",
+     "thus"
+    ],
+    [
+     "मन्यते",
+     "manyate",
+     "thinks"
+    ]
+   ],
+   "related": [
+    "15.5",
+    "13.9",
+    "14.25"
+   ]
+  },
+  "4.38": {
+   "simple_en": "Nothing makes the heart as clean as true knowing. You do not have to rush. With steady practice, you will find it inside yourself in time.",
+   "simple_hi": "सच्चे ज्ञान जैसा मन को साफ़ करने वाला कुछ नहीं है। जल्दबाज़ी की ज़रूरत नहीं। लगातार अभ्यास से, समय आने पर तुम उसे अपने भीतर पाओगे।",
+   "words": [
+    [
+     "न हि",
+     "na hi",
+     "there is nothing"
+    ],
+    [
+     "ज्ञानेन",
+     "jñānena",
+     "to knowledge"
+    ],
+    [
+     "सदृशम्",
+     "sadṛśam",
+     "equal"
+    ],
+    [
+     "पवित्रम्",
+     "pavitram",
+     "purifying"
+    ],
+    [
+     "इह",
+     "iha",
+     "here"
+    ],
+    [
+     "विद्यते",
+     "vidyate",
+     "exists"
+    ],
+    [
+     "तत्",
+     "tat",
+     "that"
+    ],
+    [
+     "स्वयम्",
+     "svayam",
+     "yourself"
+    ],
+    [
+     "योग-संसिद्धः",
+     "yoga-saṁsiddhaḥ",
+     "ripe in yoga"
+    ],
+    [
+     "कालेन",
+     "kālena",
+     "in time"
+    ],
+    [
+     "आत्मनि",
+     "ātmani",
+     "in the Self"
+    ],
+    [
+     "विन्दति",
+     "vindati",
+     "finds"
+    ]
+   ],
+   "related": [
+    "13.8",
+    "17.3",
+    "13.27"
+   ]
+  },
+  "5.20": {
+   "simple_en": "When something nice happens, do not get carried away. When something bad happens, do not fall apart. Stay steady and clear inside.",
+   "simple_hi": "कुछ अच्छा हो तो बहक मत जाओ। कुछ बुरा हो तो टूट मत जाओ। भीतर से स्थिर और साफ़ रहो।",
+   "words": [
+    [
+     "न प्रहृष्येत्",
+     "na prahṛṣyet",
+     "should not leap with joy"
+    ],
+    [
+     "प्रियम्",
+     "priyam",
+     "the pleasant"
+    ],
+    [
+     "प्राप्य",
+     "prāpya",
+     "getting"
+    ],
+    [
+     "न उद्विजेत्",
+     "na udvijet",
+     "should not be upset"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "अप्रियम्",
+     "apriyam",
+     "the unpleasant"
+    ],
+    [
+     "स्थिर-बुद्धिः",
+     "sthira-buddhiḥ",
+     "steady minded"
+    ],
+    [
+     "असम्मूढः",
+     "asammūḍhaḥ",
+     "not confused"
+    ],
+    [
+     "ब्रह्म-वित्",
+     "brahma-vit",
+     "knower of the Divine"
+    ],
+    [
+     "ब्रह्मणि",
+     "brahmaṇi",
+     "in the Divine"
+    ],
+    [
+     "स्थितः",
+     "sthitaḥ",
+     "rooted"
+    ]
+   ],
+   "related": [
+    "2.48",
+    "6.7",
+    "2.14"
+   ]
+  },
+  "6.17": {
+   "simple_en": "Eat, rest, work and sleep in the right amount. When life has this balance, yoga takes sadness away.",
+   "simple_hi": "खाना, आराम, काम और नींद, सब सही मात्रा में करो। जब जीवन में यह संतुलन हो, तो योग दुख मिटा देता है।",
+   "words": [
+    [
+     "युक्त-आहार-विहारस्य",
+     "yukta-āhāra-vihārasya",
+     "balanced in food and play"
+    ],
+    [
+     "युक्त-चेष्टस्य",
+     "yukta-ceṣṭasya",
+     "balanced in effort"
+    ],
+    [
+     "कर्मसु",
+     "karmasu",
+     "in work"
+    ],
+    [
+     "युक्त-स्वप्न-अवबोधस्य",
+     "yukta-svapna-avabodhasya",
+     "balanced in sleep and waking"
+    ],
+    [
+     "योगः",
+     "yogaḥ",
+     "yoga"
+    ],
+    [
+     "भवति",
+     "bhavati",
+     "becomes"
+    ],
+    [
+     "दुःख-हा",
+     "duḥkha-hā",
+     "the end of sorrow"
+    ]
+   ],
+   "related": [
+    "6.16",
+    "6.6",
+    "16.1"
+   ]
+  },
+  "7.19": {
+   "simple_en": "After a very long journey, a wise soul sees that the Divine is in everything. Then it comes to Krishna. Such a great soul is very rare.",
+   "simple_hi": "बहुत लंबी यात्रा के बाद एक ज्ञानी आत्मा देखती है कि भगवान सबमें हैं। तब वह कृष्ण के पास आती है। ऐसी महान आत्मा बहुत कम मिलती है।",
+   "words": [
+    [
+     "बहूनाम्",
+     "bahūnām",
+     "of many"
+    ],
+    [
+     "जन्मनाम्",
+     "janmanām",
+     "births"
+    ],
+    [
+     "अन्ते",
+     "ante",
+     "at the end"
+    ],
+    [
+     "ज्ञानवान्",
+     "jñānavān",
+     "the wise one"
+    ],
+    [
+     "माम्",
+     "mām",
+     "to me"
+    ],
+    [
+     "प्रपद्यते",
+     "prapadyate",
+     "comes"
+    ],
+    [
+     "वासुदेवः",
+     "vāsudevaḥ",
+     "Vasudeva, the Divine"
+    ],
+    [
+     "सर्वम्",
+     "sarvam",
+     "is all"
+    ],
+    [
+     "इति",
+     "iti",
+     "thus"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "he"
+    ],
+    [
+     "महात्मा",
+     "mahātmā",
+     "a great soul"
+    ],
+    [
+     "सुदुर्लभः",
+     "sudurlabhaḥ",
+     "very rare"
+    ]
+   ],
+   "related": [
+    "7.7",
+    "10.8",
+    "17.3"
+   ]
+  },
+  "8.14": {
+   "simple_en": "Krishna says he is easy to reach. Just remember him every day, with your whole heart. He is close to the one who keeps remembering.",
+   "simple_hi": "कृष्ण कहते हैं कि उन तक पहुँचना आसान है। बस हर दिन पूरे मन से उन्हें याद करो। जो याद करता रहे, वे उसके पास हैं।",
+   "words": [
+    [
+     "अनन्य-चेताः",
+     "ananya-cetāḥ",
+     "with an undivided mind"
+    ],
+    [
+     "सततम्",
+     "satatam",
+     "always"
+    ],
+    [
+     "यः",
+     "yaḥ",
+     "who"
+    ],
+    [
+     "माम्",
+     "mām",
+     "me"
+    ],
+    [
+     "स्मरति",
+     "smarati",
+     "remembers"
+    ],
+    [
+     "नित्यशः",
+     "nityaśaḥ",
+     "daily"
+    ],
+    [
+     "तस्य",
+     "tasya",
+     "for him"
+    ],
+    [
+     "अहम्",
+     "aham",
+     "I"
+    ],
+    [
+     "सुलभः",
+     "sulabhaḥ",
+     "easy to reach"
+    ],
+    [
+     "पार्थ",
+     "pārtha",
+     "O Arjuna"
+    ],
+    [
+     "नित्य-युक्तस्य",
+     "nitya-yuktasya",
+     "ever joined"
+    ],
+    [
+     "योगिनः",
+     "yoginaḥ",
+     "the yogi"
+    ]
+   ],
+   "related": [
+    "7.7",
+    "5.29",
+    "6.30"
+   ]
+  },
+  "9.29": {
+   "simple_en": "Krishna loves all beings the same. He hates no one and has no favourites. But whoever loves him lives in him, and he lives in them.",
+   "simple_hi": "कृष्ण सब जीवों से एक-सा प्रेम करते हैं। न किसी से नफ़रत, न कोई ख़ास। पर जो उनसे प्रेम करे, वह उनमें रहता है, और वे उसमें।",
+   "words": [
+    [
+     "समः",
+     "samaḥ",
+     "the same"
+    ],
+    [
+     "अहम्",
+     "aham",
+     "I am"
+    ],
+    [
+     "सर्व-भूतेषु",
+     "sarva-bhūteṣu",
+     "to all beings"
+    ],
+    [
+     "न",
+     "na",
+     "not"
+    ],
+    [
+     "मे",
+     "me",
+     "to me"
+    ],
+    [
+     "द्वेष्यः",
+     "dveṣyaḥ",
+     "hated"
+    ],
+    [
+     "अस्ति",
+     "asti",
+     "is"
+    ],
+    [
+     "प्रियः",
+     "priyaḥ",
+     "favoured"
+    ],
+    [
+     "ये",
+     "ye",
+     "who"
+    ],
+    [
+     "भजन्ति",
+     "bhajanti",
+     "worship"
+    ],
+    [
+     "तु",
+     "tu",
+     "but"
+    ],
+    [
+     "माम्",
+     "mām",
+     "me"
+    ],
+    [
+     "भक्त्या",
+     "bhaktyā",
+     "with love"
+    ],
+    [
+     "मयि",
+     "mayi",
+     "in me"
+    ],
+    [
+     "ते",
+     "te",
+     "they"
+    ],
+    [
+     "तेषु",
+     "teṣu",
+     "in them"
+    ],
+    [
+     "च अपि",
+     "ca api",
+     "and also"
+    ]
+   ],
+   "related": [
+    "15.7",
+    "15.15",
+    "10.20"
+   ]
+  },
+  "10.11": {
+   "simple_en": "Out of kindness, Krishna lives in their hearts. He lights a lamp of knowing there. The lamp chases the darkness of not knowing away.",
+   "simple_hi": "दया करके कृष्ण उनके दिल में रहते हैं। वहाँ वे ज्ञान का दीपक जलाते हैं। वह दीपक न जानने का अँधेरा दूर कर देता है।",
+   "words": [
+    [
+     "तेषाम्",
+     "teṣām",
+     "for them"
+    ],
+    [
+     "एव",
+     "eva",
+     "only"
+    ],
+    [
+     "अनुकम्पा-अर्थम्",
+     "anukampā-artham",
+     "out of compassion"
+    ],
+    [
+     "अहम्",
+     "aham",
+     "I"
+    ],
+    [
+     "अज्ञान-जम्",
+     "ajñāna-jam",
+     "born of not knowing"
+    ],
+    [
+     "तमः",
+     "tamaḥ",
+     "darkness"
+    ],
+    [
+     "नाशयामि",
+     "nāśayāmi",
+     "destroy"
+    ],
+    [
+     "आत्म-भाव-स्थः",
+     "ātma-bhāva-sthaḥ",
+     "living in their hearts"
+    ],
+    [
+     "ज्ञान-दीपेन",
+     "jñāna-dīpena",
+     "with the lamp of knowledge"
+    ],
+    [
+     "भास्वता",
+     "bhāsvatā",
+     "shining"
+    ]
+   ],
+   "related": [
+    "10.10",
+    "18.63",
+    "18.73"
+   ]
+  },
+  "12.14": {
+   "simple_en": "Krishna loves the one who is always content. They keep their mind steady and their choice firm. They give their heart and mind to him.",
+   "simple_hi": "कृष्ण उसे प्रेम करते हैं जो हमेशा संतुष्ट रहे। जिसका मन स्थिर और फ़ैसला पक्का हो। जो अपना दिल और मन उन्हें सौंप दे।",
+   "words": [
+    [
+     "सन्तुष्टः",
+     "santuṣṭaḥ",
+     "content"
+    ],
+    [
+     "सततम्",
+     "satatam",
+     "always"
+    ],
+    [
+     "योगी",
+     "yogī",
+     "the yogi"
+    ],
+    [
+     "यत-आत्मा",
+     "yata-ātmā",
+     "self-controlled"
+    ],
+    [
+     "दृढ-निश्चयः",
+     "dṛḍha-niścayaḥ",
+     "firm in resolve"
+    ],
+    [
+     "मयि",
+     "mayi",
+     "to me"
+    ],
+    [
+     "अर्पित-मनः-बुद्धिः",
+     "arpita-manaḥ-buddhiḥ",
+     "mind and reason given"
+    ],
+    [
+     "यः",
+     "yaḥ",
+     "who"
+    ],
+    [
+     "मद्-भक्तः",
+     "mad-bhaktaḥ",
+     "my devotee"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "he"
+    ],
+    [
+     "मे",
+     "me",
+     "to me"
+    ],
+    [
+     "प्रियः",
+     "priyaḥ",
+     "is dear"
+    ]
+   ],
+   "related": [
+    "4.39",
+    "12.19",
+    "7.7"
+   ]
+  },
+  "13.28": {
+   "simple_en": "The same Lord lives inside every being. When bodies end, the Lord inside does not end. Whoever sees this truly sees.",
+   "simple_hi": "हर जीव के भीतर एक ही भगवान रहते हैं। शरीर ख़त्म होते हैं, पर भीतर के भगवान ख़त्म नहीं होते। जो यह देखता है, वही सच में देखता है।",
+   "words": [
+    [
+     "समम्",
+     "samam",
+     "equally"
+    ],
+    [
+     "सर्वेषु",
+     "sarveṣu",
+     "in all"
+    ],
+    [
+     "भूतेषु",
+     "bhūteṣu",
+     "beings"
+    ],
+    [
+     "तिष्ठन्तम्",
+     "tiṣṭhantam",
+     "dwelling"
+    ],
+    [
+     "परम-ईश्वरम्",
+     "parama-īśvaram",
+     "the Supreme Lord"
+    ],
+    [
+     "विनश्यत्सु",
+     "vinaśyatsu",
+     "in the perishing"
+    ],
+    [
+     "अविनश्यन्तम्",
+     "avinaśyantam",
+     "not perishing"
+    ],
+    [
+     "यः",
+     "yaḥ",
+     "who"
+    ],
+    [
+     "पश्यति",
+     "paśyati",
+     "sees"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "he"
+    ],
+    [
+     "पश्यति",
+     "paśyati",
+     "truly sees"
+    ]
+   ],
+   "related": [
+    "6.32",
+    "5.7",
+    "10.9"
+   ]
+  },
+  "14.26": {
+   "simple_en": "Whoever serves Krishna with steady love goes beyond nature's three moods. Such a person is ready to become one with the Divine.",
+   "simple_hi": "जो स्थिर प्रेम से कृष्ण की सेवा करे, वह प्रकृति के तीनों गुणों से पार हो जाता है। ऐसा इंसान भगवान से एक होने के योग्य बनता है।",
+   "words": [
+    [
+     "माम्",
+     "mām",
+     "me"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "यः",
+     "yaḥ",
+     "who"
+    ],
+    [
+     "अव्यभिचारेण",
+     "avyabhicāreṇa",
+     "unwavering"
+    ],
+    [
+     "भक्ति-योगेन",
+     "bhakti-yogena",
+     "with the yoga of devotion"
+    ],
+    [
+     "सेवते",
+     "sevate",
+     "serves"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "he"
+    ],
+    [
+     "गुणान्",
+     "guṇān",
+     "the qualities"
+    ],
+    [
+     "समतीत्य",
+     "samatītya",
+     "going beyond"
+    ],
+    [
+     "एतान्",
+     "etān",
+     "these"
+    ],
+    [
+     "ब्रह्म-भूयाय",
+     "brahma-bhūyāya",
+     "for oneness with the Absolute"
+    ],
+    [
+     "कल्पते",
+     "kalpate",
+     "becomes fit"
+    ]
+   ],
+   "related": [
+    "16.1",
+    "17.3",
+    "3.21"
+   ]
+  },
+  "15.19": {
+   "simple_en": "Whoever knows Krishna clearly as the Highest Person knows all that matters. They love him with their whole being.",
+   "simple_hi": "जो कृष्ण को साफ़ मन से सबसे ऊँचे पुरुष के रूप में जानता है, वह सब ज़रूरी जानता है। वह पूरे मन से उनसे प्रेम करता है।",
+   "words": [
+    [
+     "यः",
+     "yaḥ",
+     "who"
+    ],
+    [
+     "माम्",
+     "mām",
+     "me"
+    ],
+    [
+     "एवम्",
+     "evam",
+     "thus"
+    ],
+    [
+     "असम्मूढः",
+     "asammūḍhaḥ",
+     "without confusion"
+    ],
+    [
+     "जानाति",
+     "jānāti",
+     "knows"
+    ],
+    [
+     "पुरुष-उत्तमम्",
+     "puruṣa-uttamam",
+     "the Supreme Person"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "he"
+    ],
+    [
+     "सर्व-वित्",
+     "sarva-vit",
+     "knows all"
+    ],
+    [
+     "भजति",
+     "bhajati",
+     "worships"
+    ],
+    [
+     "सर्व-भावेन",
+     "sarva-bhāvena",
+     "with his whole being"
+    ],
+    [
+     "भारत",
+     "bhārata",
+     "O Bharata"
+    ]
+   ],
+   "related": [
+    "2.7",
+    "7.14",
+    "10.10"
+   ]
+  },
+  "16.21": {
+   "simple_en": "Three doors lead to trouble: wanting too much, anger, and greed. They hurt the one who walks through them. So close these three doors.",
+   "simple_hi": "तीन दरवाज़े मुसीबत की ओर ले जाते हैं: बहुत ज़्यादा चाह, गुस्सा और लालच। ये उन्हीं को चोट देते हैं जो इनसे गुज़रते हैं। इसलिए ये तीनों दरवाज़े बंद रखो।",
+   "words": [
+    [
+     "त्रि-विधम्",
+     "tri-vidham",
+     "threefold"
+    ],
+    [
+     "नरकस्य",
+     "narakasya",
+     "to ruin"
+    ],
+    [
+     "इदम्",
+     "idam",
+     "this"
+    ],
+    [
+     "द्वारम्",
+     "dvāram",
+     "gate"
+    ],
+    [
+     "नाशनम्",
+     "nāśanam",
+     "destroying"
+    ],
+    [
+     "आत्मनः",
+     "ātmanaḥ",
+     "the self"
+    ],
+    [
+     "कामः",
+     "kāmaḥ",
+     "desire"
+    ],
+    [
+     "क्रोधः",
+     "krodhaḥ",
+     "anger"
+    ],
+    [
+     "तथा",
+     "tathā",
+     "and"
+    ],
+    [
+     "लोभः",
+     "lobhaḥ",
+     "greed"
+    ],
+    [
+     "तस्मात्",
+     "tasmāt",
+     "so"
+    ],
+    [
+     "एतत्",
+     "etat",
+     "these"
+    ],
+    [
+     "त्रयम्",
+     "trayam",
+     "three"
+    ],
+    [
+     "त्यजेत्",
+     "tyajet",
+     "give up"
+    ]
+   ],
+   "related": [
+    "5.23",
+    "3.37",
+    "16.2"
+   ]
+  },
+  "17.16": {
+   "simple_en": "Keep your mind cheerful and gentle. Be quiet sometimes and hold yourself steady. Keep your feelings pure. This is the discipline of the mind.",
+   "simple_hi": "मन को प्रसन्न और कोमल रखो। कभी-कभी चुप रहो और ख़ुद को संभालो। अपने भाव शुद्ध रखो। यही मन का तप है।",
+   "words": [
+    [
+     "मनः-प्रसादः",
+     "manaḥ-prasādaḥ",
+     "a cheerful mind"
+    ],
+    [
+     "सौम्यत्वम्",
+     "saumyatvam",
+     "gentleness"
+    ],
+    [
+     "मौनम्",
+     "maunam",
+     "silence"
+    ],
+    [
+     "आत्म-विनिग्रहः",
+     "ātma-vinigrahaḥ",
+     "self-control"
+    ],
+    [
+     "भाव-संशुद्धिः",
+     "bhāva-saṁśuddhiḥ",
+     "purity of feeling"
+    ],
+    [
+     "इति",
+     "iti",
+     "thus"
+    ],
+    [
+     "एतत्",
+     "etat",
+     "this"
+    ],
+    [
+     "तपः",
+     "tapaḥ",
+     "discipline"
+    ],
+    [
+     "मानसम्",
+     "mānasam",
+     "of the mind"
+    ],
+    [
+     "उच्यते",
+     "ucyate",
+     "is called"
+    ]
+   ],
+   "related": [
+    "17.15",
+    "12.8",
+    "6.17"
+   ]
+  },
+  "18.57": {
+   "simple_en": "In your heart, give all your work to Krishna. Make him your goal, and lean on a steady mind. Keep your thoughts with him always.",
+   "simple_hi": "मन ही मन अपना हर काम कृष्ण को सौंप दो। उन्हें अपना लक्ष्य बनाओ, और स्थिर बुद्धि का सहारा लो। अपने विचार हमेशा उनके साथ रखो।",
+   "words": [
+    [
+     "चेतसा",
+     "cetasā",
+     "in the mind"
+    ],
+    [
+     "सर्व-कर्माणि",
+     "sarva-karmāṇi",
+     "all actions"
+    ],
+    [
+     "मयि",
+     "mayi",
+     "to me"
+    ],
+    [
+     "संन्यस्य",
+     "saṁnyasya",
+     "offering"
+    ],
+    [
+     "मत्-परः",
+     "mat-paraḥ",
+     "with me as the goal"
+    ],
+    [
+     "बुद्धि-योगम्",
+     "buddhi-yogam",
+     "the yoga of understanding"
+    ],
+    [
+     "उपाश्रित्य",
+     "upāśritya",
+     "relying on"
+    ],
+    [
+     "मत्-चित्तः",
+     "mat-cittaḥ",
+     "mind on me"
+    ],
+    [
+     "सततम्",
+     "satatam",
+     "always"
+    ],
+    [
+     "भव",
+     "bhava",
+     "be"
+    ]
+   ],
+   "related": [
+    "5.10",
+    "8.7",
+    "18.66"
+   ]
+  },
+  "2.58": {
+   "simple_en": "A tortoise pulls its legs inside its shell to stay safe. A wise person can pull the senses back the same way. Then the mind stays steady.",
+   "simple_hi": "कछुआ बचने के लिए अपने पैर खोल में खींच लेता है। समझदार इंसान भी इंद्रियों को ऐसे ही वापस खींच सकता है। तब मन स्थिर रहता है।",
+   "words": [
+    [
+     "यदा",
+     "yadā",
+     "when"
+    ],
+    [
+     "संहरते",
+     "saṁharate",
+     "draws in"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "अयम्",
+     "ayam",
+     "this one"
+    ],
+    [
+     "कूर्मः",
+     "kūrmaḥ",
+     "a tortoise"
+    ],
+    [
+     "अङ्गानि",
+     "aṅgāni",
+     "limbs"
+    ],
+    [
+     "इव",
+     "iva",
+     "like"
+    ],
+    [
+     "सर्वशः",
+     "sarvaśaḥ",
+     "fully"
+    ],
+    [
+     "इन्द्रियाणि",
+     "indriyāṇi",
+     "the senses"
+    ],
+    [
+     "इन्द्रिय-अर्थेभ्यः",
+     "indriya-arthebhyaḥ",
+     "from their objects"
+    ],
+    [
+     "तस्य",
+     "tasya",
+     "his"
+    ],
+    [
+     "प्रज्ञा",
+     "prajñā",
+     "wisdom"
+    ],
+    [
+     "प्रतिष्ठिता",
+     "pratiṣṭhitā",
+     "is steady"
+    ]
+   ],
+   "related": [
+    "3.37",
+    "3.42",
+    "2.50"
+   ]
+  },
+  "3.35": {
+   "simple_en": "Walk your own path, even if you walk it imperfectly. Copying someone else's path, even well, brings fear. Your own way is safer for you.",
+   "simple_hi": "अपना रास्ता चलो, चाहे पूरी तरह ठीक न चल पाओ। दूसरे का रास्ता अच्छे से चलना भी डर लाता है। तुम्हारे लिए अपना रास्ता ही सुरक्षित है।",
+   "words": [
+    [
+     "श्रेयान्",
+     "śreyān",
+     "better"
+    ],
+    [
+     "स्व-धर्मः",
+     "sva-dharmaḥ",
+     "your own duty"
+    ],
+    [
+     "विगुणः",
+     "viguṇaḥ",
+     "imperfect"
+    ],
+    [
+     "पर-धर्मात्",
+     "para-dharmāt",
+     "than another's duty"
+    ],
+    [
+     "सु-अनुष्ठितात्",
+     "su-anuṣṭhitāt",
+     "done well"
+    ],
+    [
+     "स्व-धर्मे",
+     "sva-dharme",
+     "in your own duty"
+    ],
+    [
+     "निधनम्",
+     "nidhanam",
+     "even ending"
+    ],
+    [
+     "श्रेयः",
+     "śreyaḥ",
+     "is better"
+    ],
+    [
+     "पर-धर्मः",
+     "para-dharmaḥ",
+     "another's duty"
+    ],
+    [
+     "भय-आवहः",
+     "bhaya-āvahaḥ",
+     "brings fear"
+    ]
+   ],
+   "related": [
+    "18.47",
+    "4.22",
+    "9.29"
+   ]
+  },
+  "4.39": {
+   "simple_en": "If you trust, care, and keep your senses in check, you will learn. And once you truly know, peace comes very soon.",
+   "simple_hi": "अगर तुम भरोसा रखो, मन लगाओ और इंद्रियों को काबू में रखो, तो सीखोगे। और सच में जान लेने पर शांति जल्दी आती है।",
+   "words": [
+    [
+     "श्रद्धावान्",
+     "śraddhāvān",
+     "one with faith"
+    ],
+    [
+     "लभते",
+     "labhate",
+     "gains"
+    ],
+    [
+     "ज्ञानम्",
+     "jñānam",
+     "knowledge"
+    ],
+    [
+     "तत्-परः",
+     "tat-paraḥ",
+     "devoted to it"
+    ],
+    [
+     "संयत-इन्द्रियः",
+     "saṁyata-indriyaḥ",
+     "senses held in check"
+    ],
+    [
+     "ज्ञानम्",
+     "jñānam",
+     "knowledge"
+    ],
+    [
+     "लब्ध्वा",
+     "labdhvā",
+     "having gained"
+    ],
+    [
+     "पराम्",
+     "parām",
+     "highest"
+    ],
+    [
+     "शान्तिम्",
+     "śāntim",
+     "peace"
+    ],
+    [
+     "अचिरेण",
+     "acireṇa",
+     "soon"
+    ],
+    [
+     "अधिगच्छति",
+     "adhigacchati",
+     "reaches"
+    ]
+   ],
+   "related": [
+    "12.14",
+    "7.7",
+    "13.8"
+   ]
+  },
+  "5.23": {
+   "simple_en": "A rush of wanting or anger can come like a wave. Whoever can stand firm in that wave, here in this life, is truly happy.",
+   "simple_hi": "चाह या गुस्से का उफान लहर की तरह आता है। जो इसी जीवन में उस लहर में डटा रहे, वही सच में सुखी है।",
+   "words": [
+    [
+     "शक्नोति",
+     "śaknoti",
+     "is able"
+    ],
+    [
+     "इह एव",
+     "iha eva",
+     "right here"
+    ],
+    [
+     "यः",
+     "yaḥ",
+     "who"
+    ],
+    [
+     "सोढुम्",
+     "soḍhum",
+     "to bear"
+    ],
+    [
+     "प्राक्",
+     "prāk",
+     "before"
+    ],
+    [
+     "शरीर-विमोक्षणात्",
+     "śarīra-vimokṣaṇāt",
+     "leaving the body"
+    ],
+    [
+     "काम-क्रोध-उद्भवम्",
+     "kāma-krodha-udbhavam",
+     "born of desire and anger"
+    ],
+    [
+     "वेगम्",
+     "vegam",
+     "the rush"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "he"
+    ],
+    [
+     "युक्तः",
+     "yuktaḥ",
+     "is a yogi"
+    ],
+    [
+     "सुखी",
+     "sukhī",
+     "happy"
+    ],
+    [
+     "नरः",
+     "naraḥ",
+     "person"
+    ]
+   ],
+   "related": [
+    "16.21",
+    "3.37",
+    "13.8"
+   ]
+  },
+  "6.26": {
+   "simple_en": "Your mind will run off again and again. Each time, gently bring it back. Do not get cross with it. Just bring it home.",
+   "simple_hi": "तुम्हारा मन बार-बार भागेगा। हर बार उसे प्यार से वापस लाओ। उस पर नाराज़ मत हो। बस उसे घर ले आओ।",
+   "words": [
+    [
+     "यतः यतः",
+     "yataḥ yataḥ",
+     "wherever"
+    ],
+    [
+     "निश्चरति",
+     "niścarati",
+     "wanders"
+    ],
+    [
+     "मनः",
+     "manaḥ",
+     "the mind"
+    ],
+    [
+     "चञ्चलम्",
+     "cañcalam",
+     "restless"
+    ],
+    [
+     "अस्थिरम्",
+     "asthiram",
+     "unsteady"
+    ],
+    [
+     "ततः ततः",
+     "tataḥ tataḥ",
+     "from there"
+    ],
+    [
+     "नियम्य",
+     "niyamya",
+     "drawing back"
+    ],
+    [
+     "एतत्",
+     "etat",
+     "it"
+    ],
+    [
+     "आत्मनि",
+     "ātmani",
+     "in the Self"
+    ],
+    [
+     "एव",
+     "eva",
+     "only"
+    ],
+    [
+     "वशम्",
+     "vaśam",
+     "under control"
+    ],
+    [
+     "नयेत्",
+     "nayet",
+     "should bring"
+    ]
+   ],
+   "related": [
+    "6.35",
+    "2.14",
+    "12.8"
+   ]
+  },
+  "7.21": {
+   "simple_en": "People pray in many ways and to many forms. Krishna says he makes each one's faith steady. Every sincere prayer is held.",
+   "simple_hi": "लोग कई तरह से और कई रूपों में पूजा करते हैं। कृष्ण कहते हैं कि वे हर एक की श्रद्धा को पक्का करते हैं। हर सच्ची प्रार्थना सुनी जाती है।",
+   "words": [
+    [
+     "यः यः",
+     "yaḥ yaḥ",
+     "whoever"
+    ],
+    [
+     "याम् याम्",
+     "yām yām",
+     "whichever"
+    ],
+    [
+     "तनुम्",
+     "tanum",
+     "form"
+    ],
+    [
+     "भक्तः",
+     "bhaktaḥ",
+     "a devotee"
+    ],
+    [
+     "श्रद्धया",
+     "śraddhayā",
+     "with faith"
+    ],
+    [
+     "अर्चितुम्",
+     "arcitum",
+     "to worship"
+    ],
+    [
+     "इच्छति",
+     "icchati",
+     "wishes"
+    ],
+    [
+     "तस्य तस्य",
+     "tasya tasya",
+     "to each of them"
+    ],
+    [
+     "अचलाम्",
+     "acalām",
+     "steady"
+    ],
+    [
+     "श्रद्धाम्",
+     "śraddhām",
+     "faith"
+    ],
+    [
+     "ताम् एव",
+     "tām eva",
+     "that very"
+    ],
+    [
+     "विदधामि",
+     "vidadhāmi",
+     "I give"
+    ],
+    [
+     "अहम्",
+     "aham",
+     "I"
+    ]
+   ],
+   "related": [
+    "7.7",
+    "7.14",
+    "2.7"
+   ]
+  },
+  "8.15": {
+   "simple_en": "Great souls who come to Krishna do not return to a life full of pain. This world does not last. They have reached the highest goal.",
+   "simple_hi": "जो महान आत्माएँ कृष्ण तक पहुँचती हैं, वे दुख भरे जीवन में लौटती नहीं। यह संसार टिकता नहीं। उन्होंने सबसे ऊँचा लक्ष्य पा लिया है।",
+   "words": [
+    [
+     "माम्",
+     "mām",
+     "me"
+    ],
+    [
+     "उपेत्य",
+     "upetya",
+     "reaching"
+    ],
+    [
+     "पुनर्-जन्म",
+     "punar-janma",
+     "rebirth"
+    ],
+    [
+     "दुःख-आलयम्",
+     "duḥkha-ālayam",
+     "a home of sorrow"
+    ],
+    [
+     "अशाश्वतम्",
+     "aśāśvatam",
+     "not lasting"
+    ],
+    [
+     "न आप्नुवन्ति",
+     "na āpnuvanti",
+     "do not get"
+    ],
+    [
+     "महात्मानः",
+     "mahātmānaḥ",
+     "great souls"
+    ],
+    [
+     "संसिद्धिम्",
+     "saṁsiddhim",
+     "perfection"
+    ],
+    [
+     "परमाम्",
+     "paramām",
+     "highest"
+    ],
+    [
+     "गताः",
+     "gatāḥ",
+     "having reached"
+    ]
+   ],
+   "related": [
+    "2.20",
+    "8.5",
+    "8.6"
+   ]
+  },
+  "9.31": {
+   "simple_en": "Even someone who has gone wrong can turn around fast. They can become good and find lasting peace. Krishna promises his devotee is never lost.",
+   "simple_hi": "जो ग़लत राह पर गया हो, वह भी जल्दी लौट सकता है। वह अच्छा बनकर हमेशा की शांति पा सकता है। कृष्ण वचन देते हैं कि उनका भक्त कभी नहीं खोता।",
+   "words": [
+    [
+     "क्षिप्रम्",
+     "kṣipram",
+     "quickly"
+    ],
+    [
+     "भवति",
+     "bhavati",
+     "becomes"
+    ],
+    [
+     "धर्म-आत्मा",
+     "dharma-ātmā",
+     "good at heart"
+    ],
+    [
+     "शश्वत्",
+     "śaśvat",
+     "lasting"
+    ],
+    [
+     "शान्तिम्",
+     "śāntim",
+     "peace"
+    ],
+    [
+     "निगच्छति",
+     "nigacchati",
+     "finds"
+    ],
+    [
+     "कौन्तेय",
+     "kaunteya",
+     "son of Kunti"
+    ],
+    [
+     "प्रतिजानीहि",
+     "pratijānīhi",
+     "know for sure"
+    ],
+    [
+     "न",
+     "na",
+     "never"
+    ],
+    [
+     "मे",
+     "me",
+     "my"
+    ],
+    [
+     "भक्तः",
+     "bhaktaḥ",
+     "devotee"
+    ],
+    [
+     "प्रणश्यति",
+     "praṇaśyati",
+     "is lost"
+    ]
+   ],
+   "related": [
+    "6.5",
+    "16.3",
+    "6.40"
+   ]
+  },
+  "10.20": {
+   "simple_en": "Krishna says he lives in the heart of every being. He is how everything begins, how it goes on, and how it ends.",
+   "simple_hi": "कृष्ण कहते हैं कि वे हर जीव के दिल में रहते हैं। वे ही हर चीज़ की शुरुआत, बीच और अंत हैं।",
+   "words": [
+    [
+     "अहम्",
+     "aham",
+     "I"
+    ],
+    [
+     "आत्मा",
+     "ātmā",
+     "the Self"
+    ],
+    [
+     "गुडाकेश",
+     "guḍākeśa",
+     "O Arjuna"
+    ],
+    [
+     "सर्व-भूत-आशय-स्थितः",
+     "sarva-bhūta-āśaya-sthitaḥ",
+     "seated in every heart"
+    ],
+    [
+     "आदिः",
+     "ādiḥ",
+     "the beginning"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "मध्यम्",
+     "madhyam",
+     "the middle"
+    ],
+    [
+     "भूतानाम्",
+     "bhūtānām",
+     "of beings"
+    ],
+    [
+     "अन्तः",
+     "antaḥ",
+     "the end"
+    ],
+    [
+     "एव",
+     "eva",
+     "also"
+    ]
+   ],
+   "related": [
+    "15.7",
+    "15.15",
+    "9.29"
+   ]
+  },
+  "12.15": {
+   "simple_en": "Krishna loves the one who does not upset others, and is not upset by others. They are free from wild joy, anger, fear and worry.",
+   "simple_hi": "कृष्ण उसे प्रेम करते हैं जो दूसरों को परेशान न करे, और दूसरों से परेशान न हो। जो बहुत उछलने, गुस्से, डर और चिंता से मुक्त हो।",
+   "words": [
+    [
+     "यस्मात्",
+     "yasmāt",
+     "by whom"
+    ],
+    [
+     "न उद्विजते",
+     "na udvijate",
+     "is not disturbed"
+    ],
+    [
+     "लोकः",
+     "lokaḥ",
+     "the world"
+    ],
+    [
+     "लोकात्",
+     "lokāt",
+     "by the world"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "यः",
+     "yaḥ",
+     "who"
+    ],
+    [
+     "हर्ष-अमर्ष-भय-उद्वेगैः",
+     "harṣa-amarṣa-bhaya-udvegaiḥ",
+     "from excitement, anger, fear and worry"
+    ],
+    [
+     "मुक्तः",
+     "muktaḥ",
+     "free"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "he"
+    ],
+    [
+     "मे",
+     "me",
+     "to me"
+    ],
+    [
+     "प्रियः",
+     "priyaḥ",
+     "is dear"
+    ]
+   ],
+   "related": [
+    "2.56",
+    "12.12",
+    "12.13"
+   ]
+  },
+  "17.20": {
+   "simple_en": "A pure gift is given just because giving is right. It goes to someone who cannot pay you back. It is given at the right time, in the right place, to the right person.",
+   "simple_hi": "सच्चा दान इसलिए दिया जाता है क्योंकि देना सही है। वह ऐसे को जाता है जो बदले में कुछ न दे सके। वह सही समय, सही जगह, सही इंसान को दिया जाता है।",
+   "words": [
+    [
+     "दातव्यम्",
+     "dātavyam",
+     "it should be given"
+    ],
+    [
+     "इति",
+     "iti",
+     "thus"
+    ],
+    [
+     "यत्",
+     "yat",
+     "which"
+    ],
+    [
+     "दानम्",
+     "dānam",
+     "gift"
+    ],
+    [
+     "दीयते",
+     "dīyate",
+     "is given"
+    ],
+    [
+     "अनुपकारिणे",
+     "anupakāriṇe",
+     "to one who cannot repay"
+    ],
+    [
+     "देशे",
+     "deśe",
+     "in the right place"
+    ],
+    [
+     "काले",
+     "kāle",
+     "at the right time"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "पात्रे",
+     "pātre",
+     "to the right person"
+    ],
+    [
+     "तत्",
+     "tat",
+     "that"
+    ],
+    [
+     "सात्त्विकम्",
+     "sāttvikam",
+     "pure"
+    ],
+    [
+     "स्मृतम्",
+     "smṛtam",
+     "is called"
+    ]
+   ],
+   "related": [
+    "16.2",
+    "5.7",
+    "9.26"
+   ]
+  },
+  "18.58": {
+   "simple_en": "Krishna tells Arjuna that with his mind on him, he will cross every hard place by grace. But if pride stops him from listening, he will be lost.",
+   "simple_hi": "कृष्ण अर्जुन से कहते हैं कि मन उनमें लगाकर, उनकी कृपा से वे हर कठिनाई पार कर लेंगे। पर अगर घमंड के कारण न सुनें, तो खो जाएँगे।",
+   "words": [
+    [
+     "मत्-चित्तः",
+     "mat-cittaḥ",
+     "mind on me"
+    ],
+    [
+     "सर्व-दुर्गाणि",
+     "sarva-durgāṇi",
+     "every difficulty"
+    ],
+    [
+     "मत्-प्रसादात्",
+     "mat-prasādāt",
+     "by my grace"
+    ],
+    [
+     "तरिष्यसि",
+     "tariṣyasi",
+     "you will cross"
+    ],
+    [
+     "अथ",
+     "atha",
+     "but"
+    ],
+    [
+     "चेत्",
+     "cet",
+     "if"
+    ],
+    [
+     "त्वम्",
+     "tvam",
+     "you"
+    ],
+    [
+     "अहङ्कारात्",
+     "ahaṅkārāt",
+     "from ego"
+    ],
+    [
+     "न श्रोष्यसि",
+     "na śroṣyasi",
+     "will not listen"
+    ],
+    [
+     "विनङ्क्ष्यसि",
+     "vinaṅkṣyasi",
+     "you will be lost"
+    ]
+   ],
+   "related": [
+    "18.66",
+    "9.22",
+    "16.3"
+   ]
+  },
+  "2.62": {
+   "simple_en": "If you keep thinking about something, you start to want it. Wanting grows into needing. When you cannot have it, anger comes.",
+   "simple_hi": "किसी चीज़ के बारे में सोचते रहो तो उसे पाने का मन होता है। चाह बढ़कर ज़िद बनती है। न मिले तो गुस्सा आता है।",
+   "words": [
+    [
+     "ध्यायतः",
+     "dhyāyataḥ",
+     "thinking about"
+    ],
+    [
+     "विषयान्",
+     "viṣayān",
+     "sense objects"
+    ],
+    [
+     "पुंसः",
+     "puṁsaḥ",
+     "of a person"
+    ],
+    [
+     "सङ्गः",
+     "saṅgaḥ",
+     "attachment"
+    ],
+    [
+     "तेषु",
+     "teṣu",
+     "to them"
+    ],
+    [
+     "उपजायते",
+     "upajāyate",
+     "grows"
+    ],
+    [
+     "सङ्गात्",
+     "saṅgāt",
+     "from attachment"
+    ],
+    [
+     "सञ्जायते",
+     "sañjāyate",
+     "is born"
+    ],
+    [
+     "कामः",
+     "kāmaḥ",
+     "desire"
+    ],
+    [
+     "कामात्",
+     "kāmāt",
+     "from desire"
+    ],
+    [
+     "क्रोधः",
+     "krodhaḥ",
+     "anger"
+    ],
+    [
+     "अभिजायते",
+     "abhijāyate",
+     "arises"
+    ]
+   ],
+   "related": [
+    "3.37",
+    "2.56",
+    "2.58"
+   ]
+  },
+  "3.37": {
+   "simple_en": "Greed and anger are the real enemies inside us. They are always hungry and never full. Know them, so they cannot rule you.",
+   "simple_hi": "लालच और गुस्सा हमारे भीतर के असली दुश्मन हैं। वे हमेशा भूखे रहते हैं, कभी नहीं भरते। उन्हें पहचानो, ताकि वे तुम पर राज न करें।",
+   "words": [
+    [
+     "कामः",
+     "kāmaḥ",
+     "desire"
+    ],
+    [
+     "एषः",
+     "eṣaḥ",
+     "this"
+    ],
+    [
+     "क्रोधः",
+     "krodhaḥ",
+     "anger"
+    ],
+    [
+     "रजो-गुण-समुद्भवः",
+     "rajo-guṇa-samudbhavaḥ",
+     "born of restless energy"
+    ],
+    [
+     "महा-अशनः",
+     "mahā-aśanaḥ",
+     "always hungry"
+    ],
+    [
+     "महा-पाप्मा",
+     "mahā-pāpmā",
+     "very harmful"
+    ],
+    [
+     "विद्धि",
+     "viddhi",
+     "know"
+    ],
+    [
+     "एनम्",
+     "enam",
+     "this"
+    ],
+    [
+     "इह",
+     "iha",
+     "here"
+    ],
+    [
+     "वैरिणम्",
+     "vairiṇam",
+     "the enemy"
+    ]
+   ],
+   "related": [
+    "16.21",
+    "2.58",
+    "5.23"
+   ]
+  },
+  "5.29": {
+   "simple_en": "Krishna is the friend of every living being. He receives every gift and every good effort. Knowing this, a person finds peace.",
+   "simple_hi": "कृष्ण हर जीव के मित्र हैं। हर भेंट और हर अच्छी कोशिश उन्हीं तक पहुँचती है। यह जानकर इंसान को शांति मिलती है।",
+   "words": [
+    [
+     "भोक्तारम्",
+     "bhoktāram",
+     "the receiver"
+    ],
+    [
+     "यज्ञ-तपसाम्",
+     "yajña-tapasām",
+     "of offerings and effort"
+    ],
+    [
+     "सर्व-लोक-महा-ईश्वरम्",
+     "sarva-loka-mahā-īśvaram",
+     "great lord of all worlds"
+    ],
+    [
+     "सुहृदम्",
+     "suhṛdam",
+     "the friend"
+    ],
+    [
+     "सर्व-भूतानाम्",
+     "sarva-bhūtānām",
+     "of all beings"
+    ],
+    [
+     "ज्ञात्वा",
+     "jñātvā",
+     "knowing"
+    ],
+    [
+     "माम्",
+     "mām",
+     "me"
+    ],
+    [
+     "शान्तिम्",
+     "śāntim",
+     "peace"
+    ],
+    [
+     "ऋच्छति",
+     "ṛcchati",
+     "reaches"
+    ]
+   ],
+   "related": [
+    "7.7",
+    "8.14",
+    "6.30"
+   ]
+  },
+  "6.30": {
+   "simple_en": "Krishna says: whoever sees me everywhere, and sees everything in me, is never lost to me. And I am never lost to them.",
+   "simple_hi": "कृष्ण कहते हैं: जो मुझे हर जगह देखे, और सब कुछ मुझमें देखे, वह मुझसे कभी दूर नहीं होता। और मैं भी उससे कभी दूर नहीं होता।",
+   "words": [
+    [
+     "यः",
+     "yaḥ",
+     "who"
+    ],
+    [
+     "माम्",
+     "mām",
+     "me"
+    ],
+    [
+     "पश्यति",
+     "paśyati",
+     "sees"
+    ],
+    [
+     "सर्वत्र",
+     "sarvatra",
+     "everywhere"
+    ],
+    [
+     "सर्वम्",
+     "sarvam",
+     "everything"
+    ],
+    [
+     "च",
+     "ca",
+     "and"
+    ],
+    [
+     "मयि",
+     "mayi",
+     "in me"
+    ],
+    [
+     "तस्य",
+     "tasya",
+     "to him"
+    ],
+    [
+     "अहम्",
+     "aham",
+     "I"
+    ],
+    [
+     "न प्रणश्यामि",
+     "na praṇaśyāmi",
+     "am not lost"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "he"
+    ],
+    [
+     "मे",
+     "me",
+     "to me"
+    ],
+    [
+     "न प्रणश्यति",
+     "na praṇaśyati",
+     "is not lost"
+    ]
+   ],
+   "related": [
+    "7.7",
+    "8.14",
+    "5.29"
+   ]
+  },
+  "9.34": {
+   "simple_en": "Krishna says: keep your mind on me, love me, honour me, and bow to me. Make me your goal. Then you will come to me.",
+   "simple_hi": "कृष्ण कहते हैं: अपना मन मुझमें लगाओ, मुझसे प्रेम करो, मेरा आदर करो, मुझे प्रणाम करो। मुझे अपना लक्ष्य बनाओ। तब तुम मुझ तक आओगे।",
+   "words": [
+    [
+     "मत्-मनाः",
+     "mat-manāḥ",
+     "mind on me"
+    ],
+    [
+     "भव",
+     "bhava",
+     "be"
+    ],
+    [
+     "मद्-भक्तः",
+     "mad-bhaktaḥ",
+     "my devotee"
+    ],
+    [
+     "मद्-याजी",
+     "mad-yājī",
+     "one who worships me"
+    ],
+    [
+     "माम्",
+     "mām",
+     "me"
+    ],
+    [
+     "नमस्कुरु",
+     "namaskuru",
+     "bow to"
+    ],
+    [
+     "एव",
+     "eva",
+     "surely"
+    ],
+    [
+     "एष्यसि",
+     "eṣyasi",
+     "you will come"
+    ],
+    [
+     "युक्त्वा",
+     "yuktvā",
+     "joined"
+    ],
+    [
+     "एवम्",
+     "evam",
+     "thus"
+    ],
+    [
+     "आत्मानम्",
+     "ātmānam",
+     "yourself"
+    ],
+    [
+     "मत्-परायणः",
+     "mat-parāyaṇaḥ",
+     "with me as the goal"
+    ]
+   ],
+   "related": [
+    "8.6",
+    "11.54",
+    "8.7"
+   ]
+  },
+  "12.16": {
+   "simple_en": "Krishna loves the one who does not lean on others for everything. They are clean, able and calm. They do not worry, and they do not push only for themselves.",
+   "simple_hi": "कृष्ण उसे प्रेम करते हैं जो हर बात के लिए दूसरों पर न टिके। जो साफ़, काबिल और शांत हो। जो चिंता न करे, और सिर्फ़ अपने लिए न दौड़े।",
+   "words": [
+    [
+     "अनपेक्षः",
+     "anapekṣaḥ",
+     "wanting nothing"
+    ],
+    [
+     "शुचिः",
+     "śuciḥ",
+     "pure"
+    ],
+    [
+     "दक्षः",
+     "dakṣaḥ",
+     "capable"
+    ],
+    [
+     "उदासीनः",
+     "udāsīnaḥ",
+     "unconcerned"
+    ],
+    [
+     "गत-व्यथः",
+     "gata-vyathaḥ",
+     "free from worry"
+    ],
+    [
+     "सर्व-आरम्भ-परित्यागी",
+     "sarva-ārambha-parityāgī",
+     "giving up selfish projects"
+    ],
+    [
+     "यः",
+     "yaḥ",
+     "who"
+    ],
+    [
+     "मद्-भक्तः",
+     "mad-bhaktaḥ",
+     "my devotee"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "he"
+    ],
+    [
+     "मे",
+     "me",
+     "to me"
+    ],
+    [
+     "प्रियः",
+     "priyaḥ",
+     "is dear"
+    ]
+   ],
+   "related": [
+    "12.12",
+    "4.18",
+    "2.47"
+   ]
+  },
+  "18.61": {
+   "simple_en": "The Lord lives in the heart of every being. By his power, all beings turn and move, like figures on a turning wheel.",
+   "simple_hi": "भगवान हर जीव के दिल में रहते हैं। उनकी शक्ति से सब जीव घूमते और चलते हैं, जैसे घूमते चक्र पर बैठी आकृतियाँ।",
+   "words": [
+    [
+     "ईश्वरः",
+     "īśvaraḥ",
+     "the Lord"
+    ],
+    [
+     "सर्व-भूतानाम्",
+     "sarva-bhūtānām",
+     "of all beings"
+    ],
+    [
+     "हृद्-देशे",
+     "hṛd-deśe",
+     "in the heart"
+    ],
+    [
+     "अर्जुन",
+     "arjuna",
+     "O Arjuna"
+    ],
+    [
+     "तिष्ठति",
+     "tiṣṭhati",
+     "dwells"
+    ],
+    [
+     "भ्रामयन्",
+     "bhrāmayan",
+     "turning"
+    ],
+    [
+     "सर्व-भूतानि",
+     "sarva-bhūtāni",
+     "all beings"
+    ],
+    [
+     "यन्त्र-आरूढानि",
+     "yantra-ārūḍhāni",
+     "mounted on a machine"
+    ],
+    [
+     "मायया",
+     "māyayā",
+     "by his power"
+    ]
+   ],
+   "related": [
+    "7.14",
+    "5.29",
+    "4.7"
+   ]
+  },
+  "2.63": {
+   "simple_en": "Anger makes the mind cloudy. A cloudy mind forgets what it knows. Then we stop thinking clearly and we fall.",
+   "simple_hi": "गुस्सा मन को धुंधला कर देता है। धुंधला मन सीखी बात भूल जाता है। फिर हम साफ़ नहीं सोच पाते और गिर जाते हैं।",
+   "words": [
+    [
+     "क्रोधात्",
+     "krodhāt",
+     "from anger"
+    ],
+    [
+     "भवति",
+     "bhavati",
+     "comes"
+    ],
+    [
+     "सम्मोहः",
+     "sammohaḥ",
+     "confusion"
+    ],
+    [
+     "सम्मोहात्",
+     "sammohāt",
+     "from confusion"
+    ],
+    [
+     "स्मृति-विभ्रमः",
+     "smṛti-vibhramaḥ",
+     "memory slips"
+    ],
+    [
+     "स्मृति-भ्रंशात्",
+     "smṛti-bhraṁśāt",
+     "from lost memory"
+    ],
+    [
+     "बुद्धि-नाशः",
+     "buddhi-nāśaḥ",
+     "loss of reason"
+    ],
+    [
+     "बुद्धि-नाशात्",
+     "buddhi-nāśāt",
+     "from loss of reason"
+    ],
+    [
+     "प्रणश्यति",
+     "praṇaśyati",
+     "one is ruined"
+    ]
+   ],
+   "related": [
+    "17.15",
+    "16.21",
+    "5.23"
+   ]
+  },
+  "3.42": {
+   "simple_en": "Your senses are strong. Your mind is stronger, and your wisdom is stronger still. Deepest and strongest of all is your true Self.",
+   "simple_hi": "तुम्हारी इंद्रियाँ ताक़तवर हैं। मन उनसे ताक़तवर है, और बुद्धि उससे भी। सबसे गहरा और सबसे ताक़तवर तुम्हारा सच्चा आत्मा है।",
+   "words": [
+    [
+     "इन्द्रियाणि",
+     "indriyāṇi",
+     "the senses"
+    ],
+    [
+     "पराणि",
+     "parāṇi",
+     "are high"
+    ],
+    [
+     "आहुः",
+     "āhuḥ",
+     "they say"
+    ],
+    [
+     "इन्द्रियेभ्यः",
+     "indriyebhyaḥ",
+     "than the senses"
+    ],
+    [
+     "परम्",
+     "param",
+     "higher"
+    ],
+    [
+     "मनः",
+     "manaḥ",
+     "the mind"
+    ],
+    [
+     "मनसः",
+     "manasaḥ",
+     "than the mind"
+    ],
+    [
+     "तु",
+     "tu",
+     "but"
+    ],
+    [
+     "परा",
+     "parā",
+     "higher"
+    ],
+    [
+     "बुद्धिः",
+     "buddhiḥ",
+     "understanding"
+    ],
+    [
+     "यः",
+     "yaḥ",
+     "who"
+    ],
+    [
+     "बुद्धेः",
+     "buddheḥ",
+     "than understanding"
+    ],
+    [
+     "परतः",
+     "parataḥ",
+     "higher still"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "is he, the Self"
+    ]
+   ],
+   "related": [
+    "2.58",
+    "3.37",
+    "6.5"
+   ]
+  },
+  "6.32": {
+   "simple_en": "Feel what others feel as if it were your own. Their joy is your joy, and their pain is your pain. That is the best kind of yoga.",
+   "simple_hi": "दूसरों का दुख-सुख ऐसे महसूस करो जैसे अपना हो। उनकी ख़ुशी तुम्हारी ख़ुशी, उनका दर्द तुम्हारा दर्द। यही सबसे अच्छा योग है।",
+   "words": [
+    [
+     "आत्म-औपम्येन",
+     "ātma-aupamyena",
+     "by likeness to oneself"
+    ],
+    [
+     "सर्वत्र",
+     "sarvatra",
+     "everywhere"
+    ],
+    [
+     "समम्",
+     "samam",
+     "equally"
+    ],
+    [
+     "पश्यति",
+     "paśyati",
+     "sees"
+    ],
+    [
+     "यः",
+     "yaḥ",
+     "who"
+    ],
+    [
+     "अर्जुन",
+     "arjuna",
+     "O Arjuna"
+    ],
+    [
+     "सुखम्",
+     "sukham",
+     "joy"
+    ],
+    [
+     "वा",
+     "vā",
+     "or"
+    ],
+    [
+     "यदि वा",
+     "yadi vā",
+     "or if"
+    ],
+    [
+     "दुःखम्",
+     "duḥkham",
+     "sorrow"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "he"
+    ],
+    [
+     "योगी",
+     "yogī",
+     "a yogi"
+    ],
+    [
+     "परमः",
+     "paramaḥ",
+     "highest"
+    ],
+    [
+     "मतः",
+     "mataḥ",
+     "is held"
+    ]
+   ],
+   "related": [
+    "13.28",
+    "5.7",
+    "10.9"
+   ]
+  },
+  "12.19": {
+   "simple_en": "Krishna loves the one who treats praise and blame the same. They speak little and are happy with whatever comes. Their mind is steady and full of love.",
+   "simple_hi": "कृष्ण उसे प्रेम करते हैं जो तारीफ़ और बुराई को एक-सा माने। जो कम बोले और जो मिले उसमें ख़ुश रहे। जिसका मन स्थिर और प्रेम से भरा हो।",
+   "words": [
+    [
+     "तुल्य-निन्दा-स्तुतिः",
+     "tulya-nindā-stutiḥ",
+     "same in blame and praise"
+    ],
+    [
+     "मौनी",
+     "maunī",
+     "quiet"
+    ],
+    [
+     "सन्तुष्टः",
+     "santuṣṭaḥ",
+     "content"
+    ],
+    [
+     "येन केनचित्",
+     "yena kenacit",
+     "with whatever comes"
+    ],
+    [
+     "अनिकेतः",
+     "aniketaḥ",
+     "not tied to a home"
+    ],
+    [
+     "स्थिर-मतिः",
+     "sthira-matiḥ",
+     "steady minded"
+    ],
+    [
+     "भक्तिमान्",
+     "bhaktimān",
+     "full of devotion"
+    ],
+    [
+     "मे",
+     "me",
+     "to me"
+    ],
+    [
+     "प्रियः",
+     "priyaḥ",
+     "dear"
+    ],
+    [
+     "नरः",
+     "naraḥ",
+     "is that person"
+    ]
+   ],
+   "related": [
+    "4.22",
+    "14.24",
+    "12.14"
+   ]
+  },
+  "18.63": {
+   "simple_en": "Krishna has shared his deepest teaching. Now he asks Arjuna to think it over fully. Then Arjuna may choose for himself what to do.",
+   "simple_hi": "कृष्ण ने अपनी सबसे गहरी सीख बता दी है। अब वे अर्जुन से कहते हैं कि इस पर पूरा सोचो। फिर ख़ुद तय करो कि क्या करना है।",
+   "words": [
+    [
+     "इति",
+     "iti",
+     "thus"
+    ],
+    [
+     "ते",
+     "te",
+     "to you"
+    ],
+    [
+     "ज्ञानम्",
+     "jñānam",
+     "knowledge"
+    ],
+    [
+     "आख्यातम्",
+     "ākhyātam",
+     "has been told"
+    ],
+    [
+     "गुह्यात्",
+     "guhyāt",
+     "than the secret"
+    ],
+    [
+     "गुह्यतरम्",
+     "guhyataram",
+     "more secret"
+    ],
+    [
+     "मया",
+     "mayā",
+     "by me"
+    ],
+    [
+     "विमृश्य",
+     "vimṛśya",
+     "reflecting"
+    ],
+    [
+     "एतत्",
+     "etat",
+     "on this"
+    ],
+    [
+     "अशेषेण",
+     "aśeṣeṇa",
+     "fully"
+    ],
+    [
+     "यथा",
+     "yathā",
+     "as"
+    ],
+    [
+     "इच्छसि",
+     "icchasi",
+     "you wish"
+    ],
+    [
+     "तथा",
+     "tathā",
+     "so"
+    ],
+    [
+     "कुरु",
+     "kuru",
+     "do"
+    ]
+   ],
+   "related": [
+    "18.73",
+    "2.7",
+    "10.11"
+   ]
+  },
+  "2.70": {
+   "simple_en": "Many rivers run into the sea, but the sea stays calm. Be like the sea when wishes flow in. Chasing every wish brings no peace.",
+   "simple_hi": "बहुत-सी नदियाँ समुद्र में गिरती हैं, पर समुद्र शांत रहता है। इच्छाएँ आएँ तो समुद्र जैसे रहो। हर इच्छा के पीछे भागने से शांति नहीं मिलती।",
+   "words": [
+    [
+     "आपूर्यमाणम्",
+     "āpūryamāṇam",
+     "always being filled"
+    ],
+    [
+     "अचल-प्रतिष्ठम्",
+     "acala-pratiṣṭham",
+     "steady and still"
+    ],
+    [
+     "समुद्रम्",
+     "samudram",
+     "the ocean"
+    ],
+    [
+     "आपः",
+     "āpaḥ",
+     "waters"
+    ],
+    [
+     "प्रविशन्ति",
+     "praviśanti",
+     "enter"
+    ],
+    [
+     "यद्वत्",
+     "yadvat",
+     "just as"
+    ],
+    [
+     "तद्वत्",
+     "tadvat",
+     "so"
+    ],
+    [
+     "कामाः",
+     "kāmāḥ",
+     "desires"
+    ],
+    [
+     "यम्",
+     "yam",
+     "whom"
+    ],
+    [
+     "सर्वे",
+     "sarve",
+     "all"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "that one"
+    ],
+    [
+     "शान्तिम्",
+     "śāntim",
+     "peace"
+    ],
+    [
+     "आप्नोति",
+     "āpnoti",
+     "finds"
+    ],
+    [
+     "न",
+     "na",
+     "not"
+    ],
+    [
+     "काम-कामी",
+     "kāma-kāmī",
+     "one who chases desires"
+    ]
+   ],
+   "related": [
+    "2.56",
+    "2.58",
+    "2.62"
+   ]
+  },
+  "6.40": {
+   "simple_en": "No good effort is ever wasted. Not in this life, not after it. Someone who tries to do good never comes to a bad end, my friend.",
+   "simple_hi": "कोई भी अच्छी कोशिश कभी बेकार नहीं जाती। न इस जीवन में, न उसके बाद। जो भला करने की कोशिश करे, उसका बुरा अंत नहीं होता, मेरे दोस्त।",
+   "words": [
+    [
+     "पार्थ",
+     "pārtha",
+     "O Arjuna"
+    ],
+    [
+     "न एव",
+     "na eva",
+     "never"
+    ],
+    [
+     "इह",
+     "iha",
+     "here"
+    ],
+    [
+     "न अमुत्र",
+     "na amutra",
+     "nor beyond"
+    ],
+    [
+     "विनाशः",
+     "vināśaḥ",
+     "loss"
+    ],
+    [
+     "तस्य",
+     "tasya",
+     "for him"
+    ],
+    [
+     "विद्यते",
+     "vidyate",
+     "is"
+    ],
+    [
+     "न हि",
+     "na hi",
+     "surely not"
+    ],
+    [
+     "कल्याण-कृत्",
+     "kalyāṇa-kṛt",
+     "one who does good"
+    ],
+    [
+     "कश्चित्",
+     "kaścit",
+     "anyone"
+    ],
+    [
+     "दुर्गतिम्",
+     "durgatim",
+     "a bad end"
+    ],
+    [
+     "तात",
+     "tāta",
+     "my dear"
+    ],
+    [
+     "गच्छति",
+     "gacchati",
+     "goes"
+    ]
+   ],
+   "related": [
+    "6.5",
+    "10.10",
+    "9.31"
+   ]
+  },
+  "18.73": {
+   "simple_en": "Arjuna says his confusion is gone. By Krishna's kindness he remembers who he is. He stands steady, free of doubt, ready to do what is asked.",
+   "simple_hi": "अर्जुन कहते हैं कि उनका भ्रम मिट गया। कृष्ण की कृपा से उन्हें याद आ गया कि वे कौन हैं। वे स्थिर खड़े हैं, संशय से मुक्त, जो कहा गया वह करने को तैयार।",
+   "words": [
+    [
+     "नष्टः",
+     "naṣṭaḥ",
+     "is gone"
+    ],
+    [
+     "मोहः",
+     "mohaḥ",
+     "delusion"
+    ],
+    [
+     "स्मृतिः",
+     "smṛtiḥ",
+     "memory"
+    ],
+    [
+     "लब्धा",
+     "labdhā",
+     "is regained"
+    ],
+    [
+     "त्वत्-प्रसादात्",
+     "tvat-prasādāt",
+     "by your grace"
+    ],
+    [
+     "मया",
+     "mayā",
+     "by me"
+    ],
+    [
+     "अच्युत",
+     "acyuta",
+     "O Krishna"
+    ],
+    [
+     "स्थितः",
+     "sthitaḥ",
+     "steady"
+    ],
+    [
+     "अस्मि",
+     "asmi",
+     "I am"
+    ],
+    [
+     "गत-सन्देहः",
+     "gata-sandehaḥ",
+     "free of doubt"
+    ],
+    [
+     "करिष्ये",
+     "kariṣye",
+     "I will do"
+    ],
+    [
+     "वचनम्",
+     "vacanam",
+     "word"
+    ],
+    [
+     "तव",
+     "tava",
+     "your"
+    ]
+   ],
+   "related": [
+    "18.63",
+    "2.7",
+    "10.10"
+   ],
+   "moment_en": "Arjuna speaks to Krishna at the end of the teaching. The man who sat down in despair now stands up.",
+   "moment_hi": "उपदेश के अंत में अर्जुन कृष्ण से बोलते हैं। जो निराश होकर बैठ गए थे, वे अब खड़े हो गए हैं।"
+  },
+  "2.71": {
+   "simple_en": "Peace comes when you stop grabbing for more. Let go of \"this is mine\" and \"I am great\". Then you can walk through life lightly.",
+   "simple_hi": "जब और पाने की होड़ छूटती है, तब शांति आती है। \"यह मेरा है\" और \"मैं बड़ा हूँ\" छोड़ दो। तब जीवन हल्का होकर चलता है।",
+   "words": [
+    [
+     "विहाय",
+     "vihāya",
+     "giving up"
+    ],
+    [
+     "कामान्",
+     "kāmān",
+     "desires"
+    ],
+    [
+     "यः",
+     "yaḥ",
+     "who"
+    ],
+    [
+     "सर्वान्",
+     "sarvān",
+     "all"
+    ],
+    [
+     "पुमान्",
+     "pumān",
+     "a person"
+    ],
+    [
+     "चरति",
+     "carati",
+     "moves through life"
+    ],
+    [
+     "निःस्पृहः",
+     "niḥspṛhaḥ",
+     "without craving"
+    ],
+    [
+     "निर्ममः",
+     "nirmamaḥ",
+     "without \"mine\""
+    ],
+    [
+     "निरहङ्कारः",
+     "nirahaṅkāraḥ",
+     "without ego"
+    ],
+    [
+     "सः",
+     "saḥ",
+     "that one"
+    ],
+    [
+     "शान्तिम्",
+     "śāntim",
+     "peace"
+    ],
+    [
+     "अधिगच्छति",
+     "adhigacchati",
+     "reaches"
+    ]
+   ],
+   "related": [
+    "15.5",
+    "13.9",
+    "2.56"
+   ]
+  },
+  "18.78": {
+   "simple_en": "Wherever Krishna and Arjuna stand together, good things follow. There will be good fortune, victory, plenty and what is right.",
+   "simple_hi": "जहाँ कृष्ण और अर्जुन साथ हों, वहाँ अच्छी चीज़ें आती हैं। वहाँ सौभाग्य, विजय, समृद्धि और न्याय होता है।",
+   "words": [
+    [
+     "यत्र",
+     "yatra",
+     "where"
+    ],
+    [
+     "योग-ईश्वरः",
+     "yoga-īśvaraḥ",
+     "the lord of yoga"
+    ],
+    [
+     "कृष्णः",
+     "kṛṣṇaḥ",
+     "Krishna"
+    ],
+    [
+     "पार्थः",
+     "pārthaḥ",
+     "Arjuna"
+    ],
+    [
+     "धनुः-धरः",
+     "dhanuḥ-dharaḥ",
+     "holding the bow"
+    ],
+    [
+     "तत्र",
+     "tatra",
+     "there"
+    ],
+    [
+     "श्रीः",
+     "śrīḥ",
+     "fortune"
+    ],
+    [
+     "विजयः",
+     "vijayaḥ",
+     "victory"
+    ],
+    [
+     "भूतिः",
+     "bhūtiḥ",
+     "plenty"
+    ],
+    [
+     "ध्रुवा",
+     "dhruvā",
+     "firm"
+    ],
+    [
+     "नीतिः",
+     "nītiḥ",
+     "justice"
+    ],
+    [
+     "मतिः",
+     "matiḥ",
+     "belief"
+    ],
+    [
+     "मम",
+     "mama",
+     "my"
+    ]
+   ],
+   "related": [
+    "4.7",
+    "10.10",
+    "18.61"
+   ],
+   "moment_en": "Sanjaya ends his telling to King Dhritarashtra. He has heard the whole talk between Krishna and Arjuna, and gives his own verdict.",
+   "moment_hi": "संजय राजा धृतराष्ट्र को अपनी कथा पूरी करते हैं। उन्होंने कृष्ण और अर्जुन की पूरी बात सुनी है, और अपना निर्णय सुनाते हैं।"
+  }
+ }
+}

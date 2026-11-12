@@ -1,0 +1,74 @@
+# One line per chapter: the moment in the story. Plain words, narration only.
+# Format: @ch <n>, then en: and hi: lines.
+
+@ch 1
+en: Two armies stand ready on the field of Kurukshetra. Arjuna asks Krishna to drive his chariot between them. He sees his own family on both sides and loses heart.
+hi: कुरुक्षेत्र में दो सेनाएँ आमने-सामने खड़ी हैं। अर्जुन कृष्ण से रथ बीच में ले जाने को कहते हैं। दोनों ओर अपने ही परिवार को देखकर उनका मन टूट जाता है।
+
+@ch 2
+en: Arjuna sits down in the chariot and will not fight. He asks Krishna to teach him. Krishna begins: the self does not die, and work can be done with a steady mind.
+hi: अर्जुन रथ में बैठ जाते हैं और लड़ने से मना कर देते हैं। वे कृष्ण से सीख माँगते हैं। कृष्ण बताते हैं कि आत्मा नहीं मरती, और काम शांत मन से हो सकता है।
+
+@ch 3
+en: Arjuna asks why he must act at all, if knowing is higher than doing. Krishna explains that work done without selfish wanting sets a person free.
+hi: अर्जुन पूछते हैं कि अगर ज्ञान ऊँचा है तो कर्म क्यों करें। कृष्ण समझाते हैं कि स्वार्थ छोड़कर किया गया काम इंसान को मुक्त करता है।
+
+@ch 4
+en: Krishna tells Arjuna this teaching is very old. He comes again and again to protect goodness. He speaks of action, wisdom, and learning from a teacher.
+hi: कृष्ण बताते हैं कि यह ज्ञान बहुत पुराना है। वे भलाई की रक्षा के लिए बार-बार आते हैं। वे कर्म, ज्ञान और गुरु से सीखने की बात करते हैं।
+
+@ch 5
+en: Arjuna asks which is better: giving up work, or doing it. Krishna says doing your work without clinging is the surer road to peace.
+hi: अर्जुन पूछते हैं कि काम छोड़ना अच्छा है या करना। कृष्ण कहते हैं कि बिना मोह के काम करना शांति का पक्का रास्ता है।
+
+@ch 6
+en: Krishna teaches the path of meditation. How to sit, how to calm the mind, and how to bring it back when it wanders.
+hi: कृष्ण ध्यान का रास्ता सिखाते हैं। कैसे बैठें, मन को कैसे शांत करें, और भटके तो कैसे वापस लाएँ।
+
+@ch 7
+en: Krishna tells Arjuna who he is: the source of all, the thread that runs through everything. He speaks of the people who turn to him.
+hi: कृष्ण बताते हैं कि वे कौन हैं: सबका स्रोत, हर चीज़ में पिरोया धागा। वे उन लोगों की बात करते हैं जो उनकी ओर आते हैं।
+
+@ch 8
+en: Arjuna asks what happens at the end of life. Krishna says a person goes to what they remember at the end, so remember him always.
+hi: अर्जुन पूछते हैं कि जीवन के अंत में क्या होता है। कृष्ण कहते हैं कि अंत में जो याद रहे, वहीं जाते हैं, इसलिए उन्हें हमेशा याद रखो।
+
+@ch 9
+en: Krishna shares the royal secret. He is close to anyone who offers him love, even with a leaf or a flower.
+hi: कृष्ण राज-रहस्य बताते हैं। जो प्रेम से एक पत्ता या फूल भी दे, वे उसके पास हैं।
+
+@ch 10
+en: Krishna shows Arjuna where to see the divine in the world: in all that is bright, strong and beautiful.
+hi: कृष्ण बताते हैं कि संसार में भगवान को कहाँ देखें: हर चमकती, बलवान और सुंदर चीज़ में।
+
+@ch 11
+en: Arjuna asks to see Krishna's cosmic form. He sees all of time and space in it, and is filled with awe and fear.
+hi: अर्जुन कृष्ण का विराट रूप देखना चाहते हैं। उसमें सारा समय और संसार दिखता है, और वे डर और आश्चर्य से भर जाते हैं।
+
+@ch 12
+en: Arjuna asks what kind of devotion is best. Krishna lists the qualities of the person who is dear to him.
+hi: अर्जुन पूछते हैं कि कैसी भक्ति सबसे अच्छी है। कृष्ण उस इंसान के गुण बताते हैं जो उन्हें प्यारा है।
+
+@ch 13
+en: Krishna explains the field and its knower. The body is the field. The Self that watches it is the knower.
+hi: कृष्ण क्षेत्र और क्षेत्रज्ञ समझाते हैं। शरीर क्षेत्र है। उसे देखने वाली आत्मा क्षेत्रज्ञ है।
+
+@ch 14
+en: Krishna explains the three qualities of nature: goodness, passion and dullness. He shows how a person can rise above all three.
+hi: कृष्ण प्रकृति के तीन गुण समझाते हैं: सत्त्व, रजस और तमस। वे बताते हैं कि इन तीनों से ऊपर कैसे उठें।
+
+@ch 15
+en: Krishna describes the world as a great tree with its roots above. Each soul, he says, is a part of him that lives in every heart.
+hi: कृष्ण संसार को उल्टे पेड़ जैसा बताते हैं, जिसकी जड़ें ऊपर हैं। वे कहते हैं कि हर जीव उनका ही अंश है, जो हर दिल में रहता है।
+
+@ch 16
+en: Krishna sets the qualities that free a person beside the ones that bind. Fearlessness and kindness on one side; pride, anger and greed on the other.
+hi: कृष्ण मुक्त करने वाले और बाँधने वाले गुणों की तुलना करते हैं। एक ओर निडरता और दया; दूसरी ओर घमंड, गुस्सा और लालच।
+
+@ch 17
+en: Arjuna asks about faith. Krishna explains three kinds of faith, and how they show in food, giving and discipline.
+hi: अर्जुन श्रद्धा के बारे में पूछते हैं। कृष्ण तीन तरह की श्रद्धा समझाते हैं, और बताते हैं कि वे भोजन, दान और तप में कैसे दिखती हैं।
+
+@ch 18
+en: In the last chapter Krishna gathers the whole teaching together. Arjuna's doubts clear, and he stands up ready to act.
+hi: आख़िरी अध्याय में कृष्ण पूरी सीख को एक साथ रखते हैं। अर्जुन के संशय मिट जाते हैं, और वे कर्म के लिए खड़े हो जाते हैं।

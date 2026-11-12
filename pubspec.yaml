@@ -38,6 +38,8 @@ flutter:
     - assets/svg/icons/
     - assets/audio/
     - assets/data/gita_v1.json
+    - assets/data/gita_explain_v1.json
+    - assets/lottie/explain/
     - assets/panchang/
   fonts:
     - family: NotoSerifDevanagari

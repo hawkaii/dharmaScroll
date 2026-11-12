@@ -6,6 +6,7 @@ import '../../core/state/settings.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../../features/explain/explain_sheet.dart';
 import '../hear/hear_screen.dart' show meaningOf;
 import '../share/share_card.dart';
 import '../share/share_sheet.dart';
@@ -92,6 +93,8 @@ class VerseScreen extends ConsumerWidget {
                     ),
                     const SizedBox(height: Sp.s34),
                     Text('GO DEEPER', style: DType.eyebrow(c.accent)),
+                    const SizedBox(height: Sp.s12),
+                    ExplainLink(verse: v),
                     const SizedBox(height: Sp.s12),
                     _Deeper(
                       label: hindi ? 'In English' : 'In Hindi',

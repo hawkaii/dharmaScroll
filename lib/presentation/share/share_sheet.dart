@@ -205,10 +205,14 @@ class ShareButton extends StatelessWidget {
     super.key,
     required this.onTap,
     this.label = 'Share this verse',
+    this.icon = 'share',
   });
 
   final VoidCallback onTap;
   final String label;
+
+  /// Line icon name; the explain lamp reuses this glyph.
+  final String icon;
 
   @override
   Widget build(BuildContext context) {
@@ -238,7 +242,7 @@ class ShareButton extends StatelessWidget {
                 color: c.surface.withValues(alpha: 0.6),
                 border: Border.all(color: c.line),
               ),
-              child: Center(child: DIcon('share', size: 20, color: c.accent)),
+              child: Center(child: DIcon(icon, size: 20, color: c.accent)),
             ),
           ),
         ),

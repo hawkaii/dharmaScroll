@@ -1,0 +1,98 @@
+# Format per verse:
+#   @<id>
+#   en: plain meaning a child understands (2-3 short sentences)
+#   hi: the same in plain Hindi
+#   w:  iast = meaning | iast = meaning | ...   (sandhi split, hyphen joins a compound)
+#   moment: / moment_hi: optional, only when the speaker is not Krishna
+# Draft, pending scholar review. References: Telang 1882, Arnold 1885, Besant 1905, Purohit 1935.
+
+@1.28
+en: Arjuna looks at the two armies. He sees his own family ready to fight. His heart fills with pity and he speaks to Krishna.
+hi: अर्जुन दोनों सेनाओं को देखते हैं। सामने अपना ही परिवार लड़ने को तैयार है। उनका दिल दया से भर जाता है और वे कृष्ण से बोलते हैं।
+w: kṛpayā = with pity | parayā = deep | āviṣṭaḥ = filled | viṣīdan = sinking in sorrow | idam = this | abravīt = said | dṛṣṭvā = seeing | imam = these | sva-janam = my own people | kṛṣṇa = O Krishna | yuyutsum = eager to fight | samupasthitam = gathered here
+moment: Sanjaya tells blind King Dhritarashtra what Arjuna said. Arjuna, looking at both armies, turns to Krishna.
+moment_hi: संजय अंधे राजा धृतराष्ट्र को बताते हैं कि अर्जुन ने क्या कहा। दोनों सेनाओं को देखकर अर्जुन कृष्ण की ओर मुड़ते हैं।
+
+@1.30
+en: Arjuna is so afraid and sad that his body shakes. His bow slips from his hand. His mind spins and he cannot stand.
+hi: अर्जुन इतने डरे और दुखी हैं कि शरीर काँप रहा है। धनुष हाथ से फिसल रहा है। मन घूम रहा है और वे खड़े नहीं हो पा रहे।
+w: gāṇḍīvam = the Gandiva bow | sraṁsate = slips | hastāt = from my hand | tvak = skin | ca = and | eva = indeed | paridahyate = burns all over | na = not | śaknomi = I can | avasthātum = stand still | bhramati = spins | iva = as if | me = my | manaḥ = mind
+moment: Arjuna speaks to Krishna, his friend and charioteer. Facing his own family, his body and mind give way.
+moment_hi: अर्जुन अपने मित्र और सारथी कृष्ण से बोलते हैं। अपने परिवार के सामने उनका शरीर और मन जवाब दे देते हैं।
+
+@2.7
+en: Arjuna does not know what is right. He asks Krishna to tell him clearly. He says, I am your student. Please teach me.
+hi: अर्जुन को नहीं पता कि सही क्या है। वे कृष्ण से साफ़ बताने को कहते हैं। वे कहते हैं, मैं आपका शिष्य हूँ। मुझे सिखाइए।
+w: kārpaṇya-doṣa = the fault of weakness | upahata-svabhāvaḥ = my nature overcome | pṛcchāmi = I ask | tvām = you | dharma-sammūḍha-cetāḥ = mind confused about duty | yat = what | śreyaḥ = is best | syāt = may be | niścitam = for certain | brūhi = tell | tat = that | me = to me | śiṣyaḥ = student | te = your | aham = I am | śādhi = teach | mām = me | prapannam = who has come to you
+moment: Arjuna speaks to Krishna. He stops arguing and asks to be taught. This is where the teaching of the Gita begins.
+moment_hi: अर्जुन कृष्ण से बोलते हैं। वे बहस छोड़कर सीखने की विनती करते हैं। यहीं से गीता का उपदेश शुरू होता है।
+
+@2.13
+en: Your body was a baby, then a child, and it will grow old. You stay you through all of it. A wise person is not scared of this change.
+hi: तुम्हारा शरीर बच्चा था, फिर बड़ा हुआ, और बूढ़ा भी होगा। पर तुम वही रहते हो। समझदार इंसान इस बदलाव से नहीं घबराता।
+w: dehinaḥ = of the one in the body | asmin = in this | yathā = just as | dehe = body | kaumāram = childhood | yauvanam = youth | jarā = old age | tathā = so too | deha-antara-prāptiḥ = moving to another body | dhīraḥ = the steady one | tatra = about this | na muhyati = is not confused
+
+@2.14
+en: Cold and hot, happy and sad, they all come and go. None of them stays for long. So be patient and let them pass.
+hi: ठंड और गर्मी, सुख और दुख, सब आते-जाते हैं। कोई भी हमेशा नहीं रहता। इसलिए धीरज रखो और उन्हें गुज़रने दो।
+w: mātrā-sparśāḥ = touches of the senses | tu = but | kaunteya = son of Kunti | śīta-uṣṇa = cold and heat | sukha-duḥkha-dāḥ = bringing joy and pain | āgama-apāyinaḥ = coming and going | anityāḥ = not lasting | tān = them | titikṣasva = bear patiently | bhārata = O Bharata
+
+@2.20
+en: The real you was never born and will never die. It is very old and always new. When the body ends, the real you does not end.
+hi: असली तुम कभी पैदा नहीं हुए और कभी नहीं मरोगे। वह बहुत पुराना है और सदा रहता है। शरीर ख़त्म होने पर भी असली तुम ख़त्म नहीं होते।
+w: na jāyate = is not born | mriyate = dies | vā = or | kadācit = ever | ayam = this self | bhūtvā = having been | bhavitā = will be | bhūyaḥ = again | ajaḥ = unborn | nityaḥ = eternal | śāśvataḥ = lasting | purāṇaḥ = ancient | na hanyate = is not killed | hanyamāne = when killed | śarīre = the body
+
+@2.22
+en: When clothes get old, we put on new ones. The soul does the same with bodies. It leaves an old body and takes a new one.
+hi: जब कपड़े पुराने हो जाते हैं, हम नए पहन लेते हैं। आत्मा भी शरीर के साथ ऐसा ही करती है। वह पुराना शरीर छोड़कर नया ले लेती है।
+w: vāsāṁsi = clothes | jīrṇāni = worn out | yathā = just as | vihāya = putting aside | navāni = new | gṛhṇāti = takes | naraḥ = a person | aparāṇi = others | tathā = so | śarīrāṇi = bodies | anyāni = other | saṁyāti = enters | dehī = the one in the body
+
+@2.27
+en: Everyone who is born will one day die. And after death comes birth again. Do not cry too long over what no one can change.
+hi: जो पैदा हुआ है, वह एक दिन जाएगा। और जाने के बाद फिर जन्म होगा। जिसे कोई बदल नहीं सकता, उस पर बहुत शोक मत करो।
+w: jātasya = for one who is born | hi = surely | dhruvaḥ = certain | mṛtyuḥ = death | dhruvam = certain | janma = birth | mṛtasya = for one who dies | ca = and | tasmāt = so | aparihārye = unavoidable | arthe = in a matter | na = not | tvam = you | śocitum = to grieve | arhasi = should
+
+@2.47
+en: Do your work with all your heart. The result is not yours to hold. But never stop working because of that.
+hi: अपना काम पूरे मन से करो। नतीजा तुम्हारे हाथ में नहीं है। पर इस वजह से काम कभी मत छोड़ो।
+w: karmaṇi = in action | eva = only | adhikāraḥ = right | te = your | mā = never | phaleṣu = in the fruits | kadācana = at any time | karma-phala-hetuḥ = the reward as your reason | bhūḥ = become | saṅgaḥ = attachment | astu = let there be | akarmaṇi = to doing nothing
+
+@2.48
+en: Do your work with a calm mind. If it goes well, stay calm. If it goes badly, stay calm. That steady calm is yoga.
+hi: शांत मन से अपना काम करो। अच्छा हो तो भी शांत रहो। बुरा हो तो भी शांत रहो। यही स्थिर शांति योग है।
+w: yoga-sthaḥ = steady in yoga | kuru = do | karmāṇi = your work | saṅgam = attachment | tyaktvā = letting go | dhanañjaya = O Arjuna | siddhi-asiddhyoḥ = in success and failure | samaḥ = even | bhūtvā = being | samatvam = evenness | yogaḥ = yoga | ucyate = is called
+
+@2.50
+en: A steady mind does not carry good or bad results around. So give yourself fully to what you are doing. Doing it well and calmly is yoga.
+hi: स्थिर मन अच्छे-बुरे नतीजों का बोझ नहीं ढोता। इसलिए जो कर रहे हो, उसमें पूरा मन लगाओ। उसे अच्छे और शांत ढंग से करना ही योग है।
+w: buddhi-yuktaḥ = one with a steady mind | jahāti = lets go | iha = here | ubhe = both | sukṛta-duṣkṛte = good and bad deeds | tasmāt = so | yogāya = to yoga | yujyasva = give yourself | yogaḥ = yoga | karmasu = in action | kauśalam = skill
+
+@2.56
+en: A wise person is not knocked over by sadness. They do not chase every happy thing. They are free of greed, fear and anger.
+hi: समझदार इंसान दुख से नहीं गिरता। वह हर ख़ुशी के पीछे नहीं भागता। उसमें लालच, डर और गुस्सा नहीं रहता।
+w: duḥkheṣu = in sorrows | anudvigna-manāḥ = mind not shaken | sukheṣu = in joys | vigata-spṛhaḥ = without craving | vīta-rāga-bhaya-krodhaḥ = free of longing, fear and anger | sthita-dhīḥ = of steady wisdom | muniḥ = a sage | ucyate = is called
+
+@2.58
+en: A tortoise pulls its legs inside its shell to stay safe. A wise person can pull the senses back the same way. Then the mind stays steady.
+hi: कछुआ बचने के लिए अपने पैर खोल में खींच लेता है। समझदार इंसान भी इंद्रियों को ऐसे ही वापस खींच सकता है। तब मन स्थिर रहता है।
+w: yadā = when | saṁharate = draws in | ca = and | ayam = this one | kūrmaḥ = a tortoise | aṅgāni = limbs | iva = like | sarvaśaḥ = fully | indriyāṇi = the senses | indriya-arthebhyaḥ = from their objects | tasya = his | prajñā = wisdom | pratiṣṭhitā = is steady
+
+@2.62
+en: If you keep thinking about something, you start to want it. Wanting grows into needing. When you cannot have it, anger comes.
+hi: किसी चीज़ के बारे में सोचते रहो तो उसे पाने का मन होता है। चाह बढ़कर ज़िद बनती है। न मिले तो गुस्सा आता है।
+w: dhyāyataḥ = thinking about | viṣayān = sense objects | puṁsaḥ = of a person | saṅgaḥ = attachment | teṣu = to them | upajāyate = grows | saṅgāt = from attachment | sañjāyate = is born | kāmaḥ = desire | kāmāt = from desire | krodhaḥ = anger | abhijāyate = arises
+
+@2.63
+en: Anger makes the mind cloudy. A cloudy mind forgets what it knows. Then we stop thinking clearly and we fall.
+hi: गुस्सा मन को धुंधला कर देता है। धुंधला मन सीखी बात भूल जाता है। फिर हम साफ़ नहीं सोच पाते और गिर जाते हैं।
+w: krodhāt = from anger | bhavati = comes | sammohaḥ = confusion | sammohāt = from confusion | smṛti-vibhramaḥ = memory slips | smṛti-bhraṁśāt = from lost memory | buddhi-nāśaḥ = loss of reason | buddhi-nāśāt = from loss of reason | praṇaśyati = one is ruined
+
+@2.70
+en: Many rivers run into the sea, but the sea stays calm. Be like the sea when wishes flow in. Chasing every wish brings no peace.
+hi: बहुत-सी नदियाँ समुद्र में गिरती हैं, पर समुद्र शांत रहता है। इच्छाएँ आएँ तो समुद्र जैसे रहो। हर इच्छा के पीछे भागने से शांति नहीं मिलती।
+w: āpūryamāṇam = always being filled | acala-pratiṣṭham = steady and still | samudram = the ocean | āpaḥ = waters | praviśanti = enter | yadvat = just as | tadvat = so | kāmāḥ = desires | yam = whom | sarve = all | saḥ = that one | śāntim = peace | āpnoti = finds | na = not | kāma-kāmī = one who chases desires
+
+@2.71
+en: Peace comes when you stop grabbing for more. Let go of "this is mine" and "I am great". Then you can walk through life lightly.
+hi: जब और पाने की होड़ छूटती है, तब शांति आती है। "यह मेरा है" और "मैं बड़ा हूँ" छोड़ दो। तब जीवन हल्का होकर चलता है।
+w: vihāya = giving up | kāmān = desires | yaḥ = who | sarvān = all | pumān = a person | carati = moves through life | niḥspṛhaḥ = without craving | nirmamaḥ = without "mine" | nirahaṅkāraḥ = without ego | saḥ = that one | śāntim = peace | adhigacchati = reaches
