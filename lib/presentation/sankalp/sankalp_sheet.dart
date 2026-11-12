@@ -202,7 +202,9 @@ class _SankalpLookBackState extends ConsumerState<SankalpLookBack> {
     final DharmaColors c = context.c;
     if (s == null && _reply == null) return const SizedBox.shrink();
     return Padding(
-      padding: const EdgeInsets.only(top: Sp.s22),
+      // Bottom gap keeps the card off the Today button when the calendar
+      // line is also showing.
+      padding: const EdgeInsets.symmetric(vertical: Sp.s12),
       child: DCard(
         padding: const EdgeInsets.fromLTRB(Sp.s18, Sp.s14, Sp.s18, Sp.s6),
         child: _Resize(

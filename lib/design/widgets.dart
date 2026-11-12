@@ -406,11 +406,13 @@ class ProgressDashes extends StatelessWidget {
   }
 }
 
-/// Bottom sheet on the surface colour.
+/// Bottom sheet on the surface colour. Opens on the root navigator so the
+/// tab bar never paints over it.
 Future<T?> showDSheet<T>(BuildContext context, WidgetBuilder builder) {
   final DharmaColors c = context.c;
   return showModalBottomSheet<T>(
     context: context,
+    useRootNavigator: true,
     backgroundColor: c.surface,
     isScrollControlled: true,
     shape: const RoundedRectangleBorder(

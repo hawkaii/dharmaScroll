@@ -111,22 +111,35 @@ class YatraScreen extends ConsumerWidget {
                               : null,
                           top: pts[curSlot].dy - 22,
                           child: IgnorePointer(
-                            child: Column(
-                              crossAxisAlignment: pts[curSlot].dx > w * 0.5
-                                  ? CrossAxisAlignment.end
-                                  : CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  (cur + 1) % ProgressState.checkpointEvery == 0
-                                      ? 'CHECKPOINT'
-                                      : 'TODAY',
-                                  style: DType.eyebrow(c.faint),
-                                ),
-                                Text(
-                                  '${now.yogaName.replaceAll(' Yoga', '')} Yoga · ${now.id}',
-                                  style: DType.body(c.verse, size: 17),
-                                ),
-                              ],
+                            // Long chapter names wrap instead of running off
+                            // the screen edge.
+                            child: ConstrainedBox(
+                              constraints: BoxConstraints(
+                                maxWidth: pts[curSlot].dx > w * 0.5
+                                    ? pts[curSlot].dx - 40
+                                    : w - pts[curSlot].dx - 40,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: pts[curSlot].dx > w * 0.5
+                                    ? CrossAxisAlignment.end
+                                    : CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    (cur + 1) % ProgressState.checkpointEvery ==
+                                            0
+                                        ? 'CHECKPOINT'
+                                        : 'TODAY',
+                                    style: DType.eyebrow(c.faint),
+                                  ),
+                                  Text(
+                                    '${now.yogaName.replaceAll(' Yoga', '')} Yoga · ${now.id}',
+                                    textAlign: pts[curSlot].dx > w * 0.5
+                                        ? TextAlign.end
+                                        : TextAlign.start,
+                                    style: DType.body(c.verse, size: 17),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
