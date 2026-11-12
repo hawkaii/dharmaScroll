@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "wiki.gradientdescent.dharmascroll"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 37
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
