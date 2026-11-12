@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import '../presentation/hear/hear_screen.dart';
 import '../presentation/kept/kept_screen.dart';
 import '../presentation/kept/verse_screen.dart';
+import '../presentation/mann/crisis_screen.dart';
+import '../presentation/mann/mann_screen.dart';
 import '../presentation/milestone/milestone_screen.dart';
 import '../presentation/points/wallet_screen.dart';
 import '../presentation/onboarding/onboarding_flow.dart';
@@ -27,6 +29,8 @@ abstract final class Routes {
   static const String milestone = '/milestone';
   static const String kept = '/kept';
   static const String wallet = '/wallet';
+  static const String speak = '/speak';
+  static const String crisis = '/crisis';
   static String verse(String id) => '/verse/$id';
 }
 
@@ -84,6 +88,14 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
         path: '/verse/:id',
         builder: (BuildContext c, GoRouterState s) =>
             VerseScreen(id: s.pathParameters['id'] ?? ''),
+      ),
+      GoRoute(
+        path: Routes.speak,
+        builder: (BuildContext c, GoRouterState s) => const MannScreen(),
+      ),
+      GoRoute(
+        path: Routes.crisis,
+        builder: (BuildContext c, GoRouterState s) => const CrisisScreen(),
       ),
       GoRoute(
         path: Routes.wallet,
