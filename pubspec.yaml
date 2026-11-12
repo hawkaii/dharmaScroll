@@ -18,6 +18,7 @@ dependencies:
   record: ^5.1.2
   audioplayers: ^6.1.0
   path_provider: ^2.1.5
+  flutter_svg: 2.3.4
 
 dev_dependencies:
   flutter_test:
@@ -27,28 +28,22 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/lottie/
+    - assets/svg/
+    - assets/svg/icons/
   fonts:
-    - family: Archivo
+    - family: NotoSerifDevanagari
       fonts:
-        - asset: assets/fonts/Archivo-Variable.ttf
-    - family: InstrumentSans
+        - asset: assets/fonts/NotoSerifDevanagari-Regular.ttf
+    - family: EBGaramond
       fonts:
-        - asset: assets/fonts/InstrumentSans-Variable.ttf
-    - family: IBMPlexMono
+        - asset: assets/fonts/EBGaramond12-Regular.ttf
+        - asset: assets/fonts/EBGaramond12-Italic.ttf
+          style: italic
+    - family: Inter
       fonts:
-        - asset: assets/fonts/IBMPlexMono-Regular.ttf
+        - asset: assets/fonts/Inter-Regular.otf
           weight: 400
-        - asset: assets/fonts/IBMPlexMono-Medium.ttf
+        - asset: assets/fonts/Inter-Medium.otf
           weight: 500
-        - asset: assets/fonts/IBMPlexMono-SemiBold.ttf
+        - asset: assets/fonts/Inter-SemiBold.otf
           weight: 600
-    - family: TiroDevaSanskrit
-      fonts:
-        - asset: assets/fonts/TiroDevanagariSanskrit-Regular.ttf
-    - family: TiroDevaHindi
-      fonts:
-        - asset: assets/fonts/TiroDevanagariHindi-Regular.ttf
-    - family: NotoSansDevanagari
-      fonts:
-        - asset: assets/fonts/NotoSansDevanagari-Variable.ttf
