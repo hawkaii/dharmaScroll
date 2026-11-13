@@ -9,7 +9,6 @@ import 'package:dharmascroll/core/rituals/reminder_backend.dart';
 import 'package:dharmascroll/data/verse_repository.dart';
 import 'package:dharmascroll/core/state/settings.dart';
 import 'package:dharmascroll/design/tokens.dart';
-import 'package:dharmascroll/l10n/app_localizations.dart';
 import 'package:dharmascroll/design/widgets.dart';
 import 'package:dharmascroll/domain/models/verse.dart';
 import 'package:dharmascroll/presentation/language/language_picker.dart';

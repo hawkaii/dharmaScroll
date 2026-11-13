@@ -1982,4 +1982,311 @@ class AppLocalizationsEn extends AppLocalizations {
   String nameLead(String name) {
     return '$name.  ';
   }
+
+  @override
+  String get crisisTitle => 'You don’t have to carry this alone.';
+
+  @override
+  String get crisisBody =>
+      'What you shared sounds very heavy. A trained person can help right now.';
+
+  @override
+  String get crisisCall => 'Call Tele-MANAS 14416';
+
+  @override
+  String get crisisDialFallback =>
+      'Dial 14416 or 1-800-891-4416 from your phone.';
+
+  @override
+  String get crisisFree =>
+      'Free, any time, in many languages. Also 1-800-891-4416.';
+
+  @override
+  String get crisisEmergency => 'Call 112 if you are in danger now';
+
+  @override
+  String get crisisEmergencyFallback => 'Dial 112 from your phone.';
+
+  @override
+  String get crisisMessage => 'Message someone I trust';
+
+  @override
+  String get crisisSmsBody => 'Can you call me? I’m having a hard time.';
+
+  @override
+  String crisisSmsFallback(String text) {
+    return 'Send someone you trust: “$text”';
+  }
+
+  @override
+  String get crisisBreathe => 'Stay here and breathe';
+
+  @override
+  String get crisisNothingKept =>
+      'Nothing you wrote was kept. No points, no record.';
+
+  @override
+  String get breatheSemantic => 'Breathe in for 4 seconds, and out for 6.';
+
+  @override
+  String get breatheStill => 'In for 4. Out for 6.';
+
+  @override
+  String get breatheIn => 'Breathe in';
+
+  @override
+  String get breatheOut => 'Breathe out';
+
+  @override
+  String get authShortNumber => 'That number looks too short.';
+
+  @override
+  String get authShortCode => 'The code has six numbers.';
+
+  @override
+  String get authSignInFirst => 'Sign in first.';
+
+  @override
+  String get friendName => 'Friend';
+
+  @override
+  String get ekWrite => 'Write';
+
+  @override
+  String get ekSpeak => 'Speak';
+
+  @override
+  String get ekDoorPrivacy =>
+      'Your words stay on this phone. Let them fade when you are done, or keep them.';
+
+  @override
+  String get ekDoorWaiting => 'Your last conversation is still here.';
+
+  @override
+  String get ekSend => 'Send';
+
+  @override
+  String get ekWriteHint => 'Write here';
+
+  @override
+  String get ekAnswerHint => 'Answer, or say more';
+
+  @override
+  String get ekYouSaid => 'You said';
+
+  @override
+  String get ekEkantSaid => 'Ekant';
+
+  @override
+  String get ekReflecting => 'Ekant is reflecting';
+
+  @override
+  String get ekCopy => 'Copy';
+
+  @override
+  String get ekCopied => 'Copied';
+
+  @override
+  String get ekStudy => 'Read this verse';
+
+  @override
+  String get ekFailedNote => 'The room went quiet. Please try again.';
+
+  @override
+  String get ekShareFooter => 'From Ekant, in DharmaScroll';
+
+  @override
+  String get ekOpen1 => 'Work has been weighing on me.';
+
+  @override
+  String get ekOpen2 => 'I cannot stop worrying.';
+
+  @override
+  String get ekOpen3 => 'I feel alone today.';
+
+  @override
+  String get ekOpen4 => 'I am angry and cannot let it go.';
+
+  @override
+  String get ekConnecting => 'Getting ready';
+
+  @override
+  String get ekIdle => 'Ready';
+
+  @override
+  String get ekListening => 'Listening';
+
+  @override
+  String get ekThinking => 'Thinking';
+
+  @override
+  String get ekSpeaking => 'Speaking';
+
+  @override
+  String get ekMuted => 'Muted';
+
+  @override
+  String get ekConnectFailed => 'Could not connect';
+
+  @override
+  String get ekMute => 'Mute';
+
+  @override
+  String get ekUnmute => 'Unmute';
+
+  @override
+  String get ekEnd => 'End';
+
+  @override
+  String get ekSwitchToChat => 'Switch to chat';
+
+  @override
+  String get ekHandsFree => 'Hands-free';
+
+  @override
+  String get ekPushToTalk => 'Push to talk';
+
+  @override
+  String get ekHoldToTalk => 'Hold to talk';
+
+  @override
+  String get ekRelease => 'Release when done';
+
+  @override
+  String get ekYou => 'You';
+
+  @override
+  String get ekCaptionsEmpty => 'Words appear here as you speak.';
+
+  @override
+  String get ekRetry => 'Try again';
+
+  @override
+  String get ekMicTitle => 'Use your microphone?';
+
+  @override
+  String get ekMicBody =>
+      'To talk, the phone needs to hear you. Sound is only used while this room is open. The room shows your words as you speak.';
+
+  @override
+  String get ekMicAllow => 'Allow microphone';
+
+  @override
+  String get ekMicDenied =>
+      'The microphone is off. You can allow it in the phone settings, or write instead.';
+
+  @override
+  String get ekPrompt => 'What is on your mind?';
+
+  @override
+  String get ekRest => 'Rest now';
+
+  @override
+  String get ekFade => 'Let it fade';
+
+  @override
+  String get ekKeep => 'Keep on this phone';
+
+  @override
+  String get ekReturn => 'Return';
+
+  @override
+  String get ekEnough => 'That is enough for this sitting.';
+
+  @override
+  String get ekKeepFailed => 'Could not keep it on this phone. Try again.';
+
+  @override
+  String get ekLeaveRoom => 'Leave the room';
+
+  @override
+  String get ekLeaveCaps => 'LEAVE';
+
+  @override
+  String get ekQuietRoom => 'A quiet room.';
+
+  @override
+  String get ekNoOne =>
+      'No one is here. The app finds a verse of the Gita. Only the verse is the Gita’s word.';
+
+  @override
+  String get ekDanger =>
+      'In danger? Call 112. Tele-MANAS 14416 is free, any time.';
+
+  @override
+  String ekKeptNotesBtn(int n) {
+    return 'Kept notes ($n)';
+  }
+
+  @override
+  String get ekVerseToCarry => 'A verse to carry';
+
+  @override
+  String get ekYourWords => 'Your words';
+
+  @override
+  String get ekRestNow => 'Rest now.';
+
+  @override
+  String get ekKeptOnly => 'Kept on this phone only. The verse stays.';
+
+  @override
+  String get ekGone => 'Your words have gone. The verse stays.';
+
+  @override
+  String ekVerseSemantic(
+    String attribution,
+    int chapter,
+    int number,
+    String meaning,
+  ) {
+    return '$attribution Gita chapter $chapter, verse $number. $meaning';
+  }
+
+  @override
+  String ekVerseCardSemantic(
+    int chapter,
+    int number,
+    String meaning,
+    String study,
+  ) {
+    return 'Gita chapter $chapter, verse $number. $meaning. $study';
+  }
+
+  @override
+  String ekGitaStudy(String id, String study) {
+    return 'Gita $id. $study';
+  }
+
+  @override
+  String ekGitaStudyCaps(String id, String study) {
+    return 'GITA $id  ·  $study';
+  }
+
+  @override
+  String get ekKeptNotes => 'Kept notes';
+
+  @override
+  String get ekKeptNotesWhy => 'On this phone only, encrypted.';
+
+  @override
+  String get ekDelete => 'Delete';
+
+  @override
+  String ekNoteHead(String date, String id) {
+    return '$date  ·  GITA $id';
+  }
+
+  @override
+  String get ekVoiceUnavailable => 'Voice is not available here. Typing works.';
+
+  @override
+  String get ekTalkOutLoud => 'Talk to Ekant out loud';
+
+  @override
+  String get ekWriteIntro =>
+      'Write it as it comes. Hindi, English or Hinglish.';
+
+  @override
+  String get ekDictate => 'Dictate';
 }

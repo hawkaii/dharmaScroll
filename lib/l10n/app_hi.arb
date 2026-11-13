@@ -1165,5 +1165,172 @@
         "type": "String"
       }
     }
-  }
+  },
+  "crisisTitle": "आपको यह अकेले नहीं उठाना है।",
+  "crisisBody": "आपने जो बताया, वह बहुत भारी लगता है। एक प्रशिक्षित व्यक्ति अभी आपकी मदद कर सकता है।",
+  "crisisCall": "टेली-मानस 14416 पर कॉल कीजिए",
+  "crisisDialFallback": "अपने फ़ोन से 14416 या 1-800-891-4416 मिलाइए।",
+  "crisisFree": "मुफ़्त, किसी भी समय, कई भाषाओं में। यह नंबर भी है: 1-800-891-4416।",
+  "crisisEmergency": "अभी ख़तरे में हैं तो 112 पर कॉल कीजिए",
+  "crisisEmergencyFallback": "अपने फ़ोन से 112 मिलाइए।",
+  "crisisMessage": "किसी भरोसेमंद व्यक्ति को संदेश भेजिए",
+  "crisisSmsBody": "क्या आप मुझे फ़ोन कर सकते हैं? मेरा समय बहुत कठिन चल रहा है।",
+  "crisisSmsFallback": "किसी भरोसेमंद को यह भेजिए: “{text}”",
+  "@crisisSmsFallback": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "crisisBreathe": "यहीं रुकिए और साँस लीजिए",
+  "crisisNothingKept": "आपने जो लिखा, वह रखा नहीं गया। कोई अंक नहीं, कोई रिकॉर्ड नहीं।",
+  "breatheSemantic": "4 सेकंड साँस भीतर लीजिए, और 6 सेकंड में बाहर छोड़िए।",
+  "breatheStill": "4 में भीतर। 6 में बाहर।",
+  "breatheIn": "साँस भीतर लीजिए",
+  "breatheOut": "साँस बाहर छोड़िए",
+  "authShortNumber": "यह नंबर बहुत छोटा लग रहा है।",
+  "authShortCode": "कोड में छह अंक होते हैं।",
+  "authSignInFirst": "पहले साइन इन कीजिए।",
+  "friendName": "मित्र",
+  "ekWrite": "लिखिए",
+  "ekSpeak": "बोलिए",
+  "ekDoorPrivacy": "आपके शब्द इसी फ़ोन में रहते हैं। बात पूरी होने पर उन्हें मिट जाने दीजिए, या सहेज लीजिए।",
+  "ekDoorWaiting": "आपकी पिछली बातचीत अभी यहीं है।",
+  "ekSend": "भेजिए",
+  "ekWriteHint": "यहाँ लिखिए",
+  "ekAnswerHint": "जवाब दीजिए, या और कुछ कहिए",
+  "ekYouSaid": "आपने कहा",
+  "ekEkantSaid": "एकांत",
+  "ekReflecting": "एकांत सोच रहा है",
+  "ekCopy": "कॉपी कीजिए",
+  "ekCopied": "कॉपी हो गया",
+  "ekStudy": "यह श्लोक पढ़िए",
+  "ekFailedNote": "कमरा चुप हो गया। कृपया फिर से कोशिश कीजिए।",
+  "ekShareFooter": "एकांत से, DharmaScroll में",
+  "ekOpen1": "काम का बोझ मन पर भारी है।",
+  "ekOpen2": "चिंता रुकती ही नहीं।",
+  "ekOpen3": "आज अकेलापन लग रहा है।",
+  "ekOpen4": "गुस्सा है, और वह जा नहीं रहा।",
+  "ekConnecting": "तैयार हो रहे हैं",
+  "ekIdle": "तैयार",
+  "ekListening": "सुन रहे हैं",
+  "ekThinking": "सोच रहे हैं",
+  "ekSpeaking": "बोल रहे हैं",
+  "ekMuted": "आवाज़ बंद है",
+  "ekConnectFailed": "जुड़ नहीं पाए",
+  "ekMute": "आवाज़ बंद कीजिए",
+  "ekUnmute": "आवाज़ चालू कीजिए",
+  "ekEnd": "समाप्त",
+  "ekSwitchToChat": "लिखकर बात कीजिए",
+  "ekHandsFree": "अपने आप",
+  "ekPushToTalk": "दबाकर बोलिए",
+  "ekHoldToTalk": "बोलने के लिए दबाए रखिए",
+  "ekRelease": "बात पूरी होने पर छोड़ दीजिए",
+  "ekYou": "आप",
+  "ekCaptionsEmpty": "आप बोलेंगे तो शब्द यहाँ दिखेंगे।",
+  "ekRetry": "फिर कोशिश कीजिए",
+  "ekMicTitle": "माइक्रोफ़ोन इस्तेमाल करें?",
+  "ekMicBody": "बात करने के लिए फ़ोन को आपको सुनना होगा। आवाज़ सिर्फ़ तब इस्तेमाल होती है जब यह कमरा खुला हो। आप जैसे बोलते हैं, शब्द यहाँ दिखते जाते हैं।",
+  "ekMicAllow": "माइक्रोफ़ोन की अनुमति दीजिए",
+  "ekMicDenied": "माइक्रोफ़ोन बंद है। आप इसे फ़ोन की सेटिंग में चालू कर सकते हैं, या लिखकर बात कर सकते हैं।",
+  "ekPrompt": "आपके मन में क्या है?",
+  "ekRest": "अब विश्राम कीजिए",
+  "ekFade": "इन्हें मिट जाने दीजिए",
+  "ekKeep": "इस फ़ोन में सहेजिए",
+  "ekReturn": "लौट आइए",
+  "ekEnough": "इस बैठक के लिए इतना काफ़ी है।",
+  "ekKeepFailed": "इस फ़ोन में सहेज नहीं पाए। फिर कोशिश कीजिए।",
+  "ekLeaveRoom": "कमरे से बाहर जाइए",
+  "ekLeaveCaps": "बाहर जाइए",
+  "ekQuietRoom": "एक शांत कमरा।",
+  "ekNoOne": "यहाँ कोई नहीं है। ऐप गीता का एक श्लोक ढूँढता है। सिर्फ़ श्लोक ही गीता के शब्द हैं।",
+  "ekDanger": "ख़तरे में हैं? 112 पर कॉल कीजिए। टेली-मानस 14416 मुफ़्त है, किसी भी समय।",
+  "ekKeptNotesBtn": "सहेजे हुए नोट ({n})",
+  "@ekKeptNotesBtn": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "ekVerseToCarry": "साथ ले जाने के लिए एक श्लोक",
+  "ekYourWords": "आपके शब्द",
+  "ekRestNow": "अब विश्राम कीजिए।",
+  "ekKeptOnly": "सिर्फ़ इस फ़ोन में सहेजा गया। श्लोक साथ रहता है।",
+  "ekGone": "आपके शब्द मिट गए। श्लोक साथ रहता है।",
+  "ekVerseSemantic": "{attribution} गीता, अध्याय {chapter}, श्लोक {number}। {meaning}",
+  "@ekVerseSemantic": {
+    "placeholders": {
+      "attribution": {
+        "type": "String"
+      },
+      "chapter": {
+        "type": "int"
+      },
+      "number": {
+        "type": "int"
+      },
+      "meaning": {
+        "type": "String"
+      }
+    }
+  },
+  "ekVerseCardSemantic": "गीता, अध्याय {chapter}, श्लोक {number}। {meaning}। {study}",
+  "@ekVerseCardSemantic": {
+    "placeholders": {
+      "chapter": {
+        "type": "int"
+      },
+      "number": {
+        "type": "int"
+      },
+      "meaning": {
+        "type": "String"
+      },
+      "study": {
+        "type": "String"
+      }
+    }
+  },
+  "ekGitaStudy": "गीता {id}। {study}",
+  "@ekGitaStudy": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      },
+      "study": {
+        "type": "String"
+      }
+    }
+  },
+  "ekGitaStudyCaps": "गीता {id}  ·  {study}",
+  "@ekGitaStudyCaps": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      },
+      "study": {
+        "type": "String"
+      }
+    }
+  },
+  "ekKeptNotes": "सहेजे हुए नोट",
+  "ekKeptNotesWhy": "सिर्फ़ इस फ़ोन में, एन्क्रिप्ट करके।",
+  "ekDelete": "मिटाइए",
+  "ekNoteHead": "{date}  ·  गीता {id}",
+  "@ekNoteHead": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "ekVoiceUnavailable": "यहाँ आवाज़ से बोलना नहीं हो पाएगा। लिखकर बात हो सकती है।",
+  "ekTalkOutLoud": "एकांत से बोलकर बात कीजिए",
+  "ekWriteIntro": "जैसा मन में आए, वैसा लिखिए। हिन्दी, अंग्रेज़ी या हिंग्लिश में।",
+  "ekDictate": "बोलकर लिखिए"
 }

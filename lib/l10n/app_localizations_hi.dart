@@ -1992,4 +1992,314 @@ class AppLocalizationsHi extends AppLocalizations {
   String nameLead(String name) {
     return '$name:  ';
   }
+
+  @override
+  String get crisisTitle => 'आपको यह अकेले नहीं उठाना है।';
+
+  @override
+  String get crisisBody =>
+      'आपने जो बताया, वह बहुत भारी लगता है। एक प्रशिक्षित व्यक्ति अभी आपकी मदद कर सकता है।';
+
+  @override
+  String get crisisCall => 'टेली-मानस 14416 पर कॉल कीजिए';
+
+  @override
+  String get crisisDialFallback =>
+      'अपने फ़ोन से 14416 या 1-800-891-4416 मिलाइए।';
+
+  @override
+  String get crisisFree =>
+      'मुफ़्त, किसी भी समय, कई भाषाओं में। यह नंबर भी है: 1-800-891-4416।';
+
+  @override
+  String get crisisEmergency => 'अभी ख़तरे में हैं तो 112 पर कॉल कीजिए';
+
+  @override
+  String get crisisEmergencyFallback => 'अपने फ़ोन से 112 मिलाइए।';
+
+  @override
+  String get crisisMessage => 'किसी भरोसेमंद व्यक्ति को संदेश भेजिए';
+
+  @override
+  String get crisisSmsBody =>
+      'क्या आप मुझे फ़ोन कर सकते हैं? मेरा समय बहुत कठिन चल रहा है।';
+
+  @override
+  String crisisSmsFallback(String text) {
+    return 'किसी भरोसेमंद को यह भेजिए: “$text”';
+  }
+
+  @override
+  String get crisisBreathe => 'यहीं रुकिए और साँस लीजिए';
+
+  @override
+  String get crisisNothingKept =>
+      'आपने जो लिखा, वह रखा नहीं गया। कोई अंक नहीं, कोई रिकॉर्ड नहीं।';
+
+  @override
+  String get breatheSemantic =>
+      '4 सेकंड साँस भीतर लीजिए, और 6 सेकंड में बाहर छोड़िए।';
+
+  @override
+  String get breatheStill => '4 में भीतर। 6 में बाहर।';
+
+  @override
+  String get breatheIn => 'साँस भीतर लीजिए';
+
+  @override
+  String get breatheOut => 'साँस बाहर छोड़िए';
+
+  @override
+  String get authShortNumber => 'यह नंबर बहुत छोटा लग रहा है।';
+
+  @override
+  String get authShortCode => 'कोड में छह अंक होते हैं।';
+
+  @override
+  String get authSignInFirst => 'पहले साइन इन कीजिए।';
+
+  @override
+  String get friendName => 'मित्र';
+
+  @override
+  String get ekWrite => 'लिखिए';
+
+  @override
+  String get ekSpeak => 'बोलिए';
+
+  @override
+  String get ekDoorPrivacy =>
+      'आपके शब्द इसी फ़ोन में रहते हैं। बात पूरी होने पर उन्हें मिट जाने दीजिए, या सहेज लीजिए।';
+
+  @override
+  String get ekDoorWaiting => 'आपकी पिछली बातचीत अभी यहीं है।';
+
+  @override
+  String get ekSend => 'भेजिए';
+
+  @override
+  String get ekWriteHint => 'यहाँ लिखिए';
+
+  @override
+  String get ekAnswerHint => 'जवाब दीजिए, या और कुछ कहिए';
+
+  @override
+  String get ekYouSaid => 'आपने कहा';
+
+  @override
+  String get ekEkantSaid => 'एकांत';
+
+  @override
+  String get ekReflecting => 'एकांत सोच रहा है';
+
+  @override
+  String get ekCopy => 'कॉपी कीजिए';
+
+  @override
+  String get ekCopied => 'कॉपी हो गया';
+
+  @override
+  String get ekStudy => 'यह श्लोक पढ़िए';
+
+  @override
+  String get ekFailedNote => 'कमरा चुप हो गया। कृपया फिर से कोशिश कीजिए।';
+
+  @override
+  String get ekShareFooter => 'एकांत से, DharmaScroll में';
+
+  @override
+  String get ekOpen1 => 'काम का बोझ मन पर भारी है।';
+
+  @override
+  String get ekOpen2 => 'चिंता रुकती ही नहीं।';
+
+  @override
+  String get ekOpen3 => 'आज अकेलापन लग रहा है।';
+
+  @override
+  String get ekOpen4 => 'गुस्सा है, और वह जा नहीं रहा।';
+
+  @override
+  String get ekConnecting => 'तैयार हो रहे हैं';
+
+  @override
+  String get ekIdle => 'तैयार';
+
+  @override
+  String get ekListening => 'सुन रहे हैं';
+
+  @override
+  String get ekThinking => 'सोच रहे हैं';
+
+  @override
+  String get ekSpeaking => 'बोल रहे हैं';
+
+  @override
+  String get ekMuted => 'आवाज़ बंद है';
+
+  @override
+  String get ekConnectFailed => 'जुड़ नहीं पाए';
+
+  @override
+  String get ekMute => 'आवाज़ बंद कीजिए';
+
+  @override
+  String get ekUnmute => 'आवाज़ चालू कीजिए';
+
+  @override
+  String get ekEnd => 'समाप्त';
+
+  @override
+  String get ekSwitchToChat => 'लिखकर बात कीजिए';
+
+  @override
+  String get ekHandsFree => 'अपने आप';
+
+  @override
+  String get ekPushToTalk => 'दबाकर बोलिए';
+
+  @override
+  String get ekHoldToTalk => 'बोलने के लिए दबाए रखिए';
+
+  @override
+  String get ekRelease => 'बात पूरी होने पर छोड़ दीजिए';
+
+  @override
+  String get ekYou => 'आप';
+
+  @override
+  String get ekCaptionsEmpty => 'आप बोलेंगे तो शब्द यहाँ दिखेंगे।';
+
+  @override
+  String get ekRetry => 'फिर कोशिश कीजिए';
+
+  @override
+  String get ekMicTitle => 'माइक्रोफ़ोन इस्तेमाल करें?';
+
+  @override
+  String get ekMicBody =>
+      'बात करने के लिए फ़ोन को आपको सुनना होगा। आवाज़ सिर्फ़ तब इस्तेमाल होती है जब यह कमरा खुला हो। आप जैसे बोलते हैं, शब्द यहाँ दिखते जाते हैं।';
+
+  @override
+  String get ekMicAllow => 'माइक्रोफ़ोन की अनुमति दीजिए';
+
+  @override
+  String get ekMicDenied =>
+      'माइक्रोफ़ोन बंद है। आप इसे फ़ोन की सेटिंग में चालू कर सकते हैं, या लिखकर बात कर सकते हैं।';
+
+  @override
+  String get ekPrompt => 'आपके मन में क्या है?';
+
+  @override
+  String get ekRest => 'अब विश्राम कीजिए';
+
+  @override
+  String get ekFade => 'इन्हें मिट जाने दीजिए';
+
+  @override
+  String get ekKeep => 'इस फ़ोन में सहेजिए';
+
+  @override
+  String get ekReturn => 'लौट आइए';
+
+  @override
+  String get ekEnough => 'इस बैठक के लिए इतना काफ़ी है।';
+
+  @override
+  String get ekKeepFailed => 'इस फ़ोन में सहेज नहीं पाए। फिर कोशिश कीजिए।';
+
+  @override
+  String get ekLeaveRoom => 'कमरे से बाहर जाइए';
+
+  @override
+  String get ekLeaveCaps => 'बाहर जाइए';
+
+  @override
+  String get ekQuietRoom => 'एक शांत कमरा।';
+
+  @override
+  String get ekNoOne =>
+      'यहाँ कोई नहीं है। ऐप गीता का एक श्लोक ढूँढता है। सिर्फ़ श्लोक ही गीता के शब्द हैं।';
+
+  @override
+  String get ekDanger =>
+      'ख़तरे में हैं? 112 पर कॉल कीजिए। टेली-मानस 14416 मुफ़्त है, किसी भी समय।';
+
+  @override
+  String ekKeptNotesBtn(int n) {
+    return 'सहेजे हुए नोट ($n)';
+  }
+
+  @override
+  String get ekVerseToCarry => 'साथ ले जाने के लिए एक श्लोक';
+
+  @override
+  String get ekYourWords => 'आपके शब्द';
+
+  @override
+  String get ekRestNow => 'अब विश्राम कीजिए।';
+
+  @override
+  String get ekKeptOnly => 'सिर्फ़ इस फ़ोन में सहेजा गया। श्लोक साथ रहता है।';
+
+  @override
+  String get ekGone => 'आपके शब्द मिट गए। श्लोक साथ रहता है।';
+
+  @override
+  String ekVerseSemantic(
+    String attribution,
+    int chapter,
+    int number,
+    String meaning,
+  ) {
+    return '$attribution गीता, अध्याय $chapter, श्लोक $number। $meaning';
+  }
+
+  @override
+  String ekVerseCardSemantic(
+    int chapter,
+    int number,
+    String meaning,
+    String study,
+  ) {
+    return 'गीता, अध्याय $chapter, श्लोक $number। $meaning। $study';
+  }
+
+  @override
+  String ekGitaStudy(String id, String study) {
+    return 'गीता $id। $study';
+  }
+
+  @override
+  String ekGitaStudyCaps(String id, String study) {
+    return 'गीता $id  ·  $study';
+  }
+
+  @override
+  String get ekKeptNotes => 'सहेजे हुए नोट';
+
+  @override
+  String get ekKeptNotesWhy => 'सिर्फ़ इस फ़ोन में, एन्क्रिप्ट करके।';
+
+  @override
+  String get ekDelete => 'मिटाइए';
+
+  @override
+  String ekNoteHead(String date, String id) {
+    return '$date  ·  गीता $id';
+  }
+
+  @override
+  String get ekVoiceUnavailable =>
+      'यहाँ आवाज़ से बोलना नहीं हो पाएगा। लिखकर बात हो सकती है।';
+
+  @override
+  String get ekTalkOutLoud => 'एकांत से बोलकर बात कीजिए';
+
+  @override
+  String get ekWriteIntro =>
+      'जैसा मन में आए, वैसा लिखिए। हिन्दी, अंग्रेज़ी या हिंग्लिश में।';
+
+  @override
+  String get ekDictate => 'बोलकर लिखिए';
 }

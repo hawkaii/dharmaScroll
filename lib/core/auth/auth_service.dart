@@ -53,12 +53,20 @@ class AuthUser {
   }
 }
 
+/// The name saved when sign-in gives none. Shown as "Friend" in the app's
+/// language.
+const String kPlaceholderName = 'Friend';
+
+/// What went wrong in a sign-in step; the screen says it in the person's
+/// language.
+enum AuthProblem { shortNumber, shortCode, signInFirst }
+
 /// A sign-in step failed in a way the person can fix (a short code, say).
 class AuthException implements Exception {
-  const AuthException(this.message);
-  final String message;
+  const AuthException(this.problem);
+  final AuthProblem problem;
   @override
-  String toString() => message;
+  String toString() => 'AuthException(${problem.name})';
 }
 
 /// The seam for real sign-in. The app talks only to this.
@@ -111,7 +119,7 @@ class FakeAuthService implements AuthService {
   Future<AuthUser> signInWithGoogle() async {
     // OAuth plugs in here: real name and id come from the Google account.
     return _save(
-      AuthUser(id: _id(), name: 'Friend', method: SignInMethod.google),
+      AuthUser(id: _id(), name: kPlaceholderName, method: SignInMethod.google),
     );
   }
 
@@ -119,7 +127,7 @@ class FakeAuthService implements AuthService {
   Future<void> sendCode(String phone) async {
     // OTP plugs in here: ask the provider to text the code.
     if (phone.length < 8 || phone.length > 15) {
-      throw const AuthException('That number looks too short.');
+      throw const AuthException(AuthProblem.shortNumber);
     }
   }
 
@@ -127,12 +135,12 @@ class FakeAuthService implements AuthService {
   Future<AuthUser> verifyCode(String phone, String code) async {
     // OTP plugs in here: the provider checks the code.
     if (!RegExp(r'^\d{6}$').hasMatch(code)) {
-      throw const AuthException('The code has six numbers.');
+      throw const AuthException(AuthProblem.shortCode);
     }
     return _save(
       AuthUser(
         id: _id(),
-        name: 'Friend',
+        name: kPlaceholderName,
         method: SignInMethod.phone,
         phone: phone,
       ),
@@ -146,7 +154,7 @@ class FakeAuthService implements AuthService {
   @override
   Future<AuthUser> rename(String name) async {
     final AuthUser? u = current;
-    if (u == null) throw const AuthException('Sign in first.');
+    if (u == null) throw const AuthException(AuthProblem.signInFirst);
     return _save(u.copyWith(name: name.trim()));
   }
 

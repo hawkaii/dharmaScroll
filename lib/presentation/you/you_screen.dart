@@ -12,6 +12,7 @@ import '../../design/info_sheet.dart';
 import '../../design/lottie_art.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
+import '../../l10n/auth_words.dart';
 import '../../l10n/l10n.dart';
 import '../auth/sign_in_panel.dart';
 import '../language/language_picker.dart';
@@ -183,7 +184,7 @@ class YouScreen extends ConsumerWidget {
 }
 
 String displayName(AppLocalizations l, AuthUser? u) =>
-    u == null || u.name.isEmpty ? l.guest : u.name;
+    u == null || u.name.isEmpty ? l.guest : l.greetingName(u.name);
 
 String methodLine(AppLocalizations l, AuthUser? u) => switch (u?.method) {
   null => l.methodNone,

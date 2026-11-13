@@ -275,8 +275,8 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text(en.letVerseAnswer));
     await tester.pumpAndSettle();
-    expect(find.text(CrisisScreen.title), findsOneWidget);
-    expect(find.text(CrisisScreen.callLabel), findsOneWidget);
+    expect(find.text(en.crisisTitle), findsOneWidget);
+    expect(find.text(en.crisisCall), findsOneWidget);
     expect(find.text(en.mannAnswerTop.toUpperCase()), findsNothing);
     // No points and no step for a crisis.
     expect(prefs.getStringList('p.steps'), isNot(contains('speak')));

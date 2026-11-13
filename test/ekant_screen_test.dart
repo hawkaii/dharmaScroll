@@ -9,7 +9,6 @@ import 'package:dharmascroll/features/ekant/crisis_screen.dart';
 import 'package:dharmascroll/features/ekant/chat_history.dart';
 import 'package:dharmascroll/features/ekant/chat_service.dart';
 import 'package:dharmascroll/features/ekant/ekant_screen.dart';
-import 'package:dharmascroll/features/ekant/ekant_strings.dart';
 import 'package:dharmascroll/features/ekant/ekant_sitting.dart';
 import 'package:dharmascroll/features/ekant/ekant_voice.dart';
 import 'package:dharmascroll/features/ekant/kept_notes.dart';
@@ -18,6 +17,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'en.dart';
 
 Future<void> _openRoom(
   WidgetTester tester,
@@ -58,15 +59,15 @@ Future<void> _openRoom(
   await tester.ensureVisible(link);
   await tester.tap(link);
   await tester.pumpAndSettle();
-  await tester.tap(find.text(EkantStrings.writeLabel));
+  await tester.tap(find.text(en.ekWrite));
   await tester.pumpAndSettle();
-  expect(find.text(EkantScreen.prompt), findsOneWidget);
+  expect(find.text(en.ekPrompt), findsOneWidget);
 }
 
 Future<void> _say(WidgetTester tester, String words) async {
   await tester.enterText(find.byType(TextField), words);
   await tester.pump();
-  await tester.tap(find.text(EkantStrings.sendLabel));
+  await tester.tap(find.text(en.ekSend));
   // The reply streams in over a few seconds of fake time.
   await tester.pump(const Duration(seconds: 6));
   await tester.pumpAndSettle();
@@ -97,15 +98,15 @@ void main() {
     }
     // The cap: no more writing, only rest.
     expect(find.byType(TextField), findsNothing);
-    expect(find.text(EkantScreen.enough), findsOneWidget);
-    await tester.tap(find.text(EkantScreen.restLabel));
+    expect(find.text(en.ekEnough), findsOneWidget);
+    await tester.tap(find.text(en.ekRest));
     await tester.pumpAndSettle();
 
     // The close: one verse to carry and every word of the sitting.
     expect(find.text('A VERSE TO CARRY'), findsOneWidget);
     expect(find.text('Work is heavy, turn 1'), findsOneWidget);
     expect(history.messages, isNotEmpty);
-    await tester.tap(find.text(EkantScreen.fadeLabel));
+    await tester.tap(find.text(en.ekFade));
     // Reduce motion is on here, so Flutter runs the fade 20 times faster
     // (80 ms); it still fades rather than cutting.
     await tester.pump();
@@ -133,7 +134,7 @@ void main() {
       reason: 'letting it fade clears the thread',
     );
 
-    await tester.tap(find.text(EkantScreen.returnLabel));
+    await tester.tap(find.text(en.ekReturn));
     await tester.pumpAndSettle();
     await tester.pump(const Duration(seconds: 1)); // the drone fades out
     expect(find.byType(TodayScreen), findsOneWidget);
@@ -143,14 +144,14 @@ void main() {
     final MemoryKeptNotesStore store = MemoryKeptNotesStore();
     await _openRoom(tester, store);
     await _say(tester, 'I am so angry at my brother');
-    await tester.tap(find.text(EkantScreen.restLabel));
+    await tester.tap(find.text(en.ekRest));
     await tester.pumpAndSettle();
-    await tester.tap(find.text(EkantScreen.keepLabel));
+    await tester.tap(find.text(en.ekKeep));
     await tester.pumpAndSettle();
 
     expect(store.notes.single.words, <String>['I am so angry at my brother']);
     expect(find.textContaining('Kept on this phone only'), findsOneWidget);
-    await tester.tap(find.text(EkantScreen.returnLabel));
+    await tester.tap(find.text(en.ekReturn));
     await tester.pumpAndSettle();
     await tester.pump(const Duration(seconds: 1)); // the drone fades out
   });
@@ -163,8 +164,8 @@ void main() {
     await _say(tester, 'I want to kill myself');
 
     expect(find.byType(CrisisScreen), findsOneWidget);
-    expect(find.text(CrisisScreen.title), findsOneWidget);
-    expect(find.text(CrisisScreen.callLabel), findsOneWidget);
+    expect(find.text(en.crisisTitle), findsOneWidget);
+    expect(find.text(en.crisisCall), findsOneWidget);
     expect(find.textContaining('112'), findsWidgets);
     expect(find.textContaining('GITA'), findsNothing);
     expect(find.textContaining('Moksh'), findsNothing);

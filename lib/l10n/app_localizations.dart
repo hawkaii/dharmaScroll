@@ -3619,6 +3619,562 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{name}.  '**
   String nameLead(String name);
+
+  /// No description provided for @crisisTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You don’t have to carry this alone.'**
+  String get crisisTitle;
+
+  /// No description provided for @crisisBody.
+  ///
+  /// In en, this message translates to:
+  /// **'What you shared sounds very heavy. A trained person can help right now.'**
+  String get crisisBody;
+
+  /// No description provided for @crisisCall.
+  ///
+  /// In en, this message translates to:
+  /// **'Call Tele-MANAS 14416'**
+  String get crisisCall;
+
+  /// No description provided for @crisisDialFallback.
+  ///
+  /// In en, this message translates to:
+  /// **'Dial 14416 or 1-800-891-4416 from your phone.'**
+  String get crisisDialFallback;
+
+  /// No description provided for @crisisFree.
+  ///
+  /// In en, this message translates to:
+  /// **'Free, any time, in many languages. Also 1-800-891-4416.'**
+  String get crisisFree;
+
+  /// No description provided for @crisisEmergency.
+  ///
+  /// In en, this message translates to:
+  /// **'Call 112 if you are in danger now'**
+  String get crisisEmergency;
+
+  /// No description provided for @crisisEmergencyFallback.
+  ///
+  /// In en, this message translates to:
+  /// **'Dial 112 from your phone.'**
+  String get crisisEmergencyFallback;
+
+  /// No description provided for @crisisMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Message someone I trust'**
+  String get crisisMessage;
+
+  /// No description provided for @crisisSmsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Can you call me? I’m having a hard time.'**
+  String get crisisSmsBody;
+
+  /// No description provided for @crisisSmsFallback.
+  ///
+  /// In en, this message translates to:
+  /// **'Send someone you trust: “{text}”'**
+  String crisisSmsFallback(String text);
+
+  /// No description provided for @crisisBreathe.
+  ///
+  /// In en, this message translates to:
+  /// **'Stay here and breathe'**
+  String get crisisBreathe;
+
+  /// No description provided for @crisisNothingKept.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing you wrote was kept. No points, no record.'**
+  String get crisisNothingKept;
+
+  /// No description provided for @breatheSemantic.
+  ///
+  /// In en, this message translates to:
+  /// **'Breathe in for 4 seconds, and out for 6.'**
+  String get breatheSemantic;
+
+  /// No description provided for @breatheStill.
+  ///
+  /// In en, this message translates to:
+  /// **'In for 4. Out for 6.'**
+  String get breatheStill;
+
+  /// No description provided for @breatheIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Breathe in'**
+  String get breatheIn;
+
+  /// No description provided for @breatheOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Breathe out'**
+  String get breatheOut;
+
+  /// No description provided for @authShortNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'That number looks too short.'**
+  String get authShortNumber;
+
+  /// No description provided for @authShortCode.
+  ///
+  /// In en, this message translates to:
+  /// **'The code has six numbers.'**
+  String get authShortCode;
+
+  /// No description provided for @authSignInFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in first.'**
+  String get authSignInFirst;
+
+  /// No description provided for @friendName.
+  ///
+  /// In en, this message translates to:
+  /// **'Friend'**
+  String get friendName;
+
+  /// No description provided for @ekWrite.
+  ///
+  /// In en, this message translates to:
+  /// **'Write'**
+  String get ekWrite;
+
+  /// No description provided for @ekSpeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Speak'**
+  String get ekSpeak;
+
+  /// No description provided for @ekDoorPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Your words stay on this phone. Let them fade when you are done, or keep them.'**
+  String get ekDoorPrivacy;
+
+  /// No description provided for @ekDoorWaiting.
+  ///
+  /// In en, this message translates to:
+  /// **'Your last conversation is still here.'**
+  String get ekDoorWaiting;
+
+  /// No description provided for @ekSend.
+  ///
+  /// In en, this message translates to:
+  /// **'Send'**
+  String get ekSend;
+
+  /// No description provided for @ekWriteHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Write here'**
+  String get ekWriteHint;
+
+  /// No description provided for @ekAnswerHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Answer, or say more'**
+  String get ekAnswerHint;
+
+  /// No description provided for @ekYouSaid.
+  ///
+  /// In en, this message translates to:
+  /// **'You said'**
+  String get ekYouSaid;
+
+  /// No description provided for @ekEkantSaid.
+  ///
+  /// In en, this message translates to:
+  /// **'Ekant'**
+  String get ekEkantSaid;
+
+  /// No description provided for @ekReflecting.
+  ///
+  /// In en, this message translates to:
+  /// **'Ekant is reflecting'**
+  String get ekReflecting;
+
+  /// No description provided for @ekCopy.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy'**
+  String get ekCopy;
+
+  /// No description provided for @ekCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied'**
+  String get ekCopied;
+
+  /// No description provided for @ekStudy.
+  ///
+  /// In en, this message translates to:
+  /// **'Read this verse'**
+  String get ekStudy;
+
+  /// No description provided for @ekFailedNote.
+  ///
+  /// In en, this message translates to:
+  /// **'The room went quiet. Please try again.'**
+  String get ekFailedNote;
+
+  /// No description provided for @ekShareFooter.
+  ///
+  /// In en, this message translates to:
+  /// **'From Ekant, in DharmaScroll'**
+  String get ekShareFooter;
+
+  /// No description provided for @ekOpen1.
+  ///
+  /// In en, this message translates to:
+  /// **'Work has been weighing on me.'**
+  String get ekOpen1;
+
+  /// No description provided for @ekOpen2.
+  ///
+  /// In en, this message translates to:
+  /// **'I cannot stop worrying.'**
+  String get ekOpen2;
+
+  /// No description provided for @ekOpen3.
+  ///
+  /// In en, this message translates to:
+  /// **'I feel alone today.'**
+  String get ekOpen3;
+
+  /// No description provided for @ekOpen4.
+  ///
+  /// In en, this message translates to:
+  /// **'I am angry and cannot let it go.'**
+  String get ekOpen4;
+
+  /// No description provided for @ekConnecting.
+  ///
+  /// In en, this message translates to:
+  /// **'Getting ready'**
+  String get ekConnecting;
+
+  /// No description provided for @ekIdle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready'**
+  String get ekIdle;
+
+  /// No description provided for @ekListening.
+  ///
+  /// In en, this message translates to:
+  /// **'Listening'**
+  String get ekListening;
+
+  /// No description provided for @ekThinking.
+  ///
+  /// In en, this message translates to:
+  /// **'Thinking'**
+  String get ekThinking;
+
+  /// No description provided for @ekSpeaking.
+  ///
+  /// In en, this message translates to:
+  /// **'Speaking'**
+  String get ekSpeaking;
+
+  /// No description provided for @ekMuted.
+  ///
+  /// In en, this message translates to:
+  /// **'Muted'**
+  String get ekMuted;
+
+  /// No description provided for @ekConnectFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not connect'**
+  String get ekConnectFailed;
+
+  /// No description provided for @ekMute.
+  ///
+  /// In en, this message translates to:
+  /// **'Mute'**
+  String get ekMute;
+
+  /// No description provided for @ekUnmute.
+  ///
+  /// In en, this message translates to:
+  /// **'Unmute'**
+  String get ekUnmute;
+
+  /// No description provided for @ekEnd.
+  ///
+  /// In en, this message translates to:
+  /// **'End'**
+  String get ekEnd;
+
+  /// No description provided for @ekSwitchToChat.
+  ///
+  /// In en, this message translates to:
+  /// **'Switch to chat'**
+  String get ekSwitchToChat;
+
+  /// No description provided for @ekHandsFree.
+  ///
+  /// In en, this message translates to:
+  /// **'Hands-free'**
+  String get ekHandsFree;
+
+  /// No description provided for @ekPushToTalk.
+  ///
+  /// In en, this message translates to:
+  /// **'Push to talk'**
+  String get ekPushToTalk;
+
+  /// No description provided for @ekHoldToTalk.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold to talk'**
+  String get ekHoldToTalk;
+
+  /// No description provided for @ekRelease.
+  ///
+  /// In en, this message translates to:
+  /// **'Release when done'**
+  String get ekRelease;
+
+  /// No description provided for @ekYou.
+  ///
+  /// In en, this message translates to:
+  /// **'You'**
+  String get ekYou;
+
+  /// No description provided for @ekCaptionsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Words appear here as you speak.'**
+  String get ekCaptionsEmpty;
+
+  /// No description provided for @ekRetry.
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get ekRetry;
+
+  /// No description provided for @ekMicTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Use your microphone?'**
+  String get ekMicTitle;
+
+  /// No description provided for @ekMicBody.
+  ///
+  /// In en, this message translates to:
+  /// **'To talk, the phone needs to hear you. Sound is only used while this room is open. The room shows your words as you speak.'**
+  String get ekMicBody;
+
+  /// No description provided for @ekMicAllow.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow microphone'**
+  String get ekMicAllow;
+
+  /// No description provided for @ekMicDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'The microphone is off. You can allow it in the phone settings, or write instead.'**
+  String get ekMicDenied;
+
+  /// No description provided for @ekPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'What is on your mind?'**
+  String get ekPrompt;
+
+  /// No description provided for @ekRest.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest now'**
+  String get ekRest;
+
+  /// No description provided for @ekFade.
+  ///
+  /// In en, this message translates to:
+  /// **'Let it fade'**
+  String get ekFade;
+
+  /// No description provided for @ekKeep.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep on this phone'**
+  String get ekKeep;
+
+  /// No description provided for @ekReturn.
+  ///
+  /// In en, this message translates to:
+  /// **'Return'**
+  String get ekReturn;
+
+  /// No description provided for @ekEnough.
+  ///
+  /// In en, this message translates to:
+  /// **'That is enough for this sitting.'**
+  String get ekEnough;
+
+  /// No description provided for @ekKeepFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not keep it on this phone. Try again.'**
+  String get ekKeepFailed;
+
+  /// No description provided for @ekLeaveRoom.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave the room'**
+  String get ekLeaveRoom;
+
+  /// No description provided for @ekLeaveCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'LEAVE'**
+  String get ekLeaveCaps;
+
+  /// No description provided for @ekQuietRoom.
+  ///
+  /// In en, this message translates to:
+  /// **'A quiet room.'**
+  String get ekQuietRoom;
+
+  /// No description provided for @ekNoOne.
+  ///
+  /// In en, this message translates to:
+  /// **'No one is here. The app finds a verse of the Gita. Only the verse is the Gita’s word.'**
+  String get ekNoOne;
+
+  /// No description provided for @ekDanger.
+  ///
+  /// In en, this message translates to:
+  /// **'In danger? Call 112. Tele-MANAS 14416 is free, any time.'**
+  String get ekDanger;
+
+  /// No description provided for @ekKeptNotesBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'Kept notes ({n})'**
+  String ekKeptNotesBtn(int n);
+
+  /// No description provided for @ekVerseToCarry.
+  ///
+  /// In en, this message translates to:
+  /// **'A verse to carry'**
+  String get ekVerseToCarry;
+
+  /// No description provided for @ekYourWords.
+  ///
+  /// In en, this message translates to:
+  /// **'Your words'**
+  String get ekYourWords;
+
+  /// No description provided for @ekRestNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest now.'**
+  String get ekRestNow;
+
+  /// No description provided for @ekKeptOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Kept on this phone only. The verse stays.'**
+  String get ekKeptOnly;
+
+  /// No description provided for @ekGone.
+  ///
+  /// In en, this message translates to:
+  /// **'Your words have gone. The verse stays.'**
+  String get ekGone;
+
+  /// No description provided for @ekVerseSemantic.
+  ///
+  /// In en, this message translates to:
+  /// **'{attribution} Gita chapter {chapter}, verse {number}. {meaning}'**
+  String ekVerseSemantic(
+    String attribution,
+    int chapter,
+    int number,
+    String meaning,
+  );
+
+  /// No description provided for @ekVerseCardSemantic.
+  ///
+  /// In en, this message translates to:
+  /// **'Gita chapter {chapter}, verse {number}. {meaning}. {study}'**
+  String ekVerseCardSemantic(
+    int chapter,
+    int number,
+    String meaning,
+    String study,
+  );
+
+  /// No description provided for @ekGitaStudy.
+  ///
+  /// In en, this message translates to:
+  /// **'Gita {id}. {study}'**
+  String ekGitaStudy(String id, String study);
+
+  /// No description provided for @ekGitaStudyCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'GITA {id}  ·  {study}'**
+  String ekGitaStudyCaps(String id, String study);
+
+  /// No description provided for @ekKeptNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Kept notes'**
+  String get ekKeptNotes;
+
+  /// No description provided for @ekKeptNotesWhy.
+  ///
+  /// In en, this message translates to:
+  /// **'On this phone only, encrypted.'**
+  String get ekKeptNotesWhy;
+
+  /// No description provided for @ekDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get ekDelete;
+
+  /// No description provided for @ekNoteHead.
+  ///
+  /// In en, this message translates to:
+  /// **'{date}  ·  GITA {id}'**
+  String ekNoteHead(String date, String id);
+
+  /// No description provided for @ekVoiceUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice is not available here. Typing works.'**
+  String get ekVoiceUnavailable;
+
+  /// No description provided for @ekTalkOutLoud.
+  ///
+  /// In en, this message translates to:
+  /// **'Talk to Ekant out loud'**
+  String get ekTalkOutLoud;
+
+  /// No description provided for @ekWriteIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Write it as it comes. Hindi, English or Hinglish.'**
+  String get ekWriteIntro;
+
+  /// No description provided for @ekDictate.
+  ///
+  /// In en, this message translates to:
+  /// **'Dictate'**
+  String get ekDictate;
 }
 
 class _AppLocalizationsDelegate

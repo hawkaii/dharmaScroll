@@ -1165,5 +1165,172 @@
         "type": "String"
       }
     }
-  }
+  },
+  "crisisTitle": "You don’t have to carry this alone.",
+  "crisisBody": "What you shared sounds very heavy. A trained person can help right now.",
+  "crisisCall": "Call Tele-MANAS 14416",
+  "crisisDialFallback": "Dial 14416 or 1-800-891-4416 from your phone.",
+  "crisisFree": "Free, any time, in many languages. Also 1-800-891-4416.",
+  "crisisEmergency": "Call 112 if you are in danger now",
+  "crisisEmergencyFallback": "Dial 112 from your phone.",
+  "crisisMessage": "Message someone I trust",
+  "crisisSmsBody": "Can you call me? I’m having a hard time.",
+  "crisisSmsFallback": "Send someone you trust: “{text}”",
+  "@crisisSmsFallback": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "crisisBreathe": "Stay here and breathe",
+  "crisisNothingKept": "Nothing you wrote was kept. No points, no record.",
+  "breatheSemantic": "Breathe in for 4 seconds, and out for 6.",
+  "breatheStill": "In for 4. Out for 6.",
+  "breatheIn": "Breathe in",
+  "breatheOut": "Breathe out",
+  "authShortNumber": "That number looks too short.",
+  "authShortCode": "The code has six numbers.",
+  "authSignInFirst": "Sign in first.",
+  "friendName": "Friend",
+  "ekWrite": "Write",
+  "ekSpeak": "Speak",
+  "ekDoorPrivacy": "Your words stay on this phone. Let them fade when you are done, or keep them.",
+  "ekDoorWaiting": "Your last conversation is still here.",
+  "ekSend": "Send",
+  "ekWriteHint": "Write here",
+  "ekAnswerHint": "Answer, or say more",
+  "ekYouSaid": "You said",
+  "ekEkantSaid": "Ekant",
+  "ekReflecting": "Ekant is reflecting",
+  "ekCopy": "Copy",
+  "ekCopied": "Copied",
+  "ekStudy": "Read this verse",
+  "ekFailedNote": "The room went quiet. Please try again.",
+  "ekShareFooter": "From Ekant, in DharmaScroll",
+  "ekOpen1": "Work has been weighing on me.",
+  "ekOpen2": "I cannot stop worrying.",
+  "ekOpen3": "I feel alone today.",
+  "ekOpen4": "I am angry and cannot let it go.",
+  "ekConnecting": "Getting ready",
+  "ekIdle": "Ready",
+  "ekListening": "Listening",
+  "ekThinking": "Thinking",
+  "ekSpeaking": "Speaking",
+  "ekMuted": "Muted",
+  "ekConnectFailed": "Could not connect",
+  "ekMute": "Mute",
+  "ekUnmute": "Unmute",
+  "ekEnd": "End",
+  "ekSwitchToChat": "Switch to chat",
+  "ekHandsFree": "Hands-free",
+  "ekPushToTalk": "Push to talk",
+  "ekHoldToTalk": "Hold to talk",
+  "ekRelease": "Release when done",
+  "ekYou": "You",
+  "ekCaptionsEmpty": "Words appear here as you speak.",
+  "ekRetry": "Try again",
+  "ekMicTitle": "Use your microphone?",
+  "ekMicBody": "To talk, the phone needs to hear you. Sound is only used while this room is open. The room shows your words as you speak.",
+  "ekMicAllow": "Allow microphone",
+  "ekMicDenied": "The microphone is off. You can allow it in the phone settings, or write instead.",
+  "ekPrompt": "What is on your mind?",
+  "ekRest": "Rest now",
+  "ekFade": "Let it fade",
+  "ekKeep": "Keep on this phone",
+  "ekReturn": "Return",
+  "ekEnough": "That is enough for this sitting.",
+  "ekKeepFailed": "Could not keep it on this phone. Try again.",
+  "ekLeaveRoom": "Leave the room",
+  "ekLeaveCaps": "LEAVE",
+  "ekQuietRoom": "A quiet room.",
+  "ekNoOne": "No one is here. The app finds a verse of the Gita. Only the verse is the Gita’s word.",
+  "ekDanger": "In danger? Call 112. Tele-MANAS 14416 is free, any time.",
+  "ekKeptNotesBtn": "Kept notes ({n})",
+  "@ekKeptNotesBtn": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "ekVerseToCarry": "A verse to carry",
+  "ekYourWords": "Your words",
+  "ekRestNow": "Rest now.",
+  "ekKeptOnly": "Kept on this phone only. The verse stays.",
+  "ekGone": "Your words have gone. The verse stays.",
+  "ekVerseSemantic": "{attribution} Gita chapter {chapter}, verse {number}. {meaning}",
+  "@ekVerseSemantic": {
+    "placeholders": {
+      "attribution": {
+        "type": "String"
+      },
+      "chapter": {
+        "type": "int"
+      },
+      "number": {
+        "type": "int"
+      },
+      "meaning": {
+        "type": "String"
+      }
+    }
+  },
+  "ekVerseCardSemantic": "Gita chapter {chapter}, verse {number}. {meaning}. {study}",
+  "@ekVerseCardSemantic": {
+    "placeholders": {
+      "chapter": {
+        "type": "int"
+      },
+      "number": {
+        "type": "int"
+      },
+      "meaning": {
+        "type": "String"
+      },
+      "study": {
+        "type": "String"
+      }
+    }
+  },
+  "ekGitaStudy": "Gita {id}. {study}",
+  "@ekGitaStudy": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      },
+      "study": {
+        "type": "String"
+      }
+    }
+  },
+  "ekGitaStudyCaps": "GITA {id}  ·  {study}",
+  "@ekGitaStudyCaps": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      },
+      "study": {
+        "type": "String"
+      }
+    }
+  },
+  "ekKeptNotes": "Kept notes",
+  "ekKeptNotesWhy": "On this phone only, encrypted.",
+  "ekDelete": "Delete",
+  "ekNoteHead": "{date}  ·  GITA {id}",
+  "@ekNoteHead": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "ekVoiceUnavailable": "Voice is not available here. Typing works.",
+  "ekTalkOutLoud": "Talk to Ekant out loud",
+  "ekWriteIntro": "Write it as it comes. Hindi, English or Hinglish.",
+  "ekDictate": "Dictate"
 }

@@ -184,4 +184,12 @@ extension GitaWords on AppLocalizations {
     'self-doubt' || 'failure' => wasHeartLost,
     _ => null,
   };
+
+  /// Quiet starting points for Ekant. Tapping one puts it in the box to edit.
+  List<String> get ekOpenings => <String>[
+    ekOpen1,
+    ekOpen2,
+    ekOpen3,
+    ekOpen4,
+  ];
 }

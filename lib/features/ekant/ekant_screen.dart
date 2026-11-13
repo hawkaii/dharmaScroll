@@ -11,6 +11,7 @@ import '../../design/effects.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../../l10n/l10n.dart';
 import 'chat_history.dart';
 import 'chat_service.dart';
 import 'ekant_chat.dart';
@@ -18,7 +19,6 @@ import 'ekant_chat_view.dart';
 import 'ekant_engine.dart';
 import 'ekant_providers.dart';
 import 'ekant_sitting.dart';
-import 'ekant_strings.dart';
 import 'ekant_talk.dart';
 import 'kept_notes.dart';
 
@@ -27,13 +27,6 @@ export 'ekant_providers.dart' show ekantMatcherProvider, ekantResponderProvider;
 /// Ekant: a quiet room with one lamp. No one is in it; only verses guide.
 class EkantScreen extends ConsumerStatefulWidget {
   const EkantScreen({super.key});
-
-  static const String prompt = 'What is on your mind?';
-  static const String restLabel = 'Rest now';
-  static const String fadeLabel = 'Let it fade';
-  static const String keepLabel = 'Keep on this phone';
-  static const String returnLabel = 'Return';
-  static const String enough = 'That is enough for this sitting.';
 
   /// How long the words take to fade away.
   static const Duration fade = Duration(milliseconds: 1600);
@@ -141,7 +134,7 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
     } catch (e) {
       debugPrint('Ekant keep: $e');
       if (mounted) {
-        setState(() => _note = 'Could not keep it on this phone. Try again.');
+        setState(() => _note = context.l.ekKeepFailed);
       }
     } finally {
       if (mounted) setState(() => _keeping = false);
@@ -219,7 +212,7 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
             children: <Widget>[
               Semantics(
                 button: true,
-                label: 'Leave the room',
+                label: context.l.ekLeaveRoom,
                 excludeSemantics: true,
                 onTap: _leave,
                 child: GestureDetector(
@@ -233,7 +226,10 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       widthFactor: 1,
-                      child: Text('LEAVE', style: DType.eyebrow(c.faint)),
+                      child: Text(
+                        context.l.ekLeaveCaps,
+                        style: DType.eyebrow(c.faint),
+                      ),
                     ),
                   ),
                 ),
@@ -258,7 +254,7 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
     final DharmaColors c = context.c;
     final TextStyle line = DType.body(c.mute, size: 17);
     return _frame(
-      right: 'Ekant',
+      right: context.l.ekantRow,
       content: Column(
         children: <Widget>[
           const SizedBox(height: Sp.s34),
@@ -266,43 +262,43 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
           const SizedBox(height: Sp.s22),
           Semantics(
             header: true,
-            child: Text('Ekant', style: DType.title(c.ink)),
+            child: Text(context.l.ekantRow, style: DType.title(c.ink)),
           ),
           const SizedBox(height: Sp.s6),
-          Text('A quiet room.', style: DType.body(c.mute)),
+          Text(context.l.ekQuietRoom, style: DType.body(c.mute)),
           const SizedBox(height: Sp.s30),
           Text(
-            'No one is here. The app finds a verse of the Gita. Only the verse is the Gita\u2019s word.',
+            context.l.ekNoOne,
             textAlign: TextAlign.center,
             style: line,
           ),
           const SizedBox(height: Sp.s14),
           Text(
             _chat.isEmpty
-                ? EkantStrings.doorPrivacy
-                : '${EkantStrings.doorPrivacy} ${EkantStrings.doorWaiting}',
+                ? context.l.ekDoorPrivacy
+                : '${context.l.ekDoorPrivacy} ${context.l.ekDoorWaiting}',
             textAlign: TextAlign.center,
             style: line,
           ),
           const SizedBox(height: Sp.s14),
           Text(
-            'In danger? Call 112. Tele-MANAS 14416 is free, any time.',
+            context.l.ekDanger,
             textAlign: TextAlign.center,
             style: line,
           ),
         ],
       ),
       actions: <Widget>[
-        PrimaryButton(label: EkantStrings.writeLabel, onPressed: _write),
+        PrimaryButton(label: context.l.ekWrite, onPressed: _write),
         const SizedBox(height: Sp.s12),
         SecondaryButton(
-          label: EkantStrings.speakLabel,
+          label: context.l.ekSpeak,
           onPressed: _speak,
           leading: DIcon('mic', size: 22, color: context.c.peacock),
         ),
         if (_keptCount > 0)
           TextAction(
-            label: 'Kept notes ($_keptCount)',
+            label: context.l.ekKeptNotesBtn(_keptCount),
             onPressed: () => showDSheet<void>(
               context,
               (BuildContext ctx) =>
@@ -317,7 +313,7 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
     final DharmaColors c = context.c;
     final bool still = reduceMotion(context);
     return _frame(
-      right: 'A verse to carry',
+      right: context.l.ekVerseToCarry,
       content: Column(
         children: <Widget>[
           const Diya(size: 64),
@@ -346,7 +342,7 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
               return w;
             },
             child: Semantics(
-              label: 'Your words',
+              label: context.l.ekYourWords,
               child: Column(
                 key: const ValueKey<String>('ekant-words'),
                 children: <Widget>[
@@ -375,11 +371,11 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
             child: Text(_note!, style: DType.body(c.mute, size: 15)),
           ),
         PrimaryButton(
-          label: EkantScreen.fadeLabel,
+          label: context.l.ekFade,
           onPressed: _fading || _keeping ? null : _letGo,
         ),
         TextAction(
-          label: EkantScreen.keepLabel,
+          label: context.l.ekKeep,
           onPressed: _fading || _keeping ? () {} : _keep,
         ),
       ],
@@ -391,7 +387,7 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
     final Verse v = _s.carry;
     final EkantLang lang = _s.carryLang;
     return _frame(
-      right: 'Ekant',
+      right: context.l.ekantRow,
       content: Stack(
         alignment: Alignment.topCenter,
         children: <Widget>[
@@ -402,13 +398,13 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
               const SizedBox(height: Sp.s22),
               Semantics(
                 header: true,
-                child: Text('Rest now.', style: DType.title(c.ink)),
+                child: Text(context.l.ekRestNow, style: DType.title(c.ink)),
               ),
               const SizedBox(height: Sp.s14),
               Text(
                 _s.kept
-                    ? 'Kept on this phone only. The verse stays.'
-                    : 'Your words have gone. The verse stays.',
+                    ? context.l.ekKeptOnly
+                    : context.l.ekGone,
                 textAlign: TextAlign.center,
                 style: DType.body(c.mute),
               ),
@@ -419,14 +415,14 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
                 style: DType.meaning(c.ink).copyWith(fontSize: 19),
               ),
               const SizedBox(height: Sp.s12),
-              Text('GITA ${v.id}', style: DType.ref(c.faint)),
+              Text(context.l.gitaRefCaps(v.id), style: DType.ref(c.faint)),
             ],
           ),
           if (_s.kept) const Positioned(top: 20, child: KeepBloom()),
         ],
       ),
       actions: <Widget>[
-        PrimaryButton(label: EkantScreen.returnLabel, onPressed: _leave),
+        PrimaryButton(label: context.l.ekReturn, onPressed: _leave),
       ],
     );
   }
@@ -466,7 +462,12 @@ class VerseBlock extends StatelessWidget {
     return Semantics(
       container: true,
       label:
-          '$attribution Gita chapter ${verse.chapter}, verse ${verse.number}. $meaning',
+          context.l.ekVerseSemantic(
+            attribution,
+            verse.chapter,
+            verse.number,
+            meaning,
+          ),
       child: ExcludeSemantics(
         child: Column(
           children: <Widget>[
@@ -495,7 +496,7 @@ class VerseBlock extends StatelessWidget {
               style: DType.meaning(c.ink).copyWith(fontSize: 19),
             ),
             const SizedBox(height: Sp.s12),
-            Text('GITA ${verse.id}', style: DType.ref(c.faint)),
+            Text(context.l.gitaRefCaps(verse.id), style: DType.ref(c.faint)),
           ],
         ),
       ),
@@ -528,11 +529,6 @@ class _KeptSheetState extends State<_KeptSheet> {
     if (mounted) setState(() => _notes = all.reversed.toList());
   }
 
-  static const List<String> _months = <String>[
-    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', //
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
-  ];
-
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
@@ -545,10 +541,13 @@ class _KeptSheetState extends State<_KeptSheet> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text('Kept notes', style: DType.title(c.ink, compact: true)),
+          Text(
+            context.l.ekKeptNotes,
+            style: DType.title(c.ink, compact: true),
+          ),
           const SizedBox(height: Sp.s6),
           Text(
-            'On this phone only, encrypted.',
+            context.l.ekKeptNotesWhy,
             style: DType.body(c.mute, size: 16),
           ),
           const SizedBox(height: Sp.s18),
@@ -569,7 +568,13 @@ class _KeptSheetState extends State<_KeptSheet> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            '${n.at.day} ${_months[n.at.month - 1]}  ·  GITA ${n.verseId}',
+                            context.l.ekNoteHead(
+                              context.l.dayMonth(
+                                n.at.day,
+                                context.l.month(n.at.month),
+                              ),
+                              n.verseId,
+                            ),
                             style: DType.ref(c.faint),
                           ),
                           const SizedBox(height: Sp.s6),
@@ -580,7 +585,7 @@ class _KeptSheetState extends State<_KeptSheet> {
                           Align(
                             alignment: Alignment.centerRight,
                             child: TextAction(
-                              label: 'Delete',
+                              label: context.l.ekDelete,
                               onPressed: () async {
                                 await widget.store.remove(n.at);
                                 widget.onChanged();

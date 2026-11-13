@@ -11,6 +11,7 @@ import '../../design/effects.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../../l10n/auth_words.dart';
 import '../../l10n/l10n.dart';
 import '../points/wallet_screen.dart';
 import '../sankalp/sankalp_sheet.dart';
@@ -27,7 +28,9 @@ class TodayScreen extends ConsumerWidget {
     final List<String> calendarToday = ref.watch(todayInCalendarProvider);
     final DharmaColors c = context.c;
     final AppLocalizations l = context.l;
-    final String name = ref.watch(authProvider)?.name ?? '';
+    final String name = context.l.greetingName(
+      ref.watch(authProvider)?.name ?? '',
+    );
 
     final bool heard = p.steps.contains(RitualStep.hear);
     final bool walked = p.steps.contains(RitualStep.walk);

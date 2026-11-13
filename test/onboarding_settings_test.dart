@@ -9,7 +9,6 @@ import 'package:dharmascroll/core/rituals/panchang.dart';
 import 'package:dharmascroll/core/rituals/providers.dart';
 import 'package:dharmascroll/core/rituals/reminder_backend.dart';
 import 'package:dharmascroll/core/rituals/rituals.dart';
-import 'package:dharmascroll/l10n/ritual_words.dart';
 import 'package:dharmascroll/data/verse_repository.dart';
 import 'package:dharmascroll/design/info_sheet.dart';
 import 'package:dharmascroll/design/lottie_art.dart';
