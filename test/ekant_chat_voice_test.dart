@@ -659,9 +659,14 @@ void main() {
       expect(lk.current, VoiceState.disconnected);
     });
 
-    test('the default providers are the fakes', () {
+    test('the default providers are the fakes', () async {
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
       final ProviderContainer c = ProviderContainer(
-        overrides: <Override>[versesProvider.overrideWithValue(_verses())],
+        overrides: <Override>[
+          versesProvider.overrideWithValue(_verses()),
+          sharedPrefsProvider.overrideWithValue(prefs),
+        ],
       );
       addTearDown(c.dispose);
       expect(c.read(chatServiceProvider), isA<FakeChatService>());
