@@ -577,6 +577,14 @@ void main() {
     for (final String lang in <String>['english', 'hindi']) {
       testWidgets('they all fit ($lang)', (WidgetTester tester) async {
         final AppLocalizations l = lang == 'hindi' ? hi : en;
+        // Keep the widget that overflowed, so a failure says where.
+        final void Function(FlutterErrorDetails)? old = FlutterError.onError;
+        String last = '';
+        FlutterError.onError = (FlutterErrorDetails d) {
+          last = d.toString();
+          old?.call(d);
+        };
+        addTearDown(() => FlutterError.onError = old);
         await _pump(
           tester,
           await _prefs(
@@ -618,7 +626,7 @@ void main() {
           Routes.ekant,
         ]) {
           await _go(tester, route, extra: route == Routes.milestone ? 7 : 5);
-          expect(tester.takeException(), isNull, reason: '$lang $route');
+          expect(tester.takeException(), isNull, reason: '$lang $route $last');
         }
         // The Ekant door, then writing.
         await _tapText(tester, l.ekWrite);
@@ -631,21 +639,33 @@ void main() {
         await tester.enterText(find.byType(TextField), 'परीक्षा');
         await tester.pump();
         await _tapText(tester, l.letVerseAnswer);
-        expect(tester.takeException(), isNull, reason: '$lang mann answer');
+        expect(
+          tester.takeException(),
+          isNull,
+          reason: '$lang mann answer $last',
+        );
         await _tapText(tester, l.sealAsSankalp);
-        expect(tester.takeException(), isNull, reason: '$lang sankalp sheet');
+        expect(
+          tester.takeException(),
+          isNull,
+          reason: '$lang sankalp sheet $last',
+        );
         await _go(tester, Routes.today);
-        expect(tester.takeException(), isNull, reason: '$lang today');
+        expect(tester.takeException(), isNull, reason: '$lang today $last');
         // Sheets.
         showTraditionExplainer(_context(tester));
         await tester.pumpAndSettle();
-        expect(tester.takeException(), isNull, reason: '$lang explainer');
+        expect(tester.takeException(), isNull, reason: '$lang explainer $last');
         await _tapText(tester, l.gotIt);
         showExplainSheet(_context(tester), _verses.first);
         await tester.pumpAndSettle();
         for (final ExplainSection s in ExplainSection.values) {
           await _tapText(tester, l.sectionLabel(s));
-          expect(tester.takeException(), isNull, reason: '$lang ${s.name}');
+          expect(
+            tester.takeException(),
+            isNull,
+            reason: '$lang ${s.name} $last',
+          );
         }
         await tester.tapAt(const Offset(10, 10));
         await tester.pumpAndSettle();
@@ -654,7 +674,7 @@ void main() {
           ShareContent(streak: 7, verse: _verses.first, meaning: 'x'),
         );
         await tester.pumpAndSettle();
-        expect(tester.takeException(), isNull, reason: '$lang share');
+        expect(tester.takeException(), isNull, reason: '$lang share $last');
       });
     }
   });
