@@ -1332,5 +1332,142 @@
   "ekVoiceUnavailable": "Voice is not available here. Typing works.",
   "ekTalkOutLoud": "Talk to Ekant out loud",
   "ekWriteIntro": "Write it as it comes. Hindi, English or Hinglish.",
-  "ekDictate": "Dictate"
+  "ekDictate": "Dictate",
+  "exSimpleLabel": "In simple words",
+  "exSimpleHead": "What it means",
+  "exWordsLabel": "Word by word",
+  "exWordsHead": "One word at a time",
+  "exMomentLabel": "The moment",
+  "exMomentHead": "Kurukshetra, at dawn",
+  "exRelatedLabel": "Related verses",
+  "exRelatedHead": "On the same path",
+  "exMyDayLabel": "For my day",
+  "exMyDayHead": "One line from you",
+  "exDraftNote": "Written for this app. Draft, pending scholar review.",
+  "exOfflineNote": "Replies written with AI are coming. For now the verse answers from your phone.",
+  "exAskHint": "What is on your mind today?",
+  "exAskLabel": "Show me",
+  "exBackTo": "Back to Gita {id}",
+  "@exBackTo": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "exVerseSemantic": "Verse {id}. {sanskrit}",
+  "@exVerseSemantic": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      },
+      "sanskrit": {
+        "type": "String"
+      }
+    }
+  },
+  "exListen": "Listen",
+  "exListenHint": "Press and hold to listen",
+  "exWordsNote": "Word meanings in English. Draft, pending scholar review.",
+  "exSpeaksTo": "{speaker} speaks to {listener}.",
+  "@exSpeaksTo": {
+    "placeholders": {
+      "speaker": {
+        "type": "String"
+      },
+      "listener": {
+        "type": "String"
+      }
+    }
+  },
+  "exChapterHead": "ADHYAY {chapter} · {yoga}",
+  "@exChapterHead": {
+    "placeholders": {
+      "chapter": {
+        "type": "int"
+      },
+      "yoga": {
+        "type": "String"
+      }
+    }
+  },
+  "exOpenGita": "Open Gita {id}",
+  "@exOpenGita": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "exOfflineCaps": "OFFLINE · FROM YOUR PHONE",
+  "exBusy": "Listening to the verse",
+  "exBySoftware": "Written by software, from the verse.",
+  "exFromPhone": "From your phone. Not a teacher or a counsellor.",
+  "exStoryOnly": "This verse is part of the story, not advice for your day. This one may sit closer to you.",
+  "exSaid": "{speaker} told {listener} this for moments of {situations}.",
+  "@exSaid": {
+    "placeholders": {
+      "speaker": {
+        "type": "String"
+      },
+      "listener": {
+        "type": "String"
+      },
+      "situations": {
+        "type": "String"
+      }
+    }
+  },
+  "exListAnd": "{rest} and {last}",
+  "@exListAnd": {
+    "placeholders": {
+      "rest": {
+        "type": "String"
+      },
+      "last": {
+        "type": "String"
+      }
+    }
+  },
+  "exCarry": "{said} Carry one line of it with you today.",
+  "@exCarry": {
+    "placeholders": {
+      "said": {
+        "type": "String"
+      }
+    }
+  },
+  "exMeets": "{said} It meets the {tag} you wrote about. Read it once more, slowly.",
+  "@exMeets": {
+    "placeholders": {
+      "said": {
+        "type": "String"
+      },
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "exCloser": "{said} For {tag}, Gita {id} may sit closer.",
+  "@exCloser": {
+    "placeholders": {
+      "said": {
+        "type": "String"
+      },
+      "tag": {
+        "type": "String"
+      },
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "exHold": "{said} Hold your day up to it and see what stays.",
+  "@exHold": {
+    "placeholders": {
+      "said": {
+        "type": "String"
+      }
+    }
+  }
 }

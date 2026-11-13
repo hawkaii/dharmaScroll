@@ -4175,6 +4175,204 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Dictate'**
   String get ekDictate;
+
+  /// No description provided for @exSimpleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'In simple words'**
+  String get exSimpleLabel;
+
+  /// No description provided for @exSimpleHead.
+  ///
+  /// In en, this message translates to:
+  /// **'What it means'**
+  String get exSimpleHead;
+
+  /// No description provided for @exWordsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Word by word'**
+  String get exWordsLabel;
+
+  /// No description provided for @exWordsHead.
+  ///
+  /// In en, this message translates to:
+  /// **'One word at a time'**
+  String get exWordsHead;
+
+  /// No description provided for @exMomentLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'The moment'**
+  String get exMomentLabel;
+
+  /// No description provided for @exMomentHead.
+  ///
+  /// In en, this message translates to:
+  /// **'Kurukshetra, at dawn'**
+  String get exMomentHead;
+
+  /// No description provided for @exRelatedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Related verses'**
+  String get exRelatedLabel;
+
+  /// No description provided for @exRelatedHead.
+  ///
+  /// In en, this message translates to:
+  /// **'On the same path'**
+  String get exRelatedHead;
+
+  /// No description provided for @exMyDayLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'For my day'**
+  String get exMyDayLabel;
+
+  /// No description provided for @exMyDayHead.
+  ///
+  /// In en, this message translates to:
+  /// **'One line from you'**
+  String get exMyDayHead;
+
+  /// No description provided for @exDraftNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Written for this app. Draft, pending scholar review.'**
+  String get exDraftNote;
+
+  /// No description provided for @exOfflineNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Replies written with AI are coming. For now the verse answers from your phone.'**
+  String get exOfflineNote;
+
+  /// No description provided for @exAskHint.
+  ///
+  /// In en, this message translates to:
+  /// **'What is on your mind today?'**
+  String get exAskHint;
+
+  /// No description provided for @exAskLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Show me'**
+  String get exAskLabel;
+
+  /// No description provided for @exBackTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to Gita {id}'**
+  String exBackTo(String id);
+
+  /// No description provided for @exVerseSemantic.
+  ///
+  /// In en, this message translates to:
+  /// **'Verse {id}. {sanskrit}'**
+  String exVerseSemantic(String id, String sanskrit);
+
+  /// No description provided for @exListen.
+  ///
+  /// In en, this message translates to:
+  /// **'Listen'**
+  String get exListen;
+
+  /// No description provided for @exListenHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Press and hold to listen'**
+  String get exListenHint;
+
+  /// No description provided for @exWordsNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Word meanings in English. Draft, pending scholar review.'**
+  String get exWordsNote;
+
+  /// No description provided for @exSpeaksTo.
+  ///
+  /// In en, this message translates to:
+  /// **'{speaker} speaks to {listener}.'**
+  String exSpeaksTo(String speaker, String listener);
+
+  /// No description provided for @exChapterHead.
+  ///
+  /// In en, this message translates to:
+  /// **'ADHYAY {chapter} · {yoga}'**
+  String exChapterHead(int chapter, String yoga);
+
+  /// No description provided for @exOpenGita.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Gita {id}'**
+  String exOpenGita(String id);
+
+  /// No description provided for @exOfflineCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'OFFLINE · FROM YOUR PHONE'**
+  String get exOfflineCaps;
+
+  /// No description provided for @exBusy.
+  ///
+  /// In en, this message translates to:
+  /// **'Listening to the verse'**
+  String get exBusy;
+
+  /// No description provided for @exBySoftware.
+  ///
+  /// In en, this message translates to:
+  /// **'Written by software, from the verse.'**
+  String get exBySoftware;
+
+  /// No description provided for @exFromPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'From your phone. Not a teacher or a counsellor.'**
+  String get exFromPhone;
+
+  /// No description provided for @exStoryOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'This verse is part of the story, not advice for your day. This one may sit closer to you.'**
+  String get exStoryOnly;
+
+  /// No description provided for @exSaid.
+  ///
+  /// In en, this message translates to:
+  /// **'{speaker} told {listener} this for moments of {situations}.'**
+  String exSaid(String speaker, String listener, String situations);
+
+  /// No description provided for @exListAnd.
+  ///
+  /// In en, this message translates to:
+  /// **'{rest} and {last}'**
+  String exListAnd(String rest, String last);
+
+  /// No description provided for @exCarry.
+  ///
+  /// In en, this message translates to:
+  /// **'{said} Carry one line of it with you today.'**
+  String exCarry(String said);
+
+  /// No description provided for @exMeets.
+  ///
+  /// In en, this message translates to:
+  /// **'{said} It meets the {tag} you wrote about. Read it once more, slowly.'**
+  String exMeets(String said, String tag);
+
+  /// No description provided for @exCloser.
+  ///
+  /// In en, this message translates to:
+  /// **'{said} For {tag}, Gita {id} may sit closer.'**
+  String exCloser(String said, String tag, String id);
+
+  /// No description provided for @exHold.
+  ///
+  /// In en, this message translates to:
+  /// **'{said} Hold your day up to it and see what stays.'**
+  String exHold(String said);
 }
 
 class _AppLocalizationsDelegate

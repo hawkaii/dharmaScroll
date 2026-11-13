@@ -2289,4 +2289,129 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get ekDictate => 'Dictate';
+
+  @override
+  String get exSimpleLabel => 'In simple words';
+
+  @override
+  String get exSimpleHead => 'What it means';
+
+  @override
+  String get exWordsLabel => 'Word by word';
+
+  @override
+  String get exWordsHead => 'One word at a time';
+
+  @override
+  String get exMomentLabel => 'The moment';
+
+  @override
+  String get exMomentHead => 'Kurukshetra, at dawn';
+
+  @override
+  String get exRelatedLabel => 'Related verses';
+
+  @override
+  String get exRelatedHead => 'On the same path';
+
+  @override
+  String get exMyDayLabel => 'For my day';
+
+  @override
+  String get exMyDayHead => 'One line from you';
+
+  @override
+  String get exDraftNote =>
+      'Written for this app. Draft, pending scholar review.';
+
+  @override
+  String get exOfflineNote =>
+      'Replies written with AI are coming. For now the verse answers from your phone.';
+
+  @override
+  String get exAskHint => 'What is on your mind today?';
+
+  @override
+  String get exAskLabel => 'Show me';
+
+  @override
+  String exBackTo(String id) {
+    return 'Back to Gita $id';
+  }
+
+  @override
+  String exVerseSemantic(String id, String sanskrit) {
+    return 'Verse $id. $sanskrit';
+  }
+
+  @override
+  String get exListen => 'Listen';
+
+  @override
+  String get exListenHint => 'Press and hold to listen';
+
+  @override
+  String get exWordsNote =>
+      'Word meanings in English. Draft, pending scholar review.';
+
+  @override
+  String exSpeaksTo(String speaker, String listener) {
+    return '$speaker speaks to $listener.';
+  }
+
+  @override
+  String exChapterHead(int chapter, String yoga) {
+    return 'ADHYAY $chapter · $yoga';
+  }
+
+  @override
+  String exOpenGita(String id) {
+    return 'Open Gita $id';
+  }
+
+  @override
+  String get exOfflineCaps => 'OFFLINE · FROM YOUR PHONE';
+
+  @override
+  String get exBusy => 'Listening to the verse';
+
+  @override
+  String get exBySoftware => 'Written by software, from the verse.';
+
+  @override
+  String get exFromPhone => 'From your phone. Not a teacher or a counsellor.';
+
+  @override
+  String get exStoryOnly =>
+      'This verse is part of the story, not advice for your day. This one may sit closer to you.';
+
+  @override
+  String exSaid(String speaker, String listener, String situations) {
+    return '$speaker told $listener this for moments of $situations.';
+  }
+
+  @override
+  String exListAnd(String rest, String last) {
+    return '$rest and $last';
+  }
+
+  @override
+  String exCarry(String said) {
+    return '$said Carry one line of it with you today.';
+  }
+
+  @override
+  String exMeets(String said, String tag) {
+    return '$said It meets the $tag you wrote about. Read it once more, slowly.';
+  }
+
+  @override
+  String exCloser(String said, String tag, String id) {
+    return '$said For $tag, Gita $id may sit closer.';
+  }
+
+  @override
+  String exHold(String said) {
+    return '$said Hold your day up to it and see what stays.';
+  }
 }

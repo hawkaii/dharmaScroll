@@ -1332,5 +1332,142 @@
   "ekVoiceUnavailable": "यहाँ आवाज़ से बोलना नहीं हो पाएगा। लिखकर बात हो सकती है।",
   "ekTalkOutLoud": "एकांत से बोलकर बात कीजिए",
   "ekWriteIntro": "जैसा मन में आए, वैसा लिखिए। हिन्दी, अंग्रेज़ी या हिंग्लिश में।",
-  "ekDictate": "बोलकर लिखिए"
+  "ekDictate": "बोलकर लिखिए",
+  "exSimpleLabel": "सरल शब्दों में",
+  "exSimpleHead": "इसका मतलब",
+  "exWordsLabel": "शब्द-शब्द",
+  "exWordsHead": "एक बार में एक शब्द",
+  "exMomentLabel": "वह क्षण",
+  "exMomentHead": "कुरुक्षेत्र, भोर में",
+  "exRelatedLabel": "जुड़े श्लोक",
+  "exRelatedHead": "उसी राह पर",
+  "exMyDayLabel": "मेरे दिन के लिए",
+  "exMyDayHead": "आपकी ओर से एक पंक्ति",
+  "exDraftNote": "इस ऐप के लिए लिखा गया। प्रारूप, विद्वान की समीक्षा बाकी।",
+  "exOfflineNote": "AI से लिखे उत्तर जल्द आएँगे। अभी श्लोक आपके फ़ोन से ही उत्तर देता है।",
+  "exAskHint": "आज आपके मन में क्या है?",
+  "exAskLabel": "दिखाइए",
+  "exBackTo": "गीता {id} पर लौटिए",
+  "@exBackTo": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "exVerseSemantic": "श्लोक {id}। {sanskrit}",
+  "@exVerseSemantic": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      },
+      "sanskrit": {
+        "type": "String"
+      }
+    }
+  },
+  "exListen": "सुनिए",
+  "exListenHint": "सुनने के लिए दबाए रखिए",
+  "exWordsNote": "शब्दों के अर्थ अंग्रेज़ी में हैं। प्रारूप, विद्वान की समीक्षा बाकी।",
+  "exSpeaksTo": "{speaker} {listener} से बात करते हैं।",
+  "@exSpeaksTo": {
+    "placeholders": {
+      "speaker": {
+        "type": "String"
+      },
+      "listener": {
+        "type": "String"
+      }
+    }
+  },
+  "exChapterHead": "अध्याय {chapter} · {yoga}",
+  "@exChapterHead": {
+    "placeholders": {
+      "chapter": {
+        "type": "int"
+      },
+      "yoga": {
+        "type": "String"
+      }
+    }
+  },
+  "exOpenGita": "गीता {id} खोलिए",
+  "@exOpenGita": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "exOfflineCaps": "ऑफ़लाइन · आपके फ़ोन से",
+  "exBusy": "श्लोक को सुन रहे हैं",
+  "exBySoftware": "सॉफ़्टवेयर ने श्लोक से लिखा।",
+  "exFromPhone": "आपके फ़ोन से। यह कोई गुरु या सलाहकार नहीं है।",
+  "exStoryOnly": "यह श्लोक कथा का हिस्सा है, आपके दिन के लिए सलाह नहीं। यह दूसरा श्लोक शायद आपके ज़्यादा पास हो।",
+  "exSaid": "{speaker} ने {listener} से यह {situations} के पलों के लिए कहा था।",
+  "@exSaid": {
+    "placeholders": {
+      "speaker": {
+        "type": "String"
+      },
+      "listener": {
+        "type": "String"
+      },
+      "situations": {
+        "type": "String"
+      }
+    }
+  },
+  "exListAnd": "{rest} और {last}",
+  "@exListAnd": {
+    "placeholders": {
+      "rest": {
+        "type": "String"
+      },
+      "last": {
+        "type": "String"
+      }
+    }
+  },
+  "exCarry": "{said} आज इसकी एक पंक्ति अपने साथ रखिए।",
+  "@exCarry": {
+    "placeholders": {
+      "said": {
+        "type": "String"
+      }
+    }
+  },
+  "exMeets": "{said} यह उस {tag} से मिलता है जिसके बारे में आपने लिखा। इसे एक बार फिर, धीरे-धीरे पढ़िए।",
+  "@exMeets": {
+    "placeholders": {
+      "said": {
+        "type": "String"
+      },
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "exCloser": "{said} {tag} के लिए गीता {id} शायद ज़्यादा काम की हो।",
+  "@exCloser": {
+    "placeholders": {
+      "said": {
+        "type": "String"
+      },
+      "tag": {
+        "type": "String"
+      },
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "exHold": "{said} अपने दिन को इसके सामने रखिए और देखिए क्या साथ रह जाता है।",
+  "@exHold": {
+    "placeholders": {
+      "said": {
+        "type": "String"
+      }
+    }
+  }
 }

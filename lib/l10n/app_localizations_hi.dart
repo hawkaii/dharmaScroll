@@ -2302,4 +2302,129 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get ekDictate => 'बोलकर लिखिए';
+
+  @override
+  String get exSimpleLabel => 'सरल शब्दों में';
+
+  @override
+  String get exSimpleHead => 'इसका मतलब';
+
+  @override
+  String get exWordsLabel => 'शब्द-शब्द';
+
+  @override
+  String get exWordsHead => 'एक बार में एक शब्द';
+
+  @override
+  String get exMomentLabel => 'वह क्षण';
+
+  @override
+  String get exMomentHead => 'कुरुक्षेत्र, भोर में';
+
+  @override
+  String get exRelatedLabel => 'जुड़े श्लोक';
+
+  @override
+  String get exRelatedHead => 'उसी राह पर';
+
+  @override
+  String get exMyDayLabel => 'मेरे दिन के लिए';
+
+  @override
+  String get exMyDayHead => 'आपकी ओर से एक पंक्ति';
+
+  @override
+  String get exDraftNote =>
+      'इस ऐप के लिए लिखा गया। प्रारूप, विद्वान की समीक्षा बाकी।';
+
+  @override
+  String get exOfflineNote =>
+      'AI से लिखे उत्तर जल्द आएँगे। अभी श्लोक आपके फ़ोन से ही उत्तर देता है।';
+
+  @override
+  String get exAskHint => 'आज आपके मन में क्या है?';
+
+  @override
+  String get exAskLabel => 'दिखाइए';
+
+  @override
+  String exBackTo(String id) {
+    return 'गीता $id पर लौटिए';
+  }
+
+  @override
+  String exVerseSemantic(String id, String sanskrit) {
+    return 'श्लोक $id। $sanskrit';
+  }
+
+  @override
+  String get exListen => 'सुनिए';
+
+  @override
+  String get exListenHint => 'सुनने के लिए दबाए रखिए';
+
+  @override
+  String get exWordsNote =>
+      'शब्दों के अर्थ अंग्रेज़ी में हैं। प्रारूप, विद्वान की समीक्षा बाकी।';
+
+  @override
+  String exSpeaksTo(String speaker, String listener) {
+    return '$speaker $listener से बात करते हैं।';
+  }
+
+  @override
+  String exChapterHead(int chapter, String yoga) {
+    return 'अध्याय $chapter · $yoga';
+  }
+
+  @override
+  String exOpenGita(String id) {
+    return 'गीता $id खोलिए';
+  }
+
+  @override
+  String get exOfflineCaps => 'ऑफ़लाइन · आपके फ़ोन से';
+
+  @override
+  String get exBusy => 'श्लोक को सुन रहे हैं';
+
+  @override
+  String get exBySoftware => 'सॉफ़्टवेयर ने श्लोक से लिखा।';
+
+  @override
+  String get exFromPhone => 'आपके फ़ोन से। यह कोई गुरु या सलाहकार नहीं है।';
+
+  @override
+  String get exStoryOnly =>
+      'यह श्लोक कथा का हिस्सा है, आपके दिन के लिए सलाह नहीं। यह दूसरा श्लोक शायद आपके ज़्यादा पास हो।';
+
+  @override
+  String exSaid(String speaker, String listener, String situations) {
+    return '$speaker ने $listener से यह $situations के पलों के लिए कहा था।';
+  }
+
+  @override
+  String exListAnd(String rest, String last) {
+    return '$rest और $last';
+  }
+
+  @override
+  String exCarry(String said) {
+    return '$said आज इसकी एक पंक्ति अपने साथ रखिए।';
+  }
+
+  @override
+  String exMeets(String said, String tag) {
+    return '$said यह उस $tag से मिलता है जिसके बारे में आपने लिखा। इसे एक बार फिर, धीरे-धीरे पढ़िए।';
+  }
+
+  @override
+  String exCloser(String said, String tag, String id) {
+    return '$said $tag के लिए गीता $id शायद ज़्यादा काम की हो।';
+  }
+
+  @override
+  String exHold(String said) {
+    return '$said अपने दिन को इसके सामने रखिए और देखिए क्या साथ रह जाता है।';
+  }
 }
