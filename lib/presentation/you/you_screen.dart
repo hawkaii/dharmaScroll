@@ -171,9 +171,18 @@ String displayName(AuthUser? u) =>
 String methodLine(AuthUser? u) => switch (u?.method) {
   null => 'Not signed in',
   SignInMethod.guest => 'Guest on this phone',
-  SignInMethod.google => 'Google, on this phone only for now',
-  SignInMethod.phone => 'Phone ${u!.phone ?? ''}, on this phone only for now',
+  SignInMethod.google => 'Signed in with Google',
+  SignInMethod.phone => 'Signed in with ${phoneLabel(u!.phone)}',
 };
+
+/// "919876543210" as "+91 98765 43210"; other lengths with a plus in front.
+String phoneLabel(String? digits) {
+  if (digits == null || digits.isEmpty) return 'phone';
+  if (digits.length == 12 && digits.startsWith('91')) {
+    return '+91 ${digits.substring(2, 7)} ${digits.substring(7)}';
+  }
+  return '+$digits';
+}
 
 /// Name, how you came in. Tap for the account sheet.
 class _Profile extends StatelessWidget {
