@@ -267,11 +267,7 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
           const SizedBox(height: Sp.s6),
           Text(context.l.ekQuietRoom, style: DType.body(c.mute)),
           const SizedBox(height: Sp.s30),
-          Text(
-            context.l.ekNoOne,
-            textAlign: TextAlign.center,
-            style: line,
-          ),
+          Text(context.l.ekNoOne, textAlign: TextAlign.center, style: line),
           const SizedBox(height: Sp.s14),
           Text(
             _chat.isEmpty
@@ -281,11 +277,7 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
             style: line,
           ),
           const SizedBox(height: Sp.s14),
-          Text(
-            context.l.ekDanger,
-            textAlign: TextAlign.center,
-            style: line,
-          ),
+          Text(context.l.ekDanger, textAlign: TextAlign.center, style: line),
         ],
       ),
       actions: <Widget>[
@@ -402,9 +394,7 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
               ),
               const SizedBox(height: Sp.s14),
               Text(
-                _s.kept
-                    ? context.l.ekKeptOnly
-                    : context.l.ekGone,
+                _s.kept ? context.l.ekKeptOnly : context.l.ekGone,
                 textAlign: TextAlign.center,
                 style: DType.body(c.mute),
               ),
@@ -461,13 +451,12 @@ class VerseBlock extends StatelessWidget {
         : verse.meaningEn;
     return Semantics(
       container: true,
-      label:
-          context.l.ekVerseSemantic(
-            attribution,
-            verse.chapter,
-            verse.number,
-            meaning,
-          ),
+      label: context.l.ekVerseSemantic(
+        attribution,
+        verse.chapter,
+        verse.number,
+        meaning,
+      ),
       child: ExcludeSemantics(
         child: Column(
           children: <Widget>[
@@ -541,15 +530,9 @@ class _KeptSheetState extends State<_KeptSheet> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            context.l.ekKeptNotes,
-            style: DType.title(c.ink, compact: true),
-          ),
+          Text(context.l.ekKeptNotes, style: DType.title(c.ink, compact: true)),
           const SizedBox(height: Sp.s6),
-          Text(
-            context.l.ekKeptNotesWhy,
-            style: DType.body(c.mute, size: 16),
-          ),
+          Text(context.l.ekKeptNotesWhy, style: DType.body(c.mute, size: 16)),
           const SizedBox(height: Sp.s18),
           if (notes == null)
             const SizedBox.shrink()

@@ -29,8 +29,7 @@ final Provider<ChatService> chatServiceProvider = Provider<ChatService>(
 final Provider<VoiceSession Function()> voiceSessionFactoryProvider =
     Provider<VoiceSession Function()>((Ref ref) {
       final EkantResponder responder = ref.watch(ekantResponderProvider);
-      final bool hindi =
-          ref.watch(settingsProvider).language == Language.hindi;
+      final bool hindi = ref.watch(settingsProvider).language == Language.hindi;
       return () => FakeVoiceSession(
         responder: responder,
         script: hindi ? FakeVoiceSession.scriptHi : FakeVoiceSession.scriptEn,

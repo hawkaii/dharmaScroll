@@ -200,8 +200,7 @@ class _EkantTalkRoomState extends ConsumerState<EkantTalkRoom> {
     VoiceState.disconnected =>
       _denied ? context.l.ekMuted : context.l.ekConnecting,
     VoiceState.connecting => context.l.ekConnecting,
-    VoiceState.idle =>
-      _muted ? context.l.ekMuted : context.l.ekIdle,
+    VoiceState.idle => _muted ? context.l.ekMuted : context.l.ekIdle,
     VoiceState.listening => context.l.ekListening,
     VoiceState.thinking => context.l.ekThinking,
     VoiceState.speaking => context.l.ekSpeaking,
@@ -276,9 +275,7 @@ class _EkantTalkRoomState extends ConsumerState<EkantTalkRoom> {
                 children: <Widget>[
                   _RoomButton(
                     icon: _muted ? 'mic-off' : 'mic',
-                    label: _muted
-                        ? context.l.ekUnmute
-                        : context.l.ekMute,
+                    label: _muted ? context.l.ekUnmute : context.l.ekMute,
                     toggled: _muted,
                     onTap: live ? _toggleMute : null,
                   ),

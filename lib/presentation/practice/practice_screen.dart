@@ -39,10 +39,7 @@ class PracticeScreen extends ConsumerWidget {
         if (s.rituals.contains(r))
           _Item(
             label: r == Ritual.dailyGita
-                ? l.itemAtTime(
-                    l.ritualLabel(r),
-                    timeName(l, s.reminderMinutes),
-                  )
+                ? l.itemAtTime(l.ritualLabel(r), timeName(l, s.reminderMinutes))
                 : l.ritualLabel(r),
             meaning: l.ritualMeaning(r),
             next: next(r: <Ritual>{r}),
@@ -122,10 +119,7 @@ class PracticeScreen extends ConsumerWidget {
                 ),
               ),
               const SizedBox(height: Sp.s6),
-              Text(
-                l.practiceIntro,
-                style: DType.body(c.mute, size: 17),
-              ),
+              Text(l.practiceIntro, style: DType.body(c.mute, size: 17)),
               const SizedBox(height: Sp.s18),
               if (items.isEmpty)
                 Text(l.nothingOn, style: DType.body(c.mute))
@@ -287,10 +281,7 @@ class _HourSheetState extends State<HourSheet> {
       children: <Widget>[
         Text(timeName(l, _m), style: DType.hero(c.verse, size: 56)),
         const SizedBox(height: Sp.s6),
-        Text(
-          l.hourSheetWhy,
-          style: DType.body(c.mute, size: 16),
-        ),
+        Text(l.hourSheetWhy, style: DType.body(c.mute, size: 16)),
         Semantics(
           label: l.verseHour,
           value: timeName(l, _m),
@@ -334,10 +325,7 @@ class AllRemindersSheet extends ConsumerWidget {
       child: ListView(
         shrinkWrap: true,
         children: <Widget>[
-          Text(
-            l.allReminders,
-            style: DType.title(c.ink, compact: true),
-          ),
+          Text(l.allReminders, style: DType.title(c.ink, compact: true)),
           const SizedBox(height: Sp.s12),
           for (final Ritual r in Ritual.values)
             Semantics(

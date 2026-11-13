@@ -186,10 +186,5 @@ extension GitaWords on AppLocalizations {
   };
 
   /// Quiet starting points for Ekant. Tapping one puts it in the box to edit.
-  List<String> get ekOpenings => <String>[
-    ekOpen1,
-    ekOpen2,
-    ekOpen3,
-    ekOpen4,
-  ];
+  List<String> get ekOpenings => <String>[ekOpen1, ekOpen2, ekOpen3, ekOpen4];
 }

@@ -188,10 +188,7 @@ class _VerseBody extends StatelessWidget {
         else
           DIcon('kadamba', size: 30, color: c.accent, glow: !c.isLight),
         const SizedBox(height: Sp.s12),
-        Text(
-          context.l.shareCardGita(v.id),
-          style: DType.eyebrow(c.accent),
-        ),
+        Text(context.l.shareCardGita(v.id), style: DType.eyebrow(c.accent)),
         Expanded(
           child: Center(
             child: FittedBox(
@@ -364,7 +361,10 @@ class _StreakBody extends StatelessWidget {
                         style: DType.body(c.mute, size: 17),
                       ),
                       const SizedBox(height: Sp.s6),
-                      Text(context.l.gitaRefCaps(v.id), style: DType.ref(c.faint)),
+                      Text(
+                        context.l.gitaRefCaps(v.id),
+                        style: DType.ref(c.faint),
+                      ),
                     ],
                   ],
                 ),

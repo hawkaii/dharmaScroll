@@ -12,5 +12,6 @@ extension AuthWords on AppLocalizations {
 
   /// The name to greet: the placeholder name the fake sign-in saves reads as
   /// "Friend" (or its Hindi) in the chosen language.
-  String greetingName(String name) => name == kPlaceholderName ? friendName : name;
+  String greetingName(String name) =>
+      name == kPlaceholderName ? friendName : name;
 }

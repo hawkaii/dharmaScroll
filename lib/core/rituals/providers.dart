@@ -48,9 +48,8 @@ final FutureProvider<CityCalendar?> calendarProvider =
 
 /// The app's words for what runs without a screen (reminders), in the chosen
 /// language.
-AppLocalizations wordsFor(Settings s) => lookupAppLocalizations(
-  Locale(s.language == Language.hindi ? 'hi' : 'en'),
-);
+AppLocalizations wordsFor(Settings s) =>
+    lookupAppLocalizations(Locale(s.language == Language.hindi ? 'hi' : 'en'));
 
 /// Today's labels for the Today screen ("Ekadashi", "Pradosh 5:38-8:02 pm").
 final Provider<List<String>> todayInCalendarProvider = Provider<List<String>>((

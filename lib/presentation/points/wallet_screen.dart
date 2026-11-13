@@ -96,10 +96,7 @@ class WalletScreen extends ConsumerWidget {
                     Text(l.howTheyCameCaps, style: DType.eyebrow(c.accent)),
                     const SizedBox(height: Sp.s12),
                     if (history.isEmpty)
-                      Text(
-                        l.firstPoints,
-                        style: DType.body(c.faint, size: 17),
-                      ),
+                      Text(l.firstPoints, style: DType.body(c.faint, size: 17)),
                     for (int i = 0; i < history.length; i++) ...<Widget>[
                       if (i == 0 || history[i].day != history[i - 1].day)
                         Padding(
@@ -210,10 +207,7 @@ Future<void> showTodayPointsSheet(BuildContext context, ProgressState p) {
             const SizedBox(width: Sp.s12),
             Padding(
               padding: const EdgeInsets.only(bottom: 8),
-              child: Text(
-                l.pointsToday,
-                style: DType.body(c.mute, size: 17),
-              ),
+              child: Text(l.pointsToday, style: DType.body(c.mute, size: 17)),
             ),
           ],
         ),
@@ -225,10 +219,7 @@ Future<void> showTodayPointsSheet(BuildContext context, ProgressState p) {
             done: got.containsKey(reason),
           ),
         if (got.containsKey('sankalp'))
-          PointsRow(
-            label: l.pointReason('sankalp'),
-            amount: got['sankalp']!,
-          ),
+          PointsRow(label: l.pointReason('sankalp'), amount: got['sankalp']!),
         const SizedBox(height: Sp.s18),
         Text(
           all ? l.noMorePoints : l.oncePerDay,

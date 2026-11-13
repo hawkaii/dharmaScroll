@@ -73,10 +73,7 @@ class _CrisisScreenState extends State<CrisisScreen> {
               ),
             ),
             const SizedBox(height: Sp.s14),
-            Text(
-              l.crisisBody,
-              style: DType.body(c.mute),
-            ),
+            Text(l.crisisBody, style: DType.body(c.mute)),
             const SizedBox(height: Sp.s30),
             PrimaryButton(
               label: l.crisisCall,
@@ -107,9 +104,7 @@ class _CrisisScreenState extends State<CrisisScreen> {
               onTap: () => _open(
                 Uri(
                   scheme: 'sms',
-                  queryParameters: <String, String>{
-                    'body': l.crisisSmsBody,
-                  },
+                  queryParameters: <String, String>{'body': l.crisisSmsBody},
                 ),
                 l.crisisSmsFallback(l.crisisSmsBody),
               ),

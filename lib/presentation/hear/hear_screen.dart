@@ -338,7 +338,10 @@ class _VersePageState extends State<_VersePage> {
                               ),
                             ),
                             const SizedBox(height: Sp.s18),
-                            Text(l.gitaRefCaps(v.id), style: DType.ref(c.faint)),
+                            Text(
+                              l.gitaRefCaps(v.id),
+                              style: DType.ref(c.faint),
+                            ),
                           ],
                         ),
                       ),

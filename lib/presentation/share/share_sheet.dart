@@ -182,9 +182,7 @@ class _ShareSheetState extends State<ShareSheet> {
               children: <Widget>[
                 PrimaryButton(
                   label: _busy ? l.preparing : l.shareLabel,
-                  semanticLabel: l.shareCardSemantic(
-                    _layouts[_page].label(l),
-                  ),
+                  semanticLabel: l.shareCardSemantic(_layouts[_page].label(l)),
                   onPressed: _busy ? null : _share,
                 ),
                 TextAction(

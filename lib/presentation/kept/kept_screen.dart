@@ -190,7 +190,10 @@ class _KeptRow extends StatelessWidget {
                       style: DType.body(c.mute, size: 16).copyWith(height: 1.3),
                     ),
                     const SizedBox(height: Sp.s6),
-                    Text(context.l.gitaRefCaps(verse.id), style: DType.ref(c.faint)),
+                    Text(
+                      context.l.gitaRefCaps(verse.id),
+                      style: DType.ref(c.faint),
+                    ),
                   ],
                 ),
               ),

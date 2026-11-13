@@ -225,10 +225,7 @@ class _EkantChatViewState extends ConsumerState<EkantChatView> {
                 style: DType.body(c.ink, size: 18),
               ),
             ),
-            PrimaryButton(
-              label: context.l.ekRest,
-              onPressed: widget.onRest,
-            ),
+            PrimaryButton(label: context.l.ekRest, onPressed: widget.onRest),
           ] else ...<Widget>[
             _Composer(
               controller: _text,
@@ -240,10 +237,7 @@ class _EkantChatViewState extends ConsumerState<EkantChatView> {
               onSend: _send,
             ),
             if (n > 0 && !chat.busy)
-              TextAction(
-                label: context.l.ekRest,
-                onPressed: widget.onRest,
-              ),
+              TextAction(label: context.l.ekRest, onPressed: widget.onRest),
           ],
         ],
       ),
@@ -556,9 +550,7 @@ class _EkantReplyState extends ConsumerState<_EkantReply> {
                     children: <Widget>[
                       _ReplyAction(
                         icon: 'copy',
-                        label: _copied
-                            ? context.l.ekCopied
-                            : context.l.ekCopy,
+                        label: _copied ? context.l.ekCopied : context.l.ekCopy,
                         onTap: () => _copy(verse),
                       ),
                       _ReplyAction(
@@ -663,13 +655,12 @@ class _VerseCard extends StatelessWidget {
         : verse.meaningEn;
     return Semantics(
       button: true,
-      label:
-          context.l.ekVerseCardSemantic(
-            verse.chapter,
-            verse.number,
-            meaning,
-            context.l.ekStudy,
-          ),
+      label: context.l.ekVerseCardSemantic(
+        verse.chapter,
+        verse.number,
+        meaning,
+        context.l.ekStudy,
+      ),
       excludeSemantics: true,
       onTap: onTap,
       child: GestureDetector(

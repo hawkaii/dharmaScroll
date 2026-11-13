@@ -189,20 +189,10 @@ List<PlannedReminder> planReminders({
       add(day, 0, gitaMinutes, l.noteGita);
     }
     if (rituals.contains(Ritual.sandhya)) {
-      add(
-        day,
-        1,
-        sr + 10,
-        l.noteSandhya(fmtClock(l, sr)),
-      );
+      add(day, 1, sr + 10, l.noteSandhya(fmtClock(l, sr)));
     }
     if (rituals.contains(Ritual.diya)) {
-      add(
-        day,
-        2,
-        ss - 10,
-        l.noteDiya(fmtClock(l, ss)),
-      );
+      add(day, 2, ss - 10, l.noteDiya(fmtClock(l, ss)));
     }
     if (deity != Deity.none && date.weekday == deity.weekday) {
       add(day, 3, deity == Deity.hanuman ? sr + 30 : ss - 10, switch (deity) {
@@ -221,23 +211,13 @@ List<PlannedReminder> planReminders({
         case Ev.amavasya when rituals.contains(Ritual.amavasya):
           add(day, 5, sr + 30, l.noteAmavasya);
         case Ev.pradosh when rituals.contains(Ritual.pradosh):
-          add(
-            day,
-            6,
-            ss,
-            l.notePradosh(fmtRange(l, ss, pradoshEnd(cal, day))),
-          );
+          add(day, 6, ss, l.notePradosh(fmtRange(l, ss, pradoshEnd(cal, day))));
         case Ev.sankashti when rituals.contains(Ritual.sankashti) && e.a > 0:
           add(day, 7, e.a - 15, l.noteSankashti(fmtClock(l, e.a)));
         case Ev.festival
             when rituals.contains(Ritual.festivals) &&
                 _festivalFor(e, tradition):
-          add(
-            day,
-            8,
-            sr + 30,
-            l.noteFestival(l.festival(e.a)),
-          );
+          add(day, 8, sr + 30, l.noteFestival(l.festival(e.a)));
       }
     }
     if (rituals.contains(Ritual.ekadashi)) {
@@ -257,19 +237,9 @@ List<PlannedReminder> planReminders({
             ? l.dayTomorrow.toLowerCase()
             : l.whenOnDay(l.weekday(cal.dateOf(pday).weekday));
         final int slot = e.type == Ev.ekadashiSmarta ? 9 : 10;
-        add(
-          day,
-          slot,
-          sr,
-          l.noteEkadashi(rule, when, fmtRange(l, e.a, e.b)),
-        );
+        add(day, slot, sr, l.noteEkadashi(rule, when, fmtRange(l, e.a, e.b)));
         if (pday < cal.days) {
-          add(
-            pday,
-            slot + 2,
-            e.a,
-            l.noteParana(fmtRange(l, e.a, e.b)),
-          );
+          add(pday, slot + 2, e.a, l.noteParana(fmtRange(l, e.a, e.b)));
         }
       }
     }

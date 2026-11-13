@@ -52,10 +52,7 @@ class YatraScreen extends ConsumerWidget {
           ),
           child: Column(
             children: <Widget>[
-              TopLine(
-                left: l.yatraTitle,
-                right: l.yatraChapterOf(now.chapter),
-              ),
+              TopLine(left: l.yatraTitle, right: l.yatraChapterOf(now.chapter)),
               const SizedBox(height: Sp.s14),
               Expanded(
                 child: LayoutBuilder(
