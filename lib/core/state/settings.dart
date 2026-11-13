@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart' show WidgetsBinding;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -11,12 +12,30 @@ enum Language { hindi, english, hinglish }
 
 enum Appearance { auto, night }
 
+/// How big the words are. The app multiplies the system text size by this.
+enum TextSize {
+  normal(1),
+  large(1.2),
+  extraLarge(1.4);
+
+  const TextSize(this.factor);
+
+  final double factor;
+}
+
+/// Hindi when the phone is set to Hindi, otherwise English.
+Language deviceLanguage() =>
+    WidgetsBinding.instance.platformDispatcher.locale.languageCode == 'hi'
+    ? Language.hindi
+    : Language.english;
+
 @immutable
 class Settings {
   const Settings({
     this.onboarded = false,
     this.reminderMinutes = 6 * 60 + 30,
-    this.language = Language.hinglish,
+    this.language = Language.english,
+    this.textSize = TextSize.normal,
     this.sound = true,
     this.haptics = true,
     this.appearance = Appearance.auto,
@@ -32,6 +51,7 @@ class Settings {
   final bool onboarded;
   final int reminderMinutes;
   final Language language;
+  final TextSize textSize;
   final bool sound;
   final bool haptics;
   final Appearance appearance;
@@ -44,6 +64,7 @@ class Settings {
     bool? onboarded,
     int? reminderMinutes,
     Language? language,
+    TextSize? textSize,
     bool? sound,
     bool? haptics,
     Appearance? appearance,
@@ -55,6 +76,7 @@ class Settings {
     onboarded: onboarded ?? this.onboarded,
     reminderMinutes: reminderMinutes ?? this.reminderMinutes,
     language: language ?? this.language,
+    textSize: textSize ?? this.textSize,
     sound: sound ?? this.sound,
     haptics: haptics ?? this.haptics,
     appearance: appearance ?? this.appearance,
@@ -70,6 +92,7 @@ class SettingsNotifier extends Notifier<Settings> {
   static const String kOnboarded = 'onboardingComplete';
   static const String kReminder = 'remindAtMinutes';
   static const String kLang = 'lang';
+  static const String kTextSize = 'textSize';
 
   /// Kept from 0.2.0, when one switch did sound and haptics together.
   static const String kSound = 'soundHaptics';
@@ -90,7 +113,12 @@ class SettingsNotifier extends Notifier<Settings> {
       reminderMinutes: p.getInt(kReminder) ?? 6 * 60 + 30,
       language: Language.values.firstWhere(
         (Language l) => l.name == p.getString(kLang),
-        orElse: () => Language.hinglish,
+        // First launch: follow the phone's language.
+        orElse: deviceLanguage,
+      ),
+      textSize: TextSize.values.firstWhere(
+        (TextSize t) => t.name == p.getString(kTextSize),
+        orElse: () => TextSize.normal,
       ),
       sound: p.getBool(kSound) ?? true,
       haptics: p.getBool(kHaptics) ?? p.getBool(kSound) ?? true,
@@ -128,6 +156,11 @@ class SettingsNotifier extends Notifier<Settings> {
   void setLanguage(Language l) {
     state = state.copyWith(language: l);
     _p.setString(kLang, l.name);
+  }
+
+  void setTextSize(TextSize t) {
+    state = state.copyWith(textSize: t);
+    _p.setString(kTextSize, t.name);
   }
 
   void setSound(bool v) {

@@ -6,6 +6,7 @@ import '../../core/rituals/rituals.dart';
 import '../../design/lottie_art.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
+import '../../l10n/l10n.dart';
 
 /// The deity-day cards: a symbol each, never a figure.
 const Map<Deity, Art> deityArt = <Deity, Art>{
@@ -15,11 +16,13 @@ const Map<Deity, Art> deityArt = <Deity, Art>{
   Deity.shani: Art.shaniLamp,
 };
 
-const Map<Deity, (String, String)> deityCard = <Deity, (String, String)>{
-  Deity.shiva: ('Monday', 'Shiva'),
-  Deity.hanuman: ('Tuesday', 'Hanuman'),
-  Deity.vishnu: ('Thursday', 'Vishnu, Guru'),
-  Deity.shani: ('Saturday', 'Shani'),
+/// The weekday and the name on each deity-day card.
+(String, String) deityCard(AppLocalizations l, Deity d) => switch (d) {
+  Deity.shiva => (l.dayMonday, l.godShiva),
+  Deity.hanuman => (l.dayTuesday, l.godHanuman),
+  Deity.vishnu => (l.dayThursday, l.godVishnu),
+  Deity.shani => (l.daySaturday, l.godShani),
+  Deity.none => ('', ''),
 };
 
 /// "Build my practice": five warm questions, one at a time. Each yes shows
@@ -34,13 +37,15 @@ class PracticeBuilder extends ConsumerStatefulWidget {
     this.busy = false,
   });
 
-  static const String next = 'Continue';
-  static const List<String> titles = <String>[
-    'Do you keep\na fast?',
-    'Which day\nfeels like yours?',
-    'Do you light\na lamp at dusk?',
-    'A quiet minute\nat sunrise?',
-    'The full moon\nand big days?',
+  /// How many questions there are.
+  static const int questions = 5;
+
+  static List<String> titles(AppLocalizations l) => <String>[
+    l.practiceQ1,
+    l.practiceQ2,
+    l.practiceQ3,
+    l.practiceQ4,
+    l.practiceQ5,
   ];
 
   final PracticeAnswers initial;
@@ -62,7 +67,7 @@ class _PracticeBuilderState extends ConsumerState<PracticeBuilder> {
   int _q = 0;
 
   void _next() {
-    if (_q < PracticeBuilder.titles.length - 1) {
+    if (_q < PracticeBuilder.questions - 1) {
       setState(() => _q++);
       return;
     }
@@ -80,8 +85,11 @@ class _PracticeBuilderState extends ConsumerState<PracticeBuilder> {
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
-    final bool last = _q == PracticeBuilder.titles.length - 1;
-    final (Art? art, String why, Widget answers, Widget? preview) = _question();
+    final AppLocalizations l = context.l;
+    final bool last = _q == PracticeBuilder.questions - 1;
+    final (Art? art, String why, Widget answers, Widget? preview) = _question(
+      l,
+    );
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints box) {
         return SingleChildScrollView(
@@ -104,14 +112,18 @@ class _PracticeBuilderState extends ConsumerState<PracticeBuilder> {
                             const SizedBox(height: Sp.s14),
                           ],
                           Text(
-                            'YOUR PRACTICE  ·  ${_q + 1} OF ${PracticeBuilder.titles.length}',
+                            l.practiceEyebrow(
+                              _q + 1,
+                              PracticeBuilder.questions,
+                            ),
+                            textAlign: TextAlign.center,
                             style: DType.eyebrow(c.accent),
                           ),
                           const SizedBox(height: Sp.s12),
                           Semantics(
                             header: true,
                             child: Text(
-                              PracticeBuilder.titles[_q],
+                              PracticeBuilder.titles(l)[_q],
                               textAlign: TextAlign.center,
                               style: DType.title(c.ink, compact: true),
                             ),
@@ -120,7 +132,7 @@ class _PracticeBuilderState extends ConsumerState<PracticeBuilder> {
                           Text(
                             why,
                             textAlign: TextAlign.center,
-                            style: DType.body(c.mute, size: 17),
+                            style: DType.body(c.mute, size: 18),
                           ),
                           const SizedBox(height: Sp.s22),
                           answers,
@@ -135,11 +147,11 @@ class _PracticeBuilderState extends ConsumerState<PracticeBuilder> {
                   ),
                   const SizedBox(height: Sp.s18),
                   PrimaryButton(
-                    label: last ? widget.doneLabel : PracticeBuilder.next,
+                    label: last ? widget.doneLabel : l.continueLabel,
                     onPressed: widget.busy ? null : _next,
                   ),
                   if (_q > 0 || widget.onBack != null)
-                    TextAction(label: 'Back', onPressed: _back)
+                    TextAction(label: l.back, onPressed: _back)
                   else
                     const SizedBox(height: 48),
                 ],
@@ -151,7 +163,7 @@ class _PracticeBuilderState extends ConsumerState<PracticeBuilder> {
     );
   }
 
-  (Art?, String, Widget, Widget?) _question() {
+  (Art?, String, Widget, Widget?) _question(AppLocalizations l) {
     Widget yesNo(bool v, String yes, ValueChanged<bool> set) => Column(
       children: <Widget>[
         OptionRow(
@@ -161,7 +173,7 @@ class _PracticeBuilderState extends ConsumerState<PracticeBuilder> {
         ),
         const SizedBox(height: Sp.s12),
         OptionRow(
-          label: 'Not now',
+          label: l.notNow,
           selected: !v,
           onTap: () => setState(() => set(false)),
         ),
@@ -170,18 +182,13 @@ class _PracticeBuilderState extends ConsumerState<PracticeBuilder> {
     return switch (_q) {
       0 => (
         Art.moon,
-        'Ekadashi is the eleventh day of the moon. It comes twice a month. '
-            'Many people fast on it.',
-        yesNo(
-          _a.fast,
-          'Yes, on Ekadashi',
-          (bool v) => _a = _a.copyWith(fast: v),
-        ),
+        l.practiceWhy1,
+        yesNo(_a.fast, l.yesEkadashi, (bool v) => _a = _a.copyWith(fast: v)),
         _a.fast ? _Preview(rituals: const <Ritual>{Ritual.ekadashi}) : null,
       ),
       1 => (
         null,
-        'Many homes keep one day of the week for one god. Pick one, or none.',
+        l.practiceWhy2,
         _DayCards(
           selected: _a.day,
           onSelected: (Deity d) => setState(() => _a = _a.copyWith(day: d)),
@@ -190,33 +197,30 @@ class _PracticeBuilderState extends ConsumerState<PracticeBuilder> {
       ),
       2 => (
         Art.hourDiya,
-        'Dusk is when day turns into night. A small lamp then is an old way '
-            'to say thank you.',
+        l.practiceWhy3,
         yesNo(
           _a.duskLamp,
-          'Yes, most evenings',
+          l.yesEvenings,
           (bool v) => _a = _a.copyWith(duskLamp: v),
         ),
         _a.duskLamp ? _Preview(rituals: const <Ritual>{Ritual.diya}) : null,
       ),
       3 => (
         Art.citySun,
-        'Sandhya means the meeting of night and day. One still minute as '
-            'the sun comes up.',
+        l.practiceWhy4,
         yesNo(
           _a.sunrise,
-          'Yes, please',
+          l.yesPlease,
           (bool v) => _a = _a.copyWith(sunrise: v),
         ),
         _a.sunrise ? _Preview(rituals: const <Ritual>{Ritual.sandhya}) : null,
       ),
       _ => (
         Art.moon,
-        'Purnima is the full moon. Amavasya is the night with no moon. '
-            'Big days like Diwali fall on them.',
+        l.practiceWhy5,
         yesNo(
           _a.moonDays,
-          'Yes, tell me',
+          l.yesTellMe,
           (bool v) => _a = _a.copyWith(moonDays: v),
         ),
         _a.moonDays
@@ -245,7 +249,7 @@ class _DayCards extends StatelessWidget {
     Widget card(Deity d) {
       final DharmaColors c = context.c;
       final bool on = d == selected;
-      final (String day, String god) = deityCard[d]!;
+      final (String day, String god) = deityCard(context.l, d);
       return Expanded(
         child: Semantics(
           button: true,
@@ -275,8 +279,16 @@ class _DayCards extends StatelessWidget {
                     child: DLottie(deityArt[d]!, height: 48),
                   ),
                   const SizedBox(height: Sp.s6),
-                  Text(day, style: DType.body(c.ink, size: 18)),
-                  Text(god.toUpperCase(), style: DType.ref(c.faint)),
+                  Text(
+                    day,
+                    textAlign: TextAlign.center,
+                    style: DType.body(c.ink, size: 18),
+                  ),
+                  Text(
+                    god.toUpperCase(),
+                    textAlign: TextAlign.center,
+                    style: DType.ref(c.mute),
+                  ),
                 ],
               ),
             ),
@@ -304,7 +316,7 @@ class _DayCards extends StatelessWidget {
         ),
         const SizedBox(height: Sp.s12),
         OptionRow(
-          label: 'No day for now',
+          label: context.l.noDay,
           selected: selected == Deity.none,
           onTap: () => onSelected(Deity.none),
         ),
@@ -323,23 +335,21 @@ class _Preview extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     final PreviewContext? ctx = ref.watch(previewContextProvider);
     final PlannedReminder? note = ctx == null
         ? null
         : firstNote(ctx, rituals: rituals, deity: deity);
     final String when = note == null
-        ? 'Timed to your sun'
+        ? l.timedToSun
         : whenLabel(note.wall, ctx!.now);
     final String body =
-        note?.body ??
-        (ctx == null
-            ? 'We work out the time from your city.'
-            : 'Nothing in the next few weeks. We will tell you when it comes.');
+        note?.body ?? (ctx == null ? l.timeFromCity : l.nothingSoon);
     return Padding(
       padding: const EdgeInsets.only(top: Sp.s14),
       child: Semantics(
         container: true,
-        label: 'Your first note. $when. $body',
+        label: l.firstNoteSemantic(when, body),
         excludeSemantics: true,
         child: DCard(
           padding: const EdgeInsets.fromLTRB(Sp.s18, Sp.s14, Sp.s18, Sp.s14),
@@ -355,7 +365,7 @@ class _Preview extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('YOUR FIRST NOTE', style: DType.ref(c.accent)),
+                    Text(l.firstNoteTag, style: DType.ref(c.accent)),
                     const SizedBox(height: 2),
                     Text(when, style: DType.body(c.verse, size: 17)),
                     Text(body, style: DType.body(c.ink, size: 16)),

@@ -10,6 +10,7 @@ import '../../core/state/settings.dart';
 import '../../design/info_sheet.dart';
 import '../../design/lottie_art.dart';
 import '../../design/tokens.dart';
+import '../../l10n/l10n.dart';
 import '../../design/widgets.dart';
 import 'practice_builder.dart';
 
@@ -166,9 +167,10 @@ class BackChevron extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String label = context.l.back;
     return Semantics(
       button: true,
-      label: 'Back',
+      label: label,
       excludeSemantics: true,
       onTap: onTap,
       child: GestureDetector(
@@ -177,12 +179,16 @@ class BackChevron extends StatelessWidget {
           Haptics.tick();
           onTap();
         },
-        child: SizedBox(
-          width: 44,
-          height: 44,
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Icon(Icons.chevron_left, color: context.c.mute, size: 26),
+        // An arrow with its word: nobody has to guess what the arrow does.
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Icon(Icons.chevron_left, color: context.c.mute, size: 28),
+              Text(label, style: DType.body(context.c.mute, size: 18)),
+              const SizedBox(width: Sp.s6),
+            ],
           ),
         ),
       ),

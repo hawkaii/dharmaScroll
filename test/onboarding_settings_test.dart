@@ -12,18 +12,17 @@ import 'package:dharmascroll/core/rituals/rituals.dart';
 import 'package:dharmascroll/data/verse_repository.dart';
 import 'package:dharmascroll/design/info_sheet.dart';
 import 'package:dharmascroll/design/lottie_art.dart';
-import 'package:dharmascroll/presentation/auth/sign_in_panel.dart';
-import 'package:dharmascroll/presentation/onboarding/onboarding_flow.dart';
 import 'package:dharmascroll/presentation/practice/practice_builder.dart';
 import 'package:dharmascroll/presentation/practice/practice_screen.dart';
 import 'package:dharmascroll/presentation/practice/tradition_explainer.dart';
-import 'package:dharmascroll/presentation/today/today_screen.dart';
 import 'package:dharmascroll/presentation/you/you_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'en.dart';
 
 final DateTime _noon = DateTime(2026, 11, 12, 12);
 
@@ -78,12 +77,12 @@ Future<void> _tap(WidgetTester tester, Finder f) async {
 /// Taps "Continue" through the hour and all five practice questions.
 Future<void> _throughTheRest(WidgetTester tester) async {
   for (int i = 0; i < 3; i++) {
-    await _tap(tester, find.text(OnboardingFlow.next)); // city, tradition, hour
+    await _tap(tester, find.text(en.continueLabel)); // city, tradition, hour
   }
-  for (int i = 0; i < PracticeBuilder.titles.length - 1; i++) {
-    await _tap(tester, find.text(PracticeBuilder.next));
+  for (int i = 0; i < PracticeBuilder.questions - 1; i++) {
+    await _tap(tester, find.text(en.continueLabel));
   }
-  await _tap(tester, find.text(OnboardingFlow.finishLabel));
+  await _tap(tester, find.text(en.finishLabel));
 }
 
 Finder _info(String topic) =>
@@ -99,6 +98,23 @@ CityCalendar _delhi() {
   );
 }
 
+/// The first two pages (language, text size), left as they are.
+Future<void> _pastLanguage(WidgetTester tester) async {
+  await _tap(tester, find.text(en.continueLabel));
+  await _tap(tester, find.text(en.continueLabel));
+}
+
+/// Scrolls a lazy list until [f] is built.
+Future<void> _see(WidgetTester tester, Finder f) async {
+  if (f.evaluate().isEmpty) {
+    await tester.scrollUntilVisible(
+      f,
+      200,
+      scrollable: find.byType(Scrollable).last,
+    );
+  }
+}
+
 void main() {
   group('onboarding', () {
     testWidgets('a guest goes through with the defaults', (
@@ -106,11 +122,12 @@ void main() {
     ) async {
       final SharedPreferences prefs = await _prefs(onboarded: false);
       await _pump(tester, prefs);
-      await _tap(tester, find.text(OnboardingFlow.welcomeButton));
-      await _tap(tester, find.text(SignInPanel.guest));
-      expect(find.text(OnboardingFlow.cityTitle), findsOneWidget);
+      await _pastLanguage(tester);
+      await _tap(tester, find.text(en.welcomeButton));
+      await _tap(tester, find.text(en.signInGuest));
+      expect(find.text(en.cityTitle), findsOneWidget);
       await _throughTheRest(tester);
-      expect(find.text(TodayScreen.beginLabel), findsOneWidget);
+      expect(find.text(en.todayBegin), findsOneWidget);
       expect(prefs.getString('authUser'), contains('guest'));
       expect(prefs.getStringList('rituals'), <String>['dailyGita']);
       expect(prefs.getString('deity'), Deity.none.name);
@@ -124,22 +141,23 @@ void main() {
     ) async {
       final SharedPreferences prefs = await _prefs(onboarded: false);
       await _pump(tester, prefs);
-      await _tap(tester, find.text(OnboardingFlow.welcomeButton));
-      await _tap(tester, find.text(SignInPanel.phone));
+      await _pastLanguage(tester);
+      await _tap(tester, find.text(en.welcomeButton));
+      await _tap(tester, find.text(en.signInPhone));
       await tester.enterText(find.byType(TextField), '+91 12');
-      await _tap(tester, find.text(SignInPanel.sendCode));
+      await _tap(tester, find.text(en.sendCode));
       expect(find.text('That number looks too short.'), findsOneWidget);
       await tester.enterText(find.byType(TextField), '+91 98765 43210');
-      await _tap(tester, find.text(SignInPanel.sendCode));
+      await _tap(tester, find.text(en.sendCode));
       expect(find.text('Code sent to +91 98765 43210'), findsOneWidget);
       await tester.enterText(find.byType(TextField), '1234');
       await tester.pumpAndSettle();
-      await _tap(tester, find.text(SignInPanel.verify)); // still disabled
-      expect(find.text(OnboardingFlow.cityTitle), findsNothing);
+      await _tap(tester, find.text(en.verify)); // still disabled
+      expect(find.text(en.cityTitle), findsNothing);
       await tester.enterText(find.byType(TextField), '123456');
       await tester.pumpAndSettle();
-      await _tap(tester, find.text(SignInPanel.verify));
-      expect(find.text(OnboardingFlow.cityTitle), findsOneWidget);
+      await _tap(tester, find.text(en.verify));
+      expect(find.text(en.cityTitle), findsOneWidget);
       expect(prefs.getString('authUser'), contains('919876543210'));
     });
 
@@ -147,25 +165,26 @@ void main() {
       WidgetTester tester,
     ) async {
       await _pump(tester, await _prefs(onboarded: false));
-      await _tap(tester, find.text(OnboardingFlow.welcomeButton));
-      expect(find.text(OnboardingFlow.whySignIn), findsOneWidget);
-      await _tap(tester, find.text(SignInPanel.guest));
-      expect(find.text(OnboardingFlow.whyCity), findsOneWidget);
-      await _tap(tester, find.text(OnboardingFlow.next));
-      expect(find.text(OnboardingFlow.whyTradition), findsOneWidget);
-      await _tap(tester, find.text(OnboardingFlow.seeDifference));
+      await _pastLanguage(tester);
+      await _tap(tester, find.text(en.welcomeButton));
+      expect(find.text(en.whySignIn), findsOneWidget);
+      await _tap(tester, find.text(en.signInGuest));
+      expect(find.text(en.whyCity), findsOneWidget);
+      await _tap(tester, find.text(en.continueLabel));
+      expect(find.text(en.whyTradition), findsOneWidget);
+      await _tap(tester, find.text(en.seeDifference));
       expect(find.text(TraditionCopy.title), findsOneWidget);
       expect(find.text(TraditionCopy.unsure), findsOneWidget);
       expect(find.byType(EkadashiTimeline), findsOneWidget);
       await _tap(tester, find.text('Got it'));
       expect(find.text(TraditionCopy.title), findsNothing);
-      await _tap(tester, find.text(OnboardingFlow.next));
-      expect(find.text(OnboardingFlow.whyHour), findsOneWidget);
-      await _tap(tester, find.text(OnboardingFlow.next));
-      expect(find.text(PracticeBuilder.titles.first), findsOneWidget);
+      await _tap(tester, find.text(en.continueLabel));
+      expect(find.text(en.whyHour), findsOneWidget);
+      await _tap(tester, find.text(en.continueLabel));
+      expect(find.text(PracticeBuilder.titles(en).first), findsOneWidget);
       // Back from the first question returns to the hour.
       await _tap(tester, find.text('Back'));
-      expect(find.text(OnboardingFlow.reminderTitle), findsOneWidget);
+      expect(find.text(en.reminderTitle), findsOneWidget);
     });
   });
 
@@ -252,8 +271,9 @@ void main() {
       );
       await _pump(tester, prefs);
       await _tap(tester, find.text('YOU'));
+      await _see(tester, find.text('4 on'));
       expect(find.text('4 on'), findsOneWidget);
-      await _tap(tester, find.text(YouScreen.practiceRow));
+      await _tap(tester, find.text(en.practiceRow));
       expect(find.text(PracticeScreen.title), findsOneWidget);
       expect(find.text('Daily Gita, 6:30 am'), findsOneWidget);
       expect(find.text(ritualMeaning(Ritual.purnima)), findsOneWidget);
@@ -264,13 +284,13 @@ void main() {
       expect(prefs.getStringList('rituals'), isNot(contains('purnima')));
 
       await _tap(tester, find.text(PracticeScreen.rebuild));
-      expect(find.text(PracticeBuilder.titles.first), findsOneWidget);
+      expect(find.text(PracticeBuilder.titles(en).first), findsOneWidget);
       await _tap(tester, find.text('Yes, on Ekadashi'));
-      await _tap(tester, find.text(PracticeBuilder.next));
+      await _tap(tester, find.text(en.continueLabel));
       // Shiva is already chosen from before.
       await _tap(tester, find.text('Tuesday'));
       for (int i = 0; i < 3; i++) {
-        await _tap(tester, find.text(PracticeBuilder.next));
+        await _tap(tester, find.text(en.continueLabel));
       }
       await _tap(tester, find.text(BuildPracticeScreen.save));
       // Back on Your practice, with the new day listed.
@@ -285,17 +305,19 @@ void main() {
   });
 
   group('settings', () {
-    testWidgets('five rows, each with one plain line', (
-      WidgetTester tester,
-    ) async {
+    testWidgets('every row has one plain line', (WidgetTester tester) async {
       await _pump(tester, await _prefs());
       await _tap(tester, find.text('YOU'));
+      await _see(tester, find.text(en.practiceRowWhy));
+      expect(find.text(en.practiceRowWhy), findsOneWidget);
       for (final String row in <String>[
-        YouScreen.practiceRow,
-        YouScreen.placeRow,
-        YouScreen.soundRow,
-        YouScreen.lookRow,
-        YouScreen.accountRow,
+        YouScreen.languageRow,
+        en.textSizeRow,
+        en.practiceRow,
+        en.placeRow,
+        en.soundRow,
+        en.lookRow,
+        en.accountRow,
       ]) {
         if (find.text(row).evaluate().isEmpty) {
           await tester.scrollUntilVisible(
@@ -306,7 +328,6 @@ void main() {
         }
         expect(find.text(row), findsOneWidget);
       }
-      expect(find.text('What we remind you of, and when.'), findsOneWidget);
     });
 
     testWidgets('sound and haptics switch on their own', (
@@ -315,11 +336,11 @@ void main() {
       final SharedPreferences prefs = await _prefs();
       await _pump(tester, prefs);
       await _tap(tester, find.text('YOU'));
-      await _tap(tester, find.text(YouScreen.soundRow));
+      await _tap(tester, find.text(en.soundRow));
       await _tap(tester, find.text('Sound'));
       expect(prefs.getBool('soundHaptics'), isFalse);
       expect(prefs.getBool('haptics'), isNull);
-      await _tap(tester, _info('Haptics'));
+      await _tap(tester, _info(en.hapticsLabel));
       expect(find.textContaining('the phone moves a tiny bit'), findsOneWidget);
     });
 
@@ -331,7 +352,7 @@ void main() {
       );
       await _pump(tester, prefs);
       await _tap(tester, find.text('YOU'));
-      await _tap(tester, find.text(YouScreen.soundRow));
+      await _tap(tester, find.text(en.soundRow));
       final Iterable<Switch> s = tester.widgetList<Switch>(find.byType(Switch));
       expect(s.map((Switch x) => x.value), <bool>[false, false]);
     });
@@ -341,7 +362,7 @@ void main() {
     ) async {
       await _pump(tester, await _prefs());
       await _tap(tester, find.text('YOU'));
-      await _tap(tester, find.text(YouScreen.placeRow));
+      await _tap(tester, find.text(en.placeRow));
       await _tap(tester, _info('How you keep Ekadashi'));
       expect(find.text(TraditionCopy.title), findsOneWidget);
     });
@@ -367,7 +388,7 @@ void main() {
       await _tap(tester, find.text('Sign out'));
       expect(prefs.getString(FakeAuthService.kUser), isNull);
       expect(prefs.getInt('p.points'), 40);
-      expect(find.text(SignInPanel.google), findsOneWidget);
+      expect(find.text(en.signInGoogle), findsOneWidget);
     });
   });
 

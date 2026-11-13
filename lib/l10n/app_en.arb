@@ -1,0 +1,323 @@
+{
+  "@@locale": "en",
+  "back": "Back",
+  "skip": "Skip",
+  "continueLabel": "Continue",
+  "whatIs": "What is {topic}?",
+  "@whatIs": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "progressOf": "{n} of {total}",
+  "@progressOf": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "on": "On",
+  "off": "Off",
+  "comingSoon": "Coming soon",
+  "moreLanguages": "More languages",
+  "languageSoonSemantic": "{name}, coming soon, not ready yet",
+  "@languageSoonSemantic": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "textSizeRow": "Text size",
+  "textSizeEyebrow": "TEXT SIZE",
+  "textSizeTitle": "How big should\nthe words be?",
+  "textSizeWhy": "Pick the size that is easy on your eyes. You can change it later.",
+  "textSizeNormal": "Normal",
+  "textSizeLarge": "Large",
+  "textSizeExtraLarge": "Extra large",
+  "textSizeSample": "The lamp is lit. Five verses are waiting for you.",
+  "textSizeRowWhy": "Make the words bigger or smaller.",
+  "welcomeLine1": "A conversation",
+  "welcomeLine2": "on a battlefield.",
+  "welcomeSub": "Five thousand years old.\nListen in.",
+  "welcomeButton": "Listen",
+  "eyebrowLight": "YOUR LIGHT",
+  "eyebrowCity": "YOUR CITY",
+  "eyebrowTradition": "YOUR TRADITION",
+  "eyebrowHour": "YOUR HOUR",
+  "signInTitle": "Who is lighting\nthe lamp?",
+  "cityTitle": "Where do you\nwatch the sun?",
+  "traditionTitle": "How do you\nkeep Ekadashi?",
+  "reminderTitle": "When does your\nday begin?",
+  "finishLabel": "Light the first lamp",
+  "whySignIn": "Signing in will keep your lamp and your verses if you change phones. For now, all of it stays on this phone.",
+  "whyCity": "Your city tells us when the sun rises for you. Prayers follow the sun.",
+  "whyTradition": "Families keep the Ekadashi fast in two ways. Some months, the days differ.",
+  "whyHour": "Five verses will wait for you at this hour. Every day, the same quiet time.",
+  "seeDifference": "See the difference",
+  "topicSmartaVaishnava": "Smarta and Vaishnava",
+  "traditionSmarta": "Smarta",
+  "traditionVaishnava": "Vaishnava",
+  "traditionUnsure": "Not sure",
+  "hintSmarta": "Fast on the day Ekadashi meets the sunrise.",
+  "hintVaishnava": "Wait for an Ekadashi that is clean from dawn.",
+  "hintUnsure": "We show both days when they differ.",
+  "dragToChangeAm": "AM  ·  DRAG TO CHANGE",
+  "dragToChangePm": "PM  ·  DRAG TO CHANGE",
+  "reminderTimeLabel": "Reminder time",
+  "earlier15": "15 minutes earlier",
+  "later15": "15 minutes later",
+  "searchCity": "Search a city",
+  "signInGoogle": "Continue with Google",
+  "signInPhone": "Continue with phone",
+  "signInGuest": "Continue as guest",
+  "sendCode": "Send the code",
+  "verify": "Verify",
+  "phoneNumber": "Phone number",
+  "codeNote": "We send a six-number code to this phone.",
+  "codeSentTo": "Code sent to {phone}",
+  "@codeSentTo": {
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    }
+  },
+  "otherWays": "Other ways to sign in",
+  "changeNumber": "Change the number",
+  "sixNumberCode": "Six-number code",
+  "practiceEyebrow": "YOUR PRACTICE  ·  {n} OF {total}",
+  "@practiceEyebrow": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "practiceQ1": "Do you keep\na fast?",
+  "practiceQ2": "Which day\nfeels like yours?",
+  "practiceQ3": "Do you light\na lamp at dusk?",
+  "practiceQ4": "A quiet minute\nat sunrise?",
+  "practiceQ5": "The full moon\nand big days?",
+  "practiceWhy1": "Ekadashi is the eleventh day of the moon. It comes twice a month. Many people fast on it.",
+  "practiceWhy2": "Many homes keep one day of the week for one god. Pick one, or none.",
+  "practiceWhy3": "Dusk is when day turns into night. A small lamp then is an old way to say thank you.",
+  "practiceWhy4": "Sandhya means the meeting of night and day. One still minute as the sun comes up.",
+  "practiceWhy5": "Purnima is the full moon. Amavasya is the night with no moon. Big days like Diwali fall on them.",
+  "yesEkadashi": "Yes, on Ekadashi",
+  "yesEvenings": "Yes, most evenings",
+  "yesPlease": "Yes, please",
+  "yesTellMe": "Yes, tell me",
+  "notNow": "Not now",
+  "noDay": "No day for now",
+  "dayMonday": "Monday",
+  "dayTuesday": "Tuesday",
+  "dayThursday": "Thursday",
+  "daySaturday": "Saturday",
+  "godShiva": "Shiva",
+  "godHanuman": "Hanuman",
+  "godVishnu": "Vishnu, Guru",
+  "godShani": "Shani",
+  "firstNoteTag": "YOUR FIRST NOTE",
+  "firstNoteSemantic": "Your first note. {when}. {body}",
+  "@firstNoteSemantic": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      },
+      "body": {
+        "type": "String"
+      }
+    }
+  },
+  "timedToSun": "Timed to your sun",
+  "timeFromCity": "We work out the time from your city.",
+  "nothingSoon": "Nothing in the next few weeks. We will tell you when it comes.",
+  "tabToday": "Today",
+  "tabYatra": "Yatra",
+  "tabYou": "You",
+  "todayBegin": "Begin today's ritual",
+  "todayContinue": "Continue the ritual",
+  "todayAgain": "Light it again",
+  "todayHearAgain": "Hear them again",
+  "todayDoneTitle": "Today is lit.",
+  "todayCameBack": "You came back.",
+  "todayWalkedTitle": "The lamp is lit.\nNow, speak your mind.",
+  "todayHeardTitle": "Five heard.\nNow take one step\non the path.",
+  "greetMorning": "Good morning.",
+  "greetMorningName": "Good morning, {name}.",
+  "@greetMorningName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "greetNamaste": "Namaste.",
+  "greetNamasteName": "Namaste, {name}.",
+  "@greetNamasteName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "todaySubBack": "The lamp was still warm.",
+  "todaySubDone": "Come back tomorrow.\nThe verses will wait.",
+  "todaySubWalked": "A verse will answer.",
+  "todaySubStart": "Five verses are waiting.\nThen you may rest.",
+  "topDay": "Day {n}",
+  "@topDay": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "topAdhyaya": "Adhyaya {n}",
+  "@topAdhyaya": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "calendarToday": "Today in your calendar: {items}",
+  "@calendarToday": {
+    "placeholders": {
+      "items": {
+        "type": "String"
+      }
+    }
+  },
+  "pointsAction": "{n} Moksh Points",
+  "@pointsAction": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "ekantAction": "Ekant, a quiet room",
+  "daysKept": "Your {n} days are kept.",
+  "@daysKept": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "earlierDaysKept": "Your earlier days are kept.",
+  "railHear": "Hear",
+  "railWalk": "Walk",
+  "railSpeak": "Speak",
+  "railDone": "done",
+  "railNext": "next",
+  "railLater": "later",
+  "railSemantic": "{label}, {state}",
+  "@railSemantic": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "state": {
+        "type": "String"
+      }
+    }
+  },
+  "youTitle": "You",
+  "yourLight": "Your light",
+  "daysOfLightOne": "1 day of light",
+  "daysOfLight": "{n} days of light",
+  "@daysOfLight": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "keptVerses": "Kept verses",
+  "mokshPoints": "Moksh Points",
+  "ekantRow": "Ekant",
+  "ekantWhy": "A quiet room to sit with what you feel.",
+  "settingsHead": "SETTINGS",
+  "practiceRow": "My practice",
+  "practiceRowWhy": "What we remind you of, and when.",
+  "practiceRowValue": "{n} on",
+  "@practiceRowValue": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "placeRow": "City and tradition",
+  "placeRowWhy": "Your sunrise, and your Ekadashi day.",
+  "soundRow": "Sound and touch",
+  "soundRowWhy": "Soft sounds and small taps you can feel.",
+  "languageRowWhy": "The words in the app, and the meaning of each verse.",
+  "lookRow": "Look",
+  "lookRowWhy": "Night or morning light.",
+  "accountRow": "Account",
+  "accountRowWhy": "Who you are. It stays on this phone.",
+  "guest": "Guest",
+  "signedIn": "Signed in",
+  "methodNone": "Not signed in",
+  "methodGuest": "Guest on this phone",
+  "methodGoogle": "Signed in with Google",
+  "methodPhone": "Signed in with {phone}",
+  "@methodPhone": {
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    }
+  },
+  "phoneWord": "phone",
+  "placeSheetWhy": "Your city tells us when the sun rises for you. Prayers follow the sun.",
+  "yourCity": "Your city",
+  "whyYourCity": "Why your city?",
+  "cityInfo1": "The sun rises at a different time in every city.",
+  "cityInfo2": "Sunrise starts each day of the moon. So your city sets the right day and hour for every fast and lamp.",
+  "howYouKeepEkadashi": "How you keep Ekadashi",
+  "soundSheetWhy": "Small signs that the app heard you.",
+  "soundLabel": "Sound",
+  "soundWhy": "Soft bells and wood taps.",
+  "soundInfo1": "When you press a button, you hear a soft tap.",
+  "soundInfo2": "When you finish a step, a small bell rings.",
+  "soundInfo3": "It is always quiet and short. Your phone volume still decides.",
+  "hapticsLabel": "Touch",
+  "hapticsWhy": "A tiny tap you feel in your hand.",
+  "hapticsInfo1": "Touch means the phone moves a tiny bit, like a soft knock.",
+  "hapticsInfo2": "You feel it when you pick something or finish a step.",
+  "lookSheetWhy": "How the app looks.",
+  "appearance": "Appearance",
+  "appearanceAuto": "Auto",
+  "appearanceAutoHint": "Today turns bright like morning, from 5 to 10.",
+  "appearanceNight": "Night",
+  "appearanceNightHint": "Always the warm dark, all day.",
+  "languageSheetWhy": "The words in the app, and the meaning shown under each verse.",
+  "languageEnglishHint": "The app and the meanings in English.",
+  "languageHindiHint": "The app and the meanings in Hindi.",
+  "textSizeSheetWhy": "Pick the size that is easy on your eyes.",
+  "accountSheetWhy": "Who you are here. Your data stays on this phone.",
+  "whatToCall": "What should we call you?",
+  "yourName": "Your name",
+  "signInToKeep": "Sign in to keep your lamp if you change phones.",
+  "yourData": "Your data",
+  "whatStaysTitle": "What stays with you",
+  "dataInfo1": "Your lamp, your points and your kept verses live on this phone.",
+  "dataInfo2": "Nothing you speak is stored. It is heard, then let go.",
+  "dataInfo3": "Signing in is only pretend for now. Nothing leaves this phone.",
+  "dataLine": "Your progress lives on this phone. Nothing you speak is stored.",
+  "signOut": "Sign out"
+}

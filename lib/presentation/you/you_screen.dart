@@ -12,8 +12,10 @@ import '../../design/info_sheet.dart';
 import '../../design/lottie_art.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
+import '../../l10n/l10n.dart';
 import '../auth/sign_in_panel.dart';
-import '../onboarding/onboarding_flow.dart' show traditionHint;
+import '../language/language_picker.dart';
+import '../onboarding/onboarding_flow.dart' show traditionHint, traditionLabel;
 import '../practice/tradition_explainer.dart';
 import 'city_picker.dart';
 
@@ -22,17 +24,9 @@ import 'city_picker.dart';
 class YouScreen extends ConsumerWidget {
   const YouScreen({super.key});
 
-  static const String practiceRow = 'My practice';
-  static const String placeRow = 'City and tradition';
-  static const String soundRow = 'Sound and touch';
-  static const String lookRow = 'Look and language';
-  static const String accountRow = 'Account';
-
-  static String languageName(Language l) => switch (l) {
-    Language.hindi => 'Hindi',
-    Language.english => 'English',
-    Language.hinglish => 'Hinglish',
-  };
+  /// The language row is the same in every language, so a person who
+  /// cannot read the current one can still find it.
+  static const String languageRow = 'Language / भाषा';
 
   static String timeName(int m) => '${_hhmm(m)} ${m < 12 * 60 ? 'AM' : 'PM'}';
   static String _hhmm(int m) {
@@ -43,6 +37,7 @@ class YouScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     final Settings s = ref.watch(settingsProvider);
     final ProgressState p = ref.watch(progressProvider);
     final AuthUser? user = ref.watch(authProvider);
@@ -58,7 +53,7 @@ class YouScreen extends ConsumerWidget {
             Sp.s22,
           ),
           children: <Widget>[
-            const TopLine(left: 'You'),
+            TopLine(left: l.youTitle),
             const SizedBox(height: Sp.s18),
             _Profile(user: user, onTap: () => _account(context)),
             const SizedBox(height: Sp.s22),
@@ -71,12 +66,14 @@ class YouScreen extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'Your light',
+                        l.yourLight,
                         style: DType.title(c.ink, compact: true),
                       ),
                       Text(
-                        '${p.streak < 1 ? 1 : p.streak} ${p.streak <= 1 ? 'day' : 'days'} of light',
-                        style: DType.body(c.mute, size: 16),
+                        p.streak <= 1
+                            ? l.daysOfLightOne
+                            : l.daysOfLight(p.streak),
+                        style: DType.body(c.mute, size: 17),
                       ),
                     ],
                   ),
@@ -91,7 +88,7 @@ class YouScreen extends ConsumerWidget {
                     icon: 'lotus',
                     iconColor: c.rose,
                     value: '${p.kept.length}',
-                    label: 'Kept verses',
+                    label: l.keptVerses,
                     onTap: () => context.push(Routes.kept),
                   ),
                 ),
@@ -101,7 +98,7 @@ class YouScreen extends ConsumerWidget {
                     icon: 'peacock',
                     iconColor: c.peacock,
                     value: '${p.points}',
-                    label: 'Moksh Points',
+                    label: l.mokshPoints,
                     onTap: () => context.push(Routes.wallet),
                   ),
                 ),
@@ -109,22 +106,40 @@ class YouScreen extends ConsumerWidget {
             ),
             const SizedBox(height: Sp.s12),
             _Row(
-              label: 'Ekant',
-              why: 'A quiet room to sit with what you feel.',
+              label: l.ekantRow,
+              why: l.ekantWhy,
               onTap: () => context.push(Routes.ekant),
             ),
             const SizedBox(height: Sp.s30),
-            Text('SETTINGS', style: DType.eyebrow(c.faint)),
+            Text(l.settingsHead, style: DType.eyebrow(c.mute)),
             const SizedBox(height: Sp.s6),
             _Row(
-              label: practiceRow,
-              why: 'What we remind you of, and when.',
-              value: '$on on',
+              label: YouScreen.languageRow,
+              why: l.languageRowWhy,
+              value: languageNameOf(s.language),
+              onTap: () => showDSheet<void>(
+                context,
+                (BuildContext ctx) => const _LanguageSheet(),
+              ),
+            ),
+            _Row(
+              label: l.textSizeRow,
+              why: l.textSizeRowWhy,
+              value: textSizeName(context, s.textSize),
+              onTap: () => showDSheet<void>(
+                context,
+                (BuildContext ctx) => const _TextSizeSheet(),
+              ),
+            ),
+            _Row(
+              label: l.practiceRow,
+              why: l.practiceRowWhy,
+              value: l.practiceRowValue(on),
               onTap: () => context.push(Routes.practice),
             ),
             _Row(
-              label: placeRow,
-              why: 'Your sunrise, and your Ekadashi day.',
+              label: l.placeRow,
+              why: l.placeRowWhy,
               value: ref.watch(cityProvider)?.name,
               onTap: () => showDSheet<void>(
                 context,
@@ -132,27 +147,29 @@ class YouScreen extends ConsumerWidget {
               ),
             ),
             _Row(
-              label: soundRow,
-              why: 'Soft sounds and small taps you can feel.',
-              value: s.sound || s.haptics ? 'On' : 'Off',
+              label: l.soundRow,
+              why: l.soundRowWhy,
+              value: s.sound || s.haptics ? l.on : l.off,
               onTap: () => showDSheet<void>(
                 context,
                 (BuildContext ctx) => const _SoundSheet(),
               ),
             ),
             _Row(
-              label: lookRow,
-              why: 'Night or morning, and your words.',
-              value: languageName(s.language),
+              label: l.lookRow,
+              why: l.lookRowWhy,
+              value: s.appearance == Appearance.auto
+                  ? l.appearanceAuto
+                  : l.appearanceNight,
               onTap: () => showDSheet<void>(
                 context,
                 (BuildContext ctx) => const _LookSheet(),
               ),
             ),
             _Row(
-              label: accountRow,
-              why: 'Who you are. It stays on this phone.',
-              value: user == null || user.isGuest ? 'Guest' : 'Signed in',
+              label: l.accountRow,
+              why: l.accountRowWhy,
+              value: user == null || user.isGuest ? l.guest : l.signedIn,
               onTap: () => _account(context),
             ),
           ],
@@ -165,19 +182,19 @@ class YouScreen extends ConsumerWidget {
       showDSheet<void>(context, (BuildContext ctx) => const _AccountSheet());
 }
 
-String displayName(AuthUser? u) =>
-    u == null || u.name.isEmpty ? 'Guest' : u.name;
+String displayName(AppLocalizations l, AuthUser? u) =>
+    u == null || u.name.isEmpty ? l.guest : u.name;
 
-String methodLine(AuthUser? u) => switch (u?.method) {
-  null => 'Not signed in',
-  SignInMethod.guest => 'Guest on this phone',
-  SignInMethod.google => 'Signed in with Google',
-  SignInMethod.phone => 'Signed in with ${phoneLabel(u!.phone)}',
+String methodLine(AppLocalizations l, AuthUser? u) => switch (u?.method) {
+  null => l.methodNone,
+  SignInMethod.guest => l.methodGuest,
+  SignInMethod.google => l.methodGoogle,
+  SignInMethod.phone => l.methodPhone(phoneLabel(l, u!.phone)),
 };
 
 /// "919876543210" as "+91 98765 43210"; other lengths with a plus in front.
-String phoneLabel(String? digits) {
-  if (digits == null || digits.isEmpty) return 'phone';
+String phoneLabel(AppLocalizations l, String? digits) {
+  if (digits == null || digits.isEmpty) return l.phoneWord;
   if (digits.length == 12 && digits.startsWith('91')) {
     return '+91 ${digits.substring(2, 7)} ${digits.substring(7)}';
   }
@@ -194,10 +211,11 @@ class _Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
-    final String name = displayName(user);
+    final AppLocalizations l = context.l;
+    final String name = displayName(l, user);
     return Semantics(
       button: true,
-      label: '$name. ${methodLine(user)}',
+      label: '$name. ${methodLine(l, user)}',
       excludeSemantics: true,
       onTap: onTap,
       child: GestureDetector(
@@ -206,34 +224,42 @@ class _Profile extends StatelessWidget {
           Haptics.tick();
           onTap();
         },
-        child: Row(
-          children: <Widget>[
-            Container(
-              width: 44,
-              height: 44,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: c.surface,
-                border: Border.all(color: Tok.marigold.withValues(alpha: 0.5)),
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: 56),
+          child: Row(
+            children: <Widget>[
+              Container(
+                width: 44,
+                height: 44,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: c.surface,
+                  border: Border.all(
+                    color: Tok.marigold.withValues(alpha: 0.5),
+                  ),
+                ),
+                child: Text(
+                  name.characters.first.toUpperCase(),
+                  style: DType.body(c.verse, size: 22).copyWith(height: 1),
+                ),
               ),
-              child: Text(
-                name.characters.first.toUpperCase(),
-                style: DType.body(c.verse, size: 22).copyWith(height: 1),
+              const SizedBox(width: Sp.s14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(name, style: DType.body(c.ink, size: 20)),
+                    Text(
+                      methodLine(l, user),
+                      style: DType.body(c.mute, size: 16),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(width: Sp.s14),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(name, style: DType.body(c.ink, size: 20)),
-                  Text(methodLine(user), style: DType.body(c.faint, size: 14)),
-                ],
-              ),
-            ),
-            Icon(Icons.chevron_right, size: 18, color: c.faint),
-          ],
+              Icon(Icons.chevron_right, size: 24, color: c.mute),
+            ],
+          ),
         ),
       ),
     );
@@ -279,13 +305,13 @@ class _Tile extends StatelessWidget {
                 children: <Widget>[
                   DIcon(icon, size: 26, color: iconColor, glow: true),
                   const Spacer(),
-                  Icon(Icons.chevron_right, size: 18, color: c.faint),
+                  Icon(Icons.chevron_right, size: 24, color: c.mute),
                 ],
               ),
               const SizedBox(height: Sp.s12),
               Text(value, style: DType.hero(c.verse, size: 34)),
               const SizedBox(height: 2),
-              Text(label.toUpperCase(), style: DType.ref(c.faint)),
+              Text(label.toUpperCase(), style: DType.ref(c.mute)),
             ],
           ),
         ),
@@ -311,6 +337,7 @@ class _Row extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
+    final bool stacked = MediaQuery.textScalerOf(context).scale(1) >= 1.3;
     return Semantics(
       container: true,
       button: true,
@@ -324,6 +351,7 @@ class _Row extends StatelessWidget {
           onTap();
         },
         child: Container(
+          constraints: const BoxConstraints(minHeight: 64),
           padding: const EdgeInsets.symmetric(vertical: Sp.s14),
           decoration: BoxDecoration(
             border: Border(bottom: BorderSide(color: c.line)),
@@ -335,16 +363,27 @@ class _Row extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(label, style: DType.body(c.ink, size: 22)),
-                    Text(why, style: DType.body(c.mute, size: 15)),
+                    // Big text leaves no room beside the words: the answer
+                    // goes under the name instead.
+                    if (value != null && stacked)
+                      Text(value!, style: DType.body(c.verse, size: 18)),
+                    Text(why, style: DType.body(c.mute, size: 16)),
                   ],
                 ),
               ),
-              if (value != null) ...<Widget>[
+              if (value != null && !stacked) ...<Widget>[
                 const SizedBox(width: Sp.s12),
-                Text(value!, style: DType.body(c.mute, size: 16)),
+                // The value is the answer: it gets the strong colour.
+                Flexible(
+                  child: Text(
+                    value!,
+                    textAlign: TextAlign.end,
+                    style: DType.body(c.verse, size: 18),
+                  ),
+                ),
               ],
               const SizedBox(width: Sp.s6),
-              Icon(Icons.chevron_right, size: 18, color: c.faint),
+              Icon(Icons.chevron_right, size: 24, color: c.mute),
             ],
           ),
         ),
@@ -371,7 +410,7 @@ class _Head extends StatelessWidget {
           child: Text(title, style: DType.title(c.ink, compact: true)),
         ),
         const SizedBox(height: Sp.s6),
-        Text(why, style: DType.body(c.mute, size: 17)),
+        Text(why, style: DType.body(c.mute, size: 18)),
         const SizedBox(height: Sp.s18),
       ],
     );
@@ -410,34 +449,27 @@ class _PlaceSheet extends ConsumerWidget {
       child: ListView(
         shrinkWrap: true,
         children: <Widget>[
-          const _Head(
-            YouScreen.placeRow,
-            'Your city tells us when the sun rises for you. Prayers follow the sun.',
-          ),
+          _Head(context.l.placeRow, context.l.placeSheetWhy),
           _Label(
-            'Your city',
+            context.l.yourCity,
             onInfo: () => showInfo(
               context,
-              title: 'Why your city?',
+              title: context.l.whyYourCity,
               art: Art.citySun,
-              lines: const <String>[
-                'The sun rises at a different time in every city.',
-                'Sunrise starts each day of the moon. So your city sets the '
-                    'right day and hour for every fast and lamp.',
-              ],
+              lines: <String>[context.l.cityInfo1, context.l.cityInfo2],
             ),
           ),
           CityPicker(selected: s.cityId, onSelected: n.setCity),
           const SizedBox(height: Sp.s18),
           _Label(
-            'How you keep Ekadashi',
+            context.l.howYouKeepEkadashi,
             onInfo: () => showTraditionExplainer(context),
           ),
           const SizedBox(height: Sp.s12),
           for (final Tradition t in Tradition.values) ...<Widget>[
             OptionRow(
-              label: t.label,
-              hint: traditionHint(t),
+              label: traditionLabel(context.l, t),
+              hint: traditionHint(context.l, t),
               selected: t == s.tradition,
               onTap: () => n.setTradition(t),
             ),
@@ -467,6 +499,7 @@ class _SoundSheet extends ConsumerWidget {
       behavior: HitTestBehavior.opaque,
       onTap: () => set(!v),
       child: Container(
+        constraints: const BoxConstraints(minHeight: 64),
         padding: const EdgeInsets.symmetric(vertical: Sp.s12),
         decoration: BoxDecoration(
           border: Border(bottom: BorderSide(color: c.line)),
@@ -485,7 +518,7 @@ class _SoundSheet extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(label, style: DType.body(c.ink, size: 21)),
-                    Text(why, style: DType.body(c.mute, size: 15)),
+                    Text(why, style: DType.body(c.mute, size: 16)),
                   ],
                 ),
               ),
@@ -498,43 +531,86 @@ class _SoundSheet extends ConsumerWidget {
         ),
       ),
     );
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        const _Head(YouScreen.soundRow, 'Small signs that the app heard you.'),
-        toggle(
-          'Sound',
-          'Soft bells and wood taps.',
-          s.sound,
-          n.setSound,
-          () => showInfo(
-            context,
-            title: 'Sound',
-            art: Art.bell,
-            lines: const <String>[
-              'When you press a button, you hear a soft tap.',
-              'When you finish a step, a small bell rings.',
-              'It is always quiet and short. Your phone volume still decides.',
-            ],
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.sizeOf(context).height * 0.85,
+      ),
+      child: ListView(
+        shrinkWrap: true,
+        children: <Widget>[
+          _Head(context.l.soundRow, context.l.soundSheetWhy),
+          toggle(
+            context.l.soundLabel,
+            context.l.soundWhy,
+            s.sound,
+            n.setSound,
+            () => showInfo(
+              context,
+              title: context.l.soundLabel,
+              art: Art.bell,
+              lines: <String>[
+                context.l.soundInfo1,
+                context.l.soundInfo2,
+                context.l.soundInfo3,
+              ],
+            ),
           ),
-        ),
-        toggle(
-          'Haptics',
-          'A tiny tap you feel in your hand.',
-          s.haptics,
-          n.setHaptics,
-          () => showInfo(
-            context,
-            title: 'Haptics',
-            art: Art.ripple,
-            lines: const <String>[
-              'Haptics means the phone moves a tiny bit, like a soft knock.',
-              'You feel it when you pick something or finish a step.',
-            ],
+          toggle(
+            context.l.hapticsLabel,
+            context.l.hapticsWhy,
+            s.haptics,
+            n.setHaptics,
+            () => showInfo(
+              context,
+              title: context.l.hapticsLabel,
+              art: Art.ripple,
+              lines: <String>[context.l.hapticsInfo1, context.l.hapticsInfo2],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
+    );
+  }
+}
+
+/// Pick the app and verse language. Also reachable from the first page of
+/// onboarding; the same tiles, saved the moment you tap.
+class _LanguageSheet extends StatelessWidget {
+  const _LanguageSheet();
+
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.sizeOf(context).height * 0.85,
+      ),
+      child: ListView(
+        shrinkWrap: true,
+        children: <Widget>[
+          _Head(YouScreen.languageRow, context.l.languageSheetWhy),
+          const LanguageTiles(),
+        ],
+      ),
+    );
+  }
+}
+
+class _TextSizeSheet extends StatelessWidget {
+  const _TextSizeSheet();
+
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.sizeOf(context).height * 0.85,
+      ),
+      child: ListView(
+        shrinkWrap: true,
+        children: <Widget>[
+          _Head(context.l.textSizeRow, context.l.textSizeSheetWhy),
+          const TextSizeChoice(),
+        ],
+      ),
     );
   }
 }
@@ -544,7 +620,7 @@ class _LookSheet extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     final Settings s = ref.watch(settingsProvider);
     final SettingsNotifier n = ref.read(settingsProvider.notifier);
     return ConstrainedBox(
@@ -554,38 +630,17 @@ class _LookSheet extends ConsumerWidget {
       child: ListView(
         shrinkWrap: true,
         children: <Widget>[
-          const _Head(
-            YouScreen.lookRow,
-            'How the app looks, and the words it uses.',
-          ),
-          Text('Language', style: DType.body(c.ink, size: 20)),
-          const SizedBox(height: Sp.s12),
-          for (final Language l in Language.values) ...<Widget>[
-            OptionRow(
-              label: YouScreen.languageName(l),
-              hint: switch (l) {
-                Language.hindi => 'Meanings in Hindi.',
-                Language.english => 'Meanings in English.',
-                Language.hinglish => 'Hindi words in English letters.',
-              },
-              selected: l == s.language,
-              onTap: () => n.setLanguage(l),
-            ),
-            const SizedBox(height: Sp.s12),
-          ],
-          const SizedBox(height: Sp.s6),
-          Text('Appearance', style: DType.body(c.ink, size: 20)),
-          const SizedBox(height: Sp.s12),
+          _Head(l.lookRow, l.lookSheetWhy),
           OptionRow(
-            label: 'Auto',
-            hint: 'Today turns bright like morning, from 5 to 10.',
+            label: l.appearanceAuto,
+            hint: l.appearanceAutoHint,
             selected: s.appearance == Appearance.auto,
             onTap: () => n.setAppearance(Appearance.auto),
           ),
           const SizedBox(height: Sp.s12),
           OptionRow(
-            label: 'Night',
-            hint: 'Always the warm dark, all day.',
+            label: l.appearanceNight,
+            hint: l.appearanceNightHint,
             selected: s.appearance == Appearance.night,
             onTap: () => n.setAppearance(Appearance.night),
           ),
@@ -616,6 +671,7 @@ class _AccountSheetState extends ConsumerState<_AccountSheet> {
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     final AuthUser? user = ref.watch(authProvider);
     final AuthNotifier auth = ref.read(authProvider.notifier);
     final bool signedIn = user != null && !user.isGuest;
@@ -626,24 +682,18 @@ class _AccountSheetState extends ConsumerState<_AccountSheet> {
       child: ListView(
         shrinkWrap: true,
         children: <Widget>[
-          const _Head(
-            YouScreen.accountRow,
-            'Who you are here. Your data stays on this phone.',
-          ),
+          _Head(l.accountRow, l.accountSheetWhy),
           if (user != null) ...<Widget>[
-            Text(
-              'What should we call you?',
-              style: DType.body(c.ink, size: 20),
-            ),
+            Text(l.whatToCall, style: DType.body(c.ink, size: 20)),
             Semantics(
-              label: 'Your name',
+              label: l.yourName,
               child: TextField(
                 controller: _name,
                 maxLength: 30,
                 textCapitalization: TextCapitalization.words,
                 style: DType.body(c.ink, size: 20),
                 decoration: InputDecoration(
-                  hintText: 'Your name',
+                  hintText: l.yourName,
                   hintStyle: DType.body(c.faint, size: 20),
                   counterText: '',
                 ),
@@ -652,40 +702,30 @@ class _AccountSheetState extends ConsumerState<_AccountSheet> {
               ),
             ),
             const SizedBox(height: Sp.s6),
-            Text(methodLine(user), style: DType.body(c.faint, size: 15)),
+            Text(methodLine(l, user), style: DType.body(c.mute, size: 16)),
             const SizedBox(height: Sp.s18),
           ],
           if (!signedIn) ...<Widget>[
-            Text(
-              'Sign in to keep your lamp if you change phones.',
-              style: DType.body(c.mute, size: 17),
-            ),
+            Text(l.signInToKeep, style: DType.body(c.mute, size: 18)),
             const SizedBox(height: Sp.s12),
             SignInPanel(allowGuest: false, onDone: () => setState(() {})),
             const SizedBox(height: Sp.s12),
           ],
           _Label(
-            'Your data',
+            l.yourData,
             onInfo: () => showInfo(
               context,
-              title: 'What stays with you',
+              title: l.whatStaysTitle,
               art: Art.lotusSafe,
-              lines: const <String>[
-                'Your lamp, your points and your kept verses live on this phone.',
-                'Nothing you speak is stored. It is heard, then let go.',
-                'Signing in is only pretend for now. Nothing leaves this phone.',
-              ],
+              lines: <String>[l.dataInfo1, l.dataInfo2, l.dataInfo3],
             ),
           ),
-          Text(
-            'Your progress lives on this phone. Nothing you speak is stored.',
-            style: DType.body(c.mute, size: 16),
-          ),
+          Text(l.dataLine, style: DType.body(c.mute, size: 17)),
           if (user != null) ...<Widget>[
             const SizedBox(height: Sp.s12),
             Center(
               child: TextAction(
-                label: 'Sign out',
+                label: l.signOut,
                 onPressed: () async {
                   await auth.signOut();
                   _name.clear();

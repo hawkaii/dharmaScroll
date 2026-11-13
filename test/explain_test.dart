@@ -12,11 +12,12 @@ import 'package:dharmascroll/domain/models/verse.dart';
 import 'package:dharmascroll/features/explain/explain_sheet.dart';
 import 'package:dharmascroll/features/explain/verse_explainer.dart';
 import 'package:dharmascroll/features/explain/verse_notes.dart';
-import 'package:dharmascroll/presentation/today/today_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'en.dart';
 
 final RegExp _devanagari = RegExp(r'[\u0900-\u097F]');
 final RegExp _devaWord = RegExp(r'^[\u0900-\u097F \-]+$');
@@ -379,7 +380,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    await tester.tap(find.text(TodayScreen.beginLabel));
+    await tester.tap(find.text(en.todayBegin));
     await tester.pumpAndSettle();
     await tester.tap(find.bySemanticsLabel('Explain this verse'));
     await tester.pumpAndSettle();
