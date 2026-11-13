@@ -51,7 +51,6 @@ final List<String> _allowedEnglish = () {
     'English',
     'Hinglish',
     'Google',
-    'New Delhi',
     'IAST',
     'DHARMASCROLL',
     'Language / भाषा',
@@ -450,6 +449,40 @@ void main() {
         isEmpty,
         reason: 'an English line with no Hindi twin',
       );
+    });
+
+    test('every city and country has a Hindi name', () {
+      final List<dynamic> cities = jsonDecode(
+        File('assets/panchang/cities.json').readAsStringSync(),
+      ) as List<dynamic>;
+      final Map<String, dynamic> hiNames = jsonDecode(
+        File('assets/panchang/cities_hi.json').readAsStringSync(),
+      ) as Map<String, dynamic>;
+      final Map<String, dynamic> byCity =
+          hiNames['cities'] as Map<String, dynamic>;
+      final Map<String, dynamic> byCountry =
+          hiNames['countries'] as Map<String, dynamic>;
+      for (final dynamic c in cities) {
+        final Map<String, dynamic> city = c as Map<String, dynamic>;
+        expect(byCity[city['id']], isNotNull, reason: '${city['id']}');
+        expect(
+          RegExp('[A-Za-z]').hasMatch(byCity[city['id']] as String),
+          isFalse,
+        );
+        if (city['country'] != 'IN') {
+          expect(
+            byCountry[city['country']],
+            isNotNull,
+            reason: '${city['country']}',
+          );
+        }
+      }
+      final PanchangCity delhi = PanchangCity.fromJson(
+        cities.first as Map<String, dynamic>,
+        nameHi: byCity['new-delhi-in'] as String,
+      );
+      expect(delhi.labelIn(hindi: true), 'नई दिल्ली');
+      expect(delhi.labelIn(hindi: false), 'New Delhi');
     });
 
     test('sign-in errors are in Hindi', () {

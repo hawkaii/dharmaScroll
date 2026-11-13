@@ -141,7 +141,11 @@ class YouScreen extends ConsumerWidget {
             _Row(
               label: l.placeRow,
               why: l.placeRowWhy,
-              value: ref.watch(cityProvider)?.name,
+              value: ref
+                  .watch(cityProvider)
+                  ?.nameIn(
+                    hindi: Localizations.localeOf(context).languageCode == 'hi',
+                  ),
               onTap: () => showDSheet<void>(
                 context,
                 (BuildContext ctx) => const _PlaceSheet(),
