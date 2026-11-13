@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
@@ -8,33 +7,28 @@ import 'package:go_router/go_router.dart';
 import '../../app_providers.dart';
 import '../../core/feedback/sound_service.dart';
 import '../../core/router.dart';
-import '../../core/state/settings.dart';
 import '../../design/effects.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import 'chat_history.dart';
+import 'chat_service.dart';
+import 'ekant_chat.dart';
+import 'ekant_chat_view.dart';
 import 'ekant_engine.dart';
+import 'ekant_providers.dart';
 import 'ekant_sitting.dart';
-import 'ekant_voice.dart';
+import 'ekant_strings.dart';
+import 'ekant_talk.dart';
 import 'kept_notes.dart';
 
-final Provider<VerseMatcher> ekantMatcherProvider = Provider<VerseMatcher>(
-  (Ref ref) => VerseMatcher(ref.watch(versesProvider)),
-);
-
-/// Swap this for a model-backed responder later; the screen does not change.
-final Provider<EkantResponder> ekantResponderProvider =
-    Provider<EkantResponder>(
-      (Ref ref) => TemplateResponder(ref.watch(ekantMatcherProvider)),
-    );
+export 'ekant_providers.dart' show ekantMatcherProvider, ekantResponderProvider;
 
 /// Ekant: a quiet room with one lamp. No one is in it; only verses guide.
 class EkantScreen extends ConsumerStatefulWidget {
   const EkantScreen({super.key});
 
-  static const String enterLabel = 'Enter';
   static const String prompt = 'What is on your mind?';
-  static const String shareLabel = 'Share';
   static const String restLabel = 'Rest now';
   static const String fadeLabel = 'Let it fade';
   static const String keepLabel = 'Keep on this phone';
@@ -50,12 +44,9 @@ class EkantScreen extends ConsumerStatefulWidget {
 
 class _EkantScreenState extends ConsumerState<EkantScreen> {
   late final EkantSitting _s;
-  late final EkantVoice? _voice;
+  late final EkantChat _chat;
   late final KeptNotesStore _store;
-  final TextEditingController _text = TextEditingController();
-  final ScrollController _scroll = ScrollController();
-  Timer? _clock;
-  bool _listening = false;
+  bool _talking = false;
   bool _fading = false;
   bool _keeping = false;
   String? _note;
@@ -69,7 +60,12 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
       matcher: ref.read(ekantMatcherProvider),
       clock: ref.read(clockProvider),
     )..addListener(_changed);
-    _voice = ref.read(ekantVoiceProvider);
+    _chat = EkantChat(
+      service: ref.read(chatServiceProvider),
+      store: ref.read(chatHistoryStoreProvider),
+      matcher: ref.read(ekantMatcherProvider),
+      clock: ref.read(clockProvider),
+    )..addListener(_changed);
     _store = ref.read(keptNotesStoreProvider);
     // Board v3: tanpura fades in very low, light impact.
     SoundService.instance.startDrone(
@@ -77,11 +73,7 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
       fadeIn: const Duration(milliseconds: 1400),
     );
     Haptics.tap();
-    _text.addListener(_changed);
-    // The 15-minute limit also holds while nobody types.
-    _clock = Timer.periodic(const Duration(seconds: 20), (_) {
-      if (_s.stage == SittingStage.open && _s.timeUp) _changed();
-    });
+    _chat.load();
     _countKept();
   }
 
@@ -98,67 +90,31 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
 
   @override
   void dispose() {
-    _clock?.cancel();
-    _voice?.stop();
     SoundService.instance.duck(false);
     SoundService.instance.stopDrone(fadeOut: const Duration(milliseconds: 800));
     _s.dispose();
-    _text.dispose();
-    _scroll.dispose();
+    _chat.dispose();
     super.dispose();
   }
 
-  Future<void> _share() async {
-    await _stopListening();
-    final bool crisis = await _s.share(_text.text);
-    _text.clear();
-    if (!mounted) return;
-    if (crisis) {
-      SoundService.instance.stopDrone(fadeOut: Duration.zero);
-      context.pushReplacement(Routes.crisis);
-      return;
-    }
-    SoundService.instance.play(Sfx.bell);
-    Haptics.soft();
-    if (_scroll.hasClients) _scroll.jumpTo(0);
+  /// Words go to the crisis screen. The thread is already gone.
+  void _crisis() {
+    SoundService.instance.stopDrone(fadeOut: Duration.zero);
+    context.pushReplacement(Routes.crisis);
   }
 
-  Future<void> _toggleVoice() async {
-    final EkantVoice? v = _voice;
-    if (v == null) return;
-    if (_listening) return _stopListening();
-    final Language lang = ref.read(settingsProvider).language;
-    final String before = _text.text.trim();
-    final bool ok = await v.start(
-      localeId: lang == Language.english ? 'en_IN' : 'hi_IN',
-      onWords: (String w) {
-        final String t = before.isEmpty ? w : '$before $w';
-        _text.value = TextEditingValue(
-          text: t,
-          selection: TextSelection.collapsed(offset: t.length),
-        );
-      },
-      onDone: () {
-        if (mounted && _listening) _stopListening();
-      },
-    );
-    if (!mounted) return;
-    if (!ok) {
-      setState(() => _note = 'Voice is not available here. Typing works.');
-      return;
-    }
-    SoundService.instance.duck(true);
-    setState(() {
-      _listening = true;
-      _note = null;
-    });
+  void _write() {
+    setState(() => _talking = false);
+    if (_s.stage == SittingStage.threshold) _s.enter();
   }
 
-  Future<void> _stopListening() async {
-    if (!_listening) return;
-    setState(() => _listening = false);
-    SoundService.instance.duck(false);
-    await _voice?.stop();
+  void _speak() => setState(() => _talking = true);
+
+  void _endTalk() => setState(() => _talking = false);
+
+  void _rest() {
+    _s.adopt(_chat.turns());
+    _s.rest();
   }
 
   Future<void> _letGo() async {
@@ -167,6 +123,7 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
     SoundService.instance.play(Sfx.shimmer);
     Haptics.soft();
     await Future<void>.delayed(EkantScreen.fade);
+    await _chat.clear();
     if (mounted) _s.letGo();
   }
 
@@ -178,6 +135,7 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
     });
     try {
       await _s.keep(_store);
+      await _chat.clear();
       SoundService.instance.play(Sfx.bowl);
       Haptics.keep();
     } catch (e) {
@@ -200,12 +158,29 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final Widget body = switch (_s.stage) {
-      SittingStage.threshold => _threshold(context),
-      SittingStage.open => _open(context),
-      SittingStage.closing => _closing(context),
-      SittingStage.closed => _closed(context),
-    };
+    final Widget body = _talking
+        ? EkantTalkRoom(
+            onSwitchToChat: _write,
+            onEnd: _endTalk,
+            onCrisis: () {
+              _chat.clear();
+              _crisis();
+            },
+            onSpoken: (ChatRole role, String text, String? verseId) =>
+                _chat.addSpoken(role, text, verseId: verseId),
+          )
+        : switch (_s.stage) {
+            SittingStage.threshold => _threshold(context),
+            SittingStage.open => EkantChatView(
+              chat: _chat,
+              onLeave: _leave,
+              onRest: _rest,
+              onSpeak: _speak,
+              onCrisis: _crisis,
+            ),
+            SittingStage.closing => _closing(context),
+            SittingStage.closed => _closed(context),
+          };
     return Scaffold(
       backgroundColor: context.c.bg,
       resizeToAvoidBottomInset: true,
@@ -216,11 +191,7 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
             switchInCurve: Motion.easeOut,
             switchOutCurve: Motion.easeOut,
             child: KeyedSubtree(
-              key: ValueKey<Object>(
-                _s.stage == SittingStage.open
-                    ? 'open-${_s.turns.length}'
-                    : _s.stage,
-              ),
+              key: ValueKey<Object>(_talking ? 'talk' : _s.stage),
               child: body,
             ),
           ),
@@ -273,7 +244,6 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
           ),
           Expanded(
             child: SingleChildScrollView(
-              controller: _scroll,
               padding: const EdgeInsets.only(top: Sp.s12, bottom: Sp.s18),
               child: content,
             ),
@@ -308,7 +278,9 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
           ),
           const SizedBox(height: Sp.s14),
           Text(
-            'Your words stay on this phone. They fade when you leave, unless you keep them.',
+            _chat.isEmpty
+                ? EkantStrings.doorPrivacy
+                : '${EkantStrings.doorPrivacy} ${EkantStrings.doorWaiting}',
             textAlign: TextAlign.center,
             style: line,
           ),
@@ -321,7 +293,13 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
         ],
       ),
       actions: <Widget>[
-        PrimaryButton(label: EkantScreen.enterLabel, onPressed: _s.enter),
+        PrimaryButton(label: EkantStrings.writeLabel, onPressed: _write),
+        const SizedBox(height: Sp.s12),
+        SecondaryButton(
+          label: EkantStrings.speakLabel,
+          onPressed: _speak,
+          leading: DIcon('mic', size: 22, color: context.c.peacock),
+        ),
         if (_keptCount > 0)
           TextAction(
             label: 'Kept notes ($_keptCount)',
@@ -332,105 +310,6 @@ class _EkantScreenState extends ConsumerState<EkantScreen> {
             ),
           ),
       ],
-    );
-  }
-
-  Widget _open(BuildContext context) {
-    final DharmaColors c = context.c;
-    final List<SittingTurn> turns = _s.turns;
-    final SittingTurn? last = turns.isEmpty ? null : turns.last;
-    final bool full = _s.full;
-    final Widget content;
-    if (last == null) {
-      content = Column(
-        children: <Widget>[
-          const SizedBox(height: Sp.s34),
-          const Diya(size: 110),
-          const SizedBox(height: Sp.s30),
-          Semantics(
-            header: true,
-            child: Text(
-              EkantScreen.prompt,
-              textAlign: TextAlign.center,
-              style: DType.title(c.ink, compact: true),
-            ),
-          ),
-          const SizedBox(height: Sp.s14),
-          Text(
-            'Write it as it comes. Hindi, English or Hinglish.',
-            textAlign: TextAlign.center,
-            style: DType.body(c.mute, size: 17),
-          ),
-        ],
-      );
-    } else {
-      content = Column(
-        children: <Widget>[
-          const Diya(size: 64),
-          const SizedBox(height: Sp.s14),
-          Text(
-            last.words,
-            textAlign: TextAlign.center,
-            style: DType.body(
-              c.faint,
-              size: 17,
-            ).copyWith(fontStyle: FontStyle.italic),
-          ),
-          const SizedBox(height: Sp.s18),
-          Semantics(
-            liveRegion: true,
-            child: Text(
-              last.reflection,
-              textAlign: TextAlign.center,
-              style: DType.body(c.ink, size: 20),
-            ),
-          ),
-          const SizedBox(height: Sp.s22),
-          VerseBlock(verse: last.verse, lang: last.lang),
-          const SizedBox(height: Sp.s22),
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.only(top: Sp.s14),
-            decoration: BoxDecoration(
-              border: Border(top: BorderSide(color: c.line)),
-            ),
-            child: Text(
-              full ? EkantScreen.enough : last.question ?? '',
-              textAlign: TextAlign.center,
-              style: DType.body(c.ink, size: 18),
-            ),
-          ),
-        ],
-      );
-    }
-    final bool canShare = _text.text.trim().isNotEmpty && !_s.busy;
-    return _frame(
-      right: '${turns.length} of ${EkantSitting.maxTurns}',
-      content: content,
-      actions: full
-          ? <Widget>[
-              PrimaryButton(label: EkantScreen.restLabel, onPressed: _s.rest),
-            ]
-          : <Widget>[
-              _Composer(
-                controller: _text,
-                hint: last == null ? 'Write here' : 'Answer, or say more',
-                listening: _listening,
-                onMic: _voice == null ? null : _toggleVoice,
-              ),
-              if (_note != null)
-                Padding(
-                  padding: const EdgeInsets.only(top: Sp.s6),
-                  child: Text(_note!, style: DType.body(c.mute, size: 15)),
-                ),
-              const SizedBox(height: Sp.s12),
-              PrimaryButton(
-                label: EkantScreen.shareLabel,
-                onPressed: canShare ? _share : null,
-              ),
-              if (last != null)
-                TextAction(label: EkantScreen.restLabel, onPressed: _s.rest),
-            ],
     );
   }
 
@@ -620,92 +499,6 @@ class VerseBlock extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class _Composer extends StatelessWidget {
-  const _Composer({
-    required this.controller,
-    required this.hint,
-    required this.listening,
-    required this.onMic,
-  });
-
-  final TextEditingController controller;
-  final String hint;
-  final bool listening;
-  final VoidCallback? onMic;
-
-  @override
-  Widget build(BuildContext context) {
-    final DharmaColors c = context.c;
-    OutlineInputBorder border(Color col) => OutlineInputBorder(
-      borderRadius: BorderRadius.circular(Rad.card),
-      borderSide: BorderSide(color: col),
-    );
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: <Widget>[
-        Expanded(
-          child: TextField(
-            controller: controller,
-            minLines: 1,
-            maxLines: 4,
-            maxLength: 600,
-            textCapitalization: TextCapitalization.sentences,
-            style: DType.body(c.ink, size: 18),
-            cursorColor: Tok.marigold,
-            decoration: InputDecoration(
-              hintText: hint,
-              hintStyle: DType.body(c.faint, size: 18),
-              counterText: '',
-              filled: true,
-              fillColor: c.surface,
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: Sp.s18,
-                vertical: Sp.s14,
-              ),
-              enabledBorder: border(listening ? c.peacock : c.line),
-              focusedBorder: border(listening ? c.peacock : Tok.marigold),
-            ),
-          ),
-        ),
-        if (onMic != null) ...<Widget>[
-          const SizedBox(width: Sp.s12),
-          Semantics(
-            button: true,
-            toggled: listening,
-            label: listening ? 'Stop listening' : 'Speak instead',
-            excludeSemantics: true,
-            onTap: onMic,
-            child: GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: () {
-                Haptics.tap();
-                onMic!();
-              },
-              child: AnimatedContainer(
-                duration: Motion.listenIn,
-                width: 54,
-                height: 54,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: listening ? c.peacock.withValues(alpha: 0.16) : null,
-                  border: Border.all(color: listening ? c.peacock : c.line),
-                ),
-                child: Center(
-                  child: DIcon(
-                    'mic',
-                    size: 24,
-                    color: listening ? c.peacock : c.accent,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ],
     );
   }
 }

@@ -6,7 +6,10 @@ import 'package:dharmascroll/app.dart';
 import 'package:dharmascroll/app_providers.dart';
 import 'package:dharmascroll/data/verse_repository.dart';
 import 'package:dharmascroll/features/ekant/crisis_screen.dart';
+import 'package:dharmascroll/features/ekant/chat_history.dart';
+import 'package:dharmascroll/features/ekant/chat_service.dart';
 import 'package:dharmascroll/features/ekant/ekant_screen.dart';
+import 'package:dharmascroll/features/ekant/ekant_strings.dart';
 import 'package:dharmascroll/features/ekant/ekant_sitting.dart';
 import 'package:dharmascroll/features/ekant/ekant_voice.dart';
 import 'package:dharmascroll/features/ekant/kept_notes.dart';
@@ -16,7 +19,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-Future<void> _openRoom(WidgetTester tester, MemoryKeptNotesStore store) async {
+Future<void> _openRoom(
+  WidgetTester tester,
+  MemoryKeptNotesStore store, [
+  MemoryChatHistoryStore? history,
+]) async {
   tester.platformDispatcher.accessibilityFeaturesTestValue =
       const FakeAccessibilityFeatures(disableAnimations: true);
   addTearDown(tester.platformDispatcher.clearAccessibilityFeaturesTestValue);
@@ -38,6 +45,9 @@ Future<void> _openRoom(WidgetTester tester, MemoryKeptNotesStore store) async {
         reminderBackendProvider.overrideWithValue(const NoopReminderBackend()),
         keptNotesStoreProvider.overrideWithValue(store),
         ekantVoiceProvider.overrideWithValue(null),
+        chatHistoryStoreProvider.overrideWithValue(
+          history ?? MemoryChatHistoryStore(),
+        ),
       ],
       child: const DharmaScrollApp(),
     ),
@@ -48,7 +58,7 @@ Future<void> _openRoom(WidgetTester tester, MemoryKeptNotesStore store) async {
   await tester.ensureVisible(link);
   await tester.tap(link);
   await tester.pumpAndSettle();
-  await tester.tap(find.text(EkantScreen.enterLabel));
+  await tester.tap(find.text(EkantStrings.writeLabel));
   await tester.pumpAndSettle();
   expect(find.text(EkantScreen.prompt), findsOneWidget);
 }
@@ -56,7 +66,9 @@ Future<void> _openRoom(WidgetTester tester, MemoryKeptNotesStore store) async {
 Future<void> _say(WidgetTester tester, String words) async {
   await tester.enterText(find.byType(TextField), words);
   await tester.pump();
-  await tester.tap(find.text(EkantScreen.shareLabel));
+  await tester.tap(find.text(EkantStrings.sendLabel));
+  // The reply streams in over a few seconds of fake time.
+  await tester.pump(const Duration(seconds: 6));
   await tester.pumpAndSettle();
 }
 
@@ -65,13 +77,22 @@ void main() {
     WidgetTester tester,
   ) async {
     final MemoryKeptNotesStore store = MemoryKeptNotesStore();
-    await _openRoom(tester, store);
+    final MemoryChatHistoryStore history = MemoryChatHistoryStore();
+    await _openRoom(tester, store, history);
 
     for (int i = 1; i <= EkantSitting.maxTurns; i++) {
       expect(find.byType(TextField), findsOneWidget, reason: 'turn $i');
       await _say(tester, 'Work is heavy, turn $i');
-      expect(find.text('Work is heavy, turn $i'), findsOneWidget);
-      expect(find.textContaining('GITA '), findsOneWidget);
+      // The thread keeps every turn; older ones scroll out of view.
+      expect(
+        history.messages.where((m) => m.role == ChatRole.user).last.text,
+        'Work is heavy, turn $i',
+      );
+      expect(
+        find.textContaining('GITA '),
+        findsWidgets,
+        reason: 'the latest reply carries a verse card',
+      );
       expect(find.text('$i OF 8'), findsOneWidget);
     }
     // The cap: no more writing, only rest.
@@ -83,6 +104,7 @@ void main() {
     // The close: one verse to carry and every word of the sitting.
     expect(find.text('A VERSE TO CARRY'), findsOneWidget);
     expect(find.text('Work is heavy, turn 1'), findsOneWidget);
+    expect(history.messages, isNotEmpty);
     await tester.tap(find.text(EkantScreen.fadeLabel));
     // Reduce motion is on here, so Flutter runs the fade 20 times faster
     // (80 ms); it still fades rather than cutting.
@@ -105,6 +127,11 @@ void main() {
     expect(find.text('Rest now.'), findsOneWidget);
     expect(find.textContaining('Work is heavy'), findsNothing);
     expect(store.notes, isEmpty);
+    expect(
+      history.messages,
+      isEmpty,
+      reason: 'letting it fade clears the thread',
+    );
 
     await tester.tap(find.text(EkantScreen.returnLabel));
     await tester.pumpAndSettle();

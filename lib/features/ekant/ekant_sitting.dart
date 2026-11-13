@@ -81,6 +81,14 @@ class EkantSitting extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Takes the turns of a thread written elsewhere (the chat), so the close
+  /// (verse to carry, fade, keep) works on the same words.
+  void adopt(List<SittingTurn> turns) {
+    _turns
+      ..clear()
+      ..addAll(turns);
+  }
+
   /// Returns true when the words must go to the crisis screen. The words are
   /// dropped first, so nothing of them survives the route change.
   Future<bool> share(String raw) async {
