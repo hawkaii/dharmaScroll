@@ -30,7 +30,7 @@ class PointEntry {
   /// `yyyy-mm-dd`.
   final String day;
 
-  /// One of [ProgressNotifier.reasons].
+  /// One of `hear`, `walk`, `speak`, `sankalp`.
   final String reason;
   final int amount;
 
@@ -128,14 +128,6 @@ class ProgressNotifier extends Notifier<ProgressState> {
 
   /// Day counts that open the milestone screen.
   static const List<int> milestones = <int>[7, 30, 100, 365];
-
-  /// Why points were given. Shown in the wallet history.
-  static const Map<String, String> reasons = <String, String>{
-    'hear': 'Five verses heard',
-    'walk': 'One step walked',
-    'speak': 'Spoke your mind',
-    'sankalp': 'Looked back on a Sankalp',
-  };
 
   SharedPreferences get _p => ref.read(sharedPrefsProvider);
   DateTime _now() => ref.read(clockProvider)();

@@ -11,6 +11,7 @@ import '../../design/theme.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../../l10n/l10n.dart';
 import '../../presentation/hear/hear_screen.dart' show meaningOf;
 import '../../presentation/share/share_card.dart';
 import '../../presentation/share/share_sheet.dart';
@@ -21,16 +22,27 @@ import 'verse_notes.dart';
 /// The five parts of the study sheet, in tab order. [heading] sits under the
 /// section's animated header, so it adds to the tab label instead of
 /// repeating it.
-enum ExplainSection {
-  simple('In simple words', 'What it means'),
-  words('Word by word', 'One word at a time'),
-  moment('The moment', 'Kurukshetra, at dawn'),
-  related('Related verses', 'On the same path'),
-  myDay('For my day', 'One line from you');
+enum ExplainSection { simple, words, moment, related, myDay }
 
-  const ExplainSection(this.label, this.heading);
-  final String label;
-  final String heading;
+/// The sheet's words, in the chosen language.
+extension ExplainWords on AppLocalizations {
+  /// The tab's name.
+  String sectionLabel(ExplainSection s) => switch (s) {
+    ExplainSection.simple => exSimpleLabel,
+    ExplainSection.words => exWordsLabel,
+    ExplainSection.moment => exMomentLabel,
+    ExplainSection.related => exRelatedLabel,
+    ExplainSection.myDay => exMyDayLabel,
+  };
+
+  /// What sits under the section's animated header.
+  String sectionHeading(ExplainSection s) => switch (s) {
+    ExplainSection.simple => exSimpleHead,
+    ExplainSection.words => exWordsHead,
+    ExplainSection.moment => exMomentHead,
+    ExplainSection.related => exRelatedHead,
+    ExplainSection.myDay => exMyDayHead,
+  };
 }
 
 /// Opens the study sheet for [verse]. Always dark, like the verse scroll.
@@ -57,13 +69,6 @@ Future<void> showExplainSheet(BuildContext context, Verse verse) {
 /// Verse at the top (always from local data), five tabs, Listen and Share.
 class ExplainSheet extends ConsumerStatefulWidget {
   const ExplainSheet({super.key, required this.verse, this.initial});
-
-  static const String draftNote =
-      'Written for this app. Draft, pending scholar review.';
-  static const String offlineNote =
-      'Replies written with AI are coming. For now the verse answers from your phone.';
-  static const String askHint = 'What is on your mind today?';
-  static const String askLabel = 'Show me';
 
   final Verse verse;
 
@@ -150,7 +155,11 @@ class _ExplainSheetState extends ConsumerState<ExplainSheet> {
     setState(() => _busy = true);
     final DayReflection r = await ref
         .read(verseExplainerProvider)
-        .explainForMyDay(_verse.id, userNote: note.isEmpty ? null : note);
+        .explainForMyDay(
+          _verse.id,
+          userNote: note.isEmpty ? null : note,
+          l: context.l,
+        );
     if (!mounted) return;
     Haptics.soft();
     SoundService.instance.play(Sfx.bell);
@@ -158,6 +167,37 @@ class _ExplainSheetState extends ConsumerState<ExplainSheet> {
       _busy = false;
       _reply = r;
     });
+  }
+
+  /// Listen and Share side by side; one above the other when the words are
+  /// big (a long Hindi label needs the width).
+  Widget _pills(Verse v, Language lang) {
+    final Widget listen = _ListenPill(listening: _listening, onListen: _listen);
+    final Widget share = _Pill(
+      icon: 'share',
+      label: context.l.shareLabel,
+      semanticLabel: context.l.shareVerse,
+      onTap: () => showShareSheet(
+        context,
+        ShareContent(verse: v, meaning: meaningOf(v, lang)),
+      ),
+    );
+    if (MediaQuery.textScalerOf(context).scale(1) >= 1.3) {
+      return Column(
+        children: <Widget>[
+          SizedBox(width: double.infinity, child: listen),
+          const SizedBox(height: Sp.s12),
+          SizedBox(width: double.infinity, child: share),
+        ],
+      );
+    }
+    return Row(
+      children: <Widget>[
+        Expanded(child: listen),
+        const SizedBox(width: Sp.s12),
+        share,
+      ],
+    );
   }
 
   @override
@@ -191,14 +231,20 @@ class _ExplainSheetState extends ConsumerState<ExplainSheet> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: _Link(
-                      label: 'Back to Gita ${_trail[_trail.length - 2].id}',
+                      label: context.l.exBackTo(_trail[_trail.length - 2].id),
                       onTap: _back,
                     ),
                   ),
-                TopLine(left: 'Gita ${v.id}', right: v.yogaName),
+                TopLine(
+                  left: context.l.gitaRef(v.id),
+                  right: context.l.yoga(v.chapter),
+                ),
                 const SizedBox(height: Sp.s14),
                 Semantics(
-                  label: 'Verse ${v.id}. ${v.sanskrit.replaceAll('\n', ' ')}',
+                  label: context.l.exVerseSemantic(
+                    v.id,
+                    v.sanskrit.replaceAll('\n', ' '),
+                  ),
                   excludeSemantics: true,
                   child: AnimatedDefaultTextStyle(
                     duration: Motion.listenIn,
@@ -268,23 +314,7 @@ class _ExplainSheetState extends ConsumerState<ExplainSheet> {
               Sp.screenSide,
               Sp.s12,
             ),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: _ListenPill(listening: _listening, onListen: _listen),
-                ),
-                const SizedBox(width: Sp.s12),
-                _Pill(
-                  icon: 'share',
-                  label: 'Share',
-                  semanticLabel: 'Share this verse',
-                  onTap: () => showShareSheet(
-                    context,
-                    ShareContent(verse: v, meaning: meaningOf(v, lang)),
-                  ),
-                ),
-              ],
-            ),
+            child: _pills(v, lang),
           ),
         ],
       ),
@@ -340,7 +370,7 @@ class _TabsState extends State<_Tabs> {
               container: true,
               button: true,
               selected: s.index == selected,
-              label: s.label,
+              label: context.l.sectionLabel(s),
               excludeSemantics: true,
               onTap: () => onTap(s.index),
               child: GestureDetector(
@@ -358,7 +388,7 @@ class _TabsState extends State<_Tabs> {
                           style: DType.button(
                             s.index == selected ? c.ink : c.faint,
                           ).copyWith(fontWeight: FontWeight.w500, fontSize: 14),
-                          child: Text(s.label),
+                          child: Text(context.l.sectionLabel(s)),
                         ),
                         const SizedBox(height: 10),
                         AnimatedContainer(
@@ -440,11 +470,11 @@ class _SimplePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => _Section(
-    title: ExplainSection.simple.heading,
+    title: context.l.sectionHeading(ExplainSection.simple),
     lottie: 'lamp',
     children: <Widget>[
       Text(text, style: DType.meaning(context.c.ink)),
-      const _Footnote(ExplainSheet.draftNote),
+      _Footnote(context.l.exDraftNote),
     ],
   );
 }
@@ -458,7 +488,7 @@ class _WordsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
     return _Section(
-      title: ExplainSection.words.heading,
+      title: context.l.sectionHeading(ExplainSection.words),
       lottie: 'lotus',
       children: <Widget>[
         LayoutBuilder(
@@ -509,9 +539,7 @@ class _WordsPage extends StatelessWidget {
             );
           },
         ),
-        const _Footnote(
-          'Word meanings in English. Draft, pending scholar review.',
-        ),
+        _Footnote(context.l.exWordsNote),
       ],
     );
   }
@@ -532,7 +560,7 @@ class _MomentPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
     return _Section(
-      title: ExplainSection.moment.heading,
+      title: context.l.sectionHeading(ExplainSection.moment),
       children: <Widget>[
         ClipRRect(
           borderRadius: BorderRadius.circular(Rad.card),
@@ -542,15 +570,22 @@ class _MomentPage extends StatelessWidget {
           ),
         ),
         const SizedBox(height: Sp.s22),
-        Text('WHO SPEAKS', style: DType.ref(c.faint)),
+        Text(context.l.whoSpeaks.toUpperCase(), style: DType.ref(c.faint)),
         const SizedBox(height: Sp.s6),
         Text(
-          moment ?? '${verse.speaker} speaks to ${verse.listener}.',
+          moment ??
+              context.l.exSpeaksTo(
+                context.l.person(verse.speaker),
+                context.l.person(verse.listener),
+              ),
           style: DType.body(c.ink),
         ),
         const SizedBox(height: Sp.s18),
         Text(
-          'ADHYAY ${verse.chapter} · ${verse.yogaName.toUpperCase()}',
+          context.l.exChapterHead(
+            verse.chapter,
+            context.l.yoga(verse.chapter).toUpperCase(),
+          ),
           style: DType.ref(c.faint),
         ),
         const SizedBox(height: Sp.s6),
@@ -580,7 +615,7 @@ class _RelatedPage extends ConsumerWidget {
       for (final Verse v in ref.watch(versesProvider)) v.id: v,
     };
     return _Section(
-      title: ExplainSection.related.heading,
+      title: context.l.sectionHeading(ExplainSection.related),
       lottie: 'path',
       children: <Widget>[
         for (final Verse u
@@ -588,7 +623,7 @@ class _RelatedPage extends ConsumerWidget {
           Semantics(
             container: true,
             button: true,
-            label: 'Open Gita ${u.id}',
+            label: context.l.exOpenGita(u.id),
             onTap: () => onOpen(u),
             excludeSemantics: true,
             child: GestureDetector(
@@ -605,7 +640,10 @@ class _RelatedPage extends ConsumerWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text('GITA ${u.id}', style: DType.ref(c.faint)),
+                          Text(
+                            context.l.gitaRefCaps(u.id),
+                            style: DType.ref(c.faint),
+                          ),
                           const SizedBox(height: Sp.s6),
                           Text(
                             u.padas.first,
@@ -667,7 +705,7 @@ class _MyDayPage extends ConsumerWidget {
       borderSide: BorderSide(color: c.line),
     );
     return _Section(
-      title: ExplainSection.myDay.heading,
+      title: context.l.sectionHeading(ExplainSection.myDay),
       lottie: 'feather',
       children: <Widget>[
         if (!online) ...<Widget>[
@@ -683,15 +721,12 @@ class _MyDayPage extends ConsumerWidget {
               ),
               const SizedBox(width: 8),
               Flexible(
-                child: Text(
-                  'OFFLINE · FROM YOUR PHONE',
-                  style: DType.ref(c.faint),
-                ),
+                child: Text(context.l.exOfflineCaps, style: DType.ref(c.faint)),
               ),
             ],
           ),
           const SizedBox(height: Sp.s6),
-          Text(ExplainSheet.offlineNote, style: DType.body(c.mute, size: 16)),
+          Text(context.l.exOfflineNote, style: DType.body(c.mute, size: 16)),
           const SizedBox(height: Sp.s18),
         ],
         TextField(
@@ -703,7 +738,7 @@ class _MyDayPage extends ConsumerWidget {
           style: DType.body(c.ink, size: 18),
           cursorColor: Tok.marigold,
           decoration: InputDecoration(
-            hintText: ExplainSheet.askHint,
+            hintText: context.l.exAskHint,
             hintStyle: DType.body(c.faint, size: 18),
             counterText: '',
             filled: true,
@@ -721,7 +756,7 @@ class _MyDayPage extends ConsumerWidget {
         ),
         const SizedBox(height: Sp.s14),
         PrimaryButton(
-          label: busy ? 'Listening to the verse' : ExplainSheet.askLabel,
+          label: busy ? context.l.exBusy : context.l.exAskLabel,
           onPressed: busy ? null : onAsk,
         ),
         AnimatedSwitcher(
@@ -742,13 +777,13 @@ class _MyDayPage extends ConsumerWidget {
                       for (final String id in r.refs)
                         if (id != verse.id && all[id] != null)
                           _Link(
-                            label: 'Open Gita $id',
+                            label: context.l.exOpenGita(id),
                             onTap: () => onOpen(all[id]!),
                           ),
                       _Footnote(
                         r.fromModel
-                            ? 'Written by software, from the verse.'
-                            : 'From your phone. Not a teacher or a counsellor.',
+                            ? context.l.exBySoftware
+                            : context.l.exFromPhone,
                       ),
                     ],
                   ),
@@ -858,8 +893,8 @@ class _ListenPill extends StatelessWidget {
     return Semantics(
       container: true,
       button: true,
-      label: 'Listen',
-      hint: 'Press and hold to listen',
+      label: context.l.exListen,
+      hint: context.l.exListenHint,
       excludeSemantics: true,
       onTap: () => onListen(!listening),
       child: GestureDetector(
@@ -889,7 +924,7 @@ class _ListenPill extends StatelessWidget {
               const SizedBox(width: 8),
               Flexible(
                 child: Text(
-                  listening ? 'Listening' : 'Hold to listen',
+                  listening ? context.l.ekListening : context.l.holdToListen,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: DType.button(listening ? c.peacock : c.ink),
@@ -907,8 +942,6 @@ class _ListenPill extends StatelessWidget {
 class ExplainLink extends StatelessWidget {
   const ExplainLink({super.key, required this.verse});
 
-  static const String label = 'Explain this verse';
-
   final Verse verse;
 
   @override
@@ -916,7 +949,7 @@ class ExplainLink extends StatelessWidget {
     alignment: Alignment.centerLeft,
     child: _Pill(
       icon: 'diya',
-      label: label,
+      label: context.l.explainVerse,
       onTap: () => showExplainSheet(context, verse),
     ),
   );

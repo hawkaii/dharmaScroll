@@ -9,7 +9,6 @@ import 'package:dharmascroll/core/rituals/reminder_backend.dart';
 import 'package:dharmascroll/data/verse_repository.dart';
 import 'package:dharmascroll/core/state/settings.dart';
 import 'package:dharmascroll/design/tokens.dart';
-import 'package:dharmascroll/l10n/app_localizations.dart';
 import 'package:dharmascroll/design/widgets.dart';
 import 'package:dharmascroll/domain/models/verse.dart';
 import 'package:dharmascroll/presentation/language/language_picker.dart';
@@ -218,9 +217,16 @@ void main() {
       final Map<String, dynamic> a = read('app_en.arb');
       final Map<String, dynamic> b = read('app_hi.arb');
       expect(b.keys.toSet(), a.keys.toSet());
-      // Same text in both is fine only for these (a template with no words,
-      // and a brand name in Latin letters).
-      const Set<String> alike = <String>{'railSemantic', '@@locale'};
+      // Same text in both is fine only for these (templates with no words
+      // of their own, and a brand name in Latin letters).
+      const Set<String> alike = <String>{
+        'railSemantic',
+        'dayMonth',
+        'yogaAndId',
+        'ruleSuffix',
+        'itemAtTime',
+        '@@locale',
+      };
       for (final String k in a.keys) {
         if (k.startsWith('@') && k != '@@locale') continue;
         if (alike.contains(k)) continue;

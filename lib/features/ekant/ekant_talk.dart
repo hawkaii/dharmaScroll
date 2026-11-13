@@ -9,12 +9,12 @@ import '../../core/feedback/sound_service.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../../l10n/l10n.dart';
 import '../explain/explain_sheet.dart';
 import 'chat_service.dart';
 import 'ekant_engine.dart';
 import 'ekant_lamp.dart';
 import 'ekant_providers.dart';
-import 'ekant_strings.dart';
 import 'mic_access.dart';
 import 'voice_session.dart';
 
@@ -101,7 +101,7 @@ class _EkantTalkRoomState extends ConsumerState<EkantTalkRoom> {
     if (!granted) {
       setState(() {
         _denied = true;
-        _note = EkantStrings.micDenied;
+        _note = context.l.ekMicDenied;
       });
       return;
     }
@@ -134,7 +134,7 @@ class _EkantTalkRoomState extends ConsumerState<EkantTalkRoom> {
       if (mounted) {
         setState(() {
           _state = VoiceState.failed;
-          _note = EkantStrings.stateFailed;
+          _note = context.l.ekConnectFailed;
         });
       }
     }
@@ -198,14 +198,13 @@ class _EkantTalkRoomState extends ConsumerState<EkantTalkRoom> {
 
   String get _stateLabel => switch (_state) {
     VoiceState.disconnected =>
-      _denied ? EkantStrings.stateMuted : EkantStrings.stateConnecting,
-    VoiceState.connecting => EkantStrings.stateConnecting,
-    VoiceState.idle =>
-      _muted ? EkantStrings.stateMuted : EkantStrings.stateIdle,
-    VoiceState.listening => EkantStrings.stateListening,
-    VoiceState.thinking => EkantStrings.stateThinking,
-    VoiceState.speaking => EkantStrings.stateSpeaking,
-    VoiceState.failed => EkantStrings.stateFailed,
+      _denied ? context.l.ekMuted : context.l.ekConnecting,
+    VoiceState.connecting => context.l.ekConnecting,
+    VoiceState.idle => _muted ? context.l.ekMuted : context.l.ekIdle,
+    VoiceState.listening => context.l.ekListening,
+    VoiceState.thinking => context.l.ekThinking,
+    VoiceState.speaking => context.l.ekSpeaking,
+    VoiceState.failed => context.l.ekConnectFailed,
   };
 
   @override
@@ -256,7 +255,7 @@ class _EkantTalkRoomState extends ConsumerState<EkantTalkRoom> {
               ),
               if (_denied || _state == VoiceState.failed)
                 TextAction(
-                  label: EkantStrings.retryLabel,
+                  label: context.l.ekRetry,
                   onPressed: _denied ? _begin : _connect,
                 ),
               if (live) ...<Widget>[
@@ -276,21 +275,19 @@ class _EkantTalkRoomState extends ConsumerState<EkantTalkRoom> {
                 children: <Widget>[
                   _RoomButton(
                     icon: _muted ? 'mic-off' : 'mic',
-                    label: _muted
-                        ? EkantStrings.unmuteLabel
-                        : EkantStrings.muteLabel,
+                    label: _muted ? context.l.ekUnmute : context.l.ekMute,
                     toggled: _muted,
                     onTap: live ? _toggleMute : null,
                   ),
                   _RoomButton(
                     icon: 'close',
-                    label: EkantStrings.endLabel,
+                    label: context.l.ekEnd,
                     tone: c.rose,
                     onTap: () => _leaveWith(widget.onEnd),
                   ),
                   _RoomButton(
                     icon: 'chat',
-                    label: EkantStrings.chatLabel,
+                    label: context.l.ekSwitchToChat,
                     onTap: () => _leaveWith(widget.onSwitchToChat),
                   ),
                 ],
@@ -346,13 +343,13 @@ class _Captions extends StatelessWidget {
                   ),
                 if (empty && note == null)
                   Text(
-                    EkantStrings.captionsEmpty,
+                    context.l.ekCaptionsEmpty,
                     textAlign: TextAlign.center,
                     style: DType.body(c.faint, size: 17),
                   ),
                 if (user != null)
                   _CaptionLine(
-                    who: EkantStrings.youCaption,
+                    who: context.l.ekYou,
                     text: user!.text,
                     style: DType.body(
                       c.mute,
@@ -363,7 +360,7 @@ class _Captions extends StatelessWidget {
                 if (e != null) ...<Widget>[
                   const SizedBox(height: Sp.s14),
                   _CaptionLine(
-                    who: EkantStrings.ekantCaption,
+                    who: context.l.ekEkantSaid,
                     text: e.text,
                     style: DType.body(c.ink, size: 21),
                     final_: e.isFinal,
@@ -372,7 +369,7 @@ class _Captions extends StatelessWidget {
                 if (verse != null)
                   Semantics(
                     button: true,
-                    label: 'Gita ${verse.id}. ${EkantStrings.studyLabel}',
+                    label: context.l.ekGitaStudy(verse.id, context.l.ekStudy),
                     excludeSemantics: true,
                     onTap: () => onVerse(verse),
                     child: GestureDetector(
@@ -385,7 +382,10 @@ class _Captions extends StatelessWidget {
                         constraints: const BoxConstraints(minHeight: 48),
                         child: Center(
                           child: Text(
-                            'GITA ${verse.id}  ·  ${EkantStrings.studyLabel.toUpperCase()}',
+                            context.l.ekGitaStudyCaps(
+                              verse.id,
+                              context.l.ekStudy.toUpperCase(),
+                            ),
                             style: DType.ref(c.accent),
                           ),
                         ),
@@ -450,7 +450,7 @@ class _ModeToggle extends StatelessWidget {
       children: <Widget>[
         Expanded(
           child: _Seg(
-            label: EkantStrings.handsFreeLabel,
+            label: context.l.ekHandsFree,
             selected: handsFree,
             onTap: () => onChanged(true),
           ),
@@ -458,7 +458,7 @@ class _ModeToggle extends StatelessWidget {
         const SizedBox(width: Sp.s12),
         Expanded(
           child: _Seg(
-            label: EkantStrings.pushLabel,
+            label: context.l.ekPushToTalk,
             selected: !handsFree,
             onTap: () => onChanged(false),
           ),
@@ -526,7 +526,7 @@ class _HoldToTalk extends StatelessWidget {
       button: true,
       enabled: enabled,
       toggled: holding,
-      label: holding ? EkantStrings.releaseLabel : EkantStrings.holdLabel,
+      label: holding ? context.l.ekRelease : context.l.ekHoldToTalk,
       excludeSemantics: true,
       onTap: enabled ? () => onHold(!holding) : null,
       child: Listener(
@@ -551,7 +551,7 @@ class _HoldToTalk extends StatelessWidget {
               border: const Border(top: BorderSide(color: Tok.btnHighlight)),
             ),
             child: Text(
-              holding ? EkantStrings.releaseLabel : EkantStrings.holdLabel,
+              holding ? context.l.ekRelease : context.l.ekHoldToTalk,
               style: DType.button(Tok.voiceInk).copyWith(fontSize: 17),
             ),
           ),
@@ -645,21 +645,21 @@ class MicExplainer extends StatelessWidget {
         Semantics(
           header: true,
           child: Text(
-            EkantStrings.micTitle,
+            context.l.ekMicTitle,
             style: DType.title(c.ink, compact: true),
           ),
         ),
         const SizedBox(height: Sp.s12),
-        Text(EkantStrings.micBody, style: DType.body(c.mute, size: 18)),
+        Text(context.l.ekMicBody, style: DType.body(c.mute, size: 18)),
         const SizedBox(height: Sp.s22),
         PrimaryButton(
-          label: EkantStrings.micAllow,
+          label: context.l.ekMicAllow,
           voice: true,
           onPressed: () => Navigator.of(context).pop(true),
         ),
         Center(
           child: TextAction(
-            label: EkantStrings.micNotNow,
+            label: context.l.notNow,
             onPressed: () => Navigator.of(context).pop(false),
           ),
         ),

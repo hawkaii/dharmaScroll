@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../app_providers.dart';
 import '../../core/mann/verse_matcher.dart';
 import '../../domain/models/verse.dart';
+import '../../l10n/l10n.dart';
 
 /// A short reflection for the reader's day, for "For my day".
 ///
@@ -33,9 +34,13 @@ abstract interface class VerseExplainer {
   /// False when no model is configured: the sheet shows its offline state.
   bool get usesModel;
 
-  /// A reflection on [verseId] for today, shaped by the reader's one line.
-  /// Callers run the crisis gate on [userNote] first.
-  Future<DayReflection> explainForMyDay(String verseId, {String? userNote});
+  /// A reflection on [verseId] for today, shaped by the reader's one line,
+  /// in the language of [l]. Callers run the crisis gate on [userNote] first.
+  Future<DayReflection> explainForMyDay(
+    String verseId, {
+    String? userNote,
+    required AppLocalizations l,
+  });
 }
 
 /// Answers from the verse's own local fields: speaker, listener, situation
@@ -47,12 +52,6 @@ class OfflineExplainer implements VerseExplainer {
   final List<Verse> verses;
   final Map<String, Verse> _byId;
 
-  /// For passages that must not be served as advice (war, varna, easily
-  /// misread). Fixed copy, never generated.
-  static const String storyOnly =
-      'This verse is part of the story, not advice for your day. '
-      'This one may sit closer to you.';
-
   @override
   bool get usesModel => false;
 
@@ -60,6 +59,7 @@ class OfflineExplainer implements VerseExplainer {
   Future<DayReflection> explainForMyDay(
     String verseId, {
     String? userNote,
+    required AppLocalizations l,
   }) async {
     final Verse v = _byId[verseId] ?? verses.first;
     final String note = userNote?.trim() ?? '';
@@ -68,16 +68,17 @@ class OfflineExplainer implements VerseExplainer {
         note.isEmpty ? v.tags.join(' ') : note,
         verses,
       ).verse;
-      return DayReflection(text: storyOnly, refs: <String>[near.id]);
+      // For passages that must not be served as advice (war, varna, easily
+      // misread). Fixed copy, never generated.
+      return DayReflection(text: l.exStoryOnly, refs: <String>[near.id]);
     }
-    final String said =
-        '${v.speaker} told ${v.listener} this for moments of '
-        '${_list(v.tags.take(3).map(_plain).toList())}.';
+    final String said = l.exSaid(
+      l.person(v.speaker),
+      l.person(v.listener),
+      _list(l, v.tags.take(3).map(l.tag).toList()),
+    );
     if (note.isEmpty) {
-      return DayReflection(
-        text: '$said Carry one line of it with you today.',
-        refs: <String>[v.id],
-      );
+      return DayReflection(text: l.exCarry(said), refs: <String>[v.id]);
     }
     final Map<String, int> heard = tagScores(note);
     final String? met = v.tags.where(heard.containsKey).fold<String?>(null, (
@@ -88,9 +89,7 @@ class OfflineExplainer implements VerseExplainer {
     });
     if (met != null) {
       return DayReflection(
-        text:
-            '$said It meets the ${_plain(met)} you wrote about. '
-            'Read it once more, slowly.',
+        text: l.exMeets(said, l.tag(met)),
         refs: <String>[v.id],
       );
     }
@@ -98,23 +97,17 @@ class OfflineExplainer implements VerseExplainer {
       final VerseMatch m = matchVerse(note, verses);
       if (m.verse.id != v.id && m.tag != null) {
         return DayReflection(
-          text:
-              '$said For ${_plain(m.tag!)}, Gita ${m.verse.id} may sit closer.',
+          text: l.exCloser(said, l.tag(m.tag!), m.verse.id),
           refs: <String>[v.id, m.verse.id],
         );
       }
     }
-    return DayReflection(
-      text: '$said Hold your day up to it and see what stays.',
-      refs: <String>[v.id],
-    );
+    return DayReflection(text: l.exHold(said), refs: <String>[v.id]);
   }
 
-  static String _plain(String tag) => tag.replaceAll('-', ' ');
-
-  static String _list(List<String> xs) => xs.length < 2
+  static String _list(AppLocalizations l, List<String> xs) => xs.length < 2
       ? xs.join()
-      : '${xs.sublist(0, xs.length - 1).join(', ')} and ${xs.last}';
+      : l.exListAnd(xs.sublist(0, xs.length - 1).join(', '), xs.last);
 }
 
 /// Wraps a model-backed explainer so its reply can never carry scripture.
@@ -142,6 +135,7 @@ class GuardedExplainer implements VerseExplainer {
   Future<DayReflection> explainForMyDay(
     String verseId, {
     String? userNote,
+    required AppLocalizations l,
   }) async {
     final bool safe = offline.verses.any(
       (Verse v) => v.id == verseId && v.adviceSafe,
@@ -149,7 +143,7 @@ class GuardedExplainer implements VerseExplainer {
     if (safe) {
       try {
         final DayReflection r = await model
-            .explainForMyDay(verseId, userNote: userNote)
+            .explainForMyDay(verseId, userNote: userNote, l: l)
             .timeout(timeout);
         if (acceptReflection(r, _ids)) {
           return DayReflection(text: r.text, refs: r.refs, fromModel: true);
@@ -158,7 +152,7 @@ class GuardedExplainer implements VerseExplainer {
         debugPrint('explainer fell back to offline: $e');
       }
     }
-    return offline.explainForMyDay(verseId, userNote: userNote);
+    return offline.explainForMyDay(verseId, userNote: userNote, l: l);
   }
 }
 
@@ -168,6 +162,10 @@ final RegExp _quote = RegExp('["“”«»]');
 final RegExp _ref = RegExp(r'\b\d{1,2}\.\d{1,2}\b');
 
 /// The output rule of the seam (AI plan section 5.1, step 5).
+///
+/// shortcut: Devanagari is refused so a model can never quote scripture, so
+/// a model's Hindi reply falls back to the offline one; allow Hindi prose
+/// here once a Hindi-capable model is wired and its replies are checked.
 bool acceptReflection(DayReflection r, Set<String> knownIds) {
   final String t = r.text.trim();
   if (t.isEmpty || t.length > 280) return false;

@@ -1,8 +1,10 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../app_providers.dart';
+import '../../l10n/app_localizations.dart';
 import '../state/settings.dart';
 import 'panchang.dart';
 import 'reminder_backend.dart';
@@ -44,6 +46,11 @@ final FutureProvider<CityCalendar?> calendarProvider =
       }
     });
 
+/// The app's words for what runs without a screen (reminders), in the chosen
+/// language.
+AppLocalizations wordsFor(Settings s) =>
+    lookupAppLocalizations(Locale(s.language == Language.hindi ? 'hi' : 'en'));
+
 /// Today's labels for the Today screen ("Ekadashi", "Pradosh 5:38-8:02 pm").
 final Provider<List<String>> todayInCalendarProvider = Provider<List<String>>((
   Ref ref,
@@ -53,7 +60,13 @@ final Provider<List<String>> todayInCalendarProvider = Provider<List<String>>((
   final Settings s = ref.watch(settingsProvider);
   final int? day = cal.dayIndex(ref.read(clockProvider)());
   if (day == null) return const <String>[];
-  return todayLabels(cal, day, rituals: s.rituals, tradition: s.tradition);
+  return todayLabels(
+    wordsFor(s),
+    cal,
+    day,
+    rituals: s.rituals,
+    tradition: s.tradition,
+  );
 });
 
 /// Rebuilds the rolling 30-day schedule whenever a ritual setting changes and
@@ -67,7 +80,9 @@ final FutureProvider<void> reminderSyncProvider = FutureProvider<void>((
   final PanchangCity? city = ref.watch(cityProvider);
   if (cal == null || city == null) return;
   final DateTime now = cityNow(city.tz, ref.read(clockProvider)());
+  final AppLocalizations l = wordsFor(s);
   final List<PlannedReminder> plan = planReminders(
+    l: l,
     cal: cal,
     rituals: s.rituals,
     deity: s.deity,
@@ -77,7 +92,7 @@ final FutureProvider<void> reminderSyncProvider = FutureProvider<void>((
     nowWall: now,
   );
   try {
-    await ref.read(reminderBackendProvider).replaceAll(city.tz, plan);
+    await ref.read(reminderBackendProvider).replaceAll(city.tz, plan, l);
   } on Object catch (e) {
     // Reminders are best effort: never break the app over them.
     debugPrint('reminders: $e');

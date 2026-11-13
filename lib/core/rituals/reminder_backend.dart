@@ -2,6 +2,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/data/latest.dart' as tzdata;
 import 'package:timezone/timezone.dart' as tz;
 
+import '../../l10n/app_localizations.dart';
 import 'rituals.dart';
 
 /// Where planned reminders go. The real one talks to the OS; tests and the web
@@ -12,7 +13,11 @@ abstract class ReminderBackend {
 
   /// Cancel everything pending and schedule [items] at their wall-clock time
   /// in the IANA zone [tzName].
-  Future<void> replaceAll(String tzName, List<PlannedReminder> items);
+  Future<void> replaceAll(
+    String tzName,
+    List<PlannedReminder> items,
+    AppLocalizations l,
+  );
 }
 
 class NoopReminderBackend implements ReminderBackend {
@@ -22,7 +27,11 @@ class NoopReminderBackend implements ReminderBackend {
   Future<bool> requestPermission() async => false;
 
   @override
-  Future<void> replaceAll(String tzName, List<PlannedReminder> items) async {}
+  Future<void> replaceAll(
+    String tzName,
+    List<PlannedReminder> items,
+    AppLocalizations l,
+  ) async {}
 }
 
 /// The instant a wall-clock reminder fires, DST-correct for the zone.
@@ -95,16 +104,20 @@ class LocalNotificationsBackend implements ReminderBackend {
   }
 
   @override
-  Future<void> replaceAll(String tzName, List<PlannedReminder> items) async {
+  Future<void> replaceAll(
+    String tzName,
+    List<PlannedReminder> items,
+    AppLocalizations l,
+  ) async {
     await _init();
     await _plugin.cancelAll();
-    const NotificationDetails details = NotificationDetails(
+    final NotificationDetails details = NotificationDetails(
       android: AndroidNotificationDetails(
         'rituals',
-        'Ritual reminders',
-        channelDescription: 'Quiet reminders for the rituals you chose.',
+        l.notifChannel,
+        channelDescription: l.notifChannelDesc,
       ),
-      iOS: DarwinNotificationDetails(),
+      iOS: const DarwinNotificationDetails(),
     );
     for (final PlannedReminder r in items) {
       await _plugin.zonedSchedule(

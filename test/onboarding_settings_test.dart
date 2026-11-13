@@ -13,7 +13,6 @@ import 'package:dharmascroll/data/verse_repository.dart';
 import 'package:dharmascroll/design/info_sheet.dart';
 import 'package:dharmascroll/design/lottie_art.dart';
 import 'package:dharmascroll/presentation/practice/practice_builder.dart';
-import 'package:dharmascroll/presentation/practice/practice_screen.dart';
 import 'package:dharmascroll/presentation/practice/tradition_explainer.dart';
 import 'package:dharmascroll/presentation/you/you_screen.dart';
 import 'package:flutter/material.dart';
@@ -173,11 +172,11 @@ void main() {
       await _tap(tester, find.text(en.continueLabel));
       expect(find.text(en.whyTradition), findsOneWidget);
       await _tap(tester, find.text(en.seeDifference));
-      expect(find.text(TraditionCopy.title), findsOneWidget);
-      expect(find.text(TraditionCopy.unsure), findsOneWidget);
+      expect(find.text(en.traditionExplTitle), findsOneWidget);
+      expect(find.text(en.traditionUnsureLine), findsOneWidget);
       expect(find.byType(EkadashiTimeline), findsOneWidget);
       await _tap(tester, find.text('Got it'));
-      expect(find.text(TraditionCopy.title), findsNothing);
+      expect(find.text(en.traditionExplTitle), findsNothing);
       await _tap(tester, find.text(en.continueLabel));
       expect(find.text(en.whyHour), findsOneWidget);
       await _tap(tester, find.text(en.continueLabel));
@@ -228,6 +227,7 @@ void main() {
         gitaMinutes: 390,
       );
       final PlannedReminder ek = firstNote(
+        en,
         smarta,
         rituals: <Ritual>{Ritual.ekadashi},
       )!;
@@ -242,21 +242,22 @@ void main() {
       );
       expect(
         DateUtils.dateOnly(
-          firstNote(vaish, rituals: <Ritual>{Ritual.ekadashi})!.wall,
+          firstNote(en, vaish, rituals: <Ritual>{Ritual.ekadashi})!.wall,
         ),
         DateTime(2026, 11, 21),
       );
       final PlannedReminder lamp = firstNote(
+        en,
         smarta,
         rituals: <Ritual>{Ritual.diya},
       )!;
       expect(lamp.body, startsWith('Sunset at'));
-      expect(whenLabel(lamp.wall, _noon), startsWith('Today, 5:'));
+      expect(whenLabel(en, lamp.wall, _noon), startsWith('Today, 5:'));
       expect(
-        whenLabel(DateTime(2026, 11, 20, 6, 52), _noon),
+        whenLabel(en, DateTime(2026, 11, 20, 6, 52), _noon),
         'Fri 20 Nov, 6:52 am',
       );
-      final PlannedReminder monday = firstNote(smarta, deity: Deity.shiva)!;
+      final PlannedReminder monday = firstNote(en, smarta, deity: Deity.shiva)!;
       expect(monday.wall.weekday, DateTime.monday);
     });
 
@@ -274,16 +275,16 @@ void main() {
       await _see(tester, find.text('4 on'));
       expect(find.text('4 on'), findsOneWidget);
       await _tap(tester, find.text(en.practiceRow));
-      expect(find.text(PracticeScreen.title), findsOneWidget);
+      expect(find.text(en.practiceTitle), findsOneWidget);
       expect(find.text('Daily Gita, 6:30 am'), findsOneWidget);
-      expect(find.text(ritualMeaning(Ritual.purnima)), findsOneWidget);
+      expect(find.text(en.ritualMeaning(Ritual.purnima)), findsOneWidget);
       expect(find.text('Shiva, Monday'), findsOneWidget);
       // Tap one: what it means, and a way to turn it off.
       await _tap(tester, find.text('Purnima'));
       await _tap(tester, find.text('Turn this off'));
       expect(prefs.getStringList('rituals'), isNot(contains('purnima')));
 
-      await _tap(tester, find.text(PracticeScreen.rebuild));
+      await _tap(tester, find.text(en.practiceRebuild));
       expect(find.text(PracticeBuilder.titles(en).first), findsOneWidget);
       await _tap(tester, find.text('Yes, on Ekadashi'));
       await _tap(tester, find.text(en.continueLabel));
@@ -292,7 +293,7 @@ void main() {
       for (int i = 0; i < 3; i++) {
         await _tap(tester, find.text(en.continueLabel));
       }
-      await _tap(tester, find.text(BuildPracticeScreen.save));
+      await _tap(tester, find.text(en.savePractice));
       // Back on Your practice, with the new day listed.
       expect(find.text('Hanuman, Tuesday'), findsOneWidget);
       expect(prefs.getStringList('rituals')!.toSet(), <String>{
@@ -364,7 +365,7 @@ void main() {
       await _tap(tester, find.text('YOU'));
       await _tap(tester, find.text(en.placeRow));
       await _tap(tester, _info('How you keep Ekadashi'));
-      expect(find.text(TraditionCopy.title), findsOneWidget);
+      expect(find.text(en.traditionExplTitle), findsOneWidget);
     });
 
     testWidgets('account: name, sign out keeps progress', (

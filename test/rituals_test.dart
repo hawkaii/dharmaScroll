@@ -6,6 +6,8 @@ import 'package:dharmascroll/core/rituals/reminder_backend.dart';
 import 'package:dharmascroll/core/rituals/rituals.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'en.dart';
+
 CityCalendar _load(String id) {
   Map<String, Object?> read(String f) => (jsonDecode(
     File('assets/panchang/$f.json').readAsStringSync(),
@@ -36,7 +38,7 @@ void main() {
     // Parana on Monday 21 Dec, 7:09 to 9:13 (Drik: 7:10 to 9:13).
     final CalEvent ek = _ev(delhi, DateTime(2026, 12, 20), Ev.ekadashiSmarta);
     expect(ek.paranaOffset, 1);
-    expect(fmtRange(ek.a, ek.b), '7:09-9:13 am');
+    expect(fmtRange(en, ek.a, ek.b), '7:09-9:13 am');
   });
 
   test('Delhi: Purnima 23 Dec 2026 and sunrise decode', () {
@@ -65,6 +67,7 @@ void main() {
   test('unverified dates are never shown or scheduled', () {
     final int d = delhi.dayIndex(DateTime(2027, 8, 24))!;
     final List<String> labels = todayLabels(
+      en,
       delhi,
       d,
       rituals: Ritual.values.toSet(),
@@ -79,15 +82,22 @@ void main() {
       final Set<Ritual> on = <Ritual>{Ritual.ekadashi, Ritual.festivals};
       final int fast = delhi.dayIndex(DateTime(2026, 12, 20))!;
       expect(
-        todayLabels(delhi, fast, rituals: on, tradition: Tradition.smarta),
+        todayLabels(en, delhi, fast, rituals: on, tradition: Tradition.smarta),
         <String>['Ekadashi', 'Gita Jayanti'],
       );
       expect(
-        todayLabels(delhi, fast + 1, rituals: on, tradition: Tradition.smarta),
+        todayLabels(
+          en,
+          delhi,
+          fast + 1,
+          rituals: on,
+          tradition: Tradition.smarta,
+        ),
         <String>['Parana 7:09-9:13 am'],
       );
       expect(
         todayLabels(
+          en,
           delhi,
           fast,
           rituals: <Ritual>{Ritual.purnima},
@@ -100,6 +110,7 @@ void main() {
 
   test('Delhi plan: Ekadashi copy, parana reminder, calm tone', () {
     final List<PlannedReminder> plan = planReminders(
+      l: en,
       cal: delhi,
       rituals: <Ritual>{Ritual.ekadashi, Ritual.dailyGita},
       deity: Deity.none,
@@ -130,6 +141,7 @@ void main() {
   test('Edison plan: wall times become the right instants across DST', () {
     // Sunrise 19 Dec 2026 is EST (UTC-5); a July wall time would be EDT.
     final List<PlannedReminder> winter = planReminders(
+      l: en,
       cal: edison,
       rituals: <Ritual>{Ritual.sandhya},
       deity: Deity.none,
@@ -174,6 +186,7 @@ void main() {
     final int d = edison.dayIndex(DateTime(2026, 12, 19))!;
     expect(
       todayLabels(
+        en,
         edison,
         d,
         rituals: <Ritual>{Ritual.ekadashi},

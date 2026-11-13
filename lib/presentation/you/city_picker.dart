@@ -31,11 +31,13 @@ class _CityPickerState extends ConsumerState<CityPicker> {
     final List<PanchangCity> all =
         ref.watch(citiesProvider).value ?? const <PanchangCity>[];
     final String q = _query.trim().toLowerCase();
+    final bool hindi = Localizations.localeOf(context).languageCode == 'hi';
     final List<PanchangCity> shown = <PanchangCity>[
       for (final PanchangCity city in all)
         if (q.isEmpty
             ? city.id == widget.selected
-            : city.name.toLowerCase().contains(q))
+            : city.name.toLowerCase().contains(q) ||
+                  (city.nameHi?.contains(q) ?? false))
           city,
     ].take(4).toList();
     return Column(
@@ -52,7 +54,7 @@ class _CityPickerState extends ConsumerState<CityPicker> {
         const SizedBox(height: Sp.s14),
         for (final PanchangCity city in shown) ...<Widget>[
           OptionRow(
-            label: city.label,
+            label: city.labelIn(hindi: hindi),
             selected: city.id == widget.selected,
             onTap: () => widget.onSelected(city.id),
           ),

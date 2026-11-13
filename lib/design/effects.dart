@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../l10n/l10n.dart';
 import 'tokens.dart';
 import 'widgets.dart';
 
@@ -45,7 +46,7 @@ class _DiyaState extends State<Diya> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Semantics(
-      label: widget.lit ? 'A lit lamp' : 'An unlit lamp',
+      label: widget.lit ? context.l.litLamp : context.l.unlitLamp,
       image: true,
       child: ExcludeSemantics(
         child: SizedBox(
@@ -133,7 +134,7 @@ class _StreakLampsState extends State<StreakLamps>
   Widget build(BuildContext context) {
     final int count = widget.lit.where((bool b) => b).length;
     return Semantics(
-      label: '$count of 7 lamps lit this week',
+      label: context.l.lampsLitWeek(count),
       child: ExcludeSemantics(
         child: AnimatedBuilder(
           animation: _c,

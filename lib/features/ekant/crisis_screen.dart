@@ -4,6 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
+import '../../l10n/l10n.dart';
 
 /// The one screen where the product stops being a product (PRODUCT_DESIGN
 /// 5.9). Ported from `legacy/lib/presentation/mann/crisis_screen.dart` onto
@@ -14,12 +15,6 @@ import '../../design/widgets.dart';
 /// a separate safety screen with 181 and 1098.
 class CrisisScreen extends StatefulWidget {
   const CrisisScreen({super.key});
-
-  static const String title = 'You don\u2019t have to carry this alone.';
-  static const String callLabel = 'Call Tele-MANAS 14416';
-  static const String emergencyLabel = 'Call 112 if you are in danger now';
-  static const String messageLabel = 'Message someone I trust';
-  static const String breatheLabel = 'Stay here and breathe';
 
   @override
   State<CrisisScreen> createState() => _CrisisScreenState();
@@ -46,6 +41,7 @@ class _CrisisScreenState extends State<CrisisScreen> {
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     return Scaffold(
       backgroundColor: c.bg,
       body: SafeArea(
@@ -61,7 +57,7 @@ class _CrisisScreenState extends State<CrisisScreen> {
             Row(
               children: <Widget>[
                 TextAction(
-                  label: 'Close',
+                  label: l.close,
                   onPressed: () => context.canPop()
                       ? context.pop()
                       : Navigator.of(context).maybePop(),
@@ -72,55 +68,50 @@ class _CrisisScreenState extends State<CrisisScreen> {
             Semantics(
               header: true,
               child: Text(
-                CrisisScreen.title,
+                l.crisisTitle,
                 style: DType.title(c.ink, compact: true),
               ),
             ),
             const SizedBox(height: Sp.s14),
-            Text(
-              'What you shared sounds very heavy. A trained person can help right now.',
-              style: DType.body(c.mute),
-            ),
+            Text(l.crisisBody, style: DType.body(c.mute)),
             const SizedBox(height: Sp.s30),
             PrimaryButton(
-              label: CrisisScreen.callLabel,
+              label: l.crisisCall,
               onPressed: () => _open(
                 Uri(scheme: 'tel', path: '14416'),
-                'Dial 14416 or 1-800-891-4416 from your phone.',
+                l.crisisDialFallback,
               ),
             ),
             const SizedBox(height: Sp.s12),
             Text(
-              'Free, any time, in many languages. Also 1-800-891-4416.',
+              l.crisisFree,
               textAlign: TextAlign.center,
               style: DType.body(c.faint, size: 16),
             ),
             const SizedBox(height: Sp.s22),
             OptionRow(
-              label: CrisisScreen.emergencyLabel,
+              label: l.crisisEmergency,
               selected: false,
               onTap: () => _open(
                 Uri(scheme: 'tel', path: '112'),
-                'Dial 112 from your phone.',
+                l.crisisEmergencyFallback,
               ),
             ),
             const SizedBox(height: Sp.s12),
             OptionRow(
-              label: CrisisScreen.messageLabel,
+              label: l.crisisMessage,
               selected: false,
               onTap: () => _open(
                 Uri(
                   scheme: 'sms',
-                  queryParameters: <String, String>{
-                    'body': 'Can you call me? I\u2019m having a hard time.',
-                  },
+                  queryParameters: <String, String>{'body': l.crisisSmsBody},
                 ),
-                'Send someone you trust: \u201cCan you call me? I\u2019m having a hard time.\u201d',
+                l.crisisSmsFallback(l.crisisSmsBody),
               ),
             ),
             const SizedBox(height: Sp.s12),
             OptionRow(
-              label: CrisisScreen.breatheLabel,
+              label: l.crisisBreathe,
               selected: _breathing,
               onTap: () => setState(() => _breathing = !_breathing),
             ),
@@ -130,7 +121,7 @@ class _CrisisScreenState extends State<CrisisScreen> {
             ],
             const SizedBox(height: Sp.s30),
             Text(
-              'Nothing you wrote was kept. No points, no record.',
+              l.crisisNothingKept,
               textAlign: TextAlign.center,
               style: DType.body(c.faint, size: 16),
             ),
@@ -175,9 +166,10 @@ class _BreathingLightState extends State<_BreathingLight>
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     return Semantics(
       liveRegion: true,
-      label: 'Breathe in for 4 seconds, and out for 6.',
+      label: l.breatheSemantic,
       child: ExcludeSemantics(
         child: AnimatedBuilder(
           animation: _c,
@@ -209,10 +201,10 @@ class _BreathingLightState extends State<_BreathingLight>
                 const SizedBox(height: Sp.s18),
                 Text(
                   reduceMotion(context)
-                      ? 'In for 4. Out for 6.'
+                      ? l.breatheStill
                       : inhale
-                      ? 'Breathe in'
-                      : 'Breathe out',
+                      ? l.breatheIn
+                      : l.breatheOut,
                   style: DType.body(c.mute),
                 ),
               ],

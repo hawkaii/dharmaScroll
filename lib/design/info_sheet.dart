@@ -93,7 +93,7 @@ Future<void> showInfo(
             const SizedBox(height: Sp.s6),
             Center(
               child: TextAction(
-                label: 'Got it',
+                label: ctx.l.gotIt,
                 onPressed: () => Navigator.of(ctx).pop(),
               ),
             ),

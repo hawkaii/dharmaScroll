@@ -8,16 +8,15 @@ import '../../design/effects.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../../l10n/l10n.dart';
 import '../explain/explain_sheet.dart';
 import 'chat_service.dart';
 import 'ekant_chat.dart';
 import 'ekant_engine.dart';
 import 'ekant_lamp.dart';
 import 'ekant_providers.dart';
-import 'ekant_screen.dart' show EkantScreen;
 import 'ekant_share.dart';
 import 'ekant_sitting.dart';
-import 'ekant_strings.dart';
 import 'ekant_voice.dart';
 
 /// The written room: a thread of your words and Ekant's replies. Each reply
@@ -109,7 +108,7 @@ class _EkantChatViewState extends ConsumerState<EkantChatView> {
           text: words,
           selection: TextSelection.collapsed(offset: words.length),
         );
-        setState(() => _note = EkantStrings.failedNote);
+        setState(() => _note = context.l.ekFailedNote);
       case SendResult.sent:
         SoundService.instance.play(Sfx.bell);
         Haptics.soft();
@@ -139,7 +138,7 @@ class _EkantChatViewState extends ConsumerState<EkantChatView> {
     );
     if (!mounted) return;
     if (!ok) {
-      setState(() => _note = 'Voice is not available here. Typing works.');
+      setState(() => _note = context.l.ekVoiceUnavailable);
       return;
     }
     SoundService.instance.duck(true);
@@ -220,30 +219,24 @@ class _EkantChatViewState extends ConsumerState<EkantChatView> {
             Padding(
               padding: const EdgeInsets.only(bottom: Sp.s12),
               child: Text(
-                EkantScreen.enough,
+                context.l.ekEnough,
                 textAlign: TextAlign.center,
                 style: DType.body(c.ink, size: 18),
               ),
             ),
-            PrimaryButton(
-              label: EkantScreen.restLabel,
-              onPressed: widget.onRest,
-            ),
+            PrimaryButton(label: context.l.ekRest, onPressed: widget.onRest),
           ] else ...<Widget>[
             _Composer(
               controller: _text,
               focus: _focus,
-              hint: n == 0 ? EkantStrings.writeHint : EkantStrings.answerHint,
+              hint: n == 0 ? context.l.ekWriteHint : context.l.ekAnswerHint,
               listening: _listening,
               onMic: _voice == null ? null : _toggleDictation,
               canSend: canSend,
               onSend: _send,
             ),
             if (n > 0 && !chat.busy)
-              TextAction(
-                label: EkantScreen.restLabel,
-                onPressed: widget.onRest,
-              ),
+              TextAction(label: context.l.ekRest, onPressed: widget.onRest),
           ],
         ],
       ),
@@ -267,61 +260,79 @@ class _TopBar extends StatelessWidget {
     final DharmaColors c = context.c;
     return Row(
       children: <Widget>[
-        Semantics(
-          button: true,
-          label: 'Leave the room',
-          excludeSemantics: true,
-          onTap: onLeave,
-          child: GestureDetector(
-            behavior: HitTestBehavior.opaque,
+        Flexible(
+          flex: 3,
+          child: Semantics(
+            button: true,
+            label: context.l.ekLeaveRoom,
+            excludeSemantics: true,
             onTap: onLeave,
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                widthFactor: 1,
-                child: Text('LEAVE', style: DType.eyebrow(c.faint)),
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: onLeave,
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  widthFactor: 1,
+                  child: Text(
+                    context.l.ekLeaveCaps,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: DType.eyebrow(c.faint),
+                  ),
+                ),
               ),
             ),
           ),
         ),
         Expanded(
+          flex: 2,
           child: Center(
             child: Text(
-              (count == 0 ? 'Ekant' : '$count of ${EkantSitting.maxTurns}')
+              (count == 0
+                      ? context.l.ekantRow
+                      : context.l.progressOf(count, EkantSitting.maxTurns))
                   .toUpperCase(),
               style: DType.eyebrow(c.faint),
             ),
           ),
         ),
-        Semantics(
-          button: true,
-          label: 'Talk to Ekant out loud',
-          excludeSemantics: true,
-          onTap: onSpeak,
-          child: GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: () {
-              Haptics.tap();
-              onSpeak();
-            },
-            child: Container(
-              height: 48,
-              padding: const EdgeInsets.symmetric(horizontal: Sp.s14),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Rad.button),
-                border: Border.all(color: c.peacock.withValues(alpha: 0.6)),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  DIcon('mic', size: 20, color: c.peacock),
-                  const SizedBox(width: Sp.s6),
-                  Text(
-                    EkantStrings.speakLabel,
-                    style: DType.button(c.ink).copyWith(fontSize: 14),
-                  ),
-                ],
+        Flexible(
+          flex: 3,
+          child: Semantics(
+            button: true,
+            label: context.l.ekTalkOutLoud,
+            excludeSemantics: true,
+            onTap: onSpeak,
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () {
+                Haptics.tap();
+                onSpeak();
+              },
+              child: Container(
+                height: 48,
+                padding: const EdgeInsets.symmetric(horizontal: Sp.s14),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Rad.button),
+                  border: Border.all(color: c.peacock.withValues(alpha: 0.6)),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    DIcon('mic', size: 20, color: c.peacock),
+                    const SizedBox(width: Sp.s6),
+                    Flexible(
+                      child: Text(
+                        context.l.ekSpeak,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: DType.button(c.ink).copyWith(fontSize: 14),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -349,19 +360,19 @@ class _Opening extends StatelessWidget {
           Semantics(
             header: true,
             child: Text(
-              EkantScreen.prompt,
+              context.l.ekPrompt,
               textAlign: TextAlign.center,
               style: DType.title(c.ink, compact: true),
             ),
           ),
           const SizedBox(height: Sp.s12),
           Text(
-            'Write it as it comes. Hindi, English or Hinglish.',
+            context.l.ekWriteIntro,
             textAlign: TextAlign.center,
             style: DType.body(c.mute, size: 17),
           ),
           const SizedBox(height: Sp.s30),
-          for (final String line in EkantStrings.openingLines)
+          for (final String line in context.l.ekOpenings)
             Semantics(
               button: true,
               label: line,
@@ -413,7 +424,7 @@ class _UserBubble extends StatelessWidget {
         ),
         child: Semantics(
           container: true,
-          label: '${EkantStrings.youSaid}: ${message.text}',
+          label: '${context.l.ekYouSaid}: ${message.text}',
           excludeSemantics: true,
           child: Container(
             padding: const EdgeInsets.symmetric(
@@ -446,7 +457,7 @@ class _Reflecting extends StatelessWidget {
   Widget build(BuildContext context) {
     return Semantics(
       liveRegion: true,
-      label: EkantStrings.reflecting,
+      label: context.l.ekReflecting,
       child: const Align(
         alignment: Alignment.centerLeft,
         child: Padding(
@@ -475,7 +486,7 @@ class _EkantReplyState extends ConsumerState<_EkantReply> {
     final ChatMessage m = widget.message;
     if (v == null) return m.text;
     final String meaning = m.lang == EkantLang.hi ? v.meaningHi : v.meaningEn;
-    return '${m.text}\n\nGita ${v.id}\n${v.padas.join('\n')}\n$meaning';
+    return '${m.text}\n\n${context.l.gitaRef(v.id)}\n${v.padas.join('\n')}\n$meaning';
   }
 
   Future<void> _copy(Verse? v) async {
@@ -509,7 +520,7 @@ class _EkantReplyState extends ConsumerState<_EkantReply> {
               Semantics(
                 container: true,
                 liveRegion: !widget.streaming,
-                label: '${EkantStrings.ekantSaid}: ${m.text}',
+                label: '${context.l.ekEkantSaid}: ${m.text}',
                 excludeSemantics: true,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -544,21 +555,21 @@ class _EkantReplyState extends ConsumerState<_EkantReply> {
               if (!widget.streaming)
                 Padding(
                   padding: const EdgeInsets.only(top: Sp.s6),
-                  child: Row(
+                  // A Wrap, so the two actions drop to a second line when a
+                  // longer language or a bigger text size needs the room.
+                  child: Wrap(
+                    spacing: Sp.s12,
                     children: <Widget>[
                       _ReplyAction(
                         icon: 'copy',
-                        label: _copied
-                            ? EkantStrings.copiedLabel
-                            : EkantStrings.copyLabel,
+                        label: _copied ? context.l.ekCopied : context.l.ekCopy,
                         onTap: () => _copy(verse),
                       ),
-                      const SizedBox(width: Sp.s12),
                       _ReplyAction(
                         icon: 'share',
-                        label: EkantStrings.shareLabel,
+                        label: context.l.shareLabel,
                         onTap: () => EkantShare.send(
-                          '${_plain(verse)}\n\n${EkantStrings.shareFooter}',
+                          '${_plain(verse)}\n\n${context.l.ekShareFooter}',
                         ),
                       ),
                     ],
@@ -656,8 +667,12 @@ class _VerseCard extends StatelessWidget {
         : verse.meaningEn;
     return Semantics(
       button: true,
-      label:
-          'Gita chapter ${verse.chapter}, verse ${verse.number}. $meaning. ${EkantStrings.studyLabel}',
+      label: context.l.ekVerseCardSemantic(
+        verse.chapter,
+        verse.number,
+        meaning,
+        context.l.ekStudy,
+      ),
       excludeSemantics: true,
       onTap: onTap,
       child: GestureDetector(
@@ -695,11 +710,14 @@ class _VerseCard extends StatelessWidget {
                     children: <Widget>[
                       Row(
                         children: <Widget>[
-                          Text('GITA ${verse.id}', style: DType.ref(c.accent)),
+                          Text(
+                            context.l.gitaRefCaps(verse.id),
+                            style: DType.ref(c.accent),
+                          ),
                           const SizedBox(width: Sp.s12),
                           Expanded(
                             child: Text(
-                              EkantStrings.studyLabel.toUpperCase(),
+                              context.l.ekStudy.toUpperCase(),
                               textAlign: TextAlign.right,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
@@ -784,7 +802,9 @@ class _Composer extends StatelessWidget {
                   : Semantics(
                       button: true,
                       toggled: listening,
-                      label: listening ? 'Stop listening' : 'Dictate',
+                      label: listening
+                          ? context.l.stopListening
+                          : context.l.ekDictate,
                       excludeSemantics: true,
                       onTap: onMic,
                       child: GestureDetector(
@@ -815,7 +835,7 @@ class _Composer extends StatelessWidget {
         SizedBox(
           width: 96,
           child: PrimaryButton(
-            label: EkantStrings.sendLabel,
+            label: context.l.ekSend,
             onPressed: canSend ? onSend : null,
           ),
         ),

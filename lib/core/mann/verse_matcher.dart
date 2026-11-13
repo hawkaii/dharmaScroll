@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 import '../../domain/models/verse.dart';
+import '../../l10n/l10n.dart';
 
 /// Mann Darpan's on-device answer: words in, one verse out. No server.
 ///
@@ -166,20 +167,54 @@ const Map<String, List<String>> kTagWords = <String, List<String>>{
   'wait': <String>['patience'],
   'forgive': <String>['forgiveness'],
   'sorry': <String>['forgiveness'],
-};
-
-/// Situations the Gita itself shows in Arjuna, so the reply can name them
-/// truthfully: "Krishna told Arjuna, who was afraid".
-const Map<String, String> kArjunaWas = <String, String>{
-  'fear': 'who was afraid',
-  'anxiety': 'who was afraid',
-  'grief': 'who was grieving',
-  'loss': 'who was grieving',
-  'confusion': 'who did not know what to do',
-  'doubt': 'who was full of doubt',
-  'duty-conflict': 'who was torn about his duty',
-  'self-doubt': 'who had lost heart',
-  'failure': 'who had lost heart',
+  // Hindi in Devanagari, so a spoken or typed Hindi sentence is heard too.
+  'काम': <String>['work-pressure'],
+  'नौकरी': <String>['work-pressure', 'purpose'],
+  'दफ्तर': <String>['work-pressure'],
+  'ऑफिस': <String>['work-pressure'],
+  'इंटरव्यू': <String>['work-pressure', 'anxiety', 'fear'],
+  'पढ़ाई': <String>['exam-stress'],
+  'घबरा': <String>['anxiety', 'fear'],
+  'तनाव': <String>['anxiety'],
+  'परेशान': <String>['anxiety'],
+  'बेचैन': <String>['restlessness'],
+  'नींद': <String>['restlessness', 'peace'],
+  'क्रोध': <String>['anger'],
+  'चिढ़': <String>['anger', 'patience'],
+  'झगड़ा': <String>['anger', 'forgiveness'],
+  'उदास': <String>['grief'],
+  'रोना': <String>['grief'],
+  'मौत': <String>['mortality', 'grief'],
+  'मृत्यु': <String>['mortality', 'grief'],
+  'अकेल': <String>['loneliness'],
+  'याद आ': <String>['loneliness', 'loss'],
+  'थक': <String>['burnout'],
+  'असफल': <String>['failure', 'self-doubt'],
+  'हार': <String>['failure', 'self-doubt'],
+  'जलन': <String>['envy', 'comparison'],
+  'तुलना': <String>['comparison'],
+  'उलझन': <String>['confusion', 'doubt'],
+  'समझ नहीं': <String>['confusion'],
+  'संदेह': <String>['doubt'],
+  'आलस': <String>['procrastination', 'discipline'],
+  'ध्यान': <String>['focus'],
+  'परिवार': <String>['duty-conflict', 'compassion'],
+  'कर्तव्य': <String>['duty-conflict', 'purpose'],
+  'माफ': <String>['forgiveness'],
+  'क्षमा': <String>['forgiveness'],
+  'शांति': <String>['peace'],
+  'आशा': <String>['hope'],
+  'उम्मीद': <String>['hope'],
+  'बदलाव': <String>['change'],
+  'मकसद': <String>['purpose'],
+  'उद्देश्य': <String>['purpose'],
+  'घमंड': <String>['pride'],
+  'अहंकार': <String>['pride', 'humility'],
+  'लालच': <String>['greed'],
+  'पैसे': <String>['greed', 'contentment'],
+  'खुश': <String>['contentment', 'gratitude'],
+  'धन्यवाद': <String>['gratitude'],
+  'आभार': <String>['gratitude'],
 };
 
 @immutable
@@ -192,11 +227,15 @@ class VerseMatch {
   final String? tag;
 
   /// "Krishna told Arjuna, who was afraid:"
-  String get attribution {
+  String attribution(AppLocalizations l) {
     final String? was = verse.listener == 'Arjuna' && tag != null
-        ? kArjunaWas[tag]
+        ? l.arjunaWas(tag!)
         : null;
-    return '${verse.speaker} told ${verse.listener}${was == null ? '' : ', $was'}:';
+    final String speaker = l.person(verse.speaker);
+    final String listener = l.person(verse.listener);
+    return was == null
+        ? l.toldPlain(speaker, listener)
+        : l.toldWas(speaker, listener, was);
   }
 }
 

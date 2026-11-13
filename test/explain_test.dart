@@ -35,6 +35,7 @@ class _FakeModel implements VerseExplainer {
   Future<DayReflection> explainForMyDay(
     String verseId, {
     String? userNote,
+    required AppLocalizations l,
   }) async {
     calls++;
     return reply;
@@ -116,7 +117,7 @@ void main() {
     test(
       'no note: speaker, listener and tags, pointing at the verse',
       () async {
-        final DayReflection r = await offline.explainForMyDay('2.47');
+        final DayReflection r = await offline.explainForMyDay('2.47', l: en);
         expect(r.text, startsWith('Krishna told Arjuna this for moments of'));
         expect(r.text, contains('work pressure'));
         expect(r.refs, <String>['2.47']);
@@ -128,6 +129,7 @@ void main() {
       final DayReflection r = await offline.explainForMyDay(
         '2.47',
         userNote: 'my exam is tomorrow',
+        l: en,
       );
       expect(r.text, contains('It meets the exam stress you wrote about.'));
     });
@@ -136,6 +138,7 @@ void main() {
       final DayReflection r = await offline.explainForMyDay(
         '2.47',
         userNote: 'I am so angry at my brother',
+        l: en,
       );
       expect(r.refs, hasLength(2));
       expect(byId[r.refs[1]]!.adviceSafe, isTrue);
@@ -147,8 +150,9 @@ void main() {
       final DayReflection r = await offline.explainForMyDay(
         '2.20',
         userNote: 'work',
+        l: en,
       );
-      expect(r.text, OfflineExplainer.storyOnly);
+      expect(r.text, en.exStoryOnly);
       expect(byId[r.refs.single]!.adviceSafe, isTrue);
     });
 
@@ -158,6 +162,7 @@ void main() {
           final DayReflection r = await offline.explainForMyDay(
             v.id,
             userNote: note,
+            l: en,
           );
           expect(acceptReflection(r, ids), isTrue, reason: '${v.id} $note');
         }
@@ -190,7 +195,7 @@ void main() {
         model: model,
         offline: OfflineExplainer(verses),
       );
-      final DayReflection r = await g.explainForMyDay('2.47');
+      final DayReflection r = await g.explainForMyDay('2.47', l: en);
       expect(model.calls, 1);
       expect(r.fromModel, isFalse);
       expect(r.text, startsWith('Krishna told Arjuna'));
@@ -206,7 +211,7 @@ void main() {
         ),
         offline: OfflineExplainer(verses),
       );
-      final DayReflection r = await g.explainForMyDay('2.47');
+      final DayReflection r = await g.explainForMyDay('2.47', l: en);
       expect(r.fromModel, isTrue);
     });
 
@@ -217,7 +222,7 @@ void main() {
       await GuardedExplainer(
         model: model,
         offline: OfflineExplainer(verses),
-      ).explainForMyDay('11.32');
+      ).explainForMyDay('11.32', l: en);
       expect(model.calls, 0);
     });
   });
@@ -244,6 +249,8 @@ void main() {
             explainLibraryProvider.overrideWith((Ref ref) async => lib),
           ],
           child: MaterialApp(
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
             theme: DharmaTheme.night,
             home: Scaffold(
               body: Builder(
@@ -263,7 +270,7 @@ void main() {
     }
 
     Future<void> tab(WidgetTester tester, ExplainSection s) async {
-      final Finder f = find.bySemanticsLabel(s.label).last;
+      final Finder f = find.bySemanticsLabel(en.sectionLabel(s)).last;
       await tester.ensureVisible(f);
       await tester.pumpAndSettle();
       await tester.tap(f);
@@ -280,11 +287,11 @@ void main() {
       // The verse itself, from local data, and the simple meaning first.
       expect(find.text(v.padas.first), findsOneWidget);
       expect(
-        find.text(ExplainSection.simple.heading.toUpperCase()),
+        find.text(en.sectionHeading(ExplainSection.simple).toUpperCase()),
         findsOneWidget,
       );
       expect(find.text(n.simpleEn), findsOneWidget);
-      expect(find.text(ExplainSheet.draftNote), findsOneWidget);
+      expect(find.text(en.exDraftNote), findsOneWidget);
       expect(find.text('Hold to listen'), findsOneWidget);
       expect(find.bySemanticsLabel('Share this verse'), findsOneWidget);
 
@@ -306,9 +313,9 @@ void main() {
       );
 
       await tab(tester, ExplainSection.myDay);
-      expect(find.text(ExplainSheet.offlineNote), findsOneWidget);
+      expect(find.text(en.exOfflineNote), findsOneWidget);
       await tester.enterText(find.byType(TextField), 'my exam is tomorrow');
-      await tester.tap(find.text(ExplainSheet.askLabel));
+      await tester.tap(find.text(en.exAskLabel));
       await tester.pumpAndSettle();
       expect(
         find.textContaining('It meets the exam stress you wrote about.'),
@@ -345,7 +352,7 @@ void main() {
       await pumpSheet(tester, verse('2.47'));
       await tab(tester, ExplainSection.myDay);
       await tester.enterText(find.byType(TextField), 'I want to die');
-      await tester.tap(find.text(ExplainSheet.askLabel));
+      await tester.tap(find.text(en.exAskLabel));
       await tester.pumpAndSettle();
       expect(find.byType(ExplainSheet), findsNothing);
       expect(find.textContaining('Krishna told'), findsNothing);
@@ -386,7 +393,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(ExplainSheet), findsOneWidget);
     expect(
-      find.text(ExplainSection.simple.heading.toUpperCase()),
+      find.text(en.sectionHeading(ExplainSection.simple).toUpperCase()),
       findsOneWidget,
     );
   });

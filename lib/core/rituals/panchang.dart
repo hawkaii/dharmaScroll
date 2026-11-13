@@ -11,13 +11,21 @@ class PanchangCity {
     required this.name,
     required this.country,
     required this.tz,
+    this.nameHi,
+    this.countryHi,
   });
 
-  factory PanchangCity.fromJson(Map<String, Object?> j) => PanchangCity(
+  factory PanchangCity.fromJson(
+    Map<String, Object?> j, {
+    String? nameHi,
+    String? countryHi,
+  }) => PanchangCity(
     id: j['id']! as String,
     name: j['name']! as String,
     country: j['country']! as String,
     tz: j['tz']! as String,
+    nameHi: nameHi,
+    countryHi: countryHi,
   );
 
   final String id;
@@ -27,7 +35,23 @@ class PanchangCity {
   /// IANA zone, e.g. `Asia/Kolkata` or `America/New_York`.
   final String tz;
 
+  /// The city's name in Devanagari, when the bundle has it.
+  final String? nameHi;
+
+  /// The country's name in Devanagari (not set for India).
+  final String? countryHi;
+
   String get label => country == 'IN' ? name : '$name, $country';
+
+  /// The name as the chosen language writes it.
+  String nameIn({required bool hindi}) => hindi ? (nameHi ?? name) : name;
+
+  /// Name, and the country when it is not India, in the chosen language.
+  String labelIn({required bool hindi}) => !hindi
+      ? label
+      : country == 'IN'
+      ? nameIn(hindi: true)
+      : '${nameIn(hindi: true)}, ${countryHi ?? country}';
 }
 
 /// Event codes written by tools/panchang/generate.py.
@@ -155,9 +179,25 @@ Future<List<PanchangCity>> loadCities(AssetBundle bundle) async {
   final List<Object?> raw = jsonDecode(
     await bundle.loadString('assets/panchang/cities.json', cache: false),
   ) as List<Object?>;
+  Map<String, Object?> hi = const <String, Object?>{};
+  try {
+    hi = (jsonDecode(
+      await bundle.loadString('assets/panchang/cities_hi.json', cache: false),
+    ) as Map<Object?, Object?>).cast();
+  } on Object catch (e) {
+    debugPrint('cities_hi: $e');
+  }
+  final Map<Object?, Object?> names =
+      (hi['cities'] as Map<Object?, Object?>?) ?? const <Object?, Object?>{};
+  final Map<Object?, Object?> countries =
+      (hi['countries'] as Map<Object?, Object?>?) ?? const <Object?, Object?>{};
   return <PanchangCity>[
     for (final Object? c in raw)
-      PanchangCity.fromJson((c! as Map<Object?, Object?>).cast()),
+      PanchangCity.fromJson(
+        (c! as Map<Object?, Object?>).cast(),
+        nameHi: names[(c as Map<Object?, Object?>)['id']] as String?,
+        countryHi: countries[c['country']] as String?,
+      ),
   ];
 }
 

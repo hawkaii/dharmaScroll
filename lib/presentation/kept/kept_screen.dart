@@ -9,20 +9,22 @@ import '../../core/state/settings.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../../l10n/l10n.dart';
 import '../hear/hear_screen.dart' show meaningOf;
 
 /// Close or back, top left, for full-screen pages pushed over the tabs.
 class BackMark extends StatelessWidget {
-  const BackMark({super.key, this.label = 'Back'});
+  const BackMark({super.key, this.label});
 
-  final String label;
+  /// Spoken name; the localized "Back" when null.
+  final String? label;
 
   @override
   Widget build(BuildContext context) {
     void back() => context.canPop() ? context.pop() : context.go(Routes.you);
     return Semantics(
       button: true,
-      label: label,
+      label: label ?? context.l.back,
       excludeSemantics: true,
       onTap: back,
       child: GestureDetector(
@@ -44,8 +46,6 @@ class BackMark extends StatelessWidget {
 /// Kept verses: every verse kept with a double-tap, newest first.
 class KeptScreen extends ConsumerWidget {
   const KeptScreen({super.key});
-
-  static const String emptyLine = 'Double-tap a verse to keep it here.';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -80,8 +80,10 @@ class KeptScreen extends ConsumerWidget {
                     const BackMark(),
                     Expanded(
                       child: TopLine(
-                        left: 'Kept verses',
-                        right: kept.isEmpty ? null : '${kept.length} kept',
+                        left: context.l.keptVerses,
+                        right: kept.isEmpty
+                            ? null
+                            : context.l.keptCount(kept.length),
                       ),
                     ),
                   ],
@@ -121,6 +123,7 @@ class _Empty extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations l = context.l;
     return Padding(
       padding: const EdgeInsets.all(Sp.screenSide),
       child: Column(
@@ -128,10 +131,10 @@ class _Empty extends StatelessWidget {
         children: <Widget>[
           DIcon('lotus', size: 56, color: c.rose, glow: true),
           const SizedBox(height: Sp.s18),
-          Text('Nothing kept yet.', style: DType.title(c.ink, compact: true)),
+          Text(l.nothingKept, style: DType.title(c.ink, compact: true)),
           const SizedBox(height: Sp.s12),
           Text(
-            KeptScreen.emptyLine,
+            l.keptEmptyLine,
             textAlign: TextAlign.center,
             style: DType.body(c.mute),
           ),
@@ -153,7 +156,7 @@ class _KeptRow extends StatelessWidget {
     void open() => context.push(Routes.verse(verse.id));
     return Semantics(
       button: true,
-      label: 'Gita ${verse.id}. $meaning',
+      label: '${context.l.gitaRef(verse.id)}. $meaning',
       excludeSemantics: true,
       onTap: open,
       child: GestureDetector(
@@ -187,7 +190,10 @@ class _KeptRow extends StatelessWidget {
                       style: DType.body(c.mute, size: 16).copyWith(height: 1.3),
                     ),
                     const SizedBox(height: Sp.s6),
-                    Text('GITA ${verse.id}', style: DType.ref(c.faint)),
+                    Text(
+                      context.l.gitaRefCaps(verse.id),
+                      style: DType.ref(c.faint),
+                    ),
                   ],
                 ),
               ),

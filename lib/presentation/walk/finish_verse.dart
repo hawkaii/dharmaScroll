@@ -7,6 +7,7 @@ import '../../core/feedback/sound_service.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../../l10n/l10n.dart';
 
 /// Devanagari reduced to its consonants and independent vowels, so a
 /// sound-alike counts: matras, virama, nasal marks and dandas are dropped.
@@ -33,8 +34,6 @@ bool soundsLike(String heard, String target) {
 class FinishVerse extends StatefulWidget {
   const FinishVerse({super.key, required this.verse, required this.onDone});
 
-  static const String title = 'Finish the verse';
-  static const String skipLabel = 'Skip for today';
   static const Duration skipAfter = Duration(seconds: 8);
 
   final Verse verse;
@@ -121,25 +120,29 @@ class _FinishVerseState extends State<FinishVerse> {
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
     final bool still = reduceMotion(context);
+    final AppLocalizations l = context.l;
+    // Scrolls when big text leaves no room; the gaps still fill a tall phone.
+    return ScrollIfTight(child: _body(c, still, l));
+  }
+
+  Widget _body(DharmaColors c, bool still, AppLocalizations l) {
     return Column(
       children: <Widget>[
         const SizedBox(height: Sp.s18),
         DIcon('feather', size: 34, color: c.peacock, glow: true),
         const SizedBox(height: Sp.s12),
-        Text('CHECKPOINT', style: DType.eyebrow(c.accent)),
+        Text(l.checkpointCaps, style: DType.eyebrow(c.accent)),
         const SizedBox(height: Sp.s6),
         Semantics(
           header: true,
           child: Text(
-            FinishVerse.title,
+            l.finishVerseTitle,
             style: DType.title(c.ink, compact: true),
           ),
         ),
         const SizedBox(height: Sp.s6),
         Text(
-          _finished
-              ? 'You finished the verse.'
-              : 'Say the second line, or tap it.',
+          _finished ? l.finishedVerse : l.sayTheLine,
           style: DType.body(c.mute, size: 17),
         ),
         const Spacer(),
@@ -158,8 +161,7 @@ class _FinishVerseState extends State<FinishVerse> {
           button: !_finished,
           label: _finished
               ? _hidden.join(' ')
-              : 'Hidden line, $_revealed of ${_hidden.length} words shown. '
-                    'Activate to reveal the next word.',
+              : l.hiddenLineSemantic(_revealed, _hidden.length),
           excludeSemantics: true,
           onTap: () => _revealTo(_revealed + 1),
           child: GestureDetector(
@@ -215,7 +217,7 @@ class _FinishVerseState extends State<FinishVerse> {
         const Spacer(),
         Semantics(
           button: true,
-          label: _listening ? 'Stop listening' : 'Speak the second line',
+          label: _listening ? l.stopListening : l.speakSecondLine,
           excludeSemantics: true,
           onTap: _finished ? null : _speak,
           child: GestureDetector(
@@ -254,7 +256,7 @@ class _FinishVerseState extends State<FinishVerse> {
         ),
         const SizedBox(height: Sp.s12),
         Text(
-          _listening ? 'LISTENING' : 'TAP TO SPEAK',
+          _listening ? l.listeningCaps : l.tapToSpeakCaps,
           style: DType.eyebrow(c.faint),
         ),
         SizedBox(
@@ -264,7 +266,7 @@ class _FinishVerseState extends State<FinishVerse> {
             duration: Motion.select,
             child: _canSkip && !_finished
                 ? TextAction(
-                    label: FinishVerse.skipLabel,
+                    label: l.skipForToday,
                     onPressed: () {
                       _skip?.cancel();
                       widget.onDone();

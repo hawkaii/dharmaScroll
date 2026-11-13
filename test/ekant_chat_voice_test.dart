@@ -14,9 +14,7 @@ import 'package:dharmascroll/features/ekant/ekant_chat.dart';
 import 'package:dharmascroll/features/ekant/ekant_engine.dart';
 import 'package:dharmascroll/features/ekant/ekant_lamp.dart';
 import 'package:dharmascroll/features/ekant/ekant_providers.dart';
-import 'package:dharmascroll/features/ekant/ekant_screen.dart';
 import 'package:dharmascroll/features/ekant/ekant_share.dart';
-import 'package:dharmascroll/features/ekant/ekant_strings.dart';
 import 'package:dharmascroll/features/ekant/ekant_talk.dart'
     show kMicExplainedKey;
 import 'package:dharmascroll/features/ekant/ekant_voice.dart';
@@ -30,6 +28,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'en.dart';
 
 /// A chat service the test drives by hand.
 class _ScriptedChat implements ChatService {
@@ -134,7 +134,7 @@ Future<void> _openEkant(
 }
 
 Future<void> _write(WidgetTester tester) async {
-  await tester.tap(find.text(EkantStrings.writeLabel));
+  await tester.tap(find.text(en.ekWrite));
   await tester.pumpAndSettle();
 }
 
@@ -256,11 +256,11 @@ void main() {
         overrides: <Override>[chatServiceProvider.overrideWithValue(service)],
       );
       await _write(tester);
-      expect(find.text(EkantScreen.prompt), findsOneWidget);
+      expect(find.text(en.ekPrompt), findsOneWidget);
 
       await tester.enterText(find.byType(TextField), 'Work is heavy');
       await tester.pump();
-      await tester.tap(find.text(EkantStrings.sendLabel));
+      await tester.tap(find.text(en.ekSend));
       await tester.pump();
       expect(find.text('Work is heavy'), findsOneWidget);
       expect(find.byType(LampFlicker), findsOneWidget);
@@ -278,8 +278,8 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text('You carry a lot.'), findsOneWidget);
       expect(find.text('GITA 2.47'), findsOneWidget);
-      expect(find.text(EkantStrings.copyLabel), findsOneWidget);
-      expect(find.text(EkantStrings.shareLabel), findsOneWidget);
+      expect(find.text(en.ekCopy), findsOneWidget);
+      expect(find.text(en.shareLabel), findsOneWidget);
 
       await tester.tap(find.text('GITA 2.47'));
       await tester.pumpAndSettle();
@@ -322,7 +322,7 @@ void main() {
       await _write(tester);
       await tester.enterText(find.byType(TextField), 'my private words');
       await tester.pump();
-      await tester.tap(find.text(EkantStrings.sendLabel));
+      await tester.tap(find.text(en.ekSend));
       await tester.pump();
       service.out
         ..add(const ChatDelta('You carry a lot.'))
@@ -330,14 +330,14 @@ void main() {
       await service.out.close();
       await tester.pumpAndSettle();
 
-      await tester.tap(find.text(EkantStrings.copyLabel));
+      await tester.tap(find.text(en.ekCopy));
       await tester.pump();
       expect(clip, contains('You carry a lot.'));
       expect(clip, contains('Gita 2.47'));
       expect(clip, isNot(contains('my private words')));
-      expect(find.text(EkantStrings.copiedLabel), findsOneWidget);
+      expect(find.text(en.ekCopied), findsOneWidget);
 
-      await tester.tap(find.text(EkantStrings.shareLabel));
+      await tester.tap(find.text(en.shareLabel));
       await tester.pump();
       expect(shared, contains('You carry a lot.'));
       expect(shared, isNot(contains('my private words')));
@@ -350,16 +350,16 @@ void main() {
     ) async {
       await _openEkant(tester);
       await _write(tester);
-      for (final String line in EkantStrings.openingLines) {
+      for (final String line in en.ekOpenings) {
         expect(find.text(line), findsOneWidget);
       }
       expect(find.byType(ChoiceChip), findsNothing);
       expect(find.byType(ActionChip), findsNothing);
-      await tester.tap(find.text(EkantStrings.openingLines.first));
+      await tester.tap(find.text(en.ekOpenings.first));
       await tester.pump();
       expect(
         tester.widget<TextField>(find.byType(TextField)).controller!.text,
-        EkantStrings.openingLines.first,
+        en.ekOpenings.first,
       );
       expect(find.text('Rest now'), findsNothing, reason: 'nothing sent yet');
       await _leave(tester);
@@ -385,7 +385,7 @@ void main() {
         ),
       ];
       await _openEkant(tester, history: history);
-      expect(find.textContaining(EkantStrings.doorWaiting), findsOneWidget);
+      expect(find.textContaining(en.ekDoorWaiting), findsOneWidget);
       await _write(tester);
       expect(find.text('Yesterday was hard'), findsOneWidget);
       expect(find.text('It was.'), findsOneWidget);
@@ -426,7 +426,7 @@ void main() {
       final Caption said = caps.firstWhere(
         (Caption c) => c.speaker == CaptionSpeaker.user && c.isFinal,
       );
-      expect(said.text, FakeVoiceSession.script.first);
+      expect(said.text, FakeVoiceSession.scriptEn.first);
       final Caption reply = caps.firstWhere(
         (Caption c) => c.speaker == CaptionSpeaker.ekant && c.isFinal,
       );
@@ -478,12 +478,12 @@ void main() {
       final FakeMicAccess mic = FakeMicAccess();
       final MemoryChatHistoryStore history = MemoryChatHistoryStore();
       await _openEkant(tester, history: history, mic: mic);
-      await tester.tap(find.text(EkantStrings.speakLabel));
+      await tester.tap(find.text(en.ekSpeak));
       await tester.pumpAndSettle();
-      expect(find.text(EkantStrings.micTitle), findsOneWidget);
+      expect(find.text(en.ekMicTitle), findsOneWidget);
       expect(mic.asked, 0, reason: 'explained before it asks');
 
-      await tester.tap(find.text(EkantStrings.micAllow));
+      await tester.tap(find.text(en.ekMicAllow));
       await tester.pump();
       await tester.pump();
       expect(mic.asked, 1);
@@ -500,9 +500,9 @@ void main() {
 
       // Large, labelled controls.
       for (final String label in <String>[
-        EkantStrings.muteLabel,
-        EkantStrings.endLabel,
-        EkantStrings.chatLabel,
+        en.ekMute,
+        en.ekEnd,
+        en.ekSwitchToChat,
       ]) {
         final Finder f = find.text(label);
         expect(f, findsOneWidget);
@@ -511,16 +511,16 @@ void main() {
         );
         expect(box.width, greaterThanOrEqualTo(56));
       }
-      await tester.tap(find.text(EkantStrings.muteLabel));
+      await tester.tap(find.text(en.ekMute));
       await tester.pump();
-      expect(find.text(EkantStrings.unmuteLabel), findsOneWidget);
+      expect(find.text(en.ekUnmute), findsOneWidget);
 
       // Run to the end of the reply, then carry on in writing.
       await tester.pump(const Duration(seconds: 8));
-      await tester.tap(find.text(EkantStrings.chatLabel));
+      await tester.tap(find.text(en.ekSwitchToChat));
       await tester.pumpAndSettle();
       expect(find.byType(TextField), findsOneWidget);
-      expect(find.text(FakeVoiceSession.script.first), findsOneWidget);
+      expect(find.text(FakeVoiceSession.scriptEn.first), findsOneWidget);
       expect(history.messages.map((ChatMessage m) => m.role), <ChatRole>[
         ChatRole.user,
         ChatRole.ekant,
@@ -533,9 +533,9 @@ void main() {
     ) async {
       final FakeMicAccess mic = FakeMicAccess();
       await _openEkant(tester, mic: mic);
-      await tester.tap(find.text(EkantStrings.speakLabel));
+      await tester.tap(find.text(en.ekSpeak));
       await tester.pumpAndSettle();
-      await tester.tap(find.text(EkantStrings.micNotNow));
+      await tester.tap(find.text(en.notNow));
       await tester.pumpAndSettle();
       expect(mic.asked, 0);
       expect(find.byType(TextField), findsOneWidget);
@@ -550,13 +550,13 @@ void main() {
         mic: FakeMicAccess(allow: false),
         prefsValues: <String, Object>{kMicExplainedKey: true},
       );
-      await tester.tap(find.text(EkantStrings.speakLabel));
+      await tester.tap(find.text(en.ekSpeak));
       await tester.pumpAndSettle();
-      expect(find.text(EkantStrings.micTitle), findsNothing, reason: 'seen');
-      expect(find.text(EkantStrings.micDenied), findsOneWidget);
-      await tester.tap(find.text(EkantStrings.endLabel));
+      expect(find.text(en.ekMicTitle), findsNothing, reason: 'seen');
+      expect(find.text(en.ekMicDenied), findsOneWidget);
+      await tester.tap(find.text(en.ekEnd));
       await tester.pumpAndSettle();
-      expect(find.text(EkantStrings.writeLabel), findsOneWidget);
+      expect(find.text(en.ekWrite), findsOneWidget);
       await _leave(tester);
     });
 
@@ -567,24 +567,24 @@ void main() {
         tester,
         prefsValues: <String, Object>{kMicExplainedKey: true},
       );
-      await tester.tap(find.text(EkantStrings.speakLabel));
+      await tester.tap(find.text(en.ekSpeak));
       await tester.pump();
       await tester.pump(const Duration(seconds: 1));
-      await tester.tap(find.text(EkantStrings.pushLabel));
+      await tester.tap(find.text(en.ekPushToTalk));
       await tester.pump();
-      expect(find.text(EkantStrings.holdLabel), findsOneWidget);
+      expect(find.text(en.ekHoldToTalk), findsOneWidget);
       await tester.pump(const Duration(seconds: 3));
       expect(find.text('READY'), findsOneWidget, reason: 'waits for a hold');
       final TestGesture g = await tester.startGesture(
-        tester.getCenter(find.text(EkantStrings.holdLabel)),
+        tester.getCenter(find.text(en.ekHoldToTalk)),
       );
       await tester.pump(const Duration(milliseconds: 600));
       expect(find.text('LISTENING'), findsOneWidget);
-      expect(find.text(EkantStrings.releaseLabel), findsOneWidget);
+      expect(find.text(en.ekRelease), findsOneWidget);
       await g.up();
       await tester.pump(const Duration(milliseconds: 200));
       expect(find.text('THINKING'), findsOneWidget);
-      await tester.tap(find.text(EkantStrings.endLabel));
+      await tester.tap(find.text(en.ekEnd));
       await tester.pumpAndSettle();
       await _leave(tester);
     });
@@ -602,7 +602,7 @@ void main() {
           ],
           prefsValues: <String, Object>{kMicExplainedKey: true},
         );
-        await tester.tap(find.text(EkantStrings.speakLabel));
+        await tester.tap(find.text(en.ekSpeak));
         await tester.pump();
         await tester.pump();
         expect(session.connected, isTrue);
@@ -624,7 +624,7 @@ void main() {
         expect(find.text('From the stub'), findsOneWidget);
         expect(find.textContaining('GITA 2.47'), findsOneWidget);
 
-        await tester.tap(find.text(EkantStrings.muteLabel));
+        await tester.tap(find.text(en.ekMute));
         await tester.pump();
         expect(session.muted, isTrue);
 
@@ -658,9 +658,14 @@ void main() {
       expect(lk.current, VoiceState.disconnected);
     });
 
-    test('the default providers are the fakes', () {
+    test('the default providers are the fakes', () async {
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
       final ProviderContainer c = ProviderContainer(
-        overrides: <Override>[versesProvider.overrideWithValue(_verses())],
+        overrides: <Override>[
+          versesProvider.overrideWithValue(_verses()),
+          sharedPrefsProvider.overrideWithValue(prefs),
+        ],
       );
       addTearDown(c.dispose);
       expect(c.read(chatServiceProvider), isA<FakeChatService>());

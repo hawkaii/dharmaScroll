@@ -36,27 +36,6 @@ class Verse {
     adviceSafe: j['personal_advice_ok'] as bool,
   );
 
-  static const List<String> yogaNames = <String>[
-    'Arjuna Vishada Yoga',
-    'Sankhya Yoga',
-    'Karma Yoga',
-    'Jnana Karma Sannyasa Yoga',
-    'Karma Sannyasa Yoga',
-    'Dhyana Yoga',
-    'Jnana Vijnana Yoga',
-    'Akshara Brahma Yoga',
-    'Raja Vidya Raja Guhya Yoga',
-    'Vibhuti Yoga',
-    'Vishvarupa Darshana Yoga',
-    'Bhakti Yoga',
-    'Kshetra Kshetrajna Vibhaga Yoga',
-    'Gunatraya Vibhaga Yoga',
-    'Purushottama Yoga',
-    'Daivasura Sampad Vibhaga Yoga',
-    'Shraddhatraya Vibhaga Yoga',
-    'Moksha Sannyasa Yoga',
-  ];
-
   /// `"3.21"` — always `chapter.number`.
   final String id;
   final int chapter;
@@ -79,10 +58,6 @@ class Verse {
   /// False for passages that must never be served as personal advice
   /// (war passages, varna passages, easily misread verses).
   final bool adviceSafe;
-
-  String get yogaName => yogaNames[chapter - 1];
-
-  String get ref => 'Adhyay $chapter · Shloka $number';
 
   String get sanskrit => padas.join('\n');
 }

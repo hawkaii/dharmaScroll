@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/auth/auth_service.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
+import '../../l10n/auth_words.dart';
 import '../../l10n/l10n.dart';
 
 enum _Stage { choose, phone, code }
@@ -58,7 +59,7 @@ class _SignInPanelState extends ConsumerState<SignInPanel> {
       if (mounted) {
         setState(() {
           _busy = false;
-          _error = e.message;
+          _error = context.l.authProblem(e.problem);
         });
       }
     }

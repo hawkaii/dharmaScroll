@@ -339,10 +339,10 @@ class _Preview extends ConsumerWidget {
     final PreviewContext? ctx = ref.watch(previewContextProvider);
     final PlannedReminder? note = ctx == null
         ? null
-        : firstNote(ctx, rituals: rituals, deity: deity);
+        : firstNote(l, ctx, rituals: rituals, deity: deity);
     final String when = note == null
         ? l.timedToSun
-        : whenLabel(note.wall, ctx!.now);
+        : whenLabel(l, note.wall, ctx!.now);
     final String body =
         note?.body ?? (ctx == null ? l.timeFromCity : l.nothingSoon);
     return Padding(
