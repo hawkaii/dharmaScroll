@@ -130,6 +130,12 @@ void main() {
 
     await tester.tap(find.text('GITA 2.47'));
     await tester.pumpAndSettle();
+    // It sits below the fold on a phone: the list builds it on demand.
+    await tester.scrollUntilVisible(
+      find.text('GO DEEPER'),
+      200,
+      scrollable: find.byType(Scrollable).last,
+    );
     expect(find.text('GO DEEPER'), findsOneWidget);
     await tester.tap(find.text(VerseScreen.shareLabel));
     await tester.pumpAndSettle();
