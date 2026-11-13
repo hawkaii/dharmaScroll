@@ -15,7 +15,6 @@ import 'ekant_chat.dart';
 import 'ekant_engine.dart';
 import 'ekant_lamp.dart';
 import 'ekant_providers.dart';
-import 'ekant_screen.dart' show EkantScreen;
 import 'ekant_share.dart';
 import 'ekant_sitting.dart';
 import 'ekant_voice.dart';

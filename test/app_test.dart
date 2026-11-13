@@ -10,7 +10,6 @@ import 'package:dharmascroll/data/verse_repository.dart';
 import 'package:dharmascroll/design/theme.dart';
 import 'package:dharmascroll/design/tokens.dart';
 import 'package:dharmascroll/presentation/hear/hear_screen.dart';
-import 'package:dharmascroll/presentation/practice/practice_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

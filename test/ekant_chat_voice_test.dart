@@ -14,7 +14,6 @@ import 'package:dharmascroll/features/ekant/ekant_chat.dart';
 import 'package:dharmascroll/features/ekant/ekant_engine.dart';
 import 'package:dharmascroll/features/ekant/ekant_lamp.dart';
 import 'package:dharmascroll/features/ekant/ekant_providers.dart';
-import 'package:dharmascroll/features/ekant/ekant_screen.dart';
 import 'package:dharmascroll/features/ekant/ekant_share.dart';
 import 'package:dharmascroll/features/ekant/ekant_talk.dart'
     show kMicExplainedKey;

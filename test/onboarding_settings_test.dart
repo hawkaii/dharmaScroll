@@ -13,7 +13,6 @@ import 'package:dharmascroll/data/verse_repository.dart';
 import 'package:dharmascroll/design/info_sheet.dart';
 import 'package:dharmascroll/design/lottie_art.dart';
 import 'package:dharmascroll/presentation/practice/practice_builder.dart';
-import 'package:dharmascroll/presentation/practice/practice_screen.dart';
 import 'package:dharmascroll/presentation/practice/tradition_explainer.dart';
 import 'package:dharmascroll/presentation/you/you_screen.dart';
 import 'package:flutter/material.dart';

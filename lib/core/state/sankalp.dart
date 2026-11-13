@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../app_providers.dart';
-import '../../domain/models/verse.dart';
 import 'progress.dart';
 
 /// One small intention, sealed from a verse, looked back on the next day.

@@ -13,7 +13,6 @@ import '../../core/feedback/sound_service.dart';
 import '../../core/mann/verse_matcher.dart';
 import '../../core/router.dart';
 import '../../core/state/progress.dart';
-import '../../core/state/sankalp.dart';
 import '../../core/state/settings.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
