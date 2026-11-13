@@ -46,20 +46,25 @@ class EkadashiTimeline extends StatelessWidget {
           child: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints box) {
               final double k = box.maxWidth / 360;
+              // align: -1 starts at x, 0 centres on x, 1 ends at x.
               Widget at(
                 double x,
                 double y,
                 String t,
                 Color col, {
-                bool left = false,
+                int align = 0,
               }) {
                 return Positioned(
-                  left: left ? x * k : x * k - 60,
+                  left: x * k - 60 * (align + 1),
                   top: y * k - 6,
                   width: 120,
                   child: Text(
                     t,
-                    textAlign: left ? TextAlign.left : TextAlign.center,
+                    textAlign: switch (align) {
+                      -1 => TextAlign.left,
+                      1 => TextAlign.right,
+                      _ => TextAlign.center,
+                    },
                     style: DType.ref(col).copyWith(fontSize: 9),
                   ),
                 );
@@ -77,9 +82,10 @@ class EkadashiTimeline extends StatelessWidget {
                     at(189, 18, 'EKADASHI', c.verse),
                     at(312, 18, 'DVADASHI', c.faint),
                     at(130, 104, 'DAY 1', c.mute),
+                    at(100, 52, 'DAWN', c.rose, align: 1),
                     at(290, 104, 'DAY 2', c.mute),
-                    at(8, 134, 'SMARTA', Tok.marigold, left: true),
-                    at(8, 166, 'VAISHNAVA', c.rose, left: true),
+                    at(8, 134, 'SMARTA', Tok.marigold, align: -1),
+                    at(8, 166, 'VAISHNAVA', c.rose, align: -1),
                   ],
                 ),
               );

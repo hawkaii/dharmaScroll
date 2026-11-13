@@ -124,7 +124,7 @@ class YouScreen extends ConsumerWidget {
             ),
             _Row(
               label: placeRow,
-              why: 'Where your sun rises, and how you keep Ekadashi.',
+              why: 'Your sunrise, and your Ekadashi day.',
               value: ref.watch(cityProvider)?.name,
               onTap: () => showDSheet<void>(
                 context,
@@ -142,7 +142,7 @@ class YouScreen extends ConsumerWidget {
             ),
             _Row(
               label: lookRow,
-              why: 'How the app looks, and the words it uses.',
+              why: 'Night or morning, and your words.',
               value: languageName(s.language),
               onTap: () => showDSheet<void>(
                 context,
@@ -151,7 +151,7 @@ class YouScreen extends ConsumerWidget {
             ),
             _Row(
               label: accountRow,
-              why: 'Who you are here. Your data stays on this phone.',
+              why: 'Who you are. It stays on this phone.',
               value: user == null || user.isGuest ? 'Guest' : 'Signed in',
               onTap: () => _account(context),
             ),
@@ -482,7 +482,9 @@ class _SoundSheet extends ConsumerWidget {
               ),
             ),
             InfoButton(topic: label, onTap: info),
-            ExcludeSemantics(child: Switch(value: v, onChanged: set)),
+            ExcludeSemantics(
+              child: Switch(value: v, onChanged: set),
+            ),
           ],
         ),
       ),

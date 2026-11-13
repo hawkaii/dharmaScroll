@@ -81,7 +81,7 @@ class _PracticeBuilderState extends ConsumerState<PracticeBuilder> {
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
     final bool last = _q == PracticeBuilder.titles.length - 1;
-    final (Art art, String why, Widget answers, Widget? preview) = _question();
+    final (Art? art, String why, Widget answers, Widget? preview) = _question();
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints box) {
         return SingleChildScrollView(
@@ -98,8 +98,11 @@ class _PracticeBuilderState extends ConsumerState<PracticeBuilder> {
                         key: ValueKey<int>(_q),
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          DLottie(art, key: ValueKey<Art>(art), height: 96),
-                          const SizedBox(height: Sp.s14),
+                          // The day cards carry their own symbols.
+                          if (art != null) ...<Widget>[
+                            DLottie(art, key: ValueKey<Art>(art), height: 96),
+                            const SizedBox(height: Sp.s14),
+                          ],
                           Text(
                             'YOUR PRACTICE  ·  ${_q + 1} OF ${PracticeBuilder.titles.length}',
                             style: DType.eyebrow(c.accent),
@@ -148,7 +151,7 @@ class _PracticeBuilderState extends ConsumerState<PracticeBuilder> {
     );
   }
 
-  (Art, String, Widget, Widget?) _question() {
+  (Art?, String, Widget, Widget?) _question() {
     Widget yesNo(bool v, String yes, ValueChanged<bool> set) => Column(
       children: <Widget>[
         OptionRow(
@@ -177,7 +180,7 @@ class _PracticeBuilderState extends ConsumerState<PracticeBuilder> {
         _a.fast ? _Preview(rituals: const <Ritual>{Ritual.ekadashi}) : null,
       ),
       1 => (
-        deityArt[_a.day] ?? Art.hourDiya,
+        null,
         'Many homes keep one day of the week for one god. Pick one, or none.',
         _DayCards(
           selected: _a.day,
@@ -259,7 +262,7 @@ class _DayCards extends StatelessWidget {
             child: AnimatedContainer(
               duration: Motion.select,
               curve: Motion.easeOut,
-              padding: const EdgeInsets.symmetric(vertical: Sp.s12),
+              padding: const EdgeInsets.symmetric(vertical: 10),
               decoration: BoxDecoration(
                 color: on ? Tok.marigold.withValues(alpha: 0.09) : null,
                 borderRadius: BorderRadius.circular(Rad.row),
@@ -269,7 +272,7 @@ class _DayCards extends StatelessWidget {
                 children: <Widget>[
                   Opacity(
                     opacity: on ? 1 : 0.7,
-                    child: DLottie(deityArt[d]!, height: 52),
+                    child: DLottie(deityArt[d]!, height: 48),
                   ),
                   const SizedBox(height: Sp.s6),
                   Text(day, style: DType.body(c.ink, size: 18)),
@@ -352,11 +355,9 @@ class _Preview extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      'YOUR FIRST NOTE  ·  ${when.toUpperCase()}',
-                      style: DType.ref(c.accent),
-                    ),
-                    const SizedBox(height: 4),
+                    Text('YOUR FIRST NOTE', style: DType.ref(c.accent)),
+                    const SizedBox(height: 2),
+                    Text(when, style: DType.body(c.verse, size: 17)),
                     Text(body, style: DType.body(c.ink, size: 16)),
                   ],
                 ),

@@ -29,7 +29,12 @@ class SignInPanel extends ConsumerStatefulWidget {
 
 class _SignInPanelState extends ConsumerState<SignInPanel> {
   _Stage _stage = _Stage.choose;
-  final TextEditingController _phone = TextEditingController(text: '+91 ');
+  final TextEditingController _phone = TextEditingController.fromValue(
+    const TextEditingValue(
+      text: '+91 ',
+      selection: TextSelection.collapsed(offset: 4),
+    ),
+  );
   final TextEditingController _code = TextEditingController();
   String? _error;
   bool _busy = false;
@@ -229,6 +234,8 @@ class _CodeBoxes extends StatelessWidget {
           Positioned.fill(
             child: Opacity(
               opacity: 0,
+              // Hidden to the eye, not to a screen reader.
+              alwaysIncludeSemantics: true,
               child: Semantics(
                 label: 'Six-number code',
                 child: TextField(

@@ -568,7 +568,9 @@ def ekadashi_timeline():
                      s=anim((t0, [0, 0, 100], "pop"), (t0 + 30, [100, 100, 100])), o=fade)
 
     def guide(x, c, t0):
-        return layer(f"guide{x}", [group([line((x, 44), (x, 176)), stroke(c, 1.5, o=55, dash=(3, 5))])],
+        # Two pieces, with a gap where Flutter writes the day labels.
+        return layer(f"guide{x}", [group([line((x, 44), (x, 96)), line((x, 112), (x, 176)),
+                                          stroke(c, 1.5, o=55, dash=(3, 5))])],
                      o=anim((t0, 0, "settle"), (t0 + 20, 100, "hold"), (out, 100, "exit"), (op - 4, 0)))
 
     # Smarta lamp: lands on Day 1.
