@@ -11,6 +11,7 @@ import '../../design/effects.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../../features/explain/explain_sheet.dart';
 import '../share/share_card.dart';
 import '../share/share_sheet.dart';
 
@@ -137,6 +138,18 @@ class _HearScreenState extends ConsumerState<HearScreen> {
               ),
               // Outside the verse's own double-tap detector, so a tap here is
               // not held back waiting for a second tap.
+              if (_page < verses.length)
+                Positioned(
+                  left: Sp.screenSide - 12,
+                  bottom: 44,
+                  child: SafeArea(
+                    child: ShareButton(
+                      icon: 'diya',
+                      label: 'Explain this verse',
+                      onTap: () => showExplainSheet(context, verses[_page]),
+                    ),
+                  ),
+                ),
               if (_page < verses.length)
                 Positioned(
                   right: Sp.screenSide - 12,

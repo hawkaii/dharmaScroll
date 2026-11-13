@@ -1,0 +1,144 @@
+@3.8
+en: Do the work that is yours to do. Doing something is better than doing nothing. Even looking after your body needs work.
+hi: जो काम तुम्हारा है, उसे करो। कुछ करना, कुछ न करने से अच्छा है। अपने शरीर की देखभाल के लिए भी काम चाहिए।
+w: niyatam = your set duty | kuru = do | karma = action | tvam = you | jyāyaḥ = better | hi = surely | akarmaṇaḥ = than no action | śarīra-yātrā = keeping the body going | api = even | ca = and | te = your | na prasiddhyet = would not happen | akarmaṇaḥ = without action
+
+@3.19
+en: Keep doing the work that needs to be done. Do it without holding on to what you get. Working like this takes you to the highest place.
+hi: जो काम ज़रूरी है, उसे करते रहो। जो मिले, उससे चिपको मत। ऐसे काम करने से इंसान सबसे ऊँची जगह पहुँचता है।
+w: tasmāt = so | asaktaḥ = without clinging | satatam = always | kāryam = that must be done | karma = work | samācara = do well | asaktaḥ = unattached | hi = for | ācaran = doing | param = the highest | āpnoti = reaches | pūruṣaḥ = a person
+
+@3.21
+en: People copy what good people do. When you set an example, others follow it. So act in a way you would want others to copy.
+hi: लोग अच्छे लोगों की नक़ल करते हैं। तुम जो मिसाल बनाते हो, दूसरे उसी पर चलते हैं। इसलिए वैसा करो जैसा तुम चाहो कि दूसरे करें।
+w: yat yat = whatever | ācarati = does | śreṣṭhaḥ = a leading person | tat tat = that | eva = very | itaraḥ = other | janaḥ = people | saḥ = he | yat = what | pramāṇam = standard | kurute = sets | lokaḥ = the world | tat = that | anuvartate = follows
+
+@3.27
+en: Many things work together to make anything happen. Only pride says, "I alone did it." Remember you are one part of a big whole.
+hi: कोई भी काम बहुत-सी चीज़ें मिलकर करती हैं। सिर्फ़ घमंड कहता है, "यह मैंने अकेले किया।" याद रखो, तुम एक बड़े पूरे का हिस्सा हो।
+w: prakṛteḥ = of nature | kriyamāṇāni = being done | guṇaiḥ = by the qualities | karmāṇi = actions | sarvaśaḥ = in every way | ahaṅkāra-vimūḍha-ātmā = one fooled by ego | kartā = the doer | aham = I am | iti = thus | manyate = thinks
+
+@3.35
+en: Walk your own path, even if you walk it imperfectly. Copying someone else's path, even well, brings fear. Your own way is safer for you.
+hi: अपना रास्ता चलो, चाहे पूरी तरह ठीक न चल पाओ। दूसरे का रास्ता अच्छे से चलना भी डर लाता है। तुम्हारे लिए अपना रास्ता ही सुरक्षित है।
+w: śreyān = better | sva-dharmaḥ = your own duty | viguṇaḥ = imperfect | para-dharmāt = than another's duty | su-anuṣṭhitāt = done well | sva-dharme = in your own duty | nidhanam = even ending | śreyaḥ = is better | para-dharmaḥ = another's duty | bhaya-āvahaḥ = brings fear
+
+@3.37
+en: Greed and anger are the real enemies inside us. They are always hungry and never full. Know them, so they cannot rule you.
+hi: लालच और गुस्सा हमारे भीतर के असली दुश्मन हैं। वे हमेशा भूखे रहते हैं, कभी नहीं भरते। उन्हें पहचानो, ताकि वे तुम पर राज न करें।
+w: kāmaḥ = desire | eṣaḥ = this | krodhaḥ = anger | rajo-guṇa-samudbhavaḥ = born of restless energy | mahā-aśanaḥ = always hungry | mahā-pāpmā = very harmful | viddhi = know | enam = this | iha = here | vairiṇam = the enemy
+
+@3.42
+en: Your senses are strong. Your mind is stronger, and your wisdom is stronger still. Deepest and strongest of all is your true Self.
+hi: तुम्हारी इंद्रियाँ ताक़तवर हैं। मन उनसे ताक़तवर है, और बुद्धि उससे भी। सबसे गहरा और सबसे ताक़तवर तुम्हारा सच्चा आत्मा है।
+w: indriyāṇi = the senses | parāṇi = are high | āhuḥ = they say | indriyebhyaḥ = than the senses | param = higher | manaḥ = the mind | manasaḥ = than the mind | tu = but | parā = higher | buddhiḥ = understanding | yaḥ = who | buddheḥ = than understanding | parataḥ = higher still | saḥ = is he, the Self
+
+@4.7
+en: Krishna says that when goodness grows weak and wrong grows strong, he comes. He comes to set things right. Goodness is never left alone.
+hi: कृष्ण कहते हैं कि जब भलाई कमज़ोर और बुराई ताक़तवर होती है, तब वे आते हैं। वे सब ठीक करने आते हैं। भलाई कभी अकेली नहीं छोड़ी जाती।
+w: yadā yadā = whenever | hi = truly | dharmasya = of goodness | glāniḥ = a fading | bhavati = happens | bhārata = O Bharata | abhyutthānam = a rising | adharmasya = of wrong | tadā = then | ātmānam = myself | sṛjāmi = bring forth | aham = I
+
+@4.18
+en: A wise person can be calm inside while working hard. They can also see that sitting idle is a choice too. Such a person does all their work well.
+hi: समझदार इंसान ख़ूब काम करते हुए भी भीतर से शांत रहता है। वह यह भी समझता है कि बैठे रहना भी एक कर्म है। ऐसा इंसान हर काम अच्छे से करता है।
+w: karmaṇi = in action | akarma = stillness | yaḥ = who | paśyet = sees | akarmaṇi = in stillness | ca = and | karma = action | saḥ = he | buddhimān = is wise | manuṣyeṣu = among people | yuktaḥ = steady | kṛtsna-karma-kṛt = doing all his work
+
+@4.22
+en: Be happy with what comes to you on its own. Do not be jealous of others. Win or lose, stay even, and your work will not weigh you down.
+hi: जो अपने-आप मिले, उसमें ख़ुश रहो। दूसरों से जलो मत। जीतो या हारो, एक-से रहो, तब काम तुम्हें बाँधेगा नहीं।
+w: yadṛcchā-lābha-santuṣṭaḥ = happy with what comes | dvandva-atītaḥ = beyond the pairs | vimatsaraḥ = free of envy | samaḥ = even | siddhau = in success | asiddhau = in failure | ca = and | kṛtvā = acting | api = even | na nibadhyate = is not bound
+
+@4.34
+en: To learn the truth, go to a wise teacher. Bow, ask honest questions, and help them. Those who have seen the truth will share it with you.
+hi: सच सीखने के लिए किसी ज्ञानी गुरु के पास जाओ। झुककर, सच्चे सवाल पूछकर, और सेवा करके सीखो। जिन्होंने सच देखा है, वे तुम्हें बताएँगे।
+w: tat = that | viddhi = know | praṇipātena = by bowing | paripraśnena = by asking | sevayā = by serving | upadekṣyanti = will teach | te = you | jñānam = knowledge | jñāninaḥ = the wise | tattva-darśinaḥ = who have seen the truth
+
+@4.38
+en: Nothing makes the heart as clean as true knowing. You do not have to rush. With steady practice, you will find it inside yourself in time.
+hi: सच्चे ज्ञान जैसा मन को साफ़ करने वाला कुछ नहीं है। जल्दबाज़ी की ज़रूरत नहीं। लगातार अभ्यास से, समय आने पर तुम उसे अपने भीतर पाओगे।
+w: na hi = there is nothing | jñānena = to knowledge | sadṛśam = equal | pavitram = purifying | iha = here | vidyate = exists | tat = that | svayam = yourself | yoga-saṁsiddhaḥ = ripe in yoga | kālena = in time | ātmani = in the Self | vindati = finds
+
+@4.39
+en: If you trust, care, and keep your senses in check, you will learn. And once you truly know, peace comes very soon.
+hi: अगर तुम भरोसा रखो, मन लगाओ और इंद्रियों को काबू में रखो, तो सीखोगे। और सच में जान लेने पर शांति जल्दी आती है।
+w: śraddhāvān = one with faith | labhate = gains | jñānam = knowledge | tat-paraḥ = devoted to it | saṁyata-indriyaḥ = senses held in check | jñānam = knowledge | labdhvā = having gained | parām = highest | śāntim = peace | acireṇa = soon | adhigacchati = reaches
+
+@5.7
+en: Someone with a clean heart and a calm mind can work a lot. They feel close to every living being. Their work does not leave a stain on them.
+hi: जिसका दिल साफ़ और मन शांत है, वह बहुत काम कर सकता है। वह हर जीव को अपना मानता है। उसका काम उस पर दाग़ नहीं छोड़ता।
+w: yoga-yuktaḥ = steady in yoga | viśuddha-ātmā = pure in heart | vijita-ātmā = master of himself | jita-indriyaḥ = senses won | sarva-bhūta-ātma-bhūta-ātmā = one with all beings | kurvan = acting | api = even | na lipyate = is not stained
+
+@5.10
+en: A lotus leaf sits in water but stays dry. Offer your work to the Divine and let go of clinging. Then wrong does not stick to you either.
+hi: कमल का पत्ता पानी में रहकर भी सूखा रहता है। अपना काम भगवान को अर्पण करो और मोह छोड़ दो। तब बुराई तुम पर भी नहीं चिपकती।
+w: brahmaṇi = in the Divine | ādhāya = placing | karmāṇi = actions | saṅgam = attachment | tyaktvā = letting go | karoti = acts | yaḥ = who | lipyate na = is not touched | saḥ = he | pāpena = by wrong | padma-patram = a lotus leaf | iva = like | ambhasā = by water
+
+@5.18
+en: A wise person sees the same light in everyone. A teacher, a cow, an elephant, a dog, or a poor outcast, all are seen with equal eyes.
+hi: समझदार इंसान सबमें एक-सी रोशनी देखता है। विद्वान, गाय, हाथी, कुत्ता या समाज से निकाला गया इंसान, सबको बराबर नज़र से देखता है।
+w: vidyā-vinaya-sampanne = learned and humble | brāhmaṇe = in a scholar | gavi = in a cow | hastini = in an elephant | śuni = in a dog | ca eva = and also | śvapāke = in an outcast | paṇḍitāḥ = the wise | sama-darśinaḥ = see with equal eyes
+
+@5.20
+en: When something nice happens, do not get carried away. When something bad happens, do not fall apart. Stay steady and clear inside.
+hi: कुछ अच्छा हो तो बहक मत जाओ। कुछ बुरा हो तो टूट मत जाओ। भीतर से स्थिर और साफ़ रहो।
+w: na prahṛṣyet = should not leap with joy | priyam = the pleasant | prāpya = getting | na udvijet = should not be upset | ca = and | apriyam = the unpleasant | sthira-buddhiḥ = steady minded | asammūḍhaḥ = not confused | brahma-vit = knower of the Divine | brahmaṇi = in the Divine | sthitaḥ = rooted
+
+@5.23
+en: A rush of wanting or anger can come like a wave. Whoever can stand firm in that wave, here in this life, is truly happy.
+hi: चाह या गुस्से का उफान लहर की तरह आता है। जो इसी जीवन में उस लहर में डटा रहे, वही सच में सुखी है।
+w: śaknoti = is able | iha eva = right here | yaḥ = who | soḍhum = to bear | prāk = before | śarīra-vimokṣaṇāt = leaving the body | kāma-krodha-udbhavam = born of desire and anger | vegam = the rush | saḥ = he | yuktaḥ = is a yogi | sukhī = happy | naraḥ = person
+
+@5.29
+en: Krishna is the friend of every living being. He receives every gift and every good effort. Knowing this, a person finds peace.
+hi: कृष्ण हर जीव के मित्र हैं। हर भेंट और हर अच्छी कोशिश उन्हीं तक पहुँचती है। यह जानकर इंसान को शांति मिलती है।
+w: bhoktāram = the receiver | yajña-tapasām = of offerings and effort | sarva-loka-mahā-īśvaram = great lord of all worlds | suhṛdam = the friend | sarva-bhūtānām = of all beings | jñātvā = knowing | mām = me | śāntim = peace | ṛcchati = reaches
+
+@6.5
+en: Lift yourself up. Do not push yourself down. You can be your own best friend, or your own enemy.
+hi: ख़ुद को ऊपर उठाओ। ख़ुद को नीचे मत गिराओ। तुम अपने सबसे अच्छे दोस्त बन सकते हो, या अपने दुश्मन।
+w: uddharet = lift up | ātmanā = by yourself | ātmānam = yourself | na = not | avasādayet = let sink | ātmā = self | eva = alone | hi = truly | ātmanaḥ = of the self | bandhuḥ = friend | ripuḥ = enemy
+
+@6.6
+en: When you guide your own mind, it becomes your friend. When you let it run wild, it acts like an enemy. Make friends with your mind.
+hi: जब तुम अपने मन को संभालते हो, वह दोस्त बन जाता है। जब उसे बेलगाम छोड़ते हो, वह दुश्मन जैसा हो जाता है। अपने मन से दोस्ती करो।
+w: bandhuḥ = friend | ātmā = the mind | ātmanaḥ = to oneself | tasya = for him | yena = by whom | eva = indeed | ātmanā = by oneself | jitaḥ = is won | anātmanaḥ = for one who has not | tu = but | śatrutve = in enmity | varteta = acts | śatru-vat = like an enemy
+
+@6.7
+en: A calm mind stays the same in cold or heat. It stays the same in happy or sad times. Praise or insult, it stays steady.
+hi: शांत मन ठंड हो या गर्मी, एक-सा रहता है। सुख हो या दुख, एक-सा रहता है। तारीफ़ हो या अपमान, स्थिर रहता है।
+w: jita-ātmanaḥ = one who has won the mind | praśāntasya = who is calm | parama-ātmā = the highest Self | samāhitaḥ = settled | śīta-uṣṇa-sukha-duḥkheṣu = in cold, heat, joy and pain | tathā = also | māna-apamānayoḥ = in honour and insult
+
+@6.16
+en: Yoga is not for someone who eats too much or too little. It is not for someone who sleeps too much or too little. Find the middle way.
+hi: योग उसके लिए नहीं जो बहुत ज़्यादा या बहुत कम खाए। न उसके लिए जो बहुत ज़्यादा या बहुत कम सोए। बीच का रास्ता ढूँढो।
+w: na = not | ati-aśnataḥ = for one who eats too much | tu = but | yogaḥ = yoga | asti = is | ca = and | ekāntam = at all | anaśnataḥ = for one who does not eat | ati-svapna-śīlasya = for one who sleeps too much | jāgrataḥ = for one who stays awake | eva = even | arjuna = O Arjuna
+
+@6.17
+en: Eat, rest, work and sleep in the right amount. When life has this balance, yoga takes sadness away.
+hi: खाना, आराम, काम और नींद, सब सही मात्रा में करो। जब जीवन में यह संतुलन हो, तो योग दुख मिटा देता है।
+w: yukta-āhāra-vihārasya = balanced in food and play | yukta-ceṣṭasya = balanced in effort | karmasu = in work | yukta-svapna-avabodhasya = balanced in sleep and waking | yogaḥ = yoga | bhavati = becomes | duḥkha-hā = the end of sorrow
+
+@6.26
+en: Your mind will run off again and again. Each time, gently bring it back. Do not get cross with it. Just bring it home.
+hi: तुम्हारा मन बार-बार भागेगा। हर बार उसे प्यार से वापस लाओ। उस पर नाराज़ मत हो। बस उसे घर ले आओ।
+w: yataḥ yataḥ = wherever | niścarati = wanders | manaḥ = the mind | cañcalam = restless | asthiram = unsteady | tataḥ tataḥ = from there | niyamya = drawing back | etat = it | ātmani = in the Self | eva = only | vaśam = under control | nayet = should bring
+
+@6.30
+en: Krishna says: whoever sees me everywhere, and sees everything in me, is never lost to me. And I am never lost to them.
+hi: कृष्ण कहते हैं: जो मुझे हर जगह देखे, और सब कुछ मुझमें देखे, वह मुझसे कभी दूर नहीं होता। और मैं भी उससे कभी दूर नहीं होता।
+w: yaḥ = who | mām = me | paśyati = sees | sarvatra = everywhere | sarvam = everything | ca = and | mayi = in me | tasya = to him | aham = I | na praṇaśyāmi = am not lost | saḥ = he | me = to me | na praṇaśyati = is not lost
+
+@6.32
+en: Feel what others feel as if it were your own. Their joy is your joy, and their pain is your pain. That is the best kind of yoga.
+hi: दूसरों का दुख-सुख ऐसे महसूस करो जैसे अपना हो। उनकी ख़ुशी तुम्हारी ख़ुशी, उनका दर्द तुम्हारा दर्द। यही सबसे अच्छा योग है।
+w: ātma-aupamyena = by likeness to oneself | sarvatra = everywhere | samam = equally | paśyati = sees | yaḥ = who | arjuna = O Arjuna | sukham = joy | vā = or | yadi vā = or if | duḥkham = sorrow | saḥ = he | yogī = a yogi | paramaḥ = highest | mataḥ = is held
+
+@6.35
+en: Yes, the mind is hard to hold still. It jumps around. But with practice, and by letting go a little, it can be calmed.
+hi: हाँ, मन को थामना मुश्किल है। वह उछलता रहता है। पर अभ्यास से, और थोड़ा-थोड़ा छोड़ने से, वह शांत हो सकता है।
+w: asaṁśayam = no doubt | mahā-bāho = O mighty one | manaḥ = the mind | durnigraham = hard to hold | calam = restless | abhyāsena = by practice | tu = but | kaunteya = son of Kunti | vairāgyeṇa = by letting go | ca = and | gṛhyate = is held
+
+@6.40
+en: No good effort is ever wasted. Not in this life, not after it. Someone who tries to do good never comes to a bad end, my friend.
+hi: कोई भी अच्छी कोशिश कभी बेकार नहीं जाती। न इस जीवन में, न उसके बाद। जो भला करने की कोशिश करे, उसका बुरा अंत नहीं होता, मेरे दोस्त।
+w: pārtha = O Arjuna | na eva = never | iha = here | na amutra = nor beyond | vināśaḥ = loss | tasya = for him | vidyate = is | na hi = surely not | kalyāṇa-kṛt = one who does good | kaścit = anyone | durgatim = a bad end | tāta = my dear | gacchati = goes

@@ -1,0 +1,98 @@
+@16.1
+en: Good hearts have bright qualities. Do not be afraid, and keep your heart clean. Keep learning, give freely, hold yourself steady, and be honest.
+hi: अच्छे दिलों में उजले गुण होते हैं। डरो मत, और दिल साफ़ रखो। सीखते रहो, खुलकर दो, ख़ुद को संभालो, और सच्चे रहो।
+w: abhayam = fearlessness | sattva-saṁśuddhiḥ = a clean heart | jñāna-yoga-vyavasthitiḥ = steadiness in knowledge and yoga | dānam = giving | damaḥ = self-control | ca = and | yajñaḥ = offering | svādhyāyaḥ = study | tapaḥ = effort | ārjavam = honesty
+
+@16.2
+en: More bright qualities: do no harm and tell the truth. Do not get angry, and let things go. Be at peace, do not gossip, be kind to all beings. Be gentle, not greedy, and not jumpy.
+hi: और उजले गुण: किसी को चोट मत दो और सच बोलो। गुस्सा मत करो, और छोड़ना सीखो। शांत रहो, चुगली मत करो, सब जीवों पर दया करो। नरम रहो, लालची नहीं, और चंचल नहीं।
+w: ahiṁsā = non-harm | satyam = truth | akrodhaḥ = no anger | tyāgaḥ = letting go | śāntiḥ = peace | apaiśunam = no gossip | dayā = compassion | bhūteṣu = for beings | aloluptvam = no greed | mārdavam = gentleness | hrīḥ = modesty | acāpalam = steadiness
+
+@16.3
+en: Shine, forgive, and be brave. Keep clean, wish no one harm, and do not think too much of yourself. These are signs of a heart born for good.
+hi: चमको, माफ़ करो, और हिम्मत रखो। साफ़ रहो, किसी का बुरा मत चाहो, और ख़ुद को बहुत बड़ा मत समझो। ये भलाई के लिए जन्मे दिल की निशानियाँ हैं।
+w: tejaḥ = radiance | kṣamā = forgiveness | dhṛtiḥ = courage | śaucam = cleanliness | adrohaḥ = no malice | na atimānitā = no excess pride | bhavanti = these are | sampadam = the wealth | daivīm = divine | abhijātasya = of one born to it | bhārata = O Bharata
+
+@16.21
+en: Three doors lead to trouble: wanting too much, anger, and greed. They hurt the one who walks through them. So close these three doors.
+hi: तीन दरवाज़े मुसीबत की ओर ले जाते हैं: बहुत ज़्यादा चाह, गुस्सा और लालच। ये उन्हीं को चोट देते हैं जो इनसे गुज़रते हैं। इसलिए ये तीनों दरवाज़े बंद रखो।
+w: tri-vidham = threefold | narakasya = to ruin | idam = this | dvāram = gate | nāśanam = destroying | ātmanaḥ = the self | kāmaḥ = desire | krodhaḥ = anger | tathā = and | lobhaḥ = greed | tasmāt = so | etat = these | trayam = three | tyajet = give up
+
+@17.3
+en: Everyone trusts in something, and what they trust shapes them. A person is made of their faith. What you truly believe in, you slowly become.
+hi: हर कोई किसी चीज़ पर भरोसा करता है, और वही भरोसा उसे बनाता है। इंसान अपनी श्रद्धा से बना है। जिसमें तुम सच में विश्वास करो, धीरे-धीरे वही बन जाते हो।
+w: sattva-anurūpā = matching one's nature | sarvasya = of everyone | śraddhā = faith | bhavati = is | bhārata = O Bharata | śraddhā-mayaḥ = made of faith | ayam = this | puruṣaḥ = person | yaḥ = who | yat-śraddhaḥ = whatever his faith | saḥ eva saḥ = that is what he is
+
+@17.14
+en: Discipline of the body means honouring the Divine, teachers and wise people. It means keeping clean and honest. It means self-restraint and doing no harm.
+hi: शरीर का तप है भगवान, गुरुओं और ज्ञानियों का आदर करना। साफ़ और सच्चा रहना। संयम रखना और किसी को चोट न देना।
+w: deva-dvija-guru-prājña-pūjanam = honouring gods, the learned, teachers and the wise | śaucam = cleanliness | ārjavam = honesty | brahmacaryam = self-restraint | ahiṁsā = non-harm | ca = and | śārīram = of the body | tapaḥ = discipline | ucyate = is called
+
+@17.15
+en: Speak words that do not hurt. Say what is true, kind and helpful. Keep reading and learning. This is the discipline of speech.
+hi: ऐसे शब्द बोलो जो चोट न दें। जो सच, प्यारा और भला हो, वही कहो। पढ़ते और सीखते रहो। यही वाणी का तप है।
+w: anudvega-karam = causing no pain | vākyam = speech | satyam = true | priya-hitam = kind and helpful | ca = and | yat = which | svādhyāya-abhyasanam = regular study | eva = also | vāṅmayam = of speech | tapaḥ = discipline | ucyate = is called
+
+@17.16
+en: Keep your mind cheerful and gentle. Be quiet sometimes and hold yourself steady. Keep your feelings pure. This is the discipline of the mind.
+hi: मन को प्रसन्न और कोमल रखो। कभी-कभी चुप रहो और ख़ुद को संभालो। अपने भाव शुद्ध रखो। यही मन का तप है।
+w: manaḥ-prasādaḥ = a cheerful mind | saumyatvam = gentleness | maunam = silence | ātma-vinigrahaḥ = self-control | bhāva-saṁśuddhiḥ = purity of feeling | iti = thus | etat = this | tapaḥ = discipline | mānasam = of the mind | ucyate = is called
+
+@17.20
+en: A pure gift is given just because giving is right. It goes to someone who cannot pay you back. It is given at the right time, in the right place, to the right person.
+hi: सच्चा दान इसलिए दिया जाता है क्योंकि देना सही है। वह ऐसे को जाता है जो बदले में कुछ न दे सके। वह सही समय, सही जगह, सही इंसान को दिया जाता है।
+w: dātavyam = it should be given | iti = thus | yat = which | dānam = gift | dīyate = is given | anupakāriṇe = to one who cannot repay | deśe = in the right place | kāle = at the right time | ca = and | pātre = to the right person | tat = that | sāttvikam = pure | smṛtam = is called
+
+@18.37
+en: Some good things taste bitter at first, like practice or study. But in the end they taste sweet. That is true happiness, from a clear and calm mind.
+hi: कुछ अच्छी चीज़ें शुरू में कड़वी लगती हैं, जैसे अभ्यास या पढ़ाई। पर अंत में वे मीठी लगती हैं। यही सच्चा सुख है, जो साफ़ और शांत मन से आता है।
+w: yat tat = that which | agre = at first | viṣam = poison | iva = like | pariṇāme = in the end | amṛta-upamam = like nectar | tat = that | sukham = happiness | sāttvikam = pure | proktam = is called | ātma-buddhi-prasāda-jam = born of a clear mind
+
+@18.47
+en: Your own work, even done imperfectly, is better than someone else's done well. When you do the work that fits who you are, you do no wrong.
+hi: अपना काम, चाहे पूरा ठीक न हो, दूसरे के अच्छे से किए काम से बेहतर है। जब तुम वह काम करते हो जो तुम्हारे स्वभाव से मेल खाता है, तो कोई ग़लती नहीं होती।
+w: śreyān = better | sva-dharmaḥ = your own duty | viguṇaḥ = imperfect | para-dharmāt = than another's duty | su-anuṣṭhitāt = done well | svabhāva-niyatam = set by your nature | karma = work | kurvan = doing | na āpnoti = does not incur | kilbiṣam = fault
+
+@18.54
+en: Someone at peace with the Divine is calm inside. They do not cry over loss or crave more. They treat every being the same, and their love grows deep.
+hi: जो भगवान में शांत है, वह भीतर से शांत रहता है। वह न खोने पर रोता है, न और चाहता है। वह हर जीव को एक-सा मानता है, और उसका प्रेम गहरा होता है।
+w: brahma-bhūtaḥ = one with the Absolute | prasanna-ātmā = serene | na śocati = does not grieve | na kāṅkṣati = does not crave | samaḥ = the same | sarveṣu = to all | bhūteṣu = beings | mad-bhaktim = devotion to me | labhate = gains | parām = highest
+
+@18.57
+en: In your heart, give all your work to Krishna. Make him your goal, and lean on a steady mind. Keep your thoughts with him always.
+hi: मन ही मन अपना हर काम कृष्ण को सौंप दो। उन्हें अपना लक्ष्य बनाओ, और स्थिर बुद्धि का सहारा लो। अपने विचार हमेशा उनके साथ रखो।
+w: cetasā = in the mind | sarva-karmāṇi = all actions | mayi = to me | saṁnyasya = offering | mat-paraḥ = with me as the goal | buddhi-yogam = the yoga of understanding | upāśritya = relying on | mat-cittaḥ = mind on me | satatam = always | bhava = be
+
+@18.58
+en: Krishna tells Arjuna that with his mind on him, he will cross every hard place by grace. But if pride stops him from listening, he will be lost.
+hi: कृष्ण अर्जुन से कहते हैं कि मन उनमें लगाकर, उनकी कृपा से वे हर कठिनाई पार कर लेंगे। पर अगर घमंड के कारण न सुनें, तो खो जाएँगे।
+w: mat-cittaḥ = mind on me | sarva-durgāṇi = every difficulty | mat-prasādāt = by my grace | tariṣyasi = you will cross | atha = but | cet = if | tvam = you | ahaṅkārāt = from ego | na śroṣyasi = will not listen | vinaṅkṣyasi = you will be lost
+
+@18.61
+en: The Lord lives in the heart of every being. By his power, all beings turn and move, like figures on a turning wheel.
+hi: भगवान हर जीव के दिल में रहते हैं। उनकी शक्ति से सब जीव घूमते और चलते हैं, जैसे घूमते चक्र पर बैठी आकृतियाँ।
+w: īśvaraḥ = the Lord | sarva-bhūtānām = of all beings | hṛd-deśe = in the heart | arjuna = O Arjuna | tiṣṭhati = dwells | bhrāmayan = turning | sarva-bhūtāni = all beings | yantra-ārūḍhāni = mounted on a machine | māyayā = by his power
+
+@18.63
+en: Krishna has shared his deepest teaching. Now he asks Arjuna to think it over fully. Then Arjuna may choose for himself what to do.
+hi: कृष्ण ने अपनी सबसे गहरी सीख बता दी है। अब वे अर्जुन से कहते हैं कि इस पर पूरा सोचो। फिर ख़ुद तय करो कि क्या करना है।
+w: iti = thus | te = to you | jñānam = knowledge | ākhyātam = has been told | guhyāt = than the secret | guhyataram = more secret | mayā = by me | vimṛśya = reflecting | etat = on this | aśeṣeṇa = fully | yathā = as | icchasi = you wish | tathā = so | kuru = do
+
+@18.66
+en: Krishna says: let go of everything else you hold on to, and come to me. I will free you from every wrong. Do not be afraid. Do not grieve.
+hi: कृष्ण कहते हैं: बाक़ी सब सहारे छोड़कर मेरी शरण आओ। मैं तुम्हें हर बुराई से मुक्त करूँगा। डरो मत। दुखी मत हो।
+w: sarva-dharmān = all other duties | parityajya = letting go | mām = to me | ekam = alone | śaraṇam = for shelter | vraja = come | aham = I | tvā = you | sarva-pāpebhyaḥ = from all wrong | mokṣayiṣyāmi = will free | mā śucaḥ = do not grieve
+
+@18.73
+en: Arjuna says his confusion is gone. By Krishna's kindness he remembers who he is. He stands steady, free of doubt, ready to do what is asked.
+hi: अर्जुन कहते हैं कि उनका भ्रम मिट गया। कृष्ण की कृपा से उन्हें याद आ गया कि वे कौन हैं। वे स्थिर खड़े हैं, संशय से मुक्त, जो कहा गया वह करने को तैयार।
+w: naṣṭaḥ = is gone | mohaḥ = delusion | smṛtiḥ = memory | labdhā = is regained | tvat-prasādāt = by your grace | mayā = by me | acyuta = O Krishna | sthitaḥ = steady | asmi = I am | gata-sandehaḥ = free of doubt | kariṣye = I will do | vacanam = word | tava = your
+moment: Arjuna speaks to Krishna at the end of the teaching. The man who sat down in despair now stands up.
+moment_hi: उपदेश के अंत में अर्जुन कृष्ण से बोलते हैं। जो निराश होकर बैठ गए थे, वे अब खड़े हो गए हैं।
+
+@18.78
+en: Wherever Krishna and Arjuna stand together, good things follow. There will be good fortune, victory, plenty and what is right.
+hi: जहाँ कृष्ण और अर्जुन साथ हों, वहाँ अच्छी चीज़ें आती हैं। वहाँ सौभाग्य, विजय, समृद्धि और न्याय होता है।
+w: yatra = where | yoga-īśvaraḥ = the lord of yoga | kṛṣṇaḥ = Krishna | pārthaḥ = Arjuna | dhanuḥ-dharaḥ = holding the bow | tatra = there | śrīḥ = fortune | vijayaḥ = victory | bhūtiḥ = plenty | dhruvā = firm | nītiḥ = justice | matiḥ = belief | mama = my
+moment: Sanjaya ends his telling to King Dhritarashtra. He has heard the whole talk between Krishna and Arjuna, and gives his own verdict.
+moment_hi: संजय राजा धृतराष्ट्र को अपनी कथा पूरी करते हैं। उन्होंने कृष्ण और अर्जुन की पूरी बात सुनी है, और अपना निर्णय सुनाते हैं।

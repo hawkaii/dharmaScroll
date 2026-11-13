@@ -43,3 +43,17 @@ references for future edits.
 Tags come from a fixed list of 45 emotions and situations (the `tags` key in the file).
 `personal_advice_ok` is `false` for war passages, varna passages and verses that are
 easy to misread. These verses must not be shown as advice for a person's own problem.
+
+## Study notes (`gita_explain_v1.json`)
+
+Built by `tools/explain_gen/build.py` from the hand-written notes in
+`tools/explain_gen/src/`. Status: **draft, pending scholar review.**
+
+- Simple meanings (English and Hindi), chapter context lines and "who speaks"
+  lines were written fresh for this app in plain words. No translation or
+  commentary was copied.
+- Word-by-word glosses were made from the Sanskrit itself (sandhi split by
+  hand, Devanagari generated from the IAST by `tools/explain_gen/iast.py`).
+  Only the public-domain works above (Telang, Arnold, Besant, Purohit Swami)
+  may be used as references.
+- Related verses are computed from shared situation tags.
