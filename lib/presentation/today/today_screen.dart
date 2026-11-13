@@ -11,6 +11,7 @@ import '../../design/effects.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../../l10n/l10n.dart';
 import '../points/wallet_screen.dart';
 import '../sankalp/sankalp_sheet.dart';
 import '../shell/app_shell.dart';
@@ -19,17 +20,13 @@ import '../shell/app_shell.dart';
 class TodayScreen extends ConsumerWidget {
   const TodayScreen({super.key});
 
-  static const String beginLabel = "Begin today's ritual";
-  static const String continueLabel = 'Continue the ritual';
-  static const String againLabel = 'Light it again';
-  static const String doneTitle = 'Today is lit.';
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final ProgressState p = ref.watch(progressProvider);
     final bool light = ref.watch(todayIsLightProvider);
     final List<String> calendarToday = ref.watch(todayInCalendarProvider);
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     final String name = ref.watch(authProvider)?.name ?? '';
 
     final bool heard = p.steps.contains(RitualStep.hear);
@@ -39,32 +36,32 @@ class TodayScreen extends ConsumerWidget {
     final bool back = p.cameBack && !p.ritualStarted;
 
     final String title = back
-        ? 'You came back.'
+        ? l.todayCameBack
         : allDone
-        ? doneTitle
+        ? l.todayDoneTitle
         : walked
-        ? 'The lamp is lit.\nNow, speak your mind.'
+        ? l.todayWalkedTitle
         : heard
-        ? 'Five heard.\nNow take one step\non the path.'
+        ? l.todayHeardTitle
         : light
-        ? (name.isEmpty ? 'Good morning.' : 'Good morning, $name.')
-        : (name.isEmpty ? 'Namaste.' : 'Namaste, $name.');
+        ? (name.isEmpty ? l.greetMorning : l.greetMorningName(name))
+        : (name.isEmpty ? l.greetNamaste : l.greetNamasteName(name));
     final String sub = back
-        ? 'The lamp was still warm.'
+        ? l.todaySubBack
         : allDone
-        ? 'Come back tomorrow.\nThe verses will wait.'
+        ? l.todaySubDone
         : walked
-        ? 'A verse will answer.'
+        ? l.todaySubWalked
         : heard
         ? ''
-        : 'Five verses are waiting.\nThen you may rest.';
+        : l.todaySubStart;
     final String button = back
-        ? againLabel
+        ? l.todayAgain
         : allDone
-        ? 'Hear them again'
+        ? l.todayHearAgain
         : p.ritualStarted
-        ? continueLabel
-        : beginLabel;
+        ? l.todayContinue
+        : l.todayBegin;
 
     void go() {
       if (!heard || allDone) {
@@ -96,8 +93,8 @@ class TodayScreen extends ConsumerWidget {
                   child: Column(
                     children: <Widget>[
                       TopLine(
-                        left: 'Day ${p.streak < 1 ? 1 : p.streak}',
-                        right: 'Adhyaya $chapter',
+                        left: l.topDay(p.streak < 1 ? 1 : p.streak),
+                        right: l.topAdhyaya(chapter),
                       ),
                       const Spacer(),
                       Diya(size: 130, lit: !back),
@@ -123,8 +120,7 @@ class TodayScreen extends ConsumerWidget {
                       if (calendarToday.isNotEmpty) ...<Widget>[
                         const SizedBox(height: Sp.s22),
                         Semantics(
-                          label:
-                              'Today in your calendar: ${calendarToday.join(', ')}',
+                          label: l.calendarToday(calendarToday.join(', ')),
                           excludeSemantics: true,
                           child: Text(
                             calendarToday.join('  ·  '),
@@ -146,20 +142,23 @@ class TodayScreen extends ConsumerWidget {
                         children: <Widget>[
                           if (back)
                             Text(
-                              'Your ${p.streak > 0 ? p.streak : 'earlier'} days are kept.',
-                              style: DType.body(c.faint, size: 16),
+                              p.streak > 0
+                                  ? l.daysKept(p.streak)
+                                  : l.earlierDaysKept,
+                              textAlign: TextAlign.center,
+                              style: DType.body(c.faint, size: 17),
                             )
                           else
                             IntrinsicWidth(
                               child: TextAction(
-                                label: '${p.points} Moksh Points',
+                                label: l.pointsAction(p.points),
                                 onPressed: () =>
                                     showTodayPointsSheet(context, p),
                               ),
                             ),
                           IntrinsicWidth(
                             child: TextAction(
-                              label: 'Ekant, a quiet room',
+                              label: l.ekantAction,
                               onPressed: () => context.push(Routes.ekant),
                             ),
                           ),
@@ -191,10 +190,11 @@ class _Rail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     final List<(String, String, bool)> steps = <(String, String, bool)>[
-      ('Hear', 'conch', heard),
-      ('Walk', 'path-stone', walked),
-      ('Speak', 'flute', speakDone),
+      (l.railHear, 'conch', heard),
+      (l.railWalk, 'path-stone', walked),
+      (l.railSpeak, 'flute', speakDone),
     ];
     final int active = steps.indexWhere(((String, String, bool) s) => !s.$3);
     return Row(
@@ -207,7 +207,7 @@ class _Rail extends StatelessWidget {
               padding: const EdgeInsets.only(top: 28),
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 500),
-                width: 36,
+                width: 24,
                 height: 1.5,
                 color: steps[i - 1].$3 ? Tok.marigold : c.line,
               ),
@@ -267,16 +267,17 @@ class _RailNodeState extends State<_RailNode>
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     final String state = widget.done
-        ? 'done'
+        ? l.railDone
         : widget.active
-        ? 'next'
-        : 'later';
+        ? l.railNext
+        : l.railLater;
     return Semantics(
-      label: '${widget.label}, $state',
+      label: l.railSemantic(widget.label, state),
       excludeSemantics: true,
       child: SizedBox(
-        width: 64,
+        width: 76,
         child: Column(
           children: <Widget>[
             AnimatedBuilder(
@@ -319,7 +320,9 @@ class _RailNodeState extends State<_RailNode>
             const SizedBox(height: 8),
             Text(
               widget.label.toUpperCase(),
-              style: DType.eyebrow(widget.active ? c.accent : c.faint),
+              maxLines: 1,
+              textAlign: TextAlign.center,
+              style: DType.eyebrow(widget.active ? c.accent : c.mute),
             ),
           ],
         ),

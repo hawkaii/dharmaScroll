@@ -1,0 +1,323 @@
+{
+  "@@locale": "hi",
+  "back": "वापस",
+  "skip": "छोड़ें",
+  "continueLabel": "आगे बढ़ें",
+  "whatIs": "{topic} क्या है?",
+  "@whatIs": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "progressOf": "{total} में से {n}",
+  "@progressOf": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "on": "चालू",
+  "off": "बंद",
+  "comingSoon": "जल्द आ रही है",
+  "moreLanguages": "और भाषाएँ",
+  "languageSoonSemantic": "{name}, जल्द आ रही है, अभी तैयार नहीं",
+  "@languageSoonSemantic": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "textSizeRow": "अक्षरों का आकार",
+  "textSizeEyebrow": "अक्षरों का आकार",
+  "textSizeTitle": "शब्द कितने\nबड़े चाहिए?",
+  "textSizeWhy": "वह आकार चुनिए जो आँखों को आसान लगे। इसे बाद में बदल सकते हैं।",
+  "textSizeNormal": "सामान्य",
+  "textSizeLarge": "बड़ा",
+  "textSizeExtraLarge": "बहुत बड़ा",
+  "textSizeSample": "दीया जल गया है। पाँच श्लोक आपकी राह देख रहे हैं।",
+  "textSizeRowWhy": "शब्दों को बड़ा या छोटा कीजिए।",
+  "welcomeLine1": "एक संवाद",
+  "welcomeLine2": "रणभूमि में।",
+  "welcomeSub": "पाँच हज़ार साल पुराना।\nआइए, सुनिए।",
+  "welcomeButton": "सुनिए",
+  "eyebrowLight": "आपकी ज्योति",
+  "eyebrowCity": "आपका शहर",
+  "eyebrowTradition": "आपकी परंपरा",
+  "eyebrowHour": "आपका समय",
+  "signInTitle": "दीया कौन\nजला रहा है?",
+  "cityTitle": "आप किस शहर में\nरहते हैं?",
+  "traditionTitle": "आप एकादशी\nकैसे मनाते हैं?",
+  "reminderTitle": "आपका दिन\nकब शुरू होता है?",
+  "finishLabel": "पहला दीया जलाइए",
+  "whySignIn": "साइन इन करने से फ़ोन बदलने पर भी आपका दीया और आपके श्लोक सुरक्षित रहेंगे। अभी सब कुछ इसी फ़ोन में रहता है।",
+  "whyCity": "आपके शहर से हमें पता चलता है कि आपके यहाँ सूरज कब उगता है। पूजा का समय सूरज के साथ चलता है।",
+  "whyTradition": "परिवार एकादशी का व्रत दो तरह से रखते हैं। कुछ महीनों में दिन अलग हो जाते हैं।",
+  "whyHour": "इस समय पाँच श्लोक आपकी राह देखेंगे। हर दिन वही शांत समय।",
+  "seeDifference": "अंतर देखिए",
+  "topicSmartaVaishnava": "स्मार्त और वैष्णव",
+  "traditionSmarta": "स्मार्त",
+  "traditionVaishnava": "वैष्णव",
+  "traditionUnsure": "पता नहीं",
+  "hintSmarta": "जिस दिन सूर्योदय के समय एकादशी हो, उसी दिन व्रत रखें।",
+  "hintVaishnava": "सुबह से शुद्ध एकादशी का इंतज़ार करें।",
+  "hintUnsure": "जब दो दिन हों, तो हम दोनों दिखाएँगे।",
+  "dragToChangeAm": "AM  ·  बदलने के लिए सरकाइए",
+  "dragToChangePm": "PM  ·  बदलने के लिए सरकाइए",
+  "reminderTimeLabel": "याद दिलाने का समय",
+  "earlier15": "15 मिनट पहले",
+  "later15": "15 मिनट बाद",
+  "searchCity": "शहर खोजिए",
+  "signInGoogle": "Google से जारी रखें",
+  "signInPhone": "फ़ोन नंबर से जारी रखें",
+  "signInGuest": "अतिथि के रूप में जारी रखें",
+  "sendCode": "कोड भेजिए",
+  "verify": "जाँचिए",
+  "phoneNumber": "फ़ोन नंबर",
+  "codeNote": "हम इस फ़ोन पर छह अंकों का कोड भेजेंगे।",
+  "codeSentTo": "{phone} पर कोड भेजा गया",
+  "@codeSentTo": {
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    }
+  },
+  "otherWays": "साइन इन का दूसरा तरीका",
+  "changeNumber": "नंबर बदलिए",
+  "sixNumberCode": "छह अंकों का कोड",
+  "practiceEyebrow": "आपकी साधना  ·  {total} में से {n}",
+  "@practiceEyebrow": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "practiceQ1": "क्या आप व्रत\nरखते हैं?",
+  "practiceQ2": "कौन-सा दिन\nआपका अपना है?",
+  "practiceQ3": "क्या आप शाम को\nदीया जलाते हैं?",
+  "practiceQ4": "सूर्योदय पर\nएक शांत पल?",
+  "practiceQ5": "पूर्णिमा और\nबड़े त्योहार?",
+  "practiceWhy1": "एकादशी चंद्रमा की ग्यारहवीं तिथि है। यह महीने में दो बार आती है। बहुत से लोग इस दिन व्रत रखते हैं।",
+  "practiceWhy2": "बहुत से घरों में सप्ताह का एक दिन किसी एक देवता का माना जाता है। एक चुनिए, या कोई नहीं।",
+  "practiceWhy3": "शाम वह समय है जब दिन रात में बदलता है। उस समय छोटा दीया जलाना धन्यवाद कहने का पुराना तरीका है।",
+  "practiceWhy4": "संध्या का अर्थ है रात और दिन का मिलन। सूरज उगते समय एक शांत मिनट।",
+  "practiceWhy5": "पूर्णिमा पूरे चाँद की रात है। अमावस्या वह रात है जब चाँद नहीं दिखता। दिवाली जैसे बड़े त्योहार इन्हीं दिनों में आते हैं।",
+  "yesEkadashi": "हाँ, एकादशी पर",
+  "yesEvenings": "हाँ, ज़्यादातर शामों को",
+  "yesPlease": "हाँ, ज़रूर",
+  "yesTellMe": "हाँ, बताइए",
+  "notNow": "अभी नहीं",
+  "noDay": "अभी कोई दिन नहीं",
+  "dayMonday": "सोमवार",
+  "dayTuesday": "मंगलवार",
+  "dayThursday": "गुरुवार",
+  "daySaturday": "शनिवार",
+  "godShiva": "शिव",
+  "godHanuman": "हनुमान",
+  "godVishnu": "विष्णु, गुरु",
+  "godShani": "शनि",
+  "firstNoteTag": "आपका पहला संदेश",
+  "firstNoteSemantic": "आपका पहला संदेश। {when}। {body}",
+  "@firstNoteSemantic": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      },
+      "body": {
+        "type": "String"
+      }
+    }
+  },
+  "timedToSun": "आपके सूरज के हिसाब से",
+  "timeFromCity": "हम आपके शहर से समय तय करेंगे।",
+  "nothingSoon": "अगले कुछ हफ़्तों में कुछ नहीं है। जब आएगा, हम बताएँगे।",
+  "tabToday": "आज",
+  "tabYatra": "यात्रा",
+  "tabYou": "आप",
+  "todayBegin": "आज की साधना शुरू कीजिए",
+  "todayContinue": "साधना जारी रखिए",
+  "todayAgain": "फिर से जलाइए",
+  "todayHearAgain": "फिर से सुनिए",
+  "todayDoneTitle": "आज का दीया जल गया।",
+  "todayCameBack": "आप लौट आए।",
+  "todayWalkedTitle": "दीया जल गया।\nअब अपने मन की बात कहिए।",
+  "todayHeardTitle": "पाँच श्लोक सुन लिए।\nअब पथ पर\nएक कदम बढ़ाइए।",
+  "greetMorning": "सुप्रभात।",
+  "greetMorningName": "सुप्रभात, {name}।",
+  "@greetMorningName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "greetNamaste": "नमस्ते।",
+  "greetNamasteName": "नमस्ते, {name}।",
+  "@greetNamasteName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "todaySubBack": "दीया अभी भी गर्म था।",
+  "todaySubDone": "कल फिर आइए।\nश्लोक आपकी राह देखेंगे।",
+  "todaySubWalked": "एक श्लोक उत्तर देगा।",
+  "todaySubStart": "पाँच श्लोक राह देख रहे हैं।\nफिर आप विश्राम कीजिए।",
+  "topDay": "दिन {n}",
+  "@topDay": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "topAdhyaya": "अध्याय {n}",
+  "@topAdhyaya": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "calendarToday": "आज आपके पंचांग में: {items}",
+  "@calendarToday": {
+    "placeholders": {
+      "items": {
+        "type": "String"
+      }
+    }
+  },
+  "pointsAction": "{n} मोक्ष अंक",
+  "@pointsAction": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "ekantAction": "एकांत, एक शांत कमरा",
+  "daysKept": "आपके {n} दिन सहेजे हुए हैं।",
+  "@daysKept": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "earlierDaysKept": "आपके पिछले दिन सहेजे हुए हैं।",
+  "railHear": "सुनिए",
+  "railWalk": "चलिए",
+  "railSpeak": "कहिए",
+  "railDone": "पूरा",
+  "railNext": "अगला",
+  "railLater": "बाद में",
+  "railSemantic": "{label}, {state}",
+  "@railSemantic": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "state": {
+        "type": "String"
+      }
+    }
+  },
+  "youTitle": "आप",
+  "yourLight": "आपकी ज्योति",
+  "daysOfLightOne": "1 दिन की ज्योति",
+  "daysOfLight": "{n} दिन की ज्योति",
+  "@daysOfLight": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "keptVerses": "सहेजे श्लोक",
+  "mokshPoints": "मोक्ष अंक",
+  "ekantRow": "एकांत",
+  "ekantWhy": "अपने मन के साथ बैठने का एक शांत कमरा।",
+  "settingsHead": "सेटिंग्स",
+  "practiceRow": "मेरी साधना",
+  "practiceRowWhy": "हम आपको क्या और कब याद दिलाएँ।",
+  "practiceRowValue": "{n} चालू",
+  "@practiceRowValue": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "placeRow": "शहर और परंपरा",
+  "placeRowWhy": "आपका सूर्योदय और आपका एकादशी का दिन।",
+  "soundRow": "आवाज़ और स्पर्श",
+  "soundRowWhy": "हल्की आवाज़ें और हाथ में महसूस होने वाली थपकी।",
+  "languageRowWhy": "ऐप के शब्द और हर श्लोक का अर्थ।",
+  "lookRow": "रंग-रूप",
+  "lookRowWhy": "रात या सुबह की रोशनी।",
+  "accountRow": "खाता",
+  "accountRowWhy": "आप कौन हैं। यह इसी फ़ोन में रहता है।",
+  "guest": "अतिथि",
+  "signedIn": "साइन इन है",
+  "methodNone": "साइन इन नहीं है",
+  "methodGuest": "इस फ़ोन पर अतिथि",
+  "methodGoogle": "Google से साइन इन है",
+  "methodPhone": "{phone} से साइन इन है",
+  "@methodPhone": {
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    }
+  },
+  "phoneWord": "फ़ोन",
+  "placeSheetWhy": "आपके शहर से हमें पता चलता है कि आपके यहाँ सूरज कब उगता है। पूजा का समय सूरज के साथ चलता है।",
+  "yourCity": "आपका शहर",
+  "whyYourCity": "आपका शहर क्यों?",
+  "cityInfo1": "हर शहर में सूरज अलग समय पर उगता है।",
+  "cityInfo2": "सूर्योदय से चंद्रमा की हर तिथि शुरू होती है। इसलिए आपका शहर हर व्रत और दीये का सही दिन और समय तय करता है।",
+  "howYouKeepEkadashi": "आप एकादशी कैसे मनाते हैं",
+  "soundSheetWhy": "छोटे संकेत कि ऐप ने आपकी बात सुनी।",
+  "soundLabel": "आवाज़",
+  "soundWhy": "हल्की घंटियाँ और लकड़ी की थपक।",
+  "soundInfo1": "जब आप कोई बटन दबाते हैं, तो हल्की थपक सुनाई देती है।",
+  "soundInfo2": "जब आप कोई कदम पूरा करते हैं, तो छोटी घंटी बजती है।",
+  "soundInfo3": "यह हमेशा धीमी और छोटी होती है। आवाज़ कितनी आए, यह आपके फ़ोन का वॉल्यूम तय करता है।",
+  "hapticsLabel": "स्पर्श",
+  "hapticsWhy": "हाथ में महसूस होने वाली छोटी-सी थपकी।",
+  "hapticsInfo1": "स्पर्श का मतलब है कि फ़ोन हल्का-सा हिलता है, जैसे कोई धीरे से खटखटाए।",
+  "hapticsInfo2": "जब आप कुछ चुनते हैं या कोई कदम पूरा करते हैं, तब यह महसूस होता है।",
+  "lookSheetWhy": "ऐप कैसा दिखे।",
+  "appearance": "रंग-रूप",
+  "appearanceAuto": "अपने आप",
+  "appearanceAutoHint": "आज वाला पन्ना सुबह 5 से 10 बजे तक सुबह जैसा उजला हो जाता है।",
+  "appearanceNight": "रात",
+  "appearanceNightHint": "पूरे दिन वही गर्म अँधेरा।",
+  "languageSheetWhy": "ऐप के शब्द और हर श्लोक के नीचे दिखने वाला अर्थ।",
+  "languageEnglishHint": "ऐप और अर्थ अंग्रेज़ी में।",
+  "languageHindiHint": "ऐप और अर्थ हिन्दी में।",
+  "textSizeSheetWhy": "वह आकार चुनिए जो आँखों को आसान लगे।",
+  "accountSheetWhy": "यहाँ आप कौन हैं। आपका सब कुछ इसी फ़ोन में रहता है।",
+  "whatToCall": "हम आपको क्या कहकर बुलाएँ?",
+  "yourName": "आपका नाम",
+  "signInToKeep": "फ़ोन बदलने पर भी दीया बचा रहे, इसके लिए साइन इन कीजिए।",
+  "yourData": "आपकी जानकारी",
+  "whatStaysTitle": "आपके पास क्या रहता है",
+  "dataInfo1": "आपका दीया, आपके अंक और सहेजे हुए श्लोक इसी फ़ोन में रहते हैं।",
+  "dataInfo2": "आप जो बोलते हैं, वह कहीं रखा नहीं जाता। सुना जाता है, फिर छोड़ दिया जाता है।",
+  "dataInfo3": "साइन इन अभी सिर्फ़ दिखावटी है। कुछ भी इस फ़ोन से बाहर नहीं जाता।",
+  "dataLine": "आपकी प्रगति इसी फ़ोन में रहती है। आप जो बोलते हैं, वह रखा नहीं जाता।",
+  "signOut": "साइन आउट"
+}

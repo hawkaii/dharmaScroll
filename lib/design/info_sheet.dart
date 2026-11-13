@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'lottie_art.dart';
 import 'tokens.dart';
+import '../l10n/l10n.dart';
 import 'widgets.dart';
 
 /// A small round "i". Opens a short "what this means" sheet.
@@ -17,7 +18,7 @@ class InfoButton extends StatelessWidget {
     final DharmaColors c = context.c;
     return Semantics(
       button: true,
-      label: 'What is $topic?',
+      label: context.l.whatIs(topic),
       excludeSemantics: true,
       onTap: onTap,
       child: GestureDetector(
@@ -27,8 +28,8 @@ class InfoButton extends StatelessWidget {
           onTap();
         },
         child: SizedBox(
-          width: 44,
-          height: 44,
+          width: 48,
+          height: 48,
           child: Center(
             child: Container(
               width: 26,

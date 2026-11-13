@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../core/auth/auth_service.dart';
 import '../../core/feedback/sound_service.dart';
 import '../../core/practice/practice.dart';
 import '../../core/rituals/providers.dart';
@@ -12,40 +13,39 @@ import '../../design/info_sheet.dart';
 import '../../design/lottie_art.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
+import '../../l10n/l10n.dart';
 import '../auth/sign_in_panel.dart';
+import '../language/language_picker.dart';
 import '../practice/practice_builder.dart';
 import '../practice/practice_screen.dart' show BackChevron;
 import '../practice/tradition_explainer.dart';
 import '../you/city_picker.dart';
 
-/// Welcome, then five short steps: sign in, your city, your tradition, your
-/// hour, your practice. Each step says in one line why it asks. Shown once.
+/// Language and text size first, so everything after is readable. Then a
+/// welcome and five short steps: sign in, your city, your tradition, your
+/// hour, your practice. Each step says in one line why it asks, has a clear
+/// Back, and (after the first page and the welcome) a Skip. Shown once.
 class OnboardingFlow extends ConsumerStatefulWidget {
   const OnboardingFlow({super.key});
 
-  static const String welcomeLine1 = 'A conversation';
-  static const String welcomeLine2 = 'on a battlefield.';
-  static const String welcomeButton = 'Listen';
-  static const String next = 'Continue';
-  static const String signInTitle = 'Who is lighting\nthe lamp?';
-  static const String cityTitle = 'Where do you\nwatch the sun?';
-  static const String traditionTitle = 'How do you\nkeep Ekadashi?';
-  static const String reminderTitle = 'When does your\nday begin?';
-  static const String finishLabel = 'Light the first lamp';
+  /// The pages, in order.
+  static const int pageLanguage = 0;
+  static const int pageTextSize = 1;
+  static const int pageWelcome = 2;
+  static const int pageSignIn = 3;
+  static const int pageCity = 4;
+  static const int pageTradition = 5;
+  static const int pageHour = 6;
+  static const int pagePractice = 7;
 
-  static const String whySignIn =
-      'Signing in will keep your lamp and your verses if you change phones. '
-      'For now, all of it stays on this phone.';
-  static const String whyCity =
-      'Your city tells us when the sun rises for you. Prayers follow the sun.';
-  static const String whyTradition =
-      'Families keep the Ekadashi fast in two ways. Some months, the days differ.';
-  static const String whyHour =
-      'Five verses will wait for you at this hour. Every day, the same quiet time.';
-  static const String seeDifference = 'See the difference';
-
-  /// Steps after welcome; the dashes count these.
+  /// Steps after the welcome; the dashes count these.
   static const int steps = 5;
+
+  /// Both languages at once: the person has not chosen yet.
+  static const String languageTitle = 'Choose your language\nअपनी भाषा चुनिए';
+  static const String languageEyebrow = 'LANGUAGE  ·  भाषा';
+  static const String languageWhy =
+      'You can change this later.\nइसे बाद में भी बदल सकते हैं।';
 
   @override
   ConsumerState<OnboardingFlow> createState() => _OnboardingFlowState();
@@ -63,6 +63,24 @@ class _OnboardingFlowState extends ConsumerState<OnboardingFlow> {
     setState(() => _page = page);
   }
 
+  void _skip() {
+    switch (_page) {
+      case OnboardingFlow.pageSignIn:
+        // Skipping sign-in is being a guest: nothing else to ask.
+        ref.read(authProvider.notifier).guest().then((_) {
+          if (mounted) _go(OnboardingFlow.pageCity);
+        });
+      case OnboardingFlow.pagePractice:
+        _finish(
+          ref
+              .read(practiceSuggesterProvider)
+              .suggest(PracticeAnswers.from(ref.read(settingsProvider))),
+        );
+      default:
+        _go(_page + 1);
+    }
+  }
+
   Future<void> _finish(PracticePlan plan) async {
     if (_lit) return;
     setState(() => _lit = true);
@@ -72,6 +90,8 @@ class _OnboardingFlowState extends ConsumerState<OnboardingFlow> {
     // Save what the person saw, chosen or default, so it is fixed from now.
     final Settings s = ref.read(settingsProvider);
     _n
+      ..setLanguage(s.language)
+      ..setTextSize(s.textSize)
       ..setReminder(s.reminderMinutes)
       ..setCity(s.cityId)
       ..setTradition(s.tradition)
@@ -89,7 +109,12 @@ class _OnboardingFlowState extends ConsumerState<OnboardingFlow> {
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     final Settings s = ref.watch(settingsProvider);
+    final bool canSkip =
+        _page != OnboardingFlow.pageLanguage &&
+        _page != OnboardingFlow.pageWelcome;
+    final bool dashes = _page >= OnboardingFlow.pageSignIn;
     return Scaffold(
       backgroundColor: c.bg,
       body: Backdrop(
@@ -103,28 +128,33 @@ class _OnboardingFlowState extends ConsumerState<OnboardingFlow> {
             ),
             child: Column(
               children: <Widget>[
+                // Back on the left, Skip on the right, on every step they
+                // apply to. The first page has nothing behind it.
                 SizedBox(
-                  height: 44,
-                  child: _page == 0
+                  height: 52,
+                  child: _page == OnboardingFlow.pageLanguage
                       ? null
                       : Row(
                           children: <Widget>[
-                            if (_page < OnboardingFlow.steps)
+                            // The practice questions carry their own Back.
+                            if (_page < OnboardingFlow.pagePractice)
                               BackChevron(onTap: () => _go(_page - 1))
                             else
-                              const SizedBox(width: 44),
-                            Expanded(
-                              child: Center(
-                                child: ProgressDashes(
-                                  total: OnboardingFlow.steps,
-                                  filled: _page,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 44),
+                              const SizedBox(width: 48),
+                            const Spacer(),
+                            if (canSkip)
+                              TextAction(label: l.skip, onPressed: _skip),
                           ],
                         ),
                 ),
+                if (dashes)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: Sp.s6),
+                    child: ProgressDashes(
+                      total: OnboardingFlow.steps,
+                      filled: _page - OnboardingFlow.pageWelcome,
+                    ),
+                  ),
                 Expanded(
                   child: AnimatedSwitcher(
                     duration: Motion.snap,
@@ -132,23 +162,59 @@ class _OnboardingFlowState extends ConsumerState<OnboardingFlow> {
                     child: KeyedSubtree(
                       key: ValueKey<int>(_page),
                       child: switch (_page) {
-                        0 => _Welcome(onNext: () => _go(1)),
-                        1 => _Step(
+                        OnboardingFlow.pageLanguage => _Step(
+                          header: DIcon(
+                            'conch',
+                            size: 56,
+                            color: c.accent,
+                            glow: true,
+                          ),
+                          eyebrow: OnboardingFlow.languageEyebrow,
+                          title: OnboardingFlow.languageTitle,
+                          why: OnboardingFlow.languageWhy,
+                          footer: PrimaryButton(
+                            label: l.continueLabel,
+                            onPressed: () => _go(OnboardingFlow.pageTextSize),
+                          ),
+                          children: const <Widget>[LanguageTiles()],
+                        ),
+                        OnboardingFlow.pageTextSize => _Step(
+                          header: DIcon(
+                            'feather',
+                            size: 56,
+                            color: c.accent,
+                            glow: true,
+                          ),
+                          eyebrow: l.textSizeEyebrow,
+                          title: l.textSizeTitle,
+                          why: l.textSizeWhy,
+                          footer: PrimaryButton(
+                            label: l.continueLabel,
+                            onPressed: () => _go(OnboardingFlow.pageWelcome),
+                          ),
+                          children: const <Widget>[TextSizeChoice()],
+                        ),
+                        OnboardingFlow.pageWelcome => _Welcome(
+                          onNext: () => _go(OnboardingFlow.pageSignIn),
+                        ),
+                        OnboardingFlow.pageSignIn => _Step(
                           art: Art.lotusSafe,
-                          eyebrow: 'YOUR LIGHT',
-                          title: OnboardingFlow.signInTitle,
-                          why: OnboardingFlow.whySignIn,
-                          footer: SignInPanel(onDone: () => _go(2)),
+                          eyebrow: l.eyebrowLight,
+                          title: l.signInTitle,
+                          why: l.whySignIn,
+                          footer: SignInPanel(
+                            onDone: () => _go(OnboardingFlow.pageCity),
+                          ),
                           children: const <Widget>[],
                         ),
-                        2 => _Step(
+                        OnboardingFlow.pageCity => _Step(
                           art: Art.citySun,
-                          eyebrow: 'YOUR CITY',
-                          title: OnboardingFlow.cityTitle,
-                          why: OnboardingFlow.whyCity,
+                          eyebrow: l.eyebrowCity,
+                          title: l.cityTitle,
+                          why: l.whyCity,
                           footer: PrimaryButton(
-                            label: OnboardingFlow.next,
-                            onPressed: () => _go(3),
+                            label: l.continueLabel,
+                            onPressed: () => _go(OnboardingFlow.pageTradition),
                           ),
                           children: <Widget>[
                             CityPicker(
@@ -157,21 +223,21 @@ class _OnboardingFlowState extends ConsumerState<OnboardingFlow> {
                             ),
                           ],
                         ),
-                        3 => _Step(
+                        OnboardingFlow.pageTradition => _Step(
                           art: Art.twoPaths,
-                          eyebrow: 'YOUR TRADITION',
-                          title: OnboardingFlow.traditionTitle,
-                          why: OnboardingFlow.whyTradition,
+                          eyebrow: l.eyebrowTradition,
+                          title: l.traditionTitle,
+                          why: l.whyTradition,
                           footer: PrimaryButton(
-                            label: OnboardingFlow.next,
-                            onPressed: () => _go(4),
+                            label: l.continueLabel,
+                            onPressed: () => _go(OnboardingFlow.pageHour),
                           ),
                           children: <Widget>[
                             for (final Tradition t
                                 in Tradition.values) ...<Widget>[
                               OptionRow(
-                                label: t.label,
-                                hint: traditionHint(t),
+                                label: traditionLabel(l, t),
+                                hint: traditionHint(l, t),
                                 selected: t == s.tradition,
                                 onTap: () => _n.setTradition(t),
                               ),
@@ -182,14 +248,14 @@ class _OnboardingFlowState extends ConsumerState<OnboardingFlow> {
                             ),
                           ],
                         ),
-                        4 => _Step(
+                        OnboardingFlow.pageHour => _Step(
                           art: Art.hourDiya,
-                          eyebrow: 'YOUR HOUR',
-                          title: OnboardingFlow.reminderTitle,
-                          why: OnboardingFlow.whyHour,
+                          eyebrow: l.eyebrowHour,
+                          title: l.reminderTitle,
+                          why: l.whyHour,
                           footer: PrimaryButton(
-                            label: OnboardingFlow.next,
-                            onPressed: () => _go(5),
+                            label: l.continueLabel,
+                            onPressed: () => _go(OnboardingFlow.pagePractice),
                           ),
                           children: <Widget>[
                             _HourDial(
@@ -200,9 +266,9 @@ class _OnboardingFlowState extends ConsumerState<OnboardingFlow> {
                         ),
                         _ => PracticeBuilder(
                           initial: PracticeAnswers.from(s),
-                          doneLabel: OnboardingFlow.finishLabel,
+                          doneLabel: l.finishLabel,
                           busy: _lit,
-                          onBack: () => _go(4),
+                          onBack: () => _go(OnboardingFlow.pageHour),
                           onDone: _finish,
                         ),
                       },
@@ -218,11 +284,17 @@ class _OnboardingFlowState extends ConsumerState<OnboardingFlow> {
   }
 }
 
+String traditionLabel(AppLocalizations l, Tradition t) => switch (t) {
+  Tradition.smarta => l.traditionSmarta,
+  Tradition.vaishnava => l.traditionVaishnava,
+  Tradition.unsure => l.traditionUnsure,
+};
+
 /// One line under each tradition, for a child.
-String traditionHint(Tradition t) => switch (t) {
-  Tradition.smarta => 'Fast on the day Ekadashi meets the sunrise.',
-  Tradition.vaishnava => 'Wait for an Ekadashi that is clean from dawn.',
-  Tradition.unsure => 'We show both days when they differ.',
+String traditionHint(AppLocalizations l, Tradition t) => switch (t) {
+  Tradition.smarta => l.hintSmarta,
+  Tradition.vaishnava => l.hintVaishnava,
+  Tradition.unsure => l.hintUnsure,
 };
 
 /// "See the difference" with the round "i".
@@ -236,7 +308,7 @@ class _SeeDifference extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        InfoButton(topic: 'Smarta and Vaishnava', onTap: onTap),
+        InfoButton(topic: context.l.topicSmartaVaishnava, onTap: onTap),
         Flexible(
           child: GestureDetector(
             behavior: HitTestBehavior.opaque,
@@ -245,8 +317,8 @@ class _SeeDifference extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 child: Text(
-                  OnboardingFlow.seeDifference,
-                  style: DType.body(context.c.accent, size: 17),
+                  context.l.seeDifference,
+                  style: DType.body(context.c.accent, size: 18),
                 ),
               ),
             ),
@@ -257,10 +329,11 @@ class _SeeDifference extends StatelessWidget {
   }
 }
 
-/// A step: animation, eyebrow, title, the one line of why, the content.
+/// A step: picture, eyebrow, title, the one line of why, the content.
 class _Step extends StatelessWidget {
   const _Step({
-    required this.art,
+    this.art,
+    this.header,
     required this.eyebrow,
     required this.title,
     required this.why,
@@ -268,7 +341,9 @@ class _Step extends StatelessWidget {
     required this.footer,
   });
 
-  final Art art;
+  /// An animation, or [header] for a still symbol.
+  final Art? art;
+  final Widget? header;
   final String eyebrow;
   final String title;
   final String why;
@@ -281,9 +356,13 @@ class _Step extends StatelessWidget {
     return _Page(
       footer: footer,
       children: <Widget>[
-        DLottie(art, height: 92),
+        if (art != null) DLottie(art!, height: 92) else ?header,
         const SizedBox(height: Sp.s14),
-        Text(eyebrow, style: DType.eyebrow(c.accent)),
+        Text(
+          eyebrow,
+          style: DType.eyebrow(c.accent),
+          textAlign: TextAlign.center,
+        ),
         const SizedBox(height: Sp.s12),
         Semantics(
           header: true,
@@ -297,7 +376,7 @@ class _Step extends StatelessWidget {
         Text(
           why,
           textAlign: TextAlign.center,
-          style: DType.body(c.mute, size: 17),
+          style: DType.body(c.mute, size: 18),
         ),
         const SizedBox(height: Sp.s22),
         ...children,
@@ -314,29 +393,29 @@ class _Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints box) {
-        return SingleChildScrollView(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(minHeight: box.maxHeight),
-            child: IntrinsicHeight(
-              child: Column(
-                children: <Widget>[
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: children,
-                    ),
+    // The content scrolls; the button stays in reach at the bottom, so a
+    // long page at a big text size never hides "Continue".
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints box) {
+              return SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: box.maxHeight),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: children,
                   ),
-                  const SizedBox(height: Sp.s18),
-                  footer,
-                  const SizedBox(height: Sp.s12),
-                ],
-              ),
-            ),
+                ),
+              );
+            },
           ),
-        );
-      },
+        ),
+        const SizedBox(height: Sp.s14),
+        footer,
+        const SizedBox(height: Sp.s12),
+      ],
     );
   }
 }
@@ -376,11 +455,9 @@ class _WelcomeState extends State<_Welcome>
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     return _Page(
-      footer: PrimaryButton(
-        label: OnboardingFlow.welcomeButton,
-        onPressed: widget.onNext,
-      ),
+      footer: PrimaryButton(label: l.welcomeButton, onPressed: widget.onNext),
       children: <Widget>[
         ExcludeSemantics(
           child: AnimatedBuilder(
@@ -400,14 +477,14 @@ class _WelcomeState extends State<_Welcome>
         Semantics(
           header: true,
           child: Text(
-            '${OnboardingFlow.welcomeLine1}\n${OnboardingFlow.welcomeLine2}',
+            '${l.welcomeLine1}\n${l.welcomeLine2}',
             textAlign: TextAlign.center,
             style: DType.title(c.ink, compact: true),
           ),
         ),
         const SizedBox(height: Sp.s14),
         Text(
-          'Five thousand years old.\nListen in.',
+          l.welcomeSub,
           textAlign: TextAlign.center,
           style: DType.body(c.mute),
         ),
@@ -422,20 +499,33 @@ class _HourDial extends StatelessWidget {
   final int minutes;
   final ValueChanged<int> onChanged;
 
+  static const int _min = 4 * 60;
+  static const int _max = 22 * 60;
+
+  void _nudge(int by) {
+    final int next = (minutes + by).clamp(_min, _max);
+    if (next != minutes) {
+      Haptics.tick();
+      onChanged(next);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     final bool am = minutes < 12 * 60;
     return Column(
       children: <Widget>[
         Text(fmtTime(minutes), style: DType.hero(c.verse, size: 76)),
         Text(
-          am ? 'AM  ·  DRAG TO CHANGE' : 'PM  ·  DRAG TO CHANGE',
-          style: DType.eyebrow(c.faint),
+          am ? l.dragToChangeAm : l.dragToChangePm,
+          textAlign: TextAlign.center,
+          style: DType.eyebrow(c.mute),
         ),
         const SizedBox(height: Sp.s14),
         Semantics(
-          label: 'Reminder time',
+          label: l.reminderTimeLabel,
           value: '${fmtTime(minutes)} ${am ? 'AM' : 'PM'}',
           child: SliderTheme(
             data: SliderTheme.of(context).copyWith(
@@ -445,16 +535,35 @@ class _HourDial extends StatelessWidget {
               overlayColor: Tok.marigold.withValues(alpha: 0.15),
             ),
             child: Slider(
-              min: 4 * 60,
-              max: 22 * 60,
+              min: _min.toDouble(),
+              max: _max.toDouble(),
               divisions: (18 * 60) ~/ 15,
-              value: minutes.toDouble().clamp(4 * 60, 22 * 60),
+              value: minutes.toDouble().clamp(_min, _max).toDouble(),
               onChanged: (double v) {
                 if (v.round() != minutes) Haptics.tick();
                 onChanged(v.round());
               },
             ),
           ),
+        ),
+        // Dragging is hard for a shaky hand: two plain buttons do the same.
+        const SizedBox(height: Sp.s6),
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: SecondaryButton(
+                label: l.earlier15,
+                onPressed: () => _nudge(-15),
+              ),
+            ),
+            const SizedBox(width: Sp.s12),
+            Expanded(
+              child: SecondaryButton(
+                label: l.later15,
+                onPressed: () => _nudge(15),
+              ),
+            ),
+          ],
         ),
       ],
     );

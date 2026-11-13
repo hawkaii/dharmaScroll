@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../core/feedback/haptic_service.dart';
 import '../core/feedback/sound_service.dart';
+import '../l10n/l10n.dart';
 import 'tokens.dart';
 
 /// Short names for the haptic patterns; see `HapticService` for the map.
@@ -186,37 +187,39 @@ class _PrimaryButtonState extends State<PrimaryButton> {
             : null,
         child: Opacity(
           opacity: enabled ? 1 : 0.5,
-          child: SizedBox(
-            height: 59,
-            child: Stack(
-              children: <Widget>[
-                Positioned(
-                  left: 0,
-                  right: 0,
-                  top: 3,
-                  height: 56,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: widget.voice ? Tok.voiceEdge : Tok.btnEdge,
-                      borderRadius: r,
-                      boxShadow: <BoxShadow>[
-                        BoxShadow(
-                          color: (widget.voice ? Tok.voiceB : Tok.saffron)
-                              .withValues(alpha: 0.35),
-                          blurRadius: 22,
-                          offset: const Offset(0, 8),
-                        ),
-                      ],
-                    ),
+          // 56 dp tall at least, and taller when the words wrap (large text,
+          // a long Hindi label): the face grows, the edge follows.
+          child: Stack(
+            children: <Widget>[
+              Positioned(
+                left: 0,
+                right: 0,
+                top: 3,
+                bottom: 0,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: widget.voice ? Tok.voiceEdge : Tok.btnEdge,
+                    borderRadius: r,
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                        color: (widget.voice ? Tok.voiceB : Tok.saffron)
+                            .withValues(alpha: 0.35),
+                        blurRadius: 22,
+                        offset: const Offset(0, 8),
+                      ),
+                    ],
                   ),
                 ),
-                AnimatedPositioned(
-                  duration: Motion.press,
-                  curve: Motion.easeOut,
-                  left: 0,
-                  right: 0,
+              ),
+              AnimatedPadding(
+                duration: Motion.press,
+                curve: Motion.easeOut,
+                padding: EdgeInsets.only(
                   top: _down ? 2 : 0,
-                  height: 56,
+                  bottom: _down ? 1 : 3,
+                ),
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(minHeight: 56),
                   child: DecoratedBox(
                     decoration: BoxDecoration(
                       borderRadius: r,
@@ -231,20 +234,27 @@ class _PrimaryButtonState extends State<PrimaryButton> {
                         top: BorderSide(color: Tok.btnHighlight),
                       ),
                     ),
-                    child: Center(
-                      child: Text(
-                        widget.label,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: DType.button(
-                          widget.voice ? Tok.voiceInk : Tok.btnInk,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: Sp.s18,
+                        vertical: Sp.s12,
+                      ),
+                      child: Center(
+                        child: Text(
+                          widget.label,
+                          maxLines: 2,
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          style: DType.button(
+                            widget.voice ? Tok.voiceInk : Tok.btnInk,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -301,41 +311,41 @@ class _SecondaryButtonState extends State<SecondaryButton> {
             : null,
         child: Opacity(
           opacity: enabled ? 1 : 0.5,
-          child: SizedBox(
-            height: 59,
-            child: AnimatedPadding(
+          child: AnimatedPadding(
+            duration: Motion.press,
+            curve: Motion.easeOut,
+            padding: EdgeInsets.only(top: _down ? 3 : 1, bottom: _down ? 0 : 2),
+            child: AnimatedContainer(
               duration: Motion.press,
-              curve: Motion.easeOut,
-              padding: EdgeInsets.only(
-                top: _down ? 3 : 1,
-                bottom: _down ? 0 : 2,
+              constraints: const BoxConstraints(minHeight: 56),
+              padding: const EdgeInsets.symmetric(
+                horizontal: Sp.s18,
+                vertical: Sp.s12,
               ),
-              child: AnimatedContainer(
-                duration: Motion.press,
-                decoration: BoxDecoration(
-                  color: _down ? c.raised : c.surface.withValues(alpha: 0.6),
-                  borderRadius: BorderRadius.circular(Rad.button),
-                  border: Border.all(
-                    color: _down ? Tok.marigold : c.ink.withValues(alpha: 0.22),
-                  ),
+              decoration: BoxDecoration(
+                color: _down ? c.raised : c.surface.withValues(alpha: 0.6),
+                borderRadius: BorderRadius.circular(Rad.button),
+                border: Border.all(
+                  color: _down ? Tok.marigold : c.ink.withValues(alpha: 0.22),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    if (widget.leading != null) ...<Widget>[
-                      widget.leading!,
-                      const SizedBox(width: Sp.s12),
-                    ],
-                    Flexible(
-                      child: Text(
-                        widget.label,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: DType.button(c.ink),
-                      ),
-                    ),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  if (widget.leading != null) ...<Widget>[
+                    widget.leading!,
+                    const SizedBox(width: Sp.s12),
                   ],
-                ),
+                  Flexible(
+                    child: Text(
+                      widget.label,
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
+                      style: DType.button(c.ink),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -368,7 +378,11 @@ class TextAction extends StatelessWidget {
         child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
           child: Center(
-            child: Text(label, style: DType.body(context.c.mute, size: 17)),
+            child: Text(
+              label,
+              textAlign: TextAlign.center,
+              style: DType.body(context.c.mute, size: 18),
+            ),
           ),
         ),
       ),
@@ -441,15 +455,26 @@ class OptionRow extends StatelessWidget {
             borderRadius: BorderRadius.circular(Rad.row),
             border: Border.all(color: selected ? Tok.marigold : c.line),
           ),
-          child: hint == null
-              ? Text(label, style: DType.body(c.ink, size: 20))
-              : Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(label, style: DType.body(c.ink, size: 20)),
-                    Text(hint!, style: DType.body(c.mute, size: 15)),
-                  ],
-                ),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: hint == null
+                    ? Text(label, style: DType.body(c.ink, size: 20))
+                    : Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(label, style: DType.body(c.ink, size: 20)),
+                          Text(hint!, style: DType.body(c.mute, size: 16)),
+                        ],
+                      ),
+              ),
+              // A tick as well as the colour, so the choice is clear.
+              if (selected) ...<Widget>[
+                const SizedBox(width: Sp.s12),
+                DIcon('check', size: 22, color: c.accent),
+              ],
+            ],
+          ),
         ),
       ),
     );
@@ -488,7 +513,7 @@ class ProgressDashes extends StatelessWidget {
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
     return Semantics(
-      label: '$filled of $total',
+      label: context.l.progressOf(filled, total),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[

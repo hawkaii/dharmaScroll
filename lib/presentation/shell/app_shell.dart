@@ -7,6 +7,7 @@ import '../../core/state/settings.dart';
 import '../../design/theme.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
+import '../../l10n/l10n.dart';
 
 /// Appearance rule: Auto means Ivory Dawn on Today from 05:00 to 10:00.
 final Provider<bool> todayIsLightProvider = Provider<bool>((Ref ref) {
@@ -23,14 +24,13 @@ class AppShell extends ConsumerWidget {
 
   final StatefulNavigationShell navigationShell;
 
-  static const List<(String, String)> tabs = <(String, String)>[
-    ('Today', 'diya'),
-    ('Yatra', 'path-stone'),
-    ('You', 'lotus'),
-  ];
+  /// The icon of each tab, in order. The words come from the translations.
+  static const List<String> tabIcons = <String>['diya', 'path-stone', 'lotus'];
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final AppLocalizations l = context.l;
+    final List<String> labels = <String>[l.tabToday, l.tabYatra, l.tabYou];
     final bool light =
         navigationShell.currentIndex == 0 && ref.watch(todayIsLightProvider);
     return Theme(
@@ -50,11 +50,11 @@ class AppShell extends ConsumerWidget {
                 top: false,
                 child: Row(
                   children: <Widget>[
-                    for (int i = 0; i < tabs.length; i++)
+                    for (int i = 0; i < tabIcons.length; i++)
                       Expanded(
                         child: _Tab(
-                          label: tabs[i].$1,
-                          icon: tabs[i].$2,
+                          label: labels[i],
+                          icon: tabIcons[i],
                           active: i == navigationShell.currentIndex,
                           onTap: () => navigationShell.goBranch(
                             i,
@@ -102,24 +102,32 @@ class _Tab extends StatelessWidget {
           if (!active) Haptics.tick();
           onTap();
         },
-        child: SizedBox(
-          height: 64,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              DIcon(icon, size: 22, color: col, glow: active),
-              const SizedBox(height: 5),
-              Text(
-                label.toUpperCase(),
-                style: TextStyle(
-                  fontFamily: DType.sans,
-                  fontSize: 10,
-                  letterSpacing: 1.6,
-                  fontWeight: active ? FontWeight.w600 : FontWeight.w500,
-                  color: col,
+        // 64 dp at least; taller when the words are big.
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: 64),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: Sp.s6),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                DIcon(icon, size: 24, color: col, glow: active),
+                const SizedBox(height: 4),
+                Text(
+                  label.toUpperCase(),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontFamily: DType.sans,
+                    fontFamilyFallback: const <String>[DType.serifDeva],
+                    fontSize: 12.5,
+                    letterSpacing: DType.indic ? 0 : 1.2,
+                    fontWeight: active ? FontWeight.w600 : FontWeight.w500,
+                    color: col,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

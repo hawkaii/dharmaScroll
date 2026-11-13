@@ -51,7 +51,7 @@ class DharmaColors extends ThemeExtension<DharmaColors> {
     line: Color(0x1FFBEFD9),
     ink: Color(0xFFFBEFD9),
     mute: Color(0xFFC9B2B8),
-    faint: Color(0xFF8F7A8C),
+    faint: Color(0xFFA8939F),
     accent: Tok.marigold,
     verse: Tok.gold,
     rose: Color(0xFFE58BA3),
@@ -69,9 +69,9 @@ class DharmaColors extends ThemeExtension<DharmaColors> {
     line: Color(0x242B1A33),
     ink: Color(0xFF2B1A33),
     mute: Color(0xFF6B5565),
-    faint: Color(0xFF7A6070),
-    accent: Color(0xFFB85A0B),
-    verse: Color(0xFF8A5A00),
+    faint: Color(0xFF705766),
+    accent: Color(0xFF974505),
+    verse: Color(0xFF7A4F00),
     rose: Color(0xFFE58BA3),
     peacock: Color(0xFF2F8E87),
     glowTop: Color(0x8CF6B93B),
@@ -154,6 +154,17 @@ abstract final class Motion {
 
 /// Text styles. Sizes are the board's; the system scale applies on top.
 abstract final class DType {
+  /// True while the app speaks an Indic script. Letter-spacing pulls apart the
+  /// joined headline stroke of Devanagari, so it is switched off then. Set by
+  /// the app root; every screen that reads its words from the translations
+  /// rebuilds on a language change, so it picks this up.
+  static bool indic = false;
+
+  /// Devanagari for any Hindi word the Latin fonts cannot draw.
+  static const List<String> _deva = <String>[serifDeva];
+
+  static double _track(double em) => indic ? 0 : em;
+
   static const String serifDeva = 'NotoSerifDevanagari';
   static const String serif = 'EBGaramond';
   static const String sans = 'Inter';
@@ -165,14 +176,16 @@ abstract final class DType {
       TextStyle(fontFamily: serifDeva, fontSize: size, height: 1.62, color: c);
   static TextStyle translit(Color c) => TextStyle(
     fontFamily: serif,
+    fontFamilyFallback: _deva,
     fontFeatures: _lining,
     fontStyle: FontStyle.italic,
-    fontSize: 14.5,
+    fontSize: 16,
     height: 1.5,
     color: c,
   );
   static TextStyle meaning(Color c) => TextStyle(
     fontFamily: serif,
+    fontFamilyFallback: _deva,
     fontFeatures: _lining,
     fontSize: 21,
     height: 1.38,
@@ -180,13 +193,15 @@ abstract final class DType {
   );
   static TextStyle title(Color c, {bool compact = false}) => TextStyle(
     fontFamily: serif,
+    fontFamilyFallback: _deva,
     fontFeatures: _lining,
     fontSize: compact ? 32 : 36,
-    height: 1.12,
+    height: 1.22,
     color: c,
   );
   static TextStyle body(Color c, {double size = 19}) => TextStyle(
     fontFamily: serif,
+    fontFamilyFallback: _deva,
     fontFeatures: _lining,
     fontSize: size,
     height: 1.45,
@@ -194,20 +209,23 @@ abstract final class DType {
   );
   static TextStyle eyebrow(Color c) => TextStyle(
     fontFamily: sans,
-    fontSize: 10.5,
-    letterSpacing: 10.5 * 0.2,
+    fontFamilyFallback: _deva,
+    fontSize: indic ? 14 : 12,
+    letterSpacing: _track(12 * 0.16),
     fontWeight: FontWeight.w500,
     color: c,
   );
   static TextStyle button(Color c) => TextStyle(
     fontFamily: sans,
-    fontSize: 15,
-    letterSpacing: 15 * 0.03,
+    fontFamilyFallback: _deva,
+    fontSize: 17,
+    letterSpacing: _track(17 * 0.03),
     fontWeight: FontWeight.w600,
     color: c,
   );
   static TextStyle hero(Color c, {double size = 88}) => TextStyle(
     fontFamily: serif,
+    fontFamilyFallback: _deva,
     fontFeatures: _lining,
     fontSize: size,
     height: 1,
@@ -215,8 +233,9 @@ abstract final class DType {
   );
   static TextStyle ref(Color c) => TextStyle(
     fontFamily: sans,
-    fontSize: 10.5,
-    letterSpacing: 10.5 * 0.2,
+    fontFamilyFallback: _deva,
+    fontSize: indic ? 14 : 12,
+    letterSpacing: _track(12 * 0.16),
     color: c,
   );
 }

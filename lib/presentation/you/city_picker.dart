@@ -5,6 +5,7 @@ import '../../core/rituals/panchang.dart';
 import '../../core/rituals/providers.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
+import '../../l10n/l10n.dart';
 
 /// Search the bundled cities; shows the chosen one until you type.
 class CityPicker extends ConsumerStatefulWidget {
@@ -43,7 +44,7 @@ class _CityPickerState extends ConsumerState<CityPicker> {
         TextField(
           style: DType.body(c.ink, size: 20),
           decoration: InputDecoration(
-            hintText: 'Search a city',
+            hintText: context.l.searchCity,
             hintStyle: DType.body(c.faint, size: 20),
           ),
           onChanged: (String v) => setState(() => _query = v),

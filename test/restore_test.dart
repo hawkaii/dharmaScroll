@@ -16,12 +16,13 @@ import 'package:dharmascroll/presentation/sankalp/sankalp_sheet.dart';
 import 'package:dharmascroll/presentation/walk/finish_verse.dart';
 import 'package:dharmascroll/presentation/milestone/milestone_screen.dart';
 import 'package:dharmascroll/presentation/share/share_sheet.dart';
-import 'package:dharmascroll/presentation/today/today_screen.dart';
 import 'package:dharmascroll/presentation/walk/complete_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'en.dart';
 
 class _FakeShare extends ShareService {
   final List<(Uint8List, String, String)> calls =
@@ -93,7 +94,7 @@ void main() {
     WidgetTester tester,
   ) async {
     await _pump(tester, await _prefs());
-    await tester.tap(find.text(TodayScreen.beginLabel));
+    await tester.tap(find.text(en.todayBegin));
     await tester.pumpAndSettle();
 
     await tester.tap(find.bySemanticsLabel('Share this verse').first);
@@ -129,6 +130,12 @@ void main() {
 
     await tester.tap(find.text('GITA 2.47'));
     await tester.pumpAndSettle();
+    // It sits below the fold on a phone: the list builds it on demand.
+    await tester.scrollUntilVisible(
+      find.text('GO DEEPER'),
+      200,
+      scrollable: find.byType(Scrollable).last,
+    );
     expect(find.text('GO DEEPER'), findsOneWidget);
     await tester.tap(find.text(VerseScreen.shareLabel));
     await tester.pumpAndSettle();
@@ -149,7 +156,7 @@ void main() {
       'p.steps': <String>['hear'],
     });
     await _pump(tester, prefs);
-    await tester.tap(find.text(TodayScreen.continueLabel));
+    await tester.tap(find.text(en.todayContinue));
     await tester.pumpAndSettle();
 
     // Hold the chant ring until it fills.
@@ -218,7 +225,7 @@ void main() {
   ) async {
     final SharedPreferences prefs = await _prefs(walkedToday());
     await _pump(tester, prefs);
-    await tester.tap(find.text(TodayScreen.continueLabel));
+    await tester.tap(find.text(en.todayContinue));
     await tester.pumpAndSettle();
     expect(find.text('MANN DARPAN'), findsOneWidget);
 
@@ -249,7 +256,7 @@ void main() {
 
     expect(prefs.getString('sk.text'), 'Prepare one answer, then rest.');
     expect(prefs.getStringList('p.steps'), contains('speak'));
-    expect(find.text(TodayScreen.doneTitle), findsOneWidget);
+    expect(find.text(en.todayDoneTitle), findsOneWidget);
   });
 
   testWidgets('crisis words go to the crisis screen before any verse', (
@@ -257,7 +264,7 @@ void main() {
   ) async {
     final SharedPreferences prefs = await _prefs(walkedToday());
     await _pump(tester, prefs);
-    await tester.tap(find.text(TodayScreen.continueLabel));
+    await tester.tap(find.text(en.todayContinue));
     await tester.pumpAndSettle();
     await tester.tap(find.text(MannScreen.typeLabel));
     await tester.pumpAndSettle();
@@ -320,7 +327,7 @@ void main() {
       'p.streak': 1,
     });
     await _pump(tester, prefs);
-    await tester.tap(find.text(TodayScreen.continueLabel));
+    await tester.tap(find.text(en.todayContinue));
     await tester.pumpAndSettle();
     expect(find.text(FinishVerse.title), findsOneWidget);
     expect(find.text(FinishVerse.skipLabel), findsNothing);

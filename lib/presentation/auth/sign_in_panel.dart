@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/auth/auth_service.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
+import '../../l10n/l10n.dart';
 
 enum _Stage { choose, phone, code }
 
@@ -13,12 +14,6 @@ enum _Stage { choose, phone, code }
 /// see `FakeAuthService`.
 class SignInPanel extends ConsumerStatefulWidget {
   const SignInPanel({super.key, required this.onDone, this.allowGuest = true});
-
-  static const String google = 'Continue with Google';
-  static const String phone = 'Continue with phone';
-  static const String guest = 'Continue as guest';
-  static const String sendCode = 'Send the code';
-  static const String verify = 'Verify';
 
   final VoidCallback onDone;
   final bool allowGuest;
@@ -72,6 +67,7 @@ class _SignInPanelState extends ConsumerState<SignInPanel> {
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     final AuthNotifier auth = ref.read(authProvider.notifier);
     final Widget? error = _error == null
         ? null
@@ -91,18 +87,18 @@ class _SignInPanelState extends ConsumerState<SignInPanel> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             SecondaryButton(
-              label: SignInPanel.google,
+              label: l.signInGoogle,
               onPressed: () => _run(auth.google),
             ),
             const SizedBox(height: Sp.s12),
             SecondaryButton(
-              label: SignInPanel.phone,
+              label: l.signInPhone,
               onPressed: () => setState(() => _stage = _Stage.phone),
             ),
             if (widget.allowGuest) ...<Widget>[
               const SizedBox(height: Sp.s6),
               TextAction(
-                label: SignInPanel.guest,
+                label: l.signInGuest,
                 onPressed: () => _run(auth.guest),
               ),
             ],
@@ -113,7 +109,7 @@ class _SignInPanelState extends ConsumerState<SignInPanel> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Semantics(
-              label: 'Phone number',
+              label: l.phoneNumber,
               child: TextField(
                 controller: _phone,
                 autofocus: true,
@@ -131,14 +127,14 @@ class _SignInPanelState extends ConsumerState<SignInPanel> {
             ),
             const SizedBox(height: Sp.s12),
             Text(
-              'We send a six-number code to this phone.',
+              l.codeNote,
               textAlign: TextAlign.center,
               style: DType.body(c.mute, size: 16),
             ),
             ?error,
             const SizedBox(height: Sp.s18),
             PrimaryButton(
-              label: SignInPanel.sendCode,
+              label: l.sendCode,
               onPressed: _busy
                   ? null
                   : () => _run(
@@ -147,7 +143,7 @@ class _SignInPanelState extends ConsumerState<SignInPanel> {
                     ),
             ),
             TextAction(
-              label: 'Back',
+              label: l.otherWays,
               onPressed: () => setState(() {
                 _stage = _Stage.choose;
                 _error = null;
@@ -160,7 +156,7 @@ class _SignInPanelState extends ConsumerState<SignInPanel> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Text(
-              'Code sent to ${_phone.text.trim()}',
+              l.codeSentTo(_phone.text.trim()),
               textAlign: TextAlign.center,
               style: DType.body(c.mute, size: 16),
             ),
@@ -169,13 +165,13 @@ class _SignInPanelState extends ConsumerState<SignInPanel> {
             ?error,
             const SizedBox(height: Sp.s18),
             PrimaryButton(
-              label: SignInPanel.verify,
+              label: l.verify,
               onPressed: _busy || _code.text.length < 6
                   ? null
                   : () => _run(() => auth.verify(_digits, _code.text)),
             ),
             TextAction(
-              label: 'Change the number',
+              label: l.changeNumber,
               onPressed: () => setState(() {
                 _stage = _Stage.phone;
                 _code.clear();
@@ -237,7 +233,7 @@ class _CodeBoxes extends StatelessWidget {
               // Hidden to the eye, not to a screen reader.
               alwaysIncludeSemantics: true,
               child: Semantics(
-                label: 'Six-number code',
+                label: context.l.sixNumberCode,
                 child: TextField(
                   controller: controller,
                   autofocus: true,

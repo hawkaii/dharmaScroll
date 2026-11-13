@@ -682,7 +682,12 @@ class _MyDayPage extends ConsumerWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              Text('OFFLINE · FROM YOUR PHONE', style: DType.ref(c.faint)),
+              Flexible(
+                child: Text(
+                  'OFFLINE · FROM YOUR PHONE',
+                  style: DType.ref(c.faint),
+                ),
+              ),
             ],
           ),
           const SizedBox(height: Sp.s6),
