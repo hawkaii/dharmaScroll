@@ -11,6 +11,7 @@ import '../presentation/mann/mann_screen.dart';
 import '../presentation/milestone/milestone_screen.dart';
 import '../presentation/points/wallet_screen.dart';
 import '../presentation/onboarding/onboarding_flow.dart';
+import '../presentation/practice/practice_screen.dart';
 import '../presentation/shell/app_shell.dart';
 import '../presentation/today/today_screen.dart';
 import '../presentation/walk/complete_screen.dart';
@@ -33,6 +34,8 @@ abstract final class Routes {
   static const String wallet = '/wallet';
   static const String speak = '/speak';
   static const String crisis = '/crisis';
+  static const String practice = '/practice';
+  static const String buildPractice = '/practice/build';
   static String verse(String id) => '/verse/$id';
 }
 
@@ -121,6 +124,15 @@ final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
       GoRoute(
         path: Routes.speak,
         builder: (BuildContext c, GoRouterState s) => const MannScreen(),
+      ),
+      GoRoute(
+        path: Routes.practice,
+        builder: (BuildContext c, GoRouterState s) => const PracticeScreen(),
+      ),
+      GoRoute(
+        path: Routes.buildPractice,
+        builder: (BuildContext c, GoRouterState s) =>
+            const BuildPracticeScreen(),
       ),
       GoRoute(
         path: Routes.wallet,

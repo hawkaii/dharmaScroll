@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app_providers.dart';
+import '../../core/auth/auth_service.dart';
 import '../../core/rituals/providers.dart';
 import '../../core/router.dart';
 import '../../core/state/progress.dart';
@@ -29,6 +30,7 @@ class TodayScreen extends ConsumerWidget {
     final bool light = ref.watch(todayIsLightProvider);
     final List<String> calendarToday = ref.watch(todayInCalendarProvider);
     final DharmaColors c = context.c;
+    final String name = ref.watch(authProvider)?.name ?? '';
 
     final bool heard = p.steps.contains(RitualStep.hear);
     final bool walked = p.steps.contains(RitualStep.walk);
@@ -45,8 +47,8 @@ class TodayScreen extends ConsumerWidget {
         : heard
         ? 'Five heard.\nNow take one step\non the path.'
         : light
-        ? 'Good morning.'
-        : 'Namaste.';
+        ? (name.isEmpty ? 'Good morning.' : 'Good morning, $name.')
+        : (name.isEmpty ? 'Namaste.' : 'Namaste, $name.');
     final String sub = back
         ? 'The lamp was still warm.'
         : allDone
