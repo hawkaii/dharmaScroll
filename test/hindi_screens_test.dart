@@ -630,6 +630,11 @@ void main() {
         }
         // The Ekant door, then writing.
         await _tapText(tester, l.ekWrite);
+        expect(
+          tester.takeException(),
+          isNull,
+          reason: '$lang ekant chat $last',
+        );
         // Mann: type, answer, seal.
         await _go(tester, Routes.speak);
         await _tapText(tester, l.typeInstead);

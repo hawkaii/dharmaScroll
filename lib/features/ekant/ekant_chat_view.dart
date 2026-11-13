@@ -260,28 +260,34 @@ class _TopBar extends StatelessWidget {
     final DharmaColors c = context.c;
     return Row(
       children: <Widget>[
-        Semantics(
-          button: true,
-          label: context.l.ekLeaveRoom,
-          excludeSemantics: true,
-          onTap: onLeave,
-          child: GestureDetector(
-            behavior: HitTestBehavior.opaque,
+        Flexible(
+          flex: 3,
+          child: Semantics(
+            button: true,
+            label: context.l.ekLeaveRoom,
+            excludeSemantics: true,
             onTap: onLeave,
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                widthFactor: 1,
-                child: Text(
-                  context.l.ekLeaveCaps,
-                  style: DType.eyebrow(c.faint),
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: onLeave,
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  widthFactor: 1,
+                  child: Text(
+                    context.l.ekLeaveCaps,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: DType.eyebrow(c.faint),
+                  ),
                 ),
               ),
             ),
           ),
         ),
         Expanded(
+          flex: 2,
           child: Center(
             child: Text(
               (count == 0
@@ -292,34 +298,41 @@ class _TopBar extends StatelessWidget {
             ),
           ),
         ),
-        Semantics(
-          button: true,
-          label: context.l.ekTalkOutLoud,
-          excludeSemantics: true,
-          onTap: onSpeak,
-          child: GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: () {
-              Haptics.tap();
-              onSpeak();
-            },
-            child: Container(
-              height: 48,
-              padding: const EdgeInsets.symmetric(horizontal: Sp.s14),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Rad.button),
-                border: Border.all(color: c.peacock.withValues(alpha: 0.6)),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  DIcon('mic', size: 20, color: c.peacock),
-                  const SizedBox(width: Sp.s6),
-                  Text(
-                    context.l.ekSpeak,
-                    style: DType.button(c.ink).copyWith(fontSize: 14),
-                  ),
-                ],
+        Flexible(
+          flex: 3,
+          child: Semantics(
+            button: true,
+            label: context.l.ekTalkOutLoud,
+            excludeSemantics: true,
+            onTap: onSpeak,
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () {
+                Haptics.tap();
+                onSpeak();
+              },
+              child: Container(
+                height: 48,
+                padding: const EdgeInsets.symmetric(horizontal: Sp.s14),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Rad.button),
+                  border: Border.all(color: c.peacock.withValues(alpha: 0.6)),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    DIcon('mic', size: 20, color: c.peacock),
+                    const SizedBox(width: Sp.s6),
+                    Flexible(
+                      child: Text(
+                        context.l.ekSpeak,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: DType.button(c.ink).copyWith(fontSize: 14),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
