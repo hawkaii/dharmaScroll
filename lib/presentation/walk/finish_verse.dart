@@ -121,6 +121,11 @@ class _FinishVerseState extends State<FinishVerse> {
     final DharmaColors c = context.c;
     final bool still = reduceMotion(context);
     final AppLocalizations l = context.l;
+    // Scrolls when big text leaves no room; the gaps still fill a tall phone.
+    return ScrollIfTight(child: _body(c, still, l));
+  }
+
+  Widget _body(DharmaColors c, bool still, AppLocalizations l) {
     return Column(
       children: <Widget>[
         const SizedBox(height: Sp.s18),

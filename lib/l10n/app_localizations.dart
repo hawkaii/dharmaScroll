@@ -4373,6 +4373,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{said} Hold your day up to it and see what stays.'**
   String exHold(String said);
+
+  /// No description provided for @litLamp.
+  ///
+  /// In en, this message translates to:
+  /// **'A lit lamp'**
+  String get litLamp;
+
+  /// No description provided for @unlitLamp.
+  ///
+  /// In en, this message translates to:
+  /// **'An unlit lamp'**
+  String get unlitLamp;
+
+  /// No description provided for @lampsLitWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} of 7 lamps lit this week'**
+  String lampsLitWeek(int n);
+
+  /// No description provided for @shareCardGita.
+  ///
+  /// In en, this message translates to:
+  /// **'BHAGAVAD GITA  ·  {id}'**
+  String shareCardGita(String id);
+
+  /// No description provided for @listEnd.
+  ///
+  /// In en, this message translates to:
+  /// **'{text}.'**
+  String listEnd(String text);
 }
 
 class _AppLocalizationsDelegate

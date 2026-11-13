@@ -249,6 +249,8 @@ void main() {
             explainLibraryProvider.overrideWith((Ref ref) async => lib),
           ],
           child: MaterialApp(
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
             theme: DharmaTheme.night,
             home: Scaffold(
               body: Builder(

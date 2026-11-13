@@ -103,106 +103,111 @@ class _MilestoneScreenState extends ConsumerState<MilestoneScreen> {
                   Sp.screenSide,
                   Sp.s12,
                 ),
-                child: Column(
-                  children: <Widget>[
-                    Text(eyebrow.toUpperCase(), style: DType.eyebrow(c.faint)),
-                    const Spacer(),
-                    SizedBox(
-                      width: 300,
-                      height: 150,
-                      child: Stack(
-                        clipBehavior: Clip.none,
-                        alignment: Alignment.bottomCenter,
-                        children: <Widget>[
-                          // Two resting peacock feathers stay after the fan fades.
-                          for (final double side in <double>[-1, 1])
-                            Positioned(
-                              bottom: 4,
-                              left: side < 0 ? 18 : null,
-                              right: side > 0 ? 18 : null,
-                              child: Transform.rotate(
-                                angle: side * 0.55,
-                                child: DIcon(
-                                  'feather',
-                                  size: 54,
-                                  color: c.peacock,
-                                  glow: true,
-                                ),
-                              ),
-                            ),
-                          const Positioned(
-                            bottom: 14,
-                            child: FeatherFan(height: 132),
-                          ),
-                          TweenAnimationBuilder<double>(
-                            tween: Tween<double>(begin: still ? 1 : 0, end: 1),
-                            duration: Motion.lotus,
-                            curve: Motion.spring,
-                            builder:
-                                (
-                                  BuildContext context,
-                                  double t,
-                                  Widget? child,
-                                ) => Opacity(
-                                  opacity: t.clamp(0.0, 1.0),
-                                  child: Transform.scale(
-                                    scale: 0.3 + 0.7 * t,
-                                    alignment: Alignment.bottomCenter,
-                                    child: child,
+                child: ScrollIfTight(
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        eyebrow.toUpperCase(),
+                        style: DType.eyebrow(c.faint),
+                      ),
+                      const Spacer(),
+                      SizedBox(
+                        width: 300,
+                        height: 150,
+                        child: Stack(
+                          clipBehavior: Clip.none,
+                          alignment: Alignment.bottomCenter,
+                          children: <Widget>[
+                            // Two resting peacock feathers stay after the fan fades.
+                            for (final double side in <double>[-1, 1])
+                              Positioned(
+                                bottom: 4,
+                                left: side < 0 ? 18 : null,
+                                right: side > 0 ? 18 : null,
+                                child: Transform.rotate(
+                                  angle: side * 0.55,
+                                  child: DIcon(
+                                    'feather',
+                                    size: 54,
+                                    color: c.peacock,
+                                    glow: true,
                                   ),
                                 ),
-                            child: ExcludeSemantics(
-                              child: SvgPicture.asset(
-                                'assets/svg/lotus-filled.svg',
-                                width: 150,
-                                height: 150,
+                              ),
+                            const Positioned(
+                              bottom: 14,
+                              child: FeatherFan(height: 132),
+                            ),
+                            TweenAnimationBuilder<double>(
+                              tween: Tween<double>(
+                                begin: still ? 1 : 0,
+                                end: 1,
+                              ),
+                              duration: Motion.lotus,
+                              curve: Motion.spring,
+                              builder:
+                                  (
+                                    BuildContext context,
+                                    double t,
+                                    Widget? child,
+                                  ) => Opacity(
+                                    opacity: t.clamp(0.0, 1.0),
+                                    child: Transform.scale(
+                                      scale: 0.3 + 0.7 * t,
+                                      alignment: Alignment.bottomCenter,
+                                      child: child,
+                                    ),
+                                  ),
+                              child: ExcludeSemantics(
+                                child: SvgPicture.asset(
+                                  'assets/svg/lotus-filled.svg',
+                                  width: 150,
+                                  height: 150,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Semantics(
-                      header: true,
-                      label: '${widget.days} ${l.daysUnbroken}',
-                      excludeSemantics: true,
-                      child: Column(
-                        children: <Widget>[
-                          CountUp(
-                            begin: widget.days > 7 ? widget.days - 7 : 0,
-                            value: widget.days,
-                            style: DType.hero(c.verse, size: 130).copyWith(
-                              shadows: <Shadow>[
-                                Shadow(
-                                  color: Tok.flame.withValues(alpha: 0.7),
-                                  blurRadius: 50,
-                                ),
-                              ],
+                      Semantics(
+                        header: true,
+                        label: '${widget.days} ${l.daysUnbroken}',
+                        excludeSemantics: true,
+                        child: Column(
+                          children: <Widget>[
+                            CountUp(
+                              begin: widget.days > 7 ? widget.days - 7 : 0,
+                              value: widget.days,
+                              style: DType.hero(c.verse, size: 130).copyWith(
+                                shadows: <Shadow>[
+                                  Shadow(
+                                    color: Tok.flame.withValues(alpha: 0.7),
+                                    blurRadius: 50,
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          Text(
-                            l.daysUnbroken,
-                            style: DType.title(c.ink).copyWith(fontSize: 30),
-                          ),
-                        ],
+                            Text(
+                              l.daysUnbroken,
+                              style: DType.title(c.ink).copyWith(fontSize: 30),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: Sp.s12),
-                    Text(
-                      '$line ($vid)',
-                      textAlign: TextAlign.center,
-                      style: DType.body(c.mute, size: 18),
-                    ),
-                    const Spacer(),
-                    PrimaryButton(
-                      label: l.shareThisLight,
-                      onPressed: _share,
-                    ),
-                    TextAction(
-                      label: l.continueLabel,
-                      onPressed: () => context.go(Routes.today),
-                    ),
-                  ],
+                      const SizedBox(height: Sp.s12),
+                      Text(
+                        '$line ($vid)',
+                        textAlign: TextAlign.center,
+                        style: DType.body(c.mute, size: 18),
+                      ),
+                      const Spacer(),
+                      PrimaryButton(label: l.shareThisLight, onPressed: _share),
+                      TextAction(
+                        label: l.continueLabel,
+                        onPressed: () => context.go(Routes.today),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

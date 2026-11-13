@@ -119,7 +119,7 @@ class VerseScreen extends ConsumerWidget {
                     ),
                     _Deeper(
                       label: l.whereMeetsLife,
-                      text: '${v.tags.map(l.tag).join(', ')}.',
+                      text: l.listEnd(v.tags.map(l.tag).join(', ')),
                     ),
                   ],
                 ),

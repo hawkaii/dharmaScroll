@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../app_providers.dart';
+import '../../core/state/settings.dart';
 import 'chat_service.dart';
 import 'ekant_engine.dart';
 import 'voice_session.dart';
@@ -28,5 +29,10 @@ final Provider<ChatService> chatServiceProvider = Provider<ChatService>(
 final Provider<VoiceSession Function()> voiceSessionFactoryProvider =
     Provider<VoiceSession Function()>((Ref ref) {
       final EkantResponder responder = ref.watch(ekantResponderProvider);
-      return () => FakeVoiceSession(responder: responder);
+      final bool hindi =
+          ref.watch(settingsProvider).language == Language.hindi;
+      return () => FakeVoiceSession(
+        responder: responder,
+        script: hindi ? FakeVoiceSession.scriptHi : FakeVoiceSession.scriptEn,
+      );
     });

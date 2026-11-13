@@ -411,17 +411,10 @@ class _Meets extends StatelessWidget {
                 const SizedBox(height: Sp.s12),
                 Text(meaning, style: DType.body(c.ink, size: 27)),
                 const SizedBox(height: Sp.s30),
-                Text(
-                  l.meetsHead,
-                  style: DType.eyebrow(c.accent),
-                ),
+                Text(l.meetsHead, style: DType.eyebrow(c.accent)),
                 const SizedBox(height: Sp.s12),
                 Divider(height: 1, color: c.line),
-                for (
-                  int i = 0;
-                  i < meetsLines.length;
-                  i++
-                ) ...<Widget>[
+                for (int i = 0; i < meetsLines.length; i++) ...<Widget>[
                   Semantics(
                     button: true,
                     selected: i == selected,

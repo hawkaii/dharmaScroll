@@ -188,7 +188,10 @@ class _VerseBody extends StatelessWidget {
         else
           DIcon('kadamba', size: 30, color: c.accent, glow: !c.isLight),
         const SizedBox(height: Sp.s12),
-        Text('BHAGAVAD GITA  ·  ${v.id}', style: DType.eyebrow(c.accent)),
+        Text(
+          context.l.shareCardGita(v.id),
+          style: DType.eyebrow(c.accent),
+        ),
         Expanded(
           child: Center(
             child: FittedBox(

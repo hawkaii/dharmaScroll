@@ -169,6 +169,37 @@ class _ExplainSheetState extends ConsumerState<ExplainSheet> {
     });
   }
 
+  /// Listen and Share side by side; one above the other when the words are
+  /// big (a long Hindi label needs the width).
+  Widget _pills(Verse v, Language lang) {
+    final Widget listen = _ListenPill(listening: _listening, onListen: _listen);
+    final Widget share = _Pill(
+      icon: 'share',
+      label: context.l.shareLabel,
+      semanticLabel: context.l.shareVerse,
+      onTap: () => showShareSheet(
+        context,
+        ShareContent(verse: v, meaning: meaningOf(v, lang)),
+      ),
+    );
+    if (MediaQuery.textScalerOf(context).scale(1) >= 1.3) {
+      return Column(
+        children: <Widget>[
+          SizedBox(width: double.infinity, child: listen),
+          const SizedBox(height: Sp.s12),
+          SizedBox(width: double.infinity, child: share),
+        ],
+      );
+    }
+    return Row(
+      children: <Widget>[
+        Expanded(child: listen),
+        const SizedBox(width: Sp.s12),
+        share,
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
@@ -283,23 +314,7 @@ class _ExplainSheetState extends ConsumerState<ExplainSheet> {
               Sp.screenSide,
               Sp.s12,
             ),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: _ListenPill(listening: _listening, onListen: _listen),
-                ),
-                const SizedBox(width: Sp.s12),
-                _Pill(
-                  icon: 'share',
-                  label: context.l.shareLabel,
-                  semanticLabel: context.l.shareVerse,
-                  onTap: () => showShareSheet(
-                    context,
-                    ShareContent(verse: v, meaning: meaningOf(v, lang)),
-                  ),
-                ),
-              ],
-            ),
+            child: _pills(v, lang),
           ),
         ],
       ),
@@ -625,7 +640,10 @@ class _RelatedPage extends ConsumerWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(context.l.gitaRefCaps(u.id), style: DType.ref(c.faint)),
+                          Text(
+                            context.l.gitaRefCaps(u.id),
+                            style: DType.ref(c.faint),
+                          ),
                           const SizedBox(height: Sp.s6),
                           Text(
                             u.padas.first,
@@ -703,10 +721,7 @@ class _MyDayPage extends ConsumerWidget {
               ),
               const SizedBox(width: 8),
               Flexible(
-                child: Text(
-                  context.l.exOfflineCaps,
-                  style: DType.ref(c.faint),
-                ),
+                child: Text(context.l.exOfflineCaps, style: DType.ref(c.faint)),
               ),
             ],
           ),

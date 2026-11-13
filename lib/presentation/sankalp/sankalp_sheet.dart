@@ -107,10 +107,7 @@ class _SankalpSheetState extends ConsumerState<SankalpSheet> {
             ),
           ),
           const SizedBox(height: Sp.s6),
-          Text(
-            context.l.lookBackTomorrow,
-            style: DType.body(c.mute, size: 17),
-          ),
+          Text(context.l.lookBackTomorrow, style: DType.body(c.mute, size: 17)),
           const SizedBox(height: Sp.s22),
         ],
       ),
@@ -122,50 +119,53 @@ class _SankalpSheetState extends ConsumerState<SankalpSheet> {
       borderRadius: BorderRadius.circular(Rad.row),
       borderSide: BorderSide(color: c.line),
     );
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(context.l.sealSankalpCaps, style: DType.eyebrow(c.accent)),
-        const SizedBox(height: Sp.s6),
-        Text(
-          context.l.oneSmallIntention,
-          style: DType.title(c.ink, compact: true),
-        ),
-        const SizedBox(height: Sp.s6),
-        Text(
-          context.l.fromGitaChange(widget.verse.id),
-          style: DType.body(c.mute, size: 16),
-        ),
-        const SizedBox(height: Sp.s18),
-        TextField(
-          controller: _text,
-          maxLength: SankalpNotifier.maxLength,
-          minLines: 2,
-          maxLines: 3,
-          textCapitalization: TextCapitalization.sentences,
-          cursorColor: Tok.marigold,
-          style: DType.body(c.ink, size: 21),
-          decoration: InputDecoration(
-            counterText: '',
-            filled: true,
-            fillColor: c.raised.withValues(alpha: 0.5),
-            contentPadding: const EdgeInsets.all(Sp.s18),
-            border: border,
-            enabledBorder: border,
-            focusedBorder: border.copyWith(
-              borderSide: const BorderSide(color: Tok.marigold),
-            ),
-            semanticCounterText: '',
+    // Scrolls when big text outgrows a short phone.
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(context.l.sealSankalpCaps, style: DType.eyebrow(c.accent)),
+          const SizedBox(height: Sp.s6),
+          Text(
+            context.l.oneSmallIntention,
+            style: DType.title(c.ink, compact: true),
           ),
-        ),
-        const SizedBox(height: Sp.s18),
-        PrimaryButton(
-          label: context.l.sealIt,
-          semanticLabel: context.l.sealSankalpSemantic,
-          onPressed: _text.text.trim().isEmpty ? null : _seal,
-        ),
-      ],
+          const SizedBox(height: Sp.s6),
+          Text(
+            context.l.fromGitaChange(widget.verse.id),
+            style: DType.body(c.mute, size: 16),
+          ),
+          const SizedBox(height: Sp.s18),
+          TextField(
+            controller: _text,
+            maxLength: SankalpNotifier.maxLength,
+            minLines: 2,
+            maxLines: 3,
+            textCapitalization: TextCapitalization.sentences,
+            cursorColor: Tok.marigold,
+            style: DType.body(c.ink, size: 21),
+            decoration: InputDecoration(
+              counterText: '',
+              filled: true,
+              fillColor: c.raised.withValues(alpha: 0.5),
+              contentPadding: const EdgeInsets.all(Sp.s18),
+              border: border,
+              enabledBorder: border,
+              focusedBorder: border.copyWith(
+                borderSide: const BorderSide(color: Tok.marigold),
+              ),
+              semanticCounterText: '',
+            ),
+          ),
+          const SizedBox(height: Sp.s18),
+          PrimaryButton(
+            label: context.l.sealIt,
+            semanticLabel: context.l.sealSankalpSemantic,
+            onPressed: _text.text.trim().isEmpty ? null : _seal,
+          ),
+        ],
+      ),
     );
   }
 }
@@ -229,7 +229,10 @@ class _SankalpLookBackState extends ConsumerState<SankalpLookBack> {
                       children: <Widget>[
                         DIcon('butter-pot', size: 20),
                         const SizedBox(width: Sp.s6),
-                        Text(context.l.yourSankalpCaps, style: DType.eyebrow(c.accent)),
+                        Text(
+                          context.l.yourSankalpCaps,
+                          style: DType.eyebrow(c.accent),
+                        ),
                       ],
                     ),
                     const SizedBox(height: Sp.s6),

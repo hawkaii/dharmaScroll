@@ -281,31 +281,33 @@ class _MannScreenState extends ConsumerState<MannScreen> {
   }
 
   Widget _ask(DharmaColors c) {
-    return Column(
-      children: <Widget>[
-        const Spacer(),
-        Semantics(
-          header: true,
-          child: Text(
-            _night ? context.l.mannAskTonight : context.l.mannAskToday,
-            textAlign: TextAlign.center,
-            style: DType.title(c.ink),
+    return ScrollIfTight(
+      child: Column(
+        children: <Widget>[
+          const Spacer(),
+          Semantics(
+            header: true,
+            child: Text(
+              _night ? context.l.mannAskTonight : context.l.mannAskToday,
+              textAlign: TextAlign.center,
+              style: DType.title(c.ink),
+            ),
           ),
-        ),
-        const SizedBox(height: 54),
-        _Orb(onTap: _tapOrb),
-        const SizedBox(height: Sp.s34),
-        Text(
-          context.l.mannTapSpeak,
-          textAlign: TextAlign.center,
-          style: DType.body(c.mute, size: 16),
-        ),
-        const Spacer(),
-        TextAction(
-          label: context.l.typeInstead,
-          onPressed: () => setState(() => _phase = _Phase.typing),
-        ),
-      ],
+          const SizedBox(height: 54),
+          _Orb(onTap: _tapOrb),
+          const SizedBox(height: Sp.s34),
+          Text(
+            context.l.mannTapSpeak,
+            textAlign: TextAlign.center,
+            style: DType.body(c.mute, size: 16),
+          ),
+          const Spacer(),
+          TextAction(
+            label: context.l.typeInstead,
+            onPressed: () => setState(() => _phase = _Phase.typing),
+          ),
+        ],
+      ),
     );
   }
 
@@ -313,30 +315,32 @@ class _MannScreenState extends ConsumerState<MannScreen> {
     final String shown = _speech
         ? (_words.isEmpty ? context.l.mannListening : '"$_words"')
         : context.l.mannSpeakPrivate;
-    return Column(
-      children: <Widget>[
-        const Spacer(),
-        Semantics(
-          liveRegion: true,
-          child: Text(
-            shown,
-            textAlign: TextAlign.center,
-            style: DType.body(
-              _words.isEmpty ? c.mute : c.ink,
-              size: 22,
-            ).copyWith(fontStyle: FontStyle.italic, height: 1.5),
+    return ScrollIfTight(
+      child: Column(
+        children: <Widget>[
+          const Spacer(),
+          Semantics(
+            liveRegion: true,
+            child: Text(
+              shown,
+              textAlign: TextAlign.center,
+              style: DType.body(
+                _words.isEmpty ? c.mute : c.ink,
+                size: 22,
+              ).copyWith(fontStyle: FontStyle.italic, height: 1.5),
+            ),
           ),
-        ),
-        const SizedBox(height: 50),
-        const _Bars(),
-        const Spacer(),
-        PrimaryButton(
-          label: context.l.done,
-          voice: true,
-          onPressed: _doneListening,
-        ),
-        const SizedBox(height: Sp.s6),
-      ],
+          const SizedBox(height: 50),
+          const _Bars(),
+          const Spacer(),
+          PrimaryButton(
+            label: context.l.done,
+            voice: true,
+            onPressed: _doneListening,
+          ),
+          const SizedBox(height: Sp.s6),
+        ],
+      ),
     );
   }
 

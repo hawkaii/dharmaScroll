@@ -549,7 +549,10 @@ class _EkantReplyState extends ConsumerState<_EkantReply> {
               if (!widget.streaming)
                 Padding(
                   padding: const EdgeInsets.only(top: Sp.s6),
-                  child: Row(
+                  // A Wrap, so the two actions drop to a second line when a
+                  // longer language or a bigger text size needs the room.
+                  child: Wrap(
+                    spacing: Sp.s12,
                     children: <Widget>[
                       _ReplyAction(
                         icon: 'copy',
@@ -558,7 +561,6 @@ class _EkantReplyState extends ConsumerState<_EkantReply> {
                             : context.l.ekCopy,
                         onTap: () => _copy(verse),
                       ),
-                      const SizedBox(width: Sp.s12),
                       _ReplyAction(
                         icon: 'share',
                         label: context.l.shareLabel,

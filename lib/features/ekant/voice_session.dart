@@ -147,6 +147,7 @@ class FakeVoiceSession implements VoiceSession {
     this.connectTime = const Duration(milliseconds: 700),
     this.thinkTime = const Duration(milliseconds: 1500),
     this.wordTime = const Duration(milliseconds: 280),
+    this.script = scriptEn,
   });
 
   final EkantResponder responder;
@@ -156,10 +157,18 @@ class FakeVoiceSession implements VoiceSession {
   final Duration wordTime;
 
   /// What "the person" says, in turn.
-  static const List<String> script = <String>[
+  final List<String> script;
+
+  static const List<String> scriptEn = <String>[
     'Work has been weighing on me this week.',
     'I cannot stop worrying about what comes next.',
     'I feel a little alone with all of it.',
+  ];
+
+  static const List<String> scriptHi = <String>[
+    'इस हफ़्ते काम का बोझ मन पर भारी है।',
+    'आगे क्या होगा, इसकी चिंता रुकती ही नहीं।',
+    'इस सबके बीच थोड़ा अकेलापन लग रहा है।',
   ];
 
   final StreamController<VoiceState> _state =

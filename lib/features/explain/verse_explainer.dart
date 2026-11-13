@@ -78,10 +78,7 @@ class OfflineExplainer implements VerseExplainer {
       _list(l, v.tags.take(3).map(l.tag).toList()),
     );
     if (note.isEmpty) {
-      return DayReflection(
-        text: l.exCarry(said),
-        refs: <String>[v.id],
-      );
+      return DayReflection(text: l.exCarry(said), refs: <String>[v.id]);
     }
     final Map<String, int> heard = tagScores(note);
     final String? met = v.tags.where(heard.containsKey).fold<String?>(null, (
@@ -105,10 +102,7 @@ class OfflineExplainer implements VerseExplainer {
         );
       }
     }
-    return DayReflection(
-      text: l.exHold(said),
-      refs: <String>[v.id],
-    );
+    return DayReflection(text: l.exHold(said), refs: <String>[v.id]);
   }
 
   static String _list(AppLocalizations l, List<String> xs) => xs.length < 2

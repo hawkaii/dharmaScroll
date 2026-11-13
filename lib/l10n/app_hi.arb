@@ -1469,5 +1469,31 @@
         "type": "String"
       }
     }
+  },
+  "litLamp": "एक जला हुआ दीया",
+  "unlitLamp": "एक बिना जला दीया",
+  "lampsLitWeek": "इस हफ़्ते 7 में से {n} दीये जले",
+  "@lampsLitWeek": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "shareCardGita": "भगवद्गीता  ·  {id}",
+  "@shareCardGita": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "listEnd": "{text}।",
+  "@listEnd": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
   }
 }

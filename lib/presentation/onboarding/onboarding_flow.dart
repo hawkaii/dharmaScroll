@@ -526,7 +526,7 @@ class _HourDial extends StatelessWidget {
         const SizedBox(height: Sp.s14),
         Semantics(
           label: l.reminderTimeLabel,
-          value: '${fmtTime(minutes)} ${am ? 'AM' : 'PM'}',
+          value: fmtClock(l, minutes),
           child: SliderTheme(
             data: SliderTheme.of(context).copyWith(
               activeTrackColor: Tok.marigold,

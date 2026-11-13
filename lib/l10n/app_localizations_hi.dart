@@ -2427,4 +2427,25 @@ class AppLocalizationsHi extends AppLocalizations {
   String exHold(String said) {
     return '$said अपने दिन को इसके सामने रखिए और देखिए क्या साथ रह जाता है।';
   }
+
+  @override
+  String get litLamp => 'एक जला हुआ दीया';
+
+  @override
+  String get unlitLamp => 'एक बिना जला दीया';
+
+  @override
+  String lampsLitWeek(int n) {
+    return 'इस हफ़्ते 7 में से $n दीये जले';
+  }
+
+  @override
+  String shareCardGita(String id) {
+    return 'भगवद्गीता  ·  $id';
+  }
+
+  @override
+  String listEnd(String text) {
+    return '$text।';
+  }
 }

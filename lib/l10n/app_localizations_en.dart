@@ -2414,4 +2414,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String exHold(String said) {
     return '$said Hold your day up to it and see what stays.';
   }
+
+  @override
+  String get litLamp => 'A lit lamp';
+
+  @override
+  String get unlitLamp => 'An unlit lamp';
+
+  @override
+  String lampsLitWeek(int n) {
+    return '$n of 7 lamps lit this week';
+  }
+
+  @override
+  String shareCardGita(String id) {
+    return 'BHAGAVAD GITA  ·  $id';
+  }
+
+  @override
+  String listEnd(String text) {
+    return '$text.';
+  }
 }

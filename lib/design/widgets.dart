@@ -561,3 +561,24 @@ Future<T?> showDSheet<T>(BuildContext context, WidgetBuilder builder) {
     ),
   );
 }
+
+/// Keeps a screen made of a Column and Spacers whole: on a tall phone the
+/// gaps fill the height, and when big text needs more room it scrolls
+/// instead of overflowing.
+class ScrollIfTight extends StatelessWidget {
+  const ScrollIfTight({super.key, required this.child});
+
+  /// Usually a Column with Spacers.
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (BuildContext context, BoxConstraints box) =>
+        SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: box.maxHeight),
+            child: IntrinsicHeight(child: child),
+          ),
+        ),
+  );
+}

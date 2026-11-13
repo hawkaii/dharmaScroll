@@ -1469,5 +1469,31 @@
         "type": "String"
       }
     }
+  },
+  "litLamp": "A lit lamp",
+  "unlitLamp": "An unlit lamp",
+  "lampsLitWeek": "{n} of 7 lamps lit this week",
+  "@lampsLitWeek": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "shareCardGita": "BHAGAVAD GITA  ·  {id}",
+  "@shareCardGita": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "listEnd": "{text}.",
+  "@listEnd": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
   }
 }

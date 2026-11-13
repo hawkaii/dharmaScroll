@@ -427,7 +427,7 @@ void main() {
       final Caption said = caps.firstWhere(
         (Caption c) => c.speaker == CaptionSpeaker.user && c.isFinal,
       );
-      expect(said.text, FakeVoiceSession.script.first);
+      expect(said.text, FakeVoiceSession.scriptEn.first);
       final Caption reply = caps.firstWhere(
         (Caption c) => c.speaker == CaptionSpeaker.ekant && c.isFinal,
       );
@@ -521,7 +521,7 @@ void main() {
       await tester.tap(find.text(en.ekSwitchToChat));
       await tester.pumpAndSettle();
       expect(find.byType(TextField), findsOneWidget);
-      expect(find.text(FakeVoiceSession.script.first), findsOneWidget);
+      expect(find.text(FakeVoiceSession.scriptEn.first), findsOneWidget);
       expect(history.messages.map((ChatMessage m) => m.role), <ChatRole>[
         ChatRole.user,
         ChatRole.ekant,
