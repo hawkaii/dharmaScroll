@@ -12,6 +12,7 @@ import '../../core/state/settings.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../../l10n/l10n.dart';
 import '../hear/hear_screen.dart' show meaningOf;
 import 'finish_verse.dart';
 
@@ -23,12 +24,6 @@ class WalkScreen extends ConsumerStatefulWidget {
   /// shortcut: chant audio is a stub; the 12 s hold stands in for the
   /// recording, swap for the audio length when chants land.
   static const Duration chantLength = Duration(seconds: 12);
-
-  static const List<String> meetsLines = <String>[
-    'A task I am afraid to begin',
-    'A result I cannot control',
-    'What others will think',
-  ];
 
   @override
   ConsumerState<WalkScreen> createState() => _WalkScreenState();
@@ -78,14 +73,14 @@ class _WalkScreenState extends ConsumerState<WalkScreen> {
                     Expanded(
                       child: Center(
                         child: Text(
-                          'WALK  ·  STEP ${_chanted ? 2 : 1} OF 2',
+                          context.l.walkEyebrow(_chanted ? 2 : 1),
                           style: DType.eyebrow(c.faint),
                         ),
                       ),
                     ),
                     Semantics(
                       button: true,
-                      label: 'Close',
+                      label: context.l.close,
                       excludeSemantics: true,
                       onTap: () => context.go(Routes.today),
                       child: GestureDetector(
@@ -107,6 +102,7 @@ class _WalkScreenState extends ConsumerState<WalkScreen> {
                         ? _Meets(
                             key: const ValueKey<String>('meets'),
                             meaning: meaningOf(v, lang),
+                            speaker: v.speaker,
                             selected: _line,
                             onSelect: (int i) => setState(() => _line = i),
                             onDone: _finish,
@@ -231,11 +227,12 @@ class _ChantState extends State<_Chant> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
     final Verse v = widget.verse;
+    final AppLocalizations l = context.l;
     return Column(
       children: <Widget>[
         const Spacer(),
         Text(
-          '${v.speaker} says to ${v.listener}:',
+          l.speakerSaysTo(l.person(v.speaker), l.person(v.listener)),
           style: DType.body(c.peacock, size: 17),
         ),
         const SizedBox(height: Sp.s18),
@@ -272,8 +269,7 @@ class _ChantState extends State<_Chant> with SingleTickerProviderStateMixin {
         const Spacer(),
         Semantics(
           button: true,
-          label:
-              'Chant along. Press and hold the ring. Activate to chant it all.',
+          label: l.chantSemantic,
           excludeSemantics: true,
           onTap: widget.onFull,
           child: Listener(
@@ -317,7 +313,7 @@ class _ChantState extends State<_Chant> with SingleTickerProviderStateMixin {
         ),
         const SizedBox(height: Sp.s22),
         Text(
-          _holding ? 'RELEASE TO PAUSE' : 'HOLD AND CHANT WITH THE VERSE',
+          _holding ? l.releaseToPause : l.holdToChant,
           style: DType.eyebrow(c.faint),
         ),
       ],
@@ -378,12 +374,14 @@ class _Meets extends StatelessWidget {
   const _Meets({
     super.key,
     required this.meaning,
+    required this.speaker,
     required this.selected,
     required this.onSelect,
     required this.onDone,
   });
 
   final String meaning;
+  final String speaker;
   final int selected;
   final ValueChanged<int> onSelect;
   final VoidCallback onDone;
@@ -391,6 +389,12 @@ class _Meets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
+    final List<String> meetsLines = <String>[
+      l.meetsLine1,
+      l.meetsLine2,
+      l.meetsLine3,
+    ];
     // Long meanings scroll; the button stays put.
     return Column(
       children: <Widget>[
@@ -400,25 +404,28 @@ class _Meets extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 const SizedBox(height: Sp.s30),
-                Text('Krishna says:', style: DType.body(c.peacock, size: 17)),
+                Text(
+                  l.speakerSays(l.person(speaker)),
+                  style: DType.body(c.peacock, size: 17),
+                ),
                 const SizedBox(height: Sp.s12),
                 Text(meaning, style: DType.body(c.ink, size: 27)),
                 const SizedBox(height: Sp.s30),
                 Text(
-                  'WHERE DOES THIS MEET YOU TODAY?',
+                  l.meetsHead,
                   style: DType.eyebrow(c.accent),
                 ),
                 const SizedBox(height: Sp.s12),
                 Divider(height: 1, color: c.line),
                 for (
                   int i = 0;
-                  i < WalkScreen.meetsLines.length;
+                  i < meetsLines.length;
                   i++
                 ) ...<Widget>[
                   Semantics(
                     button: true,
                     selected: i == selected,
-                    label: WalkScreen.meetsLines[i],
+                    label: meetsLines[i],
                     excludeSemantics: true,
                     onTap: () => onSelect(i),
                     child: GestureDetector(
@@ -449,7 +456,7 @@ class _Meets extends StatelessWidget {
                           ),
                         ),
                         child: Text(
-                          WalkScreen.meetsLines[i],
+                          meetsLines[i],
                           style: DType.body(
                             i == selected ? c.ink : c.mute,
                             size: 21,
@@ -465,7 +472,7 @@ class _Meets extends StatelessWidget {
           ),
         ),
         const SizedBox(height: Sp.s18),
-        PrimaryButton(label: 'This one', onPressed: onDone),
+        PrimaryButton(label: l.thisOne, onPressed: onDone),
       ],
     );
   }

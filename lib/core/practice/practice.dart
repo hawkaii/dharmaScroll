@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../app_providers.dart';
+import '../../l10n/l10n.dart';
+import '../../l10n/ritual_words.dart';
 import '../rituals/panchang.dart';
 import '../rituals/providers.dart';
 import '../rituals/reminder_backend.dart';
@@ -102,35 +104,6 @@ PracticePlan applyPlan(PracticePlan plan, Set<Ritual> current) => PracticePlan(
   plan.deity,
 );
 
-/// One line per ritual, for a child, reverent. Glosses each word once.
-String ritualMeaning(Ritual r) => switch (r) {
-  Ritual.dailyGita => 'Five verses from the Gita, at the hour you chose.',
-  Ritual.sandhya => 'A quiet minute to greet the sun as it rises.',
-  Ritual.diya => 'A soft reminder to light a lamp as the day ends.',
-  Ritual.ekadashi =>
-    'Ekadashi is the eleventh day of the moon. Many people fast. '
-        'We also tell you when to eat again. That is called parana.',
-  Ritual.purnima => 'Purnima is the night the moon is full and round.',
-  Ritual.amavasya =>
-    'Amavasya is the night with no moon. A time to remember family '
-        'who came before.',
-  Ritual.pradosh =>
-    'Pradosh is dusk on the thirteenth day of the moon, kept for Shiva.',
-  Ritual.sankashti =>
-    'Sankashti is a fast for Ganesha. It ends when the moon rises.',
-  Ritual.festivals =>
-    'Big days like Diwali and Holi, on the right date for your city.',
-};
-
-/// Short card text for a deity day.
-String deityMeaning(Deity d) => switch (d) {
-  Deity.none => 'No special day for now.',
-  Deity.shiva => 'Monday is for Shiva. A lamp at sunset.',
-  Deity.hanuman => 'Tuesday is for Hanuman. The Chalisa in the morning.',
-  Deity.vishnu => 'Thursday is for Vishnu, the teacher of teachers.',
-  Deity.shani => 'Saturday is for Shani. A quiet lamp at sunset.',
-};
-
 /// What a preview needs to know: the city's calendar and the time there.
 @immutable
 class PreviewContext {
@@ -167,11 +140,13 @@ final Provider<PreviewContext?> previewContextProvider =
 /// The first reminder a choice would send, from the real reminder planner,
 /// so the preview always says what will really happen.
 PlannedReminder? firstNote(
+  AppLocalizations l,
   PreviewContext ctx, {
   Set<Ritual> rituals = const <Ritual>{},
   Deity deity = Deity.none,
 }) {
   final List<PlannedReminder> plan = planReminders(
+    l: l,
     cal: ctx.cal,
     rituals: rituals,
     deity: deity,
@@ -189,38 +164,15 @@ PlannedReminder? firstNote(
   return null;
 }
 
-const List<String> _wd = <String>[
-  'Mon',
-  'Tue',
-  'Wed',
-  'Thu',
-  'Fri',
-  'Sat',
-  'Sun',
-];
-const List<String> _mon = <String>[
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
-];
-
 /// "Today, 5:21 pm", "Tomorrow, 6:52 am", "Fri 20 Nov, 6:52 am".
-String whenLabel(DateTime wall, DateTime now) {
+String whenLabel(AppLocalizations l, DateTime wall, DateTime now) {
   final DateTime d = DateTime(wall.year, wall.month, wall.day);
   final int days = d.difference(DateTime(now.year, now.month, now.day)).inDays;
   final String day = switch (days) {
-    0 => 'Today',
-    1 => 'Tomorrow',
-    _ => '${_wd[wall.weekday - 1]} ${wall.day} ${_mon[wall.month - 1]}',
+    0 => l.dayToday,
+    1 => l.dayTomorrow,
+    _ =>
+      '${l.weekdayShort(wall.weekday)} ${l.dayMonth(wall.day, l.month(wall.month))}',
   };
-  return '$day, ${fmtClock(wall.hour * 60 + wall.minute)}';
+  return '$day, ${fmtClock(l, wall.hour * 60 + wall.minute)}';
 }

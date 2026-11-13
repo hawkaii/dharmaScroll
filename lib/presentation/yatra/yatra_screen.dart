@@ -8,6 +8,7 @@ import '../../core/state/progress.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../../l10n/l10n.dart';
 
 /// Gita Yatra: stones walked, the next one a glowing lotus.
 class YatraScreen extends ConsumerWidget {
@@ -27,6 +28,7 @@ class YatraScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     final ProgressState p = ref.watch(progressProvider);
     // Stones walked. The lamp list only keeps 14 days; the walk count is whole.
     final int done = p.walks;
@@ -51,8 +53,8 @@ class YatraScreen extends ConsumerWidget {
           child: Column(
             children: <Widget>[
               TopLine(
-                left: 'Gita Yatra',
-                right: 'Adhyaya ${now.chapter} of 18',
+                left: l.yatraTitle,
+                right: l.yatraChapterOf(now.chapter),
               ),
               const SizedBox(height: Sp.s14),
               Expanded(
@@ -95,8 +97,12 @@ class YatraScreen extends ConsumerWidget {
                                   0,
                               fade: s > curSlot ? 1 - (s - curSlot) * 0.17 : 1,
                               label: s == curSlot
-                                  ? 'Today: ${now.yogaName}, ${now.id}'
-                                  : 'Stone ${idx[s] + 1}${(idx[s] + 1) % ProgressState.checkpointEvery == 0 ? ', checkpoint' : ''}',
+                                  ? l.stoneToday(l.yoga(now.chapter), now.id)
+                                  : (idx[s] + 1) %
+                                            ProgressState.checkpointEvery ==
+                                        0
+                                  ? l.stoneNCheckpoint(idx[s] + 1)
+                                  : l.stoneN(idx[s] + 1),
                               onTap: s == curSlot
                                   ? () => context.push(Routes.hear)
                                   : null,
@@ -127,12 +133,12 @@ class YatraScreen extends ConsumerWidget {
                                   Text(
                                     (cur + 1) % ProgressState.checkpointEvery ==
                                             0
-                                        ? 'CHECKPOINT'
-                                        : 'TODAY',
+                                        ? l.checkpointCaps
+                                        : l.todayCaps,
                                     style: DType.eyebrow(c.faint),
                                   ),
                                   Text(
-                                    '${now.yogaName.replaceAll(' Yoga', '')} Yoga · ${now.id}',
+                                    l.yogaAndId(l.yoga(now.chapter), now.id),
                                     textAlign: pts[curSlot].dx > w * 0.5
                                         ? TextAlign.end
                                         : TextAlign.start,

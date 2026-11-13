@@ -319,5 +319,851 @@
   "dataInfo2": "Nothing you speak is stored. It is heard, then let go.",
   "dataInfo3": "Signing in is only pretend for now. Nothing leaves this phone.",
   "dataLine": "Your progress lives on this phone. Nothing you speak is stored.",
-  "signOut": "Sign out"
+  "signOut": "Sign out",
+  "personKrishna": "Krishna",
+  "personArjuna": "Arjuna",
+  "personSanjaya": "Sanjaya",
+  "personDhritarashtra": "Dhritarashtra",
+  "yoga1": "Arjuna Vishada Yoga",
+  "yoga2": "Sankhya Yoga",
+  "yoga3": "Karma Yoga",
+  "yoga4": "Jnana Karma Sannyasa Yoga",
+  "yoga5": "Karma Sannyasa Yoga",
+  "yoga6": "Dhyana Yoga",
+  "yoga7": "Jnana Vijnana Yoga",
+  "yoga8": "Akshara Brahma Yoga",
+  "yoga9": "Raja Vidya Raja Guhya Yoga",
+  "yoga10": "Vibhuti Yoga",
+  "yoga11": "Vishvarupa Darshana Yoga",
+  "yoga12": "Bhakti Yoga",
+  "yoga13": "Kshetra Kshetrajna Vibhaga Yoga",
+  "yoga14": "Gunatraya Vibhaga Yoga",
+  "yoga15": "Purushottama Yoga",
+  "yoga16": "Daivasura Sampad Vibhaga Yoga",
+  "yoga17": "Shraddhatraya Vibhaga Yoga",
+  "yoga18": "Moksha Sannyasa Yoga",
+  "tagGrief": "grief",
+  "tagLoss": "loss",
+  "tagFear": "fear",
+  "tagAnxiety": "anxiety",
+  "tagAnger": "anger",
+  "tagEnvy": "envy",
+  "tagComparison": "comparison",
+  "tagPride": "pride",
+  "tagDesire": "desire",
+  "tagGreed": "greed",
+  "tagRestlessness": "restlessness",
+  "tagDoubt": "doubt",
+  "tagSelfDoubt": "self doubt",
+  "tagConfusion": "confusion",
+  "tagLoneliness": "loneliness",
+  "tagBurnout": "burnout",
+  "tagFailure": "failure",
+  "tagSuccess": "success",
+  "tagExamStress": "exam stress",
+  "tagWorkPressure": "work pressure",
+  "tagDutyConflict": "duty conflict",
+  "tagProcrastination": "procrastination",
+  "tagPerfectionism": "perfectionism",
+  "tagFocus": "focus",
+  "tagDiscipline": "discipline",
+  "tagHabits": "habits",
+  "tagPatience": "patience",
+  "tagEquanimity": "equanimity",
+  "tagDetachment": "detachment",
+  "tagForgiveness": "forgiveness",
+  "tagCompassion": "compassion",
+  "tagKindness": "kindness",
+  "tagGratitude": "gratitude",
+  "tagHumility": "humility",
+  "tagFaith": "faith",
+  "tagSurrender": "surrender",
+  "tagPurpose": "purpose",
+  "tagMortality": "mortality",
+  "tagChange": "change",
+  "tagSelfWorth": "self worth",
+  "tagSpeech": "speech",
+  "tagContentment": "contentment",
+  "tagPeace": "peace",
+  "tagHope": "hope",
+  "tagLearning": "learning",
+  "close": "Close",
+  "shareLabel": "Share",
+  "shareVerse": "Share this verse",
+  "gitaRef": "Gita {id}",
+  "@gitaRef": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "gitaRefCaps": "GITA {id}",
+  "@gitaRefCaps": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "listeningCaps": "LISTENING",
+  "hearEndTitle": "That is enough\nfor today.",
+  "hearEndSub": "The verse will wait.",
+  "hearNext": "Walk the next step",
+  "hearRest": "Rest for now",
+  "explainVerse": "Explain this verse",
+  "verseOfTotalCaps": "{n} OF {total}",
+  "@verseOfTotalCaps": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "keptCaps": "KEPT",
+  "holdToListen": "Hold to listen",
+  "verseSemantic": "Verse {id}. {sanskrit}. {meaning}",
+  "@verseSemantic": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      },
+      "sanskrit": {
+        "type": "String"
+      },
+      "meaning": {
+        "type": "String"
+      }
+    }
+  },
+  "verseHint": "Double tap to keep. Press and hold to listen.",
+  "walkEyebrow": "WALK  ·  STEP {n} OF 2",
+  "@walkEyebrow": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "speakerSaysTo": "{speaker} says to {listener}:",
+  "@speakerSaysTo": {
+    "placeholders": {
+      "speaker": {
+        "type": "String"
+      },
+      "listener": {
+        "type": "String"
+      }
+    }
+  },
+  "speakerSays": "{speaker} says:",
+  "@speakerSays": {
+    "placeholders": {
+      "speaker": {
+        "type": "String"
+      }
+    }
+  },
+  "chantSemantic": "Chant along. Press and hold the ring. Activate to chant it all.",
+  "releaseToPause": "RELEASE TO PAUSE",
+  "holdToChant": "HOLD AND CHANT WITH THE VERSE",
+  "meetsHead": "WHERE DOES THIS MEET YOU TODAY?",
+  "meetsLine1": "A task I am afraid to begin",
+  "meetsLine2": "A result I cannot control",
+  "meetsLine3": "What others will think",
+  "thisOne": "This one",
+  "stepWalkedCaps": "STEP WALKED",
+  "lampIsLit": "The lamp is lit.",
+  "mokshPointsCaps": "MOKSH POINTS",
+  "dayAndLamps": "Day {day}  ·  {lit, plural, =1{one lamp} other{{lit} lamps}} this week",
+  "@dayAndLamps": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "lit": {
+        "type": "int"
+      }
+    }
+  },
+  "shareStreak": "Share your streak",
+  "checkpointCaps": "CHECKPOINT",
+  "finishVerseTitle": "Finish the verse",
+  "skipForToday": "Skip for today",
+  "finishedVerse": "You finished the verse.",
+  "sayTheLine": "Say the second line, or tap it.",
+  "hiddenLineSemantic": "Hidden line, {n} of {total} words shown. Activate to reveal the next word.",
+  "@hiddenLineSemantic": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "stopListening": "Stop listening",
+  "speakSecondLine": "Speak the second line",
+  "tapToSpeakCaps": "TAP TO SPEAK",
+  "shareThisLight": "Share this light",
+  "daysUnbroken": "days, unbroken.",
+  "msWeek": "A week of light",
+  "msMonth": "A month of light",
+  "msHundred": "A hundred lamps",
+  "msYear": "A year of light",
+  "msDays": "Days of light",
+  "msLine7": "Practise, and the mind\ngrows steady.",
+  "msLine30": "Each time the mind wanders,\nbring it gently back.",
+  "msLine100": "Steady in success and failure.\nThat evenness is yoga.",
+  "msLine365": "Whatever you do,\ndo it as an offering.",
+  "keptCount": "{n} kept",
+  "@keptCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "nothingKept": "Nothing kept yet.",
+  "keptEmptyLine": "Double-tap a verse to keep it here.",
+  "goDeeperCaps": "GO DEEPER",
+  "inEnglish": "In English",
+  "inHindi": "In Hindi",
+  "whoSpeaks": "Who speaks",
+  "whoSpeaksText": "{speaker}, to {listener}.",
+  "@whoSpeaksText": {
+    "placeholders": {
+      "speaker": {
+        "type": "String"
+      },
+      "listener": {
+        "type": "String"
+      }
+    }
+  },
+  "whereSits": "Where it sits",
+  "whereSitsText": "{ref}, {yoga}.",
+  "@whereSitsText": {
+    "placeholders": {
+      "ref": {
+        "type": "String"
+      },
+      "yoga": {
+        "type": "String"
+      }
+    }
+  },
+  "verseRef": "Adhyay {chapter} · Shloka {number}",
+  "@verseRef": {
+    "placeholders": {
+      "chapter": {
+        "type": "int"
+      },
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "whereMeetsLife": "Where it meets life",
+  "shareThisLightCaps": "SHARE THIS LIGHT",
+  "layoutNight": "Temple night",
+  "layoutIvory": "Morning ivory",
+  "layoutArch": "Temple arch",
+  "layoutLampNight": "Lamp, night",
+  "layoutLampMorning": "Lamp, morning",
+  "cardSemantic": "{label} card",
+  "@cardSemantic": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "preparing": "Preparing",
+  "shareCardSemantic": "Share the {label} card as an image",
+  "@shareCardSemantic": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "shareTextStreak": "{n} days of light with the Bhagavad Gita. {app}",
+  "@shareTextStreak": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "app": {
+        "type": "String"
+      }
+    }
+  },
+  "shareTextVerse": "Bhagavad Gita {id}: {meaning} {app}",
+  "@shareTextVerse": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      },
+      "meaning": {
+        "type": "String"
+      },
+      "app": {
+        "type": "String"
+      }
+    }
+  },
+  "cardSpeaker": "{speaker} to {listener}  ·  {yoga}",
+  "@cardSpeaker": {
+    "placeholders": {
+      "speaker": {
+        "type": "String"
+      },
+      "listener": {
+        "type": "String"
+      },
+      "yoga": {
+        "type": "String"
+      }
+    }
+  },
+  "dayOfLight": "day of light.",
+  "daysOfLightDot": "days of light.",
+  "fiveAdayThenRest": "Five verses a day, then rest.",
+  "month1": "Jan",
+  "month2": "Feb",
+  "month3": "Mar",
+  "month4": "Apr",
+  "month5": "May",
+  "month6": "Jun",
+  "month7": "Jul",
+  "month8": "Aug",
+  "month9": "Sep",
+  "month10": "Oct",
+  "month11": "Nov",
+  "month12": "Dec",
+  "dayMonth": "{day} {month}",
+  "@dayMonth": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "month": {
+        "type": "String"
+      }
+    }
+  },
+  "dayToday": "Today",
+  "dayYesterday": "Yesterday",
+  "walletPromise": "They only go up.\nNothing here is for sale.",
+  "howTheyCameCaps": "HOW THEY CAME",
+  "firstPoints": "Your first points come with today's five verses.",
+  "reasonHear": "Five verses heard",
+  "reasonWalk": "One step walked",
+  "reasonSpeak": "Spoke your mind",
+  "reasonSankalp": "Looked back on a Sankalp",
+  "plusSemantic": "plus {n}",
+  "@plusSemantic": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "waitingSemantic": "{n} waiting",
+  "@waitingSemantic": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "todaysLightCaps": "TODAY'S LIGHT",
+  "pointsToday": "Moksh Points today",
+  "noMorePoints": "No more points today. Just peace.",
+  "oncePerDay": "Each step gives its points once a day.",
+  "yatraTitle": "Gita Yatra",
+  "yatraChapterOf": "Adhyaya {n} of 18",
+  "@yatraChapterOf": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "stoneToday": "Today: {yoga}, {id}",
+  "@stoneToday": {
+    "placeholders": {
+      "yoga": {
+        "type": "String"
+      },
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "stoneN": "Stone {n}",
+  "@stoneN": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "stoneNCheckpoint": "Stone {n}, checkpoint",
+  "@stoneNCheckpoint": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "todayCaps": "TODAY",
+  "yogaAndId": "{yoga} · {id}",
+  "@yogaAndId": {
+    "placeholders": {
+      "yoga": {
+        "type": "String"
+      },
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "intentionGrief": "Tell one person something you remember with love.",
+  "intentionLoss": "Keep one small thing that still connects you.",
+  "intentionFear": "Do the first small part of what you fear.",
+  "intentionAnxiety": "Do one task fully, then let the result go.",
+  "intentionAnger": "Wait one breath before you answer today.",
+  "intentionEnvy": "Say one honest good word about someone else.",
+  "intentionComparison": "Notice one thing you did well, without comparing.",
+  "intentionPride": "Ask one person for their advice today.",
+  "intentionDesire": "Let one want pass without acting on it.",
+  "intentionGreed": "Give one thing away without counting it.",
+  "intentionRestlessness": "Sit still for two minutes before your phone.",
+  "intentionDoubt": "Take one step before you have every answer.",
+  "intentionSelfDoubt": "Finish one small thing you said you would.",
+  "intentionConfusion": "Write down the one choice that matters today.",
+  "intentionLoneliness": "Send one message to someone you miss.",
+  "intentionBurnout": "Rest for ten minutes without guilt.",
+  "intentionFailure": "Try the thing once more, a little smaller.",
+  "intentionSuccess": "Thank one person who helped you get here.",
+  "intentionExamStress": "Study one topic fully, then close the book.",
+  "intentionWorkPressure": "Do one task fully, without checking the result.",
+  "intentionDutyConflict": "Do the duty in front of you, well.",
+  "intentionProcrastination": "Start the task for five minutes only.",
+  "intentionPerfectionism": "Finish one thing and let it be enough.",
+  "intentionFocus": "Do one thing at a time for an hour.",
+  "intentionDiscipline": "Keep one small promise to yourself.",
+  "intentionHabits": "Do the good habit once, at the same time.",
+  "intentionPatience": "Let one thing take the time it takes.",
+  "intentionEquanimity": "Meet one good and one hard moment the same.",
+  "intentionDetachment": "Do your best and leave the result.",
+  "intentionForgiveness": "Let go of one old hurt, just for today.",
+  "intentionCompassion": "Do one quiet kindness no one will see.",
+  "intentionKindness": "Do one quiet kindness no one will see.",
+  "intentionGratitude": "Name three things you are grateful for tonight.",
+  "intentionHumility": "Listen fully before you speak, once today.",
+  "intentionFaith": "Begin your work with one quiet breath.",
+  "intentionSurrender": "Hand one worry over, and do your part.",
+  "intentionPurpose": "Do one thing today that matters to you.",
+  "intentionMortality": "Spend ten minutes on what truly matters.",
+  "intentionChange": "Welcome one small change without resisting.",
+  "intentionSelfWorth": "Speak to yourself once as a friend would.",
+  "intentionSpeech": "Say only what is true and kind today.",
+  "intentionContentment": "Enjoy one simple thing without wanting more.",
+  "intentionPeace": "Put the phone down ten minutes before sleep.",
+  "intentionHope": "Do one small thing for tomorrow, tonight.",
+  "intentionLearning": "Read one verse again, slowly.",
+  "intentionDefault": "Do one task fully, then let the result go.",
+  "wasAfraid": "who was afraid",
+  "wasGrieving": "who was grieving",
+  "wasLost": "who did not know what to do",
+  "wasDoubtful": "who was full of doubt",
+  "wasTorn": "who was torn about his duty",
+  "wasHeartLost": "who had lost heart",
+  "toldPlain": "{speaker} told {listener}:",
+  "@toldPlain": {
+    "placeholders": {
+      "speaker": {
+        "type": "String"
+      },
+      "listener": {
+        "type": "String"
+      }
+    }
+  },
+  "toldWas": "{speaker} told {listener}, {was}:",
+  "@toldWas": {
+    "placeholders": {
+      "speaker": {
+        "type": "String"
+      },
+      "listener": {
+        "type": "String"
+      },
+      "was": {
+        "type": "String"
+      }
+    }
+  },
+  "mannCaps": "MANN DARPAN",
+  "mannAnswerTop": "A verse heard you",
+  "mannAskTonight": "How is your mind\ntonight?",
+  "mannAskToday": "How is your mind\ntoday?",
+  "mannTapSpeak": "Tap, and speak for as long as you need.",
+  "typeInstead": "Type instead",
+  "mannListening": "Listening.",
+  "mannSpeakPrivate": "Speak. Only you will hear this.",
+  "done": "Done",
+  "mannTypingTitle": "In a few words,\nwhat is on your mind?",
+  "hearYourself": "Hear yourself first",
+  "mannHint": "I have an interview tomorrow and I keep thinking...",
+  "mannStays": "Stays on this phone. Nothing is sent anywhere.",
+  "letVerseAnswer": "Let a verse answer",
+  "intentTonight": "Tonight: {text}",
+  "@intentTonight": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "intentToday": "Today: {text}",
+  "@intentToday": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "sealAsSankalp": "Seal as my Sankalp",
+  "notToday": "Not today",
+  "mannOrbSemantic": "Speak. Tap to start.",
+  "sealIt": "Seal it",
+  "sealedTitle": "Sealed.",
+  "lookBackTomorrow": "Look back on it tomorrow.",
+  "sealSankalpCaps": "SEAL A SANKALP",
+  "oneSmallIntention": "One small intention.",
+  "fromGitaChange": "From Gita {id}. Change a word if you like.",
+  "@fromGitaChange": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "sealSankalpSemantic": "Seal this Sankalp",
+  "keptIt": "I kept it",
+  "letItGo": "I let it go",
+  "replyKept": "Kept. That is how a habit grows.",
+  "replyLetGo": "Let go. Today is a fresh start.",
+  "yourSankalpCaps": "YOUR SANKALP",
+  "festival1": "Vasant Panchami",
+  "festival2": "Maha Shivaratri",
+  "festival3": "Holika Dahan",
+  "festival4": "Ugadi and Gudi Padwa",
+  "festival5": "Ram Navami",
+  "festival6": "Hanuman Jayanti",
+  "festival7": "Akshaya Tritiya",
+  "festival8": "Rath Yatra",
+  "festival9": "Guru Purnima",
+  "festival10": "Raksha Bandhan",
+  "festival11": "Janmashtami",
+  "festival12": "Ganesh Chaturthi",
+  "festival13": "Radha Ashtami",
+  "festival14": "Anant Chaturdashi",
+  "festival15": "Navratri begins",
+  "festival16": "Durga Ashtami",
+  "festival17": "Maha Navami",
+  "festival18": "Vijayadashami",
+  "festival19": "Sharad Purnima",
+  "festival20": "Karva Chauth",
+  "festival21": "Dhanteras",
+  "festival22": "Naraka Chaturdashi",
+  "festival23": "Diwali",
+  "festival24": "Govardhan Puja",
+  "festival25": "Bhai Dooj",
+  "festival26": "Tulsi Vivah",
+  "festival27": "Dev Deepawali",
+  "festival28": "Makar Sankranti",
+  "festival29": "Gita Jayanti",
+  "festival30": "Holi",
+  "festivalFallback": "Festival",
+  "weekday1": "Monday",
+  "weekday2": "Tuesday",
+  "weekday3": "Wednesday",
+  "weekday4": "Thursday",
+  "weekday5": "Friday",
+  "weekday6": "Saturday",
+  "weekday7": "Sunday",
+  "weekdayShort1": "Mon",
+  "weekdayShort2": "Tue",
+  "weekdayShort3": "Wed",
+  "weekdayShort4": "Thu",
+  "weekdayShort5": "Fri",
+  "weekdayShort6": "Sat",
+  "weekdayShort7": "Sun",
+  "dayTomorrow": "Tomorrow",
+  "whenOnDay": "on {day}",
+  "@whenOnDay": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "clockAt": "{period, select, nightEarly{{t} am} morning{{t} am} noon{{t} pm} evening{{t} pm} night{{t} pm} other{{t}}}",
+  "@clockAt": {
+    "placeholders": {
+      "period": {
+        "type": "String"
+      },
+      "t": {
+        "type": "String"
+      }
+    }
+  },
+  "ritualDailyGita": "Daily Gita",
+  "ritualSandhya": "Morning sandhya",
+  "ritualDiya": "Evening diya",
+  "ritualEkadashi": "Ekadashi",
+  "ritualPurnima": "Purnima",
+  "ritualAmavasya": "Amavasya",
+  "ritualPradosh": "Pradosh",
+  "ritualSankashti": "Sankashti",
+  "ritualFestivals": "Festivals",
+  "meaningDailyGita": "Five verses from the Gita, at the hour you chose.",
+  "meaningSandhya": "A quiet minute to greet the sun as it rises.",
+  "meaningDiya": "A soft reminder to light a lamp as the day ends.",
+  "meaningEkadashi": "Ekadashi is the eleventh day of the moon. Many people fast. We also tell you when to eat again. That is called parana.",
+  "meaningPurnima": "Purnima is the night the moon is full and round.",
+  "meaningAmavasya": "Amavasya is the night with no moon. A time to remember family who came before.",
+  "meaningPradosh": "Pradosh is dusk on the thirteenth day of the moon, kept for Shiva.",
+  "meaningSankashti": "Sankashti is a fast for Ganesha. It ends when the moon rises.",
+  "meaningFestivals": "Big days like Diwali and Holi, on the right date for your city.",
+  "deityNone": "None",
+  "deityShiva": "Shiva, Monday",
+  "deityHanuman": "Hanuman, Tuesday",
+  "deityVishnu": "Vishnu or Guru, Thursday",
+  "deityShani": "Shani, Saturday",
+  "deityMeaningNone": "No special day for now.",
+  "deityMeaningShiva": "Monday is for Shiva. A lamp at sunset.",
+  "deityMeaningHanuman": "Tuesday is for Hanuman. The Chalisa in the morning.",
+  "deityMeaningVishnu": "Thursday is for Vishnu, the teacher of teachers.",
+  "deityMeaningShani": "Saturday is for Shani. A quiet lamp at sunset.",
+  "noteGita": "Five verses are ready. Take your time.",
+  "noteSandhya": "Sunrise at {time}. A quiet minute for the morning sandhya, if you like.",
+  "@noteSandhya": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "noteDiya": "Sunset at {time}. The evening lamp, whenever you are ready.",
+  "@noteDiya": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "noteShiva": "Monday. A lamp for Shiva at sunset, {time}, if you like.",
+  "@noteShiva": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "noteHanuman": "Tuesday. The Chalisa this morning, if you like.",
+  "noteVishnu": "Thursday. A lamp for Vishnu at sunset, {time}, if you like.",
+  "@noteVishnu": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "noteShani": "Saturday. A quiet lamp at sunset, {time}, if you like.",
+  "@noteShani": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "notePurnima": "Purnima tonight. The full moon rises near sunset.",
+  "noteAmavasya": "Amavasya today. A lamp for those who came before, if you like.",
+  "notePradosh": "Pradosh today. Pradosh kaal {range}.",
+  "@notePradosh": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "noteSankashti": "Sankashti tonight. Moonrise {time}.",
+  "@noteSankashti": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "noteFestival": "{name} is today. A quiet, bright day to you.",
+  "@noteFestival": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "noteEkadashi": "Ekadashi{rule} begins at sunrise. Break the fast {when} {range}.",
+  "@noteEkadashi": {
+    "placeholders": {
+      "rule": {
+        "type": "String"
+      },
+      "when": {
+        "type": "String"
+      },
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "noteParana": "Parana window: {range}. Break the fast gently.",
+  "@noteParana": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "labelEkadashiRule": "Ekadashi ({rule})",
+  "@labelEkadashiRule": {
+    "placeholders": {
+      "rule": {
+        "type": "String"
+      }
+    }
+  },
+  "labelParana": "Parana {range}",
+  "@labelParana": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "labelPradosh": "Pradosh {range}",
+  "@labelPradosh": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "ruleSuffix": " ({rule})",
+  "@ruleSuffix": {
+    "placeholders": {
+      "rule": {
+        "type": "String"
+      }
+    }
+  },
+  "notifChannel": "Ritual reminders",
+  "notifChannelDesc": "Quiet reminders for the rituals you chose.",
+  "practiceTitle": "Your practice",
+  "practiceRebuild": "Build my practice again",
+  "allReminders": "All reminders",
+  "nextNote": "Next: {when}",
+  "@nextNote": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "changeHour": "Change the hour",
+  "turnOff": "Turn this off",
+  "practiceIntro": "What we remind you of, and when. Tap one to see what it means.",
+  "nothingOn": "Nothing is on yet.",
+  "allRemindersWhy": "Every switch, one by one. For when you know just what you want.",
+  "hourSheetWhy": "Your five verses wait for you at this hour.",
+  "verseHour": "Verse hour",
+  "weekdayLamp": "A weekday lamp",
+  "savePractice": "Save my practice",
+  "itemAtTime": "{label}, {time}",
+  "@itemAtTime": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "ritualSemantic": "{label}. {meaning}",
+  "@ritualSemantic": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "meaning": {
+        "type": "String"
+      }
+    }
+  },
+  "traditionCaps": "SMARTA AND VAISHNAVA",
+  "traditionExplTitle": "Two ways to keep Ekadashi",
+  "traditionTithi": "The moon has its own days. Each one is called a tithi. A tithi does not start at midnight. It can start at any hour.",
+  "traditionEkadashi": "Ekadashi is the eleventh tithi. Dashami, the tenth, comes just before it.",
+  "traditionSmartaRule": "Fast on the day Ekadashi is there when the sun rises.",
+  "traditionVaishnavaRule": "Ekadashi must be clean from dawn, about an hour and a half before sunrise. If Dashami is still there at dawn, fast the next day.",
+  "traditionSame": "Most months, both fall on the same day.",
+  "traditionUnsureLine": "Not sure? Follow what your family does. You can change this later.",
+  "traditionRare": "In a few months the moon moves fast and other rules decide. Our dates match Drik Panchang where we checked.",
+  "gotIt": "Got it",
+  "timelineSemantic": "Two sunrises. Dashami ends after dawn on day 1. The Smarta lamp stays on day 1. The Vaishnava lamp moves to day 2.",
+  "tlDashami": "DASHAMI",
+  "tlEkadashi": "EKADASHI",
+  "tlDvadashi": "DVADASHI",
+  "tlDay1": "DAY 1",
+  "tlDay2": "DAY 2",
+  "tlDawn": "DAWN",
+  "tlSmarta": "SMARTA",
+  "tlVaishnava": "VAISHNAVA",
+  "clockRange": "{same, select, yes{{aBare}-{bFull}} other{{aFull}-{bFull}}}",
+  "@clockRange": {
+    "placeholders": {
+      "same": {
+        "type": "String"
+      },
+      "aBare": {
+        "type": "String"
+      },
+      "aFull": {
+        "type": "String"
+      },
+      "bFull": {
+        "type": "String"
+      }
+    }
+  },
+  "nameLead": "{name}.  ",
+  "@nameLead": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }

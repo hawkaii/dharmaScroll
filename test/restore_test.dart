@@ -75,7 +75,7 @@ Future<void> _pump(WidgetTester tester, SharedPreferences prefs) async {
 /// Taps Share and lets the real PNG encoder run outside the fake clock.
 Future<void> _shareNow(WidgetTester tester) async {
   await tester.runAsync(() async {
-    await tester.tap(find.text(ShareSheet.shareLabel));
+    await tester.tap(find.text(en.shareLabel));
     for (int i = 0; i < 20; i++) {
       await Future<void>.delayed(const Duration(milliseconds: 50));
     }
@@ -137,7 +137,7 @@ void main() {
       scrollable: find.byType(Scrollable).last,
     );
     expect(find.text('GO DEEPER'), findsOneWidget);
-    await tester.tap(find.text(VerseScreen.shareLabel));
+    await tester.tap(find.text(en.shareVerse));
     await tester.pumpAndSettle();
     await _shareNow(tester);
     expect(share.calls.single.$2, 'dharmascroll-gita-2-47');
@@ -171,17 +171,17 @@ void main() {
     await tester.tap(find.text('This one'));
     await tester.pumpAndSettle();
     expect(find.text('The lamp is lit.'), findsOneWidget);
-    expect(find.text(CompleteScreen.shareLabel), findsOneWidget);
+    expect(find.text(en.shareStreak), findsOneWidget);
 
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
     expect(find.text('7'), findsOneWidget);
-    expect(find.text(MilestoneScreen.title), findsOneWidget);
+    expect(find.text(en.daysUnbroken), findsOneWidget);
     expect(find.text('A WEEK OF LIGHT'), findsOneWidget);
     expect(prefs.getStringList('p.ms'), contains('7'));
     expect(prefs.getInt('p.streak'), 7);
 
-    await tester.tap(find.text(MilestoneScreen.shareLabel));
+    await tester.tap(find.text(en.shareThisLight));
     await tester.pumpAndSettle();
     expect(find.text('Lamp, night'), findsOneWidget);
     await _shareNow(tester);
@@ -229,28 +229,28 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('MANN DARPAN'), findsOneWidget);
 
-    await tester.tap(find.text(MannScreen.typeLabel));
+    await tester.tap(find.text(en.typeInstead));
     await tester.pumpAndSettle();
     await tester.enterText(
       find.byType(TextField),
       'I have an interview tomorrow and I am scared I will fail',
     );
     await tester.pumpAndSettle();
-    await tester.tap(find.text(MannScreen.answerLabel));
+    await tester.tap(find.text(en.letVerseAnswer));
     await tester.pumpAndSettle();
-    expect(find.text(MannScreen.answerTop.toUpperCase()), findsOneWidget);
+    expect(find.text(en.mannAnswerTop.toUpperCase()), findsOneWidget);
     expect(find.textContaining('told Arjuna'), findsOneWidget);
 
-    await tester.tap(find.text(MannScreen.sealLabel));
+    await tester.tap(find.text(en.sealAsSankalp));
     await tester.pumpAndSettle();
     expect(find.text('One small intention.'), findsOneWidget);
     await tester.enterText(
       find.byType(TextField).last,
       'Prepare one answer, then rest.',
     );
-    await tester.tap(find.text(SankalpSheet.sealLabel));
+    await tester.tap(find.text(en.sealIt));
     await tester.pump();
-    expect(find.text(SankalpSheet.sealedTitle), findsOneWidget);
+    expect(find.text(en.sealedTitle), findsOneWidget);
     await tester.pump(const Duration(seconds: 2));
     await tester.pumpAndSettle();
 
@@ -266,18 +266,18 @@ void main() {
     await _pump(tester, prefs);
     await tester.tap(find.text(en.todayContinue));
     await tester.pumpAndSettle();
-    await tester.tap(find.text(MannScreen.typeLabel));
+    await tester.tap(find.text(en.typeInstead));
     await tester.pumpAndSettle();
     await tester.enterText(
       find.byType(TextField),
       'exam kal hai, I just want to die',
     );
     await tester.pumpAndSettle();
-    await tester.tap(find.text(MannScreen.answerLabel));
+    await tester.tap(find.text(en.letVerseAnswer));
     await tester.pumpAndSettle();
     expect(find.text(CrisisScreen.title), findsOneWidget);
     expect(find.text(CrisisScreen.callLabel), findsOneWidget);
-    expect(find.text(MannScreen.answerTop.toUpperCase()), findsNothing);
+    expect(find.text(en.mannAnswerTop.toUpperCase()), findsNothing);
     // No points and no step for a crisis.
     expect(prefs.getStringList('p.steps'), isNot(contains('speak')));
     // Let the tanpura fade-out timer finish.
@@ -308,7 +308,7 @@ void main() {
     });
     await _pump(tester, prefs);
     expect(find.text('Do one task fully.'), findsOneWidget);
-    await tester.tap(find.text(SankalpLookBack.letGoLabel));
+    await tester.tap(find.text(en.letItGo));
     await tester.pumpAndSettle();
     expect(find.textContaining('fresh start'), findsOneWidget);
     expect(prefs.getBool('sk.kept'), isFalse);
@@ -329,11 +329,11 @@ void main() {
     await _pump(tester, prefs);
     await tester.tap(find.text(en.todayContinue));
     await tester.pumpAndSettle();
-    expect(find.text(FinishVerse.title), findsOneWidget);
-    expect(find.text(FinishVerse.skipLabel), findsNothing);
+    expect(find.text(en.finishVerseTitle), findsOneWidget);
+    expect(find.text(en.skipForToday), findsNothing);
     await tester.pump(FinishVerse.skipAfter);
     await tester.pump();
-    expect(find.text(FinishVerse.skipLabel), findsOneWidget);
+    expect(find.text(en.skipForToday), findsOneWidget);
 
     final Finder hidden = find.bySemanticsLabel(RegExp('^Hidden line'));
     for (int i = 0; i < 12 && hidden.evaluate().isNotEmpty; i++) {

@@ -7,6 +7,7 @@ import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
 import '../../features/explain/explain_sheet.dart';
+import '../../l10n/l10n.dart';
 import '../hear/hear_screen.dart' show meaningOf;
 import '../share/share_card.dart';
 import '../share/share_sheet.dart';
@@ -16,8 +17,6 @@ import 'kept_screen.dart' show BackMark;
 /// with the other language, who speaks, the chapter and where it meets life.
 class VerseScreen extends ConsumerWidget {
   const VerseScreen({super.key, required this.id});
-
-  static const String shareLabel = 'Share this verse';
 
   final String id;
 
@@ -34,6 +33,7 @@ class VerseScreen extends ConsumerWidget {
     );
     final String meaning = meaningOf(v, lang);
     final bool hindi = lang == Language.hindi;
+    final AppLocalizations l = context.l;
     return Scaffold(
       backgroundColor: c.bg,
       body: Backdrop(
@@ -51,7 +51,10 @@ class VerseScreen extends ConsumerWidget {
                   children: <Widget>[
                     const BackMark(),
                     Expanded(
-                      child: TopLine(left: 'Gita ${v.id}', right: v.yogaName),
+                      child: TopLine(
+                        left: l.gitaRef(v.id),
+                        right: l.yoga(v.chapter),
+                      ),
                     ),
                   ],
                 ),
@@ -92,26 +95,31 @@ class VerseScreen extends ConsumerWidget {
                       style: DType.meaning(c.ink),
                     ),
                     const SizedBox(height: Sp.s34),
-                    Text('GO DEEPER', style: DType.eyebrow(c.accent)),
+                    Text(l.goDeeperCaps, style: DType.eyebrow(c.accent)),
                     const SizedBox(height: Sp.s12),
                     ExplainLink(verse: v),
                     const SizedBox(height: Sp.s12),
                     _Deeper(
-                      label: hindi ? 'In English' : 'In Hindi',
+                      label: hindi ? l.inEnglish : l.inHindi,
                       text: hindi ? v.meaningEn : v.meaningHi,
                     ),
                     _Deeper(
-                      label: 'Who speaks',
-                      text: '${v.speaker}, to ${v.listener}.',
+                      label: l.whoSpeaks,
+                      text: l.whoSpeaksText(
+                        l.person(v.speaker),
+                        l.person(v.listener),
+                      ),
                     ),
                     _Deeper(
-                      label: 'Where it sits',
-                      text: '${v.ref}, ${v.yogaName}.',
+                      label: l.whereSits,
+                      text: l.whereSitsText(
+                        l.verseRef(v.chapter, v.number),
+                        l.yoga(v.chapter),
+                      ),
                     ),
                     _Deeper(
-                      label: 'Where it meets life',
-                      text:
-                          '${v.tags.map((String t) => t.replaceAll('-', ' ')).join(', ')}.',
+                      label: l.whereMeetsLife,
+                      text: '${v.tags.map(l.tag).join(', ')}.',
                     ),
                   ],
                 ),
@@ -124,7 +132,7 @@ class VerseScreen extends ConsumerWidget {
                   Sp.s14,
                 ),
                 child: PrimaryButton(
-                  label: shareLabel,
+                  label: l.shareVerse,
                   onPressed: () => showShareSheet(
                     context,
                     ShareContent(verse: v, meaning: meaning),

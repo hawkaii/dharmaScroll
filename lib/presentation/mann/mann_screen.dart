@@ -18,6 +18,7 @@ import '../../core/state/settings.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../../l10n/l10n.dart';
 import '../hear/hear_screen.dart' show meaningOf;
 import '../sankalp/sankalp_sheet.dart';
 
@@ -28,12 +29,6 @@ enum _Phase { ask, listening, typing, answer }
 /// Crisis words go to the crisis screen before anything else.
 class MannScreen extends ConsumerStatefulWidget {
   const MannScreen({super.key});
-
-  static const String typeLabel = 'Type instead';
-  static const String answerLabel = 'Let a verse answer';
-  static const String sealLabel = 'Seal as my Sankalp';
-  static const String notTodayLabel = 'Not today';
-  static const String answerTop = 'A verse heard you';
 
   @override
   ConsumerState<MannScreen> createState() => _MannScreenState();
@@ -154,8 +149,8 @@ class _MannScreenState extends ConsumerState<MannScreen> {
   }
 
   /// For what was heard first; else for the verse.
-  static String _intention(VerseMatch m) =>
-      kIntentions[m.tag] ?? intentionFor(m.verse);
+  String _intention(VerseMatch m) =>
+      context.l.intentionFor(<String>[?m.tag, ...m.verse.tags]);
 
   void _finish() {
     ref.read(progressProvider.notifier).completeStep(RitualStep.speak);
@@ -220,16 +215,16 @@ class _MannScreenState extends ConsumerState<MannScreen> {
                         Expanded(
                           child: Center(
                             child: Text(switch (_phase) {
-                              _Phase.ask || _Phase.typing => 'MANN DARPAN',
-                              _Phase.listening => 'LISTENING',
+                              _Phase.ask || _Phase.typing => context.l.mannCaps,
+                              _Phase.listening => context.l.listeningCaps,
                               _Phase.answer =>
-                                MannScreen.answerTop.toUpperCase(),
+                                context.l.mannAnswerTop.toUpperCase(),
                             }, style: DType.eyebrow(c.faint)),
                           ),
                         ),
                         Semantics(
                           button: true,
-                          label: 'Close',
+                          label: context.l.close,
                           excludeSemantics: true,
                           onTap: () => context.go(Routes.today),
                           child: GestureDetector(
@@ -292,7 +287,7 @@ class _MannScreenState extends ConsumerState<MannScreen> {
         Semantics(
           header: true,
           child: Text(
-            'How is your mind\n${_night ? 'tonight' : 'today'}?',
+            _night ? context.l.mannAskTonight : context.l.mannAskToday,
             textAlign: TextAlign.center,
             style: DType.title(c.ink),
           ),
@@ -301,13 +296,13 @@ class _MannScreenState extends ConsumerState<MannScreen> {
         _Orb(onTap: _tapOrb),
         const SizedBox(height: Sp.s34),
         Text(
-          'Tap, and speak for as long as you need.',
+          context.l.mannTapSpeak,
           textAlign: TextAlign.center,
           style: DType.body(c.mute, size: 16),
         ),
         const Spacer(),
         TextAction(
-          label: MannScreen.typeLabel,
+          label: context.l.typeInstead,
           onPressed: () => setState(() => _phase = _Phase.typing),
         ),
       ],
@@ -316,8 +311,8 @@ class _MannScreenState extends ConsumerState<MannScreen> {
 
   Widget _listening(DharmaColors c) {
     final String shown = _speech
-        ? (_words.isEmpty ? 'Listening.' : '"$_words"')
-        : 'Speak. Only you will hear this.';
+        ? (_words.isEmpty ? context.l.mannListening : '"$_words"')
+        : context.l.mannSpeakPrivate;
     return Column(
       children: <Widget>[
         const Spacer(),
@@ -335,7 +330,11 @@ class _MannScreenState extends ConsumerState<MannScreen> {
         const SizedBox(height: 50),
         const _Bars(),
         const Spacer(),
-        PrimaryButton(label: 'Done', voice: true, onPressed: _doneListening),
+        PrimaryButton(
+          label: context.l.done,
+          voice: true,
+          onPressed: _doneListening,
+        ),
         const SizedBox(height: Sp.s6),
       ],
     );
@@ -352,7 +351,7 @@ class _MannScreenState extends ConsumerState<MannScreen> {
         Semantics(
           header: true,
           child: Text(
-            'In a few words,\nwhat is on your mind?',
+            context.l.mannTypingTitle,
             textAlign: TextAlign.center,
             style: DType.title(c.ink, compact: true),
           ),
@@ -360,7 +359,7 @@ class _MannScreenState extends ConsumerState<MannScreen> {
         if (_notePath != null) ...<Widget>[
           const SizedBox(height: Sp.s12),
           TextAction(
-            label: 'Hear yourself first',
+            label: context.l.hearYourself,
             onPressed: () => _recorder?.play(_notePath!),
           ),
         ],
@@ -376,7 +375,7 @@ class _MannScreenState extends ConsumerState<MannScreen> {
           style: DType.body(c.ink, size: 20),
           decoration: InputDecoration(
             counterText: '',
-            hintText: 'I have an interview tomorrow and I keep thinking...',
+            hintText: context.l.mannHint,
             hintStyle: DType.body(c.faint, size: 18),
             filled: true,
             fillColor: c.surface,
@@ -390,13 +389,13 @@ class _MannScreenState extends ConsumerState<MannScreen> {
         ),
         const SizedBox(height: Sp.s12),
         Text(
-          'Stays on this phone. Nothing is sent anywhere.',
+          context.l.mannStays,
           textAlign: TextAlign.center,
           style: DType.body(c.faint, size: 15),
         ),
         const SizedBox(height: Sp.s22),
         PrimaryButton(
-          label: MannScreen.answerLabel,
+          label: context.l.letVerseAnswer,
           onPressed: _typed.text.trim().isEmpty
               ? null
               : () => _answer(_typed.text),
@@ -420,7 +419,7 @@ class _MannScreenState extends ConsumerState<MannScreen> {
               ),
               const SizedBox(height: Sp.s12),
               Text(
-                m.attribution,
+                m.attribution(context.l),
                 textAlign: TextAlign.center,
                 style: DType.body(c.peacock, size: 16),
               ),
@@ -450,7 +449,12 @@ class _MannScreenState extends ConsumerState<MannScreen> {
                 style: DType.meaning(c.ink).copyWith(fontSize: 20),
               ),
               const SizedBox(height: Sp.s12),
-              Center(child: Text('GITA ${v.id}', style: DType.ref(c.faint))),
+              Center(
+                child: Text(
+                  context.l.gitaRefCaps(v.id),
+                  style: DType.ref(c.faint),
+                ),
+              ),
               const SizedBox(height: Sp.s22),
               Container(
                 padding: const EdgeInsets.only(top: Sp.s14),
@@ -458,7 +462,9 @@ class _MannScreenState extends ConsumerState<MannScreen> {
                   border: Border(top: BorderSide(color: c.line)),
                 ),
                 child: Text(
-                  '${_night ? 'Tonight' : 'Today'}: ${_intention(m)}',
+                  _night
+                      ? context.l.intentTonight(_intention(m))
+                      : context.l.intentToday(_intention(m)),
                   textAlign: TextAlign.center,
                   style: DType.body(c.ink, size: 17),
                 ),
@@ -467,8 +473,8 @@ class _MannScreenState extends ConsumerState<MannScreen> {
           ),
         ),
         const SizedBox(height: Sp.s12),
-        PrimaryButton(label: MannScreen.sealLabel, onPressed: _seal),
-        TextAction(label: MannScreen.notTodayLabel, onPressed: _finish),
+        PrimaryButton(label: context.l.sealAsSankalp, onPressed: _seal),
+        TextAction(label: context.l.notToday, onPressed: _finish),
       ],
     );
   }
@@ -511,7 +517,7 @@ class _OrbState extends State<_Orb> with SingleTickerProviderStateMixin {
     final DharmaColors c = context.c;
     return Semantics(
       button: true,
-      label: 'Speak. Tap to start.',
+      label: context.l.mannOrbSemantic,
       excludeSemantics: true,
       onTap: widget.onTap,
       child: GestureDetector(

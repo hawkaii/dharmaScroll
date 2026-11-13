@@ -319,5 +319,851 @@
   "dataInfo2": "आप जो बोलते हैं, वह कहीं रखा नहीं जाता। सुना जाता है, फिर छोड़ दिया जाता है।",
   "dataInfo3": "साइन इन अभी सिर्फ़ दिखावटी है। कुछ भी इस फ़ोन से बाहर नहीं जाता।",
   "dataLine": "आपकी प्रगति इसी फ़ोन में रहती है। आप जो बोलते हैं, वह रखा नहीं जाता।",
-  "signOut": "साइन आउट"
+  "signOut": "साइन आउट",
+  "personKrishna": "श्रीकृष्ण",
+  "personArjuna": "अर्जुन",
+  "personSanjaya": "संजय",
+  "personDhritarashtra": "धृतराष्ट्र",
+  "yoga1": "अर्जुनविषादयोग",
+  "yoga2": "सांख्ययोग",
+  "yoga3": "कर्मयोग",
+  "yoga4": "ज्ञानकर्मसंन्यासयोग",
+  "yoga5": "कर्मसंन्यासयोग",
+  "yoga6": "ध्यानयोग",
+  "yoga7": "ज्ञानविज्ञानयोग",
+  "yoga8": "अक्षरब्रह्मयोग",
+  "yoga9": "राजविद्याराजगुह्ययोग",
+  "yoga10": "विभूतियोग",
+  "yoga11": "विश्वरूपदर्शनयोग",
+  "yoga12": "भक्तियोग",
+  "yoga13": "क्षेत्रक्षेत्रज्ञविभागयोग",
+  "yoga14": "गुणत्रयविभागयोग",
+  "yoga15": "पुरुषोत्तमयोग",
+  "yoga16": "दैवासुरसम्पद्विभागयोग",
+  "yoga17": "श्रद्धात्रयविभागयोग",
+  "yoga18": "मोक्षसंन्यासयोग",
+  "tagGrief": "शोक",
+  "tagLoss": "बिछड़ने का दुख",
+  "tagFear": "डर",
+  "tagAnxiety": "चिंता",
+  "tagAnger": "गुस्सा",
+  "tagEnvy": "जलन",
+  "tagComparison": "तुलना",
+  "tagPride": "घमंड",
+  "tagDesire": "इच्छा",
+  "tagGreed": "लालच",
+  "tagRestlessness": "बेचैनी",
+  "tagDoubt": "संदेह",
+  "tagSelfDoubt": "अपने पर शक",
+  "tagConfusion": "उलझन",
+  "tagLoneliness": "अकेलापन",
+  "tagBurnout": "थकान",
+  "tagFailure": "असफलता",
+  "tagSuccess": "सफलता",
+  "tagExamStress": "परीक्षा का तनाव",
+  "tagWorkPressure": "काम का दबाव",
+  "tagDutyConflict": "कर्तव्य की उलझन",
+  "tagProcrastination": "टालमटोल",
+  "tagPerfectionism": "सब कुछ पूरा सही करने की चाह",
+  "tagFocus": "ध्यान लगाना",
+  "tagDiscipline": "अनुशासन",
+  "tagHabits": "आदतें",
+  "tagPatience": "धैर्य",
+  "tagEquanimity": "समभाव",
+  "tagDetachment": "लगाव से मुक्ति",
+  "tagForgiveness": "क्षमा",
+  "tagCompassion": "करुणा",
+  "tagKindness": "दया",
+  "tagGratitude": "आभार",
+  "tagHumility": "विनम्रता",
+  "tagFaith": "श्रद्धा",
+  "tagSurrender": "समर्पण",
+  "tagPurpose": "जीवन का उद्देश्य",
+  "tagMortality": "मृत्यु",
+  "tagChange": "बदलाव",
+  "tagSelfWorth": "अपना मोल",
+  "tagSpeech": "वाणी",
+  "tagContentment": "संतोष",
+  "tagPeace": "शांति",
+  "tagHope": "आशा",
+  "tagLearning": "सीखना",
+  "close": "बंद करें",
+  "shareLabel": "साझा कीजिए",
+  "shareVerse": "यह श्लोक साझा कीजिए",
+  "gitaRef": "गीता {id}",
+  "@gitaRef": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "gitaRefCaps": "गीता {id}",
+  "@gitaRefCaps": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "listeningCaps": "सुन रहे हैं",
+  "hearEndTitle": "आज के लिए\nइतना काफ़ी है।",
+  "hearEndSub": "श्लोक आपकी राह देखेगा।",
+  "hearNext": "अगला कदम चलिए",
+  "hearRest": "अभी विश्राम कीजिए",
+  "explainVerse": "इस श्लोक का अर्थ समझिए",
+  "verseOfTotalCaps": "{total} में से {n}",
+  "@verseOfTotalCaps": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "keptCaps": "सहेजा",
+  "holdToListen": "सुनने के लिए दबाए रखिए",
+  "verseSemantic": "श्लोक {id}। {sanskrit}। {meaning}",
+  "@verseSemantic": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      },
+      "sanskrit": {
+        "type": "String"
+      },
+      "meaning": {
+        "type": "String"
+      }
+    }
+  },
+  "verseHint": "सहेजने के लिए दो बार छुइए। सुनने के लिए दबाए रखिए।",
+  "walkEyebrow": "चलिए  ·  2 में से कदम {n}",
+  "@walkEyebrow": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "speakerSaysTo": "{speaker} {listener} से कहते हैं:",
+  "@speakerSaysTo": {
+    "placeholders": {
+      "speaker": {
+        "type": "String"
+      },
+      "listener": {
+        "type": "String"
+      }
+    }
+  },
+  "speakerSays": "{speaker} कहते हैं:",
+  "@speakerSays": {
+    "placeholders": {
+      "speaker": {
+        "type": "String"
+      }
+    }
+  },
+  "chantSemantic": "साथ में पाठ कीजिए। घेरे को दबाए रखिए। पूरा पाठ करने के लिए दो बार छुइए।",
+  "releaseToPause": "रुकने के लिए छोड़ दीजिए",
+  "holdToChant": "दबाए रखिए और श्लोक के साथ पाठ कीजिए",
+  "meetsHead": "आज यह आपसे कहाँ मिलता है?",
+  "meetsLine1": "एक काम जिसे शुरू करने में डर लगता है",
+  "meetsLine2": "एक नतीजा जो मेरे बस में नहीं है",
+  "meetsLine3": "लोग क्या सोचेंगे",
+  "thisOne": "यही",
+  "stepWalkedCaps": "कदम पूरा हुआ",
+  "lampIsLit": "दीया जल गया।",
+  "mokshPointsCaps": "मोक्ष अंक",
+  "dayAndLamps": "दिन {day}  ·  इस हफ़्ते {lit, plural, =1{1 दीया} other{{lit} दीये}}",
+  "@dayAndLamps": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "lit": {
+        "type": "int"
+      }
+    }
+  },
+  "shareStreak": "अपनी ज्योति साझा कीजिए",
+  "checkpointCaps": "पड़ाव",
+  "finishVerseTitle": "श्लोक पूरा कीजिए",
+  "skipForToday": "आज के लिए छोड़िए",
+  "finishedVerse": "आपने श्लोक पूरा कर लिया।",
+  "sayTheLine": "दूसरी पंक्ति बोलिए, या उसे छुइए।",
+  "hiddenLineSemantic": "छिपी पंक्ति, {total} में से {n} शब्द दिखे हैं। अगला शब्द देखने के लिए दो बार छुइए।",
+  "@hiddenLineSemantic": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "stopListening": "सुनना रोकिए",
+  "speakSecondLine": "दूसरी पंक्ति बोलिए",
+  "tapToSpeakCaps": "बोलने के लिए छुइए",
+  "shareThisLight": "यह ज्योति साझा कीजिए",
+  "daysUnbroken": "दिन, बिना रुके।",
+  "msWeek": "एक सप्ताह की ज्योति",
+  "msMonth": "एक महीने की ज्योति",
+  "msHundred": "सौ दीये",
+  "msYear": "एक साल की ज्योति",
+  "msDays": "दिनों की ज्योति",
+  "msLine7": "अभ्यास करते रहिए,\nमन धीरे-धीरे स्थिर होता है।",
+  "msLine30": "जब-जब मन भटके,\nउसे प्यार से लौटा लाइए।",
+  "msLine100": "सफलता और असफलता में एक-सा रहिए।\nइसी समभाव को योग कहते हैं।",
+  "msLine365": "आप जो भी करें,\nउसे अर्पण मानकर कीजिए।",
+  "keptCount": "{n} सहेजे",
+  "@keptCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "nothingKept": "अभी कुछ सहेजा नहीं है।",
+  "keptEmptyLine": "किसी श्लोक को यहाँ रखने के लिए उसे दो बार छुइए।",
+  "goDeeperCaps": "और गहराई से",
+  "inEnglish": "अंग्रेज़ी में",
+  "inHindi": "हिन्दी में",
+  "whoSpeaks": "कौन बोल रहा है",
+  "whoSpeaksText": "{speaker}, {listener} से।",
+  "@whoSpeaksText": {
+    "placeholders": {
+      "speaker": {
+        "type": "String"
+      },
+      "listener": {
+        "type": "String"
+      }
+    }
+  },
+  "whereSits": "यह कहाँ आता है",
+  "whereSitsText": "{ref}, {yoga}।",
+  "@whereSitsText": {
+    "placeholders": {
+      "ref": {
+        "type": "String"
+      },
+      "yoga": {
+        "type": "String"
+      }
+    }
+  },
+  "verseRef": "अध्याय {chapter} · श्लोक {number}",
+  "@verseRef": {
+    "placeholders": {
+      "chapter": {
+        "type": "int"
+      },
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "whereMeetsLife": "जीवन से कहाँ मिलता है",
+  "shareThisLightCaps": "यह ज्योति साझा कीजिए",
+  "layoutNight": "मंदिर की रात",
+  "layoutIvory": "सुबह की उजास",
+  "layoutArch": "मंदिर का द्वार",
+  "layoutLampNight": "दीया, रात",
+  "layoutLampMorning": "दीया, सुबह",
+  "cardSemantic": "{label} कार्ड",
+  "@cardSemantic": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "preparing": "तैयार हो रहा है",
+  "shareCardSemantic": "{label} कार्ड को चित्र के रूप में साझा कीजिए",
+  "@shareCardSemantic": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "shareTextStreak": "भगवद्गीता के साथ {n} दिन की ज्योति। {app}",
+  "@shareTextStreak": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "app": {
+        "type": "String"
+      }
+    }
+  },
+  "shareTextVerse": "भगवद्गीता {id}: {meaning} {app}",
+  "@shareTextVerse": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      },
+      "meaning": {
+        "type": "String"
+      },
+      "app": {
+        "type": "String"
+      }
+    }
+  },
+  "cardSpeaker": "{speaker} ने {listener} से कहा  ·  {yoga}",
+  "@cardSpeaker": {
+    "placeholders": {
+      "speaker": {
+        "type": "String"
+      },
+      "listener": {
+        "type": "String"
+      },
+      "yoga": {
+        "type": "String"
+      }
+    }
+  },
+  "dayOfLight": "दिन की ज्योति।",
+  "daysOfLightDot": "दिन की ज्योति।",
+  "fiveAdayThenRest": "रोज़ पाँच श्लोक, फिर विश्राम।",
+  "month1": "जनवरी",
+  "month2": "फ़रवरी",
+  "month3": "मार्च",
+  "month4": "अप्रैल",
+  "month5": "मई",
+  "month6": "जून",
+  "month7": "जुलाई",
+  "month8": "अगस्त",
+  "month9": "सितंबर",
+  "month10": "अक्टूबर",
+  "month11": "नवंबर",
+  "month12": "दिसंबर",
+  "dayMonth": "{day} {month}",
+  "@dayMonth": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "month": {
+        "type": "String"
+      }
+    }
+  },
+  "dayToday": "आज",
+  "dayYesterday": "कल",
+  "walletPromise": "ये सिर्फ़ बढ़ते हैं।\nयहाँ कुछ भी बिकता नहीं है।",
+  "howTheyCameCaps": "ये कैसे मिले",
+  "firstPoints": "आपके पहले अंक आज के पाँच श्लोकों के साथ मिलेंगे।",
+  "reasonHear": "पाँच श्लोक सुने",
+  "reasonWalk": "एक कदम चले",
+  "reasonSpeak": "अपने मन की बात कही",
+  "reasonSankalp": "संकल्प पर लौटकर देखा",
+  "plusSemantic": "{n} जुड़े",
+  "@plusSemantic": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "waitingSemantic": "{n} इंतज़ार में",
+  "@waitingSemantic": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "todaysLightCaps": "आज की ज्योति",
+  "pointsToday": "आज के मोक्ष अंक",
+  "noMorePoints": "आज और अंक नहीं मिलेंगे। बस शांति।",
+  "oncePerDay": "हर कदम के अंक दिन में एक ही बार मिलते हैं।",
+  "yatraTitle": "गीता यात्रा",
+  "yatraChapterOf": "18 में से अध्याय {n}",
+  "@yatraChapterOf": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "stoneToday": "आज: {yoga}, {id}",
+  "@stoneToday": {
+    "placeholders": {
+      "yoga": {
+        "type": "String"
+      },
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "stoneN": "कदम {n}",
+  "@stoneN": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "stoneNCheckpoint": "कदम {n}, पड़ाव",
+  "@stoneNCheckpoint": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "todayCaps": "आज",
+  "yogaAndId": "{yoga} · {id}",
+  "@yogaAndId": {
+    "placeholders": {
+      "yoga": {
+        "type": "String"
+      },
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "intentionGrief": "किसी एक को वह बात बताइए जो आप प्यार से याद करते हैं।",
+  "intentionLoss": "कोई एक छोटी चीज़ संभालकर रखिए जो आपको अब भी जोड़ती है।",
+  "intentionFear": "जिससे डर लगता है, उसका पहला छोटा हिस्सा कर लीजिए।",
+  "intentionAnxiety": "एक काम पूरे मन से कीजिए, फिर नतीजा छोड़ दीजिए।",
+  "intentionAnger": "आज जवाब देने से पहले एक साँस रुक जाइए।",
+  "intentionEnvy": "किसी और के बारे में एक सच्ची, अच्छी बात कहिए।",
+  "intentionComparison": "तुलना किए बिना, अपनी एक अच्छी बात देखिए।",
+  "intentionPride": "आज किसी एक से उसकी सलाह पूछिए।",
+  "intentionDesire": "एक चाहत को बिना कुछ किए गुज़र जाने दीजिए।",
+  "intentionGreed": "बिना गिने कोई एक चीज़ किसी को दे दीजिए।",
+  "intentionRestlessness": "फ़ोन उठाने से पहले दो मिनट शांत बैठिए।",
+  "intentionDoubt": "सारे जवाब मिलने से पहले एक कदम बढ़ाइए।",
+  "intentionSelfDoubt": "जो एक छोटा काम करने को कहा था, उसे पूरा कीजिए।",
+  "intentionConfusion": "आज जो एक चुनाव ज़रूरी है, उसे लिख लीजिए।",
+  "intentionLoneliness": "जिसकी याद आती है, उसे एक संदेश भेजिए।",
+  "intentionBurnout": "बिना झिझक दस मिनट आराम कीजिए।",
+  "intentionFailure": "वही काम एक बार फिर कीजिए, थोड़ा छोटा करके।",
+  "intentionSuccess": "जिसने यहाँ तक पहुँचने में मदद की, उस एक को धन्यवाद कहिए।",
+  "intentionExamStress": "एक विषय पूरे मन से पढ़िए, फिर किताब बंद कर दीजिए।",
+  "intentionWorkPressure": "एक काम पूरे मन से कीजिए, नतीजे को देखे बिना।",
+  "intentionDutyConflict": "जो कर्तव्य सामने है, उसे अच्छे से निभाइए।",
+  "intentionProcrastination": "काम को बस पाँच मिनट के लिए शुरू कीजिए।",
+  "intentionPerfectionism": "एक काम पूरा कीजिए और उसे काफ़ी मान लीजिए।",
+  "intentionFocus": "एक घंटे तक, एक समय में एक ही काम कीजिए।",
+  "intentionDiscipline": "अपने से किया एक छोटा वादा निभाइए।",
+  "intentionHabits": "अच्छी आदत को आज एक बार, रोज़ वाले समय पर कीजिए।",
+  "intentionPatience": "किसी एक बात को उसका पूरा समय लेने दीजिए।",
+  "intentionEquanimity": "एक अच्छे और एक कठिन पल को एक-सी शांति से लीजिए।",
+  "intentionDetachment": "अपनी पूरी कोशिश कीजिए और नतीजा छोड़ दीजिए।",
+  "intentionForgiveness": "आज के लिए कोई एक पुरानी चोट छोड़ दीजिए।",
+  "intentionCompassion": "एक चुपचाप भलाई कीजिए, जिसे कोई न देखे।",
+  "intentionKindness": "एक चुपचाप भलाई कीजिए, जिसे कोई न देखे।",
+  "intentionGratitude": "आज रात तीन बातें गिनिए जिनके लिए आप आभारी हैं।",
+  "intentionHumility": "आज एक बार बोलने से पहले पूरा सुन लीजिए।",
+  "intentionFaith": "अपना काम एक शांत साँस के साथ शुरू कीजिए।",
+  "intentionSurrender": "एक चिंता सौंप दीजिए और अपना हिस्सा निभाइए।",
+  "intentionPurpose": "आज एक ऐसा काम कीजिए जो आपके लिए मायने रखता हो।",
+  "intentionMortality": "दस मिनट उस पर लगाइए जो सच में ज़रूरी है।",
+  "intentionChange": "एक छोटे बदलाव को बिना रोके अपना लीजिए।",
+  "intentionSelfWorth": "एक बार अपने से वैसे बात कीजिए जैसे कोई दोस्त करता है।",
+  "intentionSpeech": "आज वही बोलिए जो सच भी हो और भला भी।",
+  "intentionContentment": "एक सीधी-सी चीज़ का आनंद लीजिए, और ज़्यादा की चाह किए बिना।",
+  "intentionPeace": "सोने से दस मिनट पहले फ़ोन रख दीजिए।",
+  "intentionHope": "आज रात कल के लिए एक छोटा काम कर लीजिए।",
+  "intentionLearning": "एक श्लोक फिर से, धीरे-धीरे पढ़िए।",
+  "intentionDefault": "एक काम पूरे मन से कीजिए, फिर नतीजा छोड़ दीजिए।",
+  "wasAfraid": "जब वे डरे हुए थे",
+  "wasGrieving": "जब वे शोक में थे",
+  "wasLost": "जब वे समझ नहीं पा रहे थे कि क्या करें",
+  "wasDoubtful": "जब उनके मन में संदेह था",
+  "wasTorn": "जब वे अपने कर्तव्य को लेकर दुविधा में थे",
+  "wasHeartLost": "जब उनका मन टूट गया था",
+  "toldPlain": "{speaker} ने {listener} से कहा:",
+  "@toldPlain": {
+    "placeholders": {
+      "speaker": {
+        "type": "String"
+      },
+      "listener": {
+        "type": "String"
+      }
+    }
+  },
+  "toldWas": "{speaker} ने {listener} से कहा, {was}:",
+  "@toldWas": {
+    "placeholders": {
+      "speaker": {
+        "type": "String"
+      },
+      "listener": {
+        "type": "String"
+      },
+      "was": {
+        "type": "String"
+      }
+    }
+  },
+  "mannCaps": "मन दर्पण",
+  "mannAnswerTop": "एक श्लोक ने आपकी बात सुनी",
+  "mannAskTonight": "आज रात आपका मन\nकैसा है?",
+  "mannAskToday": "आज आपका मन\nकैसा है?",
+  "mannTapSpeak": "छुइए, और जितनी देर चाहें बोलिए।",
+  "typeInstead": "लिखकर बताइए",
+  "mannListening": "सुन रहे हैं।",
+  "mannSpeakPrivate": "बोलिए। इसे सिर्फ़ आप सुनेंगे।",
+  "done": "हो गया",
+  "mannTypingTitle": "कुछ शब्दों में बताइए,\nमन में क्या है?",
+  "hearYourself": "पहले अपनी आवाज़ सुनिए",
+  "mannHint": "कल मेरा इंटरव्यू है और मन बार-बार उसी में उलझा है...",
+  "mannStays": "यह इसी फ़ोन में रहता है। कुछ भी कहीं भेजा नहीं जाता।",
+  "letVerseAnswer": "श्लोक को उत्तर देने दीजिए",
+  "intentTonight": "आज रात: {text}",
+  "@intentTonight": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "intentToday": "आज: {text}",
+  "@intentToday": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "sealAsSankalp": "इसे अपना संकल्प बनाइए",
+  "notToday": "आज नहीं",
+  "mannOrbSemantic": "बोलिए। शुरू करने के लिए छुइए।",
+  "sealIt": "संकल्प पक्का कीजिए",
+  "sealedTitle": "संकल्प हो गया।",
+  "lookBackTomorrow": "कल इस पर लौटकर देखिए।",
+  "sealSankalpCaps": "संकल्प लीजिए",
+  "oneSmallIntention": "एक छोटा-सा इरादा।",
+  "fromGitaChange": "गीता {id} से। चाहें तो कोई शब्द बदल लीजिए।",
+  "@fromGitaChange": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "sealSankalpSemantic": "इस संकल्प को पक्का कीजिए",
+  "keptIt": "मैंने निभाया",
+  "letItGo": "मैंने छोड़ दिया",
+  "replyKept": "निभाया। ऐसे ही आदत बनती है।",
+  "replyLetGo": "छोड़ दिया। आज नई शुरुआत है।",
+  "yourSankalpCaps": "आपका संकल्प",
+  "festival1": "बसंत पंचमी",
+  "festival2": "महाशिवरात्रि",
+  "festival3": "होलिका दहन",
+  "festival4": "उगादि और गुड़ी पड़वा",
+  "festival5": "राम नवमी",
+  "festival6": "हनुमान जयंती",
+  "festival7": "अक्षय तृतीया",
+  "festival8": "रथ यात्रा",
+  "festival9": "गुरु पूर्णिमा",
+  "festival10": "रक्षा बंधन",
+  "festival11": "जन्माष्टमी",
+  "festival12": "गणेश चतुर्थी",
+  "festival13": "राधा अष्टमी",
+  "festival14": "अनंत चतुर्दशी",
+  "festival15": "नवरात्रि आरंभ",
+  "festival16": "दुर्गा अष्टमी",
+  "festival17": "महानवमी",
+  "festival18": "विजयादशमी",
+  "festival19": "शरद पूर्णिमा",
+  "festival20": "करवा चौथ",
+  "festival21": "धनतेरस",
+  "festival22": "नरक चतुर्दशी",
+  "festival23": "दिवाली",
+  "festival24": "गोवर्धन पूजा",
+  "festival25": "भाई दूज",
+  "festival26": "तुलसी विवाह",
+  "festival27": "देव दीपावली",
+  "festival28": "मकर संक्रांति",
+  "festival29": "गीता जयंती",
+  "festival30": "होली",
+  "festivalFallback": "त्योहार",
+  "weekday1": "सोमवार",
+  "weekday2": "मंगलवार",
+  "weekday3": "बुधवार",
+  "weekday4": "गुरुवार",
+  "weekday5": "शुक्रवार",
+  "weekday6": "शनिवार",
+  "weekday7": "रविवार",
+  "weekdayShort1": "सोम",
+  "weekdayShort2": "मंगल",
+  "weekdayShort3": "बुध",
+  "weekdayShort4": "गुरु",
+  "weekdayShort5": "शुक्र",
+  "weekdayShort6": "शनि",
+  "weekdayShort7": "रवि",
+  "dayTomorrow": "कल",
+  "whenOnDay": "{day} को",
+  "@whenOnDay": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "clockAt": "{period, select, nightEarly{रात {t}} morning{सुबह {t}} noon{दोपहर {t}} evening{शाम {t}} night{रात {t}} other{{t}}}",
+  "@clockAt": {
+    "placeholders": {
+      "period": {
+        "type": "String"
+      },
+      "t": {
+        "type": "String"
+      }
+    }
+  },
+  "ritualDailyGita": "रोज़ की गीता",
+  "ritualSandhya": "सुबह की संध्या",
+  "ritualDiya": "शाम का दीया",
+  "ritualEkadashi": "एकादशी",
+  "ritualPurnima": "पूर्णिमा",
+  "ritualAmavasya": "अमावस्या",
+  "ritualPradosh": "प्रदोष",
+  "ritualSankashti": "संकष्टी",
+  "ritualFestivals": "त्योहार",
+  "meaningDailyGita": "गीता के पाँच श्लोक, आपके चुने समय पर।",
+  "meaningSandhya": "सूरज उगते समय उसे प्रणाम करने के लिए एक शांत पल।",
+  "meaningDiya": "दिन ढलते समय दीया जलाने की एक कोमल याद।",
+  "meaningEkadashi": "एकादशी चंद्रमा की ग्यारहवीं तिथि है। बहुत से लोग इस दिन व्रत रखते हैं। हम यह भी बताएँगे कि व्रत कब खोलना है। इसे पारण कहते हैं।",
+  "meaningPurnima": "पूर्णिमा वह रात है जब चाँद पूरा गोल होता है।",
+  "meaningAmavasya": "अमावस्या वह रात है जब चाँद नहीं दिखता। अपने पूर्वजों को याद करने का समय।",
+  "meaningPradosh": "प्रदोष चंद्रमा की तेरहवीं तिथि की संध्या है, जो शिव के लिए रखी जाती है।",
+  "meaningSankashti": "संकष्टी गणेश जी का व्रत है। यह चाँद निकलने पर खुलता है।",
+  "meaningFestivals": "दिवाली और होली जैसे बड़े दिन, आपके शहर की सही तारीख़ पर।",
+  "deityNone": "कोई नहीं",
+  "deityShiva": "शिव, सोमवार",
+  "deityHanuman": "हनुमान, मंगलवार",
+  "deityVishnu": "विष्णु या गुरु, गुरुवार",
+  "deityShani": "शनि, शनिवार",
+  "deityMeaningNone": "अभी कोई ख़ास दिन नहीं।",
+  "deityMeaningShiva": "सोमवार शिव का दिन है। सूर्यास्त पर एक दीया।",
+  "deityMeaningHanuman": "मंगलवार हनुमान जी का दिन है। सुबह हनुमान चालीसा।",
+  "deityMeaningVishnu": "गुरुवार विष्णु का दिन है, जो गुरुओं के भी गुरु हैं।",
+  "deityMeaningShani": "शनिवार शनि का दिन है। सूर्यास्त पर एक शांत दीया।",
+  "noteGita": "पाँच श्लोक तैयार हैं। फ़ुर्सत से सुनिए।",
+  "noteSandhya": "सूर्योदय {time} पर। चाहें तो सुबह की संध्या के लिए एक शांत पल।",
+  "@noteSandhya": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "noteDiya": "सूर्यास्त {time} पर। जब मन हो, शाम का दीया जला लीजिए।",
+  "@noteDiya": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "noteShiva": "सोमवार। चाहें तो सूर्यास्त के समय, {time} पर, शिव के लिए दीया जलाइए।",
+  "@noteShiva": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "noteHanuman": "मंगलवार। चाहें तो आज सुबह हनुमान चालीसा पढ़िए।",
+  "noteVishnu": "गुरुवार। चाहें तो सूर्यास्त के समय, {time} पर, विष्णु के लिए दीया जलाइए।",
+  "@noteVishnu": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "noteShani": "शनिवार। चाहें तो सूर्यास्त के समय, {time} पर, एक शांत दीया जलाइए।",
+  "@noteShani": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "notePurnima": "आज रात पूर्णिमा है। पूरा चाँद सूर्यास्त के आसपास निकलता है।",
+  "noteAmavasya": "आज अमावस्या है। चाहें तो अपने पूर्वजों के लिए एक दीया जलाइए।",
+  "notePradosh": "आज प्रदोष है। प्रदोष काल {range}।",
+  "@notePradosh": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "noteSankashti": "आज रात संकष्टी है। चंद्रोदय {time} पर।",
+  "@noteSankashti": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "noteFestival": "आज {name} है। आपका दिन शांत और उजला रहे।",
+  "@noteFestival": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "noteEkadashi": "एकादशी{rule} सूर्योदय से शुरू होती है। व्रत {when} {range} के बीच खोलिए।",
+  "@noteEkadashi": {
+    "placeholders": {
+      "rule": {
+        "type": "String"
+      },
+      "when": {
+        "type": "String"
+      },
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "noteParana": "पारण का समय: {range}। व्रत आराम से खोलिए।",
+  "@noteParana": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "labelEkadashiRule": "एकादशी ({rule})",
+  "@labelEkadashiRule": {
+    "placeholders": {
+      "rule": {
+        "type": "String"
+      }
+    }
+  },
+  "labelParana": "पारण {range}",
+  "@labelParana": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "labelPradosh": "प्रदोष {range}",
+  "@labelPradosh": {
+    "placeholders": {
+      "range": {
+        "type": "String"
+      }
+    }
+  },
+  "ruleSuffix": " ({rule})",
+  "@ruleSuffix": {
+    "placeholders": {
+      "rule": {
+        "type": "String"
+      }
+    }
+  },
+  "notifChannel": "साधना की याद",
+  "notifChannelDesc": "आपकी चुनी हुई साधना के लिए शांत सूचनाएँ।",
+  "practiceTitle": "आपकी साधना",
+  "practiceRebuild": "मेरी साधना फिर से बनाइए",
+  "allReminders": "सारे याद दिलाने वाले संदेश",
+  "nextNote": "अगला: {when}",
+  "@nextNote": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "changeHour": "समय बदलिए",
+  "turnOff": "इसे बंद कीजिए",
+  "practiceIntro": "हम आपको क्या और कब याद दिलाते हैं। किसी पर छुइए, उसका मतलब दिखेगा।",
+  "nothingOn": "अभी कुछ चालू नहीं है।",
+  "allRemindersWhy": "हर स्विच अलग-अलग। जब आपको ठीक पता हो कि क्या चाहिए।",
+  "hourSheetWhy": "इस समय आपके पाँच श्लोक आपकी राह देखेंगे।",
+  "verseHour": "श्लोक का समय",
+  "weekdayLamp": "हफ़्ते का एक दीया",
+  "savePractice": "मेरी साधना सहेजिए",
+  "itemAtTime": "{label}, {time}",
+  "@itemAtTime": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "ritualSemantic": "{label}। {meaning}",
+  "@ritualSemantic": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "meaning": {
+        "type": "String"
+      }
+    }
+  },
+  "traditionCaps": "स्मार्त और वैष्णव",
+  "traditionExplTitle": "एकादशी रखने के दो तरीके",
+  "traditionTithi": "चंद्रमा के अपने दिन होते हैं। हर एक को तिथि कहते हैं। तिथि आधी रात को शुरू नहीं होती। वह किसी भी घड़ी शुरू हो सकती है।",
+  "traditionEkadashi": "एकादशी ग्यारहवीं तिथि है। उससे ठीक पहले दशमी, यानी दसवीं तिथि, आती है।",
+  "traditionSmartaRule": "जिस दिन सूर्योदय के समय एकादशी हो, उसी दिन व्रत रखें।",
+  "traditionVaishnavaRule": "एकादशी भोर से ही शुद्ध होनी चाहिए, यानी सूर्योदय से लगभग डेढ़ घंटे पहले से। अगर उस समय दशमी बाकी हो, तो अगले दिन व्रत रखें।",
+  "traditionSame": "ज़्यादातर महीनों में दोनों एक ही दिन पड़ते हैं।",
+  "traditionUnsureLine": "पक्का पता नहीं? जैसा आपके घर में होता है, वैसा ही कीजिए। इसे बाद में बदल सकते हैं।",
+  "traditionRare": "कुछ महीनों में चंद्रमा तेज़ चलता है और दूसरे नियम तय करते हैं। जहाँ हमने जाँचा, हमारी तारीख़ें दृक् पंचांग से मिलती हैं।",
+  "gotIt": "ठीक है",
+  "timelineSemantic": "दो सूर्योदय। पहले दिन भोर के बाद दशमी समाप्त होती है। स्मार्त दीया पहले दिन रहता है। वैष्णव दीया दूसरे दिन चला जाता है।",
+  "tlDashami": "दशमी",
+  "tlEkadashi": "एकादशी",
+  "tlDvadashi": "द्वादशी",
+  "tlDay1": "दिन 1",
+  "tlDay2": "दिन 2",
+  "tlDawn": "भोर",
+  "tlSmarta": "स्मार्त",
+  "tlVaishnava": "वैष्णव",
+  "clockRange": "{aFull} से {bFull}",
+  "@clockRange": {
+    "placeholders": {
+      "same": {
+        "type": "String"
+      },
+      "aBare": {
+        "type": "String"
+      },
+      "aFull": {
+        "type": "String"
+      },
+      "bFull": {
+        "type": "String"
+      }
+    }
+  },
+  "nameLead": "{name}:  ",
+  "@nameLead": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }

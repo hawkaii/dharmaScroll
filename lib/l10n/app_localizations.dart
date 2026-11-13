@@ -1231,6 +1231,2394 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sign out'**
   String get signOut;
+
+  /// No description provided for @personKrishna.
+  ///
+  /// In en, this message translates to:
+  /// **'Krishna'**
+  String get personKrishna;
+
+  /// No description provided for @personArjuna.
+  ///
+  /// In en, this message translates to:
+  /// **'Arjuna'**
+  String get personArjuna;
+
+  /// No description provided for @personSanjaya.
+  ///
+  /// In en, this message translates to:
+  /// **'Sanjaya'**
+  String get personSanjaya;
+
+  /// No description provided for @personDhritarashtra.
+  ///
+  /// In en, this message translates to:
+  /// **'Dhritarashtra'**
+  String get personDhritarashtra;
+
+  /// No description provided for @yoga1.
+  ///
+  /// In en, this message translates to:
+  /// **'Arjuna Vishada Yoga'**
+  String get yoga1;
+
+  /// No description provided for @yoga2.
+  ///
+  /// In en, this message translates to:
+  /// **'Sankhya Yoga'**
+  String get yoga2;
+
+  /// No description provided for @yoga3.
+  ///
+  /// In en, this message translates to:
+  /// **'Karma Yoga'**
+  String get yoga3;
+
+  /// No description provided for @yoga4.
+  ///
+  /// In en, this message translates to:
+  /// **'Jnana Karma Sannyasa Yoga'**
+  String get yoga4;
+
+  /// No description provided for @yoga5.
+  ///
+  /// In en, this message translates to:
+  /// **'Karma Sannyasa Yoga'**
+  String get yoga5;
+
+  /// No description provided for @yoga6.
+  ///
+  /// In en, this message translates to:
+  /// **'Dhyana Yoga'**
+  String get yoga6;
+
+  /// No description provided for @yoga7.
+  ///
+  /// In en, this message translates to:
+  /// **'Jnana Vijnana Yoga'**
+  String get yoga7;
+
+  /// No description provided for @yoga8.
+  ///
+  /// In en, this message translates to:
+  /// **'Akshara Brahma Yoga'**
+  String get yoga8;
+
+  /// No description provided for @yoga9.
+  ///
+  /// In en, this message translates to:
+  /// **'Raja Vidya Raja Guhya Yoga'**
+  String get yoga9;
+
+  /// No description provided for @yoga10.
+  ///
+  /// In en, this message translates to:
+  /// **'Vibhuti Yoga'**
+  String get yoga10;
+
+  /// No description provided for @yoga11.
+  ///
+  /// In en, this message translates to:
+  /// **'Vishvarupa Darshana Yoga'**
+  String get yoga11;
+
+  /// No description provided for @yoga12.
+  ///
+  /// In en, this message translates to:
+  /// **'Bhakti Yoga'**
+  String get yoga12;
+
+  /// No description provided for @yoga13.
+  ///
+  /// In en, this message translates to:
+  /// **'Kshetra Kshetrajna Vibhaga Yoga'**
+  String get yoga13;
+
+  /// No description provided for @yoga14.
+  ///
+  /// In en, this message translates to:
+  /// **'Gunatraya Vibhaga Yoga'**
+  String get yoga14;
+
+  /// No description provided for @yoga15.
+  ///
+  /// In en, this message translates to:
+  /// **'Purushottama Yoga'**
+  String get yoga15;
+
+  /// No description provided for @yoga16.
+  ///
+  /// In en, this message translates to:
+  /// **'Daivasura Sampad Vibhaga Yoga'**
+  String get yoga16;
+
+  /// No description provided for @yoga17.
+  ///
+  /// In en, this message translates to:
+  /// **'Shraddhatraya Vibhaga Yoga'**
+  String get yoga17;
+
+  /// No description provided for @yoga18.
+  ///
+  /// In en, this message translates to:
+  /// **'Moksha Sannyasa Yoga'**
+  String get yoga18;
+
+  /// No description provided for @tagGrief.
+  ///
+  /// In en, this message translates to:
+  /// **'grief'**
+  String get tagGrief;
+
+  /// No description provided for @tagLoss.
+  ///
+  /// In en, this message translates to:
+  /// **'loss'**
+  String get tagLoss;
+
+  /// No description provided for @tagFear.
+  ///
+  /// In en, this message translates to:
+  /// **'fear'**
+  String get tagFear;
+
+  /// No description provided for @tagAnxiety.
+  ///
+  /// In en, this message translates to:
+  /// **'anxiety'**
+  String get tagAnxiety;
+
+  /// No description provided for @tagAnger.
+  ///
+  /// In en, this message translates to:
+  /// **'anger'**
+  String get tagAnger;
+
+  /// No description provided for @tagEnvy.
+  ///
+  /// In en, this message translates to:
+  /// **'envy'**
+  String get tagEnvy;
+
+  /// No description provided for @tagComparison.
+  ///
+  /// In en, this message translates to:
+  /// **'comparison'**
+  String get tagComparison;
+
+  /// No description provided for @tagPride.
+  ///
+  /// In en, this message translates to:
+  /// **'pride'**
+  String get tagPride;
+
+  /// No description provided for @tagDesire.
+  ///
+  /// In en, this message translates to:
+  /// **'desire'**
+  String get tagDesire;
+
+  /// No description provided for @tagGreed.
+  ///
+  /// In en, this message translates to:
+  /// **'greed'**
+  String get tagGreed;
+
+  /// No description provided for @tagRestlessness.
+  ///
+  /// In en, this message translates to:
+  /// **'restlessness'**
+  String get tagRestlessness;
+
+  /// No description provided for @tagDoubt.
+  ///
+  /// In en, this message translates to:
+  /// **'doubt'**
+  String get tagDoubt;
+
+  /// No description provided for @tagSelfDoubt.
+  ///
+  /// In en, this message translates to:
+  /// **'self doubt'**
+  String get tagSelfDoubt;
+
+  /// No description provided for @tagConfusion.
+  ///
+  /// In en, this message translates to:
+  /// **'confusion'**
+  String get tagConfusion;
+
+  /// No description provided for @tagLoneliness.
+  ///
+  /// In en, this message translates to:
+  /// **'loneliness'**
+  String get tagLoneliness;
+
+  /// No description provided for @tagBurnout.
+  ///
+  /// In en, this message translates to:
+  /// **'burnout'**
+  String get tagBurnout;
+
+  /// No description provided for @tagFailure.
+  ///
+  /// In en, this message translates to:
+  /// **'failure'**
+  String get tagFailure;
+
+  /// No description provided for @tagSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'success'**
+  String get tagSuccess;
+
+  /// No description provided for @tagExamStress.
+  ///
+  /// In en, this message translates to:
+  /// **'exam stress'**
+  String get tagExamStress;
+
+  /// No description provided for @tagWorkPressure.
+  ///
+  /// In en, this message translates to:
+  /// **'work pressure'**
+  String get tagWorkPressure;
+
+  /// No description provided for @tagDutyConflict.
+  ///
+  /// In en, this message translates to:
+  /// **'duty conflict'**
+  String get tagDutyConflict;
+
+  /// No description provided for @tagProcrastination.
+  ///
+  /// In en, this message translates to:
+  /// **'procrastination'**
+  String get tagProcrastination;
+
+  /// No description provided for @tagPerfectionism.
+  ///
+  /// In en, this message translates to:
+  /// **'perfectionism'**
+  String get tagPerfectionism;
+
+  /// No description provided for @tagFocus.
+  ///
+  /// In en, this message translates to:
+  /// **'focus'**
+  String get tagFocus;
+
+  /// No description provided for @tagDiscipline.
+  ///
+  /// In en, this message translates to:
+  /// **'discipline'**
+  String get tagDiscipline;
+
+  /// No description provided for @tagHabits.
+  ///
+  /// In en, this message translates to:
+  /// **'habits'**
+  String get tagHabits;
+
+  /// No description provided for @tagPatience.
+  ///
+  /// In en, this message translates to:
+  /// **'patience'**
+  String get tagPatience;
+
+  /// No description provided for @tagEquanimity.
+  ///
+  /// In en, this message translates to:
+  /// **'equanimity'**
+  String get tagEquanimity;
+
+  /// No description provided for @tagDetachment.
+  ///
+  /// In en, this message translates to:
+  /// **'detachment'**
+  String get tagDetachment;
+
+  /// No description provided for @tagForgiveness.
+  ///
+  /// In en, this message translates to:
+  /// **'forgiveness'**
+  String get tagForgiveness;
+
+  /// No description provided for @tagCompassion.
+  ///
+  /// In en, this message translates to:
+  /// **'compassion'**
+  String get tagCompassion;
+
+  /// No description provided for @tagKindness.
+  ///
+  /// In en, this message translates to:
+  /// **'kindness'**
+  String get tagKindness;
+
+  /// No description provided for @tagGratitude.
+  ///
+  /// In en, this message translates to:
+  /// **'gratitude'**
+  String get tagGratitude;
+
+  /// No description provided for @tagHumility.
+  ///
+  /// In en, this message translates to:
+  /// **'humility'**
+  String get tagHumility;
+
+  /// No description provided for @tagFaith.
+  ///
+  /// In en, this message translates to:
+  /// **'faith'**
+  String get tagFaith;
+
+  /// No description provided for @tagSurrender.
+  ///
+  /// In en, this message translates to:
+  /// **'surrender'**
+  String get tagSurrender;
+
+  /// No description provided for @tagPurpose.
+  ///
+  /// In en, this message translates to:
+  /// **'purpose'**
+  String get tagPurpose;
+
+  /// No description provided for @tagMortality.
+  ///
+  /// In en, this message translates to:
+  /// **'mortality'**
+  String get tagMortality;
+
+  /// No description provided for @tagChange.
+  ///
+  /// In en, this message translates to:
+  /// **'change'**
+  String get tagChange;
+
+  /// No description provided for @tagSelfWorth.
+  ///
+  /// In en, this message translates to:
+  /// **'self worth'**
+  String get tagSelfWorth;
+
+  /// No description provided for @tagSpeech.
+  ///
+  /// In en, this message translates to:
+  /// **'speech'**
+  String get tagSpeech;
+
+  /// No description provided for @tagContentment.
+  ///
+  /// In en, this message translates to:
+  /// **'contentment'**
+  String get tagContentment;
+
+  /// No description provided for @tagPeace.
+  ///
+  /// In en, this message translates to:
+  /// **'peace'**
+  String get tagPeace;
+
+  /// No description provided for @tagHope.
+  ///
+  /// In en, this message translates to:
+  /// **'hope'**
+  String get tagHope;
+
+  /// No description provided for @tagLearning.
+  ///
+  /// In en, this message translates to:
+  /// **'learning'**
+  String get tagLearning;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @shareLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get shareLabel;
+
+  /// No description provided for @shareVerse.
+  ///
+  /// In en, this message translates to:
+  /// **'Share this verse'**
+  String get shareVerse;
+
+  /// No description provided for @gitaRef.
+  ///
+  /// In en, this message translates to:
+  /// **'Gita {id}'**
+  String gitaRef(String id);
+
+  /// No description provided for @gitaRefCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'GITA {id}'**
+  String gitaRefCaps(String id);
+
+  /// No description provided for @listeningCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'LISTENING'**
+  String get listeningCaps;
+
+  /// No description provided for @hearEndTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'That is enough\nfor today.'**
+  String get hearEndTitle;
+
+  /// No description provided for @hearEndSub.
+  ///
+  /// In en, this message translates to:
+  /// **'The verse will wait.'**
+  String get hearEndSub;
+
+  /// No description provided for @hearNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Walk the next step'**
+  String get hearNext;
+
+  /// No description provided for @hearRest.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest for now'**
+  String get hearRest;
+
+  /// No description provided for @explainVerse.
+  ///
+  /// In en, this message translates to:
+  /// **'Explain this verse'**
+  String get explainVerse;
+
+  /// No description provided for @verseOfTotalCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} OF {total}'**
+  String verseOfTotalCaps(int n, int total);
+
+  /// No description provided for @keptCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'KEPT'**
+  String get keptCaps;
+
+  /// No description provided for @holdToListen.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold to listen'**
+  String get holdToListen;
+
+  /// No description provided for @verseSemantic.
+  ///
+  /// In en, this message translates to:
+  /// **'Verse {id}. {sanskrit}. {meaning}'**
+  String verseSemantic(String id, String sanskrit, String meaning);
+
+  /// No description provided for @verseHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Double tap to keep. Press and hold to listen.'**
+  String get verseHint;
+
+  /// No description provided for @walkEyebrow.
+  ///
+  /// In en, this message translates to:
+  /// **'WALK  ·  STEP {n} OF 2'**
+  String walkEyebrow(int n);
+
+  /// No description provided for @speakerSaysTo.
+  ///
+  /// In en, this message translates to:
+  /// **'{speaker} says to {listener}:'**
+  String speakerSaysTo(String speaker, String listener);
+
+  /// No description provided for @speakerSays.
+  ///
+  /// In en, this message translates to:
+  /// **'{speaker} says:'**
+  String speakerSays(String speaker);
+
+  /// No description provided for @chantSemantic.
+  ///
+  /// In en, this message translates to:
+  /// **'Chant along. Press and hold the ring. Activate to chant it all.'**
+  String get chantSemantic;
+
+  /// No description provided for @releaseToPause.
+  ///
+  /// In en, this message translates to:
+  /// **'RELEASE TO PAUSE'**
+  String get releaseToPause;
+
+  /// No description provided for @holdToChant.
+  ///
+  /// In en, this message translates to:
+  /// **'HOLD AND CHANT WITH THE VERSE'**
+  String get holdToChant;
+
+  /// No description provided for @meetsHead.
+  ///
+  /// In en, this message translates to:
+  /// **'WHERE DOES THIS MEET YOU TODAY?'**
+  String get meetsHead;
+
+  /// No description provided for @meetsLine1.
+  ///
+  /// In en, this message translates to:
+  /// **'A task I am afraid to begin'**
+  String get meetsLine1;
+
+  /// No description provided for @meetsLine2.
+  ///
+  /// In en, this message translates to:
+  /// **'A result I cannot control'**
+  String get meetsLine2;
+
+  /// No description provided for @meetsLine3.
+  ///
+  /// In en, this message translates to:
+  /// **'What others will think'**
+  String get meetsLine3;
+
+  /// No description provided for @thisOne.
+  ///
+  /// In en, this message translates to:
+  /// **'This one'**
+  String get thisOne;
+
+  /// No description provided for @stepWalkedCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'STEP WALKED'**
+  String get stepWalkedCaps;
+
+  /// No description provided for @lampIsLit.
+  ///
+  /// In en, this message translates to:
+  /// **'The lamp is lit.'**
+  String get lampIsLit;
+
+  /// No description provided for @mokshPointsCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'MOKSH POINTS'**
+  String get mokshPointsCaps;
+
+  /// No description provided for @dayAndLamps.
+  ///
+  /// In en, this message translates to:
+  /// **'Day {day}  ·  {lit, plural, =1{one lamp} other{{lit} lamps}} this week'**
+  String dayAndLamps(int day, int lit);
+
+  /// No description provided for @shareStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Share your streak'**
+  String get shareStreak;
+
+  /// No description provided for @checkpointCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'CHECKPOINT'**
+  String get checkpointCaps;
+
+  /// No description provided for @finishVerseTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish the verse'**
+  String get finishVerseTitle;
+
+  /// No description provided for @skipForToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip for today'**
+  String get skipForToday;
+
+  /// No description provided for @finishedVerse.
+  ///
+  /// In en, this message translates to:
+  /// **'You finished the verse.'**
+  String get finishedVerse;
+
+  /// No description provided for @sayTheLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Say the second line, or tap it.'**
+  String get sayTheLine;
+
+  /// No description provided for @hiddenLineSemantic.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden line, {n} of {total} words shown. Activate to reveal the next word.'**
+  String hiddenLineSemantic(int n, int total);
+
+  /// No description provided for @stopListening.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop listening'**
+  String get stopListening;
+
+  /// No description provided for @speakSecondLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Speak the second line'**
+  String get speakSecondLine;
+
+  /// No description provided for @tapToSpeakCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'TAP TO SPEAK'**
+  String get tapToSpeakCaps;
+
+  /// No description provided for @shareThisLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Share this light'**
+  String get shareThisLight;
+
+  /// No description provided for @daysUnbroken.
+  ///
+  /// In en, this message translates to:
+  /// **'days, unbroken.'**
+  String get daysUnbroken;
+
+  /// No description provided for @msWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'A week of light'**
+  String get msWeek;
+
+  /// No description provided for @msMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'A month of light'**
+  String get msMonth;
+
+  /// No description provided for @msHundred.
+  ///
+  /// In en, this message translates to:
+  /// **'A hundred lamps'**
+  String get msHundred;
+
+  /// No description provided for @msYear.
+  ///
+  /// In en, this message translates to:
+  /// **'A year of light'**
+  String get msYear;
+
+  /// No description provided for @msDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Days of light'**
+  String get msDays;
+
+  /// No description provided for @msLine7.
+  ///
+  /// In en, this message translates to:
+  /// **'Practise, and the mind\ngrows steady.'**
+  String get msLine7;
+
+  /// No description provided for @msLine30.
+  ///
+  /// In en, this message translates to:
+  /// **'Each time the mind wanders,\nbring it gently back.'**
+  String get msLine30;
+
+  /// No description provided for @msLine100.
+  ///
+  /// In en, this message translates to:
+  /// **'Steady in success and failure.\nThat evenness is yoga.'**
+  String get msLine100;
+
+  /// No description provided for @msLine365.
+  ///
+  /// In en, this message translates to:
+  /// **'Whatever you do,\ndo it as an offering.'**
+  String get msLine365;
+
+  /// No description provided for @keptCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} kept'**
+  String keptCount(int n);
+
+  /// No description provided for @nothingKept.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing kept yet.'**
+  String get nothingKept;
+
+  /// No description provided for @keptEmptyLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Double-tap a verse to keep it here.'**
+  String get keptEmptyLine;
+
+  /// No description provided for @goDeeperCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'GO DEEPER'**
+  String get goDeeperCaps;
+
+  /// No description provided for @inEnglish.
+  ///
+  /// In en, this message translates to:
+  /// **'In English'**
+  String get inEnglish;
+
+  /// No description provided for @inHindi.
+  ///
+  /// In en, this message translates to:
+  /// **'In Hindi'**
+  String get inHindi;
+
+  /// No description provided for @whoSpeaks.
+  ///
+  /// In en, this message translates to:
+  /// **'Who speaks'**
+  String get whoSpeaks;
+
+  /// No description provided for @whoSpeaksText.
+  ///
+  /// In en, this message translates to:
+  /// **'{speaker}, to {listener}.'**
+  String whoSpeaksText(String speaker, String listener);
+
+  /// No description provided for @whereSits.
+  ///
+  /// In en, this message translates to:
+  /// **'Where it sits'**
+  String get whereSits;
+
+  /// No description provided for @whereSitsText.
+  ///
+  /// In en, this message translates to:
+  /// **'{ref}, {yoga}.'**
+  String whereSitsText(String ref, String yoga);
+
+  /// No description provided for @verseRef.
+  ///
+  /// In en, this message translates to:
+  /// **'Adhyay {chapter} · Shloka {number}'**
+  String verseRef(int chapter, int number);
+
+  /// No description provided for @whereMeetsLife.
+  ///
+  /// In en, this message translates to:
+  /// **'Where it meets life'**
+  String get whereMeetsLife;
+
+  /// No description provided for @shareThisLightCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'SHARE THIS LIGHT'**
+  String get shareThisLightCaps;
+
+  /// No description provided for @layoutNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Temple night'**
+  String get layoutNight;
+
+  /// No description provided for @layoutIvory.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning ivory'**
+  String get layoutIvory;
+
+  /// No description provided for @layoutArch.
+  ///
+  /// In en, this message translates to:
+  /// **'Temple arch'**
+  String get layoutArch;
+
+  /// No description provided for @layoutLampNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Lamp, night'**
+  String get layoutLampNight;
+
+  /// No description provided for @layoutLampMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Lamp, morning'**
+  String get layoutLampMorning;
+
+  /// No description provided for @cardSemantic.
+  ///
+  /// In en, this message translates to:
+  /// **'{label} card'**
+  String cardSemantic(String label);
+
+  /// No description provided for @preparing.
+  ///
+  /// In en, this message translates to:
+  /// **'Preparing'**
+  String get preparing;
+
+  /// No description provided for @shareCardSemantic.
+  ///
+  /// In en, this message translates to:
+  /// **'Share the {label} card as an image'**
+  String shareCardSemantic(String label);
+
+  /// No description provided for @shareTextStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} days of light with the Bhagavad Gita. {app}'**
+  String shareTextStreak(int n, String app);
+
+  /// No description provided for @shareTextVerse.
+  ///
+  /// In en, this message translates to:
+  /// **'Bhagavad Gita {id}: {meaning} {app}'**
+  String shareTextVerse(String id, String meaning, String app);
+
+  /// No description provided for @cardSpeaker.
+  ///
+  /// In en, this message translates to:
+  /// **'{speaker} to {listener}  ·  {yoga}'**
+  String cardSpeaker(String speaker, String listener, String yoga);
+
+  /// No description provided for @dayOfLight.
+  ///
+  /// In en, this message translates to:
+  /// **'day of light.'**
+  String get dayOfLight;
+
+  /// No description provided for @daysOfLightDot.
+  ///
+  /// In en, this message translates to:
+  /// **'days of light.'**
+  String get daysOfLightDot;
+
+  /// No description provided for @fiveAdayThenRest.
+  ///
+  /// In en, this message translates to:
+  /// **'Five verses a day, then rest.'**
+  String get fiveAdayThenRest;
+
+  /// No description provided for @month1.
+  ///
+  /// In en, this message translates to:
+  /// **'Jan'**
+  String get month1;
+
+  /// No description provided for @month2.
+  ///
+  /// In en, this message translates to:
+  /// **'Feb'**
+  String get month2;
+
+  /// No description provided for @month3.
+  ///
+  /// In en, this message translates to:
+  /// **'Mar'**
+  String get month3;
+
+  /// No description provided for @month4.
+  ///
+  /// In en, this message translates to:
+  /// **'Apr'**
+  String get month4;
+
+  /// No description provided for @month5.
+  ///
+  /// In en, this message translates to:
+  /// **'May'**
+  String get month5;
+
+  /// No description provided for @month6.
+  ///
+  /// In en, this message translates to:
+  /// **'Jun'**
+  String get month6;
+
+  /// No description provided for @month7.
+  ///
+  /// In en, this message translates to:
+  /// **'Jul'**
+  String get month7;
+
+  /// No description provided for @month8.
+  ///
+  /// In en, this message translates to:
+  /// **'Aug'**
+  String get month8;
+
+  /// No description provided for @month9.
+  ///
+  /// In en, this message translates to:
+  /// **'Sep'**
+  String get month9;
+
+  /// No description provided for @month10.
+  ///
+  /// In en, this message translates to:
+  /// **'Oct'**
+  String get month10;
+
+  /// No description provided for @month11.
+  ///
+  /// In en, this message translates to:
+  /// **'Nov'**
+  String get month11;
+
+  /// No description provided for @month12.
+  ///
+  /// In en, this message translates to:
+  /// **'Dec'**
+  String get month12;
+
+  /// No description provided for @dayMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'{day} {month}'**
+  String dayMonth(int day, String month);
+
+  /// No description provided for @dayToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get dayToday;
+
+  /// No description provided for @dayYesterday.
+  ///
+  /// In en, this message translates to:
+  /// **'Yesterday'**
+  String get dayYesterday;
+
+  /// No description provided for @walletPromise.
+  ///
+  /// In en, this message translates to:
+  /// **'They only go up.\nNothing here is for sale.'**
+  String get walletPromise;
+
+  /// No description provided for @howTheyCameCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'HOW THEY CAME'**
+  String get howTheyCameCaps;
+
+  /// No description provided for @firstPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Your first points come with today\'s five verses.'**
+  String get firstPoints;
+
+  /// No description provided for @reasonHear.
+  ///
+  /// In en, this message translates to:
+  /// **'Five verses heard'**
+  String get reasonHear;
+
+  /// No description provided for @reasonWalk.
+  ///
+  /// In en, this message translates to:
+  /// **'One step walked'**
+  String get reasonWalk;
+
+  /// No description provided for @reasonSpeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Spoke your mind'**
+  String get reasonSpeak;
+
+  /// No description provided for @reasonSankalp.
+  ///
+  /// In en, this message translates to:
+  /// **'Looked back on a Sankalp'**
+  String get reasonSankalp;
+
+  /// No description provided for @plusSemantic.
+  ///
+  /// In en, this message translates to:
+  /// **'plus {n}'**
+  String plusSemantic(int n);
+
+  /// No description provided for @waitingSemantic.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} waiting'**
+  String waitingSemantic(int n);
+
+  /// No description provided for @todaysLightCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'TODAY\'S LIGHT'**
+  String get todaysLightCaps;
+
+  /// No description provided for @pointsToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Moksh Points today'**
+  String get pointsToday;
+
+  /// No description provided for @noMorePoints.
+  ///
+  /// In en, this message translates to:
+  /// **'No more points today. Just peace.'**
+  String get noMorePoints;
+
+  /// No description provided for @oncePerDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Each step gives its points once a day.'**
+  String get oncePerDay;
+
+  /// No description provided for @yatraTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Gita Yatra'**
+  String get yatraTitle;
+
+  /// No description provided for @yatraChapterOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Adhyaya {n} of 18'**
+  String yatraChapterOf(int n);
+
+  /// No description provided for @stoneToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today: {yoga}, {id}'**
+  String stoneToday(String yoga, String id);
+
+  /// No description provided for @stoneN.
+  ///
+  /// In en, this message translates to:
+  /// **'Stone {n}'**
+  String stoneN(int n);
+
+  /// No description provided for @stoneNCheckpoint.
+  ///
+  /// In en, this message translates to:
+  /// **'Stone {n}, checkpoint'**
+  String stoneNCheckpoint(int n);
+
+  /// No description provided for @todayCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'TODAY'**
+  String get todayCaps;
+
+  /// No description provided for @yogaAndId.
+  ///
+  /// In en, this message translates to:
+  /// **'{yoga} · {id}'**
+  String yogaAndId(String yoga, String id);
+
+  /// No description provided for @intentionGrief.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell one person something you remember with love.'**
+  String get intentionGrief;
+
+  /// No description provided for @intentionLoss.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep one small thing that still connects you.'**
+  String get intentionLoss;
+
+  /// No description provided for @intentionFear.
+  ///
+  /// In en, this message translates to:
+  /// **'Do the first small part of what you fear.'**
+  String get intentionFear;
+
+  /// No description provided for @intentionAnxiety.
+  ///
+  /// In en, this message translates to:
+  /// **'Do one task fully, then let the result go.'**
+  String get intentionAnxiety;
+
+  /// No description provided for @intentionAnger.
+  ///
+  /// In en, this message translates to:
+  /// **'Wait one breath before you answer today.'**
+  String get intentionAnger;
+
+  /// No description provided for @intentionEnvy.
+  ///
+  /// In en, this message translates to:
+  /// **'Say one honest good word about someone else.'**
+  String get intentionEnvy;
+
+  /// No description provided for @intentionComparison.
+  ///
+  /// In en, this message translates to:
+  /// **'Notice one thing you did well, without comparing.'**
+  String get intentionComparison;
+
+  /// No description provided for @intentionPride.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask one person for their advice today.'**
+  String get intentionPride;
+
+  /// No description provided for @intentionDesire.
+  ///
+  /// In en, this message translates to:
+  /// **'Let one want pass without acting on it.'**
+  String get intentionDesire;
+
+  /// No description provided for @intentionGreed.
+  ///
+  /// In en, this message translates to:
+  /// **'Give one thing away without counting it.'**
+  String get intentionGreed;
+
+  /// No description provided for @intentionRestlessness.
+  ///
+  /// In en, this message translates to:
+  /// **'Sit still for two minutes before your phone.'**
+  String get intentionRestlessness;
+
+  /// No description provided for @intentionDoubt.
+  ///
+  /// In en, this message translates to:
+  /// **'Take one step before you have every answer.'**
+  String get intentionDoubt;
+
+  /// No description provided for @intentionSelfDoubt.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish one small thing you said you would.'**
+  String get intentionSelfDoubt;
+
+  /// No description provided for @intentionConfusion.
+  ///
+  /// In en, this message translates to:
+  /// **'Write down the one choice that matters today.'**
+  String get intentionConfusion;
+
+  /// No description provided for @intentionLoneliness.
+  ///
+  /// In en, this message translates to:
+  /// **'Send one message to someone you miss.'**
+  String get intentionLoneliness;
+
+  /// No description provided for @intentionBurnout.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest for ten minutes without guilt.'**
+  String get intentionBurnout;
+
+  /// No description provided for @intentionFailure.
+  ///
+  /// In en, this message translates to:
+  /// **'Try the thing once more, a little smaller.'**
+  String get intentionFailure;
+
+  /// No description provided for @intentionSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank one person who helped you get here.'**
+  String get intentionSuccess;
+
+  /// No description provided for @intentionExamStress.
+  ///
+  /// In en, this message translates to:
+  /// **'Study one topic fully, then close the book.'**
+  String get intentionExamStress;
+
+  /// No description provided for @intentionWorkPressure.
+  ///
+  /// In en, this message translates to:
+  /// **'Do one task fully, without checking the result.'**
+  String get intentionWorkPressure;
+
+  /// No description provided for @intentionDutyConflict.
+  ///
+  /// In en, this message translates to:
+  /// **'Do the duty in front of you, well.'**
+  String get intentionDutyConflict;
+
+  /// No description provided for @intentionProcrastination.
+  ///
+  /// In en, this message translates to:
+  /// **'Start the task for five minutes only.'**
+  String get intentionProcrastination;
+
+  /// No description provided for @intentionPerfectionism.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish one thing and let it be enough.'**
+  String get intentionPerfectionism;
+
+  /// No description provided for @intentionFocus.
+  ///
+  /// In en, this message translates to:
+  /// **'Do one thing at a time for an hour.'**
+  String get intentionFocus;
+
+  /// No description provided for @intentionDiscipline.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep one small promise to yourself.'**
+  String get intentionDiscipline;
+
+  /// No description provided for @intentionHabits.
+  ///
+  /// In en, this message translates to:
+  /// **'Do the good habit once, at the same time.'**
+  String get intentionHabits;
+
+  /// No description provided for @intentionPatience.
+  ///
+  /// In en, this message translates to:
+  /// **'Let one thing take the time it takes.'**
+  String get intentionPatience;
+
+  /// No description provided for @intentionEquanimity.
+  ///
+  /// In en, this message translates to:
+  /// **'Meet one good and one hard moment the same.'**
+  String get intentionEquanimity;
+
+  /// No description provided for @intentionDetachment.
+  ///
+  /// In en, this message translates to:
+  /// **'Do your best and leave the result.'**
+  String get intentionDetachment;
+
+  /// No description provided for @intentionForgiveness.
+  ///
+  /// In en, this message translates to:
+  /// **'Let go of one old hurt, just for today.'**
+  String get intentionForgiveness;
+
+  /// No description provided for @intentionCompassion.
+  ///
+  /// In en, this message translates to:
+  /// **'Do one quiet kindness no one will see.'**
+  String get intentionCompassion;
+
+  /// No description provided for @intentionKindness.
+  ///
+  /// In en, this message translates to:
+  /// **'Do one quiet kindness no one will see.'**
+  String get intentionKindness;
+
+  /// No description provided for @intentionGratitude.
+  ///
+  /// In en, this message translates to:
+  /// **'Name three things you are grateful for tonight.'**
+  String get intentionGratitude;
+
+  /// No description provided for @intentionHumility.
+  ///
+  /// In en, this message translates to:
+  /// **'Listen fully before you speak, once today.'**
+  String get intentionHumility;
+
+  /// No description provided for @intentionFaith.
+  ///
+  /// In en, this message translates to:
+  /// **'Begin your work with one quiet breath.'**
+  String get intentionFaith;
+
+  /// No description provided for @intentionSurrender.
+  ///
+  /// In en, this message translates to:
+  /// **'Hand one worry over, and do your part.'**
+  String get intentionSurrender;
+
+  /// No description provided for @intentionPurpose.
+  ///
+  /// In en, this message translates to:
+  /// **'Do one thing today that matters to you.'**
+  String get intentionPurpose;
+
+  /// No description provided for @intentionMortality.
+  ///
+  /// In en, this message translates to:
+  /// **'Spend ten minutes on what truly matters.'**
+  String get intentionMortality;
+
+  /// No description provided for @intentionChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome one small change without resisting.'**
+  String get intentionChange;
+
+  /// No description provided for @intentionSelfWorth.
+  ///
+  /// In en, this message translates to:
+  /// **'Speak to yourself once as a friend would.'**
+  String get intentionSelfWorth;
+
+  /// No description provided for @intentionSpeech.
+  ///
+  /// In en, this message translates to:
+  /// **'Say only what is true and kind today.'**
+  String get intentionSpeech;
+
+  /// No description provided for @intentionContentment.
+  ///
+  /// In en, this message translates to:
+  /// **'Enjoy one simple thing without wanting more.'**
+  String get intentionContentment;
+
+  /// No description provided for @intentionPeace.
+  ///
+  /// In en, this message translates to:
+  /// **'Put the phone down ten minutes before sleep.'**
+  String get intentionPeace;
+
+  /// No description provided for @intentionHope.
+  ///
+  /// In en, this message translates to:
+  /// **'Do one small thing for tomorrow, tonight.'**
+  String get intentionHope;
+
+  /// No description provided for @intentionLearning.
+  ///
+  /// In en, this message translates to:
+  /// **'Read one verse again, slowly.'**
+  String get intentionLearning;
+
+  /// No description provided for @intentionDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'Do one task fully, then let the result go.'**
+  String get intentionDefault;
+
+  /// No description provided for @wasAfraid.
+  ///
+  /// In en, this message translates to:
+  /// **'who was afraid'**
+  String get wasAfraid;
+
+  /// No description provided for @wasGrieving.
+  ///
+  /// In en, this message translates to:
+  /// **'who was grieving'**
+  String get wasGrieving;
+
+  /// No description provided for @wasLost.
+  ///
+  /// In en, this message translates to:
+  /// **'who did not know what to do'**
+  String get wasLost;
+
+  /// No description provided for @wasDoubtful.
+  ///
+  /// In en, this message translates to:
+  /// **'who was full of doubt'**
+  String get wasDoubtful;
+
+  /// No description provided for @wasTorn.
+  ///
+  /// In en, this message translates to:
+  /// **'who was torn about his duty'**
+  String get wasTorn;
+
+  /// No description provided for @wasHeartLost.
+  ///
+  /// In en, this message translates to:
+  /// **'who had lost heart'**
+  String get wasHeartLost;
+
+  /// No description provided for @toldPlain.
+  ///
+  /// In en, this message translates to:
+  /// **'{speaker} told {listener}:'**
+  String toldPlain(String speaker, String listener);
+
+  /// No description provided for @toldWas.
+  ///
+  /// In en, this message translates to:
+  /// **'{speaker} told {listener}, {was}:'**
+  String toldWas(String speaker, String listener, String was);
+
+  /// No description provided for @mannCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'MANN DARPAN'**
+  String get mannCaps;
+
+  /// No description provided for @mannAnswerTop.
+  ///
+  /// In en, this message translates to:
+  /// **'A verse heard you'**
+  String get mannAnswerTop;
+
+  /// No description provided for @mannAskTonight.
+  ///
+  /// In en, this message translates to:
+  /// **'How is your mind\ntonight?'**
+  String get mannAskTonight;
+
+  /// No description provided for @mannAskToday.
+  ///
+  /// In en, this message translates to:
+  /// **'How is your mind\ntoday?'**
+  String get mannAskToday;
+
+  /// No description provided for @mannTapSpeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap, and speak for as long as you need.'**
+  String get mannTapSpeak;
+
+  /// No description provided for @typeInstead.
+  ///
+  /// In en, this message translates to:
+  /// **'Type instead'**
+  String get typeInstead;
+
+  /// No description provided for @mannListening.
+  ///
+  /// In en, this message translates to:
+  /// **'Listening.'**
+  String get mannListening;
+
+  /// No description provided for @mannSpeakPrivate.
+  ///
+  /// In en, this message translates to:
+  /// **'Speak. Only you will hear this.'**
+  String get mannSpeakPrivate;
+
+  /// No description provided for @done.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get done;
+
+  /// No description provided for @mannTypingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'In a few words,\nwhat is on your mind?'**
+  String get mannTypingTitle;
+
+  /// No description provided for @hearYourself.
+  ///
+  /// In en, this message translates to:
+  /// **'Hear yourself first'**
+  String get hearYourself;
+
+  /// No description provided for @mannHint.
+  ///
+  /// In en, this message translates to:
+  /// **'I have an interview tomorrow and I keep thinking...'**
+  String get mannHint;
+
+  /// No description provided for @mannStays.
+  ///
+  /// In en, this message translates to:
+  /// **'Stays on this phone. Nothing is sent anywhere.'**
+  String get mannStays;
+
+  /// No description provided for @letVerseAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Let a verse answer'**
+  String get letVerseAnswer;
+
+  /// No description provided for @intentTonight.
+  ///
+  /// In en, this message translates to:
+  /// **'Tonight: {text}'**
+  String intentTonight(String text);
+
+  /// No description provided for @intentToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today: {text}'**
+  String intentToday(String text);
+
+  /// No description provided for @sealAsSankalp.
+  ///
+  /// In en, this message translates to:
+  /// **'Seal as my Sankalp'**
+  String get sealAsSankalp;
+
+  /// No description provided for @notToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Not today'**
+  String get notToday;
+
+  /// No description provided for @mannOrbSemantic.
+  ///
+  /// In en, this message translates to:
+  /// **'Speak. Tap to start.'**
+  String get mannOrbSemantic;
+
+  /// No description provided for @sealIt.
+  ///
+  /// In en, this message translates to:
+  /// **'Seal it'**
+  String get sealIt;
+
+  /// No description provided for @sealedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sealed.'**
+  String get sealedTitle;
+
+  /// No description provided for @lookBackTomorrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Look back on it tomorrow.'**
+  String get lookBackTomorrow;
+
+  /// No description provided for @sealSankalpCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'SEAL A SANKALP'**
+  String get sealSankalpCaps;
+
+  /// No description provided for @oneSmallIntention.
+  ///
+  /// In en, this message translates to:
+  /// **'One small intention.'**
+  String get oneSmallIntention;
+
+  /// No description provided for @fromGitaChange.
+  ///
+  /// In en, this message translates to:
+  /// **'From Gita {id}. Change a word if you like.'**
+  String fromGitaChange(String id);
+
+  /// No description provided for @sealSankalpSemantic.
+  ///
+  /// In en, this message translates to:
+  /// **'Seal this Sankalp'**
+  String get sealSankalpSemantic;
+
+  /// No description provided for @keptIt.
+  ///
+  /// In en, this message translates to:
+  /// **'I kept it'**
+  String get keptIt;
+
+  /// No description provided for @letItGo.
+  ///
+  /// In en, this message translates to:
+  /// **'I let it go'**
+  String get letItGo;
+
+  /// No description provided for @replyKept.
+  ///
+  /// In en, this message translates to:
+  /// **'Kept. That is how a habit grows.'**
+  String get replyKept;
+
+  /// No description provided for @replyLetGo.
+  ///
+  /// In en, this message translates to:
+  /// **'Let go. Today is a fresh start.'**
+  String get replyLetGo;
+
+  /// No description provided for @yourSankalpCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'YOUR SANKALP'**
+  String get yourSankalpCaps;
+
+  /// No description provided for @festival1.
+  ///
+  /// In en, this message translates to:
+  /// **'Vasant Panchami'**
+  String get festival1;
+
+  /// No description provided for @festival2.
+  ///
+  /// In en, this message translates to:
+  /// **'Maha Shivaratri'**
+  String get festival2;
+
+  /// No description provided for @festival3.
+  ///
+  /// In en, this message translates to:
+  /// **'Holika Dahan'**
+  String get festival3;
+
+  /// No description provided for @festival4.
+  ///
+  /// In en, this message translates to:
+  /// **'Ugadi and Gudi Padwa'**
+  String get festival4;
+
+  /// No description provided for @festival5.
+  ///
+  /// In en, this message translates to:
+  /// **'Ram Navami'**
+  String get festival5;
+
+  /// No description provided for @festival6.
+  ///
+  /// In en, this message translates to:
+  /// **'Hanuman Jayanti'**
+  String get festival6;
+
+  /// No description provided for @festival7.
+  ///
+  /// In en, this message translates to:
+  /// **'Akshaya Tritiya'**
+  String get festival7;
+
+  /// No description provided for @festival8.
+  ///
+  /// In en, this message translates to:
+  /// **'Rath Yatra'**
+  String get festival8;
+
+  /// No description provided for @festival9.
+  ///
+  /// In en, this message translates to:
+  /// **'Guru Purnima'**
+  String get festival9;
+
+  /// No description provided for @festival10.
+  ///
+  /// In en, this message translates to:
+  /// **'Raksha Bandhan'**
+  String get festival10;
+
+  /// No description provided for @festival11.
+  ///
+  /// In en, this message translates to:
+  /// **'Janmashtami'**
+  String get festival11;
+
+  /// No description provided for @festival12.
+  ///
+  /// In en, this message translates to:
+  /// **'Ganesh Chaturthi'**
+  String get festival12;
+
+  /// No description provided for @festival13.
+  ///
+  /// In en, this message translates to:
+  /// **'Radha Ashtami'**
+  String get festival13;
+
+  /// No description provided for @festival14.
+  ///
+  /// In en, this message translates to:
+  /// **'Anant Chaturdashi'**
+  String get festival14;
+
+  /// No description provided for @festival15.
+  ///
+  /// In en, this message translates to:
+  /// **'Navratri begins'**
+  String get festival15;
+
+  /// No description provided for @festival16.
+  ///
+  /// In en, this message translates to:
+  /// **'Durga Ashtami'**
+  String get festival16;
+
+  /// No description provided for @festival17.
+  ///
+  /// In en, this message translates to:
+  /// **'Maha Navami'**
+  String get festival17;
+
+  /// No description provided for @festival18.
+  ///
+  /// In en, this message translates to:
+  /// **'Vijayadashami'**
+  String get festival18;
+
+  /// No description provided for @festival19.
+  ///
+  /// In en, this message translates to:
+  /// **'Sharad Purnima'**
+  String get festival19;
+
+  /// No description provided for @festival20.
+  ///
+  /// In en, this message translates to:
+  /// **'Karva Chauth'**
+  String get festival20;
+
+  /// No description provided for @festival21.
+  ///
+  /// In en, this message translates to:
+  /// **'Dhanteras'**
+  String get festival21;
+
+  /// No description provided for @festival22.
+  ///
+  /// In en, this message translates to:
+  /// **'Naraka Chaturdashi'**
+  String get festival22;
+
+  /// No description provided for @festival23.
+  ///
+  /// In en, this message translates to:
+  /// **'Diwali'**
+  String get festival23;
+
+  /// No description provided for @festival24.
+  ///
+  /// In en, this message translates to:
+  /// **'Govardhan Puja'**
+  String get festival24;
+
+  /// No description provided for @festival25.
+  ///
+  /// In en, this message translates to:
+  /// **'Bhai Dooj'**
+  String get festival25;
+
+  /// No description provided for @festival26.
+  ///
+  /// In en, this message translates to:
+  /// **'Tulsi Vivah'**
+  String get festival26;
+
+  /// No description provided for @festival27.
+  ///
+  /// In en, this message translates to:
+  /// **'Dev Deepawali'**
+  String get festival27;
+
+  /// No description provided for @festival28.
+  ///
+  /// In en, this message translates to:
+  /// **'Makar Sankranti'**
+  String get festival28;
+
+  /// No description provided for @festival29.
+  ///
+  /// In en, this message translates to:
+  /// **'Gita Jayanti'**
+  String get festival29;
+
+  /// No description provided for @festival30.
+  ///
+  /// In en, this message translates to:
+  /// **'Holi'**
+  String get festival30;
+
+  /// No description provided for @festivalFallback.
+  ///
+  /// In en, this message translates to:
+  /// **'Festival'**
+  String get festivalFallback;
+
+  /// No description provided for @weekday1.
+  ///
+  /// In en, this message translates to:
+  /// **'Monday'**
+  String get weekday1;
+
+  /// No description provided for @weekday2.
+  ///
+  /// In en, this message translates to:
+  /// **'Tuesday'**
+  String get weekday2;
+
+  /// No description provided for @weekday3.
+  ///
+  /// In en, this message translates to:
+  /// **'Wednesday'**
+  String get weekday3;
+
+  /// No description provided for @weekday4.
+  ///
+  /// In en, this message translates to:
+  /// **'Thursday'**
+  String get weekday4;
+
+  /// No description provided for @weekday5.
+  ///
+  /// In en, this message translates to:
+  /// **'Friday'**
+  String get weekday5;
+
+  /// No description provided for @weekday6.
+  ///
+  /// In en, this message translates to:
+  /// **'Saturday'**
+  String get weekday6;
+
+  /// No description provided for @weekday7.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunday'**
+  String get weekday7;
+
+  /// No description provided for @weekdayShort1.
+  ///
+  /// In en, this message translates to:
+  /// **'Mon'**
+  String get weekdayShort1;
+
+  /// No description provided for @weekdayShort2.
+  ///
+  /// In en, this message translates to:
+  /// **'Tue'**
+  String get weekdayShort2;
+
+  /// No description provided for @weekdayShort3.
+  ///
+  /// In en, this message translates to:
+  /// **'Wed'**
+  String get weekdayShort3;
+
+  /// No description provided for @weekdayShort4.
+  ///
+  /// In en, this message translates to:
+  /// **'Thu'**
+  String get weekdayShort4;
+
+  /// No description provided for @weekdayShort5.
+  ///
+  /// In en, this message translates to:
+  /// **'Fri'**
+  String get weekdayShort5;
+
+  /// No description provided for @weekdayShort6.
+  ///
+  /// In en, this message translates to:
+  /// **'Sat'**
+  String get weekdayShort6;
+
+  /// No description provided for @weekdayShort7.
+  ///
+  /// In en, this message translates to:
+  /// **'Sun'**
+  String get weekdayShort7;
+
+  /// No description provided for @dayTomorrow.
+  ///
+  /// In en, this message translates to:
+  /// **'Tomorrow'**
+  String get dayTomorrow;
+
+  /// No description provided for @whenOnDay.
+  ///
+  /// In en, this message translates to:
+  /// **'on {day}'**
+  String whenOnDay(String day);
+
+  /// No description provided for @clockAt.
+  ///
+  /// In en, this message translates to:
+  /// **'{period, select, nightEarly{{t} am} morning{{t} am} noon{{t} pm} evening{{t} pm} night{{t} pm} other{{t}}}'**
+  String clockAt(String period, String t);
+
+  /// No description provided for @ritualDailyGita.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Gita'**
+  String get ritualDailyGita;
+
+  /// No description provided for @ritualSandhya.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning sandhya'**
+  String get ritualSandhya;
+
+  /// No description provided for @ritualDiya.
+  ///
+  /// In en, this message translates to:
+  /// **'Evening diya'**
+  String get ritualDiya;
+
+  /// No description provided for @ritualEkadashi.
+  ///
+  /// In en, this message translates to:
+  /// **'Ekadashi'**
+  String get ritualEkadashi;
+
+  /// No description provided for @ritualPurnima.
+  ///
+  /// In en, this message translates to:
+  /// **'Purnima'**
+  String get ritualPurnima;
+
+  /// No description provided for @ritualAmavasya.
+  ///
+  /// In en, this message translates to:
+  /// **'Amavasya'**
+  String get ritualAmavasya;
+
+  /// No description provided for @ritualPradosh.
+  ///
+  /// In en, this message translates to:
+  /// **'Pradosh'**
+  String get ritualPradosh;
+
+  /// No description provided for @ritualSankashti.
+  ///
+  /// In en, this message translates to:
+  /// **'Sankashti'**
+  String get ritualSankashti;
+
+  /// No description provided for @ritualFestivals.
+  ///
+  /// In en, this message translates to:
+  /// **'Festivals'**
+  String get ritualFestivals;
+
+  /// No description provided for @meaningDailyGita.
+  ///
+  /// In en, this message translates to:
+  /// **'Five verses from the Gita, at the hour you chose.'**
+  String get meaningDailyGita;
+
+  /// No description provided for @meaningSandhya.
+  ///
+  /// In en, this message translates to:
+  /// **'A quiet minute to greet the sun as it rises.'**
+  String get meaningSandhya;
+
+  /// No description provided for @meaningDiya.
+  ///
+  /// In en, this message translates to:
+  /// **'A soft reminder to light a lamp as the day ends.'**
+  String get meaningDiya;
+
+  /// No description provided for @meaningEkadashi.
+  ///
+  /// In en, this message translates to:
+  /// **'Ekadashi is the eleventh day of the moon. Many people fast. We also tell you when to eat again. That is called parana.'**
+  String get meaningEkadashi;
+
+  /// No description provided for @meaningPurnima.
+  ///
+  /// In en, this message translates to:
+  /// **'Purnima is the night the moon is full and round.'**
+  String get meaningPurnima;
+
+  /// No description provided for @meaningAmavasya.
+  ///
+  /// In en, this message translates to:
+  /// **'Amavasya is the night with no moon. A time to remember family who came before.'**
+  String get meaningAmavasya;
+
+  /// No description provided for @meaningPradosh.
+  ///
+  /// In en, this message translates to:
+  /// **'Pradosh is dusk on the thirteenth day of the moon, kept for Shiva.'**
+  String get meaningPradosh;
+
+  /// No description provided for @meaningSankashti.
+  ///
+  /// In en, this message translates to:
+  /// **'Sankashti is a fast for Ganesha. It ends when the moon rises.'**
+  String get meaningSankashti;
+
+  /// No description provided for @meaningFestivals.
+  ///
+  /// In en, this message translates to:
+  /// **'Big days like Diwali and Holi, on the right date for your city.'**
+  String get meaningFestivals;
+
+  /// No description provided for @deityNone.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get deityNone;
+
+  /// No description provided for @deityShiva.
+  ///
+  /// In en, this message translates to:
+  /// **'Shiva, Monday'**
+  String get deityShiva;
+
+  /// No description provided for @deityHanuman.
+  ///
+  /// In en, this message translates to:
+  /// **'Hanuman, Tuesday'**
+  String get deityHanuman;
+
+  /// No description provided for @deityVishnu.
+  ///
+  /// In en, this message translates to:
+  /// **'Vishnu or Guru, Thursday'**
+  String get deityVishnu;
+
+  /// No description provided for @deityShani.
+  ///
+  /// In en, this message translates to:
+  /// **'Shani, Saturday'**
+  String get deityShani;
+
+  /// No description provided for @deityMeaningNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No special day for now.'**
+  String get deityMeaningNone;
+
+  /// No description provided for @deityMeaningShiva.
+  ///
+  /// In en, this message translates to:
+  /// **'Monday is for Shiva. A lamp at sunset.'**
+  String get deityMeaningShiva;
+
+  /// No description provided for @deityMeaningHanuman.
+  ///
+  /// In en, this message translates to:
+  /// **'Tuesday is for Hanuman. The Chalisa in the morning.'**
+  String get deityMeaningHanuman;
+
+  /// No description provided for @deityMeaningVishnu.
+  ///
+  /// In en, this message translates to:
+  /// **'Thursday is for Vishnu, the teacher of teachers.'**
+  String get deityMeaningVishnu;
+
+  /// No description provided for @deityMeaningShani.
+  ///
+  /// In en, this message translates to:
+  /// **'Saturday is for Shani. A quiet lamp at sunset.'**
+  String get deityMeaningShani;
+
+  /// No description provided for @noteGita.
+  ///
+  /// In en, this message translates to:
+  /// **'Five verses are ready. Take your time.'**
+  String get noteGita;
+
+  /// No description provided for @noteSandhya.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunrise at {time}. A quiet minute for the morning sandhya, if you like.'**
+  String noteSandhya(String time);
+
+  /// No description provided for @noteDiya.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunset at {time}. The evening lamp, whenever you are ready.'**
+  String noteDiya(String time);
+
+  /// No description provided for @noteShiva.
+  ///
+  /// In en, this message translates to:
+  /// **'Monday. A lamp for Shiva at sunset, {time}, if you like.'**
+  String noteShiva(String time);
+
+  /// No description provided for @noteHanuman.
+  ///
+  /// In en, this message translates to:
+  /// **'Tuesday. The Chalisa this morning, if you like.'**
+  String get noteHanuman;
+
+  /// No description provided for @noteVishnu.
+  ///
+  /// In en, this message translates to:
+  /// **'Thursday. A lamp for Vishnu at sunset, {time}, if you like.'**
+  String noteVishnu(String time);
+
+  /// No description provided for @noteShani.
+  ///
+  /// In en, this message translates to:
+  /// **'Saturday. A quiet lamp at sunset, {time}, if you like.'**
+  String noteShani(String time);
+
+  /// No description provided for @notePurnima.
+  ///
+  /// In en, this message translates to:
+  /// **'Purnima tonight. The full moon rises near sunset.'**
+  String get notePurnima;
+
+  /// No description provided for @noteAmavasya.
+  ///
+  /// In en, this message translates to:
+  /// **'Amavasya today. A lamp for those who came before, if you like.'**
+  String get noteAmavasya;
+
+  /// No description provided for @notePradosh.
+  ///
+  /// In en, this message translates to:
+  /// **'Pradosh today. Pradosh kaal {range}.'**
+  String notePradosh(String range);
+
+  /// No description provided for @noteSankashti.
+  ///
+  /// In en, this message translates to:
+  /// **'Sankashti tonight. Moonrise {time}.'**
+  String noteSankashti(String time);
+
+  /// No description provided for @noteFestival.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} is today. A quiet, bright day to you.'**
+  String noteFestival(String name);
+
+  /// No description provided for @noteEkadashi.
+  ///
+  /// In en, this message translates to:
+  /// **'Ekadashi{rule} begins at sunrise. Break the fast {when} {range}.'**
+  String noteEkadashi(String rule, String when, String range);
+
+  /// No description provided for @noteParana.
+  ///
+  /// In en, this message translates to:
+  /// **'Parana window: {range}. Break the fast gently.'**
+  String noteParana(String range);
+
+  /// No description provided for @labelEkadashiRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Ekadashi ({rule})'**
+  String labelEkadashiRule(String rule);
+
+  /// No description provided for @labelParana.
+  ///
+  /// In en, this message translates to:
+  /// **'Parana {range}'**
+  String labelParana(String range);
+
+  /// No description provided for @labelPradosh.
+  ///
+  /// In en, this message translates to:
+  /// **'Pradosh {range}'**
+  String labelPradosh(String range);
+
+  /// No description provided for @ruleSuffix.
+  ///
+  /// In en, this message translates to:
+  /// **' ({rule})'**
+  String ruleSuffix(String rule);
+
+  /// No description provided for @notifChannel.
+  ///
+  /// In en, this message translates to:
+  /// **'Ritual reminders'**
+  String get notifChannel;
+
+  /// No description provided for @notifChannelDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Quiet reminders for the rituals you chose.'**
+  String get notifChannelDesc;
+
+  /// No description provided for @practiceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your practice'**
+  String get practiceTitle;
+
+  /// No description provided for @practiceRebuild.
+  ///
+  /// In en, this message translates to:
+  /// **'Build my practice again'**
+  String get practiceRebuild;
+
+  /// No description provided for @allReminders.
+  ///
+  /// In en, this message translates to:
+  /// **'All reminders'**
+  String get allReminders;
+
+  /// No description provided for @nextNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Next: {when}'**
+  String nextNote(String when);
+
+  /// No description provided for @changeHour.
+  ///
+  /// In en, this message translates to:
+  /// **'Change the hour'**
+  String get changeHour;
+
+  /// No description provided for @turnOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn this off'**
+  String get turnOff;
+
+  /// No description provided for @practiceIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'What we remind you of, and when. Tap one to see what it means.'**
+  String get practiceIntro;
+
+  /// No description provided for @nothingOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing is on yet.'**
+  String get nothingOn;
+
+  /// No description provided for @allRemindersWhy.
+  ///
+  /// In en, this message translates to:
+  /// **'Every switch, one by one. For when you know just what you want.'**
+  String get allRemindersWhy;
+
+  /// No description provided for @hourSheetWhy.
+  ///
+  /// In en, this message translates to:
+  /// **'Your five verses wait for you at this hour.'**
+  String get hourSheetWhy;
+
+  /// No description provided for @verseHour.
+  ///
+  /// In en, this message translates to:
+  /// **'Verse hour'**
+  String get verseHour;
+
+  /// No description provided for @weekdayLamp.
+  ///
+  /// In en, this message translates to:
+  /// **'A weekday lamp'**
+  String get weekdayLamp;
+
+  /// No description provided for @savePractice.
+  ///
+  /// In en, this message translates to:
+  /// **'Save my practice'**
+  String get savePractice;
+
+  /// No description provided for @itemAtTime.
+  ///
+  /// In en, this message translates to:
+  /// **'{label}, {time}'**
+  String itemAtTime(String label, String time);
+
+  /// No description provided for @ritualSemantic.
+  ///
+  /// In en, this message translates to:
+  /// **'{label}. {meaning}'**
+  String ritualSemantic(String label, String meaning);
+
+  /// No description provided for @traditionCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'SMARTA AND VAISHNAVA'**
+  String get traditionCaps;
+
+  /// No description provided for @traditionExplTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Two ways to keep Ekadashi'**
+  String get traditionExplTitle;
+
+  /// No description provided for @traditionTithi.
+  ///
+  /// In en, this message translates to:
+  /// **'The moon has its own days. Each one is called a tithi. A tithi does not start at midnight. It can start at any hour.'**
+  String get traditionTithi;
+
+  /// No description provided for @traditionEkadashi.
+  ///
+  /// In en, this message translates to:
+  /// **'Ekadashi is the eleventh tithi. Dashami, the tenth, comes just before it.'**
+  String get traditionEkadashi;
+
+  /// No description provided for @traditionSmartaRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Fast on the day Ekadashi is there when the sun rises.'**
+  String get traditionSmartaRule;
+
+  /// No description provided for @traditionVaishnavaRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Ekadashi must be clean from dawn, about an hour and a half before sunrise. If Dashami is still there at dawn, fast the next day.'**
+  String get traditionVaishnavaRule;
+
+  /// No description provided for @traditionSame.
+  ///
+  /// In en, this message translates to:
+  /// **'Most months, both fall on the same day.'**
+  String get traditionSame;
+
+  /// No description provided for @traditionUnsureLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Not sure? Follow what your family does. You can change this later.'**
+  String get traditionUnsureLine;
+
+  /// No description provided for @traditionRare.
+  ///
+  /// In en, this message translates to:
+  /// **'In a few months the moon moves fast and other rules decide. Our dates match Drik Panchang where we checked.'**
+  String get traditionRare;
+
+  /// No description provided for @gotIt.
+  ///
+  /// In en, this message translates to:
+  /// **'Got it'**
+  String get gotIt;
+
+  /// No description provided for @timelineSemantic.
+  ///
+  /// In en, this message translates to:
+  /// **'Two sunrises. Dashami ends after dawn on day 1. The Smarta lamp stays on day 1. The Vaishnava lamp moves to day 2.'**
+  String get timelineSemantic;
+
+  /// No description provided for @tlDashami.
+  ///
+  /// In en, this message translates to:
+  /// **'DASHAMI'**
+  String get tlDashami;
+
+  /// No description provided for @tlEkadashi.
+  ///
+  /// In en, this message translates to:
+  /// **'EKADASHI'**
+  String get tlEkadashi;
+
+  /// No description provided for @tlDvadashi.
+  ///
+  /// In en, this message translates to:
+  /// **'DVADASHI'**
+  String get tlDvadashi;
+
+  /// No description provided for @tlDay1.
+  ///
+  /// In en, this message translates to:
+  /// **'DAY 1'**
+  String get tlDay1;
+
+  /// No description provided for @tlDay2.
+  ///
+  /// In en, this message translates to:
+  /// **'DAY 2'**
+  String get tlDay2;
+
+  /// No description provided for @tlDawn.
+  ///
+  /// In en, this message translates to:
+  /// **'DAWN'**
+  String get tlDawn;
+
+  /// No description provided for @tlSmarta.
+  ///
+  /// In en, this message translates to:
+  /// **'SMARTA'**
+  String get tlSmarta;
+
+  /// No description provided for @tlVaishnava.
+  ///
+  /// In en, this message translates to:
+  /// **'VAISHNAVA'**
+  String get tlVaishnava;
+
+  /// No description provided for @clockRange.
+  ///
+  /// In en, this message translates to:
+  /// **'{same, select, yes{{aBare}-{bFull}} other{{aFull}-{bFull}}}'**
+  String clockRange(String same, String aBare, String aFull, String bFull);
+
+  /// No description provided for @nameLead.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}.  '**
+  String nameLead(String name);
 }
 
 class _AppLocalizationsDelegate

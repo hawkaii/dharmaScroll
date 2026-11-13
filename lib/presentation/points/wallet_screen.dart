@@ -6,41 +6,28 @@ import '../../core/state/progress.dart';
 import '../../design/effects.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
+import '../../l10n/l10n.dart';
 import '../kept/kept_screen.dart' show BackMark;
 
-const List<String> _months = <String>[
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
-];
-
 /// "Today", "Yesterday" or "12 Nov".
-String dayName(String key, DateTime now) {
-  if (key == dayKey(now)) return 'Today';
-  if (key == dayKey(now.subtract(const Duration(days: 1)))) return 'Yesterday';
+String dayName(AppLocalizations l, String key, DateTime now) {
+  if (key == dayKey(now)) return l.dayToday;
+  if (key == dayKey(now.subtract(const Duration(days: 1)))) {
+    return l.dayYesterday;
+  }
   final List<String> p = key.split('-');
   if (p.length != 3) return key;
-  return '${int.parse(p[2])} ${_months[int.parse(p[1]) - 1]}';
+  return l.dayMonth(int.parse(p[2]), l.month(int.parse(p[1])));
 }
 
 /// Moksh Points: the total and where each one came from. Nothing to buy.
 class WalletScreen extends ConsumerWidget {
   const WalletScreen({super.key});
 
-  static const String promise = 'They only go up.\nNothing here is for sale.';
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     final ProgressState p = ref.watch(progressProvider);
     final DateTime now = ref.read(clockProvider)();
     final List<PointEntry> history = p.ledger.reversed.toList();
@@ -57,10 +44,10 @@ class WalletScreen extends ConsumerWidget {
                   Sp.screenSide,
                   0,
                 ),
-                child: const Row(
+                child: Row(
                   children: <Widget>[
-                    BackMark(),
-                    Expanded(child: TopLine(left: 'Moksh Points')),
+                    const BackMark(),
+                    Expanded(child: TopLine(left: l.mokshPoints)),
                   ],
                 ),
               ),
@@ -84,7 +71,7 @@ class WalletScreen extends ConsumerWidget {
                     const SizedBox(height: Sp.s12),
                     Center(
                       child: Semantics(
-                        label: '${p.points} Moksh Points',
+                        label: l.pointsAction(p.points),
                         excludeSemantics: true,
                         child: CountUp(
                           value: p.points,
@@ -101,16 +88,16 @@ class WalletScreen extends ConsumerWidget {
                     ),
                     const SizedBox(height: Sp.s12),
                     Text(
-                      promise,
+                      l.walletPromise,
                       textAlign: TextAlign.center,
                       style: DType.body(c.mute, size: 17),
                     ),
                     const SizedBox(height: Sp.s30),
-                    Text('HOW THEY CAME', style: DType.eyebrow(c.accent)),
+                    Text(l.howTheyCameCaps, style: DType.eyebrow(c.accent)),
                     const SizedBox(height: Sp.s12),
                     if (history.isEmpty)
                       Text(
-                        "Your first points come with today's five verses.",
+                        l.firstPoints,
                         style: DType.body(c.faint, size: 17),
                       ),
                     for (int i = 0; i < history.length; i++) ...<Widget>[
@@ -121,14 +108,12 @@ class WalletScreen extends ConsumerWidget {
                             bottom: Sp.s6,
                           ),
                           child: Text(
-                            dayName(history[i].day, now).toUpperCase(),
+                            dayName(l, history[i].day, now).toUpperCase(),
                             style: DType.ref(c.faint),
                           ),
                         ),
                       PointsRow(
-                        label:
-                            ProgressNotifier.reasons[history[i].reason] ??
-                            history[i].reason,
+                        label: l.pointReason(history[i].reason),
                         amount: history[i].amount,
                       ),
                     ],
@@ -181,7 +166,9 @@ class PointsRow extends StatelessWidget {
             ),
           ),
           Semantics(
-            label: done ? 'plus $amount' : '$amount waiting',
+            label: done
+                ? context.l.plusSemantic(amount)
+                : context.l.waitingSemantic(amount),
             excludeSemantics: true,
             child: Text(
               '+$amount',
@@ -209,11 +196,12 @@ Future<void> showTodayPointsSheet(BuildContext context, ProgressState p) {
   final int total = got.values.fold(0, (int a, int b) => a + b);
   return showDSheet<void>(context, (BuildContext ctx) {
     final DharmaColors c = ctx.c;
+    final AppLocalizations l = ctx.l;
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text("TODAY'S LIGHT", style: DType.eyebrow(c.accent)),
+        Text(l.todaysLightCaps, style: DType.eyebrow(c.accent)),
         const SizedBox(height: Sp.s6),
         Row(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -223,7 +211,7 @@ Future<void> showTodayPointsSheet(BuildContext context, ProgressState p) {
             Padding(
               padding: const EdgeInsets.only(bottom: 8),
               child: Text(
-                'Moksh Points today',
+                l.pointsToday,
                 style: DType.body(c.mute, size: 17),
               ),
             ),
@@ -232,20 +220,18 @@ Future<void> showTodayPointsSheet(BuildContext context, ProgressState p) {
         const SizedBox(height: Sp.s12),
         for (final (String reason, int amount) in plan)
           PointsRow(
-            label: ProgressNotifier.reasons[reason]!,
+            label: l.pointReason(reason),
             amount: got[reason] ?? amount,
             done: got.containsKey(reason),
           ),
         if (got.containsKey('sankalp'))
           PointsRow(
-            label: ProgressNotifier.reasons['sankalp']!,
+            label: l.pointReason('sankalp'),
             amount: got['sankalp']!,
           ),
         const SizedBox(height: Sp.s18),
         Text(
-          all
-              ? 'No more points today. Just peace.'
-              : 'Each step gives its points once a day.',
+          all ? l.noMorePoints : l.oncePerDay,
           style: DType.body(c.faint, size: 16),
         ),
       ],

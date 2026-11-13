@@ -10,30 +10,28 @@ import '../../core/state/settings.dart';
 import '../../design/info_sheet.dart';
 import '../../design/lottie_art.dart';
 import '../../design/tokens.dart';
-import '../../l10n/l10n.dart';
 import '../../design/widgets.dart';
+import '../../l10n/l10n.dart';
+import '../../l10n/ritual_words.dart';
 import 'practice_builder.dart';
 
-String timeName(int m) => fmtClock(m);
+String timeName(AppLocalizations l, int m) => fmtClock(l, m);
 
 /// Your practice: what is on, what each one means, when the next note comes.
 class PracticeScreen extends ConsumerWidget {
   const PracticeScreen({super.key});
 
-  static const String title = 'Your practice';
-  static const String rebuild = 'Build my practice again';
-  static const String allReminders = 'All reminders';
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     final Settings s = ref.watch(settingsProvider);
     final SettingsNotifier n = ref.read(settingsProvider.notifier);
     final PreviewContext? ctx = ref.watch(previewContextProvider);
     String? next({Set<Ritual> r = const <Ritual>{}, Deity d = Deity.none}) {
       if (ctx == null) return null;
-      final PlannedReminder? p = firstNote(ctx, rituals: r, deity: d);
-      return p == null ? null : 'Next: ${whenLabel(p.wall, ctx.now)}';
+      final PlannedReminder? p = firstNote(l, ctx, rituals: r, deity: d);
+      return p == null ? null : l.nextNote(whenLabel(l, p.wall, ctx.now));
     }
 
     final List<Widget> items = <Widget>[
@@ -41,28 +39,31 @@ class PracticeScreen extends ConsumerWidget {
         if (s.rituals.contains(r))
           _Item(
             label: r == Ritual.dailyGita
-                ? '${r.label}, ${timeName(s.reminderMinutes)}'
-                : r.label,
-            meaning: ritualMeaning(r),
+                ? l.itemAtTime(
+                    l.ritualLabel(r),
+                    timeName(l, s.reminderMinutes),
+                  )
+                : l.ritualLabel(r),
+            meaning: l.ritualMeaning(r),
             next: next(r: <Ritual>{r}),
             onTap: () => showInfo(
               context,
-              title: r.label,
+              title: l.ritualLabel(r),
               lines: <String>[
-                ritualMeaning(r),
+                l.ritualMeaning(r),
                 ?next(r: <Ritual>{r}),
               ],
               art: _artFor(r),
               extra: r == Ritual.dailyGita
                   ? SecondaryButton(
-                      label: 'Change the hour',
+                      label: l.changeHour,
                       onPressed: () {
                         Navigator.of(context, rootNavigator: true).pop();
                         _hourSheet(context, s.reminderMinutes, n.setReminder);
                       },
                     )
                   : SecondaryButton(
-                      label: 'Turn this off',
+                      label: l.turnOff,
                       onPressed: () {
                         n.setRitual(r, on: false);
                         Navigator.of(context, rootNavigator: true).pop();
@@ -72,19 +73,19 @@ class PracticeScreen extends ConsumerWidget {
           ),
       if (s.deity != Deity.none)
         _Item(
-          label: s.deity.label,
-          meaning: deityMeaning(s.deity),
+          label: l.deityLabel(s.deity),
+          meaning: l.deityMeaning(s.deity),
           next: next(d: s.deity),
           onTap: () => showInfo(
             context,
-            title: s.deity.label,
+            title: l.deityLabel(s.deity),
             lines: <String>[
-              deityMeaning(s.deity),
+              l.deityMeaning(s.deity),
               ?next(d: s.deity),
             ],
             art: deityArt[s.deity],
             extra: SecondaryButton(
-              label: 'Turn this off',
+              label: l.turnOff,
               onPressed: () {
                 n.setDeity(Deity.none);
                 Navigator.of(context, rootNavigator: true).pop();
@@ -109,33 +110,36 @@ class PracticeScreen extends ConsumerWidget {
               Row(
                 children: <Widget>[
                   BackChevron(onTap: () => context.pop()),
-                  const Expanded(child: TopLine(left: 'You')),
+                  Expanded(child: TopLine(left: l.tabYou)),
                 ],
               ),
               const SizedBox(height: Sp.s12),
               Semantics(
                 header: true,
-                child: Text(title, style: DType.title(c.ink, compact: true)),
+                child: Text(
+                  l.practiceTitle,
+                  style: DType.title(c.ink, compact: true),
+                ),
               ),
               const SizedBox(height: Sp.s6),
               Text(
-                'What we remind you of, and when. Tap one to see what it means.',
+                l.practiceIntro,
                 style: DType.body(c.mute, size: 17),
               ),
               const SizedBox(height: Sp.s18),
               if (items.isEmpty)
-                Text('Nothing is on yet.', style: DType.body(c.mute))
+                Text(l.nothingOn, style: DType.body(c.mute))
               else
                 ...items,
               const SizedBox(height: Sp.s22),
               PrimaryButton(
-                label: rebuild,
+                label: l.practiceRebuild,
                 onPressed: () => context.push(Routes.buildPractice),
               ),
               const SizedBox(height: Sp.s12),
               _Item(
-                label: allReminders,
-                meaning: 'Every switch, one by one. For when you know just what you want.',
+                label: l.allReminders,
+                meaning: l.allRemindersWhy,
                 onTap: () => showDSheet<void>(
                   context,
                   (BuildContext ctx) => const AllRemindersSheet(),
@@ -277,18 +281,19 @@ class _HourSheetState extends State<HourSheet> {
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        Text(timeName(_m), style: DType.hero(c.verse, size: 56)),
+        Text(timeName(l, _m), style: DType.hero(c.verse, size: 56)),
         const SizedBox(height: Sp.s6),
         Text(
-          'Your five verses wait for you at this hour.',
+          l.hourSheetWhy,
           style: DType.body(c.mute, size: 16),
         ),
         Semantics(
-          label: 'Verse hour',
-          value: timeName(_m),
+          label: l.verseHour,
+          value: timeName(l, _m),
           child: Slider(
             min: 4 * 60,
             max: 22 * 60,
@@ -313,6 +318,7 @@ class AllRemindersSheet extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     final Settings s = ref.watch(settingsProvider);
     final SettingsNotifier n = ref.read(settingsProvider.notifier);
     void set(Ritual r, bool v) {
@@ -329,7 +335,7 @@ class AllRemindersSheet extends ConsumerWidget {
         shrinkWrap: true,
         children: <Widget>[
           Text(
-            PracticeScreen.allReminders,
+            l.allReminders,
             style: DType.title(c.ink, compact: true),
           ),
           const SizedBox(height: Sp.s12),
@@ -337,7 +343,7 @@ class AllRemindersSheet extends ConsumerWidget {
             Semantics(
               container: true,
               toggled: s.rituals.contains(r),
-              label: '${r.label}. ${ritualMeaning(r)}',
+              label: l.ritualSemantic(l.ritualLabel(r), l.ritualMeaning(r)),
               excludeSemantics: true,
               onTap: () => set(r, !s.rituals.contains(r)),
               child: GestureDetector(
@@ -357,9 +363,12 @@ class AllRemindersSheet extends ConsumerWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text(r.label, style: DType.body(c.ink, size: 21)),
                             Text(
-                              ritualMeaning(r),
+                              l.ritualLabel(r),
+                              style: DType.body(c.ink, size: 21),
+                            ),
+                            Text(
+                              l.ritualMeaning(r),
                               style: DType.body(c.mute, size: 15),
                             ),
                           ],
@@ -375,12 +384,12 @@ class AllRemindersSheet extends ConsumerWidget {
               ),
             ),
           const SizedBox(height: Sp.s18),
-          Text('A weekday lamp', style: DType.body(c.mute, size: 17)),
+          Text(l.weekdayLamp, style: DType.body(c.mute, size: 17)),
           const SizedBox(height: Sp.s12),
           for (final Deity d in Deity.values) ...<Widget>[
             OptionRow(
-              label: d.label,
-              hint: d == Deity.none ? null : deityMeaning(d),
+              label: l.deityLabel(d),
+              hint: d == Deity.none ? null : l.deityMeaning(d),
               selected: d == s.deity,
               onTap: () {
                 n.setDeity(d);
@@ -404,8 +413,6 @@ class AllRemindersSheet extends ConsumerWidget {
 class BuildPracticeScreen extends ConsumerWidget {
   const BuildPracticeScreen({super.key});
 
-  static const String save = 'Save my practice';
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final DharmaColors c = context.c;
@@ -423,7 +430,7 @@ class BuildPracticeScreen extends ConsumerWidget {
             ),
             child: PracticeBuilder(
               initial: PracticeAnswers.from(s),
-              doneLabel: save,
+              doneLabel: context.l.savePractice,
               onBack: () => context.pop(),
               onDone: (PracticePlan plan) {
                 final PracticePlan p = applyPlan(

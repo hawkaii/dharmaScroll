@@ -634,4 +634,1352 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get signOut => 'Sign out';
+
+  @override
+  String get personKrishna => 'Krishna';
+
+  @override
+  String get personArjuna => 'Arjuna';
+
+  @override
+  String get personSanjaya => 'Sanjaya';
+
+  @override
+  String get personDhritarashtra => 'Dhritarashtra';
+
+  @override
+  String get yoga1 => 'Arjuna Vishada Yoga';
+
+  @override
+  String get yoga2 => 'Sankhya Yoga';
+
+  @override
+  String get yoga3 => 'Karma Yoga';
+
+  @override
+  String get yoga4 => 'Jnana Karma Sannyasa Yoga';
+
+  @override
+  String get yoga5 => 'Karma Sannyasa Yoga';
+
+  @override
+  String get yoga6 => 'Dhyana Yoga';
+
+  @override
+  String get yoga7 => 'Jnana Vijnana Yoga';
+
+  @override
+  String get yoga8 => 'Akshara Brahma Yoga';
+
+  @override
+  String get yoga9 => 'Raja Vidya Raja Guhya Yoga';
+
+  @override
+  String get yoga10 => 'Vibhuti Yoga';
+
+  @override
+  String get yoga11 => 'Vishvarupa Darshana Yoga';
+
+  @override
+  String get yoga12 => 'Bhakti Yoga';
+
+  @override
+  String get yoga13 => 'Kshetra Kshetrajna Vibhaga Yoga';
+
+  @override
+  String get yoga14 => 'Gunatraya Vibhaga Yoga';
+
+  @override
+  String get yoga15 => 'Purushottama Yoga';
+
+  @override
+  String get yoga16 => 'Daivasura Sampad Vibhaga Yoga';
+
+  @override
+  String get yoga17 => 'Shraddhatraya Vibhaga Yoga';
+
+  @override
+  String get yoga18 => 'Moksha Sannyasa Yoga';
+
+  @override
+  String get tagGrief => 'grief';
+
+  @override
+  String get tagLoss => 'loss';
+
+  @override
+  String get tagFear => 'fear';
+
+  @override
+  String get tagAnxiety => 'anxiety';
+
+  @override
+  String get tagAnger => 'anger';
+
+  @override
+  String get tagEnvy => 'envy';
+
+  @override
+  String get tagComparison => 'comparison';
+
+  @override
+  String get tagPride => 'pride';
+
+  @override
+  String get tagDesire => 'desire';
+
+  @override
+  String get tagGreed => 'greed';
+
+  @override
+  String get tagRestlessness => 'restlessness';
+
+  @override
+  String get tagDoubt => 'doubt';
+
+  @override
+  String get tagSelfDoubt => 'self doubt';
+
+  @override
+  String get tagConfusion => 'confusion';
+
+  @override
+  String get tagLoneliness => 'loneliness';
+
+  @override
+  String get tagBurnout => 'burnout';
+
+  @override
+  String get tagFailure => 'failure';
+
+  @override
+  String get tagSuccess => 'success';
+
+  @override
+  String get tagExamStress => 'exam stress';
+
+  @override
+  String get tagWorkPressure => 'work pressure';
+
+  @override
+  String get tagDutyConflict => 'duty conflict';
+
+  @override
+  String get tagProcrastination => 'procrastination';
+
+  @override
+  String get tagPerfectionism => 'perfectionism';
+
+  @override
+  String get tagFocus => 'focus';
+
+  @override
+  String get tagDiscipline => 'discipline';
+
+  @override
+  String get tagHabits => 'habits';
+
+  @override
+  String get tagPatience => 'patience';
+
+  @override
+  String get tagEquanimity => 'equanimity';
+
+  @override
+  String get tagDetachment => 'detachment';
+
+  @override
+  String get tagForgiveness => 'forgiveness';
+
+  @override
+  String get tagCompassion => 'compassion';
+
+  @override
+  String get tagKindness => 'kindness';
+
+  @override
+  String get tagGratitude => 'gratitude';
+
+  @override
+  String get tagHumility => 'humility';
+
+  @override
+  String get tagFaith => 'faith';
+
+  @override
+  String get tagSurrender => 'surrender';
+
+  @override
+  String get tagPurpose => 'purpose';
+
+  @override
+  String get tagMortality => 'mortality';
+
+  @override
+  String get tagChange => 'change';
+
+  @override
+  String get tagSelfWorth => 'self worth';
+
+  @override
+  String get tagSpeech => 'speech';
+
+  @override
+  String get tagContentment => 'contentment';
+
+  @override
+  String get tagPeace => 'peace';
+
+  @override
+  String get tagHope => 'hope';
+
+  @override
+  String get tagLearning => 'learning';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get shareLabel => 'Share';
+
+  @override
+  String get shareVerse => 'Share this verse';
+
+  @override
+  String gitaRef(String id) {
+    return 'Gita $id';
+  }
+
+  @override
+  String gitaRefCaps(String id) {
+    return 'GITA $id';
+  }
+
+  @override
+  String get listeningCaps => 'LISTENING';
+
+  @override
+  String get hearEndTitle => 'That is enough\nfor today.';
+
+  @override
+  String get hearEndSub => 'The verse will wait.';
+
+  @override
+  String get hearNext => 'Walk the next step';
+
+  @override
+  String get hearRest => 'Rest for now';
+
+  @override
+  String get explainVerse => 'Explain this verse';
+
+  @override
+  String verseOfTotalCaps(int n, int total) {
+    return '$n OF $total';
+  }
+
+  @override
+  String get keptCaps => 'KEPT';
+
+  @override
+  String get holdToListen => 'Hold to listen';
+
+  @override
+  String verseSemantic(String id, String sanskrit, String meaning) {
+    return 'Verse $id. $sanskrit. $meaning';
+  }
+
+  @override
+  String get verseHint => 'Double tap to keep. Press and hold to listen.';
+
+  @override
+  String walkEyebrow(int n) {
+    return 'WALK  ·  STEP $n OF 2';
+  }
+
+  @override
+  String speakerSaysTo(String speaker, String listener) {
+    return '$speaker says to $listener:';
+  }
+
+  @override
+  String speakerSays(String speaker) {
+    return '$speaker says:';
+  }
+
+  @override
+  String get chantSemantic =>
+      'Chant along. Press and hold the ring. Activate to chant it all.';
+
+  @override
+  String get releaseToPause => 'RELEASE TO PAUSE';
+
+  @override
+  String get holdToChant => 'HOLD AND CHANT WITH THE VERSE';
+
+  @override
+  String get meetsHead => 'WHERE DOES THIS MEET YOU TODAY?';
+
+  @override
+  String get meetsLine1 => 'A task I am afraid to begin';
+
+  @override
+  String get meetsLine2 => 'A result I cannot control';
+
+  @override
+  String get meetsLine3 => 'What others will think';
+
+  @override
+  String get thisOne => 'This one';
+
+  @override
+  String get stepWalkedCaps => 'STEP WALKED';
+
+  @override
+  String get lampIsLit => 'The lamp is lit.';
+
+  @override
+  String get mokshPointsCaps => 'MOKSH POINTS';
+
+  @override
+  String dayAndLamps(int day, int lit) {
+    String _temp0 = intl.Intl.pluralLogic(
+      lit,
+      locale: localeName,
+      other: '$lit lamps',
+      one: 'one lamp',
+    );
+    return 'Day $day  ·  $_temp0 this week';
+  }
+
+  @override
+  String get shareStreak => 'Share your streak';
+
+  @override
+  String get checkpointCaps => 'CHECKPOINT';
+
+  @override
+  String get finishVerseTitle => 'Finish the verse';
+
+  @override
+  String get skipForToday => 'Skip for today';
+
+  @override
+  String get finishedVerse => 'You finished the verse.';
+
+  @override
+  String get sayTheLine => 'Say the second line, or tap it.';
+
+  @override
+  String hiddenLineSemantic(int n, int total) {
+    return 'Hidden line, $n of $total words shown. Activate to reveal the next word.';
+  }
+
+  @override
+  String get stopListening => 'Stop listening';
+
+  @override
+  String get speakSecondLine => 'Speak the second line';
+
+  @override
+  String get tapToSpeakCaps => 'TAP TO SPEAK';
+
+  @override
+  String get shareThisLight => 'Share this light';
+
+  @override
+  String get daysUnbroken => 'days, unbroken.';
+
+  @override
+  String get msWeek => 'A week of light';
+
+  @override
+  String get msMonth => 'A month of light';
+
+  @override
+  String get msHundred => 'A hundred lamps';
+
+  @override
+  String get msYear => 'A year of light';
+
+  @override
+  String get msDays => 'Days of light';
+
+  @override
+  String get msLine7 => 'Practise, and the mind\ngrows steady.';
+
+  @override
+  String get msLine30 => 'Each time the mind wanders,\nbring it gently back.';
+
+  @override
+  String get msLine100 =>
+      'Steady in success and failure.\nThat evenness is yoga.';
+
+  @override
+  String get msLine365 => 'Whatever you do,\ndo it as an offering.';
+
+  @override
+  String keptCount(int n) {
+    return '$n kept';
+  }
+
+  @override
+  String get nothingKept => 'Nothing kept yet.';
+
+  @override
+  String get keptEmptyLine => 'Double-tap a verse to keep it here.';
+
+  @override
+  String get goDeeperCaps => 'GO DEEPER';
+
+  @override
+  String get inEnglish => 'In English';
+
+  @override
+  String get inHindi => 'In Hindi';
+
+  @override
+  String get whoSpeaks => 'Who speaks';
+
+  @override
+  String whoSpeaksText(String speaker, String listener) {
+    return '$speaker, to $listener.';
+  }
+
+  @override
+  String get whereSits => 'Where it sits';
+
+  @override
+  String whereSitsText(String ref, String yoga) {
+    return '$ref, $yoga.';
+  }
+
+  @override
+  String verseRef(int chapter, int number) {
+    return 'Adhyay $chapter · Shloka $number';
+  }
+
+  @override
+  String get whereMeetsLife => 'Where it meets life';
+
+  @override
+  String get shareThisLightCaps => 'SHARE THIS LIGHT';
+
+  @override
+  String get layoutNight => 'Temple night';
+
+  @override
+  String get layoutIvory => 'Morning ivory';
+
+  @override
+  String get layoutArch => 'Temple arch';
+
+  @override
+  String get layoutLampNight => 'Lamp, night';
+
+  @override
+  String get layoutLampMorning => 'Lamp, morning';
+
+  @override
+  String cardSemantic(String label) {
+    return '$label card';
+  }
+
+  @override
+  String get preparing => 'Preparing';
+
+  @override
+  String shareCardSemantic(String label) {
+    return 'Share the $label card as an image';
+  }
+
+  @override
+  String shareTextStreak(int n, String app) {
+    return '$n days of light with the Bhagavad Gita. $app';
+  }
+
+  @override
+  String shareTextVerse(String id, String meaning, String app) {
+    return 'Bhagavad Gita $id: $meaning $app';
+  }
+
+  @override
+  String cardSpeaker(String speaker, String listener, String yoga) {
+    return '$speaker to $listener  ·  $yoga';
+  }
+
+  @override
+  String get dayOfLight => 'day of light.';
+
+  @override
+  String get daysOfLightDot => 'days of light.';
+
+  @override
+  String get fiveAdayThenRest => 'Five verses a day, then rest.';
+
+  @override
+  String get month1 => 'Jan';
+
+  @override
+  String get month2 => 'Feb';
+
+  @override
+  String get month3 => 'Mar';
+
+  @override
+  String get month4 => 'Apr';
+
+  @override
+  String get month5 => 'May';
+
+  @override
+  String get month6 => 'Jun';
+
+  @override
+  String get month7 => 'Jul';
+
+  @override
+  String get month8 => 'Aug';
+
+  @override
+  String get month9 => 'Sep';
+
+  @override
+  String get month10 => 'Oct';
+
+  @override
+  String get month11 => 'Nov';
+
+  @override
+  String get month12 => 'Dec';
+
+  @override
+  String dayMonth(int day, String month) {
+    return '$day $month';
+  }
+
+  @override
+  String get dayToday => 'Today';
+
+  @override
+  String get dayYesterday => 'Yesterday';
+
+  @override
+  String get walletPromise => 'They only go up.\nNothing here is for sale.';
+
+  @override
+  String get howTheyCameCaps => 'HOW THEY CAME';
+
+  @override
+  String get firstPoints => 'Your first points come with today\'s five verses.';
+
+  @override
+  String get reasonHear => 'Five verses heard';
+
+  @override
+  String get reasonWalk => 'One step walked';
+
+  @override
+  String get reasonSpeak => 'Spoke your mind';
+
+  @override
+  String get reasonSankalp => 'Looked back on a Sankalp';
+
+  @override
+  String plusSemantic(int n) {
+    return 'plus $n';
+  }
+
+  @override
+  String waitingSemantic(int n) {
+    return '$n waiting';
+  }
+
+  @override
+  String get todaysLightCaps => 'TODAY\'S LIGHT';
+
+  @override
+  String get pointsToday => 'Moksh Points today';
+
+  @override
+  String get noMorePoints => 'No more points today. Just peace.';
+
+  @override
+  String get oncePerDay => 'Each step gives its points once a day.';
+
+  @override
+  String get yatraTitle => 'Gita Yatra';
+
+  @override
+  String yatraChapterOf(int n) {
+    return 'Adhyaya $n of 18';
+  }
+
+  @override
+  String stoneToday(String yoga, String id) {
+    return 'Today: $yoga, $id';
+  }
+
+  @override
+  String stoneN(int n) {
+    return 'Stone $n';
+  }
+
+  @override
+  String stoneNCheckpoint(int n) {
+    return 'Stone $n, checkpoint';
+  }
+
+  @override
+  String get todayCaps => 'TODAY';
+
+  @override
+  String yogaAndId(String yoga, String id) {
+    return '$yoga · $id';
+  }
+
+  @override
+  String get intentionGrief =>
+      'Tell one person something you remember with love.';
+
+  @override
+  String get intentionLoss => 'Keep one small thing that still connects you.';
+
+  @override
+  String get intentionFear => 'Do the first small part of what you fear.';
+
+  @override
+  String get intentionAnxiety => 'Do one task fully, then let the result go.';
+
+  @override
+  String get intentionAnger => 'Wait one breath before you answer today.';
+
+  @override
+  String get intentionEnvy => 'Say one honest good word about someone else.';
+
+  @override
+  String get intentionComparison =>
+      'Notice one thing you did well, without comparing.';
+
+  @override
+  String get intentionPride => 'Ask one person for their advice today.';
+
+  @override
+  String get intentionDesire => 'Let one want pass without acting on it.';
+
+  @override
+  String get intentionGreed => 'Give one thing away without counting it.';
+
+  @override
+  String get intentionRestlessness =>
+      'Sit still for two minutes before your phone.';
+
+  @override
+  String get intentionDoubt => 'Take one step before you have every answer.';
+
+  @override
+  String get intentionSelfDoubt => 'Finish one small thing you said you would.';
+
+  @override
+  String get intentionConfusion =>
+      'Write down the one choice that matters today.';
+
+  @override
+  String get intentionLoneliness => 'Send one message to someone you miss.';
+
+  @override
+  String get intentionBurnout => 'Rest for ten minutes without guilt.';
+
+  @override
+  String get intentionFailure => 'Try the thing once more, a little smaller.';
+
+  @override
+  String get intentionSuccess => 'Thank one person who helped you get here.';
+
+  @override
+  String get intentionExamStress =>
+      'Study one topic fully, then close the book.';
+
+  @override
+  String get intentionWorkPressure =>
+      'Do one task fully, without checking the result.';
+
+  @override
+  String get intentionDutyConflict => 'Do the duty in front of you, well.';
+
+  @override
+  String get intentionProcrastination =>
+      'Start the task for five minutes only.';
+
+  @override
+  String get intentionPerfectionism => 'Finish one thing and let it be enough.';
+
+  @override
+  String get intentionFocus => 'Do one thing at a time for an hour.';
+
+  @override
+  String get intentionDiscipline => 'Keep one small promise to yourself.';
+
+  @override
+  String get intentionHabits => 'Do the good habit once, at the same time.';
+
+  @override
+  String get intentionPatience => 'Let one thing take the time it takes.';
+
+  @override
+  String get intentionEquanimity =>
+      'Meet one good and one hard moment the same.';
+
+  @override
+  String get intentionDetachment => 'Do your best and leave the result.';
+
+  @override
+  String get intentionForgiveness => 'Let go of one old hurt, just for today.';
+
+  @override
+  String get intentionCompassion => 'Do one quiet kindness no one will see.';
+
+  @override
+  String get intentionKindness => 'Do one quiet kindness no one will see.';
+
+  @override
+  String get intentionGratitude =>
+      'Name three things you are grateful for tonight.';
+
+  @override
+  String get intentionHumility => 'Listen fully before you speak, once today.';
+
+  @override
+  String get intentionFaith => 'Begin your work with one quiet breath.';
+
+  @override
+  String get intentionSurrender => 'Hand one worry over, and do your part.';
+
+  @override
+  String get intentionPurpose => 'Do one thing today that matters to you.';
+
+  @override
+  String get intentionMortality => 'Spend ten minutes on what truly matters.';
+
+  @override
+  String get intentionChange => 'Welcome one small change without resisting.';
+
+  @override
+  String get intentionSelfWorth => 'Speak to yourself once as a friend would.';
+
+  @override
+  String get intentionSpeech => 'Say only what is true and kind today.';
+
+  @override
+  String get intentionContentment =>
+      'Enjoy one simple thing without wanting more.';
+
+  @override
+  String get intentionPeace => 'Put the phone down ten minutes before sleep.';
+
+  @override
+  String get intentionHope => 'Do one small thing for tomorrow, tonight.';
+
+  @override
+  String get intentionLearning => 'Read one verse again, slowly.';
+
+  @override
+  String get intentionDefault => 'Do one task fully, then let the result go.';
+
+  @override
+  String get wasAfraid => 'who was afraid';
+
+  @override
+  String get wasGrieving => 'who was grieving';
+
+  @override
+  String get wasLost => 'who did not know what to do';
+
+  @override
+  String get wasDoubtful => 'who was full of doubt';
+
+  @override
+  String get wasTorn => 'who was torn about his duty';
+
+  @override
+  String get wasHeartLost => 'who had lost heart';
+
+  @override
+  String toldPlain(String speaker, String listener) {
+    return '$speaker told $listener:';
+  }
+
+  @override
+  String toldWas(String speaker, String listener, String was) {
+    return '$speaker told $listener, $was:';
+  }
+
+  @override
+  String get mannCaps => 'MANN DARPAN';
+
+  @override
+  String get mannAnswerTop => 'A verse heard you';
+
+  @override
+  String get mannAskTonight => 'How is your mind\ntonight?';
+
+  @override
+  String get mannAskToday => 'How is your mind\ntoday?';
+
+  @override
+  String get mannTapSpeak => 'Tap, and speak for as long as you need.';
+
+  @override
+  String get typeInstead => 'Type instead';
+
+  @override
+  String get mannListening => 'Listening.';
+
+  @override
+  String get mannSpeakPrivate => 'Speak. Only you will hear this.';
+
+  @override
+  String get done => 'Done';
+
+  @override
+  String get mannTypingTitle => 'In a few words,\nwhat is on your mind?';
+
+  @override
+  String get hearYourself => 'Hear yourself first';
+
+  @override
+  String get mannHint => 'I have an interview tomorrow and I keep thinking...';
+
+  @override
+  String get mannStays => 'Stays on this phone. Nothing is sent anywhere.';
+
+  @override
+  String get letVerseAnswer => 'Let a verse answer';
+
+  @override
+  String intentTonight(String text) {
+    return 'Tonight: $text';
+  }
+
+  @override
+  String intentToday(String text) {
+    return 'Today: $text';
+  }
+
+  @override
+  String get sealAsSankalp => 'Seal as my Sankalp';
+
+  @override
+  String get notToday => 'Not today';
+
+  @override
+  String get mannOrbSemantic => 'Speak. Tap to start.';
+
+  @override
+  String get sealIt => 'Seal it';
+
+  @override
+  String get sealedTitle => 'Sealed.';
+
+  @override
+  String get lookBackTomorrow => 'Look back on it tomorrow.';
+
+  @override
+  String get sealSankalpCaps => 'SEAL A SANKALP';
+
+  @override
+  String get oneSmallIntention => 'One small intention.';
+
+  @override
+  String fromGitaChange(String id) {
+    return 'From Gita $id. Change a word if you like.';
+  }
+
+  @override
+  String get sealSankalpSemantic => 'Seal this Sankalp';
+
+  @override
+  String get keptIt => 'I kept it';
+
+  @override
+  String get letItGo => 'I let it go';
+
+  @override
+  String get replyKept => 'Kept. That is how a habit grows.';
+
+  @override
+  String get replyLetGo => 'Let go. Today is a fresh start.';
+
+  @override
+  String get yourSankalpCaps => 'YOUR SANKALP';
+
+  @override
+  String get festival1 => 'Vasant Panchami';
+
+  @override
+  String get festival2 => 'Maha Shivaratri';
+
+  @override
+  String get festival3 => 'Holika Dahan';
+
+  @override
+  String get festival4 => 'Ugadi and Gudi Padwa';
+
+  @override
+  String get festival5 => 'Ram Navami';
+
+  @override
+  String get festival6 => 'Hanuman Jayanti';
+
+  @override
+  String get festival7 => 'Akshaya Tritiya';
+
+  @override
+  String get festival8 => 'Rath Yatra';
+
+  @override
+  String get festival9 => 'Guru Purnima';
+
+  @override
+  String get festival10 => 'Raksha Bandhan';
+
+  @override
+  String get festival11 => 'Janmashtami';
+
+  @override
+  String get festival12 => 'Ganesh Chaturthi';
+
+  @override
+  String get festival13 => 'Radha Ashtami';
+
+  @override
+  String get festival14 => 'Anant Chaturdashi';
+
+  @override
+  String get festival15 => 'Navratri begins';
+
+  @override
+  String get festival16 => 'Durga Ashtami';
+
+  @override
+  String get festival17 => 'Maha Navami';
+
+  @override
+  String get festival18 => 'Vijayadashami';
+
+  @override
+  String get festival19 => 'Sharad Purnima';
+
+  @override
+  String get festival20 => 'Karva Chauth';
+
+  @override
+  String get festival21 => 'Dhanteras';
+
+  @override
+  String get festival22 => 'Naraka Chaturdashi';
+
+  @override
+  String get festival23 => 'Diwali';
+
+  @override
+  String get festival24 => 'Govardhan Puja';
+
+  @override
+  String get festival25 => 'Bhai Dooj';
+
+  @override
+  String get festival26 => 'Tulsi Vivah';
+
+  @override
+  String get festival27 => 'Dev Deepawali';
+
+  @override
+  String get festival28 => 'Makar Sankranti';
+
+  @override
+  String get festival29 => 'Gita Jayanti';
+
+  @override
+  String get festival30 => 'Holi';
+
+  @override
+  String get festivalFallback => 'Festival';
+
+  @override
+  String get weekday1 => 'Monday';
+
+  @override
+  String get weekday2 => 'Tuesday';
+
+  @override
+  String get weekday3 => 'Wednesday';
+
+  @override
+  String get weekday4 => 'Thursday';
+
+  @override
+  String get weekday5 => 'Friday';
+
+  @override
+  String get weekday6 => 'Saturday';
+
+  @override
+  String get weekday7 => 'Sunday';
+
+  @override
+  String get weekdayShort1 => 'Mon';
+
+  @override
+  String get weekdayShort2 => 'Tue';
+
+  @override
+  String get weekdayShort3 => 'Wed';
+
+  @override
+  String get weekdayShort4 => 'Thu';
+
+  @override
+  String get weekdayShort5 => 'Fri';
+
+  @override
+  String get weekdayShort6 => 'Sat';
+
+  @override
+  String get weekdayShort7 => 'Sun';
+
+  @override
+  String get dayTomorrow => 'Tomorrow';
+
+  @override
+  String whenOnDay(String day) {
+    return 'on $day';
+  }
+
+  @override
+  String clockAt(String period, String t) {
+    String _temp0 = intl.Intl.selectLogic(period, {
+      'nightEarly': '$t am',
+      'morning': '$t am',
+      'noon': '$t pm',
+      'evening': '$t pm',
+      'night': '$t pm',
+      'other': '$t',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get ritualDailyGita => 'Daily Gita';
+
+  @override
+  String get ritualSandhya => 'Morning sandhya';
+
+  @override
+  String get ritualDiya => 'Evening diya';
+
+  @override
+  String get ritualEkadashi => 'Ekadashi';
+
+  @override
+  String get ritualPurnima => 'Purnima';
+
+  @override
+  String get ritualAmavasya => 'Amavasya';
+
+  @override
+  String get ritualPradosh => 'Pradosh';
+
+  @override
+  String get ritualSankashti => 'Sankashti';
+
+  @override
+  String get ritualFestivals => 'Festivals';
+
+  @override
+  String get meaningDailyGita =>
+      'Five verses from the Gita, at the hour you chose.';
+
+  @override
+  String get meaningSandhya => 'A quiet minute to greet the sun as it rises.';
+
+  @override
+  String get meaningDiya => 'A soft reminder to light a lamp as the day ends.';
+
+  @override
+  String get meaningEkadashi =>
+      'Ekadashi is the eleventh day of the moon. Many people fast. We also tell you when to eat again. That is called parana.';
+
+  @override
+  String get meaningPurnima =>
+      'Purnima is the night the moon is full and round.';
+
+  @override
+  String get meaningAmavasya =>
+      'Amavasya is the night with no moon. A time to remember family who came before.';
+
+  @override
+  String get meaningPradosh =>
+      'Pradosh is dusk on the thirteenth day of the moon, kept for Shiva.';
+
+  @override
+  String get meaningSankashti =>
+      'Sankashti is a fast for Ganesha. It ends when the moon rises.';
+
+  @override
+  String get meaningFestivals =>
+      'Big days like Diwali and Holi, on the right date for your city.';
+
+  @override
+  String get deityNone => 'None';
+
+  @override
+  String get deityShiva => 'Shiva, Monday';
+
+  @override
+  String get deityHanuman => 'Hanuman, Tuesday';
+
+  @override
+  String get deityVishnu => 'Vishnu or Guru, Thursday';
+
+  @override
+  String get deityShani => 'Shani, Saturday';
+
+  @override
+  String get deityMeaningNone => 'No special day for now.';
+
+  @override
+  String get deityMeaningShiva => 'Monday is for Shiva. A lamp at sunset.';
+
+  @override
+  String get deityMeaningHanuman =>
+      'Tuesday is for Hanuman. The Chalisa in the morning.';
+
+  @override
+  String get deityMeaningVishnu =>
+      'Thursday is for Vishnu, the teacher of teachers.';
+
+  @override
+  String get deityMeaningShani =>
+      'Saturday is for Shani. A quiet lamp at sunset.';
+
+  @override
+  String get noteGita => 'Five verses are ready. Take your time.';
+
+  @override
+  String noteSandhya(String time) {
+    return 'Sunrise at $time. A quiet minute for the morning sandhya, if you like.';
+  }
+
+  @override
+  String noteDiya(String time) {
+    return 'Sunset at $time. The evening lamp, whenever you are ready.';
+  }
+
+  @override
+  String noteShiva(String time) {
+    return 'Monday. A lamp for Shiva at sunset, $time, if you like.';
+  }
+
+  @override
+  String get noteHanuman => 'Tuesday. The Chalisa this morning, if you like.';
+
+  @override
+  String noteVishnu(String time) {
+    return 'Thursday. A lamp for Vishnu at sunset, $time, if you like.';
+  }
+
+  @override
+  String noteShani(String time) {
+    return 'Saturday. A quiet lamp at sunset, $time, if you like.';
+  }
+
+  @override
+  String get notePurnima => 'Purnima tonight. The full moon rises near sunset.';
+
+  @override
+  String get noteAmavasya =>
+      'Amavasya today. A lamp for those who came before, if you like.';
+
+  @override
+  String notePradosh(String range) {
+    return 'Pradosh today. Pradosh kaal $range.';
+  }
+
+  @override
+  String noteSankashti(String time) {
+    return 'Sankashti tonight. Moonrise $time.';
+  }
+
+  @override
+  String noteFestival(String name) {
+    return '$name is today. A quiet, bright day to you.';
+  }
+
+  @override
+  String noteEkadashi(String rule, String when, String range) {
+    return 'Ekadashi$rule begins at sunrise. Break the fast $when $range.';
+  }
+
+  @override
+  String noteParana(String range) {
+    return 'Parana window: $range. Break the fast gently.';
+  }
+
+  @override
+  String labelEkadashiRule(String rule) {
+    return 'Ekadashi ($rule)';
+  }
+
+  @override
+  String labelParana(String range) {
+    return 'Parana $range';
+  }
+
+  @override
+  String labelPradosh(String range) {
+    return 'Pradosh $range';
+  }
+
+  @override
+  String ruleSuffix(String rule) {
+    return ' ($rule)';
+  }
+
+  @override
+  String get notifChannel => 'Ritual reminders';
+
+  @override
+  String get notifChannelDesc => 'Quiet reminders for the rituals you chose.';
+
+  @override
+  String get practiceTitle => 'Your practice';
+
+  @override
+  String get practiceRebuild => 'Build my practice again';
+
+  @override
+  String get allReminders => 'All reminders';
+
+  @override
+  String nextNote(String when) {
+    return 'Next: $when';
+  }
+
+  @override
+  String get changeHour => 'Change the hour';
+
+  @override
+  String get turnOff => 'Turn this off';
+
+  @override
+  String get practiceIntro =>
+      'What we remind you of, and when. Tap one to see what it means.';
+
+  @override
+  String get nothingOn => 'Nothing is on yet.';
+
+  @override
+  String get allRemindersWhy =>
+      'Every switch, one by one. For when you know just what you want.';
+
+  @override
+  String get hourSheetWhy => 'Your five verses wait for you at this hour.';
+
+  @override
+  String get verseHour => 'Verse hour';
+
+  @override
+  String get weekdayLamp => 'A weekday lamp';
+
+  @override
+  String get savePractice => 'Save my practice';
+
+  @override
+  String itemAtTime(String label, String time) {
+    return '$label, $time';
+  }
+
+  @override
+  String ritualSemantic(String label, String meaning) {
+    return '$label. $meaning';
+  }
+
+  @override
+  String get traditionCaps => 'SMARTA AND VAISHNAVA';
+
+  @override
+  String get traditionExplTitle => 'Two ways to keep Ekadashi';
+
+  @override
+  String get traditionTithi =>
+      'The moon has its own days. Each one is called a tithi. A tithi does not start at midnight. It can start at any hour.';
+
+  @override
+  String get traditionEkadashi =>
+      'Ekadashi is the eleventh tithi. Dashami, the tenth, comes just before it.';
+
+  @override
+  String get traditionSmartaRule =>
+      'Fast on the day Ekadashi is there when the sun rises.';
+
+  @override
+  String get traditionVaishnavaRule =>
+      'Ekadashi must be clean from dawn, about an hour and a half before sunrise. If Dashami is still there at dawn, fast the next day.';
+
+  @override
+  String get traditionSame => 'Most months, both fall on the same day.';
+
+  @override
+  String get traditionUnsureLine =>
+      'Not sure? Follow what your family does. You can change this later.';
+
+  @override
+  String get traditionRare =>
+      'In a few months the moon moves fast and other rules decide. Our dates match Drik Panchang where we checked.';
+
+  @override
+  String get gotIt => 'Got it';
+
+  @override
+  String get timelineSemantic =>
+      'Two sunrises. Dashami ends after dawn on day 1. The Smarta lamp stays on day 1. The Vaishnava lamp moves to day 2.';
+
+  @override
+  String get tlDashami => 'DASHAMI';
+
+  @override
+  String get tlEkadashi => 'EKADASHI';
+
+  @override
+  String get tlDvadashi => 'DVADASHI';
+
+  @override
+  String get tlDay1 => 'DAY 1';
+
+  @override
+  String get tlDay2 => 'DAY 2';
+
+  @override
+  String get tlDawn => 'DAWN';
+
+  @override
+  String get tlSmarta => 'SMARTA';
+
+  @override
+  String get tlVaishnava => 'VAISHNAVA';
+
+  @override
+  String clockRange(String same, String aBare, String aFull, String bFull) {
+    String _temp0 = intl.Intl.selectLogic(same, {
+      'yes': '$aBare-$bFull',
+      'other': '$aFull-$bFull',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String nameLead(String name) {
+    return '$name.  ';
+  }
 }

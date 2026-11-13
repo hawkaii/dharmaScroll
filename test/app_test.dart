@@ -161,7 +161,7 @@ void main() {
     await _see(tester, find.text('1 on'));
     expect(find.text('1 on'), findsOneWidget); // Daily Gita by default
     await _tap(tester, find.text(en.practiceRow));
-    await _tap(tester, find.text(PracticeScreen.allReminders));
+    await _tap(tester, find.text(en.allReminders));
     expect(find.text('Morning sandhya'), findsOneWidget);
     await _tap(tester, find.text('Daily Gita'));
     expect(prefs.getStringList('rituals'), isEmpty);
@@ -219,14 +219,14 @@ void main() {
       await tester.fling(find.byType(PageView), const Offset(0, -500), 2000);
       await tester.pumpAndSettle();
     }
-    expect(find.text(HearScreen.endTitle), findsOneWidget);
-    expect(find.text(HearScreen.nextLabel), findsOneWidget);
+    expect(find.text(en.hearEndTitle), findsOneWidget);
+    expect(find.text(en.hearNext), findsOneWidget);
     // Nothing after the end page.
     await tester.fling(find.byType(PageView), const Offset(0, -500), 2000);
     await tester.pumpAndSettle();
-    expect(find.text(HearScreen.endTitle), findsOneWidget);
+    expect(find.text(en.hearEndTitle), findsOneWidget);
     expect(prefs.getStringList('p.steps'), contains('hear'));
-    await tester.tap(find.text(HearScreen.nextLabel));
+    await tester.tap(find.text(en.hearNext));
     await tester.pumpAndSettle();
     expect(find.text('WALK  ·  STEP 1 OF 2'), findsOneWidget);
   });

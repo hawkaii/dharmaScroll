@@ -4,18 +4,25 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../../l10n/l10n.dart';
 
 /// The layouts a share card can take. Verse layouts need a verse; streak
 /// layouts need a day count.
 enum ShareLayout {
-  night('Temple night'),
-  ivory('Morning ivory'),
-  arch('Temple arch'),
-  streakNight('Lamp, night'),
-  streakIvory('Lamp, morning');
+  night,
+  ivory,
+  arch,
+  streakNight,
+  streakIvory;
 
-  const ShareLayout(this.label);
-  final String label;
+  /// The layout's name, in the chosen language.
+  String label(AppLocalizations l) => switch (this) {
+    night => l.layoutNight,
+    ivory => l.layoutIvory,
+    arch => l.layoutArch,
+    streakNight => l.layoutLampNight,
+    streakIvory => l.layoutLampMorning,
+  };
 
   bool get isStreak => this == streakNight || this == streakIvory;
 }
@@ -216,7 +223,11 @@ class _VerseBody extends StatelessWidget {
                     ),
                     const SizedBox(height: Sp.s14),
                     Text(
-                      '${v.speaker} to ${v.listener}  ·  ${v.yogaName}',
+                      context.l.cardSpeaker(
+                        context.l.person(v.speaker),
+                        context.l.person(v.listener),
+                        context.l.yoga(v.chapter),
+                      ),
                       textAlign: TextAlign.center,
                       style: DType.translit(c.faint).copyWith(fontSize: 13),
                     ),
@@ -253,7 +264,7 @@ class _StreakBody extends StatelessWidget {
     return Column(
       children: <Widget>[
         Text(
-          (content.eyebrow ?? 'Days of light').toUpperCase(),
+          (content.eyebrow ?? context.l.msDays).toUpperCase(),
           style: DType.eyebrow(c.accent),
         ),
         Expanded(
@@ -313,7 +324,9 @@ class _StreakBody extends StatelessWidget {
                     const SizedBox(height: Sp.s6),
                     Text(
                       content.title ??
-                          (days == 1 ? 'day of light.' : 'days of light.'),
+                          (days == 1
+                              ? context.l.dayOfLight
+                              : context.l.daysOfLightDot),
                       textAlign: TextAlign.center,
                       style: DType.title(
                         c.ink,
@@ -348,7 +361,7 @@ class _StreakBody extends StatelessWidget {
                         style: DType.body(c.mute, size: 17),
                       ),
                       const SizedBox(height: Sp.s6),
-                      Text('GITA ${v.id}', style: DType.ref(c.faint)),
+                      Text(context.l.gitaRefCaps(v.id), style: DType.ref(c.faint)),
                     ],
                   ],
                 ),
@@ -408,7 +421,7 @@ class _Footer extends StatelessWidget {
         ),
         const SizedBox(height: 4),
         Text(
-          'Five verses a day, then rest.',
+          context.l.fiveAdayThenRest,
           style: DType.ref(c.faint).copyWith(letterSpacing: 0.4),
         ),
       ],

@@ -9,6 +9,7 @@ import '../../core/share/share_service.dart';
 import '../../design/theme.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
+import '../../l10n/l10n.dart';
 import 'share_card.dart';
 
 /// Opens the share sheet: swipe between layouts, then "Share" sends a PNG to
@@ -35,8 +36,6 @@ Future<void> showShareSheet(BuildContext context, ShareContent content) {
 
 class ShareSheet extends StatefulWidget {
   const ShareSheet({super.key, required this.content});
-
-  static const String shareLabel = 'Share';
 
   final ShareContent content;
 
@@ -70,9 +69,9 @@ class _ShareSheetState extends State<ShareSheet> {
   String get _text {
     final ShareContent s = widget.content;
     if (_layouts[_page].isStreak) {
-      return '${s.streak} days of light with the Bhagavad Gita. ${ShareCard.appName}';
+      return context.l.shareTextStreak(s.streak ?? 1, ShareCard.appName);
     }
-    return 'Bhagavad Gita ${s.verse!.id}: ${s.meaning} ${ShareCard.appName}';
+    return context.l.shareTextVerse(s.verse!.id, s.meaning, ShareCard.appName);
   }
 
   Future<void> _share() async {
@@ -105,6 +104,7 @@ class _ShareSheetState extends State<ShareSheet> {
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = context.c;
+    final AppLocalizations l = context.l;
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, Sp.s12, 0, Sp.s14),
       child: Column(
@@ -118,7 +118,7 @@ class _ShareSheetState extends State<ShareSheet> {
             ),
           ),
           const SizedBox(height: Sp.s14),
-          Text('SHARE THIS LIGHT', style: DType.eyebrow(c.faint)),
+          Text(l.shareThisLightCaps, style: DType.eyebrow(c.faint)),
           const SizedBox(height: Sp.s14),
           Expanded(
             child: PageView.builder(
@@ -138,7 +138,7 @@ class _ShareSheetState extends State<ShareSheet> {
                   duration: Motion.select,
                   child: Center(
                     child: Semantics(
-                      label: '${_layouts[i].label} card',
+                      label: l.cardSemantic(_layouts[i].label(l)),
                       image: true,
                       child: FittedBox(
                         child: DecoratedBox(
@@ -172,7 +172,7 @@ class _ShareSheetState extends State<ShareSheet> {
             ),
           ),
           const SizedBox(height: Sp.s14),
-          Text(_layouts[_page].label, style: DType.body(c.ink, size: 18)),
+          Text(_layouts[_page].label(l), style: DType.body(c.ink, size: 18)),
           const SizedBox(height: Sp.s6),
           ProgressDashes(total: _layouts.length, filled: _page + 1),
           const SizedBox(height: Sp.s18),
@@ -181,13 +181,14 @@ class _ShareSheetState extends State<ShareSheet> {
             child: Column(
               children: <Widget>[
                 PrimaryButton(
-                  label: _busy ? 'Preparing' : ShareSheet.shareLabel,
-                  semanticLabel:
-                      'Share the ${_layouts[_page].label} card as an image',
+                  label: _busy ? l.preparing : l.shareLabel,
+                  semanticLabel: l.shareCardSemantic(
+                    _layouts[_page].label(l),
+                  ),
                   onPressed: _busy ? null : _share,
                 ),
                 TextAction(
-                  label: 'Not now',
+                  label: l.notNow,
                   onPressed: () => Navigator.of(context).maybePop(),
                 ),
               ],
@@ -204,12 +205,14 @@ class ShareButton extends StatelessWidget {
   const ShareButton({
     super.key,
     required this.onTap,
-    this.label = 'Share this verse',
+    this.label,
     this.icon = 'share',
   });
 
   final VoidCallback onTap;
-  final String label;
+
+  /// Spoken name; "Share this verse" when null.
+  final String? label;
 
   /// Line icon name; the explain lamp reuses this glyph.
   final String icon;
@@ -220,7 +223,7 @@ class ShareButton extends StatelessWidget {
     return Semantics(
       container: true,
       button: true,
-      label: label,
+      label: label ?? context.l.shareVerse,
       excludeSemantics: true,
       onTap: onTap,
       child: GestureDetector(

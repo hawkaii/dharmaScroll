@@ -6,6 +6,7 @@ import '../../core/state/sankalp.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../../l10n/l10n.dart';
 
 /// Seal one small intention from [verse]. The line is suggested from the
 /// verse and the person may change it. Returns true when sealed.
@@ -20,7 +21,7 @@ Future<bool> showSankalpSheet(
       padding: EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(ctx).bottom),
       child: SankalpSheet(
         verse: verse,
-        suggestion: suggestion ?? intentionFor(verse),
+        suggestion: suggestion ?? context.l.intentionFor(verse.tags),
       ),
     ),
   );
@@ -33,9 +34,6 @@ class SankalpSheet extends ConsumerStatefulWidget {
     required this.verse,
     required this.suggestion,
   });
-
-  static const String sealLabel = 'Seal it';
-  static const String sealedTitle = 'Sealed.';
 
   final Verse verse;
   final String suggestion;
@@ -104,13 +102,13 @@ class _SankalpSheetState extends ConsumerState<SankalpSheet> {
           Semantics(
             liveRegion: true,
             child: Text(
-              SankalpSheet.sealedTitle,
+              context.l.sealedTitle,
               style: DType.title(c.ink, compact: true),
             ),
           ),
           const SizedBox(height: Sp.s6),
           Text(
-            'Look back on it tomorrow.',
+            context.l.lookBackTomorrow,
             style: DType.body(c.mute, size: 17),
           ),
           const SizedBox(height: Sp.s22),
@@ -128,12 +126,15 @@ class _SankalpSheetState extends ConsumerState<SankalpSheet> {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text('SEAL A SANKALP', style: DType.eyebrow(c.accent)),
-        const SizedBox(height: Sp.s6),
-        Text('One small intention.', style: DType.title(c.ink, compact: true)),
+        Text(context.l.sealSankalpCaps, style: DType.eyebrow(c.accent)),
         const SizedBox(height: Sp.s6),
         Text(
-          'From Gita ${widget.verse.id}. Change a word if you like.',
+          context.l.oneSmallIntention,
+          style: DType.title(c.ink, compact: true),
+        ),
+        const SizedBox(height: Sp.s6),
+        Text(
+          context.l.fromGitaChange(widget.verse.id),
           style: DType.body(c.mute, size: 16),
         ),
         const SizedBox(height: Sp.s18),
@@ -160,8 +161,8 @@ class _SankalpSheetState extends ConsumerState<SankalpSheet> {
         ),
         const SizedBox(height: Sp.s18),
         PrimaryButton(
-          label: SankalpSheet.sealLabel,
-          semanticLabel: 'Seal this Sankalp',
+          label: context.l.sealIt,
+          semanticLabel: context.l.sealSankalpSemantic,
           onPressed: _text.text.trim().isEmpty ? null : _seal,
         ),
       ],
@@ -172,9 +173,6 @@ class _SankalpSheetState extends ConsumerState<SankalpSheet> {
 /// On Today: an earlier Sankalp, looked back on with two equal answers.
 class SankalpLookBack extends ConsumerStatefulWidget {
   const SankalpLookBack({super.key});
-
-  static const String keptLabel = 'I kept it';
-  static const String letGoLabel = 'I let it go';
 
   @override
   ConsumerState<SankalpLookBack> createState() => _SankalpLookBackState();
@@ -188,11 +186,8 @@ class _SankalpLookBackState extends ConsumerState<SankalpLookBack> {
     final int pts = ref.read(sankalpProvider.notifier).lookBack(kept: kept);
     Haptics.soft();
     SoundService.instance.play(Sfx.chime);
-    setState(
-      () => _reply =
-          '${kept ? 'Kept. That is how a habit grows.' : 'Let go. Today is a fresh start.'}'
-          '${pts > 0 ? '  +$pts' : ''}',
-    );
+    final String reply = kept ? context.l.replyKept : context.l.replyLetGo;
+    setState(() => _reply = '$reply${pts > 0 ? '  +$pts' : ''}');
   }
 
   @override
@@ -234,7 +229,7 @@ class _SankalpLookBackState extends ConsumerState<SankalpLookBack> {
                       children: <Widget>[
                         DIcon('butter-pot', size: 20),
                         const SizedBox(width: Sp.s6),
-                        Text('YOUR SANKALP', style: DType.eyebrow(c.accent)),
+                        Text(context.l.yourSankalpCaps, style: DType.eyebrow(c.accent)),
                       ],
                     ),
                     const SizedBox(height: Sp.s6),
@@ -249,14 +244,14 @@ class _SankalpLookBackState extends ConsumerState<SankalpLookBack> {
                       children: <Widget>[
                         Expanded(
                           child: TextAction(
-                            label: SankalpLookBack.keptLabel,
+                            label: context.l.keptIt,
                             onPressed: () => _answer(true),
                           ),
                         ),
                         Container(width: 1, height: 22, color: c.line),
                         Expanded(
                           child: TextAction(
-                            label: SankalpLookBack.letGoLabel,
+                            label: context.l.letItGo,
                             onPressed: () => _answer(false),
                           ),
                         ),

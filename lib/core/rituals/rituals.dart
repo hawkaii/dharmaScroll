@@ -1,44 +1,34 @@
+import '../../l10n/app_localizations.dart';
+import '../../l10n/ritual_words.dart';
 import 'panchang.dart';
 
 /// The short, fixed list a person can switch on (no builder in the MVP).
 enum Ritual {
-  dailyGita('Daily Gita', 'Five verses at your chosen hour.'),
-  sandhya('Morning sandhya', 'A quiet minute after sunrise.'),
-  diya('Evening diya', 'A reminder shortly before sunset.'),
-  ekadashi('Ekadashi', 'The fast day, and when to break it.'),
-  purnima('Purnima', 'The full moon evening.'),
-  amavasya('Amavasya', 'The new moon day.'),
-  pradosh('Pradosh', 'The twilight window before night.'),
-  sankashti('Sankashti', 'Chaturthi, with moonrise.'),
-  festivals('Festivals', 'About thirty major days.');
-
-  const Ritual(this.label, this.hint);
-  final String label;
-  final String hint;
+  dailyGita,
+  sandhya,
+  diya,
+  ekadashi,
+  purnima,
+  amavasya,
+  pradosh,
+  sankashti,
+  festivals,
 }
 
 /// One deity day at most: the weekday it falls on and the line sent.
 enum Deity {
-  none('None', 0),
-  shiva('Shiva, Monday', DateTime.monday),
-  hanuman('Hanuman, Tuesday', DateTime.tuesday),
-  vishnu('Vishnu or Guru, Thursday', DateTime.thursday),
-  shani('Shani, Saturday', DateTime.saturday);
+  none(0),
+  shiva(DateTime.monday),
+  hanuman(DateTime.tuesday),
+  vishnu(DateTime.thursday),
+  shani(DateTime.saturday);
 
-  const Deity(this.label, this.weekday);
-  final String label;
+  const Deity(this.weekday);
   final int weekday;
 }
 
 /// Which Ekadashi rule to follow. `unsure` shows both when they differ.
-enum Tradition {
-  smarta('Smarta'),
-  vaishnava('Vaishnava'),
-  unsure('Not sure');
-
-  const Tradition(this.label);
-  final String label;
-}
+enum Tradition { smarta, vaishnava, unsure }
 
 /// A reminder at a local wall-clock time in the person's city.
 class PlannedReminder {
@@ -57,23 +47,28 @@ String fmtTime(int m) {
   return '$h:${(m % 60).toString().padLeft(2, '0')}';
 }
 
-String _ampm(int m) => (m ~/ 60) % 24 < 12 ? 'am' : 'pm';
+bool _isAm(int m) => (m ~/ 60) % 24 < 12;
 
-String fmtClock(int m) => '${fmtTime(m)} ${_ampm(m)}';
+/// Part of the day, for the languages that name it ("शाम 5:21").
+String _period(int m) {
+  final int h = (m ~/ 60) % 24;
+  if (h < 4) return 'nightEarly';
+  if (h < 12) return 'morning';
+  if (h < 16) return 'noon';
+  if (h < 19) return 'evening';
+  return 'night';
+}
 
-String fmtRange(int a, int b) => _ampm(a) == _ampm(b)
-    ? '${fmtTime(a)}-${fmtTime(b)} ${_ampm(b)}'
-    : '${fmtClock(a)}-${fmtClock(b)}';
+/// "5:21 pm" in English, "शाम 5:21" in Hindi.
+String fmtClock(AppLocalizations l, int m) => l.clockAt(_period(m), fmtTime(m));
 
-const List<String> _weekday = <String>[
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-  'Sunday',
-];
+/// "7:09-9:13 am" in English when both ends share am or pm.
+String fmtRange(AppLocalizations l, int a, int b) => l.clockRange(
+  _isAm(a) == _isAm(b) ? 'yes' : 'no',
+  fmtTime(a),
+  fmtClock(l, a),
+  fmtClock(l, b),
+);
 
 /// Pradosh kaal runs from sunset for a fifth of the night (as Drik Panchang
 /// shows it: 5:31-8:09 pm in Delhi on Diwali 2026).
@@ -104,6 +99,7 @@ bool _festivalFor(CalEvent e, Tradition t) =>
 
 /// Everything that falls on [day] for the enabled rituals, as short labels.
 List<String> todayLabels(
+  AppLocalizations l,
   CityCalendar cal,
   int day, {
   required Set<Ritual> rituals,
@@ -117,13 +113,19 @@ List<String> todayLabels(
       // Only one of the two rules lands here: say which.
       out.add(
         tradition == Tradition.unsure && fast.length == 1
-            ? 'Ekadashi (${fast.first.type == Ev.ekadashiSmarta ? 'Smarta' : 'Vaishnava'})'
-            : 'Ekadashi',
+            ? l.labelEkadashiRule(
+                fast.first.type == Ev.ekadashiSmarta
+                    ? l.traditionSmarta
+                    : l.traditionVaishnava,
+              )
+            : l.ritualEkadashi,
       );
     }
     for (int back = 1; back <= 3; back++) {
       for (final CalEvent e in ekadashiFor(cal.on(day - back), tradition)) {
-        if (e.paranaOffset == back) out.add('Parana ${fmtRange(e.a, e.b)}');
+        if (e.paranaOffset == back) {
+          out.add(l.labelParana(fmtRange(l, e.a, e.b)));
+        }
       }
     }
   }
@@ -131,16 +133,18 @@ List<String> todayLabels(
     if (e.unverified) continue;
     switch (e.type) {
       case Ev.purnima when rituals.contains(Ritual.purnima):
-        out.add('Purnima');
+        out.add(l.ritualPurnima);
       case Ev.amavasya when rituals.contains(Ritual.amavasya):
-        out.add('Amavasya');
+        out.add(l.ritualAmavasya);
       case Ev.pradosh when rituals.contains(Ritual.pradosh):
-        out.add('Pradosh ${fmtRange(cal.sunset[day], pradoshEnd(cal, day))}');
+        out.add(
+          l.labelPradosh(fmtRange(l, cal.sunset[day], pradoshEnd(cal, day))),
+        );
       case Ev.sankashti when rituals.contains(Ritual.sankashti):
-        out.add('Sankashti');
+        out.add(l.ritualSankashti);
       case Ev.festival
           when rituals.contains(Ritual.festivals) && _festivalFor(e, tradition):
-        out.add(cal.festivalName(e));
+        out.add(l.festival(e.a));
     }
   }
   return out.toSet().toList();
@@ -149,6 +153,7 @@ List<String> todayLabels(
 /// The reminders for the next [days] days from [today] (a date in the city),
 /// skipping anything at or before [nowWall] (the current time in the city).
 List<PlannedReminder> planReminders({
+  required AppLocalizations l,
   required CityCalendar cal,
   required Set<Ritual> rituals,
   required Deity deity,
@@ -181,14 +186,14 @@ List<PlannedReminder> planReminders({
     final int ss = cal.sunset[day];
     final DateTime date = cal.dateOf(day);
     if (rituals.contains(Ritual.dailyGita)) {
-      add(day, 0, gitaMinutes, 'Five verses are ready. Take your time.');
+      add(day, 0, gitaMinutes, l.noteGita);
     }
     if (rituals.contains(Ritual.sandhya)) {
       add(
         day,
         1,
         sr + 10,
-        'Sunrise at ${fmtClock(sr)}. A quiet minute for the morning sandhya, if you like.',
+        l.noteSandhya(fmtClock(l, sr)),
       );
     }
     if (rituals.contains(Ritual.diya)) {
@@ -196,18 +201,15 @@ List<PlannedReminder> planReminders({
         day,
         2,
         ss - 10,
-        'Sunset at ${fmtClock(ss)}. The evening lamp, whenever you are ready.',
+        l.noteDiya(fmtClock(l, ss)),
       );
     }
     if (deity != Deity.none && date.weekday == deity.weekday) {
       add(day, 3, deity == Deity.hanuman ? sr + 30 : ss - 10, switch (deity) {
-        Deity.shiva =>
-          'Monday. A lamp for Shiva at sunset, ${fmtClock(ss)}, if you like.',
-        Deity.hanuman => 'Tuesday. The Chalisa this morning, if you like.',
-        Deity.vishnu =>
-          'Thursday. A lamp for Vishnu at sunset, ${fmtClock(ss)}, if you like.',
-        Deity.shani =>
-          'Saturday. A quiet lamp at sunset, ${fmtClock(ss)}, if you like.',
+        Deity.shiva => l.noteShiva(fmtClock(l, ss)),
+        Deity.hanuman => l.noteHanuman,
+        Deity.vishnu => l.noteVishnu(fmtClock(l, ss)),
+        Deity.shani => l.noteShani(fmtClock(l, ss)),
         Deity.none => '',
       });
     }
@@ -215,33 +217,18 @@ List<PlannedReminder> planReminders({
       if (e.unverified) continue;
       switch (e.type) {
         case Ev.purnima when rituals.contains(Ritual.purnima):
-          add(
-            day,
-            4,
-            ss - 15,
-            'Purnima tonight. The full moon rises near sunset.',
-          );
+          add(day, 4, ss - 15, l.notePurnima);
         case Ev.amavasya when rituals.contains(Ritual.amavasya):
-          add(
-            day,
-            5,
-            sr + 30,
-            'Amavasya today. A lamp for those who came before, if you like.',
-          );
+          add(day, 5, sr + 30, l.noteAmavasya);
         case Ev.pradosh when rituals.contains(Ritual.pradosh):
           add(
             day,
             6,
             ss,
-            'Pradosh today. Pradosh kaal ${fmtRange(ss, pradoshEnd(cal, day))}.',
+            l.notePradosh(fmtRange(l, ss, pradoshEnd(cal, day))),
           );
         case Ev.sankashti when rituals.contains(Ritual.sankashti) && e.a > 0:
-          add(
-            day,
-            7,
-            e.a - 15,
-            'Sankashti tonight. Moonrise ${fmtClock(e.a)}.',
-          );
+          add(day, 7, e.a - 15, l.noteSankashti(fmtClock(l, e.a)));
         case Ev.festival
             when rituals.contains(Ritual.festivals) &&
                 _festivalFor(e, tradition):
@@ -249,7 +236,7 @@ List<PlannedReminder> planReminders({
             day,
             8,
             sr + 30,
-            '${cal.festivalName(e)} is today. A quiet, bright day to you.',
+            l.noteFestival(l.festival(e.a)),
           );
       }
     }
@@ -259,25 +246,29 @@ List<PlannedReminder> planReminders({
         // Both rules on one day: one reminder, no label.
         if (fast.length == 2 && e.type == Ev.ekadashiVaishnava) continue;
         final String rule = tradition == Tradition.unsure && fast.length == 1
-            ? ' (${e.type == Ev.ekadashiSmarta ? 'Smarta' : 'Vaishnava'})'
+            ? l.ruleSuffix(
+                e.type == Ev.ekadashiSmarta
+                    ? l.traditionSmarta
+                    : l.traditionVaishnava,
+              )
             : '';
         final int pday = day + e.paranaOffset;
         final String when = e.paranaOffset == 1
-            ? 'tomorrow'
-            : 'on ${_weekday[cal.dateOf(pday).weekday - 1]}';
+            ? l.dayTomorrow.toLowerCase()
+            : l.whenOnDay(l.weekday(cal.dateOf(pday).weekday));
         final int slot = e.type == Ev.ekadashiSmarta ? 9 : 10;
         add(
           day,
           slot,
           sr,
-          'Ekadashi$rule begins at sunrise. Break the fast $when ${fmtRange(e.a, e.b)}.',
+          l.noteEkadashi(rule, when, fmtRange(l, e.a, e.b)),
         );
         if (pday < cal.days) {
           add(
             pday,
             slot + 2,
             e.a,
-            'Parana window: ${fmtRange(e.a, e.b)}. Break the fast gently.',
+            l.noteParana(fmtRange(l, e.a, e.b)),
           );
         }
       }

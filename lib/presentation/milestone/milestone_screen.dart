@@ -11,6 +11,7 @@ import '../../design/effects.dart';
 import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
+import '../../l10n/l10n.dart';
 import '../share/share_card.dart';
 import '../share/share_sheet.dart';
 
@@ -18,30 +19,6 @@ import '../share/share_sheet.dart';
 /// a peacock-feather fan opens behind it, the conch sounds once.
 class MilestoneScreen extends ConsumerStatefulWidget {
   const MilestoneScreen({super.key, required this.days});
-
-  static const String shareLabel = 'Share this light';
-  static const String title = 'days, unbroken.';
-
-  /// Eyebrow, verse line and its reference, per milestone.
-  static const Map<int, (String, String, String)> copy =
-      <int, (String, String, String)>{
-        7: ('A week of light', 'Practise, and the mind\ngrows steady.', '6.35'),
-        30: (
-          'A month of light',
-          'Each time the mind wanders,\nbring it gently back.',
-          '6.26',
-        ),
-        100: (
-          'A hundred lamps',
-          'Steady in success and failure.\nThat evenness is yoga.',
-          '2.48',
-        ),
-        365: (
-          'A year of light',
-          'Whatever you do,\ndo it as an offering.',
-          '9.27',
-        ),
-      };
 
   final int days;
 
@@ -61,9 +38,17 @@ class _MilestoneScreenState extends ConsumerState<MilestoneScreen> {
     });
   }
 
-  (String, String, String) get _copy =>
-      MilestoneScreen.copy[widget.days] ??
-      ('Days of light', 'Practise, and the mind\ngrows steady.', '6.35');
+  /// Eyebrow, verse line and its reference, per milestone.
+  (String, String, String) get _copy {
+    final AppLocalizations l = context.l;
+    return switch (widget.days) {
+      7 => (l.msWeek, l.msLine7, '6.35'),
+      30 => (l.msMonth, l.msLine30, '6.26'),
+      100 => (l.msHundred, l.msLine100, '2.48'),
+      365 => (l.msYear, l.msLine365, '9.27'),
+      _ => (l.msDays, l.msLine7, '6.35'),
+    };
+  }
 
   void _share() {
     final (String eyebrow, String line, String vid) = _copy;
@@ -77,7 +62,7 @@ class _MilestoneScreenState extends ConsumerState<MilestoneScreen> {
         streak: widget.days,
         lamps: ref.read(progressProvider.notifier).weekLamps(),
         eyebrow: eyebrow,
-        title: MilestoneScreen.title,
+        title: context.l.daysUnbroken,
         verse: v,
         meaning: line.replaceAll('\n', ' '),
       ),
@@ -88,6 +73,7 @@ class _MilestoneScreenState extends ConsumerState<MilestoneScreen> {
   Widget build(BuildContext context) {
     final DharmaColors c = DharmaColors.night;
     final (String eyebrow, String line, String vid) = _copy;
+    final AppLocalizations l = context.l;
     final bool still = reduceMotion(context);
     return Scaffold(
       backgroundColor: c.bg,
@@ -178,7 +164,7 @@ class _MilestoneScreenState extends ConsumerState<MilestoneScreen> {
                     ),
                     Semantics(
                       header: true,
-                      label: '${widget.days} ${MilestoneScreen.title}',
+                      label: '${widget.days} ${l.daysUnbroken}',
                       excludeSemantics: true,
                       child: Column(
                         children: <Widget>[
@@ -195,7 +181,7 @@ class _MilestoneScreenState extends ConsumerState<MilestoneScreen> {
                             ),
                           ),
                           Text(
-                            MilestoneScreen.title,
+                            l.daysUnbroken,
                             style: DType.title(c.ink).copyWith(fontSize: 30),
                           ),
                         ],
@@ -209,11 +195,11 @@ class _MilestoneScreenState extends ConsumerState<MilestoneScreen> {
                     ),
                     const Spacer(),
                     PrimaryButton(
-                      label: MilestoneScreen.shareLabel,
+                      label: l.shareThisLight,
                       onPressed: _share,
                     ),
                     TextAction(
-                      label: 'Continue',
+                      label: l.continueLabel,
                       onPressed: () => context.go(Routes.today),
                     ),
                   ],

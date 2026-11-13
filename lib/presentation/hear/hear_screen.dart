@@ -12,6 +12,7 @@ import '../../design/tokens.dart';
 import '../../design/widgets.dart';
 import '../../domain/models/verse.dart';
 import '../../features/explain/explain_sheet.dart';
+import '../../l10n/l10n.dart';
 import '../share/share_card.dart';
 import '../share/share_sheet.dart';
 
@@ -24,9 +25,6 @@ class HearScreen extends ConsumerStatefulWidget {
   const HearScreen({super.key, this.verses});
 
   static const int dailyLimit = ProgressNotifier.dailyVerses;
-  static const String endTitle = 'That is enough\nfor today.';
-  static const String nextLabel = 'Walk the next step';
-  static const String restLabel = 'Rest for now';
 
   /// Overrides today's feed (tests, previews). Null means the daily rotation.
   final List<Verse>? verses;
@@ -145,7 +143,7 @@ class _HearScreenState extends ConsumerState<HearScreen> {
                   child: SafeArea(
                     child: ShareButton(
                       icon: 'diya',
-                      label: 'Explain this verse',
+                      label: context.l.explainVerse,
                       onTap: () => showExplainSheet(context, verses[_page]),
                     ),
                   ),
@@ -183,8 +181,11 @@ class _HearScreenState extends ConsumerState<HearScreen> {
                             const SizedBox(height: 6),
                             Text(
                               _listening
-                                  ? 'LISTENING'
-                                  : '${_page + 1} OF ${verses.length}',
+                                  ? context.l.listeningCaps
+                                  : context.l.verseOfTotalCaps(
+                                      _page + 1,
+                                      verses.length,
+                                    ),
                               style: DType.eyebrow(c.faint),
                             ),
                           ],
@@ -199,7 +200,7 @@ class _HearScreenState extends ConsumerState<HearScreen> {
                   alignment: Alignment.topRight,
                   child: Semantics(
                     button: true,
-                    label: 'Close',
+                    label: context.l.close,
                     excludeSemantics: true,
                     onTap: () => context.go(Routes.today),
                     child: GestureDetector(
@@ -251,10 +252,14 @@ class _VersePageState extends State<_VersePage> {
     final DharmaColors c = DharmaColors.night;
     final Verse v = widget.verse;
     final bool still = reduceMotion(context);
+    final AppLocalizations l = context.l;
     return Semantics(
-      label:
-          'Verse ${v.id}. ${v.sanskrit.replaceAll('\n', ' ')}. ${widget.meaning}',
-      hint: 'Double tap to keep. Press and hold to listen.',
+      label: l.verseSemantic(
+        v.id,
+        v.sanskrit.replaceAll('\n', ' '),
+        widget.meaning,
+      ),
+      hint: l.verseHint,
       onTap: widget.onKeep,
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
@@ -333,7 +338,7 @@ class _VersePageState extends State<_VersePage> {
                               ),
                             ),
                             const SizedBox(height: Sp.s18),
-                            Text('GITA ${v.id}', style: DType.ref(c.faint)),
+                            Text(l.gitaRefCaps(v.id), style: DType.ref(c.faint)),
                           ],
                         ),
                       ),
@@ -359,10 +364,10 @@ class _VersePageState extends State<_VersePage> {
                           color: c.rose.withValues(alpha: 0.6),
                         ),
                       ),
-                      child: Text('KEPT', style: DType.eyebrow(c.rose)),
+                      child: Text(l.keptCaps, style: DType.eyebrow(c.rose)),
                     )
                   : Text(
-                      still || widget.listening ? '' : 'Hold to listen',
+                      still || widget.listening ? '' : l.holdToListen,
                       style: DType.body(
                         c.faint.withValues(alpha: 0.7),
                         size: 15,
@@ -383,6 +388,7 @@ class _EndPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final DharmaColors c = DharmaColors.night;
+    final AppLocalizations l = context.l;
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(
@@ -399,14 +405,14 @@ class _EndPage extends StatelessWidget {
             Semantics(
               header: true,
               child: Text(
-                HearScreen.endTitle,
+                l.hearEndTitle,
                 textAlign: TextAlign.center,
                 style: DType.title(c.ink),
               ),
             ),
             const SizedBox(height: Sp.s14),
             Text(
-              'The verse will wait.',
+              l.hearEndSub,
               textAlign: TextAlign.center,
               style: DType.body(c.mute),
             ),
@@ -422,11 +428,11 @@ class _EndPage extends StatelessWidget {
                   children: <Widget>[
                     if (!walked)
                       PrimaryButton(
-                        label: HearScreen.nextLabel,
+                        label: l.hearNext,
                         onPressed: () => context.go(Routes.walk),
                       ),
                     TextAction(
-                      label: HearScreen.restLabel,
+                      label: l.hearRest,
                       onPressed: () => context.go(Routes.today),
                     ),
                   ],

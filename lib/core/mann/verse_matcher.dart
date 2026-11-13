@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 import '../../domain/models/verse.dart';
+import '../../l10n/l10n.dart';
 
 /// Mann Darpan's on-device answer: words in, one verse out. No server.
 ///
@@ -168,20 +169,6 @@ const Map<String, List<String>> kTagWords = <String, List<String>>{
   'sorry': <String>['forgiveness'],
 };
 
-/// Situations the Gita itself shows in Arjuna, so the reply can name them
-/// truthfully: "Krishna told Arjuna, who was afraid".
-const Map<String, String> kArjunaWas = <String, String>{
-  'fear': 'who was afraid',
-  'anxiety': 'who was afraid',
-  'grief': 'who was grieving',
-  'loss': 'who was grieving',
-  'confusion': 'who did not know what to do',
-  'doubt': 'who was full of doubt',
-  'duty-conflict': 'who was torn about his duty',
-  'self-doubt': 'who had lost heart',
-  'failure': 'who had lost heart',
-};
-
 @immutable
 class VerseMatch {
   const VerseMatch(this.verse, this.tag);
@@ -192,11 +179,15 @@ class VerseMatch {
   final String? tag;
 
   /// "Krishna told Arjuna, who was afraid:"
-  String get attribution {
+  String attribution(AppLocalizations l) {
     final String? was = verse.listener == 'Arjuna' && tag != null
-        ? kArjunaWas[tag]
+        ? l.arjunaWas(tag!)
         : null;
-    return '${verse.speaker} told ${verse.listener}${was == null ? '' : ', $was'}:';
+    final String speaker = l.person(verse.speaker);
+    final String listener = l.person(verse.listener);
+    return was == null
+        ? l.toldPlain(speaker, listener)
+        : l.toldWas(speaker, listener, was);
   }
 }
 
